@@ -1,0 +1,271 @@
+javascriptでの描画について質問です。
+陰関数のグラフを描こうと考え、以下のようなプログラムを組みました。
+描画領域をマス目に区切ります。
+
+マス目は、以下のように定義し、
+
+  f2 ・ ・f4
+  f1 ・ ・f3
+
+f1からf4 の (x, y) を f(x, y) - const に代入し、
+f1 * f3 <= 0 ならば、f1とf3の間に f(x, y) - const = 0 が存在する。
+更に f2 * f4 <= 0ならば、区間(f1, f3)と(f2, f4)の比例配分点を結ぶ線分をプロットします。
+このようにして、陰関数を近似していきます。
+以下が、ソースの一部です。
+
+一応、グラフは描けるのですが、
+1つ困ったことがあります。
+
+変数mとnのループで、-13～13を指定しています。
+この数のマス目を用意している訳です。
+しかし、この状態では、-width0 / 2 ～ width0 / 2 の範囲しか描画されません。
+希望は、mとnのループで、-13～13 ではなく、-width0 / 2 ～ width0 / 2の範囲を描画したいのです。
+どこを修正すれば良いでしょうか？
+
+
+/////////////
+let width0 = 8;
+let height0 = 8;
+
+//let cons = 0.0;
+
+const canvas = document.getElementById('graphCanvas');
+const ctx = canvas.getContext('2d');
+
+// 描画領域をリセット
+ctx.fillStyle = 'rgb( 0, 0, 0)';
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+// リセットフラグ 再描画の条件を設定する
+let resetFlg = true;
+
+function animateGraph() {
+
+    let x0, y0, x1, y1, x2, y2;
+    let f0, f1, f2, f3, f4;
+
+    // 描画中に使用不可とするコントロール
+    usability(false);
+
+    // スケーリング
+    let scaleX = canvas.width / width0;
+    let scaleY = canvas.height / height0;
+    let pixelX;
+    let pixelY;
+
+    // x軸の描画
+    ctx.beginPath();
+    ctx.moveTo(0, canvas.height / 2); // canvasの中心から左右に直線を引く
+    ctx.lineTo(canvas.width, canvas.height / 2);
+    ctx.strokeStyle = 'rgb(155, 155, 155)';
+    ctx.stroke();
+
+    // y軸の描画
+    ctx.beginPath();
+    ctx.moveTo(canvas.width / 2, 0); // canvasの中心から上下に直線を引く
+    ctx.lineTo(canvas.width / 2, canvas.height);
+    ctx.strokeStyle = 'rgb(155, 155, 155)';
+    ctx.stroke();
+
+    for (let k = 0; k < 1; k++) {
+
+        let xs = 0.1;
+        let ys = 0.1;
+
+        x0 = 0;
+        y0 = 0;
+
+        for (let m = -13; m < 13; m++) {
+            for (let n = -13; n < 13; n++) {
+                f0 = 0;
+                f1 = FNA(x0 + m * xs, y0 + n * ys);
+                f2 = FNA(x0 + (m + 1) * xs, y0 + n * ys);
+                f3 = FNA(x0 + m * xs, y0 + (n + 1) * ys);
+                f4 = FNA(x0 + (m + 1) * xs, y0 + (n + 1) * ys);
+                if (f1 * f2 <= 0) {
+                    f0 = 1;
+                    x1 = x0 + (m + f1 / (f1 - f2)) * xs;
+                    y1 = y0 + n * ys;
+                }
+//L_A:
+                if (f3 * f4 <= 0) {
+                    if (f0 == 1) {
+                        x2 = x0 + (m + f3 / (f3 - f4)) * xs;
+                        y2 = y0 + (n + 1) * ys;
+                        //line(x1, -y1, x2, -y2);
+//                                pixelX = scaleX * (x1 + width0 / 2);
+//                                pixelY = scaleY * (height0 / 2 - y1);
+                        pixelX = canvas.width * (x1 + 1) / 2;
+                        pixelY = canvas.height * (1 - y1) / 2;
+
+                        ctx.beginPath();
+                        ctx.moveTo(pixelX, pixelY);
+
+                        pixelX = scaleX * (x2 + width0 / 2);
+                        pixelY = scaleY * (height0 / 2 - y2);
+                        ctx.lineTo(pixelX, pixelY);
+                        ctx.strokeStyle = 'rgb(100, 149, 237)';
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+    }
+
+うまく行きません。
+
+省略なしのソースを上げます。
+
+        let width0 = 8;
+        let height0 = 8;
+
+        let cons = 0.0;
+
+        const canvas = document.getElementById('graphCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // 描画領域をリセット
+        ctx.fillStyle = 'rgb( 0, 0, 0)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // リセットフラグ 再描画の条件を設定する
+        let resetFlg = true;
+
+        function animateGraph() {
+
+            let x0, y0, x1, y1, x2, y2;
+            let f0, f1, f2, f3, f4;
+
+            // 描画中に使用不可とするコントロール
+            usability(false);
+
+            // スケーリング
+            let scaleX = canvas.width / width0;
+            let scaleY = canvas.height / height0;
+            let pixelX;
+            let pixelY;
+
+            // x軸の描画
+            ctx.beginPath();
+            ctx.moveTo(0, canvas.height / 2); // canvasの中心から左右に直線を引く
+            ctx.lineTo(canvas.width, canvas.height / 2);
+            ctx.strokeStyle = 'rgb(155, 155, 155)';
+            ctx.stroke();
+
+            // y軸の描画
+            ctx.beginPath();
+            ctx.moveTo(canvas.width / 2, 0); // canvasの中心から上下に直線を引く
+            ctx.lineTo(canvas.width / 2, canvas.height);
+            ctx.strokeStyle = 'rgb(155, 155, 155)';
+            ctx.stroke();
+
+            for (let k = 0; k < 1; k++) {
+
+                let xs = 0.1;
+                let ys = 0.1;
+//                let xs = 0.01;
+//                let ys = 0.01;
+
+                x0 = 0;
+                y0 = 0;
+
+                for (let m = -width0 / 2; m < width0 / 2; m++) {
+                    for (let n = -height0 / 2; n < height0 / 2; n++) {
+//                for (let m = -13; m < 13; m++) {
+//                    for (let n = -13; n < 13; n++) {
+                        f0 = 0;
+                        f1 = FNA(x0 + m * xs, y0 + n * ys);
+                        f2 = FNA(x0 + (m + 1) * xs, y0 + n * ys);
+                        f3 = FNA(x0 + m * xs, y0 + (n + 1) * ys);
+                        f4 = FNA(x0 + (m + 1) * xs, y0 + (n + 1) * ys);
+                        if (f1 * f2 <= 0) {
+                            f0 = 1;
+                            x1 = x0 + (m + f1 / (f1 - f2)) * xs;
+                            y1 = y0 + n * ys;
+                        }
+//L_A:
+                        if (f3 * f4 <= 0) {
+                            if (f0 == 1) {
+                                x2 = x0 + (m + f3 / (f3 - f4)) * xs;
+                                y2 = y0 + (n + 1) * ys;
+                                //line(x1, -y1, x2, -y2);
+//                                pixelX = scaleX * (x1 + width0 / 2);
+//                                pixelY = scaleY * (height0 / 2 - y1);
+                                pixelX = canvas.width * (x1 + 1) / 2;
+                                pixelY = canvas.height * (1 - y1) / 2;
+
+                                ctx.beginPath();
+                                ctx.moveTo(pixelX, pixelY);
+
+                                pixelX = scaleX * (x2 + width0 / 2);
+                                pixelY = scaleY * (height0 / 2 - y2);
+                                ctx.lineTo(pixelX, pixelY);
+                                ctx.strokeStyle = 'rgb(100, 149, 237)';
+                                ctx.stroke();
+
+                                continue;
+                            }
+                            if (f0 == 0) {
+                                x1 = x0 + (m + f3 / (f3 - f4)) * xs;
+                                y1 = y0 + (n + 1) * ys;
+                                f0 = 1;
+                            }
+                        }
+//L_B:
+                        if (f2 * f4 <= 0) {
+                            if (f0 == 1) {
+                                x2 = x0 + (m + 1) * xs;
+                                y2 = y0 + ( n + f2 / (f2 - f4)) * ys;
+                                if (f4 * f2 != 0) {
+                                    //line(x1, -y1, x2, -y2);
+/*
+                                    pixelX = scaleX * (x1 + width0 / 2);
+                                    pixelY = scaleY * (height0 / 2 - y1);
+                                    ctx.beginPath();
+                                    ctx.moveTo(pixelX, pixelY);
+
+                                    pixelX = scaleX * (x2 + width0 / 2);
+                                    pixelY = scaleY * (height0 / 2 - y2);
+                                    ctx.lineTo(pixelX, pixelY);
+                                    ctx.strokeStyle = 'rgb(100, 149, 237)';
+                                    ctx.stroke();
+*/
+                                    continue;
+                                }
+                            }
+                            if (f0 == 0) {
+                                x1 = x0 + (m + 1) * xs;
+                                y1 = y0 + (n + f2 / (f2 - f4)) * ys;
+                                f0 = 1;
+                            }
+                        }
+//L_C:
+//L_D:
+                        if (f1 * f3 <= 0) {
+                            if (f0 == 1) {
+                                x2 = x0 + m * xs;
+                                y2 = y0 + (n + f1 / (f1 - f3)) * ys;
+                                //line(x1, -y1, x2, -y2);
+/*
+                                pixelX = scaleX * (x1 + width0 / 2);
+                                pixelY = scaleY * (height0 / 2 - y1);
+                                ctx.beginPath();
+                                ctx.moveTo(pixelX, pixelY);
+
+                                pixelX = scaleX * (x2 + width0 / 2);
+                                pixelY = scaleY * (height0 / 2 - y2);
+                                ctx.lineTo(pixelX, pixelY);
+                                ctx.strokeStyle = 'rgb(100, 149, 237)';
+                                ctx.stroke();
+*/
+                            }
+                        }
+//L_E:
+                    }
+                }
+            }
+            // 描画後に使用可とするコントロール
+            usability(true);
+        }
+
+

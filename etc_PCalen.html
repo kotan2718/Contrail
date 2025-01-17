@@ -1,0 +1,499 @@
+<!DOCTYPE HTML >
+<html>
+
+<HEAD>
+	<META charset="UTF-8">
+    <META name="description" content="このページでは万年カレンダー =PCalen= を紹介しています。PCalenは祝祭日のついたカレンダーです。 来年とか、再来年に旅行の計画を立てるとき、 祝祭日が分かれば便利だろうなと思って作成しました。メモ書きの機能も付いています。">
+    <META name="keywords" content="PCalen,万年カレンダー">
+
+	<title>PCalen User's Manual</title>
+
+	<!-- favicon-->
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- css start -->
+
+		<!-- kz_etc start :: class指定:change_border_color, 全ファイル共通:リンク文字色, フォーカスリング -->
+		<link rel="stylesheet" href="libs/etc/css/kz_footer_style.css" type="text/css">
+		<link rel="stylesheet" href="libs/etc/css/kz_etc_style.css" type="text/css">
+		<!-- kz_etc end -->
+
+	<!-- css end -->
+
+	<!-- js start -->
+
+		<!-- jQuery start -->
+		<script src="libs/jQuery/js/jquery-1.6.1.min.js" type="text/javascript"></script>
+
+			<!-- kz_style start - img jq_blink, img jq_change -->
+			<script src="libs/jQuery/kz/js/jq_kz_style.js" type="text/javascript"></script>
+			<!-- kz_style end -->
+
+		<!-- jQuery end -->
+
+		<!-- Sandbox DropDownMenu start -->
+		<script src="libs/sandbox/js/script.js" type="text/javascript"></script>
+		<!-- Sandbox DropDownMenu end -->
+
+	<!-- js end -->
+
+</HEAD>
+
+<BODY id="common-k" >
+
+		<header>
+			<a name="page_top"></a>
+			<div class="center jQ_change navbox" >
+				<nav>
+					<IMG src="image/top/Contrail_g.png" height="20" class="logo_img">
+					<ul class="menu" id="menu" >
+						<li><a href="index.html" class="menulink">Home</a></li>
+						<li><a href="whatnew.html" class="menulink">What's New</a></li>
+						<li><a href="etc.html" class="menulink">E.T.C.</a></li>
+						<li><a href="fs01.html" class="menulink">The Scenery</a>
+							<ul>
+								<li><a href="fs01_sc_top.html" class="sub">Screen Shots</a></li>
+								<li><a href="fs01_ls_top.html" class="sub">Snap Shots</a></li>
+							</ul>
+						</li>
+						<li><a href="link01.html" class="menulink">Links</a></li>
+						<li class="about"><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+					</ul>
+				</nav>
+				<div class="c-both"></div>
+			</div>
+			<!-- Sandbox DropDownMenu start-->
+			<script type="text/javascript">
+				var menu=new menu.dd("menu");
+				menu.init("menu","menuhover");
+			</script>	<!-- Sandbox DropDownMenu end -->
+		</header>
+
+	<div id="main920"> <!-- page main: start -->
+
+		<!-- title -->
+		<div id="title20">
+			<h2 class="pt30 pb40">
+				PCalen
+			</h2>
+			<h3 class="pic-left920">
+				概要
+			</h3>
+		</div>
+
+		<!-- contents -->
+		<div class="pic-left920 pb40">
+			<div class="fwb pb10">
+				<p class="pb10">
+					いわゆる万年カレンダーです。
+					万年カレンダーは至る所にあります。
+					例えば、Windowsならばタスクバーの時刻をクリックすれば現れます。
+					私がほしかったのは、祝祭日のついたカレンダーです。
+					来年とか、再来年に旅行の計画を立てるとき、
+					祝祭日が分かれば便利だろうなと思って作成しました。
+					(ダウンロードはこのページの下の方でできます。WindowsPC専用です｡)
+				</p>
+				<p class="pb5">
+					<IMG src="image/PCalen_img/起動時0.jpg" border="0">
+				</p>
+			</div>
+			<div class="pic-left920 fwb pb20">
+				<h3 class="pb10">
+					機能
+				</h3>
+				<ul>
+					<li>過去、現在、未来のカレンダーが祝祭日を含めて表示されます。※1、※2</li>
+				  <li>日付毎にメモ書きの機能があります。
+					  <ol class="fwm">
+						  <li>個人的に毎年表示したいメモ：<br>
+									家族の誕生日や結婚記念日など 何年目かも表示されます
+						  </li>
+						  <li>覚え書きのメモ：<br>
+									普通に書き込みができるカレンダーで書き込みする感覚のメモです。<br>
+									xx提出期限、xx待ち合わせ...など以外に、
+									その日に起きて、メモしておきたいことを書き込むことで、<br>
+									後日、｢あのとき、こんなことがあったんだ！｣と、記憶を呼び覚ますメモにもなります。
+						  </li>
+					  </ol>
+					</li>
+				</ul>
+			</div>
+			<div class="pic-left920 fwb pb20">
+				<h3 class="pb10">
+					インストール
+				</h3>
+				<p class="pb10">
+					PCalen.zipを解凍します。<br>
+					解凍すると｢PCalen｣フォルダーが現れます。<br>
+					｢PCalen｣に、必要なデータ一式が格納されています。<br>
+					適当な場所に、｢PCalen｣フォルダーを移動して下さい。
+				</p>
+			</div>
+			<div class="pic-left920 fwb pb20">
+				<h3 class="pb10">
+					アンインストール
+				</h3>
+				<p class="pb10">
+					｢PCalen｣フォルダーを削除して下さい。<br>
+					全てのデータが削除されます。<br>
+					registryには一切手を加えていませんので、<br>
+					これで、削除完了です。<br>
+				</p>
+			</div>
+			<div class="pic-left920 fwb pb20">
+				<h3 class="pb10">
+					起動
+				</h3>
+				<p class="pb10">
+					｢PCalen｣フォルダー内のPCalen(拡張子が表示されている場合はPCalen.exe)をダブルクリックして下さい。<br>
+					PCalenが起動します。
+				</p>
+			</div>
+			<div class="pic-left920 fwb pb20">
+				<h3 class="pb10">
+					取り扱い方
+				</h3>
+				<ul>
+					<li>
+						<p class="pb10">
+							表示年月の切り替え
+						</p>
+						<p class="fwb pb10">
+								PCalenが起動すると現在の年・月のカレンダーが表示されます。<br>
+								当日の日付の背景が周囲よりも若干濃いグレーで表示されます。<br>
+								ウインドウ上部に、年・月が表示されています。
+						</p>
+						<p class="pb5">
+							<IMG src="image/PCalen_img/起動時1.jpg" border="0">
+						</p>
+						<p class="fss pb10">
+							※今日の日付(この画像をキャプチャーした日付)は2022年12月8日です。
+						</p>
+					  <ol class="fwm">
+						  <li>それぞれ｢年｣、｢月｣の左右のボタンをクリックすると、表示年・表示月が切り替わります。<br>
+									resetボタンを押下すると現在の年・月に戻ります。
+						  </li>
+						  <li>直接、表示させたい年・月を入力して<br>
+									Enterキーを押すことで切り替えることもできます。
+								<p class="pb5">
+									<IMG src="image/PCalen_img/year_month_move.gif" border="0">
+								</p>
+								<p class="fss pb10">
+									※2019年9月に台風15号が房総を直撃したときのメモが記録として残っていました。
+								</p>
+						  </li>
+					  </ol>
+				  </li>
+					<li>
+						<p class="pb10">
+							年単位メモの編集
+						</p>
+						<p class="fwb pb10">
+								ウインドウ右上の｢年単位メモ編集｣をクリックすると｢年単位メモ｣画面が開きます。
+						</p>
+						<p class="pb5">
+							<IMG src="image/PCalen_img/年単位メモ0.jpg" border="0">
+						</p>
+						<p class="fss pb10">
+							※今日の日付(この画像をキャプチャーした日付)は2022年12月9日です。
+						</p>
+					  <ol class="fwm">
+						  <li>
+								<p class="fwb pb10">
+							  	追加：年単位メモの追加(デフォルトで選択状態)
+								</p>
+							  <ol class="fwm" type="i">
+									<li>
+										<p class="fwb pb10">
+												月・日・表示開始年を指定します。
+										</p>
+										<p class="fwm pb10">
+											[▲] [▼]キーをクリックして目的の年・月・日を指定するか、<br>
+											直接、年・月を入力してEnterキーを押すことで指定します。
+										</p>
+										<p class="pb10 contents-2col-left">
+											<IMG src="image/PCalen_img/年単位メモ1.jpg" border="0">
+										</p>
+										<p class="fwm pb10 contents-2col-right">
+											例として誕生日の日付を<br>
+											指定してみます。
+										</p>
+									</li>
+									<li>
+										<p class="fwb pb10">
+												入力欄にメモを入力します。
+										</p>
+										<p class="fwm pb10">
+												入力後、Enterキーを押すと｢更新｣、｢キャンセル｣ボタンが現れます。
+										</p>
+										<p class="pb10">
+											<IMG src="image/PCalen_img/年単位メモ2.jpg" border="0">
+										</p>
+									</li>
+									<li>
+										<p class="fwb pb10">
+												更新ボタンを押す。
+										</p>
+										<p class="pb10">
+											<IMG src="image/PCalen_img/年単位メモ3.jpg" border="0">
+										</p>
+										<p class="fwm pb10">
+												編集したメモが追加された後、初期のウインドウに戻ります。<br>
+												続けてメモを追加することができます。
+										</p>
+										<p class="pb10">
+											<IMG src="image/PCalen_img/年単位メモ0a.jpg" border="0">
+										</p>
+										<p class="fwm pb10">
+												※｢キャンセル｣ボタンを押した場合も初期のウインドウに戻りますが、<br>
+												編集したメモは追加されません。
+										</p>
+									</li>
+									<li>
+										<p class="fwb pb10">
+												終了ボタンを押す。
+										</p>
+										<p class="fwm pb10">
+												年単位メモのウインドウが閉じます。
+										</p>
+									</li>
+									<li>
+										<p class="fwb pb10">
+												確認。
+										</p>
+										<p class="fwm pb10">
+												6月を表示してみます。6日にメモが追加されています。26歳の誕生日です。<br>
+												1996年まで6月を表示すると、メモが表示されます。
+										</p>
+										<p class="pb10">
+											<IMG src="image/PCalen_img/年単位メモ4.jpg" border="0">
+										</p>
+									</li>
+								</ol>
+							</li>
+							<li>
+								<p class="fwb pb10">
+							  	変更：登録されている年単位メモの内容を変更
+								</p>
+							  <ol class="fwm" type="i">
+									<li>
+										<p class="fwb pb10">
+											変更を選択すると編集モードの選択とプルダウンメニュー、｢終了ボタン｣以外は使用できなくなります。
+										</p>
+										<p class="pb10 contents-2col-left">
+											<IMG src="image/PCalen_img/年単位メモ5.jpg" border="0">
+										</p>
+										<p class="fwm pb10">
+											メニュー右の｢▼｣をクリックすると、登録されている年単位メモのリストが表示されます。
+										</p>
+										<p class="pb10 contents-2col-left">
+											<IMG src="image/PCalen_img/年単位メモ6.jpg" border="0">
+										</p>
+										<p class="fwm pb10">
+											まだ1つしか登録されていませんが、年単位メモを沢山追加すれば、登録されているメモが全て表示されます｡<br>
+											目的のメモをクリックすると、登録した内容が表示されます。<br>
+											赤枠の中が編集対象です。
+										</p>
+										<p class="pb10">
+											<IMG src="image/PCalen_img/年単位メモ7.jpg" border="0">
+										</p>
+									</li>
+									<li>
+										<p class="fwb pb10">
+												編集後の操作(更新/キャンセル->終了)は追加のときと同じです。
+										</p>
+									</li>
+								</ol>
+						  </li>
+							<li>
+								<p class="fwb pb10">
+							  	削除：登録されている年単位メモを削除
+								</p>
+							  <ol class="fwm" type="i">
+									<li>
+										<p class="fwb pb10">
+											削除を選択すると編集モードの選択とプルダウンメニュー、｢終了ボタン｣以外は使用できなくなります。
+										</p>
+										<p class="pb10 contents-2col-left">
+											<IMG src="image/PCalen_img/年単位メモ8.jpg" border="0">
+										</p>
+										<p class="fwm pb10">
+											メニュー右の｢▼｣をクリックすると、登録されている年単位メモのリストが表示されます。
+										</p>
+										<p class="pb10 contents-2col-left">
+											<IMG src="image/PCalen_img/年単位メモ9.jpg" border="0">
+										</p>
+										<p class="fwm pb10">
+											目的のメモをクリックすると、｢更新｣、｢キャンセル｣ボタンが現れます。
+										</p>
+										<p class="pb10">
+											<IMG src="image/PCalen_img/年単位メモ10.jpg" border="0">
+										</p>
+									</li>
+									<li>
+										<p class="fwb">
+												｢更新｣ボタンを押すと対象のメモが削除され、初期のウインドウに戻ります。<br>
+										</p>
+										<p class="fwm pb10">
+												※削除されたデータは元に戻りませんので、慎重に操作して下さい。
+										</p>
+									</li>
+									<li>
+										<p class="fwb pb10">
+												｢キャンセル｣ボタンを押すと対象のメモが削除されずに、初期のウインドウに戻ります。
+										</p>
+									</li>
+									<li>
+										<p class="fwb pb10">
+												｢終了｣ボタンを押すと、年単位メモのウインドウが閉じます。
+										</p>
+									</li>
+								</ol>
+							</li>
+						</ol>
+					</li>
+					<li>
+						<p class="pb10">
+							(簡易)メモの編集
+						</p>
+						<p class="fwb pb10">
+								ウインドウ右上の｢年単位メモ編集｣をクリックすると｢年単位メモ｣画面が開きます。
+						</p>
+						<ol class="fwm">
+						  <li>
+								<p class="fwb pb10">
+									入力
+								</p>
+								<p class="fwm pb10">
+									日付が表示されている枠内の下の方にカーソルを合わせると、背景が白く変化します。
+								</p>
+								<p class="pb10">
+									<IMG src="image/PCalen_img/簡易メモ0.jpg" border="0">
+								</p>
+								<p class="fwm pb10">
+									この状態でマウスを左クリックすると、文字の入力が可能になります。<br>
+									入力後にEnterキーを押すことで入力完了となり、背景が白から元のライトグレーに戻ります。
+								</p>
+								<p class="pb10">
+									<IMG src="image/PCalen_img/簡易メモ1.jpg" border="0">
+								</p>
+								<p class="fwm pb10">
+									上の図を見ると途中で入力範囲をはみ出して、メモを書き続けています。<br>
+									入力完了後は入力範囲からはみ出したメモは表示されていません。<br>
+									しかし、メモにマウスカーソルを合わせると入力したメモ全体が表示されます。
+								</p>
+								<p class="fss fwb pb10">
+									※年単位メモでも同様です。
+								</p>
+								<p class="pb10">
+									<IMG src="image/PCalen_img/簡易メモ2.jpg" border="0">
+								</p>
+							</li>
+						  <li>
+								<p class="fwb pb10">
+									編集(修正、削除)
+								</p>
+								<p class="fwm pb10">
+										メモにマウスのカーソルを会わせると背景が白に変化するので左クリックします。<br>
+										編集可能になりますので、メモの修正・削除を行ってEnterキーを押して下さい。
+								</p>
+								<p class="fwm pb10">
+										修正の場合は、修正した日付のメモが反映されます。
+								</p>
+								<p class="fwm pb10">
+										削除の場合は、削除した日付のメモが表示されなくなります。
+								</p>
+							</li>
+						</ol>
+					</li>
+				</ul>
+			</div>
+
+			<div class="left" >
+
+				<h3>ダウンロード </h3>
+				<div class="pl30">
+					<p class="fwb pb10">
+						<a href="etc/PCalen.zip" target="_blank" >PCalen.zip</a>
+					</p>
+				</div>
+			</div>
+			<div class="left pb40" >
+					<p class="fss fwm">
+						フリーウェアです。
+					</p>
+			</div>
+
+			<div class="pic-left920 fwb pb20">
+				<h3 class="pb10">
+					補足
+				</h3>
+				<p class="pb10">
+					※1
+				</p>
+				<p class="fwm pb10">
+					万年といっても限りがあります。一応、1902年～2137年まで表示できますが、<br>
+					未来に関しては、2050年位までしか当てになりません。<br>
+					理由は春・秋分の日の精度のためです。<br>
+					春・秋分の日の計算は、以下の諸量から簡易計算しています。
+				</p>
+				<p class="fwm pb10">
+					  ① 起点となる年(1900年と1988年)の太陽の春分点通過日<br>
+					  ② 1年ごとの春分点通過日の移動量<br>
+					  ③ 閏年によるリセット量
+				</p>
+				<p class="fwm pb10">
+					この簡易計算は90年弱で計算が合わなくなるので、1988年からの分は2050年くらいで怪しくなります。<br>
+					まぁ、ご自身の歳を考慮して、十分万年だと思える範囲で使用される分には問題はないと思われます。
+				</p>
+				<p class="fwm pb10">
+					春・秋分の日は前年の2月1日に、国立天文台が発表する「暦要項」が官報に掲載されることによって、正式決定となります。<br>
+					実際に販売されるカレンダーは、歴要項に基づいて春・秋分の日が記載されているはずです。<br>
+					PCalen使用中に正式なカレンダーと日付が異なることを発見された場合は、お知らせ頂ければプログラムを修正する予定です。
+				</p>
+				<p class="pb10">
+					※2
+				</p>
+				<p class="fwm pb10">
+					祝祭日に変更があった場合は、PCalenをバージョンアップすることで対応する予定(正確には｢つもり｣(^^;)です。<br>
+					以前からある休日はあまり変更はないと考えていましたが、<br>
+					東京オリンピックや天皇交代など、イレギュラーな変更がここ数年相次ぎました。<br>
+					PCalen使用中に正式なカレンダーと日付が異なることを発見された場合は、<br>
+					お知らせ頂ければプログラムを修正する予定(正確には｢つもり｣)です。
+				</p>
+			</div>
+		</div>
+	</div> <!-- page main: end -->
+
+	<footer>
+
+		<hr id="footer"> <!-- horizontal partition -->
+
+		<div class="jQ_change center" > <!-- select button whole: start -->
+			<p id="footer"> <!-- select button: start -->
+				<a href="etc.html">
+					<IMG src="image/button/back_off.gif" border="0" alt="Back" >
+				</a>
+			</p> <!-- select button: end -->
+		</div> <!-- select button whole: end -->
+
+		<div id="footer_label">
+			copyright &copy; 2003 -
+			<script type="text/javascript" language="JavaScript">
+				date = new Date();
+				document.write(date.getFullYear() + ' ');
+			</script>
+			<nonscript>
+			</nonscript>
+			Contrail -kotan- all rights reserved
+		</div>
+
+	</footer>
+
+</div>
+</BODY>
+</html>

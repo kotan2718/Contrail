@@ -1,0 +1,1 @@
+"\[ \begin{aligned}\frac{dy}{dt} =  x\cdot\left(1-2\cdot{ x}^{2}-2\cdot{ y}^{2}\right) \\ + y\cdot\left(\left(2\cdot{ x}^{2}+2\cdot{ y}^{2}+1\right)\cdot{\left({ x}^{2}+{ y}^{2}\right)}^{2}-\left({ x}^{2}-{ y}^{2}\right)\right) \\ \end{aligned} \]"

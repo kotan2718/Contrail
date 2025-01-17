@@ -1,0 +1,92 @@
+<!DOCTYPE HTML >
+<html>
+
+<HEAD>
+	<META charset="UTF-8">
+
+	<title>Suudoku Known Bug</title>
+
+	<!-- favicon--> 
+	<link rel="shortcut icon" href="lib_img/suudoku_img/favicon.ico"> 
+
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- css start -->
+
+		<!-- kz_etc start - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
+		<link rel="stylesheet" href="lib_img/etc/css/kz_etc_style.css" type="text/css"> 
+		<!-- kz_etc end -->
+
+	<!-- css end -->
+</HEAD>
+
+<BODY id="common-k" >
+
+	<div id="main1024"> <!-- page main: start -->
+
+		<!-- title -->
+		<div id="title10">
+			<h2 class="pt30 pb40">
+				｢数独問題作成ツール｣ 既知のバグ
+			</h2>
+		</div>
+
+		<!-- contents -->
+		<div class="pic-left1024 pb40">
+			<div class="pl30 pb30">
+				<p class="pb10">
+					ごく希に[START]ボタンを押した途端に｢Congratulations!｣というメッセージボックが表示されることがあります。<br>
+					[Make]シートは0クリアしたデータで埋まっています。
+				</p>
+				<p class="pb10 contents-2col-left">
+					<IMG src="lib_img/update01_img/update01_09_known_bug1.jpg" width="80%" border="1">
+				</p>
+				<p class="pb10">
+					コードを調べ直しながらデバッグで現象を再現させようとしていますが、<br>
+					今のところ、意図的には再現させることが出来ていません。
+				</p>
+				<p class="pb10">
+					このような現象が発生した場合の対処法を以下に示します。
+				</p>
+				<p class="pb10">
+					[Make]シートの｢作成したデータをシート"Stock"コピーする｣にチェックが入っていない場合は、<br>
+					もう一度[START]ボタンを押すと、正常に問題が作成されます。
+				</p>
+				<p class="pb10">
+					[Make]シートの｢作成したデータをシート"Stock"コピーする｣にチェックが入っている場合は、<br>
+					[Stock]シートにコピーされたデータの左上に付いている｢○｣を削除してから、[Select]ボタンを押して下さい。<br>
+					これでコピーされたデータ消去されます。
+				</p>
+				<p class="pb10 contents-2col-left">
+					<IMG src="lib_img/update01_img/update01_09_known_bug2.jpg" width="90%" border="1">
+				</p>
+				<p class="pb10">
+					[Make]シートに戻って、もう一度[START]ボタンを押すと、正常に問題が作成されます。
+				</p>
+				<p class="pb10">
+					大変申し訳ありませんが、上記の方法での対処をお願い致します。<br>
+					私自身、修正方法が分かり次第、修正版をアップデートする予定です。
+				</p>
+			</div>
+
+	<footer>
+		<div class="pic-left1024">
+			<p class="fwb">
+				Copyright &copy; 2023 by Kazuo Kawamura. All rights reserved. 
+			</p>
+			<p class="fwm pb10">
+				----------------------------------------------------------------- <br>
+				mail to : 
+				<a href="mailto:vff06643@nifty.ne.jp" >
+					VFF06643@nifty.ne.jp
+				</a><br>
+				----------------------------------------------------------------- 
+			</p>
+		</div>
+	</footer>
+
+</div>
+</BODY>
+</html>

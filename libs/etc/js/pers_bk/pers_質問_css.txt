@@ -1,0 +1,66 @@
+htmlについての質問です。
+
+webページで数式を入力した後、javascriptで式を評価(math.jsを使用しています)し、
+入力に誤りがある場合は、その旨を表示するようにしています。
+
+==html==
+
+<div>
+    <!-- 入力ボックス -->
+    <p class="pb10 input-container3">
+        <label id="l_fxy">$f(x, y) = $</label>
+        <textarea id="i_fxy" cols="30" rows="2" onchange="changeUserInput()"></textarea>
+    </p>
+    <p class="pb10 input-container4">
+        <label id="l_where">$\quad$ where, $\quad r = $</label>
+        <textarea id="i_where" cols="30" rows="1" onchange="changeUserInput()"></textarea>
+    </p>
+</div>
+<!-- 方程式の表示(TeX) -->
+<div>
+    <p class="pb5">
+        <label><span id="fxy"></span></label>
+    </p>
+    <p class="pb10">
+        <label><span id="where"></span></label>
+    </p>
+    <p class="err_effect" id="errorMessages"></p>  <!-- 入力された式が無効だった場合に表示 -->
+</div>
+
+
+==javascript==
+
+// 数式であるか判定し、NGの場合はメッセージを表示して、終了する
+try {
+    // まず、rを計算
+    r = math.evaluate(formula_where, { x: 0, y: 0 });
+} catch (error) {
+    errorMessages.innerHTML += '<p>Error in where</p>';
+    return;
+}
+try {
+    // 次に、計算されたrを使って最終的な数式を評価
+    const mathTmp = math.evaluate(formula_fxy, { x: 0, y: 0, r: r });
+} catch (error) {
+    errorMessages.innerHTML += '<p>Error in f(x, y)</p>';
+    return;
+}
+
+
+NGの場合に、エラーメッセージを赤字でかつ太字で表現したいと思って、
+cssで以下の設定を行いました。
+
+==css==
+
+.err-effect {
+    color:red;
+    font-weight:bold;
+}
+
+htmlで以下のようにcssを呼び出しているのですが、
+
+    <p class="err_effect" id="errorMessages"></p>  <!-- 入力された式が無効だった場合に表示 -->
+
+反映されません。
+エラーメッセージを赤字でかつ太字で表示させることはできるでしょうか？
+

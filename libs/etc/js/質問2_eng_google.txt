@@ -1,0 +1,79 @@
+This tool draws solution curves for differential equations in two dimensions.
+Even equations that seem relatively simple can be quite laborious to solve analytically.
+In some cases, it may not be possible to solve the problem analytically.
+Therefore, we created a tool that allows you to easily draw approximate solutions on the web using differential equations as they are.
+Approximation is basically performed using the 4th order runge-kutta method, but the Euler method and modified Euler method can also be selected.
+The initial value is 16 points randomly selected in the first quadrant and copied inverted to the remaining three quadrants.
+Drawing will start all at once with a total of 64 points as the initial value.
+
+The blue line that appears when drawing starts will be drawn after the normal time elapses from the initial value.
+After a while, a yellow line will appear. This is drawn backward in time from the initial value.
+By observing the movement of the blue and yellow lines, you can learn the nature of the solution curve.
+
+Now, I will briefly explain them according to the titles displayed in the select box.
+The following explanation is based on a quote from Mitsuo Morimoto's "Differential Equations Using a Computer."
+
+2-dimensional linear self-exciting system
+2-dimensional quadratic linear self-excited system
+High-order simultaneous self-excitation system 01
+
+By setting values in the coefficient input boxes $a, b, c, d$,
+Various solution curves are drawn dynamically.
+Please try setting the values in the example below.
+I think the solution curve will be drawn according to the explanation.
+
+Here, assuming $a, b, c, d$ are real numbers and all are not 0,
+Introduce a quadratic square matrix A of real coefficients.
+
+Let the eigenvalues of A be lambda_1 and lambda_2. <br>
+In the following explanation, the expression "straight line corresponding to the eigenvalue" will appear,
+This means the eigenspace of each eigenvalue. For a square matrix with 2 rows and 2 columns,
+Eigenspace is generally a straight line passing through the origin.
+
+If one of the eigenvalues is 0
+
+From lambda_1 = 0, lambda_2 = 3 > 0,
+The solution curve is a half-line parallel to the straight line y = 2x corresponding to lambda_2,
+Its starting point is each point on the line y = -x corresponding to lambda_1, and it goes to infinity.
+
+If lambda_1 = 0, lambda_2 < 0, the direction of the solution curve is reversed.
+
+このツールは、2 次元の微分方程式の解曲線を描画します。
+比較的単純に見える方程式であっても、分析的に解くのは非常に骨が折れる場合があります。
+場合によっては、問題を分析的に解決できない場合があります。
+そこで、微分方程式をそのまま使ってWeb上で簡単に近似解を描けるツールを作成しました。
+近似は基本的に4次ルンゲクッタ法で行いますが、オイラー法や修正オイラー法も選択できます。
+初期値は、第 1 象限でランダムに選択された 16 点を残りの 3 象限に反転コピーします。
+合計64点を初期値として一斉に抽選が開始されます。
+
+描画開始時に表示される青い線は、初期値から通常時間経過後に描画されます。
+しばらくすると、黄色い線が表示されます。 これは、初期値から時間を遡って描画されます。
+青と黄色の線の動きを観察することで、解曲線の性質を知ることができます。
+
+それではセレクトボックスに表示されるタイトルに沿って簡単に説明していきます。
+以下の説明は森本光夫著『コンピュータを使った微分方程式』からの引用です。
+
+2次元線形自励系
+2次元二次線形自励系
+高次同時自励系01
+
+係数入力ボックス$a、b、c、d$に値を設定することで、
+さまざまな解曲線が動的に描画されます。
+以下の例のように値を設定してみてください。
+説明に従って解曲線が描かれると思います。
+
+ここで、$a、b、c、d$ が実数であり、すべて 0 ではないと仮定すると、
+実係数の二次正方行列 A を導入します。
+
+A の固有値を lambda_1 と lambda_2 とします。 <br>
+以下の説明で「固有値に対応する直線」という表現が出てきますが、
+これは各固有値の固有空間を意味します。 2行2列の正方行列の場合、
+固有空間は一般に原点を通る直線です。
+
+固有値の 1 つが 0 の場合
+
+lambda_1 = 0、lambda_2 = 3 > 0 から、
+解曲線は、lambda_2 に対応する直線 y = 2x に平行な半直線です。
+その開始点は、lambda_1 に対応する直線 y = -x 上の各点であり、無限大まで続きます。
+
+lambda_1 = 0、lambda_2 < 0 の場合、解曲線の方向は反転します。

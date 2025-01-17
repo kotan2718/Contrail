@@ -1,0 +1,4 @@
+下記にstandaloneを用いた場合のhtmlでのパラメータの設定など分かりやすい説明あり。
+
+http://urbanqee.com/webutil/sound/mp3-player-wp.html
+

@@ -1,0 +1,16 @@
+			<div class="pic-left1024 fwb pb40">
+				<div class="contents-title-left pb20">
+					<p id="TG">
+						[&#8544;] - (1) - #1		Target position (unit:[D] diopter)
+					</p>
+				</div>
+				<div class="contents-title-right">
+					<p>
+						<a href="#title30">to Startup Screen/a>
+					</p>
+				</div>
+				<div class="c-both"></div>
+				<div>
+					<IMG src="lib_img/SRTLM_img/en_doc_1-1-1_target_pos.jpg" border="0">
+				</div>
+			</div>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Box State Persistence</title>
+    <script src="select.js"></script>
+</head>
+
+<body>
+    <p>
+        <select id="type" onchange="changeType()">
+            <option disabled selected>[01] 2-Dimensional Linear Autonomous System of 1 Order</option>
+            <option value="01&01">&emsp;&emsp;1. One of the eigenvalues is 0:</option>
+            <option value="01&02">&emsp;&emsp;2. There are two eigenvalues with different signs:</option>
+            <!-- 途中略 -->
+            <option value="09&09">&emsp;&emsp;[99] User defined Equations</option>
+        </select>
+    </p>
+
+    <!-- deq javascript呼び出し -->
+    <script src="select_aft.js"></script>
+
+
+</body>
+</html>

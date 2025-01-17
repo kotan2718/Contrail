@@ -1,0 +1,928 @@
+以下の文章の英訳をお願いします。
+よろしくお願いします。
+
+<META name="description" content="z = f(x, y)で定義される曲面を隠線処理が施されたメッシュで描画するページの簡易解説です。ユーザーが任意の曲面を入力して描画させる方法についても解説しています。">
+<META name="keywords" content="3D,曲面,プロット,隠線,陰線,メッシュ,回転,アングル,ユーザー,任意,入力,解説">
+<title>簡易解説: 隠線処理されたメッシュを使用した曲面の描画</title>
+
+<h3 class="pt30 pb40">
+    隠線処理が施されたメッシュによる曲面の描画
+    &emsp;
+    簡易解説
+</h3>
+
+<p class="pb10">
+    このツールはz = f(x, y)で定義される関数のグラフ(曲面)を隠線処理が施されたメッシュで描画します。
+    f(x, y)が与えられたとき、普通は最大/最小値や極値などを調べて関数の概形を調べることになりますが、
+    「この関数、どんな形をしているんだろう？」という疑問に対して、
+    直感的に形状を把握することができれば便利だろうなと思って、作成しました。
+    3次元の曲面を2次元に投影するので隠線処理を施さないと非常に分かり難くなってしまいます｡
+    一応、頑張って視点位置から見えている線と見えていない線の判定を行っていますが、
+    たまに見えないはずの線が透けてしまう場合があります。
+    この点については今後の課題としたいと思います。
+</p>
+<p class="pb10">
+    画面右上のセレクトボックスから関数を選択し、スタートボタンを押すと曲面が描画されます。
+    描画ウインドウの右と下のスライダーをマウスで動かすと、視点が移動して曲面が回転します。
+    右のスライダーは視点の上下の移動に対応し、下のスライダーは視点の左右の移動に対応します。
+</p>
+<p class="pb40">
+    ( 描画ページではLocal Storageを使用しています。<a href="#*1">脚注 [1]</a> 参照。)
+</p>
+
+<h3 class="fwb pb30">
+    <ul  style="list-style: none;" class="fwm pb40, pl40">
+        <li class="pb10"><a href="#t1">[Ⅰ] 画面について</a></li>
+        <li class="pb10"><a href="#t2">[Ⅱ] セレクトボックスで選択できる曲面について</a></li>
+    </ul>
+</h3>
+
+<h3 class="pb30 fwb">
+    <p id="t1">
+       [Ⅰ] &emsp; "画面について" 簡単に説明したいと思います。
+    </p>
+</h3>
+
+<li class="pb10"><a href="#s1">関数の選択</a></li>
+<li class="pb10"><a href="#s2">Meshの設定</a></li>
+<li class="pb10"><a href="#s3">Rangeの設定</a></li>
+<li class="pb10"><a href="#s4">Angleの設定</a></li>
+<p class="fwm pl30">&nbsp;
+    <a href="#s5"><font size="2">リセットボタン</font></a>
+</p>
+
+<p id="s1">
+    [1] 関数の選択
+</p>
+<p class="pl0 pb10 fwm">
+    セレクトボックスから描画させたい関数を選択します。
+    いくつかのセクションに分かれていますが、これについては後で説明します。
+    関数が選択されると、画面の右側上部に、式が表示されます。
+    スタートボタンを押すことで曲面が描画されます。
+</p>
+
+<p id="s2">
+    [2] Meshの設定
+</p>
+<p class="pl0 pb10 fwm">
+    描画に使用するラインの数を設定します。
+    [Calc.]は計算で使用するライン数です。
+    [Drawing]は実際に描画するライン数です。
+    ライン数を大きくするとメッシュが密になり曲面がなめらかに表示されますが、
+    計算量が増えるので、描画された曲面を回転させるときの動きがギクシャクすることがあります。
+    デフォルトは[Calc.], [Drawing]とも 20 です。<a href="#p1">※註</a>
+</p>
+<p class="pl0 pb10 fwm">
+    [Drawing]は[Calc.]で選択されたライン数と同じか、1/2, 1/4などの数を選択することができます。
+</p>
+<p class="pl0 pb10 fwm">
+    変更後はスタートボタンを押すことで、再描画されます。
+</p>
+<p class="pl0 pb10 fwm">
+    SpacingとScalingは表示のみで、入力や選択はできません。
+    Spacingは描画領域におけるラインの間隔です。
+    Scalingは3次元で曲面を収める箱(縦/横:12、高さ:6)に対する描画範囲の拡大(縮小)率です。
+</p>
+<p id="s3">
+    [3] Rangeの設定
+</p>
+<p class="pl0 pb10 fwm">
+    x, y, zごとの描画範囲を設定します。
+</p>
+<p class="pl0 pb10 fwm">
+    入力用のボックスはテキストボックなので、変更する場合は直接数値を入力します。
+    デフォルトはx, y, zとも -2～2 です。<a href="#p1">※註</a>
+</p>
+<p class="pl0 pb10 fwm">
+    変更後はスタートボタンを押すことで、再描画されます。
+</p>
+<p class="pl0 pb10 fwm">
+    zについては関数の値がレンジを超えた場合は、x-y面と平行な平面が描かれます。
+    これだと境界が分かりづらいのでz : max, 0, minの3ヶ所で等高線を描くことで、
+    境界を明確にしています。
+    次に説明するAngleの設定でgamma(上下の視点位置)を90度にセットすると
+    陰関数のグラフが描画されます。
+</p>
+
+<p id="s4">
+    [4] Angleの設定
+</p>
+<p class="pl0 pb10 fwm">
+    [alpha]は視点位置の水平方向(z軸廻り)の角度を設定します。
+    [gamma]は視点位置の上下方向の角度(俯角[-]/仰角[+])を設定します。
+    テクストボックスなので直接数値を入力することもできますが、
+    描画ウインドウ右のスライダーが[alpha]に、下のスライダーが[gamma]に連動しているので、
+    スライダーを動かすとそのときの角度が表示されます。
+    デフォルトは[alpha]:30度、[gamma]：-30度です。<a href="#p1">※註</a>
+</p>
+<p class="pl0 pb10 fwm">
+    変更後はスタートボタンを押すことで、再描画されます。
+</p>
+
+<p id="s5">
+    リセットボタン
+</p>
+<p class="pl0 pb10 fwm">
+    スライダーを動かすと、リセットボタンが使用できるようになります。
+    ボタンを押すと、Angleがデフォルトの角度に戻ります。
+    Mesh, Rangeで変更があった場合は、その変更は保持されます。
+</p>
+<p id="p1">※註 :</p> 選択された曲面によっては別の値がセットされている場合があります。
+
+
+<h3 class="pb30 fwb">
+    <p id="t2">
+        [Ⅱ] "セレクトボックスで選択できる曲面について" 簡単に説明したいと思います。
+    </p>
+</h3>
+<li class="pb10"><a href="#a1">[01] 関数諸例</a></li>
+<li class="pb10"><a href="#a2">[02] 複素関数(絶対値)</a></li>
+<li class="pb10"><a href="#a3">[03] 微分方程式 解曲線の描画 で取り上げた関数</a></li>
+<li class="pb10"><a href="#a99">[99] ユーザー定義</a></li>
+
+<p id="a1">
+    [01]&nbsp;関数諸例
+</p>
+<p class="pl0 pb10 fwm">
+    つれづれなるままに増やしていった関数がストックされています。
+    なめらかな曲面は特に問題ないと思いますが、
+    不連続な曲面(分数で定義される関数の分母が0になる場合など)ではいわゆる0割が発生する可能性がありますが、
+    Javascriptの仕様に従って、以下のように対処しています。
+</p>
+     <table class="pl10 pb10 fwm" border="0">
+        <tr>
+          <td>正の実数 / 0.0</td>
+          <td>-></td>
+          <td align="right">Infinity(仕様)</td>
+          <td>-></td>
+          <td align="right">9999.0</td>
+        </tr>
+        <tr>
+          <td>負の実数 / 0.0</td>
+          <td>-></td>
+          <td align="right">-Infinity(仕様)</td>
+          <td>-></td>
+          <td align="right">-9999.0</td>
+        </tr>
+        <tr>
+          <td>0.0 / 0.0</td>
+          <td>-></td>
+          <td align="right">Nan(仕様)</td>
+          <td>-></td>
+          <td align="right">0.0</td>
+        </tr>
+      </table>
+</div>
+
+<p id="a2">
+    [02]&nbsp;複素関数(絶対値)
+</p>
+
+<p class="pb10">
+    $ \omega = x + iy $ とすると
+</p>
+<p class="pb10">
+   $ sin(\omega) = \sin x \cosh y + i \cos x \sinh y $ より
+</p>
+<p class="pb10">
+    実際の計算は$ |\sin(\omega)| $ の右辺の式を使っています。
+    x軸が実部、y軸が虚部に相当します。
+    後述する「ユーザー定義」で複素関数の絶対値を描画する場合は、
+    $ |\sin(\omega)| $ の右辺のように虚数$i$が消去された式を定義する必要があります。
+    あと、グラブの外形を示すサムネイルの背景が白くなっていますが、
+    これについては後ほど、説明します。
+</p>
+
+<p class="pb10">
+    $ \omega = x + iy $ とすると
+</p>
+<p class="pb10">
+   $ cos(\omega) = \cos x \cosh y + i \sin x \sinh y $ より
+</p>
+<p class="pb10">
+    $\sin$ が出たついでです。$\cos$ も実際の計算は$ |\cos(\omega)| $ の右辺の式を使っています。
+    x軸が実部、y軸が虚部に相当します。
+</p>
+
+<p class="pb10">
+    gamma関数です。
+</p>
+<p class="pb10">
+    実際の計算は$ |\Gamma(x + iy)| $ の右辺の式を使って、
+    $ n $ 15まで近似しています。
+    x軸が実部、y軸が虚部に相当します。
+    $n$ を15としたのは途中で式を書くのが面倒くさくなり、
+    とりあえず描画させてみたら、それっぽいグラフが描けたので、
+    まぁ、良しとした次第です。一度、gamma関数のグラフを描いて見たかったのです。
+</p>
+
+<p id="a4">
+    [03]&nbsp;<a href="etc_DEQ_doc2.html" target="_blank"> 微分方程式 解曲線の描画 </a> で取り上げた関数
+</p>
+
+<li class="pb10"><a href="#03&01"> Cassini(カシニ)の燈形</a></li>
+<!--<li class="pb10"><a href="#03&02"> Descartes(デカルト)の葉線の派生形</a></li>-->
+<li class="pb10"><a href="#03&03"> 三角関数の周期性が反映される例</a></li>
+
+<p class="pb10">
+    ここで紹介する関数は「
+    <a href="etc_DEQ_doc2.html" target="blank">微分方程式 解曲線の描画</a>
+    」で解軌道が陰関数となるものを扱っています。
+    「Cassini(カシニ)の燈形」は関数の係数に $a$ と $b$ のパラメータが含まれています。
+    式の下にパラメータの値を示す入力ボックスが表示されます。
+    パラメータは、欲張って $a$ から $f$ まで全部で6個用意しましたが、
+    今回紹介する関数で使用されているのは $a$ と $b$ の2つで、
+    残りのパラメータは使えないようになっています。
+    今後、面白い関数を見つけて3つ以上のパラメータが使用できる機会に備えての予備ということにしておきます。
+</p>
+<p class="pb5">
+   Cassini(カシニ)の燈形
+</p>
+<p class="pb5">
+   Descartes(デカルト)の葉線の派生形
+</p>
+<p class="pb10">
+    $a$ と$b$ の値をいろいろと変更することができます。
+</p>
+
+<p id="02&02"; class="pb10 fwb">
+    Cassini(カシニ)の燈形
+</p>
+<p class="pb10">
+    $ f(x, y) = (x^2 + y^2 + a^2)^2 - 4a^2x^2 - b^4 $ <br><br>
+</p>
+<p class="pb10">
+    パラメータ&thinsp; (デフォルト) : $ a = 0.6, &thinsp; b =0.4 $
+</p>
+<p class="pb10">
+    陰関数は $ (x^2 + y^2 + a^2)^2 - 4a^2x^2 - b^4 = 0$ です。
+</p>
+<p class="pb10">
+    パラメータ $a$ は0.6で固定して、$b$ を0.4, 0.6, 0.8 と変化させて曲面を描画させたとき、<br>
+    $ z = 0 $  (x-y平面) の位置に示される等高線が、陰関数のグラフと一致します。
+</p>
+<p class="pb10">
+    係数の入力ボックスにマウスカーソルを近づけるとスピンボタンのような上下矢印が現れますが、
+    使いづらいので、直接 "0.6" などと直接入力する方が楽だと思います。
+</p>
+<p class="pb10">
+    立体図は分かりづらいので、Angle - Gamma の角度が $ \pm 90$ になるまでスライダーを移動させてみて下さい。
+    目的の曲線が描画されていると思います。
+</p>
+<table class="pl10 pb10 fwm" frame="void" border="1">
+     <th class="fwm">曲線の特徴</th>
+     <th class="fwm">グラフの概形</th>
+   </tr>
+   <tr>
+     <td>原点対称の2つの閉曲線</td>
+     <td><img src="image/pers/pers_v1_0301w_IF_0604_25.jpg" border="0"></td>
+   </tr>
+   <tr>
+     <td>原点を通る曲線</td>
+     <td><img src="image/pers/pers_v1_0301w_IF_0606_25.jpg" border="0"></td>
+   </tr>
+   <tr>
+     <td>楕円っぽい曲線</td>
+     <td><img src="image/pers/pers_v1_0301w_IF_0608_25.jpg" border="0"></td>
+   </tr>
+</table>
+<p class="pb10">
+    $ a = b $ のとき、Lemniscate(レムニスケート)と呼ばれる曲線になります。<br>
+    この場合、$ a = 0.6, \quad b = 0.6 $ のときの曲線がLemniccateです。
+</p>
+<p id="02&02"; class="pb10 fwb">
+    三角関数の周期性が反映される例
+</p>
+<p class="pb10">
+    タイトルがちょっと漠然としていますが、三角関数の周期性が曲面に拡張されると、
+    こんなグラフになるんだという例です。
+    この曲面を見て、私は台所で使う波形のスポンジを連想しました。
+    この曲面を $z = \alpha $ の位置で切り取ったときに示される等高線が
+    「 <a href="etc_DEQ_doc2.html" target="blank">微分方程式 解曲線の描画</a> 」で描かれる
+    解軌道と一致します。
+</p>
+<p class="pb10">
+    この例では、カシニの橙形とは異なり、変更可能なパラメータはありませんが、
+    描画範囲 z値のMax, Minを変更することで陰関数のグラフを再現することができます。
+    右側のサムネイルは $ z = \pm 1$ のときのグラフを真上から見た場合です。
+</p>
+
+<p id="a99">
+    [99]&nbsp;ユーザー定義
+</p>
+<p class="pb10">
+    [描画へ]をクリックすると、以下の画面が表示されます。
+    任意の関数を入力して、その曲面を確認することができます。
+    STARTボタンを押すと入力ボックスの下に入力した式がTeX形式で表示され、描画が開始されます。
+    入力された式の評価には<a href="https://mathjs.org/docs/" target="_blank"> Math.js </a>を利用しています。
+    エラーメッセージが表示された場合は、入力した式を確認して、適宜修正して下さい。
+</p>
+<p class="pb20">
+    ※ 入力する式には $a, b$ などのパラメータを含めることはできません。
+</p>
+<p class="pb20">
+    ※ 不連続な曲面(分数で定義される関数の分母が0になる場合など)については、
+</p>
+<p class="pb30">
+    以下に、入力例を示します。
+</p>
+<p id="09&091"; class="pb20">
+    $ f(x, y) = x^3 -3xy + y^3 \quad (  z = 0 のときの等高線はデカルトの葉線) $
+</p>
+<p class="pb10">
+    $ f(x, y) = $ と表示されている右の入力ボックスに描かせたい関数を入力します。
+</p>
+<p class="pb10">
+    where, $r = $ と表示されている右の入力ボックスについては後で説明しますが、
+    ここでは何も入力する必要はありません。
+</p>
+<p class="pb10">
+    式の書き方には幾つかのルールがあるので、ここで簡単にまとめておきます。
+<li class="pb40">
+    <p>
+        加減乗除
+    </p>
+    <p>
+        式の中では +, -, *, / を使用します。
+        注意が必要なのは * です。
+        例の式場合、つい "x^3 - 3xy + y^3" と書きたくなってしまいますが、
+        "xy" が数式として評価されずにエラーとなってしまいます。
+        "x^3 - 3*x*y + y^3" と入力してください。
+    </p>
+</li>
+<li class="pb40">
+    <p>
+        べき乗
+    </p>
+    <p>
+        べき乗は様々な入力が可能ですが、単純なものであれば、"x^2" で十分です。
+        勿論、"x*x" でもかまいません。
+        2乗くらいなら "x*x" で問題ないですが、
+        4乗、5乗となってくると "x^4" などの方が入力も確認も楽です。
+    </p>
+    <p>
+        pow()も使えます。
+        "pow(x^2 + y^2, 2)" などはTeXで表示したとき、
+        $(x^2 + y^2)^2$ と表示されるので違和感がありませんが、
+        "pow(x, 5)" と入力すると、表示は $(y)^5$ となります。
+        計算自体は正しく実行されるので問題はないのですが、
+        違和感を感じられる場合は、単純に "y^5" と入力して下さい。
+    </p>
+</li>
+<li class="pb40">
+    <p>
+        数学関数
+    </p>
+    <p>
+        入力された数式の解析はmath.jsを利用しているため、
+        pow()も含めて、sin(), cos(), log() そして abs() などの数学関数はそのまま入力できます。
+    </p>
+    <p>
+        指数については、"e^x" は $e^x$ として評価されます。
+        "exp(x)" と入力した場合も、TeXの表示は $\exp(x)$ になりますが、同じように評価されます。
+        指数部が複雑な場合は "e^(x + 1)" 或いは "exp(x + 1)" のように括弧をつけて下さい。
+    </p>
+</li>
+<li class="pb40">
+    <p>
+        長い式の入力 1
+    </p>
+    <p id="09&094"; class="pb10">
+        式が長くなる場合は、以下のように折り返して入力できます
+        評価された数式も折り返されて表示される場合もあります。
+        (折り返しの処理があまり良いできではなく、
+        長い式なのに折り返されずに表示されてしまうことがあります。
+        この場合は画面のレイアウトが崩れます。
+        崩れても計算に影響はありませんが、非常に見づらくなります)。
+        まぁ、ちょこちょこっと関数を入力してグラフを確認するのが目的なので、
+        無理に長い式は入力しない方が無難です(時間がある時に見直すつもり...ではあります)。
+    </p>
+</li>
+<li class="pb40">
+    <p>
+        長い式の入力 2
+    </p>
+    <p id="09&094"; class="pb10">
+        式の一部が繰り返されるときは、where, $r = $ の入力ボックスに式を入力して、
+        繰り返される部分をrで置換することで、入力の手間を省くことができます。
+        必要ない場合は、何も入力する必要はありません。
+
+<!-- 補足説明 -->
+<div class="bd15 fwb">
+    == 注釈 ==
+</div>
+    <p id="*1">
+        [1.]
+    </p>
+    <p>
+        このページでは、Local Storageを利用して以下の2点についてデータを保持する機能を持ちます。
+        セレクトボックスで選択されたリストの位置
+        描画ウインドウの背景色
+    </p>
+    <p class="pb10">
+        1 については選択項目の数が相当な量のため、ブラウザの更新ボタンが押された場合や、ページを閉じた後に再度ページを開いたとき、
+        いちいち先頭のリストから目的のリストまで辿るのは大変です。
+        そこで、以下に示すように選択されたリストの位置を保持するためのチェックボックスを設置しました。
+    </p>
+    <p>
+        チェックを入れてから特定の項目を選択すると、
+        Local StorageにチェックボックスのONと選択されたリストの番号が保存されます。
+        ブラウザの更新ボタンの押下やページを閉じてもデータが保存されるため、
+        ページが表示されると同時に目的の項目が選択された状態になります。
+    </p>
+    <p>
+        ただし、チェックを外すとLocal Storageに保存されていたデータは、keyと共に削除されるため、
+        ブラウザの更新ボタンが押された場合や、ページを閉じた後に再度ページを開いたとき、リストの先頭が選択された状態に戻ります。
+    </p>
+    <p>
+        Local Storageに保存されるデータ ( key, vakue ) は次の2点です。
+    </p>
+    <p class="pb10">
+        2 についてはこのページで使われているサムネイル(描画された曲面)の背景が
+        黒だったり、白だったりすることに関係しています。
+        個人的には、背景が黒の方が見やすいと思うのですが、画面が小さいとラインが黒の背景に埋もれてしまい、
+        かなり見にくいことが分かりました。
+        そこで、以下に示すように背景を黒か白か切り換えるためのチェックボックスを設置しました。
+        デフォルトはチェックが入っていない状態で、背景は黒です。
+        チェックを入れると、背景が白になります。
+    </p>
+    <p>
+        チェックを入れると
+        Local StorageにチェックボックスのONと背景色白の設定が保存されます。
+        ブラウザの更新ボタンの押下やページを閉じてもデータが保存されるため、
+        ページが表示されると同時に描画ウインドウの背景色が白になります。
+    </p>
+    <p>
+        ただし、チェックを外すとLocal Storageに保存されていたデータは、keyと共に削除されるため、
+        ブラウザの更新ボタンが押された場合や、ページを閉じた後に再度ページを開いたとき、
+        描画ウインドウの背景色は黒になります。
+    </p>
+    <p>
+        Local Storageに保存されるデータ ( key, vakue ) は次の2点です。
+    </p>
+    <p>
+        Local Storageに保存されているデータは、お使いのブラウザの設定画面から確認することができます。
+        <a href="#">戻る</a>
+    </p>
+
+
+<META name="description" content="A brief explanation of a page that renders surfaces defined by z = f(x, y) using a hidden line processed mesh. It also explains how users can input and render arbitrary surfaces.">
+<META name="keywords" content="3D, surface, plot, hidden line, shadow line, mesh, rotation, angle, user, arbitrary, input, explanation">
+<title>Brief Explanation: Rendering Surfaces Using Hidden Line Meshes</title>
+
+<h3 class="pt30 pb40">
+    Rendering Surfaces Using Hidden Line Processed Meshes
+    &emsp;
+    Brief Explanation
+</h3>
+
+<p class="pb10">
+This tool renders the graph (surface) of a function defined by z = f(x, y) using a hidden line processed mesh.
+When f(x, y) is given, you would typically investigate features like maxima, minima, or extremum points to study the general shape of the function.
+However, I created this tool thinking it would be convenient if you could intuitively grasp the shape when wondering, "What does this function look like?"
+Since projecting a 3D surface onto a 2D plane makes it very difficult to understand without hidden line processing,
+I made efforts to determine which lines are visible and which are not from the viewpoint.
+However, sometimes lines that should be invisible might still appear, which is a challenge to address in the future.
+</p>
+<p class="pb10">
+You can select a function from the select box at the top right of the screen, and press the start button to render the surface.
+Moving the sliders on the right and bottom of the drawing window with the mouse will rotate the surface by shifting the viewpoint.
+The right slider controls vertical movement, and the bottom slider controls horizontal movement.
+</p>
+<p class="pb40">
+    (The drawing page uses Local Storage. See <a href="#*1">Footnote [1]</a>.)
+</p>
+
+<h3 class="fwb pb30">
+    <ul  style="list-style: none;" class="fwm pb40, pl40">
+        <li class="pb10"><a href="#t1">[Ⅰ] About the Screen</a></li>
+        <li class="pb10"><a href="#t2">[Ⅱ] About the Surfaces Selectable in the Select Box</a></li>
+    </ul>
+</h3>
+
+<h3 class="pb30 fwb">
+    <p id="t1">
+       [Ⅰ] &emsp; A brief explanation about the screen.
+    </p>
+</h3>
+
+<li class="pb10"><a href="#s1">Selecting a Function</a></li>
+<li class="pb10"><a href="#s2">Setting the Mesh</a></li>
+<li class="pb10"><a href="#s3">Setting the Range</a></li>
+<li class="pb10"><a href="#s4">Setting the Angle</a></li>
+<p class="fwm pl30">&nbsp;
+    <a href="#s5"><font size="2">Reset Button</font></a>
+</p>
+
+<p id="s1">
+    [1] Selecting a Function
+</p>
+<p class="pl0 pb10 fwm">
+    Select the function you want to render from the select box.
+    Although it is divided into several sections, I will explain this later.
+    Once a function is selected, its equation will be displayed at the top right of the screen.
+    Pressing the start button will render the surface.
+</p>
+
+<p id="s2">
+    [2] Setting the Mesh
+</p>
+<p class="pl0 pb10 fwm">
+    Set the number of lines used for drawing.
+    "Calc." refers to the number of lines used for calculation.
+    "Drawing" refers to the number of lines actually drawn.
+    Increasing the number of lines makes the mesh denser and the surface smoother, but it also increases the computational load, which may cause choppy movements when rotating the rendered surface.
+    The default is 20 for both [Calc.] and [Drawing]. <a href="#p1">*Note</a>
+</p>
+<p class="pl0 pb10 fwm">
+    "Drawing" can be set to the same number of lines as selected in "Calc." or to fractions like 1/2, 1/4, etc.
+</p>
+<p class="pl0 pb10 fwm">
+    After making changes, press the start button to redraw the surface.
+</p>
+<p class="pl0 pb10 fwm">
+    Spacing and Scaling are display-only fields and cannot be input or selected.
+    Spacing refers to the interval between lines in the drawing area.
+    Scaling refers to the scaling factor of the drawing range relative to a box (width/height: 12, height: 6) that encloses the surface in 3D space.
+</p>
+
+<p id="s3">
+    [3] Setting the Range
+</p>
+<p class="pl0 pb10 fwm">
+    Set the drawing range for x, y, and z axes.
+</p>
+<p class="pl0 pb10 fwm">
+    The input boxes are text boxes, so you can directly enter numerical values to change them.
+    The default range is -2 to 2 for x, y, and z. <a href="#p1">*Note</a>
+</p>
+<p class="pl0 pb10 fwm">
+    After making changes, press the start button to redraw the surface.
+</p>
+<p class="pl0 pb10 fwm">
+    For the z-axis, if the function's values exceed the range, a plane parallel to the x-y plane will be drawn.
+    To make the boundaries clearer, contour lines are drawn at three points: z : max, 0, min.
+    When the gamma angle (vertical viewpoint) is set to 90 degrees in the next section's Angle settings, the implicit function's graph will be drawn.
+</p>
+
+<p id="s4">
+    [4] Setting the Angle
+</p>
+<p class="pl0 pb10 fwm">
+    [alpha] sets the horizontal angle (around the z-axis) of the viewpoint.
+    [gamma] sets the vertical angle (downward [-] / upward [+]) of the viewpoint.
+    Although you can directly enter numerical values in the text boxes, the right slider of the drawing window corresponds to [alpha] and the bottom slider corresponds to [gamma], so moving the sliders will display the respective angles.
+    The default is [alpha]: 30 degrees and [gamma]: -30 degrees. <a href="#p1">*Note</a>
+</p>
+<p class="pl0 pb10 fwm">
+    After making changes, press the start button to redraw the surface.
+</p>
+
+<p id="s5">
+    Reset Button
+</p>
+<p class="pl0 pb10 fwm">
+    Moving the sliders enables the reset button.
+    Pressing the button resets the Angle to the default values.
+    Changes made to Mesh and Range will be retained.
+</p>
+<p id="p1">*Note:</p> Depending on the selected surface, different values might be set.
+
+
+<h3 class="pb30 fwb">
+    <p id="t2">
+        [Ⅱ] A brief explanation about the surfaces selectable in the select box.
+    </p>
+</h3>
+<li class="pb10"><a href="#a1">[01] Various Functions</a></li>
+<li class="pb10"><a href="#a2">[02] Complex Functions (Absolute Value)</a></li>
+<li class="pb10"><a href="#a3">[03] Functions Covered in "Plotting Solution Curves of Differential Equations"</a></li>
+<li class="pb10"><a href="#a99">[99] User Defined</a></li>
+
+<p id="a1">
+    [01]&nbsp;Various Functions
+</p>
+<p class="pl0 pb10 fwm">
+    Functions that have been incrementally added are stocked here.
+    Smooth surfaces should not pose any problems, but for discontinuous surfaces (e.g., functions defined by fractions where the denominator becomes 0), division by zero might occur. In such cases, we handle them according to the following rules based on JavaScript's specifications.
+</p>
+<table class="pl10 pb10 fwm" border="0">
+    <tr>
+        <td>Positive real number / 0.0</td>
+        <td>-></td>
+        <td align="right">Infinity (specification)</td>
+        <td>-></td>
+        <td align="right">9999.0</td>
+    </tr>
+    <tr>
+        <td>Negative real number / 0.0</td>
+        <td>-></td>
+        <td align="right">-Infinity (specification)</td>
+        <td>-></td>
+        <td align="right">-9999.0</td>
+    </tr>
+    <tr>
+        <td>0.0 / 0.0</td>
+        <td>-></td>
+        <td align="right">NaN (specification)</td>
+        <td>-></td>
+        <td align="right">0.0</td>
+    </tr>
+</table>
+
+<p id="a2">
+    [02]&nbsp;Complex Functions (Absolute Value)
+</p>
+
+<p class="pb10">
+    Let $ \omega = x + iy $
+</p>
+<p class="pb10">
+    From $ \sin(\omega) = \sin x\cosh y + i \cos x\sinh y $, we have:
+</p>
+<p class="pl20 pb10 fwm">
+    $ |\sin(\omega)| = \sqrt{(\sin x\cosh y)^{2} + (\cos x\sinh y)^{2}} $
+</p>
+
+
+<p id="a2">
+    [02]&nbsp;Complex Functions (Absolute Value)
+</p>
+
+<p class="pb10">
+    If we let $ \omega = x + iy $,
+</p>
+<p class="pb10">
+   then $ \sin(\omega) = \sin x \cosh y + i \cos x \sinh y $.
+</p>
+<p class="pb10">
+    The actual calculations use the expression on the right-hand side of $ |\sin(\omega)| $.
+    The x-axis corresponds to the real part, and the y-axis corresponds to the imaginary part.
+    When rendering the absolute value of a complex function under "User Defined" described later,
+    you need to define an expression where the imaginary unit $i$ is eliminated, like on the right-hand side of $ |\sin(\omega)| $.
+    Also, although the background of the thumbnail indicating the shape of the graph is white, I will explain this later.
+</p>
+
+<p class="pb10">
+    If we let $ \omega = x + iy $,
+</p>
+<p class="pb10">
+   then $ \cos(\omega) = \cos x \cosh y + i \sin x \sinh y $.
+</p>
+<p class="pb10">
+    Since we’ve already mentioned $\sin$, let’s also note that the actual calculations use the expression on the right-hand side of $ |\cos(\omega)| $.
+    The x-axis corresponds to the real part, and the y-axis corresponds to the imaginary part.
+</p>
+
+<p class="pb10">
+    Here is the gamma function.
+</p>
+<p class="pb10">
+    The actual calculations use the expression on the right-hand side of $ |\Gamma(x + iy)| $,
+    approximating up to $ n = 15 $.
+    The x-axis corresponds to the real part, and the y-axis corresponds to the imaginary part.
+    The reason $n$ was set to 15 is that I got lazy with writing out the equation halfway through,
+    and when I tried rendering the graph, it looked decent enough, so I decided to leave it at that.
+    I just wanted to try drawing a gamma function graph at least once.
+</p>
+
+<p id="a4">
+    [03]&nbsp;<a href="etc_DEQ_doc2.html" target="_blank">Functions Covered in "Plotting Solution Curves of Differential Equations"</a>
+</p>
+
+<li class="pb10"><a href="#03&01">Cassini's Ovals</a></li>
+<!--<li class="pb10"><a href="#03&02">Descartes' Folium</a></li>-->
+<li class="pb10"><a href="#03&03">Example Reflecting the Periodicity of Trigonometric Functions</a></li>
+
+<p class="pb10">
+    The functions introduced here are ones where the solution trajectories become implicit functions in the program "<a href="etc_DEQ_doc2.html" target="blank">Plotting Solution Curves of Differential Equations</a>".
+    "Cassini's Ovals" includes parameters $a$ and $b$ in the function's coefficients.
+    An input box for these parameters is displayed below the equation.
+    I ambitiously prepared six parameters, from $a$ to $f$, but the functions introduced this time only use $a$ and $b$,
+    so the remaining parameters are disabled.
+    I plan to keep these as spares in case I find any interesting functions in the future that require three or more parameters.
+</p>
+
+<p class="pb5">
+    Cassini's Ovals
+</p>
+<p class="pb5">
+    Descartes' Folium Derivative
+</p>
+<p class="pb10">
+    You can change the values of $a$ and $b$ in various ways.
+</p>
+
+<p id="02&02"; class="pb10 fwb">
+    Cassini's Ovals
+</p>
+<p class="pb10">
+    $ f(x, y) = (x^2 + y^2 + a^2)^2 - 4a^2x^2 - b^4 $
+</p>
+<p class="pb10">
+    Parameters (Default): $ a = 0.6, \quad b = 0.4 $
+</p>
+<p class="pb10">
+    The implicit function is $ (x^2 + y^2 + a^2)^2 - 4a^2x^2 - b^4 = 0 $.
+</p>
+<p class="pb10">
+    When you fix the parameter $a$ at 0.6 and vary $b$ as 0.4, 0.6, and 0.8 to render the surface,
+    the contour shown at $ z = 0 $ (the x-y plane) matches the graph of the implicit function.
+</p>
+<p class="pb10">
+    When you move your mouse cursor near the coefficient input box, up and down arrows like a spin button will appear, but
+    it’s easier to input the values directly, such as "0.6".
+</p>
+<p class="pb10">
+    The 3D plot can be difficult to understand, so try moving the slider until the Angle - Gamma angle reaches $ \pm 90$.
+    The desired curve should be rendered.
+</p>
+<table class="pl10 pb10 fwm" frame="void" border="1">
+     <th class="fwm">Curve Features</th>
+     <th class="fwm">Graph Outline</th>
+   </tr>
+   <tr>
+     <td>Two closed curves symmetrical around the origin</td>
+     <td><img src="image/pers/pers_v1_0301w_IF_0604_25.jpg" border="0"></td>
+   </tr>
+   <tr>
+     <td>Two closed curves symmetrical around the origin</td>
+     <td><img src="image/pers/pers_v1_0301w_IF_0606_25.jpg" border="0"></td>
+   </tr>
+   <tr>
+     <td>Ellipse-like curve</td>
+     <td><img src="image/pers/pers_v1_0301w_IF_0608_25.jpg" border="0"></td>
+   </tr>
+</table>
+<p class="pb10">
+    When $ a = b $, the curve is called a Lemniscate.
+    In this case, the curve with $ a = 0.6, \quad b = 0.6 $ is the Lemniscate.
+</p>
+<p id="02&02"; class="pb10 fwb">
+    Example Reflecting the Periodicity of Trigonometric Functions
+</p>
+<p class="pb10">
+    The title might be a bit vague, but this is an example showing how the periodicity of trigonometric functions extends to surfaces, resulting in this kind of graph.
+    When I look at this surface, I’m reminded of a wavy sponge used in the kitchen.
+    When this surface is cut at $z = \alpha$, the contour matches the solution trajectory graph drawn in "<a href="etc_DEQ_doc2.html" target="blank">Plotting Solution Curves of Differential Equations</a>".
+</p>
+<p class="pb10">
+    Unlike Cassini's Ovals, there are no changeable parameters in this example,
+    but by changing the Max and Min values of the z-range, you can reproduce the graph of the implicit function.
+    The thumbnail on the right shows the graph viewed from above when $ z = \pm 1$.
+</p>
+
+
+<p id="a99">
+ [99] User-Defined
+</p>
+<p class="pb10">
+When you click [Draw], the following screen will be displayed.
+You can enter any function and check its surface.
+When you press the START button, the equation you entered will be displayed in TeX format below the input box,
+and drawing will begin.
+The evaluation of the entered formula uses <a href="https://mathjs.org/docs/" target="_blank">Math.js</a>.
+If an error message is displayed, please check and correct the equation you entered as needed.
+</p>
+<p class="pb20">
+ * You cannot include parameters like $a$ or $b$ in the equation you enter.
+</p>
+<p class="pb20">
+ * For discontinuous surfaces (such as when the denominator of a function defined by a fraction becomes 0),
+</p>
+<p class="pb30">
+Below are some examples of input.
+</p>
+<p id="09&091"; class="pb20">
+$ f(x, y) = x^3 -3xy + y^3 \quad (The contour at $ z = 0 $ corresponds to Descartes' Folium) $
+</p>
+<p class="pb10">
+Enter the function you want to draw in the input box to the right of "$ f(x, y) = $".
+</p>
+<p class="pb10">
+As for the input box to the right of "where, $r = $,"
+it will be explained later, but there is no need to enter anything here.
+</p>
+<p class="pb10">
+There are some rules for writing equations, so here is a brief summary.
+
+<li class="pb40">
+<p>
+Addition, Subtraction, Multiplication, and Division
+</p>
+<p>
+Use "+", "-", "*", "/" in the formula. Pay special attention to the use of "*#.
+In the example formula, you may want to write "x^3 - 3xy + y^3,"
+but "xy" will not be evaluated as a mathematical expression, resulting in an error.
+Please enter "x^3 - 3*x*y + y^3."
+</p>
+</li>
+<li class="pb40">
+<p>
+Exponentiation
+</p>
+<p>
+Various inputs are possible for Exponentiation,
+but for simplicity, "x^2" is sufficient. Of course, "x*x" is also acceptable. For squares, "x*x" is fine,
+but for higher powers like the 4th or 5th,
+"x^4" or similar is easier to enter and verify.
+</p>
+<p>
+You can also use pow(). For example, "pow(x^2 + y^2, 2)" will be displayed as $(x^2 + y^2)^2$ in TeX,
+which looks natural.
+However, if you enter "pow(x, 5)," it will display as $(x)^5$.
+The calculation will be correct, but if it feels odd, you can simply enter "x^5."
+</p>
+</li>
+<li class="pb40">
+<p>
+Mathematical Functions
+</p>
+<p>
+Since math.js is used to parse the input formula,
+mathematical functions like sin(), cos(), log(), and abs(), including pow(), can be entered as-is.
+</p>
+<p>
+Regarding exponential function, "e^x" is evaluated as $e^x$. If you enter "exp(x),"
+it will display as $\exp(x)$ in TeX but will be evaluated the same way.
+For complex exponent expressions, please enclose them in parentheses like "e^(x + 1)" or "exp(x + 1)".
+</p>
+</li>
+<li class="pb40">
+<p>
+Entering Long Formulas 1
+</p>
+<p id="09&094"; class="pb10">
+If the formula is long, you can wrap it as shown below.
+The evaluated expression may also be displayed wrapped.
+(The wrapping process is not very good, and sometimes long equations are not wrapped, which may cause the layout to break.
+Although the calculation is not affected, it becomes very difficult to read.
+Since the purpose is to enter a function and quickly check the graph,
+it’s better not to input long equations unless necessary.
+I plan to review this when I have time... hopefully.)
+</p>
+</li>
+<li class="pb40">
+<p>
+Entering Long Equations 2
+</p>
+<p id="09&094"; class="pb10">
+When part of an equation is repeated,
+you can enter the equation in the "where, $r = $" input box and replace the repeated part with "r" to save input effort.
+If not needed, you don’t have to enter anything.
+</p>
+</li>
+
+<!-- Supplementary Explanation -->
+<div class="bd15 fwb"> == Notes == </div>
+<p id="*1">
+[1.]
+</p>
+<p>
+This page uses Local Storage to retain data for the following two points:
+The position of the selected list in the select box The background color of the drawing window
+</p>
+<p class="pb10">
+For the first point, since the number of selectable items is quite large,
+it would be cumbersome to go through the list from the beginning to find the desired item each time
+the browser refresh button is clicked or the page is reopened after closing it.
+Therefore, a checkbox has been added to save the position of the selected list as shown below.
+</p>
+<p>
+When you check the box and select a specific item,
+the checkbox being ON and the number of the selected list will be saved in Local Storage.
+Even if you click the browser's refresh button or close the page,
+the data will be saved, so the desired item will be selected as soon as the page is displayed.
+</p>
+<p>
+However, if you uncheck the box, the data stored in Local Storage will be deleted along with the key,
+so when the browser's refresh button is clicked or the page is reopened after closing it,
+the first item in the list will be selected again.
+</p>
+<p>
+The data (key, value) stored in Local Storage includes the following two points:
+</p>
+<p class="pb10">
+The second point relates to the background of the thumbnails (rendered surfaces) used on this page,
+which can be either black or white. Personally,
+I find the black background easier to see, but I realized that on smaller screens,
+the lines blend into the black background, making it quite difficult to see.
+Therefore, a checkbox has been added to switch the background between black and white, as shown below.
+By default, the checkbox is unchecked, and the background is black.
+When you check the box, the background changes to white.
+</p>
+<p>
+When you check the box, the checkbox being ON and the white background setting will be saved in Local Storage.
+Even if you click the browser's refresh button or close the page,
+the data will be saved, so the background of the drawing window will be white as soon as the page is displayed.
+</p>
+<p>
+However, if you uncheck the box, the data stored in Local Storage will be deleted along with the key,
+so when the browser's refresh button is clicked or the page is reopened after closing it,
+the background of the drawing window will revert to black.
+</p>
+<p>
+The data (key, value) stored in Local Storage includes the following two points:
+</p>
+<p>
+The data stored in Local Storage can be checked from your browser's settings screen. <a href="#">Back</a>

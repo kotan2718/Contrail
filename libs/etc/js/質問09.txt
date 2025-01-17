@@ -1,0 +1,250 @@
+以下、ダメだった！
+
+math.jsについての質問です。
+
+htmlページで方程式を入力して、[START]ボタンを押下することで、
+js側で入力された数式が評価され、解軌道をプロットする処理を行っています。
+
+htmlの①の部分で式を入力しています。
+式を以下に示します。
+x * x * (y - x) + pow(y, 5)
+この入力だと、特に問題はないのですが、
+x * x * (y - x) + math.pow(y, 5)
+に変更すると、math.pow(y, 5)の下に赤い波線が表示され、
+入力エラーになってしまいます。
+
+math.jsはmath.pow()を備えているはずですが、
+どうしてエラーが出るのでしょうか？
+よろしくお願いします。
+
+以下に、htmlとjsのコード(一部)を示します。
+
+==html==
+
+<!DOCTYPE HTML >
+<html lang="ja">
+
+<HEAD>
+    <META charset="UTF-8">
+
+    <title>Differential Equations</title>
+
+    <!-- js start -->
+
+    <!-- Math.js -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.4.4/math.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            TeX: { equationNumbers: { autoNumber: "AMS" }},
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                processEscapes: true
+            },
+            "HTML-CSS": { matchFontHeight: false },
+            displayAlign: "left",
+            displayIndent: "2em"
+        });
+    </script>
+
+    <!-- js end -->
+
+</HEAD>
+
+<BODY id="common-k" onload="initialize()">
+
+    <div id="container">
+        <div id="main990"> <!-- page main: start -->
+            <!-- contents -->
+            <div class="pic-left990 pb30">
+                <div class="contents-2col-left" >
+                    <!--省略-->
+                </div>
+                <div class="contents-2col-right" >
+                    <div>
+                        <p id="equation_input" class="pb10">
+                            方程式
+                        </p>
+                    </div>
+                    <div>
+                        <!-- 入力ボックス -->
+                        <p class="pb10 input-container">
+                            <label id="l_dxdt">$dx / dt = $</label>
+                            <textarea id="dxdt" cols="30" rows="2">x * x * (y - x) + pow(y, 5)</textarea> <!-- ① -->
+                        </p>
+                        <p class="pb10 input-container">
+                            <label id="l_dydt">$dy / dt = $</label>
+                            <textarea id="dydt" cols="30" rows="2">y * y * (y - 2 * x)</textarea>
+                        </p>
+                        <p class="pb10 input-container2">
+                            <label id="l_where">$\quad$ where, $\quad r = $</label>
+                            <textarea id="dxdy_where" cols="30" rows="1"></textarea>
+                        </p>
+                    </div>
+                    <div>
+                        <!-- 方程式の表示(TeX) -->
+                        <p id="equation_default" class="pb10">
+                            方程式
+                        </p>
+                        <p class="pb10">
+                            <!---->
+                            <label><span id="dx"></span></label>
+                            <label><span id="dy"></span></label>
+                            <label><span id="where"></span></label>
+                        </p>
+                        <!---->
+                    </div>
+                    <div id="targetDiv" style="margin-top: 0px">
+                        <p class="pb20">
+                            描画範囲
+                            &emsp;
+                            <input type="text" id="width0" value="8" onchange="updateRange()" style="width:50px; text-align:right;">
+                            &emsp;
+                            <label for="min"><span id="wmin"></span></label> \( < x, y < \) <label for="max"><span id="wmax"></span></label>
+                        </p>
+                        <p class="pb15">
+                            刻み幅
+                            &emsp;
+                            <input type="text" id="dh" value="0.01" style="width:50px; text-align:right;">
+                        </p>
+                        <p class="pb15">
+                            繰返し
+                            &emsp;
+                            <input type="text" id="cnt_dp" value="320" style="width:50px; text-align:right;">
+                        </p>
+                    </div>
+                    <div>
+                        <p>
+                            <button class="btn-radius-solid" id="start" onclick="startAnimation()">Start</button>
+                            &emsp;&emsp;&nbsp;&nbsp;
+                            <button class="btn-radius-solid" id="stop" onclick="stopAnimation()">Stop</button>
+                            &emsp;&emsp;&emsp;
+                            reset&nbsp;
+                            <input type="checkbox" id="cb_reset" onclick="handleCheckbox(this.checked)" checked>
+                        </p>
+                    </div>
+                    <div class="grid2a">
+                        <div class="grid-item">
+                            <p>
+                            </p>
+                        </div>
+                        <div class="grid-item">
+                            <p class="cLink">
+                                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                                <!-- 戻るリンク -->
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+</BODY>
+</html>
+
+
+
+
+
+==js==
+
+// user define 関連
+var formula_dx;
+var formula_dy;
+var formula_where;
+var node_dx;
+var node_dy;
+var node_where;
+
+function startAnimation() {
+    if (dat == 99) {
+        // 20240513 add for user definition
+        formula_dx = document.getElementById('dxdt').value;
+        formula_dy = document.getElementById('dydt').value;
+        formula_where = document.getElementById('dxdy_where').value;
+        // 式を表示する
+        node_dx = math.parse(formula_dx);
+        node_dy = math.parse(formula_dy);
+        node_where = math.parse(formula_where);
+
+        var dxTex = "\\frac{dx}{dt} &=& " + node_dx.toTex();
+        var dyTex = "\\frac{dy}{dt} &=& " + node_dy.toTex();
+        var whereTex = "r = " + node_where.toTex();
+        // "\cdot" を削除する
+        dxTex = dxTex.replace(/\\cdot/g, "");
+        dyTex = dyTex.replace(/\\cdot/g, "");
+        whereTex = whereTex.replace(/\\cdot/g, "");
+
+        // 長い式を分割
+        var maxLineLength = 50; // 最大文字数（調整可能）
+        var splitDxTex = splitLongTex(dxTex, maxLineLength);
+        var splitDyTex = splitLongTex(dyTex, maxLineLength);
+
+        document.getElementById('dx').innerHTML = "\\[ \\begin{eqnarray*}" + splitDxTex + "\\end{eqnarray*} \\]";
+        document.getElementById('dy').innerHTML = "\\[ \\begin{eqnarray*}" + splitDyTex + "\\end{eqnarray*} \\]";
+        if (whereTex == "r = undefined") {
+            document.getElementById('where').innerHTML = "$\\;$ where, $\\;r = $ unused";
+        }
+        else {
+            document.getElementById('where').innerHTML = "$\\;$ where, $\\;" + whereTex + "$";
+        }
+    }
+
+    // 描画領域をリセット
+    if (resetFlg == true) {
+        ctx.fillStyle = 'rgb( 0, 0, 0)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
+    // 他の処理が終わった後にMathJaxを再度実行する
+    TeX();
+
+    // 描画の実行
+    animateGraph();
+}
+
+async function animateGraph() {
+    // この関数からFNF()とFNG()がコールされる
+}
+
+function FNF(dt, x, y) {
+    let FNF;
+    switch (dat)
+    {
+        case 99:
+            FNF = f(dt, x, y);
+            return FNF;
+        default:
+            break;
+    }
+    return 0.0;
+}
+
+function FNG(dt, x, y) {
+    let FNG;
+    switch (dat)
+    {
+        case 99:
+            FNG = g(dt, x, y);
+            return FNG;
+        default:
+            break;
+    }
+    return 0.0;
+}
+
+function f(dt, x, y) {
+    // まず、rを計算
+    let r = math.evaluate(formula_where, { x: x, y: y });
+    // 次に、計算されたrを使って最終的な数式を評価
+    return math.evaluate(formula_dx, { dt: dt, x: x, y: y, r: r });
+}
+
+function g(dt, x, y) {
+    // まず、rを計算
+    let r = math.evaluate(formula_where, { x: x, y: y });
+    // 次に、計算されたrを使って最終的な数式を評価
+    return math.evaluate(formula_dy, { dt: dt, x: x, y: y, r: r });
+}
+
+

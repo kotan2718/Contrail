@@ -1,0 +1,220 @@
+<!DOCTYPE HTML >
+<html>
+
+<HEAD>
+    <META charset="UTF-8">
+    <META name="description" content="This page plots graphs of implicit functions. It is called from the document page that plots solution trajectories of differential equations. ">
+    <META name="keywords" content="implicit,function,graph">
+
+    <title>Differential Equations</title>
+
+    <!-- favicon-->
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- css start -->
+
+        <!-- kz_etc start :: class指定:change_border_color, 全ファイル共通:リンク文字色, フォーカスリング -->
+        <link rel="stylesheet" href="libs/etc/css/kz_footer_style.css" type="text/css">
+        <link rel="stylesheet" href="libs/etc/css/kz_etc_style.css" type="text/css">
+        <!-- kz_etc end -->
+
+    <!-- css end -->
+
+    <!-- js start -->
+
+        <!-- jQuery start -->
+        <script src="libs/jQuery/js/jquery-1.6.1.min.js" type="text/javascript"></script>
+
+            <!-- kz_style start - img jq_blink, img jq_change -->
+            <script src="libs/jQuery/kz/js/jq_kz_style.js" type="text/javascript"></script>
+            <!-- kz_style end -->
+
+        <!-- jQuery end -->
+
+        <!-- Sandbox DropDownMenu start -->
+        <script src="libs/sandbox/js/script.js" type="text/javascript"></script>
+        <!-- Sandbox DropDownMenu end -->
+
+        <script type="text/javascript"
+          src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        </script>
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+            TeX: { equationNumbers: { autoNumber: "AMS" }},
+            tex2jax: {
+              inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+              processEscapes: true
+            },
+            "HTML-CSS": { matchFontHeight: false },
+            displayAlign: "left",
+            displayIndent: "2em"
+          });
+        </script>
+
+        <!-- deq initialize -->
+        <script src="libs/etc/js/deq00_if_v2.js" type="text/javascript"></script>
+
+    <!-- js end -->
+
+</HEAD>
+
+<BODY id="common-k" onload="initialize()">
+
+    <div id="container">
+
+        <header>
+            <a name="page_top"></a>
+            <div class="center jQ_change navbox" >
+                <nav>
+                    <IMG src="image/top/Contrail_g.png" height="20" class="logo_img">
+                    <ul class="menu" id="menu" >
+                        <li><a href="index.html" class="menulink">Home</a></li>
+                        <li><a href="whatnew.html" class="menulink">What's New</a></li>
+                        <li><a href="etc.html" class="menulink">E.T.C.</a></li>
+                        <li><a href="fs01.html" class="menulink">The Scenery</a>
+                            <ul>
+                                <li><a href="fs01_sc_top.html" class="sub">Screen Shots</a></li>
+                                <li><a href="fs01_ls_top.html" class="sub">Snap Shots</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="link01.html" class="menulink">Links</a></li>
+                        <li class="about"><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                    </ul>
+                </nav>
+                <div class="c-both"></div>
+            </div>
+            <!-- Sandbox DropDownMenu start-->
+            <script type="text/javascript">
+                var menu=new menu.dd("menu");
+                menu.init("menu","menuhover");
+            </script>   <!-- Sandbox DropDownMenu end -->
+        </header>
+
+        <div id="main990"> <!-- page main: start -->
+
+            <!-- title -->
+            <div id="title20">
+                <h3 class="pt30 pb20">
+                    Implicit Function
+                </h3>
+            </div>
+
+            <!-- contents -->
+            <div class="pic-left990 pb30">
+                <div class="contents-2col-left" >
+                    <p class="pb15" align="right">
+                        <select id="type" onchange="changeType()">
+                            <option value="01&01">&emsp;&emsp;1. concentric circles</option>
+                            <option value="04&06">&emsp;&emsp;2. lemniscate</option>
+                            <option value="04&10">&emsp;&emsp;3. folium of Descartes</option>
+                            <option value="04&09">&emsp;&emsp;4. Cassini oval</option>
+                            <option value="04&22">&emsp;&emsp;5. example of 4th-order curve</option>
+                            <option value="04&11">&emsp;&emsp;6. derivatives of "folium of Descartes"</option>
+                            <option value="04&12">&emsp;&emsp;7. case of the periodicity of trigonometric functions is reflected</option>
+                        </select>
+                    </p>
+                    <p class="pb10">
+                        <canvas id="graphCanvas" width="580" height="580" style="border: 1px solid #000;"></canvas>
+                    </p>
+                    <p class="cLink pb20" align="right">
+                        <!-- 戻るリンク -->
+                    </p>
+                </div>
+
+                <!-- deq javascript呼び出し -->
+                <script src="libs/etc/js/deq01_if_v2.js" type="text/javascript"></script>
+
+                <div class="contents-2col-right" >
+                    <p class="pb5">
+                        <label for="dx"><span id="dx"></span></label>
+                    </p>
+                    <p class="pb30">
+                        <label for="where"><span id="where"></span></label>
+                    </p>
+                    <p class="pb10">
+                        Const
+                    </p>
+                    <p class="pb10">
+                        <label for="ma" style="width: 20px; display: inline-block">1:</label>
+                        <input type="text" id="ma" value="" style="width:40px; text-align:right;">
+                        &emsp;
+                        <label for="me" style="width: 20px; display: inline-block">5:</label>
+                        <input type="text" id="me" value="" style="width:40px; text-align:right;"><br>
+
+                        <label for="mb" style="width: 20px; display: inline-block">2:</label>
+                        <input type="text" id="mb" value="" style="width:40px; text-align:right;">
+                        &emsp;
+                        <label for="mf" style="width: 20px; display: inline-block">6:</label>
+                        <input type="text" id="mf" value="" style="width:40px; text-align:right;"><br>
+
+                        <label for="mc" style="width: 20px; display: inline-block">3:</label>
+                        <input type="text" id="mc" value="" style="width:40px; text-align:right;">
+                        &emsp;
+                        <label for="mg" style="width: 20px; display: inline-block">7:</label>
+                        <input type="text" id="mg" value="" style="width:40px; text-align:right;"><br>
+
+                        <label for="md" style="width: 20px; display: inline-block">4:</label>
+                        <input type="text" id="md" value="" style="width:40px; text-align:right;">
+                        &emsp;
+                        <label for="mh" style="width: 20px; display: inline-block">8:</label>
+                        <input type="text" id="mh" value="" style="width:40px; text-align:right;"><br>
+                    </p>
+
+
+                    <p class="pb50">
+                        Drawing Range
+                        &emsp;
+                        <input type="text" id="width0" value="6" onchange="updateRange()" style="width:50px; text-align:right;">
+                        &emsp;
+                        <label for="min"><span id="wmin"></span></label> \( < x, y < \) <label for="max"><span id="wmax"></span></label>
+                    </p>
+                    <p class="pb10">
+                        <button class="btn-radius-solid" id="start" onclick="startAnimation()">Start</button>
+                        &emsp;&emsp;&emsp;
+                        reset&nbsp;
+                        <input type="checkbox" id="cb_reset" onclick="handleCheckbox(this.checked)" checked>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+
+<!--    <script src="libs/etc/js/deq01.js" type="text/javascript"></script> -->
+
+        <footer>
+
+            <hr id="footer"> <!-- horizontal partition -->
+
+            <div class="jQ_change center" > <!-- select button whole: start -->
+                <p id="footer"> <!-- select button: start -->
+                    <a href="etc.html">
+                        <IMG src="image/button/back_off.gif" border="0" alt="Back" >
+                    </a>
+                </p> <!-- select button: end -->
+            </div> <!-- select button whole: end -->
+
+            <div class="wrap">
+            </div>
+            <div class="footer_bottom_fixed">
+                copyright &copy; 2003 -
+                <script type="text/javascript" language="JavaScript">
+                    date = new Date();
+                    document.write(date.getFullYear() + ' ');
+                </script>
+                <nonscript>
+                </nonscript>
+                Contrail -kotan- all rights reserved
+            </div>
+
+        </footer>
+
+    </div>
+
+</BODY>
+
+
+</html>

@@ -1,0 +1,2111 @@
+<!DOCTYPE HTML >
+<html>
+
+<HEAD>
+    <META charset="UTF-8">
+    <META name="description" content="This is a simple explanation of the page plots approximate solutions to autonomous systems of two-dimensional simultaneous differential equations. I'm also explaining how to enter any equation and check the solution orbit in this page.">
+    <META name="keywords" content="explanation,autonomous,system,two-dimensional,simultaneous,differential,equations,free,input">
+
+    <title>Differential Equation Petit Document</title>
+
+    <!-- favicon-->
+    <link rel="shortcut icon" href="image/SRTLM_img/favicon.ico">
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- css start -->
+
+        <!-- kz_etc start :: class指定:change_border_color, 全ファイル共通:リンク文字色, フォーカスリング -->
+        <link rel="stylesheet" href="libs/etc/css/kz_footer_style.css" type="text/css">
+        <link rel="stylesheet" href="libs/etc/css/kz_etc_style.css" type="text/css">
+        <!-- kz_etc end -->
+
+    <!-- css end -->
+
+    <!-- js start -->
+
+        <!-- jQuery start -->
+        <script src="libs/jQuery/js/jquery-1.6.1.min.js" type="text/javascript"></script>
+        <!-- kz_style start - img jq_blink, img jq_change -->
+        <script src="libs/jQuery/kz/js/jq_kz_style.js" type="text/javascript"></script>
+        <!-- kz_style end -->
+        <!-- jQuery end -->
+
+        <!-- Sandbox DropDownMenu start -->
+        <script src="libs/sandbox/js/script.js" type="text/javascript"></script>
+        <!-- Sandbox DropDownMenu end -->
+
+        <script type="text/javascript"
+            src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        </script>
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                TeX: { equationNumbers: { autoNumber: "AMS" }},
+                tex2jax: {
+                    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                    processEscapes: true
+                },
+                "HTML-CSS": { matchFontHeight: false },
+                displayAlign: "left",
+                displayIndent: "2em"
+            });
+        </script>
+
+        <!-- deq initialize -->
+        <script src="libs/etc/js/deq00_doc2.js" type="text/javascript"></script>
+
+    <!-- js end -->
+
+</HEAD>
+
+<BODY id="common-k" onload="initialize()">
+
+    <header>
+        <a name="page_top"></a>
+        <div class="center jQ_change navbox" >
+            <nav>
+                <IMG src="image/top/Contrail_g.png" height="20" class="logo_img">
+                <ul class="menu" id="menu" >
+                    <li><a href="index.html" class="menulink">Home</a></li>
+                    <li><a href="whatnew.html" class="menulink">What's New</a></li>
+                    <li><a href="etc.html" class="menulink">E.T.C.</a></li>
+                    <li><a href="fs01.html" class="menulink">The Scenery</a>
+                        <ul>
+                            <li><a href="fs01_sc_top.html" class="sub">Screen Shots</a></li>
+                            <li><a href="fs01_ls_top.html" class="sub">Snap Shots</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="link01.html" class="menulink">Links</a></li>
+                    <li class="about"><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                </ul>
+            </nav>
+            <div class="c-both"></div>
+        </div>
+        <!-- Sandbox DropDownMenu start-->
+        <script type="text/javascript">
+            var menu=new menu.dd("menu");
+            menu.init("menu","menuhover");
+        </script>    <!-- Sandbox DropDownMenu end -->
+    </header>
+
+    <div id="main720"> <!-- page main: start -->
+
+        <!-- title -->
+        <div id="title20">
+            <h3 class="pt30 pb40">
+                Differential Equations : Plotting Trajectory of Solutions<br>
+                Simplified Explanation
+            </h3>
+        </div>
+
+        <!-- contents -->
+        <div class="pic-left720 pb40">
+            <div class="fwm pb10">
+                <p class="pb10">
+                    This tool plots solution curves of 2-dimensional differential equations.
+                    Even relatively simple equations can be quite challenging to solve analytically,
+                    and sometimes they cannot be solved analytically at all.
+                    Therefore,  I have created a tool that utilizes the differential equations directly
+                    to easily plot approximate solutions on the web.
+                    The approximation is primarily performed using the 4th-order Runge-Kutta method,
+                    although Euler's method and modified Euler's method are also available options.
+                    Initial values are randomly selected in the first quadrant and mirrored across the other three quadrants,
+                    resulting in a total of 64 initial points for simultaneous plotting.
+                </p>
+                <p class="pb10">
+                    The blue lines that appear when plotting starts represent trajectories evolving forward in time
+                    from the initial values. After a while, yellow lines will appear,
+                    representing trajectories evolving backward in time from the initial values.
+                    By observing the movement of these blue and yellow lines,
+                    you can gain insights into the properties of the solution curves.
+                </p>
+                <p class="fwb pb10">
+                    ( The drawing page uses Local Storage. Refer to <a href="#*1">Notes [1]</a> .  )
+                </p>
+                <p>
+                    Now, let's provide a brief explanation according to the list displayed in the select box on the drawing page. <br>
+                </p>
+                <p class="pb10">
+                    The following explanations are based on excerpts from <a href="https://www.asakura.co.jp/author_books.php?author_code=48217" target="_blank">
+                    "Mitsuo Morimoto's "Differential Equations by Computer"</a>.
+                </p>
+            </div>
+
+            <div class="fwb pb30">
+                <ul class="list_none pb40, pl40">
+                    <li class="pb10"><a href="#a1">[01] 2-Dimensional Linear Autonomous System of 1 Order</a></li>
+                    <li class="pb10"><a href="#a2">[02] 2-Dimensional Linear Autonomous System of 2 Order</a></li>
+                    <li class="pb10"><a href="#a3">[03] 2-Dimensional Linear Simultaneous Autonomous System of High-order</a></li>
+                    <li class="pb10"><a href="#a4">[04] 2-Dimensional Autonomous System Examples</a></li>
+                    <li class="pb10"><a href="#a99">[99] User difined Equations</a></li>
+                </ul>
+            </div>
+
+            <div class="pic-left720 fwb pb20">
+                <div class="contents-title-left pb20"
+                    <p id="a1">
+                        [01]&nbsp;2-Dimensional Linear Autonomous System of 1 Order
+                    </p>
+                </div>
+                <div class="contents-title-right"
+                    <p>
+                        <!--<a href="#title20">to Top</a>-->
+                    </p>
+                </div>
+                <div class="c-both"></div>
+                <p class="pb10">
+                    \[ \frac{dx}{dt} = ax + by \]
+                    \[ \frac{dy}{dt} = cx + dy \]
+                </p>
+                <p class="pl0 pb10 fwm">
+                    By setting values in the coefficient input boxes $a, b, c, d$,
+                    various solution curves will be dynamically plotted. <br>
+                    Feel free to try setting the values as given in the examples.
+                    You should see solution curves corresponding to the explanations.
+                </p>
+                <p class="pl0 pb10 fwm">
+                    Here, $a, b, c, d$ are real numbers, all of which are assumed to be nonzero,
+                    and we introduce a real coefficient 2x2 square matrix $A$.
+                </p>
+                <p class="pb10">
+                    \[ A = \pmatrix{
+                        a & b \cr
+                        c & d \cr
+                    } \]
+                </p>
+                <p class="p10 pb10 fwm">
+                    Let $\lambda_1, \lambda_2$ be the eigenvalues of $A$.
+                    In the following explanations,
+                    the term "line corresponding to the eigenvalue" refers to the eigenspaces of each eigenvalue.
+                    For a 2x2 square matrix, eigenspaces generally correspond to lines passing through the origin.
+                </p>
+                <ol class="fwm pb40, pl40">
+                    <li>
+                        <p id="01&01"; class="pb10 fwb fss">
+                            When one of the eigenvalues is 0:
+                        </p>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                e.g.
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=01%2601">to Plot</a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                \[ \frac{dx}{dt} = x + y \]
+                                \[ \frac{dy}{dt} = 2x + 2y \]
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=01%2601">
+                                    <img src="image/DEQ_img/deq2_0101_20.jpg" border="0">
+                                </a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <p class="pb10">
+                            \[ A = \pmatrix{
+                                1 & 1 \cr
+                                2 & 2 \cr
+                            } \]
+                        </p>
+                        <p class="pb10">
+                            If $\lambda_1 = 0$ and $\lambda_2 = 3 > 0$,
+                            the solution curves are half-lines parallel to the line $y = 2x$ corresponding to $\lambda_2$,
+                            emanating from points on the line $y = -x$ corresponding to $\lambda_1$, extending to infinity.
+                        </p>
+                        <p class="pb10">
+                            If $\lambda_1 = 0$ and $\lambda_2 < 0$, the direction of the solution curves reverses.
+                        </p>
+                    </li>
+                    <li>
+                        <p id="01&02"; class="pb10 fwb fss">
+                            When the eigenvalues are $\lambda_1 < 0 < \lambda_2$ (saddle point):
+                        </p>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                e.g.
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=01%2602">to Plot</a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                            \[ \frac{dx}{dt} = -2x + 2y \]
+                            \[ \frac{dy}{dt} = -2x + 3y \]
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=01%2602">
+                                    <img src="image/DEQ_img/deq2_0102_20.jpg" border="0">
+                                </a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <p class="pb10">
+                            \[ A = \pmatrix{
+                                -2 & 2 \cr
+                                -2 & 3 \cr
+                            } \]
+                        </p>
+                        <p class="pb10">
+                            Given $\lambda_1 = -1 < 0$ and $\lambda_2 = 2 > 0$,
+                            the solution curves emanate from infinity along the line $y = 2x$ corresponding to $\lambda_2$,
+                            are attracted towards the origin,
+                            then change direction along the line $2y = x$ corresponding to $\lambda_1$,
+                            and head towards infinity again.
+                        </p>
+                    </li>
+                    <li>
+                        <p id="01&03"; class="pb10 fwb fss">
+                            When $0 < \lambda_1 < \lambda_2$ (unstable node or source):
+                        </p>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                e.g.
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=01%2603">to Plot</a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                \[ \frac{dx}{dt} = x \]
+                                \[ \frac{dy}{dt} = 2y \]
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=01%2603">
+                                    <img src="image/DEQ_img/deq2_0103_20.jpg" border="0">
+                                </a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <p class="pb10">
+                            \[ A = \pmatrix{
+                                1 & 0 \cr
+                                0 & 2 \cr
+                            } \]
+                        </p>
+                        <p class="pb10">
+                            Given $\lambda_1 = 1 > 0$ and $\lambda_2 = 2 > 0$,
+                            the solution curves emanate from the origin along the line $y = 0$ (x-axis)  corresponding to $\lambda_1$ and
+                            head towards infinity along the line x = 0 (y-axis) corresponding to $\lambda_2$.
+                        </p>
+                    </li>
+                    <li>
+                        <p id="01&04"; class="pb10 fwb fss">
+                            When $0 < \lambda_1 < \lambda_2$ (unstable node or source) 2:
+                        </p>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                e.g.
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=01%2604">to Plot</a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                \[ \frac{dx}{dt} = x \]
+                                \[ \frac{dy}{dt} = 3x + 2y \]
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=01%2604">
+                                    <img src="image/DEQ_img/deq2_0104_20.jpg" border="0">
+                                </a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <p class="pb10">
+                            \[ A = \pmatrix{
+                                1 & 0 \cr
+                                3 & 2 \cr
+                            } \]
+                        </p>
+                        <p class="pb10">
+                            Given $\lambda_1 = 1 > 0$ and $\lambda_2 = 2 > 0$,
+                            the solution curves emanate from the origin along the line $y = -3x$ corresponding to $\lambda_1$ and
+                            head towards infinity along the line x = 0 (y-axis) corresponding to $\lambda_2$.
+                        </p>
+                    </li>
+                    <li>
+                        <p id="01&05"; class="pb10 fwb fss">
+                            When $ \lambda_1 < \lambda_2 < 0$ (stable node or sink):
+                        </p>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                e.g.
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=01%2605">to Plot</a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                \[ \frac{dx}{dt} = -4x - 3y \]
+                                \[ \frac{dy}{dt} = 2x -11y \]
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=01%2605">
+                                    <img src="image/DEQ_img/deq2_0105_20.jpg" border="0">
+                                </a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <p class="pb10">
+                            \[ A = \pmatrix{
+                               -4 & -3 \cr
+                                2 & -11 \cr
+                            } \]
+                        </p>
+                        <p class="pb10">
+                            Given $\lambda_1 = -10 < 0$ and $\lambda_2 = -5 < 0$,
+                            the solution curves emanate from infinity along the line $y = 2x$ corresponding to $\lambda_1$ and
+                            converge towards the origin along the line $3y = x$ corresponding to $\lambda_2$.
+                        </p>
+                    </li>
+                    <li>
+                        <p id="01&06"; class="pb10 fwb fss">
+                            When the eigenvalue $\lambda$ is repeated, and matrix $A$ is diagonalizable: <br>
+                            If $\lambda > 0$, it becomes an unstable degenerate node or degenerate source.
+                        </p>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                e.g.
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=01%2606">to Plot</a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                \[ \frac{dx}{dt} = 2x \]
+                                \[ \frac{dy}{dt} = 2y \]
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=01%2606">
+                                    <img src="image/DEQ_img/deq2_0106_20.jpg" border="0">
+                                </a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <p class="pb10">
+                            \[ A = \pmatrix{
+                                2 & 0 \cr
+                                0 & 2 \cr
+                            } \]
+                        </p>
+                        <p class="pb10">
+                            Given $\lambda_1 = \lambda_2 = 2 < 0 $,
+                            the solution curves emanate from the origin and extend to infinity, forming a half-line.
+                        </p>
+                        <p class="pb10">
+                            When $\lambda < 0$, the solution curves emanate from infinity and converge towards the origin,
+                            forming a half-line (stable degenerate node or degenerate sink).
+                        </p>
+                    </li>
+                    <li>
+                        <p id="01&07"; class="pb10 fwb fss">
+                            When the eigenvalue $\lambda$ is repeated,  and matrix $A$ is not diagonalizable: <br>
+                            If $\lambda > 0$, it becomes an unstable degenerate node or degenerate source.
+                        </p>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                e.g.
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=01%2607">to Plot</a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                \[ \frac{dx}{dt} = 2x + y \]
+                                \[ \frac{dy}{dt} = 2y \]
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=01%2607">
+                                    <img src="image/DEQ_img/deq2_0107_20.jpg" border="0">
+                                </a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <p class="pb10">
+                            \[ A = \pmatrix{
+                                2 & 1 \cr
+                                0 & 2 \cr
+                            } \]
+                        </p>
+                        <p class="pb10">
+                            Although the eigenvalue is repeated with $\lambda = 2$,
+                            matrix $A$ cannot be diagonalized.
+                            The solution curves emanate from the origin and extend towards infinity along the $y = 0$ (x-axis),
+                            forming a stable degenerate node or degenerate sink.
+                            <!-- 固有値は重根で $\lambda = 2$ であるが、行列Aは対角化できない。
+                            解曲線は原点より発し、固有値 $\lambda$ に対応する直線 $y = 0 \,  (x軸)$ に沿って無限遠に至る。-->
+                        </p>
+                        <p class="pb10">
+                            If $\lambda < 0$, the solution curves emanate from infinity and converge towards the origin
+                            along the line corresponding to the eigenvalue lambda.
+                            (Stable degenerate node or degenerate sink).
+                        </p>
+                    </li>
+                    <li>
+                        <p id="01&08"; class="pb10 fwb fss">
+                            When the eigenvalues are purely imaginary (center):
+                        </p>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                e.g.
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=01%2608">to Plot</a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                \[ \frac{dx}{dt} = x + 2y \]
+                                \[ \frac{dy}{dt} = -x - y \]
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=01%2608">
+                                    <img src="image/DEQ_img/deq2_0108_20.jpg" border="0">
+                                </a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <p class="pb10">
+                            \[ A = \pmatrix{
+                                1 &  2 \cr
+                               -1 & -1 \cr
+                            } \]
+                        </p>
+                        <p class="pb10">
+                            The eigenvalues are $\lambda = \pm i$.
+                            The solution curves depict elliptical orbits centered at the origin (periodic solutions).
+                        </p>
+                    </li>
+                    <li>
+                        <p id="01&09"; class="pb10 fwb fss">
+                            When the eigenvalues have both real and imaginary parts (spiral point):
+                        </p>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                e.g.
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=01%2609">to Plot</a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                \[ \frac{dx}{dt} = -x - y \]
+                                \[ \frac{dy}{dt} = 2x - y \]
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=01%2609">
+                                    <img src="image/DEQ_img/deq2_0109_20.jpg" border="0">
+                                </a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <p class="pb10">
+                            \[ A = \pmatrix{
+                              -1 & -1 \cr
+                               2 & -1 \cr
+                            } \]
+                        </p>
+                        <p class="pb10">
+                            The eigenvalues are $\lambda = -1 \pm \sqrt{2}i$.
+                            When the real part of the eigenvalues is negative,
+                            the solution curves emanate from infinity, spiral around the origin,  and converge towards it,
+                            forming a stable spiral point.
+                        </p>
+                        <p class="pb10">
+                            When the real part of the eigenvalues is positive,
+                            the solution curves spiral around the origin, and extending towards infinity,
+                            representing an unstable vortex point.
+                        </p>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="pic-left720 fwb pb20">
+                <div class="contents-title-left pb20"
+                    <p id="a2">
+                        [02]&nbsp;2-Dimensional Linear Autonomous System of 2 Order
+                    </p>
+                </div>
+                <div class="contents-title-right"
+                    <p>
+                        <!--<a href="#title20">to Top</a>-->
+                    </p>
+                </div>
+                <div class="c-both"></div>
+                <p class="pb10">
+                    \[ \frac{dx}{dt} = ax^2 + bxy + cy^2 \]
+                    \[ \frac{dy}{dt} = dx^2 + exy + fy^2 \]
+                </p>
+                <p class="pl0 pb10 fwm">
+                    By setting values in the coefficient input boxes $a, b, c, d, e, f$ ,
+                    various solution curves will be dynamically plotted. <br>
+                    Here, $a, b, c, d, e, f$ are real numbers, all of which are assumed to be nonzero.
+                </p>
+                <p class="pl0 pb40 fwm">
+                    In Morimoto's book, analytical solutions are presented,
+                    and the properties of solution curves are explained in detail.
+                    However, please note that the explanations provided here are considerably condensed.
+                </p>
+                <ol class="fwm pb40, pl40">
+                    <li class="pb40">
+                        <p id="02&01"; class="pb10 fwb fss">
+                            Node-Saddle Point Type:
+                        </p>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                e.g.
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=02%2601">to Plot</a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                \[ \frac{dx}{dt} = x^2 \]
+                                \[ \frac{dy}{dt} = 2(x - y)^2 \]
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=02%2601">
+                                    <img src="image/DEQ_img/deq2_0201_20.jpg" border="0">
+                                </a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <p class="pb10">
+                            \[ \frac{dx}{dt} = 1 \cdot x^2 + 0 \cdot xy + 0 \cdot y^2 \]
+                            \[ \frac{dy}{dt} = 2 \cdot x^2 - 4 \cdot xy + 2 \cdot y^2 \]
+                            The coefficients are as follows
+                        </p>
+                        <p class="pb10">
+                            $ a = 1, \, b = 0, \, c = 0 $ <br>
+                            $ d = 2, \, e = -4, \, f = 2 $ <br>
+                        </p>
+                        <p class="pb10">
+                            The lines $2y = x$ and $x = 0$ (y-axis) form two hyperbolic sectors.
+                            There are also four parabolic sectors along the line $y = 2x$,
+                            where the solution curves approach the origin,  sandwiched by this line.
+                            The parabolic sectors in the first quadrant are unstable,
+                            while those in the third quadrant are stable.
+                        </p>
+                    </li>
+                    <li class="pb40">
+                        <p id="02&02"; class="pb10 fwb fss">
+                            Degenerate Node-Saddle Point Type:
+                        </p>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                e.g.
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=02%2602">to Plot</a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                \[ \frac{dx}{dt} = 4x^2 \]
+                                \[ \frac{dy}{dt} = x^2 + 4y^2 \]
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=02%2602">
+                                    <img src="image/DEQ_img/deq2_0202_20.jpg" border="0">
+                                </a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <p class="pb10">
+                            \[ \frac{dx}{dt} = 4 \cdot x^2 + 0 \cdot xy + 0 \cdot y^2 \]
+                            \[ \frac{dy}{dt} = 2 \cdot x^2 + 0 \cdot xy + 4 \cdot y^2 \]
+                            The coefficients are as follows
+                        </p>
+                        <p class="pb10">
+                            $ a = 4, \, b = 0, \, c = 0 $ <br>
+                            $ d = 1, \, e = 0, \, f = 4 $ <br>
+                        </p>
+                        <p class="pb10">
+                            The lines $2y = x$ and $x = 0$ (y-axis) form two hyperbolic sectors.
+                            Additionally, there are two parabolic sectors along the line $2y = x$.
+                            The parabolic sector in the first quadrant is unstable,
+                            while that in the third quadrant is stable.
+                        </p>
+                    </li>
+                    <li class="pb40">
+                        <p id="02&03"; class="pb10 fwb fss">
+                            Double Elliptic Type:
+                        </p>
+                        <div class="contents-left">
+                        </div>
+                        <div class="contents-title-right fss">
+                            <p>
+                                <a href="#a2">to Section Top</a>
+                            </p>
+                        </div>
+                        <div class="c-both pb10"></div>
+                        <div class="contents-left pb10">
+                            <p class="pb10">
+                                e.g.
+                            </p>
+                        </div>
+                        <div class="contents-right">
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=02%2603">to Plot</a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <div class="contents-left pb10">
+                            <p class="pb10">
+                                \[ \frac{dx}{dt} = -x^2 + y^2 \]
+                                \[ \frac{dy}{dt} = -2xy \]
+                            </p>
+                        </div>
+                        <div class="contents-right">
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=02%2603">
+                                    <img src="image/DEQ_img/deq2_0203_20.jpg" border="0">
+                                </a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <p class="pb10">
+                            \[ \frac{dx}{dt} = -1 \cdot x^2 + 0 \cdot xy + 1 \cdot y^2 \]
+                            \[ \frac{dy}{dt} =  0 \cdot x^2 - 2 \cdot xy + 0 \cdot y^2 \]
+                            The coefficients are as follows
+                        </p>
+                        <p class="pb10">
+                            $ a = -1, \, b = 0, \, c = 1 $ <br>
+                            $ d = 0, \, e = -2, \, f = 0 $ <br>
+                        </p>
+                        <p class="pb10">
+                            The line $y = 0$ (x-axis) divides the plane into two elliptic sectors.
+                            Solution trajectories start at the origin, form circular arcs tangent to the x-axis,
+                            and converge towards the origin.
+                        </p>
+                    </li>
+                    <li class="pb40">
+                        <p id="02&04"; class="pb10 fwb fss">
+                            Triple Crossing Type:
+                        </p>
+                        <div class="contents-left pb10">
+                            <p class="pb10">
+                                e.g.
+                            </p>
+                        </div>
+                        <div class="contents-right">
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=02%2604">to Plot</a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <div class="contents-left pb10">
+                            <p class="pb10">
+                                \[ \frac{dx}{dt} = x^2 - y^2 \]
+                                \[ \frac{dy}{dt} = -2xy \]
+                            </p>
+                        </div>
+                        <div class="contents-right">
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=02%2604">
+                                    <img src="image/DEQ_img/deq2_0204_20.jpg" border="0">
+                                </a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <p class="pb10">
+                            \[ \frac{dx}{dt} = 1 \cdot x^2 + 0 \cdot xy - 1 \cdot y^2 \]
+                            \[ \frac{dy}{dt} =  0 \cdot x^2 - 2 \cdot xy + 0 \cdot y^2 \]
+                            The coefficients are as follows
+                        </p>
+                        <p class="pb10">
+                            $ a = 1, \, b = 0, \, c = -1 $ <br>
+                            $ d = 0, \, e = -2, \, f = 0 $ <br>
+                        </p>
+                        <p class="pb10">
+                            Compared to the previous double elliptic type,
+                            the equations this time only differ in the signs of $x^2$ and $y^2$,
+                            yet the solution curves completely change. <br>
+                            The solution curves form three ridges and valleys combined,
+                            resembling a three-peaked mountain landscape.
+                            Three lines divide the plane into six hyperbolic sectors.
+                        </p>
+                    </li>
+                    <li class="pb40">
+                        <p id="02&05"; class="pb10 fwb fss">
+                            Node Type 2:
+                        </p>
+                        <div class="contents-left pb10">
+                            <p class="pb10">
+                                e.g.
+                            </p>
+                        </div>
+                        <div class="contents-right">
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=02%2605">to Plot</a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                \[ \frac{dx}{dt} = -x^2 \]
+                                \[ \frac{dy}{dt} = y^2 \]
+                            </p>
+                        </div>
+                        <div class="contents-right">
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=02%2605">
+                                    <img src="image/DEQ_img/deq2_0205_20.jpg" border="0">
+                                </a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <p class="pb10">
+                            \[ \frac{dx}{dt} = 1 \cdot x^2 + 0 \cdot xy + 0 \cdot y^2 \]
+                            \[ \frac{dy}{dt} = 0 \cdot x^2 + 0 \cdot xy + 1 \cdot y^2 \]
+                            The coefficients are as follows
+                        </p>
+                        <p class="pb10">
+                            $ a = 1, \, b = 0, \, c = 0 $ <br>
+                            $ d = 0, \, e = 0, \, f = 1 $ <br>
+                        </p>
+                        <p class="pb10">
+                            The lines $y = 0 $ (x-axis) and $x = 0$ (y-axis) form two hyperbolic sectors.
+                            There are also four parabolic sectors along the line $y = -x$,
+                            where the solution curves approach the origin, sandwiched by this line.
+                            The parabolic sector in the second quadrant is unstable,
+                            while that in the fourth quadrant is stable.
+                        </p>
+                    </li>
+                    <li class="pb40">
+                        <p id="02&06"; class="pb10 fwb fss">
+                            Parabolic Type:
+                        </p>
+                        <div class="contents-left pb10">
+                            <p class="pb10">
+                                e.g.
+                            </p>
+                        </div>
+                        <div class="contents-right">
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=02%2606">to Plot</a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <div class="contents-left pb10"
+                        <p class="pb10">
+                            \[ \frac{dx}{dt} = -x^2 \]
+                            \[ \frac{dy}{dt} = y^2 \]
+                        </p>
+                        </div>
+                        <div class="contents-right">
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=02%2606">
+                                    <img src="image/DEQ_img/deq2_0206_20.jpg" border="0">
+                                </a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <p class="pb10">
+                            \[ \frac{dx}{dt} = -1 \cdot x^2 + 0 \cdot xy + 0 \cdot y^2 \]
+                            \[ \frac{dy}{dt} =  0 \cdot x^2 + 0 \cdot xy + 1 \cdot y^2 \]
+                            The coefficients are as follows
+                        </p>
+                        <p class="pb10">
+                            $ a = -1, \, b = 0, \, c = 0 $ <br>
+                            $ d = 0, \, e = 0, \, f = 1 $ <br>
+                        </p>
+                        <p class="pb10">
+                            The line $y = -x$ divides the plane into two parabolic sectors.
+                            The line $y = 0$ (x-axis) divides the plane into two elliptic sectors.
+                            Solution trajectories reverse direction across this line.
+                        </p>
+                    </li>
+                </ol>
+            </div>
+            <div class="pic-left720 fwb pb20">
+                <div class="contents-title-left pb20"
+                    <p id="a3">
+                        [03]&nbsp;High-order Simultaneous Autonomous System:
+                    </p>
+                </div>
+                <div class="contents-title-right"
+                    <p>
+                        <!--<a href="#title20">to Top</a>-->
+                    </p>
+                </div>
+                <div class="c-both"></div>
+                <p class="pl0 pb10 fwm">
+                    From high-order autonomous systems onwards, coefficients cannot be inputted.
+                    I believe you can understand the circumstances.
+                    Eventually, I would like to create a page where users can define equations freely and
+                    plot their solution curves on the web, but it seems to be a distant plan for now. <br>
+                    For the time being, I would like to introduce equations mentioned in Mr. Morimoto's book.
+                </p>
+                <ol class="fwm pb40, pl40">
+                    <li>
+                        <p id="03&01"; class="pb10 fwb fss">
+                            Homogeneous autonomous system with periodic solution:
+                        </p>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                e.g.
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=03%2601">to Plot</a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                \[ \frac{dx}{dt} = -y^3 \]
+                                \[ \frac{dy}{dt} = x^3 \]
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=03%2601">
+                                    <img src="image/DEQ_img/deq2_0301_20.jpg" border="0">
+                                </a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                    </li>
+                    <li>
+                        <p id="03&02"; class="pb10 fwb fss">
+                            Homogeneous Autonomous System with Eight Parabolic Sectors:
+                        </p>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                e.g.
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=03%2602">to Plot</a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                \[ \frac{dx}{dt} = x^3 \]
+                                \[ \frac{dy}{dt} = y^3 \]
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=03%2602">
+                                    <img src="image/DEQ_img/deq2_0302_20.jpg" border="0">
+                                </a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <p class="pb10">
+                            The plane is divided into eight parabolic sectors by the lines $y = \pm x$ and the $x$ and $y$ axes.
+                        </p>
+                    </li>
+                    <li>
+                        <p id="03&03"; class="pb10 fwb fss">
+                            Homogeneous Autonomous System with Compound Sectors:
+                        </p>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                e.g.
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=03%2603">to Plot</a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                \[ \frac{dx}{dt} = x^2(y - x) \]
+                                \[ \frac{dy}{dt} = y^2(y - 2x) \]
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=03%2603">
+                                    <img src="image/DEQ_img/deq2_0303_20.jpg" border="0">
+                                </a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <p class="pb10">
+                            The plane is divided into eight sectors by the lines $2y = (3 \pm \sqrt{5})x$ and the $x$ and $y$ axes.
+                            It consists of two hyperbolic sectors, two elliptic sectors,  and four parabolic sectors.
+                        </p>
+                    </li>
+                    <li>
+                        <p id="03&04"; class="pb10 fwb fss">
+                            Vinograd's Autonomous System:
+                        </p>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                e.g.
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=03%2604">to Plot</a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                \[ \frac{dx}{dt} = x^2(y - x) + y^5 \]
+                                \[ \frac{dy}{dt} = y^2(y - 2x) \]
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=03%2604">
+                                    <img src="image/DEQ_img/deq2_0304_20.jpg" border="0">
+                                </a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <p class="pb10">
+                            This is similar to the previous compound sector form,
+                            with the addition of $y^5$ on the right side of $dx/dt$.
+                            However, symmetrical elliptic sector patterns reminiscent of "The Scream" by Edvard Munch appear,
+                            with $y = 0$ (x-axis) as the dividing line.
+                        </p>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="pic-left720 fwb pb20">
+                <div class="contents-title-left pb20"
+                    <p id="a4">
+                        [04]&nbsp;Autonomous System Examples
+                    </p>
+                </div>
+                <div class="contents-title-right"
+                    <p>
+                        <!--<a href="#title20">to Top</a>-->
+                    </p>
+                </div>
+                <div class="c-both"></div>
+
+                <div class="fwb pb30">
+                    <ul class="list_none pb40, pl40">
+                        <li><a href="#04&01">[01] Autonomous system with periodic equilibrium points on x-axis</a></li>
+                        <li><a href="#04&02">[02] Autonomous system with 8 equilibrium points on the circumference</a></li>
+                        <li><a href="#04&03">[03] Autonomous system with periodic equilibrium points on a plane</a></li>
+                        <li><a href="#04&04">[04] Limit Cycle 1 &emsp; Case of the solution orbit is a limit circle </a></li>
+                        <li><a href="#04&05">[05] Limit Cycle 2 &emsp; von del Pol's Autonomous System</a></li>
+                        <li><a href="#04&06">[06] Limit Cycle 3 &emsp; Lemniscate</a></li>
+                        <li><a href="#04&07">[07] Limit Cycle 4 &emsp; Linear approximation with purely imaginary numbers - 1</a></li>
+                        <li><a href="#04&08">[08] Limit Cycle 5 &emsp; Linear approximation with purely imaginary numbers - 2</a></li>
+                        <li><a href="#04&09">[09] Hamilton system 1 &emsp; Cassini oval</a></li>
+                        <li><a href="#04&10">[10] Hamilton system 2 &emsp; folium of Descartes</a></li>
+                        <li><a href="#04&11">[11] Hamilton system 3 &emsp; derivatives of "folium of Descartes"</a></li>
+                        <li><a href="#04&12">[12] Hamilton system 4 &emsp; Case of the periodicity of trigonometric functions is reflected</a></li>
+                    </ul>
+                </div>
+
+                <ol class="fwm pb40,  pl40">
+                    <li>
+                        <p id="04&01"; class="pb10 fwb fss">
+                            Autonomous system with periodic equilibrium points on x-axis:
+                        </p>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                e.g.
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=04%2601">to Plot</a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                \[ \frac{dx}{dt} = y \]
+                                \[ \frac{dy}{dt} = \sin x + y^2 \]
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=04%2601">
+                                    <img src="image/DEQ_img/deq2_0401_20.jpg" border="0">
+                                </a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <p class="pb10">
+                            This autonomous system has the following equilibrium points: <br>
+                            $(p\pi, 0) \quad p = \pm1, \pm2, \ldots $ <br>
+                            When $p$ is even, it becomes a saddle point,
+                            and when it's odd, it becomes a focus point.
+                            Overall, the solution curve resembles fish arranged in a row.
+                            The odd focus points become the eyes of the fish, and the even saddle points become the tails.
+                        </p>
+                        <p class="pb10">
+                            I'll significantly condense Morimoto's detailed explanation.
+                            When $p$ is even, for example when $p = 0, \; \sin x$ can be $approximated$ as $x$ in the vicinity of $x = 0$.
+                            Additionally, if $y^2$ is sufficiently smaller than $x$,
+                            the equations can be expressed as follows:
+                            \[ \frac{dx}{dt} = y \]
+                            \[ \frac{dy}{dt} = x \]
+                            This is called a linear approximation.
+                            The eigenvalues of the corresponding 2x2 square matrix for this equation become $\pm 1$ ,
+                            so the equilibrium points become saddle points.
+                            <a href="#01&02">Refer to [01] - 2</a>
+                        </p>
+                        <p class="pb10">
+                            When $p$ is odd, for example when $p = \pi$,
+                            $\sin x$ can be approximated as $-(x - \pi)$ in the vicinity of $x = 0$.
+                            Additionally, if $x^2$ is sufficiently smaller than $x - \pi$,
+                            the equations can be expressed as follows:
+                            \[ \frac{dx}{dt} = y \]
+                            \[ \frac{dy}{dt} = -(x - \pi) \]
+                            If we take $x - \pi$ and $−y$ as new coordinates:
+                            \[ \frac{dx}{dt} = -y \]
+                            \[ \frac{dy}{dt} = x  \]
+                            The eigenvalues of the corresponding 2x2 square matrix become $\pm i$,
+                            so the equilibrium points become focus points.
+                            <a href="#01&08">Refer to [01] - 8</a>
+                        </p>
+                        <p class="pb10">
+                            The above approximation holds near each equilibrium point,  and as one moves away,
+                            the influence of the terms omitted in the original equation becomes evident,
+                            resulting in trajectories that resemble fish aligned in a row.
+                        </p>
+                    </li>
+                    <li>
+                        <p id="04&02"; class="pb10 fwb fss">
+                            Autonomous system with 8 equilibrium points on the circumference:
+                        </p>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                e.g.
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=04%2602">to Plot</a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                \[ \frac{dx}{dt} = x^2y^2 - 1 \]
+                                \[ \frac{dy}{dt} = x^2 + y^2 - a \]
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=04%2602">
+                                    <img src="image/DEQ_img/deq2_0402_20.jpg" border="0">
+                                </a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <p class="pb10">
+                            This autonomous system has 8 equilibrium points on the circumference $x^2 + y^2 = a$.
+                            There are 2 in each quadrant,  totaling 8. Originally, a fixed value of 4 was assigned to the parameter a,
+                            but now it's made variable.
+                            Please verify what kind of trajectories are drawn by changing the value of $a$,
+                            Since the positions of equilibrium points might be a bit confusing,
+                            a circle is displayed at the end of the plot.
+                            The default plot range is 8,  but if you set it to 16 or 32,
+                            although the trajectories become rough due to random initial values,
+                            the equilibrium points should be easier to confirm.
+                        </p>
+                    </li>
+                    <li>
+                        <p id="04&03"; class="pb10 fwb fss">
+                            Autonomous system with periodic equilibrium points on a plane:
+                        </p>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                e.g.
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=04%2603">to Plot</a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                \[ \frac{dx}{dt} = \cos x + \cos y \]
+                                \[ \frac{dy}{dt} = \sin x \sin y \]
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=04%2603">
+                                    <img src="image/DEQ_img/deq2_0403_20.jpg" border="0">
+                                </a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <p class="pb10">
+                            This autonomous system has equilibrium points at <br>
+                            $
+                                \pmatrix{
+                                    2p\pi \cr
+                                    (2q + 1)\pi \cr
+                                }
+                            $
+                            and
+                            $
+                                \pmatrix{
+                                    (2p + 1)\pi \cr
+                                    2q\pi \cr
+                                },
+                            \;\; $where $p$ and $q$ are integers.
+                        </p>
+                        <p class="pb10">
+                            Similar to 4-1,  performing a first-order approximation near equilibrium points,
+                            the first type of equilibrium points becomes elliptical,
+                            and the second type becomes trisectrix. This repeats on the plane.
+                        </p>
+                    </li>
+                    <li class="pb40">
+                        <p id="04&04"; class="pb10 fwb fss">
+                            Limit Cycle: example 1 <br>
+                            Case of the solution orbit is a limit circle
+                        </p>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                e.g.
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=04%2604">to Plot</a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                \[ \frac{dx}{dt} = ay + ax(1 - x^2 - y^2) \]
+                                \[ \frac{dy}{dt} = cx + dy(1 - x^2 - y^2) \]
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=04%2604">
+                                    <img src="image/DEQ_img/deq2_0404_20.jpg" border="0">
+                                </a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <p class="pb10">
+                            The parameters $ a, b, c, d $ are given the following values:
+                        </p>
+                        <p class="pb10">
+                            $ a = 1, \, b = 1, \, c = -1 , \, d = 1 $
+                        </p>
+                        <p class="pb10">
+                            The concept of a limit cycle was introduced by Poincaré.
+                            In this example,  the limit cycle becomes $x^2 + y^2 = 1$ ,  forming a limit circle.
+                            Regardless of whether the initial values are inside or outside the circle,  they spiral around it.
+                            This limit cycle (limit circle) can be considered stable.
+                        </p>
+                        <p class="pb20">
+                            Although Morimoto has provided a fairly detailed explanation about the limit circle,
+                            I myself have not reached a state of understanding.
+                            Morimoto recommends referring to
+                            <a href="https://www.asakura.co.jp/detail.php?book_code=11415" target="_blank">
+                            "Kasahara Koji's Fundamentals of Differential Equations"</a>
+                            for further understanding.
+                        </p>
+                        <p class="pb10">
+                            Now,  try setting the parameters $ a, b, c, d $ to the following values.
+                            The appearance of the solution trajectories will drastically change.
+                        </p>
+                        <p class="pb10">
+                            $ a = -1,  \,  b = -1,  \,  c = 1 ,  \,  d = -1 $
+                        </p>
+                        <p class="pb15">
+                            Once again,  the limit cycle becomes $x^2 + y^2 = 1$ , but
+                            the solution trajectories inside the circle spiral toward the origin,
+                            while those outside the circle spiral away from the circle towards infinity.
+                            Therefore, the limit cycle (limit circle) is unstable.
+                        </p>
+                        <p class="pl0 pl0 pb10">
+                            For information about the limit cycle, please refer to the following site.
+                            A detailed explanation is provided, including the upcoming "von del Pol's autonomous system".
+                        </p>
+                        <p class="pl0 pl0 pb10">
+                              1. <a href="https://en.wikipedia.org/wiki/Limit_cycle"
+                              target="_blank">Limit cycle</a>
+                        </p>
+                        <p class="pl0 pl0 pb10">
+                            When searching for "Poincaré limit circle etc.",
+                            you will notice a deep connection with the famous Escher, known for his optical illusions.
+                        </p>
+                        <p class="pl0 pl0 pb10">
+                              2. <a href="https://en.wikipedia.org/wiki/Poincar%C3%A9_disk_model"
+                              target="_blank">Poincaré disk model</a>
+                        </p>
+                        <p class="pl0 pl0 pb10">
+                            Although this involves geometric considerations, what's involved and how...it's chaos.
+                        </p>
+                    </li>
+                    <li class="pb40">
+                        <p id="04&05"; class="pb10 fwb fss">
+                            Limit Cycle: example 2 &emsp; von del Pol's Autonomous System
+                        </p>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                e.g.
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=04%2605">to Plot</a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                \[ \frac{dx}{dt} = y \]
+                                \[ \frac{dy}{dt} = -x + ay(1 - x^2) \]
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=04%2605">
+                                    <img src="image/DEQ_img/deq2_0405_20.jpg" border="0">
+                                </a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <p class="pb10">
+                            By default, the parameter $a$ is set to 1.
+                        </p>
+                        <p class="pb10">
+                            While von del Pol's equations are introduced in various sites,
+                            "[04] - 4" referenced in
+                            <a href="https://en.wikipedia.org/wiki/Limit_cycle"
+                            target="_blank">Limit cycle</a>
+                            is quite understandable. <br>
+                            The limit cycle appears as a distorted quadrilateral rather than a circle,
+                            but this equation also possesses the properties of a limit circle.
+                            If you decrease the parameter $a$ to 0.9,  0.8..., and execute the plot,
+                            you'll notice it gradually approaches a circle.
+                            The solution trajectories in this case are also stable.
+                        </p>
+                        <p class="pb10">
+                            When $a = 0$, the origin becomes a focus,
+                            as described in the 2D linear autonomous system introduced in "[01] - 8".
+                            Furthermore, what happens when $a$ becomes negative? Please confirm!
+                        </p>
+                    </li>
+                    <li class="pb40">
+                        <p id="04&06"; class="pb10 fwb fss">
+                            Limit Cycle: example 3 &emsp; Lemniscate
+                        </p>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                e.g.
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=04%2606">to Plot</a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                \[ \frac{dx}{dt} = a * y(1 + 2x^2 + 2y^2) \]
+                                \[ \frac{dy}{dt} = b * x(1 - 2x^2 - 2y^2) + c * y(1 + 2x^2 + 2y^2)((x^2 + y^2)^2 - (x^2 - y^2)) \]
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=04%2606">
+                                    <img src="image/DEQ_img/deq2_0406_20.jpg" border="0">
+                                </a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <p class="pb10">
+                            By default, the parameters a, b are set to 1, and c is set to -1.
+                        </p>
+                        <p class="pb10">
+                            This autonomous system has three equilibrium points: the origin (saddle point) and
+                            two stable vortices ($ \pm 1 / \sqrt{2}, 0 $).
+                        </p>
+                        <p class="pb10">
+                            There are three limit cycles on the curve called
+                            <a href="etc_DEQ_IF_v2_en.html?selectedOption=04%2606"> Lemniscate </a> $ (x^2 + y^2)^2 - (x^2 - y^2) = 0 $ .
+                            The origin serves as an equilibrium point,
+                            and the sections where $x < 0$ and $x > 0$ become solution trajectories of the equation.
+                            According to Mr. Morimoto, these are not the limit circles.
+                            This seems to be because two limit cycles are connected.
+                            The limit cycles themselves are stable.
+                        </p>
+                        <p class="pb10">
+                            What happens when $a = -1,  b = -1,  c = 1$ ?
+                            Please confirm!
+                        </p>
+                        <p class="pb10">
+                            What about when $a = -1, b = 1, c = -1$? <br>
+                            The three equilibrium points change to the origin (vortex) and
+                            two saddle points ($ \pm 1 / \sqrt{2}, 0 $).
+                            It ceases to be a Lemniscate,
+                            and a trajectory resembling the human eye appears around the origin.
+                            For $a = 1, b = -1, c = 1$,  the direction of the trajectory is reversed.
+                            In both cases, although I have plotted and observed repeatedly,
+                        </p>
+                    </li>
+                    <li class="pb40">
+                        <p id="04&07"; class="pb10 fwb fss">
+                            Limit Cycle: example 4 &emsp; Linear approximation with purely imaginary numbers - 1 <br>
+                            Case of no limit circle exists
+                        </p>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                e.g.
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=04%2607">to Plot</a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                \[ \frac{dx}{dt} = y \]
+                                \[ \frac{dy}{dt} = -x - y^3 \]
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=04%2607">
+                                    <img src="image/DEQ_img/deq2_0407_20.jpg" border="0">
+                                </a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+<!--
+                        <p class="pb10">
+                            デフォルトではパラメーター$ a, b $ には 1 が、$c$ には -1 がセットされています。
+                        </p>
+-->
+                        <p class="pb10">
+                            The equilibrium point of this autonomous system is only at the origin.
+                        </p>
+                        <p class="pb10">
+                            When linearized at the origin(
+                            <a href="#04&01">linear approximation</a>
+                            )the equation becomes as follows.
+                        </p>
+                        <p class="pb10">
+                            \[ \frac{dx}{dt} = y \]
+                            \[ \frac{dy}{dt} = -x \]
+                        </p>
+                        <p class="pb10">
+                            The eigenvalues are $\lambda = \pm i$ ,
+                            and the solution trajectory becomes a spiral point as seen in
+                            <a href="#01&08">[1] - 8</a>.
+                        </p>
+                        <p class="pb10">
+                            However,  when plotting the solution trajectory of the original nonlinear equation,
+                            a trajectory resembling a vortex point appears rather than a spiral point.
+                        </p>
+                        <p class="pb10">
+                            Morimoto's explanation of this trajectory, it is as follows:
+                        </p>
+                        <p class="pb10">
+                            Let A and B be the y-intercepts of a circle with radius $r$ centered at the origin.
+                            Since a vector
+                            $
+                                \pmatrix{
+                                    y \cr
+                                    -x - y^3 \cr
+                                }
+                            $
+                            at each point on this circle is the sum of a vector tangent to the circle
+                            $
+                                \pmatrix{
+                                    y \cr
+                                    -x \cr
+                                }
+                            $
+                                and a vector pointing inward to the circle
+                            $
+                                \pmatrix{
+                                    0 \cr
+                                    -y^3 \cr
+                                }
+                            $
+                            , it points inward to the circle.
+                        </p>
+                        <p class="pb10">
+                            The solution trajectory passing through point A on the y-axis
+                            goes closer into the circle than A and crosses B',
+                            which is closer to the origin than point B on the y-axis.<br>
+                            If we replace the same argument with point B' on the y-axis,
+                            the solution trajectory passing through B' goes further into the circle than B'
+                            and crosses point A' on the y-axis.
+                        </p>
+                        <p class="pb10">
+                            <img src="image/DEQ_img/deq2_0407_fig.jpg" width="50%" height="50%" border="0">
+                        </p>
+                        <p class="pb20">
+                            Thus, the solution trajectory passing through A spirals around the origin
+                            and converges to the origin without closing.
+                        </p>
+                        <p class="pb10">
+                            However,  near the origin, the movement of the trajectory becomes sluggish,
+                            and one must reduce the "step size" and increase the "iterations" to ensure that
+                            the trajectory is plotted correctly, so caution is advised during verification.
+                        </p>
+                    </li>
+                    <li class="pb40">
+                        <p id="04&08"; class="pb10 fwb fss">
+                            Limit Cycle: example 5 &emsp; Linear approximation with purely imaginary numbers - 2<br>
+                            case : an infinite number of limit circles appear
+                        </p>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                e.g.
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=04%2608">to Plot</a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+<!--
+                            \[ \frac{dx}{dt} = -y + 5x \, e^{(-1 / \sqrt{r})} \sin(1 / r)\]
+                            \[ \frac{dy}{dt} = x + 5y \, e^{(-1 / \sqrt{r})} \sin(1 / r)\]
+-->
+                            \[ \frac{dx}{dt} = -y + 10x \, e^{(-1 / \sqrt{r})} \sin(1 / r)\]
+                            \[ \frac{dy}{dt} = x + 10y \, e^{(-1 / \sqrt{r})} \sin(1 / r)\]
+                            $\qquad$ where $\; r = \sqrt{x^2 + y^2} $
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=04%2608">
+                                    <img src="image/DEQ_img/deq2_0408_20.jpg" border="0">
+                                </a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+<!--
+                        <p class="pb10">
+                            デフォルトではパラメーター$ a, b $ には 1 が、$c$ には -1 がセットされています。
+                        </p>
+-->
+                        <p class="pb10">
+                            $r$ represents the distance from the origin.  Let's denote this equation as (4. 8. a).
+                        </p>
+                        <p class="pb10">
+                            \[ \alpha(r) = \cases{
+                                e^{(-1 / \sqrt{r})} \sin(1 / r) & ($r > 0$) \cr
+                                0 & ($r = 0$) \cr
+                            } \]
+                        </p>
+                        <p class="pb10">
+                            The function defined by $\alpha(r)$ repeats damped oscillations as it approaches the origin.
+                        </p>
+                        <p class="pb10">
+                            <img src="image/DEQ_img/deq2_0408_alpha_of_r_2.jpg" width="50%" height="50%" border="0">
+                        </p>
+                        <p class="pb10">
+                            Although the attached figure is rough and difficult to understand,
+                            by decreasing the step size of $r$ and extending the figure,
+                            it can be inferred that it is a fractal.
+                        </p>
+                        <p class="pb10">
+                            Focus on the position where $\alpha(r) = 0$ (the graph intersects the x-axis).
+                            As will be touched upon later, the coordinates of the intersection points continue towards
+                            the origin from the right as $1 / \pi,\, 1 / 2\pi,\, 1 / 3\pi,\, 1 / 4\pi,\, 1 / 5\pi,\,$ and so on. <br>
+                            Between $1 / \pi$ and $1 / 2\pi, \alpha(r) < 0$ <br>
+                            Between $1 / 2\pi$ and $1 / 3\pi, \alpha(r) > 0$ <br>
+                            Between $1 / 3\pi$ and $1 / 4\pi, \alpha(r) < 0$ <br>
+                            Between $1 / 4\pi$ and $1 / 5\pi, \alpha(r) > 0$ <br>
+                            ...
+                        </p>
+                        <p class="pb10">
+                            When $\alpha(r) = 0$, the equation (8. 4. a) becomes equal to the linear autonomous system
+                        </p>
+                        <p class="pb10">
+                            \[ \frac{dx}{dt} = -y \]
+                            \[ \frac{dy}{dt} = x \]
+                        </p>
+                            since the second term on the right side disappears respectively.
+                            Let's denote this equation as (8. 4. b).
+                        </p>
+                        <p class="pb10">
+                            The eigenvalues are lambda = +/- i,
+                            and the solution trajectory becomes a spiral point as seen in
+                            <a href="#01&08">[1] - 8</a>.
+                        </p>
+                        <p class="pb10">
+                            Therefore, on the circumference with radius $r = 1 / k\pi$ (assume that $k$ is a natural number) centered at the origin in equation (4. 8. a),
+                            the closed solution trajectory (limit circle) coincides with the linearized equation (4. 8. b).
+                        </p>
+                        <p class="pb10">
+                            Since $k$ is a natural number, there are infinitely many closed solution trajectories,
+                            but the trajectories appear inside the circumference of radius $1 / \pi$.
+                        </p>
+                        <p class="pb10">
+                            Now, what happens to the solution trajectory of equation (8. 4. a)
+                            when the initial v alues are not on the circumference $1 / k\pi$ ?
+                            Removing the first term on the right side of equation (8. 4. a)
+                            results in equation (8. 4. c) denoted as follows:
+                        </p>
+                            <p class="pb10">
+                            \[ \frac{dx}{dt} = 10x \, e^{(-1 / \sqrt{r})} \sin(1 / r)\]
+                            \[ \frac{dy}{dt} = 10y \, e^{(-1 / \sqrt{r})} \sin(1 / r)\]
+                            $\qquad$ where $\; r = \sqrt{x^2 + y^2} $
+                            </p>
+                        <p class="pb10">
+                            Removing the exponential part from (8. 4. c) makes
+                            it a linear autonomous system as seen in <a href="#01&06">[1] - 6</a>,
+                            extending radially from the origin.
+                            So, what kind of trajectory does (8. 4. c) itself become?
+                        </p>
+                        <p class="pb10">
+                            The vector field of (8. 4. c) is expressed as follows:
+                        </p>
+                        <p class="pb10">
+                            <img src="image/DEQ_img/deq2_0408_alpha_of_r_vec.jpg" width="75%" height="75%" border="0">
+                        </p>
+                        <p class="pb10">
+                            The graph of the vector field substitutes red dots for the direction of each line segment
+                            instead of arrows.
+                            Although the vectors are radial,
+                            it can be confirmed that the direction changes across the circumference
+                            where $\alpha(r) = 0$, at $r = 1 / k\pi$.
+                            Taking the outermost yellow circumference as an example,
+                            each point (denoted as M) outside the circumference radiates away from the origin.
+                            Each point (denoted as N) from the yellow circumference to the inner blue circumference
+                            radiates towards the origin.
+                        </p>
+                        <p class="pb10">
+                            Returning to equation (8. 4. a),
+                            the vector at point M outside the yellow circumference is
+                            the sum of a vector along the circle with radius equal to the distance
+                            from the origin to point M and a vector radiating away from the origin.
+                            The solution trajectory becomes a path that moves away while following the circumference. <br>
+                            On the other hand, the vector at point N
+                            between the yellow circumference and the adjacent inner blue circumference is
+                            the sum of a vector along the circule with radius equal to the distance
+                            from the origin to point N and
+                             a vector radiating towards the origin.
+                            The solution trajectory follows along the blue circumference and eventually winds around it. <br>
+
+                            Furthermore, for each point from the blue circumference to the inner yellow circumference,
+                            the vector is the sum of a vector along the circle with radius equal to the distance from
+                            the origin to it's point and a vector radiating outward.
+                            Therefore,
+                            the solution trajectory becomes a path that initially moves along the blue circumference,
+                            eventually winding around it.
+                        </p>
+                        <p class="pb10">
+                            As the origin is approached, the circumference $1 / k\pi$ appears infinitely,
+                            but due to the repetition of the explanation above,
+                            when $k$ is odd, the limit circle becomes unstable, whereas when $k$ is even, it comes stable.
+                        </p>
+                    </li>
+                    <li class="pb40">
+                        <p id="04&09"; class="pb10 fwb fss">
+                            Hamilton system 1 &emsp; Cassini oval
+                        </p>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                e.g.
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=04%2609">to Plot</a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                            \[ \frac{dx}{dt} = y(1 + x^2 + y^2)\]
+                            \[ \frac{dy}{dt} = x(1 - x^2 - y^2)\]
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=04%2609">
+                                    <img src="image/DEQ_img/deq2_0409_20.jpg" border="0">
+                                </a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+<!--
+                        <p class="pb10">
+                            デフォルトではパラメーター$ a, b $ には 1 が、$c$ には -1 がセットされています。
+                        </p>
+-->
+                        <p class="pb10">
+                            The Hamiltonian equations have the following characteristics:
+                        </p>
+                        <p class="pb10">
+                            \[ \frac{dx}{dt} = F_y(x, y)\]
+                            \[ \frac{dy}{dt} = -F_x(x, y)\]
+                            \[ The analytical solution becomes the implicit function as follows: \]
+                            \[ F(x, y) = C\]
+                        </p>
+                        <p class="pb10">
+                            Since the analytical solution becomes an implicit function,
+                            it is relatively difficult to draw the general solution.
+                            While one method involves using parametric variables for drawing,
+                            to plot without modifying the implicit functions leads to a cumbersome process.
+                            A simpler approach might involve dividing the drawing area into a grid
+                            and approximating the graph by plotting while checking
+                            if the implicit function intersects with the four sides of each grid.
+                        </p>
+                        <p class="pb30">
+                            The solution trajectory of a differential equation is
+                            to plot a family of curves of analytical solutions.
+                            In the case of the Hamilton type, the graph of the implicit function is drawn directly.
+                        </p>
+                        <p class="pb10">
+                            The analytical solution of Cassini oval is as follows:
+                        </p>
+                        <p class="pb10">
+                            \[ F(x, y) = \frac{1}{4}(1 + x^2 + y^2)^2 - x^2 = C\]
+                        </p>
+                        <p class="pb10">
+                            The equilibrium points are the origin and the points $(\pm1, 0)$.
+                            The origin becomes a saddle point, and $(\pm1, 0)$ become center.
+                        </p>
+                        <p class="pb10">
+                            When plotted, it is confirmed that all solution trajectories are periodic.
+                            The graph of implicit function can be confirmed that it matches
+                            <a href="etc_DEQ_IF_v2_en.html?selectedOption=04%2609">Cassini oval</a>.
+                        </p>
+                        <p class="pb10">
+                            When the constant on the right side of the analytical solution is 0.25,
+                            it becomes Lemniscate.
+                            This is markedly different from what was previously introduced in <a href="#04&06">[4] - 6</a>,
+                            where the general solution of the Lemniscate was shown to be a limit cycle.
+                        </p>
+                    </li>
+                    <li class="pb40">
+                        <p id="04&10"; class="pb10 fwb fss">
+                            Hamilton system 2 &emsp; folium of Descartes
+                        </p>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                e.g.
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=04%2610">to Plot</a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                            \[ \frac{dx}{dt} = 2x - 3y^2\]
+                            \[ \frac{dy}{dt} = -2y + 3x^2\]
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=04%2610">
+                                    <img src="image/DEQ_img/deq2_0410_20.jpg" border="0">
+                                </a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+<!--
+                        <p class="pb10">
+                            デフォルトではパラメーター$ a, b $ には 1 が、$c$ には -1 がセットされています。
+                        </p>
+-->
+                        <p class="pb10">
+                            The analytical solution is as follows:
+                        </p>
+                        <p class="pb10">
+                            \[ F(x, y) = -x^3 + 2xy - y^3 = C\]
+                        </p>
+                        <p class="pb10">
+                            The equilibrium points are the origin and the point $(2/3, 2/3)$.
+                            The origin becomes a saddle point, and $(2/3, 2/3)$ becomes a center.
+                        </p>
+                        <p class="pb10">
+                            When the constant is 0 in <a href="etc_DEQ_IF_v2_en.html?selectedOption=04%2610">the graph of the implicit function</a>,
+                            folium of Descartes is plotted.
+                        </p>
+                    </li>
+                    <li class="pb40">
+                        <p id="04&11"; class="pb10 fwb fss">
+                            Hamilton system 3 &emsp; derivatives of "folium of Descartes"
+                        </p>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                e.g.
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=04%2611">to Plot</a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                \[ \frac{dx}{dt} = 2x - 3y^2\]
+                                \[ \frac{dy}{dt} = -2y + 3x^2\]
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=04%2611">
+                                    <img src="image/DEQ_img/deq2_0410_20.jpg" border="0">
+                                </a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <p class="pb10">
+                            The analytical solution is as follows:
+                        </p>
+                        <p class="pb10">
+                            \[ F(x, y) = -x^5 + 2x^2y - y^5 = C\]
+                        </p>
+                        <p class="pb10">
+                            The equilibrium points are the origin
+                            and the points in the first and third quadrants (each in a point-symmetric relationship).
+                            The origin becomes a saddle point,
+                            and the points in the first and third quadrants become centers.
+                        </p>
+                        <p class="pb10">
+                            When the constant is 0 in <a href="etc_DEQ_IF_v2.html?selectedOption=04%2611">the graph of the implicit function</a>,
+                            a curve resembling a combination of two "folium of Descartes" is plotted.
+                        </p>
+                        <p class="pb10">
+                            To confirm, draw the graph of the surface $F(x, y)$ as shown below.
+                            You can see that the graph of the implicit function is contour lines of a curved surface.
+                        </p>
+                        <p class="pb10">
+                            <img src="image/DEQ_img/deq2_0411_kyokumen.jpg" border="0">
+                        </p>
+                    </li>
+                    <li class="pb40">
+                        <p id="04&12"; class="pb10 fwb fss">
+                            Hamilton system 4 &emsp; Case of the periodicity of trigonometric functions is reflected
+                        </p>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                e.g.
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=04%2612">to Plot</a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <div class="contents-left pb10"
+                            <p class="pb10">
+                                \[ \frac{dx}{dt} = \sin(y)\]
+                                \[ \frac{dy}{dt} = \sin(x)\]
+                            </p>
+                        </div>
+                        <div class="contents-right"
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=04%2612">
+                                    <img src="image/DEQ_img/deq2_0412_20.jpg" border="0">
+                                </a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <p class="pb10">
+                            The analytical solution is as follows:
+                        </p>
+                        <p class="pb10">
+                            \[ F(x, y) = \cos(y) - \cos(x) = C\]
+                        </p>
+                        <p class="pb10">
+                            The equilibrium points are $(p\pi, q\pi)$, where $p, q$ are integers.
+                            When $p + q$ is even, it becomes a saddle point, and when it's odd, it  becomes a center.
+                        </p>
+                        <p class="pb10">
+                            From <a href="etc_DEQ_IF_v2_en.html?selectedOption=04%2612">the graph of the implicit function</a>
+                            it shows that when $p + q$ is odd and $p$ is odd, it forms convex contours,
+                            and when $p$ is even, it forms concave contours.
+                        </p>
+                        <p class="pb10">
+                            To confirm, draw the graph of the surface $F(x, y)$ as shown below.
+                            Doesn't it resemble something you might see in a kitchen?
+                        </p>
+                        <p class="pb10">
+                            <img src="image/DEQ_img/deq2_0412_kyokumen.jpg" border="0">
+                        </p>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="pic-left720 fwb pb20">
+                <div class="contents-title-left pb20"
+                    <p id="09&090"></p>
+                    <p id="a99">
+                        [99]&nbsp;User defined Equations
+                    </p>
+                </div>
+                <div class="contents-title-right"
+                    <p>
+                        <!--<a href="#title20">to Top</a>-->
+                    </p>
+                </div>
+                <div class="c-both"></div>
+<!--
+                <div class="pic-left720 contents-left pb20"
+                </div>
+                <div class="pb10 contents-right fwm">
+                    <p>
+                        <a href="etc_DEQ_v2_en.html?selectedOption=09%2609">to Plot</a>
+                    </p>
+                </div>
+                <div class="c-both"></div>
+-->
+                <div>
+                    <p class="pb10">
+                        When you click [to Plot], the following screen will be displayed.
+                        You can enter any equation and check its solution trajectory.
+                        When you press the [START] button, the equations you entered will be displayed in TeX format below the input box,
+                        and the drawing will begin.
+                        The evaluation of the entered equations uses <a href="https://mathjs.org/docs/" target="_blank"> Math.js </a>.
+                        If you get an error message, please check and correct the entered equations as necessary.
+                        The equations that can be entered are limited to autonomous systems (non-autonomous systems are currently under review).
+                    </p>
+                    <p class="pb10">
+                        <a href="etc_DEQ_v2_en.html?selectedOption=09%26090">
+                            <img src="image/DEQ_img/deq4_en_page_75.jpg" border="1">
+                        </a>
+                    </p>
+                    <p class="pb30">
+                        Below are some input examples.
+                    </p>
+                    <ol class="fwm pb40, pl40">
+                        <li class="pb40">
+                            <p id="09&091"; class="pb10">
+                                Example of a 2-dimensional first-order linear autonomous system.
+                            </p>
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=09%26091">
+                                    <img src="image/DEQ_img/deq4_case1a.jpg">
+                                </a>
+                            </p>
+                        </li>
+                        <li class="pb40">
+                            <p id="09&092"; class="pb10">
+                                Example when there is no need to form a system of equations. Let $dx/dt$ be 1 .
+                            </p>
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=09%26092">
+                                    <img src="image/DEQ_img/deq4_case2a.jpg">
+                                </a>
+                            </p>
+                        </li>
+                        <li class="pb40">
+                            <p id="09&093"; class="pb10">
+                                Various inputs are possible for powers, but for simplicity, x^2 is sufficient. Of course, x*x is also fine.
+                                For squares, x*x is fine, but for higher powers like fourth or fifth, it's easier to input as x^4, etc. <br>
+                                You can also use pow().
+                                When pow(x^2 + y^2, 2) is displayed in TeX, it appears as $(x^2 + y^2)^2$ without any issues,
+                                but if you input pow(x, 5), it will display as $(y)^5$. The calculation itself will be correct, so there is no problem,
+                                but if it feels awkward, simply input y^5.
+                            </p>
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=09%26093">
+                                    <img src="image/DEQ_img/deq4_case3a.jpg">
+                                </a>
+                            </p>
+                        </li>
+                        <li class="pb40">
+                            <p id="09&094"; class="pb10">
+                                If the equation becomes long,
+                                you can input it as shown below (however, if it is excessively long, the layout of the screen may be disrupted.
+                                Although this will not affect the calculation, it will be very difficult to read).
+                                Also, if a part of the equation is repeated, you can input the repeated part in the where, $r = $
+                                and replace the repeated part in the equation with r to save input effort.<br>
+                                If not needed, there is no need to input anything like in examples 1 to 3.
+                            </p>
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=09%26094">
+                                    <img src="image/DEQ_img/deq4_case4a.jpg">
+                                </a>
+                            </p>
+                        </li>
+                        <li class="pb40">
+                            <p id="09&095"; class="pb10">
+                                Since math.js is used to parse the entered formulas,
+                                mathematical functions such as sin(), cos(), and pow() can be entered as they are.<br>
+                                Conversely, if a formula including math.pow(), math.sin(), math.cos(), etc., is entered in the input box,
+                                it will result in an error, and the drawing will not be executed.<br>
+                                For exponents, e^x is evaluated as $e^x$.
+                                If you input exp(x), it will be displayed as $\exp(x)$ in TeX, but it will be evaluated in the same way.
+                                If the exponent is complex, please use parentheses, like e^(x + 1) or exp(x + 1).
+                            </p>
+                            <p>
+                                <a href="etc_DEQ_v2_en.html?selectedOption=09%26095">
+                                    <img src="image/DEQ_img/deq4_case5a.jpg">
+                                </a>
+                            </p>
+                        </li>
+                    </ol>
+                </div>
+                <!-- 補足説明 -->
+                <div class="bd15 fwb">
+                    == Notes ==
+                </div>
+                <div class="bdr10 left fss fwm pb10" style="width:760px">
+                    <p id= "*1">
+                        [1.]
+                    </p>
+                    <p>
+                        This page has the ability to use Local Storage to retain the position of the list selected in a select box.
+                        As there are a considerable number of selectable items,
+                        it would be a pain to have to traverse from the top list to the desired list each time
+                        when the browser's refresh button is pressed or when the page is closed and then reopened.
+                    </p>
+                    <p class="pb10">
+                        So I've added a checkbox to preserve the position of the selected list, as shown below.
+                    </p>
+                    <p class="pb10">
+                        <img src="image/DEQ_img/deq4_LocalStorage00_en.jpg">
+                    </p>
+                    <p>
+                        If you check the box and then select a specific item,
+                        the check box status and the selected list number will be saved in Local Storage.
+                    </p>
+                    <p>
+                        However, if you uncheck this box, the data stored in the Local Storage will be deleted along with the key,
+                        so if you press the browser's refresh button or close and reopen the page,
+                        the top of the list will return to being selected.
+                    </p>
+                    <p>
+                        The data (key, vakue) stored in Local Storage is the following two items:
+                    </p>
+                    <p>
+                        <table class="pb10">
+                          <tr><th>key</th><th>value</th></tr>
+                          <tr><td>kzDeq_StorageFlg</td><td>"true" or "false"</td></tr>
+                          <tr><td>kzDeq_SelectedType</td><td>"a five-character string, such as "09&09"</td></tr>
+                        </table>
+                    </p>
+                    <p>
+                        You can check the data stored in Local Storage from the settings screen of your browser.
+                        <a href="#">return</a>
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+
+        <hr id="footer"> <!-- horizontal partition -->
+        <!--<p id="page-top"><a href="#"><i class="fa fa-arrow-up" aria-hidden="true"></i></a></p>-->
+        <p id="page-top"><a href="#">to Top</a></p>
+        <div class="jQ_change center" > <!-- select button whole: start -->
+            <p id="footer"> <!-- select button: start -->
+                <a href="en_etc.html">
+                    <IMG src="image/button/back_off.gif" border="0" alt="Back" >
+                </a>
+            </p> <!-- select button: end -->
+        </div> <!-- select button whole: end -->
+
+        <div id="footer_label">
+            copyright &copy; 2003 -
+            <script type="text/javascript" language="JavaScript">
+                date = new Date();
+                document.write(date.getFullYear() + ' ');
+            </script>
+            <nonscript>
+            </nonscript>
+            Contrail -kotan- all rights reserved
+        </div>
+
+    </footer>
+
+</div>
+</BODY>
+</html>

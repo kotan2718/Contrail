@@ -1,0 +1,617 @@
+<!DOCTYPE HTML >
+<html>
+
+<HEAD>
+    <META charset="UTF-8">
+
+    <title>Differential Equation Petit Document</title>
+
+    <!-- favicon-->
+    <link rel="shortcut icon" href="image/SRTLM_img/favicon.ico">
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- css start -->
+
+        <!-- kz_etc start :: class指定:change_border_color, 全ファイル共通:リンク文字色, フォーカスリング -->
+        <link rel="stylesheet" href="libs/etc/css/kz_footer_style.css" type="text/css">
+        <link rel="stylesheet" href="libs/etc/css/kz_etc_style.css" type="text/css">
+        <!-- kz_etc end -->
+
+    <!-- css end -->
+
+
+    <style>
+    .top td{
+        vertical-align: top;
+    }
+    </style>
+
+</HEAD>
+
+<BODY id="common-k" >
+
+    <header>
+        <a name="page_top"></a>
+    </header>
+
+    <div id="main720"> <!-- page main: start -->
+
+        <!-- title -->
+        <div id="title20">
+            <h3 class="pt30 pb40">
+                微分方程式 解曲線の描画
+                &emsp;
+                ちょっと解説
+            </h3>
+        </div>
+
+        <!-- contents -->
+        <div class="pic-left720 pb40">
+            <div class="fwb pb10">
+                <p class="pb10">
+                    このツールは2次元の微分方程式の解曲線を描画します。
+                    割と簡単そうな方程式でも解析的に解くには結構骨が折れるし、
+                    そもそも解析的に解くことができない場合もあります。
+                    そこで、微分方程式をそのまま利用して近似解をwebで簡単に描画するツールを作りました。
+                    近似は4次のrunge-kutta法で行っています。
+                    初期値は、第1象限にランダムに16点を選び、残りの3象限に反転コピーしています。
+                    計64点を初期値として、一斉に描画が開始されます。
+                </p>
+                <p class="pb10">
+                    描画が開始されると現れる青色のラインは、初期値から通常の時間経過を経て描画されます。<br>
+                    しばらくすると、黄色いラインが現れます。こちらは初期値から時間を遡って描画されます。<br>
+                    青と黄色のラインの動きを観察することで、解曲線の性質を知ることができます。
+                </p>
+                <p class="pb10">
+                    それでは、セレクトボックスに表示されるタイトルに従って、ざっくりと説明します。<br>
+                    以下の説明は、<a href="https://www.asakura.co.jp/author_books.php?author_code=48217" target="_blank">森本光生氏の「パソコンによる微分方程式」</a>からの引用を基にしています。
+                </p>
+            </div>
+
+            <div class="fwb pb30">
+                <ul class="list_none fwm pb40, pl40">
+                    <li><a href="#a1">[01] 2次元1次線形自励系</a></li>
+                    <li><a href="#a2">[02] 2次元2次線形自励系</a></li>
+                    <li><a href="#a3">[03] 高次同時自励系01</a></li>
+                    <li><a href="#a4">[Ⅳ] BFLの測り方</a></li>
+                    <li><a href="#a5">[Ⅴ] レンズメーターを用いたBFLの測定</a></li>
+                    <li><a href="#a6">[Ⅵ] 実際のレンズメーターについて</a></li>
+                    <li><a href="#a7">[Ⅶ] メガネレンズの特徴について</a></li>
+                </ul>
+            </div>
+
+            <div class="pic-left720 fwb pb20">
+                <div class="contents-title-left pb20"
+                    <p id="a1">
+                        [01]&nbsp;2次元1次線形自励系
+                    </p>
+                </div>
+                <div class="contents-title-right"
+                    <p>
+                        <a href="#title20">トップへ</a>
+                    </p>
+                </div>
+                <div class="c-both"></div>
+                <p class="pb10">
+                    \[ \frac{dx}{dt} = ax + by \]
+                    \[ \frac{dy}{dt} = cx + dy \]
+                </p>
+                <p class="pl0 pb10 fwm">
+                    係数入力ボックス $a, b, c, d$ に値を設定することで、
+                    様々な解曲線が動的に描画されます。<br>
+                    試しに、以下の例の値を設定してみて下さい。
+                    説明に沿った解曲線が描画されると思います。
+                </p>
+                <p class="pl0 pb10 fwm">
+                    ここで、$a, b, c, d$ は実数で 全ては0でないとして、
+                    実係数の2次の正方行列\( A \) を導入します。
+                </p>
+                <p class="pb10">
+                    \[ A = \pmatrix{
+                        a & b \cr
+                        c & d \cr
+                    } \]
+                </p>
+                <p class="p10 pb10 fwm">
+                    $A$ の固有値を $\lambda_1, \lambda_2$ とします。<br>
+                    以下の説明で、「固有値に対応する直線」という表現が出てきますが、
+                    これは各固有値の固有空間を意味しています。2行2列の正方行列の場合、
+                    固有空間は一般に原点を通る直線になります。
+                </p>
+                <ol class="fwm pb40, pl40">
+                  <li>
+                        <div class="contents-title-left pb20"
+                            <p class="fwb fss">
+                                固有値の1つが0の場合
+                            </p>
+                        </div>
+                        <div class="contents-title-right"
+                            <p>
+                                <a href="etc_DEQ_v2_test.html?selectedOption=01%2601">描画へ</a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <p class="pb10">
+                            例)
+                        </p>
+                        <p class="pb10">
+                            \[ \frac{dx}{dt} = x + y \]
+                            \[ \frac{dy}{dt} = 2x + 2y \]
+                        </p>
+                        <p class="pb10">
+                            \[ A = \pmatrix{
+                                1 & 1 \cr
+                                2 & 2 \cr
+                            } \]
+                        </p>
+                        <p class="pb10">
+                            $\lambda_1 = 0$, $\lambda_2 = 3 > 0$より、
+                            解曲線は $\lambda_2$ に対応する直線 $y = 2x$ に平行な半直線で、
+                            その出発点は $\lambda_1$ に対応する直線$y = -x$ 上の各点であり、無限遠に向かう。
+                        </p>
+                        <p class="pb10">
+                            $\lambda_1 = 0$, $\lambda_2 < 0$の場合、解曲線の向きは逆になる。
+                        </p>
+                  </li>
+                  <li>
+                        <p class="pb10 fwb fss">
+                            固有値が $\lambda_1 < 0 < \lambda_2$ の場合 (鞍状点)
+                        </p>
+                        <p class="pb10">
+                            例)
+                        </p>
+                        <p class="pb10">
+                            \[ \frac{dx}{dt} = -2x + 2y \]
+                            \[ \frac{dy}{dt} = -2x + 3y \]
+                        </p>
+                        <p class="pb10">
+                            \[ A = \pmatrix{
+                                -2 & 2 \cr
+                                -2 & 3 \cr
+                            } \]
+                        </p>
+                        <p class="pb10">
+                            $\lambda_1 = -1 < 0 , \, \lambda_2 = 2 > 0$ より、
+                            解曲線は $\lambda_2$ に対応する直線 $y = 2x$ に沿いながら無限遠から発し、原点方向に引き寄せられ、
+                            あるところで$\lambda_1$ に対応する直線$2y = x$ に沿うように向きを変え、無限遠に向かう。
+                        </p>
+                  </li>
+                  <li>
+                        <p class="pb10 fwb fss">
+                            $ 0 < \lambda_1 < \lambda_2$ の場合1 (不安定結節点 または 湧点)
+                        </p>
+                        <p class="pb10">
+                            例)
+                        </p>
+                        <p class="pb10">
+                            \[ \frac{dx}{dt} = x \]
+                            \[ \frac{dy}{dt} = 2y \]
+                        </p>
+                        <p class="pb10">
+                            \[ A = \pmatrix{
+                                1 & 0 \cr
+                                0 & 2 \cr
+                            } \]
+                        </p>
+                        <p class="pb10">
+                            $\lambda_1 = 1 > 0 , \, \lambda_2 = 2 > 0$ より、
+                            解曲線は $\lambda_1$ に対応する直線 $y = 0 \, (x軸)$ に沿って原点から湧き出し、<br>
+                            $\lambda_2$ に対応する直線 $x = 0 \, (y軸)$ に沿って無限遠に向かう。
+                        </p>
+                  </li>
+                  <li>
+                        <p class="pb10 fwb fss">
+                            $ 0 < \lambda_1 < \lambda_2$ の場合2 (不安定結節点 または 湧点)
+                        </p>
+                        <p class="pb10">
+                            例)
+                        </p>
+                        <p class="pb10">
+                            \[ \frac{dx}{dt} = x \]
+                            \[ \frac{dy}{dt} = 3x + 2y \]
+                        </p>
+                        <p class="pb10">
+                            \[ A = \pmatrix{
+                                1 & 0 \cr
+                                3 & 2 \cr
+                            } \]
+                        </p>
+                        <p class="pb10">
+                            $\lambda_1 = 1 > 0 , \, \lambda_2 = 2 > 0$ より、
+                            解曲線は $\lambda_1$ に対応する直線 $y = -3x$ に沿って原点から湧き出し、<br>
+                            $\lambda_2$ に対応する直線 $x = 0 \, (y軸)$ に沿って無限遠に向かう。
+                        </p>
+                  </li>
+                  <li>
+                        <p class="pb10 fwb fss">
+                            $ \lambda_1 < \lambda_2 < 0$ の場合 (安定結節点 または 沈点)
+                        </p>
+                        <p class="pb10">
+                            例)
+                        </p>
+                        <p class="pb10">
+                            \[ \frac{dx}{dt} = -4x - 3y \]
+                            \[ \frac{dy}{dt} = 2x -11y \]
+                        </p>
+                        <p class="pb10">
+                            \[ A = \pmatrix{
+                               -4 & -3 \cr
+                                2 & -11 \cr
+                            } \]
+                        </p>
+                        <p class="pb10">
+                            $\lambda_1 = -10 < 0 , \, \lambda_2 = -5 < 0$ より、
+                            解曲線は $\lambda_1$ に対応する直線 $y = 2x$ に沿って無限遠から発し、<br>
+                            $\lambda_2$ に対応する直線 $3y = x$ に沿って原点に収束する。
+                        </p>
+                  </li>
+                  <li>
+                        <p class="pb10 fwb fss">
+                            固有値 $ \lambda $ が重根で、行列Aが対角化可能な場合<br>
+                            $ \lambda > 0$ のときは (不安定退化結節点 または 退化湧点)となる
+                        </p>
+                        <p class="pb10">
+                            例)
+                        </p>
+                        <p class="pb10">
+                            \[ \frac{dx}{dt} = 2x \]
+                            \[ \frac{dy}{dt} = 2y \]
+                        </p>
+                        <p class="pb10">
+                            \[ A = \pmatrix{
+                                2 & 0 \cr
+                                0 & 2 \cr
+                            } \]
+                        </p>
+                        <p class="pb10">
+                            $\lambda_1 = \lambda_2 = 2 < 0 $ より、
+                            解曲線は原点より発し、無限遠に至る半直線である。
+                        </p>
+                        <p class="pb10">
+                            $\lambda < 0 $ であれば、解曲線は無限遠より発して原点に至る半直線になる(安定退化結節点 または 退化沈点)。
+                        </p>
+                  </li>
+                  <li>
+                        <p class="pb10 fwb fss">
+                            固有値 $ \lambda $ が重根で、行列Aが対角化不可能な場合<br>
+                            $ \lambda > 0$ のときは (不安定退化結節点 または 退化湧点)となる
+                        </p>
+                        <p class="pb10">
+                            例)
+                        </p>
+                        <p class="pb10">
+                            \[ \frac{dx}{dt} = 2x + y \]
+                            \[ \frac{dy}{dt} = 2y \]
+                        </p>
+                        <p class="pb10">
+                            \[ A = \pmatrix{
+                                2 & 1 \cr
+                                0 & 2 \cr
+                            } \]
+                        </p>
+                        <p class="pb10">
+                            固有値は重根で $\lambda = 2$ であるが、行列Aは対角化できない。
+                            解曲線は原点より発し、固有値 $\lambda$ に対応する直線 $y = 0 \, (x軸)$ に沿って無限遠に至る。
+                        </p>
+                        <p class="pb10">
+                            $\lambda < 0 $ であれば、解曲線は無限遠より発して固有値 $\lambda$ に対応する直線に沿って原点に至る。<br>
+                            (安定退化結節点 または 退化沈点)。
+                        </p>
+                  </li>
+                  <li>
+                        <p class="pb10 fwb fss">
+                            固有値が純虚数の場合 (渦心点)<br>
+                        </p>
+                        <p class="pb10">
+                            例)
+                        </p>
+                        <p class="pb10">
+                            \[ \frac{dx}{dt} = x + 2y \]
+                            \[ \frac{dy}{dt} = -x - y \]
+                        </p>
+                        <p class="pb10">
+                            \[ A = \pmatrix{
+                                1 &  2 \cr
+                               -1 & -1 \cr
+                            } \]
+                        </p>
+                        <p class="pb10">
+                            固有値は $\lambda = \pm i$ である。
+                            解曲線は原点を中心とする楕円軌道(周期解)を描く。
+                        </p>
+                  </li>
+                  <li>
+                        <p class="pb10 fwb fss">
+                            固有値が実部と虚部を持つ場合 (渦状点)<br>
+                        </p>
+                        <p class="pb10">
+                            例)
+                        </p>
+                        <p class="pb10">
+                            \[ \frac{dx}{dt} = -x - y \]
+                            \[ \frac{dy}{dt} = 2x - y \]
+                        </p>
+                        <p class="pb10">
+                            \[ A = \pmatrix{
+                              -1 & -1 \cr
+                               2 & -1 \cr
+                            } \]
+                        </p>
+                        <p class="pb10">
+                            固有値は $\lambda = -1 \pm \sqrt{2}i$ である。
+                            固有値の実部が負の場合、解曲線は無限遠より発して原点の回りをらせん状に回りながら原点に至る、
+                            安定渦状点である。
+                        </p>
+                        <p class="pb10">
+                            固有値の実部が正の場合は、解曲線は原点より発して原点の回りをらせん状に回りながら無限遠に至る、
+                            不安定渦状点である。
+                        </p>
+                  </li>
+                </ol>
+            </div>
+
+            <div class="pic-left720 fwb pb20">
+                <div class="contents-title-left pb20"
+                    <p id="a2">
+                        [02]&nbsp;2次元2次線形自励系
+                    </p>
+                </div>
+                <div class="contents-title-right"
+                    <p>
+                        <a href="#title20">トップへ</a>
+                    </p>
+                </div>
+                <div class="c-both"></div>
+                <p class="pb10">
+                    \[ \frac{dx}{dt} = ax^2 + bxy + cy^2 \]
+                    \[ \frac{dy}{dt} = dx^2 + exy + fy^2 \]
+                </p>
+                <p class="pl0 pb10 fwm">
+                    係数入力ボックス $a, b, c, d, e, f$ に値を設定することで、
+                    様々な解曲線が動的に描画されます。<br>
+                    ここで、$a, b, c, d, e, f$ は実数で 全ては0ではないとします。
+                </p>
+                <p class="pl0 pb10 fwm">
+                    森本氏の著書では、解析解を示され、解曲線の性質を詳しく解説されていますが、
+                    ここでは、かなり端折った説明になっていることをご留意願います。
+                </p>
+                <ol class="fwm pb40, pl40">
+                  <li>
+                        <p class="pb10 fwb fss">
+                            結節峠点型<br>
+                        </p>
+                        <p class="pb10">
+                            例)
+                        </p>
+                        <p class="pb10">
+                            \[ \frac{dx}{dt} = x^2 \]
+                            \[ \frac{dy}{dt} = 2(x - y)^2 \]
+                        </p>
+                        <p class="pb10">
+                            \[ \frac{dx}{dt} = 1 \cdot x^2 + 0 \cdot xy + 0 \cdot y^2 \]
+                            \[ \frac{dy}{dt} = 2 \cdot x^2 - 4 \cdot xy + 2 \cdot y^2 \]
+                            より、
+                        </p>
+                        <p class="pb10">
+                            $ a = 1, \, b = 0, \, c = 0 $ <br>
+                            $ d = 2, \, e = -4, \, f = 2 $ <br>
+                        </p>
+                        <p class="pb10">
+                            直線 $2y = x$ と $x = 0 \, (y軸)$ が2つの双曲型角領域を作っている。
+                            また直線 $y = 2x$ に沿って4つの放物型角領域があり、そこでは解曲線がこの直線を挟んで、
+                            原点に至る。第1象限にある放物型角領域は不安定であり、第3象限にある放物型角領域は安定である。
+                        </p>
+                  </li>
+                  <li>
+                        <p class="pb10 fwb fss">
+                            退化結節峠点型<br>
+                        </p>
+                        <p class="pb10">
+                            例)
+                        </p>
+                        <p class="pb10">
+                            \[ \frac{dx}{dt} = 4x^2 \]
+                            \[ \frac{dy}{dt} = x^2 + 4y^2 \]
+                        </p>
+                        <p class="pb10">
+                            \[ \frac{dx}{dt} = 4 \cdot x^2 + 0 \cdot xy + 0 \cdot y^2 \]
+                            \[ \frac{dy}{dt} = 2 \cdot x^2 + 0 \cdot xy + 4 \cdot y^2 \]
+                            より、
+                        </p>
+                        <p class="pb10">
+                            $ a = 4, \, b = 0, \, c = 0 $ <br>
+                            $ d = 1, \, e = 0, \, f = 4 $ <br>
+                        </p>
+                        <p class="pb10">
+                            直線 $2y = x$ と $x = 0 \, (y軸)$ が2つの双曲型角領域を作っている。
+                            また直線 $2y = x$ に沿って2つの放物型角領域がある。
+                            第1象限にある放物型角領域は不安定であり、第3象限にある放物型角領域は安定である。
+                        </p>
+                  </li>
+                  <li>
+                        <p class="pb10 fwb fss">
+                            双楕円型<br>
+                        </p>
+                        <p class="pb10">
+                            例)
+                        </p>
+                        <p class="pb10">
+                            \[ \frac{dx}{dt} = -x^2 + y^2 \]
+                            \[ \frac{dy}{dt} = -2xy \]
+                        </p>
+                        <p class="pb10">
+                            \[ \frac{dx}{dt} = -1 \cdot x^2 + 0 \cdot xy + 1 \cdot y^2 \]
+                            \[ \frac{dy}{dt} =  0 \cdot x^2 - 2 \cdot xy + 0 \cdot y^2 \]
+                            より、
+                        </p>
+                        <p class="pb10">
+                            $ a = -1, \, b = 0, \, c = 1 $ <br>
+                            $ d = 0, \, e = -2, \, f = 0 $ <br>
+                        </p>
+                        <p class="pb10">
+                            直線 $y = 0 \, (x軸)$ が平面を2つの楕円型角領域に分けている。
+                            解軌道は原点で $x軸$ に接する円周で、原点より発し、原点に至る。
+                        </p>
+                  </li>
+                  <li>
+                        <p class="pb10 fwb fss">
+                            結節点型 2<br>
+                        </p>
+                        <p class="pb10">
+                            例)
+                        </p>
+                        <p class="pb10">
+                            \[ \frac{dx}{dt} = -x^2 \]
+                            \[ \frac{dy}{dt} = y^2 \]
+                        </p>
+                        <p class="pb10">
+                            \[ \frac{dx}{dt} = 1 \cdot x^2 + 0 \cdot xy + 0 \cdot y^2 \]
+                            \[ \frac{dy}{dt} = 0 \cdot x^2 + 0 \cdot xy + 1 \cdot y^2 \]
+                            より、
+                        </p>
+                        <p class="pb10">
+                            $ a = 1, \, b = 0, \, c = 0 $ <br>
+                            $ d = 0, \, e = 0, \, f = 1 $ <br>
+                        </p>
+                        <p class="pb10">
+                            直線 $y = 0 \, (x軸) と x = 0 \, (y軸)$  が2つの双曲型角領域を作っている。
+                            また直線 $y = -x$ に沿って4つの放物型角領域があり、そこでは解曲線がこの直線を挟んで、
+                            原点に至る。第2象限にある放物型角領域は不安定であり、第4象限にある放物型角領域は安定である。
+                        </p>
+                  </li>
+                  <li>
+                        <p class="pb10 fwb fss">
+                            放物型<br>
+                        </p>
+                        <p class="pb10">
+                            例)
+                        </p>
+                        <p class="pb10">
+                            \[ \frac{dx}{dt} = -x^2 \]
+                            \[ \frac{dy}{dt} = y^2 \]
+                        </p>
+                        <p class="pb10">
+                            \[ \frac{dx}{dt} = -1 \cdot x^2 + 0 \cdot xy + 0 \cdot y^2 \]
+                            \[ \frac{dy}{dt} =  0 \cdot x^2 + 0 \cdot xy + 1 \cdot y^2 \]
+                            より、
+                        </p>
+                        <p class="pb10">
+                            $ a = -1, \, b = 0, \, c = 0 $ <br>
+                            $ d = 0, \, e = 0, \, f = 1 $ <br>
+                        </p>
+                        <p class="pb10">
+                            直線 $y = -x$ が平面を2つの放物型角領域に分けている。
+                            直線 $y = 0 \, (x軸)$ が平面を2つの楕円型角領域に分けている。
+                            解軌道は直線を挟んで、その向きが逆になる。
+                        </p>
+                  </li>
+                </ol>
+            </div>
+            <div class="pic-left720 fwb pb20">
+                <div class="contents-title-left pb20"
+                    <p id="a3">
+                        [03]&nbsp;高次の同次自励系
+                    </p>
+                </div>
+                <div class="contents-title-right"
+                    <p>
+                        <a href="#title20">トップへ</a>
+                    </p>
+                </div>
+                <div class="c-both"></div>
+                <p class="pl0 pb10 fwm">
+                    高次の自励形以降は、係数の入力はできません。事情はお察し頂けると思います。<br>
+                    最終的には、web上で自由に方程式を定義して、その解曲線を描画するページにしたいと思っていますが、
+                    まだ先の話になりそうです。<br>
+                    今のところは森本氏の著書に紹介されている方程式を紹介したいと思います。
+                </p>
+                <ol class="fwm pb40, pl40">
+                  <li>
+                        <p class="pb10 fwb fss">
+                            周期解を持つ同次自励形<br>
+                        </p>
+                        <p class="pb10">
+                            例)
+                        </p>
+                        <p class="pb10">
+                            \[ \frac{dx}{dt} = -y^3 \]
+                            \[ \frac{dy}{dt} = x^3 \]
+                        </p>
+                  </li>
+                  <li>
+                        <p class="pb10 fwb fss">
+                            8つの放物型角領域を持つ同次自励形
+                        </p>
+                        <p class="pb10">
+                            例)
+                        </p>
+                        <p class="pb10">
+                            \[ \frac{dx}{dt} = x^3 \]
+                            \[ \frac{dy}{dt} = y^3 \]
+                        </p>
+                        <p class="pb10">
+                            直線 $y = \pm x$ と $x, \, y 軸$ によって、平面は8つの放物型角領域に分けられる。
+                        </p>
+                  </li>
+                  <li>
+                        <p class="pb10 fwb fss">
+                            複合角領域を持つ同次自励形
+                        </p>
+                        <p class="pb10">
+                            例)
+                        </p>
+                        <p class="pb10">
+                            \[ \frac{dx}{dt} = x^2(y - x) \]
+                            \[ \frac{dy}{dt} = y^2(y - 2x) \]
+                        </p>
+                        <p class="pb10">
+                            直線 $2y = (3 \pm \sqrt{5})x$ と $x, \, y 軸$ によって、
+                            平面は8つの角領域に分けられる。双曲型と楕円型の角領域をそれぞれ2つ持ち、
+                            放物型角領域を4つ持つ。
+                        </p>
+                  </li>
+                  <li>
+                        <p class="pb10 fwb fss">
+                            Vinograd(ヴィノグラード)の自励形
+                        </p>
+                        <p class="pb10">
+                            例)
+                        </p>
+                        <p class="pb10">
+                            \[ \frac{dx}{dt} = x^2(y - x) + y^5 \]
+                            \[ \frac{dy}{dt} = y^2(y - 2x) \]
+                        </p>
+                        <p class="pb10">
+                            前出の複合角領域を持つ同次自励形の $dx/dt$ の右辺に $y^5$ が加わったものだが、
+                            $y = 0 \, (x軸)$ を境に点対称の形でムンクの叫びを連想させる楕円型角領域が現れる。
+                        </p>
+                  </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+
+        <hr id="footer"> <!-- horizontal partition -->
+
+
+        <div id="footer_label">
+            copyright &copy; 2003 -
+            <script type="text/javascript" language="JavaScript">
+                date = new Date();
+                document.write(date.getFullYear() + ' ');
+            </script>
+            <nonscript>
+            </nonscript>
+            Kz's Page all rights reserved
+        </div>
+
+    </footer>
+
+</div>
+</BODY>
+</html>

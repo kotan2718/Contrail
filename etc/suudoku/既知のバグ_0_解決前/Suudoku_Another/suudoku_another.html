@@ -1,0 +1,222 @@
+<!DOCTYPE HTML >
+<html>
+
+<HEAD>
+	<META charset="UTF-8">
+
+	<title>Suudoku Another</title>
+
+	<!-- favicon--> 
+	<link rel="shortcut icon" href="lib_img/suudoku_img/favicon.ico"> 
+
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- css start -->
+
+		<!-- kz_etc start - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
+		<link rel="stylesheet" href="lib_img/etc/css/kz_etc_style.css" type="text/css"> 
+		<!-- kz_etc end -->
+
+	<!-- css end -->
+</HEAD>
+
+<BODY id="common-k" >
+
+	<div id="main1024"> <!-- page main: start -->
+
+		<!-- title -->
+		<div id="title20">
+			<h2 class="pt30 pb40">
+				数独問題作成ツール 別解法
+			</h2>
+		</div>
+
+		<!-- contents -->
+		<div class="pic-left1024 pb50">
+			<div class="fwb pb40">
+				<p class="pb10">
+					これまで公開してきた｢数独問題作成ツール｣ (以下、｢数独ツール｣と略記します)は、最初に9x9の全てのマス目を埋めた完成形を作成し、<br>
+					ブランクにできるマス目を、増やせるだけ増やしていくという方法で問題を作成していました。
+					詳細は
+					<a href="suudoku_doc.html" target=_"blank">suudoku_doc</a>
+					をご一読下さい。[※1]
+				</p>
+				<p class="pb10">
+					この方法では最初にオープンするナンバーのマス目の数(以下オープン数と略記)が23以上の問題を作ることができます。<br>
+					しかし、オープンするマス目のパターンはランダムに選ばれるため、
+					自分が思い描いたパターンの問題を作ることはできませんでした。<br>
+				</p>
+				<p class="pb10 contents-2col-left">
+					<IMG src="lib_img/another_img/another01.jpg" border="1">
+				</p>
+				<div class="bdr10 left fss pb10">
+					<p>
+						[※1]
+					</p>
+					<p class="pb10">
+						併せて｢数独数独問題作成ツール アップデート｣(以下、｢数独アップデート｣と略記します)もご覧下さい。<br>
+						リンク：
+						<a href="suudoku_update01.html" target=_"blank">suudoku_update01</a>
+					</p>
+				</div>
+			</div>
+
+			<div class="pb30">
+				<h2>別解法は、自由なパターンの問題を作成します</h2>
+			</div>
+
+			<div class="pic-left1024 fwb pb20">
+				<p class="pb10">
+					問題作成方法を順に説明します。
+				</p>
+				<ol class="fwm pb40, pl40">
+				  <li>
+						<p class="pb10">
+								エクスプローラーから｢z.suudoku_04.xlsm｣を開きます。
+						</p>
+						<p class="pb10 contents-2col-left">
+							<IMG src="lib_img/another_img/another02.jpg" width="90%" border="1">
+						</p>
+				  </li>
+					<li>
+						<p class="pb10">
+								パターンの作り方から問題作成までを説明します。
+						</p>
+						<ol class="list-lr pl40 pb10">
+							<li>
+								<p class="pb10">
+									｢make｣と表示されている枠内でオープンするマス目をオレンジ色で埋めて行きます。<br>
+									枠内の適当なセルをクリックすると、そのセルと対角のセルがオレンジ色に変わります。
+								</p>
+								<p class="pb10 contents-2col-left">
+									<IMG src="lib_img/another_img/another03.jpg" width="90%" border="1">
+								</p>
+							</li>
+							<li>
+								<p class="pb10">
+									思い描いたパターンを作って行きます。<br>
+								  消したい場合は、対角のセルをクリックするとオレンジ色が消えます。
+								</p>
+								<p class="pb10 contents-2col-left">
+									<IMG src="lib_img/another_img/another04.jpg" width="90%" border="1">
+								</p>
+							</li>
+							<li>
+								<p class="pb10">
+									作成したパターンの例を以下に示しました。
+								</p>
+								<p class="pb10 contents-2col-left">
+									<IMG src="lib_img/another_img/another05.jpg" width="90%" border="1">
+								</p>
+								<p class="pb10">
+									｢START｣ボタンを押すと問題作成が開始されます。
+								</p>
+							</li>
+							<li>
+								<p class="pb10">
+									問題の作成の成功すると、以下のような画面になります。
+								</p>
+								<p class="pb10 contents-2col-left">
+									<IMG src="lib_img/another_img/another06.jpg" width="90%" border="1">
+								</p>
+								<p class="pb10">
+									オレンジ色のセルにオープンするナンバーが書き込まれていることが分かります。<br>
+									画面右下のチェックボックスがチェックされている場合は、<br>
+									完成形が表示され、シート｢Stock｣に作成された問題がコピーされます。
+								</p>
+							</li>
+						</ol>
+					</li>
+					<li>
+						<p class="pb10">
+								オープンパターンを作るときの補足を以下に記します。
+						</p>
+						<ol class="list-lr pl40 pb10">
+							<li>
+								<p class="pb10">
+										｢CLEAR｣ボタン
+								</p>
+								<p class="pb10">
+										このボタンを押すと、画面をクリアします。<br>
+										起動時の画面は、前回作業した状態が保持された状態で画面が開きます。<br>
+										前回作ったオープンパターンを少し直して、新しい問題を作成することができます。<br>
+										しかし、新たなパターンを作りたいときなどは、このボタンを利用して下さい。
+								</p>
+								<p class="pb10 contents-2col-left">
+									<IMG src="lib_img/another_img/another07.jpg" width="70%" border="1">
+								</p>
+							</li>
+							<li>
+								<p class="pb10">
+										中心ブロックの規定パーターンの利用
+								</p>
+								<p class="pb10">
+										｢数独ツール｣や｢数独アップデート｣同様、画面右側に中心ブロックのパターンが表示されています。<br>
+										パターン選択に使用したい番号を入力して、適当なセルをクリックすると、｢make｣の中心ブロックにコピーされます。
+								<p class="pb10 contents-2col-left">
+									<IMG src="lib_img/another_img/another08.jpg" width="90%" border="1">
+								</p>
+										その上で更にオレンジのセルを追加した場合は、パターン選択の入力欄に｢20｣が入ります。<br>
+										これは、オリジナルのパターンという意味です。
+								</p>
+								<p class="pb10 contents-2col-left">
+									<IMG src="lib_img/another_img/another09.jpg" width="90%" border="1">
+								</p>
+							</li>
+							<li>
+								<p class="pb10">
+										パターン作成のコピペ
+								</p>
+								<p class="pb10">
+										別のエクセルファイルなどから作成済みの問題をコピーして<br>
+										新たに問題を作成することもできます。<br>
+										ナンバーがオープンされているマス目がオレンジ色の場合は、そのまま｢START｣ボタンを押すこともできますし、<br>
+										少しパターンを修正してから作成を開始することもできます。
+								</p>
+								<p class="pb10 contents-2col-left">
+									<IMG src="lib_img/another_img/another10.jpg" width="90%" border="1">
+								</p>
+								<p class="pb10">
+										ナンバーがオープンされているマス目がオレンジ色ではない場合は、<br>
+										ナンバーのマス目をオレンジ色にする必要があります。<br>
+										問題の作成はセルの背景色のみを見に行っているためです。
+								</p>
+								<p class="pb10 contents-2col-left">
+									<IMG src="lib_img/another_img/another11.jpg" width="90%" border="1">
+								</p>
+							</li>
+						</ol>
+					</li>
+			</div>
+
+			<div class="pic-left1024 fwb pb20">
+				<p class="fwb pb10">
+					オープンするマス目の数について
+				</p>
+				<p class="fwm pb10">
+						27～32くらいが面白いパターンが作れますし、実際に解くときも無理なく解くことができると思います。<br>
+						私がデバッグ中に調べた限りでは、25以上で問題が作成できることを確認しています。
+				</p>
+			</div>
+
+	<footer>
+		<div class="pic-left1024">
+			<p class="fwb">
+				Copyright &copy; 2023 by Kazuo Kawamura. All rights reserved. 
+			</p>
+			<p class="fwm pb10">
+				----------------------------------------------------------------- <br>
+				mail to : 
+				<a href="mailto:vff06643@nifty.ne.jp" >
+					VFF06643@nifty.ne.jp
+				</a><br>
+				----------------------------------------------------------------- 
+			</p>
+		</div>
+	</footer>
+
+</div>
+</BODY>
+</html>

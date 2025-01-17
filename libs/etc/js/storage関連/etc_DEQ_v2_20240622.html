@@ -1,0 +1,327 @@
+<!DOCTYPE HTML >
+<html lang="ja">
+
+<HEAD>
+    <META charset="UTF-8">
+
+    <title>Differential Equations</title>
+
+    <!-- favicon-->
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- css start -->
+
+        <!-- kz_etc start :: class指定:change_border_color, 全ファイル共通:リンク文字色, フォーカスリング -->
+        <link rel="stylesheet" href="libs/etc/css/kz_footer_style.css" type="text/css">
+        <link rel="stylesheet" href="libs/etc/css/kz_etc_style.css" type="text/css">
+        <!-- kz_etc end -->
+
+    <!-- css end -->
+
+    <!-- js start -->
+
+        <!-- jQuery start -->
+        <script src="libs/jQuery/js/jquery-1.6.1.min.js" type="text/javascript"></script>
+
+            <!-- kz_style start - img jq_blink, img jq_change -->
+            <script src="libs/jQuery/kz/js/jq_kz_style.js" type="text/javascript"></script>
+            <!-- kz_style end -->
+
+        <!-- jQuery end -->
+
+        <!-- Sandbox DropDownMenu start -->
+        <script src="libs/sandbox/js/script.js" type="text/javascript"></script>
+        <!-- Sandbox DropDownMenu end -->
+
+        <!-- Math.js -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.4.4/math.js"></script>
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                TeX: { equationNumbers: { autoNumber: "AMS" }},
+                tex2jax: {
+                    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                    processEscapes: true
+                },
+                "HTML-CSS": { matchFontHeight: false },
+                displayAlign: "left",
+                displayIndent: "2em"
+            });
+        </script>
+
+        <!-- deq initialize -->
+        <script src="libs/etc/js/deq00_v2.js" type="text/javascript"></script>
+
+    <!-- js end -->
+
+</HEAD>
+
+<BODY id="common-k" onload="initialize()">
+
+    <div id="container">
+
+        <header>
+            <a name="page_top"></a>
+            <div class="center jQ_change navbox" >
+                <nav>
+                    <IMG src="image/top/kz.gif" height="15" class="logo_img">
+                    <ul class="menu" id="menu" >
+                        <li><a href="index.html" class="menulink">Home</a></li>
+                        <li><a href="whatnew.html" class="menulink">What's New</a></li>
+                        <li><a href="etc.html" class="menulink">E.T.C.</a></li>
+                        <li><a href="fs01.html" class="menulink">The Scenery</a>
+                            <ul>
+                                <li><a href="fs01_sc_top.html" class="sub">Screen Shots</a></li>
+                                <li><a href="fs01_ls_top.html" class="sub">Snap Shots</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="link01.html" class="menulink">Links</a></li>
+                        <li class="about"><a href="fs01_about.html" class="menulink">about Kz</a></li>
+                    </ul>
+                </nav>
+                <div class="c-both"></div>
+            </div>
+            <!-- Sandbox DropDownMenu start-->
+            <script type="text/javascript">
+                var menu=new menu.dd("menu");
+                menu.init("menu","menuhover");
+            </script>   <!-- Sandbox DropDownMenu end -->
+        </header>
+
+        <div id="main990"> <!-- page main: start -->
+
+            <!-- title -->
+            <div id="title20">
+                <h3 class="pt30 pb20">
+                    微分方程式 解曲線の描画
+                </h3>
+            </div>
+
+            <!-- contents -->
+            <div class="pic-left990 pb30">
+                <div class="contents-2col-left" >
+                    <div class="grid2b pb5">
+                        <p class="fss" align="left">
+                            <input type="checkbox" id="cb_storage" onclick="handleCheckboxStorage(this.checked)">&nbsp; keep list pos.
+                        </p>
+                        <p  align="right">
+                            <select id="type" onchange="changeType()">
+                                <option disabled selected">[01] 2次元1次線形自励系</option>
+                                <option value="01&01">&emsp;&emsp;1. 固有値の1つが0の場合</option>
+                                <option value="01&02">&emsp;&emsp;2. 固有値が2つで正負が異なる場合</option>
+                                <option value="01&03">&emsp;&emsp;3. 固有値が2つでどちらも正の場合 1</option>
+                                <option value="01&04">&emsp;&emsp;4. 固有値が2つでどちらも正の場合 2</option>
+                                <option value="01&05">&emsp;&emsp;5. 固有値が2つでどちらも負の場合</option>
+                                <option value="01&06">&emsp;&emsp;6. 重根で行列Aが対角化可能な場合</option>
+                                <option value="01&07">&emsp;&emsp;7. 重根で行列Aが対角化不可能な場合</option>
+                                <option value="01&08">&emsp;&emsp;8. 固有値が純虚数の場合</option>
+                                <option value="01&09">&emsp;&emsp;9. 固有値が実部と虚部を持つ場合</option>
+                                <option disabled selected">[02] 2次線形自励系</option>
+                                <option value="02&01">&emsp;&emsp;1. 結節峠点型</option>
+                                <option value="02&02">&emsp;&emsp;2. 退化結節峠点型</option>
+                                <option value="02&03">&emsp;&emsp;3. 双楕円型</option>
+                                <option value="02&04">&emsp;&emsp;4. 3峠型</option>
+                                <option value="02&05">&emsp;&emsp;5. 結節点型 2</option>
+                                <option value="02&06">&emsp;&emsp;6. 放物型</option>
+                                <option disabled selected">[03] 高次の自励系</option>
+                                <option value="03&01">&emsp;&emsp;1. 周期解を持つ同次自励形</option>
+                                <option value="03&02">&emsp;&emsp;2. 8つの放物型角領域を持つ同次自励形</option>
+                                <option value="03&03">&emsp;&emsp;3. 複合的な角領域を持つ同次自励形</option>
+                                <option value="03&04">&emsp;&emsp;4. Vinograd(ヴィノグラード)の自励形</option>
+                                <option disabled selected">[04] 自励系の諸例</option>
+                                <option value="04&01">&emsp;&emsp;1. x軸上に周期的に平衡点を持つ自励形</option>
+                                <option value="04&02">&emsp;&emsp;2. 円周上に8つの平衡点を持つ自励形</option>
+                                <option value="04&03">&emsp;&emsp;3. 平面上に周期的な平衡点を持つ自励形</option>
+                                <option value="04&04">&emsp;&emsp;4. 極限軌道 1</option>
+                                <option value="04&05">&emsp;&emsp;5. 極限軌道 2 von del Pol(ファン・デル・ポル)の自励形</option>
+                                <option value="04&06">&emsp;&emsp;6. 極限軌道 3 Lemniscate(レムニスケート)</option>
+                                <option value="04&07">&emsp;&emsp;7. 極限軌道 4 純虚固有値の場合 1</option>
+                                <option value="04&08">&emsp;&emsp;8. 極限軌道 5 純虚固有値の場合 2</option>
+                                <option value="04&09">&emsp;&emsp;9. Hamilton型 1 Cassini(カシニ)の燈形</option>
+                                <option value="04&10">&emsp;&emsp;10. Hamilton型 2 Descartes(デカルト)の葉線</option>
+                                <option value="04&11">&emsp;&emsp;11. Hamilton型 3 </option>
+                                <option value="04&12">&emsp;&emsp;12. Hamilton型 4 三角関数の場合</option>
+                                <option disabled selected">[99] ユーザー定義</option>
+                                <option value="09&090">&emsp;&emsp;0. ユーザー定義</option>
+                                <option value="09&091">&emsp;&emsp;1. 入力例 1</option>
+                                <option value="09&092">&emsp;&emsp;2. 入力例 2</option>
+                                <option value="09&093">&emsp;&emsp;3. 入力例 3</option>
+                                <option value="09&094">&emsp;&emsp;4. 入力例 4</option>
+                                <option value="09&095">&emsp;&emsp;5. 入力例 5</option>
+                            </select>
+                        </p>
+                    </div>
+                    <p class="pb10">
+                        <canvas id="graphCanvas" width="580" height="580" style="border: 1px solid #000;"></canvas>
+                    </p>
+                    <p class="pb10" align="right">
+                        近似方法
+                        <select id="mode" onchange="changeMode()">
+                            <option value="1">&emsp;&emsp;Euler法</option>
+                            <option value="2">&emsp;&emsp;修正Euler法</option>
+                            <option value="3">&emsp;&emsp;Runge-Kutta法</option>
+                        </select>
+                    </p>
+                </div>
+                <!-- deq javascript呼び出し -->
+                <script src="libs/etc/js/deq01_v2.js" type="text/javascript"></script>
+
+                <div class="contents-2col-right" >
+                    <div>
+                        <p id="equation_input" class="pb10">
+                            方程式
+                        </p>
+                    </div>
+                    <div>
+                        <!-- 入力ボックス -->
+                        <p class="pb10 input-container">
+                            <label id="l_dxdt">$dx / dt = $</label>
+                            <textarea id="dxdt" cols="30" rows="2"></textarea>
+                        </p>
+                        <p class="pb10 input-container">
+                            <label id="l_dydt">$dy / dt = $</label>
+                            <textarea id="dydt" cols="30" rows="2"></textarea>
+                        </p>
+                        <p class="pb10 input-container2">
+                            <label id="l_where">$\quad$ where, $\quad r = $</label>
+                            <textarea id="dxdy_where" cols="30" rows="1"></textarea>
+                        </p>
+                    </div>
+
+                    <div>
+                        <!-- 方程式の表示(TeX) -->
+                        <p id="equation_default" class="pb10">
+                            方程式
+                        </p>
+                        <p class="pb10">
+                            <label><span id="dx"></span></label>
+                            <label><span id="dy"></span></label>
+                            <label><span id="where"></span></label>
+                        </p>
+                        <p id="errorMessages"></p>  <!-- 入力された式が無効だった場合に表示 -->
+                    </div>
+
+                    <div>
+                        <p class="pb10">
+                            <label id="l_coef" style="width: 60px; display: inline-block">係数</label>
+                        </p>
+                        <p class="pb20">
+                            <label id="l_ma" style="width: 20px; display: inline-block">a:</label>
+                            <input type="number" id="ma" value="" style="width:40px; text-align:right;">
+                            &emsp;
+                            <label id="l_me" style="width: 20px; display: inline-block">e:</label>
+                            <input type="number" id="me" value="" style="width:40px; text-align:right;"><br>
+
+                            <label id="l_mb" style="width: 20px; display: inline-block">b:</label>
+                            <input type="number" id="mb" value="" style="width:40px; text-align:right;">
+                            &emsp;
+                            <label id="l_mf" style="width: 20px; display: inline-block">f:</label>
+                            <input type="number" id="mf" value="" style="width:40px; text-align:right;"><br>
+
+                            <label id="l_mc" style="width: 20px; display: inline-block">c:</label>
+                            <input type="number" id="mc" value="" style="width:40px; text-align:right;">
+                            &emsp;
+                            <label id="l_mg" style="width: 20px; display: inline-block">g:</label>
+                            <input type="number" id="mg" value="" style="width:40px; text-align:right;"><br>
+
+                            <label id="l_md" style="width: 20px; display: inline-block">d:</label>
+                            <input type="number" id="md" value="" style="width:40px; text-align:right;">
+                            &emsp;
+                            <label id="l_mh" style="width: 20px; display: inline-block">h:</label>
+                            <input type="number" id="mh" value="" style="width:40px; text-align:right;"><br>
+                        </p>
+                    </div>
+                    <div id="targetDiv" style="margin-top: 0px">
+                        <!-- 固有値の表示(必要な場合のみ) -->
+                        <p class="pb30">
+                            <label for="koyuchi"><span id="koyu"></span></label>
+                            &emsp;
+                            <label for="lambda" id="lambda">\( \lambda_1, \lambda_2 = \)</label>
+                            <label for="KAI1"><span id="KAI1"></span></label>
+                            <label for="pm" id="pm">\( \pm \)</label>
+                            <label for="KAI2"><span id="KAI2"></span></label>
+                        </p>
+                        <p class="pb20">
+                            描画範囲
+                            &emsp;
+                            <input type="text" id="width0" value="8" onchange="updateRange()" style="width:50px; text-align:right;">
+                            &emsp;
+                            <label for="min"><span id="wmin"></span></label> \( < x, y < \) <label for="max"><span id="wmax"></span></label>
+                        </p>
+                        <p class="pb15">
+                            刻み幅
+                            &emsp;
+                            <input type="text" id="dh" value="0.01" style="width:50px; text-align:right;">
+                        </p>
+                        <p class="pb30">
+                            繰返し
+                            &emsp;
+                            <input type="text" id="cnt_dp" value="320" style="width:50px; text-align:right;">
+                        </p>
+                    </div>
+                    <div>
+                        <p>
+                            <button class="btn-radius-solid" id="start" onclick="startAnimation()">Start</button>
+                            &emsp;&emsp;&nbsp;&nbsp;
+                            <button class="btn-radius-solid" id="stop" onclick="stopAnimation()">Stop</button>
+                            &emsp;&emsp;&emsp;
+                            reset&nbsp;
+                            <input type="checkbox" id="cb_reset" onclick="handleCheckbox(this.checked)" checked>
+                        </p>
+                    </div>
+                    <div class="grid2a">
+                        <div class="grid-item">
+                            <p>
+                            </p>
+                        </div>
+                        <div class="grid-item">
+                            <p class="cLink">
+                                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                                <!-- 戻るリンク -->
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+<!--    <script src="libs/etc/js/deq01.js" type="text/javascript"></script> -->
+
+        <footer>
+
+            <hr id="footer"> <!-- horizontal partition -->
+
+            <div class="jQ_change center" > <!-- select button whole: start -->
+                <p id="footer"> <!-- select button: start -->
+                    <a href="etc.html">
+                        <IMG src="image/button/back_off.gif" border="0" alt="Back" >
+                    </a>
+                </p> <!-- select button: end -->
+            </div> <!-- select button whole: end -->
+
+            <div class="wrap">
+            </div>
+            <div class="footer_bottom_fixed">
+                copyright &copy; 2003 -
+                <script type="text/javascript" language="JavaScript">
+                    date = new Date();
+                    document.write(date.getFullYear() + ' ');
+                </script>
+                <nonscript>
+                </nonscript>
+                Kz's Page all rights reserved
+            </div>
+
+        </footer>
+
+    </div>
+
+</BODY>
+
+
+</html>

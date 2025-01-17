@@ -1,0 +1,62 @@
+
+微分方程式
+
+etc_DEQ_doc2.html
+    <META name="description" content="自励形の2元連立微分方程式の近似解を描画するページの簡易解説です。任意の式を入力して解軌道を確認するための方法についても解説しています。">
+    <META name="keywords" content="自励形,自律形,連立,微分方程式,解曲線,解軌道,描画,ツール,任意,式,入力,可能,解説">
+etc_DEQ_v2.html
+    <META name="description" content="自励形の2元連立微分方程式の近似解を描画するページです。予めリストアップされている式だけではなく、任意の式を入力して解軌道を確認することもできます。">
+    <META name="keywords" content="自励形,自律形,2元,連立,微分方程式,近似,解曲線,解軌道,描画,ツール,任意,式,入力,可能">
+
+etc_DEQ_doc2_en.html
+    <META name="description" content="This is a simple explanation of the page plots approximate solutions to autonomous systems of two-dimensional simultaneous differential equations. I'm also explaining how to enter any equation and check the solution orbit in this page.">
+    <META name="keywords" content="explanation,autonomous,system,two-dimensional,simultaneous,differential,equations,free,input">
+etc_DEQ_v2_en.html
+    <META name="description" content="This page plots approximate solutions to autonomous systems of two-dimensional simultaneousdifferential equations. In addition to the equations listed in advance, you can also enter any equation and check the solution trajectory. ">
+    <META name="keywords" content="autonomous,system,2D,differential,equations,approximate,solutions,drawing,tool,free,input">
+
+
+etc_DEQ_doc3.html
+    <META name="description" content="自励形の連立微分方程式の近似解を3Dで描画するページの簡易解説です。ローレンツ・アトラクターを初めとするカオス的な振る舞いを見せる方程式の初期値鋭敏性などを描画の動きを通して確認することができます。">
+    <META name="keywords" content="3D,連立,微分方程式,解曲線,解軌道,描画,カオス,アトラクター,Lorenz,ローレンツ,初期値,鋭敏性,解説">
+etc_DEQ_v3.html
+    <META name="description" content="自励形の連立微分方程式の近似解を3Dで描画するページです。ローレンツ・アトラクターを初めとするカオス的な振る舞いを見せる方程式の初期値鋭敏性などを描画の動きを通して確認することができます。">
+    <META name="keywords" content="3D,連立,微分方程式,解曲線,解軌道,描画,カオス,アトラクター,Lorenz,ローレンツ,初期値,鋭敏性">
+
+etc_DEQ_doc3_en.html
+    <META name="description" content="This is a simple explanation of a page that draws approximate solutions of autonomous systems of simultaneous differential equations in 3D. You can confirm the sensitive dependence on initial conditions of equations that show chaotic behavior like the Lorenz attractor through the movement of the orbit. ">
+    <META name="keywords" content="explanation,autonomous,system,three-dimensional,simultaneous,differential,equations,dependence,initial,conditionsfree,Lorenz,chaos,attractor">
+etc_DEQ_v3_en.html
+    <META name="description" content="This page draws approximate solutions of autonomous systems of simultaneous differential equations in 3D. You can confirm the sensitive dependence on initial conditions of equations that show chaotic behavior like the Lorenz attractor through the movement of the orbit. ">
+    <META name="keywords" content="autonomous,system,three-dimensional,simultaneous,differential,equations,dependence,initial,conditionsfree,Lorenz,chaos,attractor">
+
+
+数独
+
+etc_suudoku.html
+    <META name="description" content="数独(ナンプレ)の問題を作成するツールをエクセルのマクロで組みました。オープンさせるマス目の数を指定することで、問題が作成されます。最小数は偶数が24個、奇数が23個です。">
+    <META name="keywords" content="数独,ナンプレ,問題,作成,ツール">
+etc_suudoku_another.html
+    <META name="description" content="数独(ナンプレ)の問題を作成するツールの別バージョンをエクセルのマクロで組みました。こちらはオープンさせるマス目の位置を指定させることで問題を作成することができます。">
+    <META name="keywords" content="数独,another,ナンプレ,問題,作成,ツール,">
+etc_suudoku_org.html
+なし
+etc_suudoku_tutorial.html
+なし
+etc_suudoku_update01.html
+    <META name="description" content="数独(ナンプレ)の問題を作成するツールをアップデート: 作成した問題を保存する機能を追加しました。オープンさせるマス目の数を指定することで、問題が作成されます。最小数は偶数が24個、奇数が23個です。">
+    <META name="keywords" content="数独,ナンプレ,問題,作成,ツール,保存">
+
+
+SRTLM
+
+etc_SRTLM_about_LensMeter.html
+なし
+etc_SRTLM_document.html
+なし
+
+etc_SRTLM_about_LensMeter_En.html
+なし
+etc_SRTLM_document_En.html
+なし
+

@@ -1,0 +1,2147 @@
+htmlとjavascriptについて質問です。
+htmlのテキストボックスの値が変更されたら、range()関数を呼び出し、
+wminとwmaxを求め、htmlに
+xxx < x, y < xxx
+と表示したいです。左のxxxはwminの値が表示され、右のxxxにはwmaxの値が表示されます。
+以下のようにやってみましたが、うまく行きません。
+どうすれば良いでしょうか？
+よろしくお願いします。
+
+<script src="libs/etc/js/deq01.js" type="text/javascript"></script>
+
+<p class="pb10">
+    描画範囲
+    &emsp;
+    <input type="text" id="width0" value="2" onchange="range(wmax, wmin)" style="width:40px;">
+    <label for="min">wmin.value</label> < x, y < <label for="max">wmax.value</label>
+</p>
+
+deqo1.jsの内容
+function range(wmax, wmin) {
+    wmax.value = parseFloat(document.getElementById('width0').value / 2);
+    wmin.value = -wmax;
+}
+
+
+htmlとjavascriptについて質問です。
+数式を選択したらTeXを使って表示させようと思いますが、ページを開いたときはうまく行くのですが、
+選択ボックスから数式を選択し直すと、TeXが機能せず、TeX用の記号混じりの文字列になってしまいます。
+
+htmlでは、ヘッダーに以下のようにTeXの使用を定義しています。
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: { equationNumbers: { autoNumber: "AMS" }},
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { matchFontHeight: false },
+    displayAlign: "left",
+    displayIndent: "2em"
+  });
+</script>
+
+ページオープン時は
+<BODY  id="type" onload="initialize()">
+
+また数式選択時はbody内で
+<p class="pb10">
+    <select id="type" onchange="initialize()">
+        <option value="01">2次元1次線形自励系</option>
+        <option value="02">2次元2次線形自励系</option>
+    </select>
+</p>
+
+を行っています。
+
+以下、initialize()の内容です。
+function initialize() {
+
+    // 描画範囲の初期化
+    let width0 = parseFloat(document.getElementById('width0').value);
+    let wmax = width0 / 2;
+    let wmin = -wmax;
+    document.getElementById('wmax').innerText = wmax;
+    document.getElementById('wmin').innerText = wmin;
+
+    // 係数
+    let ma = parseFloat(document.getElementById('ma').value);
+    let mb = parseFloat(document.getElementById('mb').value);
+    let mc = parseFloat(document.getElementById('mc').value);
+    let md = parseFloat(document.getElementById('md').value);
+    let me = parseFloat(document.getElementById('me').value);
+    let mf = parseFloat(document.getElementById('mf').value);
+    let mg = parseFloat(document.getElementById('mg').value);
+    let mh = parseFloat(document.getElementById('mh').value);
+
+    const type = parseInt(document.getElementById('type').value);
+    switch (type) {
+        case 1:
+            dat = 1;
+            document.getElementById('ma').value = 1;
+            document.getElementById('mb').value = -2;
+            document.getElementById('mc').value = 2;
+            document.getElementById('md').value = 1;
+            document.getElementById('me').disabled = true;
+            document.getElementById('mf').disabled = true;
+            document.getElementById('mg').disabled = true;
+            document.getElementById('mh').disabled = true;
+            // 式を表示する
+            document.getElementById('dx').innerText = "\\[ \\frac{dx}{dt} = ax + by \\]";
+            document.getElementById('dy').innerText = "\\[ \\frac{dx}{dt} = cx + dy \\]";
+//            document.getElementById('dx').innerText = "dx/dt = ax + by";
+//            document.getElementById('dy').innerText = "dy/dt = cx + dy";
+            break;
+        case 2:
+            dat = 2;
+            document.getElementById('ma').value = -1;
+            document.getElementById('mb').value = 0;
+            document.getElementById('mc').value = 1;
+            document.getElementById('md').value = 0;
+            document.getElementById('me').value = -2;
+            document.getElementById('mf').value = 0;
+            document.getElementById('me').disabled = false;
+            document.getElementById('mf').disabled = false;
+            document.getElementById('mg').disabled = true;
+            document.getElementById('mh').disabled = true;
+            // 式を表示する
+            document.getElementById('dx').innerText = "\\[ \\frac{dx}{dt} = ax^2 + bxy + cx^2 \\]";
+            document.getElementById('dy').innerText = "\\[ \\frac{dx}{dt} = dx^2 + exy + fy^2 \\]";
+//            document.getElementById('dx').innerText = "dx/dt = ax^2 + bxy + cy^2";
+//            document.getElementById('dy').innerText = "dy/dt = dx^2 + exy + fy^2";
+            break;
+        defaut:
+            break;
+    }
+
+    // 固有値
+    // ラベルを一度非表示にする
+    document.getElementById('lambda').style.visibility ="hidden";
+    document.getElementById('KAI1').style.visibility ="hidden";
+    document.getElementById('pm').style.visibility ="hidden";
+    document.getElementById('KAI2').style.visibility ="hidden";
+
+}
+
+TeXが機能するのはページオープンのときだけだと思います。
+そこで、js側でページの再読み込みを考えましたが、
+必ず、1番目の数式が選択されてしまいます。
+そこで、再読み込みしたときにidであるtypeに、選択した番号を憶えさせて
+オープンすることはできないでしょうか？
+ファイルにデータを書き込んで再読み込み時にそのファイルを開いて
+typeを取得することも考えましたが、
+そもそもhtmlはweb上で扱われるものなので、難しいのかなぁとも思います。
+何か良い方法がないものでしょうか？
+
+回答
+
+選択した数式をオプションで記憶させ、ページを再読み込みしてもその選択が保持されるようにするために、いくつかの方法があります。その中で、最もシンプルな方法の一つは、ブラウザのローカルストレージを使用することです。以下に、その方法を示します。
+
+まず、選択された数式をローカルストレージに保存し、ページを再読み込みしたときにその値を復元します。これにより、ユーザーが選択した数式が保持されます。
+
+javascript
+Copy code
+function initialize() {
+    // 数式の選択状態を取得
+    let selectedType = localStorage.getItem('selectedType');
+    if (selectedType) {
+        document.getElementById('type').value = selectedType;
+    }
+
+    // 描画範囲の初期化など他の処理を行う
+    // ...
+
+    // 他の処理が終わった後にMathJaxを再度実行する
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+}
+
+// 数式が選択されたときに呼ばれる関数
+function handleTypeChange() {
+    let selectedType = document.getElementById('type').value;
+    // 選択された数式をローカルストレージに保存
+    localStorage.setItem('selectedType', selectedType);
+    // MathJaxを再実行してTeXを再描画
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+}
+上記のコードでは、localStorageを使用して数式の選択状態を保存し、initialize()関数でページが読み込まれたときにその値を取得し、選択ボックスの値を設定します。また、数式が選択されたときに呼ばれるhandleTypeChange()関数を追加し、数式が選択された際にローカルストレージに保存され、MathJaxが再度実行されるようにします。
+
+これにより、ページを再読み込みしてもユーザーが選択した数式が保持され、TeXが正しく機能するはずです。
+
+
+
+20240216
+
+javascriptでの関数の呼び出しについて質問です。
+
+以下は、6つの引数を持つ関数です。
+呼び出し時は全ての引数に値が入っていることを確認しました。
+
+ vx1 = 0.0; vy1 = 0.0; vz1 = 0.0; vx2 = 0.0; vy2 = 0.0; vz2 = 0.0;
+ R3D(Ru_x0, Ru_y0, Ru_z0, vx1, vy1, vz1);
+ R3D(Ru_dx[i], Ru_dy[i], Ru_dz[i], vx2, vy2, vz2);
+
+関数
+ function R3D(x, y, z, x3, y3, z3);
+ {
+    ...
+ }
+
+関数側で引数の値を確認すると、x3, y3, z3には0が入っていますが、
+x, y, zはundefinedとなります。
+これはどうしてなのでしょう？
+
+1つ気づいたのは、Ru_x0, Ru_y0, Ru_z0, Ru_dx[i], Ru_dy[i], Ru_dz[i]は
+グローバルで定義されています。
+
+
+JavaScriptでは、関数の引数として渡された値が関数内でどのように扱われるかについて、いくつかのポイントがあります。以下の点を考慮すると、関数呼び出し時に引数の値がundefinedになる理由が分かります。
+
+引数の数が期待される数と一致しない場合、未指定の引数はundefinedになります。
+グローバルスコープで定義された変数を関数に渡す場合、それらの変数が定義されていることが期待されます。
+あなたのコードの場合、次のような要因が考えられます:
+
+Ru_x0、Ru_y0、Ru_z0、Ru_dx、Ru_dy、Ru_dzがグローバル変数として定義されているため、それらの変数は関数R3D内で参照可能です。
+Ru_dx[i]、Ru_dy[i]、Ru_dz[i]が配列の要素であり、iが適切な値で初期化されていない可能性があります。もしそうならば、その要素はundefinedになります。
+関数呼び出し時に引数がundefinedになる主な原因は、引数の数が期待される数と一致しない場合や、渡された引数の値がundefinedである場合です。関数R3Dの呼び出し元で、引数が正しく設定されていることを確認してください。また、関数内でグローバル変数を使用する場合は、それらが正しく定義されていることも確認してください。
+
+
+User
+間違えました。グローバルと書いた6つの変数は呼び出し元の関数内でローカルで宣言されていました。
+また、呼び出し時には実数ですが、確実に値がセットされていることを確認しました。
+何故、undefinedになるのか分かりません。
+ChatGPT
+すみません、誤解がありました。では、再度考えてみましょう。
+
+関数呼び出し時に、引数の一部が正しく渡されているにもかかわらず、一部の引数がundefinedになる理由はいくつか考えられます。以下はその可能性です：
+
+関数呼び出し元での変数のスコープの問題: 関数呼び出し元で引数として渡される変数が、関数内で正しくスコープされていない可能性があります。たとえば、関数呼び出し元で変数がローカル変数として宣言されていない場合、またはその変数が正しく初期化されていない場合にこの問題が発生する可能性があります。
+
+引数の数と順序の問題: 関数の定義と呼び出し元の引数の数と順序が一致しない場合、引数がundefinedになることがあります。確認してください。
+
+関数内での引数の再宣言: 関数内で引数と同じ名前の変数が再宣言されている場合、引数はスコープ内で隠され、undefinedになる可能性があります。
+
+これらの可能性を確認してみてください。特に、関数呼び出し元と関数内での変数のスコープと名前が正しく設定されているかを注意深く確認してください。
+
+
+
+関数内で、以下のように定義しています。
+ var Ru_dx = new Array(2);
+ var Ru_dy = new Array(2);
+ var Ru_dz = new Array(2);
+ var Ru_x0 = 0.0;
+ var Ru_y0 = 0.0;
+ var Ru_z0 = 0.0;
+
+その後、次のようにデータが格納されていきます。
+    Ru_dx[0] = 0.0;
+    Ru_dy[0] = 1.0;
+    Ru_dz[0] = 2.0;
+
+    for (let i = 0; i < 2; i++) {
+
+        Ru_x0 = Ru_dx[i];
+        Ru_y0 = Ru_dy[i];
+        Ru_z0 = Ru_dz[i];
+ ...
+
+        Ru_dx[i] = Ru_x0 + (Ru_kx[0] + 2.0 * Ru_kx[1] + 2.0 * Ru_kx[2] + Ru_kx[3]) / 6.0;
+        Ru_dy[i] = Ru_y0 + (Ru_ky[0] + 2.0 * Ru_ky[1] + 2.0 * Ru_ky[2] + Ru_ky[3]) / 6.0;
+        Ru_dz[i] = Ru_z0 + (Ru_kz[0] + 2.0 * Ru_kz[1] + 2.0 * Ru_kz[2] + Ru_kz[3]) / 6.0;再宣言はしていません。
+
+ ...
+
+        vx1 = 0.0; vy1 = 0.0; vz1 = 0.0; vx2 = 0.0; vy2 = 0.0; vz2 = 0.0;
+        R3D(Ru_x0, Ru_y0, Ru_z0, vx1, vy1, vz1);
+        R3D(Ru_dx[i], Ru_dy[i], Ru_dz[i], vx2, vy2, vz2);
+
+
+
+20240217
+もう1回やり直したところ、関数R3Dに6つの引数を渡すことができるようになりました。
+関数の引数のうち、後ろの3つは参照渡しにしたいです。
+呼び出し側は
+R3D(Ru_x0, Ru_y0, Ru_z0, vx1, vy1, vz1);
+R3D(Ru_dx[i], Ru_dy[i], Ru_dz[i], vx2, vy2, vz2);
+関数は以下の通りです。
+function R3D(x, y, z, x3, y3, z3) {
+   ...
+}
+よろしくお願いします。
+ChatGPT
+理解しました。JavaScriptでは、オブジェクトの参照を引数として渡すことで、参照渡しをエミュレートすることができます。つまり、関数内でオブジェクトのプロパティを変更すると、呼び出し元のオブジェクトも変更されます。以下は、このアプローチを使用して、関数R3Dの後ろの3つの引数を参照渡しにする方法です。
+
+javascript
+Copy code
+function R3D(x, y, z, obj) {
+    // objのプロパティを変更することで、呼び出し元の変数も変更される
+    obj.x3 = x;
+    obj.y3 = y;
+    obj.z3 = z;
+}
+
+// 呼び出し側でオブジェクトを定義し、関数R3Dに渡す
+let obj1 = { x3: 0, y3: 0, z3: 0 };
+let obj2 = { x3: 0, y3: 0, z3: 0 };
+
+// 関数呼び出し
+R3D(Ru_x0, Ru_y0, Ru_z0, obj1);
+R3D(Ru_dx[i], Ru_dy[i], Ru_dz[i], obj2);
+
+// obj1とobj2の値が更新される
+console.log(obj1);
+console.log(obj2);
+この方法では、関数R3Dの後ろの3つの引数をオブジェクトとして渡し、関数内でそのオブジェクトのプロパティを変更します。これにより、呼び出し元の変数も更新されます。
+
+User
+ありがとうございます。試してみます。
+
+
+
+
+
+
+20240218
+
+javascriptのcanvasを利用した描画について質問です。
+以下の関数内の描画セクションで、微妙に異なる初期値を出発した解曲線のグラフを描画させています。
+曲線は linePoints[i] にデータが格納されています。
+i = 0 のときは初期値1のときの解曲線、
+i = 1 のときは初期値2のときの解曲線になります。
+
+実際に描画を実行すると、i = 0, i = 1 の描画が繰り返され、
+画面が相当にチカチカします。
+これを改善するにはどうしたらよいでしょうか？
+
+
+async function animateGraph() {
+
+    // 2つの初期点から解軌道を描くために、配列に要素をセットする
+    for (let i = 0; i < 2; i++) {
+        linePoints.push([]);
+    }
+
+    var dt = 0.0;
+    var dnt = 0.0;
+
+    // Runge-Kutta法
+    var Ru_dx = new Array(2);
+    var Ru_dy = new Array(2);
+    var Ru_dz = new Array(2);
+    var Ru_x0 = 0.0;
+    var Ru_y0 = 0.0;
+    var Ru_z0 = 0.0;
+    var Ru_x0_init = new Array(2);   // 初期値
+    var Ru_y0_init = new Array(2);
+    var Ru_kx = new Array(4);
+    var Ru_ky = new Array(4);
+    var Ru_kz = new Array(4);
+
+    let pixelX;
+    let pixelY;
+
+    let vx1 = 0.0, vy1 = 0.0, vz1 = 0.0, vx2 = 0.0, vy2 = 0.0, vz2 = 0.0;
+    let obj1 = {x3: vx1, y3: vy1, z3: vz1};
+    let obj2 = {x3: vx2, y3: vy2, z3: vz2};
+
+    // 3軸の描画
+    Axis();
+
+    //// for debug start
+    Ru_dx[0] = init1[0];
+    Ru_dy[0] = init1[1];
+    Ru_dz[0] = init1[2];
+    Ru_dx[1] = init2[0];
+    Ru_dy[1] = init2[1];
+    Ru_dz[1] = init2[2];
+    //// for debug   end
+
+    for (dp = 1; dp <= cnt_dp; dp++) {
+        for (let i = 0; i < 2; i++) {
+
+            Ru_x0 = Ru_dx[i];
+            Ru_y0 = Ru_dy[i];
+            Ru_z0 = Ru_dz[i];
+
+            if (i % 2 == 0) { // 20231229 dtのカウントが2倍で効いていたバグを修正
+                dt = dnt;
+            }
+
+            if (dp == 1) {
+                R3D(Ru_x0, Ru_y0, Ru_z0, obj1);
+
+                pixelX = scaleX * (obj1.x + width0 / 2);
+                pixelY = scaleY * (height0 / 2 - obj1.y);
+                linePoints[i].push({ x: pixelX, y: pixelY });
+            }
+
+            ///////////////////
+            //               //
+            // Runge-Kutta法 //
+            //               //
+            ///////////////////
+
+            Ru_kx[0] = dh * FNF(dt, Ru_x0, Ru_y0, Ru_z0);
+            Ru_ky[0] = dh * FNG(dt, Ru_x0, Ru_y0, Ru_z0);
+            Ru_kz[0] = dh * FNH(dt, Ru_x0, Ru_y0, Ru_z0);
+            Ru_kx[1] = dh * FNF(dt + dh / 2.0, Ru_x0 + Ru_kx[0] / 2.0, Ru_y0 + Ru_ky[0] / 2.0, Ru_z0 + Ru_kz[0] / 2.0);
+            Ru_ky[1] = dh * FNG(dt + dh / 2.0, Ru_x0 + Ru_kx[0] / 2.0, Ru_y0 + Ru_ky[0] / 2.0, Ru_z0 + Ru_kz[0] / 2.0);
+            Ru_kz[1] = dh * FNH(dt + dh / 2.0, Ru_x0 + Ru_kx[0] / 2.0, Ru_y0 + Ru_ky[0] / 2.0, Ru_z0 + Ru_kz[0] / 2.0);
+            Ru_kx[2] = dh * FNF(dt + dh / 2.0, Ru_x0 + Ru_kx[1] / 2.0, Ru_y0 + Ru_ky[1] / 2.0, Ru_z0 + Ru_kz[1] / 2.0);
+            Ru_ky[2] = dh * FNG(dt + dh / 2.0, Ru_x0 + Ru_kx[1] / 2.0, Ru_y0 + Ru_ky[1] / 2.0, Ru_z0 + Ru_kz[1] / 2.0);
+            Ru_kz[2] = dh * FNH(dt + dh / 2.0, Ru_x0 + Ru_kx[1] / 2.0, Ru_y0 + Ru_ky[1] / 2.0, Ru_z0 + Ru_kz[1] / 2.0);
+            Ru_kx[3] = dh * FNF(dt + dh, Ru_x0 + Ru_kx[2], Ru_y0 + Ru_ky[2], Ru_z0 + Ru_kz[2]);
+            Ru_ky[3] = dh * FNG(dt + dh, Ru_x0 + Ru_kx[2], Ru_y0 + Ru_ky[2], Ru_z0 + Ru_kz[2]);
+            Ru_kz[3] = dh * FNH(dt + dh, Ru_x0 + Ru_kx[2], Ru_y0 + Ru_ky[2], Ru_z0 + Ru_kz[2]);
+
+            Ru_dx[i] = Ru_x0 + (Ru_kx[0] + 2.0 * Ru_kx[1] + 2.0 * Ru_kx[2] + Ru_kx[3]) / 6.0;
+            Ru_dy[i] = Ru_y0 + (Ru_ky[0] + 2.0 * Ru_ky[1] + 2.0 * Ru_ky[2] + Ru_ky[3]) / 6.0;
+            Ru_dz[i] = Ru_z0 + (Ru_kz[0] + 2.0 * Ru_kz[1] + 2.0 * Ru_kz[2] + Ru_kz[3]) / 6.0;
+
+            if (i % 2 == 0)
+            {
+                dnt = dt + dh;
+            }
+
+            //////////
+            //      //
+            // 描画 //
+            //      //
+            //////////
+
+            Axis();
+
+            if (i == 0) {
+                R3D(Ru_dx[i], Ru_dy[i], Ru_dz[i], obj2);
+
+                pixelX = scaleX * (obj2.x3 + width0 / 2);
+                pixelY = scaleY * (height0 / 2 - obj2.y3);
+
+                linePoints[i].push({ x: pixelX, y: pixelY });
+
+                ctx.beginPath();
+                ctx.moveTo(linePoints[i][0].x, linePoints[i][0].y);
+                for (const point of linePoints[i]) {
+                    ctx.lineTo(point.x, point.y);
+                }
+                ctx.strokeStyle = 'rgb(100, 149, 237)';
+                ctx.stroke();
+
+                // Draw the point
+                ctx.beginPath();
+                ctx.arc(pixelX, pixelY, 2, 0, 2 * Math.PI);
+                ctx.fillStyle = 'orange';
+                ctx.fill();
+            }
+
+            if (i == 1) {
+                R3D(Ru_dx[i], Ru_dy[i], Ru_dz[i], obj2);
+
+                pixelX = scaleX * (obj2.x3 + width0 / 2);
+                pixelY = scaleY * (height0 / 2 - obj2.y3);
+
+                linePoints[i].push({ x: pixelX, y: pixelY });
+
+                ctx.beginPath();
+                ctx.moveTo(linePoints[i][0].x, linePoints[i][0].y);
+                for (const point of linePoints[i]) {
+                    ctx.lineTo(point.x, point.y);
+                }
+                ctx.strokeStyle = 'rgb(200, 200, 55)';
+                ctx.stroke();
+
+                // Draw the point
+                ctx.beginPath();
+                ctx.arc(pixelX, pixelY, 2, 0, 2 * Math.PI);
+                ctx.fillStyle = 'red';
+                ctx.fill();
+            }
+
+            if (dp % 100 == 0 || dp == cnt_dp - 1) // 描画リフレッシュステップ
+            {
+                if (dp != cnt_dp) {
+                    // 描画領域をリセット
+                    ctx.fillStyle = 'rgb( 0, 0, 0)';
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+                }
+            }
+            if (dp % 1 == 0) { // 倍速設定
+                await new Promise(resolve => setTimeout(resolve, 20)); // Wait for 10 milliseconds
+            }
+        }
+    }
+}
+
+
+20240220
+
+javascriptの配列について質問です。
+2つの初期値から描画される3次元の解軌道データを格納する配列ary3Dを用意しました。
+このデータは後で利用するために3Dの計算値の生データを格納します。
+関数animateGraph()の ①, ②, ③の番号で示したように、データを格納しています。
+
+データの格納が完了したら、別の関数mapping()で指定された視点で平面に投影します。
+④で示した箇所で格納したデータを取り出したいのですが、
+うまく取り出すことができません。
+取り出し方に問題があるのでしょうか？
+
+以下、ソースの抜粋です。
+
+
+let linePoints = [];
+let ary3D = []; - ①
+
+async function animateGraph() {
+
+     // 2つの初期点から解軌道を描くために、配列に要素をセットする
+     for (let i = 0; i < 2; i++) {
+         linePoints.push([]);
+     }
+
+     // 2つの初期点から解軌道の3Dデータを格納するために、配列に要素をセットする
+     for (let i = 0; i < 3; i++) { -②
+         ary3D.push([]);
+     }
+
+    if (i == 0) {
+        R3D(Ru_dx[i], Ru_dy[i], Ru_dz[i], obj2);
+        ary3D[i].push({ x: obj2.x3,  y: obj2.y3, z: obj2.z3 }); -③
+
+        pixelX = scaleX * (obj2.x3 + width0 / 2);
+        pixelY = scaleY * (height0 / 2 - obj2.y3);
+
+        linePoints[i].push({ x: pixelX, y: pixelY });
+        ...
+}
+
+function mapping()
+{
+    // 解曲線描画用配列のクリア
+    linePoints.length = 0;    for (let i = 0; i < 2; i++) {
+
+    linePoints.push([]);
+    }
+
+    for (let dp = 1; dp <= cnt_dp; dp = dp + 1) {
+        for (let i = 0; i < 2; i++) {
+            if (dp == 1) {
+                vx1 = 0.0, vy1 = 0.0, vz1 = 0.0;
+                let obj1 = {x3: vx1, y3: vy1, z3: vz1};
+                R3D(ary3D[i].x, ary3D[i].y, ary3D[i].z, obj1); -④
+                pixelX = scaleX * (obj1.x + width0 / 2);
+                pixelY = scaleY * (height0 / 2 - obj1.y);
+                linePoints[i].push({ x: pixelX, y: pixelY });
+                ...
+            }
+        ...
+        }
+    ...
+    }
+
+
+
+まだ、うまく描画できないのですが、
+確認したところ、animateGraph()でary3D[0]とary3D[1]に2つの初期値から始まるデータを収めたいのですが、
+ary3D[0]には3201このデータが格納されていますが、ary[2]には1個のデータしか、入っていませんでした。
+ary3Dにはデータを格納する系が2つあり(i = 0, 1)、それぞれの系に3201個の3次元データ(x, y, z)が入るようにしたいのです。
+定義の仕方に誤りがあるようですが、どのように定義すれば良いでしょうか？
+
+
+
+ソースを端折りすぎたので、正確に記述します。
+ary3Dはイメージとしては、以下の構成を期待しています。
+ary3D[0]((x0, y0, z0), (x1, y1, z1) ... (xn, yn, zn))
+ary3D[1]((x'0, y'0, z'0), (x'1, y'1, z'1) ... (x'n, y'n, z'n))
+
+ary3Dの定義の仕方はこれで良いでしょうか？
+
+let ary3D = [];
+let arr_y = [];
+let arr_z = [];
+
+
+async function animateGraph() {
+
+    prep();
+
+    // 描画領域をリセット
+    ctx.fillStyle = 'rgb(0, 0, 0)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // 3軸の描画
+    Axis();
+
+    // 2つの初期点から解軌道を描くために、配列に要素をセットする
+    for (let i = 0; i < 2; i++) {
+        linePoints.push([]);
+    }
+
+    // 2つの初期点から解軌道の3Dデータを格納するために、配列に要素をセットする
+    for (let i = 0; i < 3; i++) {
+        ary3D.push([]);
+    }
+
+    var dt = 0.0;
+    var dnt = 0.0;
+
+    // Runge-Kutta法
+    var Ru_dx = new Array(2);
+    var Ru_dy = new Array(2);
+    var Ru_dz = new Array(2);
+    var Ru_x0 = 0.0;
+    var Ru_y0 = 0.0;
+    var Ru_z0 = 0.0;
+    var Ru_x0_init = new Array(2);   // 初期値
+    var Ru_y0_init = new Array(2);
+    var Ru_kx = new Array(4);
+    var Ru_ky = new Array(4);
+    var Ru_kz = new Array(4);
+
+    let pixelX;
+    let pixelY;
+
+    let vx1 = 0.0, vy1 = 0.0, vz1 = 0.0, vx2 = 0.0, vy2 = 0.0, vz2 = 0.0;
+    let obj1 = {x3: vx1, y3: vy1, z3: vz1};
+    let obj2 = {x3: vx2, y3: vy2, z3: vz2};
+
+    //// for debug start
+    Ru_dx[0] = init1[0];
+    Ru_dy[0] = init1[1];
+    Ru_dz[0] = init1[2];
+    Ru_dx[1] = init2[0];
+    Ru_dy[1] = init2[1];
+    Ru_dz[1] = init2[2];
+    //// for debug   end
+
+    for (dp = 1; dp <= cnt_dp; dp++) {  // cnt_dp = 3200
+        for (let i = 0; i < 2; i++) {
+
+            Ru_x0 = Ru_dx[i];
+            Ru_y0 = Ru_dy[i];
+            Ru_z0 = Ru_dz[i];
+
+            if (i % 2 == 0) { // 20231229 dtのカウントが2倍で効いていたバグを修正
+                dt = dnt;
+            }
+
+            if (dp == 1) {
+                R3D(Ru_x0, Ru_y0, Ru_z0, obj1);
+
+                ary3D[i].push({ x: obj1.x3,  y: obj1.y3, z: obj1.z3 });
+
+                pixelX = scaleX * (obj1.x + width0 / 2);
+                pixelY = scaleY * (height0 / 2 - obj1.y);
+                linePoints[i].push({ x: pixelX, y: pixelY });
+            }
+
+            ///////////////////
+            //               //
+            // Runge-Kutta法 //
+            //               //
+            ///////////////////
+
+            Ru_kx[0] = dh * FNF(dt, Ru_x0, Ru_y0, Ru_z0);
+            Ru_ky[0] = dh * FNG(dt, Ru_x0, Ru_y0, Ru_z0);
+            Ru_kz[0] = dh * FNH(dt, Ru_x0, Ru_y0, Ru_z0);
+            Ru_kx[1] = dh * FNF(dt + dh / 2.0, Ru_x0 + Ru_kx[0] / 2.0, Ru_y0 + Ru_ky[0] / 2.0, Ru_z0 + Ru_kz[0] / 2.0);
+            Ru_ky[1] = dh * FNG(dt + dh / 2.0, Ru_x0 + Ru_kx[0] / 2.0, Ru_y0 + Ru_ky[0] / 2.0, Ru_z0 + Ru_kz[0] / 2.0);
+            Ru_kz[1] = dh * FNH(dt + dh / 2.0, Ru_x0 + Ru_kx[0] / 2.0, Ru_y0 + Ru_ky[0] / 2.0, Ru_z0 + Ru_kz[0] / 2.0);
+            Ru_kx[2] = dh * FNF(dt + dh / 2.0, Ru_x0 + Ru_kx[1] / 2.0, Ru_y0 + Ru_ky[1] / 2.0, Ru_z0 + Ru_kz[1] / 2.0);
+            Ru_ky[2] = dh * FNG(dt + dh / 2.0, Ru_x0 + Ru_kx[1] / 2.0, Ru_y0 + Ru_ky[1] / 2.0, Ru_z0 + Ru_kz[1] / 2.0);
+            Ru_kz[2] = dh * FNH(dt + dh / 2.0, Ru_x0 + Ru_kx[1] / 2.0, Ru_y0 + Ru_ky[1] / 2.0, Ru_z0 + Ru_kz[1] / 2.0);
+            Ru_kx[3] = dh * FNF(dt + dh, Ru_x0 + Ru_kx[2], Ru_y0 + Ru_ky[2], Ru_z0 + Ru_kz[2]);
+            Ru_ky[3] = dh * FNG(dt + dh, Ru_x0 + Ru_kx[2], Ru_y0 + Ru_ky[2], Ru_z0 + Ru_kz[2]);
+            Ru_kz[3] = dh * FNH(dt + dh, Ru_x0 + Ru_kx[2], Ru_y0 + Ru_ky[2], Ru_z0 + Ru_kz[2]);
+
+            if (Math.abs(Ru_x0) > Math.abs(width0) || Math.abs(Ru_y0) > Math.abs(height0)) {
+                continue;
+            }
+            if (Math.abs(Ru_kx[3]) > max || Math.abs(Ru_ky[3]) > max) {
+                continue;
+            }
+
+            Ru_dx[i] = Ru_x0 + (Ru_kx[0] + 2.0 * Ru_kx[1] + 2.0 * Ru_kx[2] + Ru_kx[3]) / 6.0;
+            Ru_dy[i] = Ru_y0 + (Ru_ky[0] + 2.0 * Ru_ky[1] + 2.0 * Ru_ky[2] + Ru_ky[3]) / 6.0;
+            Ru_dz[i] = Ru_z0 + (Ru_kz[0] + 2.0 * Ru_kz[1] + 2.0 * Ru_kz[2] + Ru_kz[3]) / 6.0;
+
+            if (i % 2 == 0)
+            {
+                dnt = dt + dh;
+            }
+
+            //////////
+            //      //
+            // 描画 //
+            //      //
+            //////////
+
+            if (Math.abs(Ru_dx[i]) > Math.abs(width0) || Math.abs(Ru_dy[i]) > Math.abs(height0)) {
+                continue;
+            }
+
+            if (i == 0) {
+                R3D(Ru_dx[i], Ru_dy[i], Ru_dz[i], obj2);
+                ary3D[i].push({ x: obj2.x3,  y: obj2.y3, z: obj2.z3 });
+
+                pixelX = scaleX * (obj2.x3 + width0 / 2);
+                pixelY = scaleY * (height0 / 2 - obj2.y3);
+
+                linePoints[i].push({ x: pixelX, y: pixelY });
+
+                ctx.beginPath();
+                ctx.moveTo(linePoints[i][0].x, linePoints[i][0].y);
+                for (const point of linePoints[i]) {
+                    ctx.lineTo(point.x, point.y);
+                }
+                ctx.strokeStyle = 'rgb(100, 149, 237)';
+                ctx.stroke();
+
+                // Draw the point
+                ctx.beginPath();
+                ctx.arc(pixelX, pixelY, 2, 0, 2 * Math.PI);
+                ctx.fillStyle = 'orange';
+                ctx.fill();
+            }
+
+            if (i == 1) {
+                R3D(Ru_dx[i], Ru_dy[i], Ru_dz[i], obj2);
+
+                pixelX = scaleX * (obj2.x3 + width0 / 2);
+                pixelY = scaleY * (height0 / 2 - obj2.y3);
+
+                linePoints[i].push({ x: pixelX, y: pixelY });
+
+                ctx.beginPath();
+                ctx.moveTo(linePoints[i][0].x, linePoints[i][0].y);
+                for (const point of linePoints[i]) {
+                    ctx.lineTo(point.x, point.y);
+                }
+                ctx.strokeStyle = 'rgb(200, 200, 55)';
+                ctx.stroke();
+
+                // Draw the point
+                ctx.beginPath();
+                ctx.arc(pixelX, pixelY, 2, 0, 2 * Math.PI);
+                ctx.fillStyle = 'red';
+                ctx.fill();
+            }
+        }
+        if (dp % 100 == 0 || dp == cnt_dp - 1) // 描画リフレッシュステップ
+        {
+            if (dp != cnt_dp) {
+                // 描画領域をリセット
+                ctx.fillStyle = 'rgb( 0, 0, 0)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+    // 3軸の描画
+    Axis();
+
+            }
+        }
+        if (dp % 20 == 0) { // 倍速設定
+            await new Promise(resolve => setTimeout(resolve, 0)); // Wait for 10 milliseconds
+        }
+    }
+    mapping();
+}
+
+function mapping()
+{
+    prep();
+    let haba;
+    let vx1 = 0.0, vy1 = 0.0, vz1 = 0.0, vx2 = 0.0, vy2 = 0.0, vz2 = 0.0;
+
+    // 解曲線描画用配列のクリア
+    linePoints.length = 0;
+
+    for (let i = 0; i < 2; i++) {
+        linePoints.push([]);
+    }
+
+    for (let i = 0; i < 3; i++) {
+        ary3D.push([]);
+    }
+
+    // 描画領域をリセット
+    ctx.fillStyle = 'rgb( 0, 0, 0)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    Axis();
+    for (let dp = 1; dp <= cnt_dp; dp = dp + 1) {
+        for (let i = 0; i < 2; i++) {
+            if (dp == 1) {
+                vx1 = 0.0, vy1 = 0.0, vz1 = 0.0;
+                let obj1 = {x3: vx1, y3: vy1, z3: vz1};
+                R3D(ary3D[i][0].x, ary3D[i][0].y, ary3D[i][0].z, obj1);
+                pixelX = scaleX * (obj1.x + width0 / 2);
+                pixelY = scaleY * (height0 / 2 - obj1.y);
+                linePoints[i].push({ x: pixelX, y: pixelY });
+            }
+            else {
+                vx2 = 0.0, vy2 = 0.0, vz2 = 0.0;
+                let obj2 = {x3: vx2, y3: vy2, z3: vz2};
+                R3D(ary3D[i][0].x, ary3D[i][0].y, ary3D[i][0].z, obj2);
+
+                pixelX = scaleX * (obj2.x3 + width0 / 2);
+                pixelY = scaleY * (height0 / 2 - obj2.y3);
+
+                linePoints[i].push({ x: pixelX, y: pixelY });
+            }
+        }
+    }
+    for (let i = 0; i < 2; i++)
+    {
+        if (i == 0) {
+            ctx.beginPath();
+            ctx.moveTo(linePoints[i][dp].x, linePoints[i][dp].y);
+            for (const point of linePoints[i]) {
+                ctx.lineTo(point.x, point.y);
+            }
+            ctx.strokeStyle = 'rgb(100, 149, 237)';
+            ctx.stroke();
+        }
+        if (i == 1) {
+            ctx.beginPath();
+            ctx.moveTo(linePoints[i][dp].x, linePoints[i][dp].y);
+            for (const point of linePoints[i]) {
+                ctx.lineTo(point.x, point.y);
+            }
+            ctx.strokeStyle = 'rgb(200, 200, 55)';
+            ctx.stroke();
+        }
+    }
+}
+
+
+私の方でもコーディングミスがあり、それを修正して、
+2系統のデータがray3Dに格納されたことを確認しました。
+ありがとうございます。
+さて、mapping()関数の中で、エラーが出ます。
+
+    for (let i = 0; i < 2; i++)
+    {
+        if (i == 0) {
+            ctx.beginPath();
+            ctx.moveTo(linePoints[i][dp].x, linePoints[i][dp].y);   --①
+            for (const point of linePoints[i]) {
+                ctx.lineTo(point.x, point.y);
+            }
+            ctx.strokeStyle = 'rgb(100, 149, 237)';
+            ctx.stroke();
+        }
+        if (i == 1) {
+            ctx.beginPath();
+            ctx.moveTo(linePoints[i][dp].x, linePoints[i][dp].y);
+            for (const point of linePoints[i]) {
+                ctx.lineTo(point.x, point.y);
+            }
+            ctx.strokeStyle = 'rgb(200, 200, 55)';
+            ctx.stroke();
+        }
+    }
+
+①の行で以下のエラーが発生します。
+TypeError: Cannot read properties of undefined (reading 'x')
+
+
+
+
+20240223
+
+htmlのラジオボタンについての質問です。
+
+ページにラジオボタンを３つ横に並べてAxisを選択できるようにします。
+以下のようなイメージです。
+
+Vertical Axis  x: ○  y: ○  z: ◎
+
+3つ目が規定値として選択された状態にします。
+
+<p>
+    $x$ <input type="radio" id="axX" name="vAxis" onchange="changeAxis()" value="axisX" /> &emsp;
+    $y$ <input type="radio" id="axY" name="vAxis" onchange="changeAxis()" value="axisY" /> &emsp;
+    $z$ <input type="radio" id="axZ" name="vAxis" onchange="changeAxis()" value="axisZ" checked /> &emsp;
+</p>
+
+
+javascriptでは、選択された値に基づいて処理を振り分けたいと考えています。
+どのようにすれば良いのか教えて頂けると助かります。
+
+解決済み
+
+
+
+20240224
+
+先ほど、ラジオボタン選択時の処理について教えて頂きました。
+もう一つ質問があります。
+例えば2番目のyが選択されたとします。
+それに従って処理が行われます。
+処理終了後に、javascript側から再び3つめのラジオボタンzにチェックをつけたいと思うのですが、
+これはどのように記述すればようのでしょうか？
+
+解決済み
+
+
+htmlのスライダーについて質問です。
+以下のイメージのスライダーを用意したとします。
+レンジは-180から180、ステップは1とします。
+
+=======●========  -10
+
+マウスでノブを動かすとその位置の値が右に表示されます。
+溝の方をクリックするとノブがそこへ移動します。
+溝の方をクリックしたとき、一気にそこへ移動するのではなくstep1ずつ
+一定間隔の時間で移動させることは可能でしょうか？
+step1で移動する度に、changeイベントが発行されるようにしたいのです。
+
+別の方法としては、スピンコントロールで処理する方法です。
+<input type="number" id="angleAlpja" value="" style="width:40px; text-align:right;">
+こちらだと割と簡単だと思うのですが、どちらがおすすめでしょうか？
+
+先ほど示して頂いた処理を、以下のhtmlに当てはめるとどうなるでしょうか？
+rangeの初期値は予め与えられているものとします。
+
+<input type="range" id="rangeAlpha" min="-180" max="180" step="1" onchange="changeAngle()" value="">
+&emsp;
+<label for="alpha"  style="width: 30px; display: inline-block"><span id="l_alpha"></span></label>
+
+
+以下のように行ってみたところ、
+  rangeAlpha.onclick = function(event) {
+の部分で、次のエラーが出ます。
+Uncaught TypeError: Cannot set properties of null (setting 'onclick')
+
+以下が修正ソースです。
+
+  var rangeAlpha = document.getElementById("rangeAlpha");
+  var labelAlpha = document.getElementById("l_alpha");
+
+  // スライダーを一定間隔で移動させる関数
+  function moveSlider(targetValue) {
+    var currentValue = parseInt(slider.value);
+    var increment = (targetValue > currentValue) ? 1 : -1;
+
+    var interval = setInterval(function() {
+      if (currentValue === targetValue) {
+        clearInterval(interval);
+      } else {
+        currentValue += increment;
+        angleAlpha.value = currentValue;
+        angleAlphaValue.innerHTML = currentValue;
+      }
+    }, 500); // 移動間隔（ミリ秒）
+  }
+
+  // 溝の方をクリックしたときに実行される関数
+  rangeAlpha.onclick = function(event) {
+    var sliderWidth = this.offsetWidth;
+    var clickX = event.offsetX;
+    var targetValue = Math.round((clickX / sliderWidth) * (this.max - this.min) + parseInt(this.min));
+    moveSlider(targetValue);
+  };
+ // 描画角度 変更 html -> js
+ function changeAngle() {
+    m_alpha = parseInt(document.getElementById('rangeAlpha').value) || m_alpha;
+    m_gamma = parseInt(document.getElementById('rangeGamma').value) || m_gamma;
+
+    document.getElementById('l_alpha').innerText = m_alpha;
+    document.getElementById('l_gamma').innerText = m_gamma;
+    if (drawnFlg == true)
+        {
+        mapping();
+    }
+ }
+
+
+以下の修正で、動作するようにはなったのですが、
+溝をクリックしたとき、ノブが 1step 500msecで移動せず、
+すぐにクリックした位置に動いてしまいます。
+何が問題でしょうか？
+
+  var rangeAlpha = document.getElementById("rangeAlpha");
+  var labelAlpha = document.getElementById("l_alpha");
+
+  // スライダーを一定間隔で移動させる関数
+  function moveSlider(targetValue) {
+    var currentValue = parseInt(rangeAlpha.value);
+    var increment = (targetValue > currentValue) ? 1 : -1;
+
+    var interval = setInterval(function() {
+      if (currentValue === targetValue) {
+        clearInterval(interval);
+      } else {
+        currentValue += increment;
+        rangeAlpha.value = currentValue;
+        labelAlpha.innerHTML = currentValue;
+      }
+    }, 500); // 移動間隔（ミリ秒）
+  }
+
+  // 溝の方をクリックしたときに実行される関数
+  rangeAlpha.onclick = function(event) {
+    var sliderWidth = this.offsetWidth;
+    var clickX = event.offsetX;
+    var targetValue = Math.round((clickX / sliderWidth) * (this.max - this.min) + parseInt(this.min));
+    moveSlider(targetValue);
+  };
+
+ // 描画角度 変更 html -> js
+ function changeAngle() {
+    m_alpha = parseInt(document.getElementById('rangeAlpha').value) || m_alpha;
+    m_gamma = parseInt(document.getElementById('rangeGamma').value) || m_gamma;
+
+    document.getElementById('l_alpha').innerText = m_alpha;
+    document.getElementById('l_gamma').innerText = m_gamma;
+    if (drawnFlg == true)
+        {
+        mapping();
+    }
+ }
+
+
+
+20240301
+
+htmlについての質問です。
+2つのページを用意します。
+ページAはページBへのリンクが張られています。
+
+<p>
+    <a href="etc_DEQ_v3.html#Thomas">描画へ</a>
+</p>
+
+ページBには選択ボックスがあり、以下のようになっています。
+
+<p class="pb10">
+    <select id="type" style="width: 220px;" onchange="changeType()">
+        <option id="Lorenz" value="01">&nbsp; 1. Lorenz model</option>
+        <option id="Thomas" value="02">&nbsp; 2. Thomas model</option>
+        ...
+    </select>
+</p>
+
+目的は、ページAからページBを開いたときに、
+選択ボックスの id="Thomas" を選択したいのです。
+Thomasが選択されると、onchange="changeType()"でjavascriptから
+必要なデータが、ページBにセットされます。
+1つ、考えていることは、、ページBはまだオープンされていない可能性があります。
+ページAからページBをオープンして、上記の処理を実行することは可能でしょうか？
+また、既にページBがオープンされている場合は、
+同じ処理が使えるでしょうか？
+
+
+ページAからではなく、普通にページBをオープンする場合は、
+以下のjavascriptが使われています。
+
+このinitialize()関数も考慮する必要があると思います。
+よろしくお願いします。
+
+function initialize() {
+    // 描画範囲の初期化
+    let width0 = parseFloat(document.getElementById('width0').value);
+    let wmax = width0 / 2;
+    let wmin = -wmax;
+    document.getElementById('wmax').innerText = wmax;
+    document.getElementById('wmin').innerText = wmin;
+
+    // 係数
+    let ma = parseFloat(document.getElementById('ma').value);
+    let mb = parseFloat(document.getElementById('mb').value);
+    let mc = parseFloat(document.getElementById('mc').value);
+    let md = parseFloat(document.getElementById('md').value);
+    let me = parseFloat(document.getElementById('me').value);
+    let mf = parseFloat(document.getElementById('mf').value);
+    let mg = parseFloat(document.getElementById('mg').value);
+    let mh = parseFloat(document.getElementById('mh').value);
+
+    document.getElementById('ma').value = 10.0;
+    document.getElementById('mb').value = 28.0;
+    document.getElementById('mc').value = 8.0 / 3.0;
+    document.getElementById('md').disabled = true;
+    document.getElementById('me').disabled = true;
+    document.getElementById('mf').disabled = true;
+    document.getElementById('mg').disabled = true;
+    document.getElementById('mh').disabled = true;
+
+    // 式を表示する
+    document.getElementById('dx').innerText = "$ \\dot{x} = ay - ax $";
+    document.getElementById('dy').innerText = "$ \\dot{y} = bx - xz - y $";
+    document.getElementById('dz').innerText = "$ \\dot{z} = xy - cz $";
+
+    // 初期値を表示する
+    document.getElementById('init1_x').value = 0;
+    document.getElementById('init1_y').value = 1;
+    document.getElementById('init1_z').value = 2;
+    document.getElementById('init2_x').value = 0;
+    document.getElementById('init2_y').value = 1;
+    document.getElementById('init2_z').value = 2.01;
+
+    // 描画アングルに初期値を設定する
+    document.getElementById('angleAlpha').value = -20;
+    document.getElementById('angleGamma').value = -30;
+
+    // 選択ボックスの初期値を設定する
+    const selectType = document.getElementById('type');
+    selectType.selectedIndex = 0;
+
+    // Stopボタンを使用不可に設定
+    document.getElementById('stop').disabled = true;
+
+    // 描画速度
+    document.getElementById('spd').value = 2;
+
+
+}
+
+
+
+20240302
+
+<!DOCTYPE HTML >
+<html>
+
+<HEAD>
+    <META charset="UTF-8">
+
+    <!-- css start -->
+
+        <!-- kz_etc start :: class指定:change_border_color, 全ファイル共通:リンク文字色, フォーカスリング -->
+        <link rel="stylesheet" href="libs/etc/css/kz_footer_style.css" type="text/css">
+        <link rel="stylesheet" href="libs/etc/css/kz_etc_style.css" type="text/css">
+        <!-- kz_etc end -->
+
+    <!-- css end -->
+
+
+    <style>
+    .top td{
+        vertical-align: top;
+    }
+    </style>
+
+</HEAD>
+
+<BODY id="common-k" >
+
+    <header>
+        <a name="page_top"></a>
+    </header>
+
+    <div id="main720"> <!-- page main: start -->
+
+        <!-- title -->
+        <div id="title20">
+            <h3 class="pt30 pb40">
+                微分方程式 解曲線の描画
+            </h3>
+        </div>
+
+        <!-- contents -->
+                <ol class="fwm pb40, pl40">
+                  <li>
+                        <div class="contents-title-left pb20"
+                            <p class="fwb fss">
+                                固有値の1つが0の場合
+                            </p>
+                        </div>
+                        <div class="contents-title-right"
+                            <p>
+                                <a href="etc_DEQ_v2_test.html?selectedOption=01%2601">描画へ</a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <p class="pb10">
+                            例)
+                        </p>
+                        <p class="pb10">
+                            \[ \frac{dx}{dt} = x + y \]
+                            \[ \frac{dy}{dt} = 2x + 2y \]
+                        </p>
+                        <p class="pb10">
+                            \[ A = \pmatrix{
+                                1 & 1 \cr
+                                2 & 2 \cr
+                            } \]
+                        </p>
+                  </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+    </footer>
+
+</div>
+</BODY>
+</html>
+
+また質問です。select要素のoption要素のvalueが"01&01"の場合、
+呼び出し元のページから、
+ <a href="etc_DEQ_v2_test.html?selectedOption=01&01">描画へ</a>
+としてすると、selectedには&の前の"01"だけが渡されてしまいます。
+これをselectedに"01&01"と渡すにはどうすれば良いでしょうか？
+ChatGPT
+URL内のクエリパラメーターに特殊文字や予約文字（例：&, ?, =, #など）を含める場合、その文字をURLエンコードする必要があります。URLエンコードは特殊文字や予約文字をURLで使用可能な形式に変換するプロセスです。
+
+JavaScriptでは、encodeURIComponent()関数を使用して文字列をURLエンコードすることができます。これを使って、selectedOptionの値を適切にエンコードします。
+
+例えば、次のようにします：
+
+html
+Copy code
+    <a href="etc_DEQ_v2_test.html?selectedOption=01%2601">描画へ</a>
+ここでは、%26が&のエンコードされた形式です。
+
+JavaScriptを使用して、リンクを動的に生成する場合は、次のようにします：
+
+javascript
+Copy code
+    var selectedOptionValue = "01&01";
+    var encodedValue = encodeURIComponent(selectedOptionValue);
+    var link = document.createElement('a');
+    link.href = "etc_DEQ_v2_test.html?selectedOption=" + encodedValue;
+    link.textContent = "描画へ";
+    document.body.appendChild(link);
+これにより、selectedOptionの値が"01&01"と正しく渡されるはずです。
+
+
+現在、javascript側では以下のようになっています。
+    // URLから選択すべきオプションを取得
+    const urlParams = new URLSearchParams(window.location.search);
+    const selectedOption = urlParams.get('selectedOption');
+
+    // 選択すべきオプションが指定されている場合、そのオプションを選択し、changeType()関数を呼び出します
+    if (selectedOption) {
+        const selectElement = document.getElementById('type');
+        selectElement.value = selectedOption; // 選択肢を選択
+        changeType(); // 選択肢が変更された場合の処理を実行
+    }
+これに当てはめるとどうなるでしょうか？
+
+ChatGPT
+このコードに適用する場合、selectedOptionの値をURLエンコードする必要があります。
+そのため、selectedOptionを取得する前にdecodeURIComponent()関数を使用して、URLデコードする必要があります。
+
+以下に修正されたコードを示します：
+
+// URLから選択すべきオプションを取得
+const urlParams = new URLSearchParams(window.location.search);
+const selectedOptionRaw = urlParams.get('selectedOption');
+const selectedOption = decodeURIComponent(selectedOptionRaw); // URLデコード
+
+// 選択すべきオプションが指定されている場合、そのオプションを選択し、changeType()関数を呼び出します
+if (selectedOption) {
+    const selectElement = document.getElementById('type');
+    selectElement.value = selectedOption; // 選択肢を選択
+    changeType(); // 選択肢が変更された場合の処理を実行
+}
+
+この修正により、URLパラメーターで渡されたselectedOptionの値が正しくデコードされ、
+選択ボックスに適切な選択肢が設定されるはずです。
+
+
+動的にリンクを生成するには、JavaScriptを使用してHTML要素を生成し、
+それをページに追加する方法があります。
+具体的には、document.createElement()メソッドを使用して新しい要素を作成し、
+必要な属性やテキストを設定し、appendChild()メソッドを使用してページ内の適切な場所に要素を追加します。
+
+以下に、動的にリンクを生成するJavaScriptの例を示します：
+
+javascript
+Copy code
+// リンクを生成する関数
+function createLink() {
+    // <a>要素を作成
+    var link = document.createElement('a');
+
+    // href属性を設定
+    link.href = "etc_DEQ_v2_test.html?selectedOption=01%2601";
+
+    // テキストコンテンツを設定
+    link.textContent = "描画へ";
+
+    // <p>要素を取得し、リンクを追加
+    var paragraphElement = document.querySelector('.contents-title-right p');
+    paragraphElement.appendChild(link);
+}
+
+// createLink()関数を呼び出してリンクを生成
+createLink();
+この例では、createLink()関数が呼び出されると、指定されたURLとテキストを持つリンクが動的に生成されます。
+このリンクは、クラスがcontents-title-rightである<p>要素内に追加されます。
+
+この方法を使用すると、ページのロード時や特定のイベントが発生したときに、動的にリンクを生成することができます。
+
+User
+
+
+また、htmlとjavascriptについて質問です。
+ページAから、ページBの選択ボックスの特定のidを指定して、そのidに伴うデータがをセットされた状態で、
+ページBを呼び出す方法は教えて頂き、目的を達成することができました。ありがとうございます。
+今度は、ページBからページAに戻る方法です。
+別のタブを作らずにページ遷移しているので、ブラウザの「戻る」ボタンをクリックすれば、
+ページAがページBを呼び出したところの位置が表示されます。
+この、ブラウザの「戻る」ボタンの機能を、<a>要素やボタンを実装することはできるでしょうか？
+よろしくお願いします。
+
+解決
+
+
+
+20240310
+
+以前に、動的にリンクを生成するJavaScriptの例を教えて頂きました。
+以下がその時のコードです。
+
+// リンクを生成する関数
+function createLink() {
+    // <a>要素を作成
+    var link = document.createElement('a');
+
+    // href属性を設定
+    link.href = "etc_DEQ_v2_test.html?selectedOption=01%2601";
+
+    // テキストコンテンツを設定
+    link.textContent = "解説ページに戻る";
+
+    // <p>要素を取得し、リンクを追加
+    var paragraphElement = document.querySelector('.contents-title-right p');
+    paragraphElement.appendChild(link);
+
+このコードでは、href属性のselectedOptionが「01%2601」という固定値になっています。
+selectedOptionに、変数slctOptに入っている値を渡したいときはどうすれば良いか教えて頂けると助かります。
+
+
+ありがとうございます。
+
+教えて頂いたコードを以下のようにしてみました。
+変数 selectedOptionにはデータが入っています(デバッグで確認済み)。
+
+// 解説のページに戻る関数
+function goBack() {
+    // <a>要素を作成
+    var link = document.createElement('a');
+
+   // href属性を設定
+    link.href = "etc_DEQ_doc3.html?selectedOption=" + encodeURIComponent(selectedOption);
+
+    // テキストコンテンツを設定
+    link.textContent = "解説ページに戻る";
+
+    // <p>要素を取得し、リンクを追加
+    var paragraphElement = document.querySelector('.cLink p');
+    paragraphElement.appendChild(link);
+}
+
+htmlからは、以下のように呼び出しています。
+
+<p class="cLinc">
+    <!-- 戻るリンク -->
+    <a href="#" id="back" onclick="goBack()">解説ページに戻る</a>
+</p>
+
+実行すると、paragraphElement.appendChild(link);の行で
+以下のエラーが出ます。
+TypeError: Cannot read properties of null (reading 'appendChild')
+
+
+やはりうまく行きません。
+使用しているhtmlとjavascriptを以下に示します。
+
+
+
+<!DOCTYPE HTML >
+<html>
+
+<HEAD>
+    <META charset="UTF-8">
+
+    <title>Differential Equations 3D</title>
+
+    <!-- css start -->
+
+        <!-- kz_etc start :: class指定:change_border_color, 全ファイル共通:リンク文字色, フォーカスリング -->
+        <link rel="stylesheet" href="libs/etc/css/kz_footer_style.css" type="text/css">
+        <link rel="stylesheet" href="libs/etc/css/kz_etc_style.css" type="text/css">
+        <!-- kz_etc end -->
+
+    <!-- css end -->
+
+        <!-- deq initialize -->
+        <script src="libs/etc/js/deq00_v3.js" type="text/javascript"></script>
+
+
+</HEAD>
+
+<BODY id="common-k"  onload="initialize()">
+
+        <header>
+            <a name="page_top"></a>
+        </header>
+
+    <div id="main960"> <!-- page main: start -->
+
+        <!-- title -->
+        <div id="title20">
+            <h3 class="pt30 pb40">
+                微分方程式 解軌道の描画 3D
+            </h3>
+        </div>
+
+        <!-- contents -->
+        <div class="pic-left990 pb30">
+            <div class="contents-2col-left" >
+                <p class="pb10">
+                    <canvas id="graphCanvas" width="580" height="580" style="border: 1px solid #000;"></canvas>
+                </p>
+            </div>
+
+            <div class="contents-2col-right">
+                <p class="pb10">
+                    <select id="type" style="width: 220px;" onchange="changeType()">
+                        <option value="01">&nbsp; 1. Lorenz system</option>
+                        <option value="02">&nbsp; 2. Thomas system</option>
+                    </select>
+                </p>
+                <p class="cLink">
+                    <!-- 戻るリンク -->
+                    <a href="#" id="back" onclick="goBack()">解説ページに戻る</a>
+                </p>
+
+            <!-- deq javascript呼び出し -->
+            <script src="libs/etc/js/deq01_v3.js" type="text/javascript"></script>
+
+            </div>
+        </div>
+    </div>
+
+        <footer>
+
+        </footer>
+
+</div>
+</BODY>
+
+</html>
+
+
+
+let selectedOption;
+
+function initialize() {
+    // 描画範囲の初期化
+    let width0 = parseFloat(document.getElementById('width0').value);
+    let wmax = width0 / 2;
+    let wmin = -wmax;
+    document.getElementById('wmax').innerText = wmax;
+    document.getElementById('wmin').innerText = wmin;
+
+    // 係数
+
+    // 式を表示する
+
+    // 初期値を表示する
+
+    // 描画アングルに初期値を設定する
+
+    // 選択ボックスの初期値を設定する
+
+    // Stopボタンを使用不可に設定
+    document.getElementById('stop').disabled = true;
+
+    // 描画速度
+    document.getElementById('spd').value = 2;
+
+    // URLから選択すべきオプションを取得
+    const urlParams = new URLSearchParams(window.location.search);
+    selectedOption = urlParams.get('selectedOption');
+
+    // 解説ページから呼ばれたとき以外は、「戻る」は非表示にする
+    document.getElementById('back').style.visibility = 'hidden';
+    // 選択すべきオプションが指定されている場合、そのオプションを選択し、changeType()関数を呼び出します
+    if (selectedOption) {
+        // 解説ページから呼ばれたので、「戻る」を表示する
+        document.getElementById('back').style.visibility = 'visible';
+
+        const selectElement = document.getElementById('type');
+        selectElement.value = selectedOption; // 選択肢を選択
+        changeType(); // 選択肢が変更された場合の処理を実行
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    // 解説のページに戻る関数
+    function goBack() {
+        // window.history.back(); // ブラウザの「戻る」ボタンと同じ動作
+        // <a>要素を作成
+        var link = document.createElement('a');
+
+        // href属性を設定
+       // href属性を設定
+        link.href = "etc_DEQ_doc3.html?selectedOption=" + encodeURIComponent(selectedOption);
+    //            link.href = "etc_DEQ_doc3.html?selectedOption=01%2601";
+
+        // テキストコンテンツを設定
+        link.textContent = "解説ページに戻る";
+
+        // <p>要素を取得し、リンクを追加
+        var paragraphElement = document.querySelector('.cLink p');
+        paragraphElement.appendChild(link);
+    }
+    // イベントリスナーを追加
+    document.getElementById('back').addEventListener('click', goBack);
+});
+
+
+
+また、htmlとjavascriptについて質問です。
+
+ページAからページBに移動した後、ページAに戻るとき、
+ブラウザの左上に表示されている「<-」ボタンを押したときの動作をjavascriptで実行するコードを教えて頂きました。
+
+// 解説のページに戻る関数
+function goBack() {
+    window.history.back(); // ブラウザの「戻る」ボタンと同じ動作
+}
+
+これで、ページAに戻ったとき、ページBを呼び出したときの位置関係が再現されました。
+ところが、この動作を何度か行うと、ページAに戻ったとき、10行くらい下が表示されたり、
+以外と不安定な戻り方をすることに気づきました。
+ページAではTeXを使用しているので、これが原因かとも思うのですが、
+ブラウザの「<-」ボタンを押したときは、必ず同じ位置が表示されます。
+
+この違いは何に起因するのでしょうか？
+
+
+回答
+
+方法3: ページ遷移をカスタマイズする
+ページ遷移をカスタマイズし、ページ遷移時にスクロール位置を保存し、戻る際にその位置にスクロールします。
+
+ページAのスクリプト
+javascript
+Copy code
+// ページAのリンククリック時に実行
+function navigateToPageB() {
+    // 現在のスクロール位置を取得
+    const scrollPosition = window.pageYOffset;
+    // ページBへのリンクにスクロール位置を含めて遷移
+    window.location.href = "pageB.html?scrollPosition=" + scrollPosition;
+}
+このスクリプトは、ページAのリンクがクリックされた時に実行され、現在のスクロール位置を取得し、ページBへのリンクにスクロール位置を含めて遷移します。
+
+ページBのスクリプト
+javascript
+Copy code
+// ページBの読み込み完了後に実行
+window.onload = function() {
+    // URLからパラメーターを取得
+    const params = new URLSearchParams(window.location.search);
+    // scrollPositionパラメーターが存在するか確認し、その値を取得
+    const scrollPosition = params.get('scrollPosition');
+    // スクロール位置が指定されている場合は、その位置にスクロール
+    if (scrollPosition !== null) {
+        window.scrollTo(0, parseInt(scrollPosition));
+    }
+}
+このスクリプトは、ページBの読み込みが完了した時点で、URLから scrollPosition パラメーターを取得し、
+その値が存在する場合はその位置にスクロールします。
+
+これらの例を参考にして、ページ間のスクロール位置の管理を実装してみてください。
+
+
+方法3を試すことは素晴らしい選択です！
+方法3では、ページ遷移をカスタマイズして、ページ遷移時にスクロール位置を保存し、
+戻る際にその位置にスクロールします。
+この方法は、ページ遷移の制御が非常に柔軟で、目的に合わせてカスタマイズすることができます。
+
+もし方法3に関して何か疑問点や質問があれば、お気軽にお知らせください。
+お手伝いできることがあれば喜んでサポートさせていただきます。成功を祈っています！
+
+
+20240311
+
+先ほど、示して頂いたコードについて質問です。
+
+①
+
+現在のページAからページBの呼び出し方は、以下の通りです。
+
+ページA: html
+<div class="contents-right"
+    <p>
+        navigateToPageB()
+        <a href="etc_DEQ_v2.html?selectedOption=01%2601">描画へ</a>
+    </p>
+</div>
+
+これに、回答して頂いたjavascriptコードをどのように埋め込めば良いでしょうか？
+
+ページA:javascript
+// ページAのリンククリック時に実行
+function navigateToPageB() {
+    // 現在のスクロール位置を取得
+    const scrollPosition = window.pageYOffset;
+    // ページBへのリンクにスクロール位置を含めて遷移
+    window.location.href = "pageB.html?scrollPosition=" + scrollPosition;
+}
+
+つまり、selectedOptionとscrollPositionの２つをパラメータにしたいのです。
+
+
+②
+
+また、ページBが呼ばれたときは、現在は以下の処理が行われます。
+
+ページB: javascript
+let selectedOption;
+
+function initialize() {
+    // 現在表示されているurlを取得して、日本語ページか英語ページかの振り分けを行う
+    const urlHere = window.location.href;
+
+    // URLから選択すべきオプションを取得
+    const urlParams = new URLSearchParams(window.location.search);
+    const selectedOptionRaw = urlParams.get('selectedOption');
+    selectedOption = decodeURIComponent(selectedOptionRaw); // URLデコード
+
+    // 解説ページから呼ばれたときは、以下を実行する
+    // 選択すべきオプションが指定されている場合、そのオプションを選択し、changeType()関数を呼び出します
+    if (selectedOption != "null") {
+        // goBack関数を呼び出す
+        goBack();
+
+        const selectElement = document.getElementById('type');
+        selectElement.value = selectedOption; // 選択肢を選択
+        changeType(); // 選択肢が変更された場合の処理を実行
+    }
+
+}
+
+// 解説のページに戻る関数
+function goBack() {
+    // window.history.back(); // ブラウザの「戻る」ボタンと同じ動作 <- 戻る位置(行)が10行程度ずれることがある
+    // <a>要素を作成
+    var link = document.createElement('a');
+
+    // 現在表示されているurlを取得して、日本語ページか英語ページかの振り分けを行う
+    const urlHere = window.location.href;
+
+    if (urlHere.indexOf('en') != -1) {
+        // href属性を設定
+        link.href = "etc_DEQ_doc2_en.html?selectedOption=" + encodeURIComponent(selectedOption);
+        // テキストコンテンツを設定
+        link.textContent = "return to Explanation page";
+    }
+    else {
+        // href属性を設定
+        link.href = "etc_DEQ_doc2.html?selectedOption=" + encodeURIComponent(selectedOption);
+        // テキストコンテンツを設定
+        link.textContent = "解説ページに戻る";
+    }
+
+    // <p>要素を取得し、リンクを追加
+    var paragraphElement = document.querySelector('.cLink');
+    paragraphElement.appendChild(link);
+}
+
+以上の処理で、ページBのhtmlの<p class="cLink">要素に、にページAに戻るためのリンクが動的に作成されます。
+
+もし、selectedOptionとscrollPositionの２つのパラメータが渡されたならば、
+以下の処理で、２つのパラメータを処理できると思います。
+
+ページB: javascript
+
+let scrollPosition;
+
+function initialize() {
+    // 現在表示されているurlを取得して、日本語ページか英語ページかの振り分けを行う
+    const urlHere = window.location.href;
+
+    // URLから選択すべきオプションを取得
+    const urlParams = new URLSearchParams(window.location.search);
+    const selectedOptionRaw = urlParams.get('selectedOption');
+    const selectedOption = decodeURIComponent(selectedOptionRaw); // URLデコード
+    // scrollPositionパラメーターが存在するか確認し、その値を取得
+    scrollPosition = params.get('scrollPosition');
+
+    // 解説ページから呼ばれたときは、以下を実行する
+    // 選択すべきオプションが指定されている場合、そのオプションを選択し、changeType()関数を呼び出します
+    if (selectedOption != "null") {
+        // goBack関数を呼び出す
+        goBack();
+
+        const selectElement = document.getElementById('type');
+        selectElement.value = selectedOption; // 選択肢を選択
+        changeType(); // 選択肢が変更された場合の処理を実行
+    }
+
+}
+
+// 解説のページに戻る関数
+function goBack() {
+    // window.history.back(); // ブラウザの「戻る」ボタンと同じ動作 <- 戻る位置(行)が10行程度ずれることがある
+    // <a>要素を作成
+    var link = document.createElement('a');
+
+    // 現在表示されているurlを取得して、日本語ページか英語ページかの振り分けを行う
+    const urlHere = window.location.href;
+
+    if (urlHere.indexOf('en') != -1) {
+        // href属性を設定
+        link.href = "etc_DEQ_doc2_en.html?selectedOption=" + encodeURIComponent(scrollPosition);
+        // テキストコンテンツを設定
+        link.textContent = "return to Explanation page";
+    }
+    else {
+        // href属性を設定
+        link.href = "etc_DEQ_doc2.html?selectedOption=" + encodeURIComponent(scrollPosition);
+        // テキストコンテンツを設定
+        link.textContent = "解説ページに戻る";
+    }
+
+    // <p>要素を取得し、リンクを追加
+    var paragraphElement = document.querySelector('.cLink');
+    paragraphElement.appendChild(link);
+}
+
+①が解決すれば、②は私が示した方法で、うまく処理できるのではないかと思いますが、どうでしょうか？
+よろしくお願いします。
+
+
+20240316
+
+htmlとjsについてまた質問です。
+
+htmlのヘッダーにTeXの使用を宣言しています。
+
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: { equationNumbers: { autoNumber: "AMS" }},
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { matchFontHeight: false },
+    displayAlign: "left",
+    displayIndent: "2em"
+  });
+</script>
+
+bodyの中で普通に使えているのですが、以下の状態では不思議な表記になってしまいます。
+
+<select id="type" onchange="changeType()">
+    <option disabled selected">[01] 2次元1次線形自励系</option>
+    <option value="04&01">&emsp;&emsp;1. x軸上で$\pi$ごとに平衡点を持つ自励形</option>
+    ...
+</select>
+
+どう表記されるかというと、「ππ」とダブって表記されてしますのです。
+解決方法をご存じでしたら、お教え下さい。
+
+
+<script type="text/javascript">
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById("type")]);
+</script>
+にすると、TeX表記が無視されましたが、件の$\pi$もベタで表示されてしまいました。
+また、
+<script type="text/x-mathjax-config>
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById("type")]);
+</script>
+とすると、TeX表記は今まで通り表示されますが、$\pi$はベタで表示されてしまいます。
+
+
+未解決 : 質問中止
+
+
+
+20240317
+
+英訳依頼
+以下の英訳をお願いします。
+
+この自励形はAに平衡点を持つ。<br>
+$p$ が偶数のときは、鞍状点となり、奇数のときは、渦心点になります。
+全体としては、金魚が並んだような解曲線が描かれます。奇数の渦心点が金魚の目になり、
+偶数の鞍状点が尻尾になります。
+
+This autonomous form has an equilibrium point at A. When p is even,
+it becomes a saddle point, and when it's odd, it becomes a focus point.
+Overall, the solution curve resembles fish arranged in a row.
+The odd focus points become the eyes of the fish, and the even saddle points become the tails.
+
+森本氏の丁寧な解説を思いっきり端折ります。
+それぞれの平衡点の近傍で、sin x を級数展開し、1次で近似します。
+p が偶数のときは p = 0 とすれば x = 0 の近傍では sin x ≒ x と近似できます。
+また、y^2もxに比べて十分に小さいとすれば、
+方程式は以下のように表現できます。
+
+この方程式に対応する2次の正方行列の固有値は+/-1になるので、平衡点は鞍状点になります。
+<a href="#01&02">[01] - 2 参照</a>
+
+I'll significantly condense Mr. Morimoto's detailed explanation.
+Near each equilibrium point, we expand sinx as a series and approximate it to the first order.
+
+When p is even, for example when p=0, sinx can be approximated as x in the vicinity of x=0.
+Additionally, if y^2 is sufficiently smaller than x, the equations can be expressed as follows:
+
+The eigenvalues of the corresponding 2x2 square matrix for this equation become ±1,
+so the equilibrium points become saddle points.
+[01] - Refer to 2.
+
+p が奇数のときは、p = piとすれば x = pi の近傍では sin x ≒ -(x - pi)と近似でき、方程式は以下のように表現できます。
+x^2 も x - pi に比べて十分に小さいとすれば、方程式は以下のように表現できます。
+
+x - pi, -yを新しい座標とすれば、以下のようになります。
+
+対応する2次の正方行列の固有値は+/- i になるので、平衡点は渦心点になります。
+<a href="#01&08">[01] - 8 参照</a>
+
+それぞれの平衡点の近傍では上記の近似が成立し、離れるに連れて、
+元々の方程式の項の影響が現れ、全体として金魚が並んだような解軌道になると考えられます。
+
+When p is odd, for example when p = π, sinx can be approximated as -(x-pi) in the vicinity of x=0.
+Additionally, if x^2 is sufficiently smaller than x - pi, the equations can be expressed as follows:
+If we take x−π and −y as new coordinates:
+
+The eigenvalues of the corresponding 2x2 square matrix become ±i,
+so the equilibrium points become focus points.
+[01] - Refer to 8.
+
+The above approximation holds near each equilibrium point, and as one moves away,
+the influence of the terms omitted in the original equation becomes evident,
+resulting in trajectories that resemble fish aligned in a row.
+
+
+円周上に8つの平衡点を持つ自励形<br>
+
+この自励形は、円周
+x^2 + y^2 = a 上に8つの平衡点を持ちます。
+各象限に2つずつ計8個です。元々パラメーターaには固定値の 4 が与えられていましたが、
+可変にしてみました。どのような解軌道が描かれるか、確認してみて下さい。
+
+
+
+平衡点の位置が少し分かりづらいので、描画終了時に円を表示するようにしています。
+デフォルトの描画範囲は 8 ですが、16 とか 32 にすると、
+初期値をランダムに取っている関係で軌道は荒くなりますが、平衡点は確認し易くなると思います。
+
+This autonomous form has 8 equilibrium points on the circumference x^2 + y^2 = a.
+There are 2 in each quadrant, totaling 8. Originally, a fixed value of 4 was assigned to the parameter a,
+but now it's made variable.
+Please verify what kind of trajectories are drawn by changing the value of a,
+Since the positions of equilibrium points might be a bit confusing, a circle is displayed at the end of the plot.
+The default plot range is 8, but if you set it to 16 or 32,
+although the trajectories become rough due to random initial values, the equilibrium points should be easier to confirm.
+
+
+
+平面上に周期的な平衡点を持つ自励形<br>
+
+この自励形はAとBに平衡点を持ちます(p, qは整数)。
+
+4-1と同様に、平衡点の近傍で1次近似を行うと、
+1つ目のタイプの平衡点は双楕円型になります。<br>
+2つ目のタイプの平衡点は3峠型になります。<br>
+平面上で、これが繰り返されます。
+
+This autonomous form has equilibrium points at A and B (where p and q are integers).
+
+Similar to 4-1, performing a first-order approximation near equilibrium points,
+the first type of equilibrium points becomes elliptical,
+and the second type becomes trisectrix. This repeats on the plane.
+
+
+
+20240322
+
+html, TeX, jsについての質問です。
+
+webページに数式を書きたいと思うのですが、
+式が長すぎて、指定した位置に収まり切れません。
+
+
+以下はhtmlです。
+
+<!DOCTYPE HTML >
+<html>
+
+<HEAD>
+    <META charset="UTF-8">
+
+    <title>Differential Equations</title>
+
+    <!-- favicon-->
+    <link rel="shortcut icon" href="favicon.ico">
+
+        <script type="text/javascript"
+          src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        </script>
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+            TeX: { equationNumbers: { autoNumber: "AMS" }},
+            tex2jax: {
+              inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+              processEscapes: true
+            },
+            "HTML-CSS": { matchFontHeight: false },
+            displayAlign: "left",
+            displayIndent: "2em"
+          });
+        </script>
+
+        <!-- deq initialize -->
+        <script src="libs/etc/js/deq00_v2.js" type="text/javascript"></script>
+
+    <!-- js end -->
+
+</HEAD>
+
+<BODY id="common-k" onload="initialize()">
+
+    <div id="main960"> <!-- page main: start -->
+
+        <!-- title -->
+        <div id="title20">
+            <h3 class="pt30 pb40">
+                微分方程式 解曲線の描画
+            </h3>
+        </div>
+
+        <!-- contents -->
+        <div class="pic-left960 pb30">
+            <div class="contents-2col-left" >
+                <p class="pb15" align="right">
+                    <select id="type" onchange="changeType()">
+                        <option value="04&06">&emsp;&emsp;6. 極限軌道の例 3 Lemniscate(レムニスケート)</option> <!-- ① -->
+                    </select>
+                </p>
+                <p class="pb10">
+                    <canvas id="graphCanvas" width="580" height="580" style="border: 1px solid #000;"></canvas>
+                </p>
+                <p class="pb10" align="right">
+                    近似方法
+                    <select id="mode" onchange="changeMode()">
+                        <option value="1">&emsp;&emsp;Euler法</option>
+                    </select>
+                </p>
+            </div>
+            <!-- deq javascript呼び出し -->
+            <script src="libs/etc/js/deq01_v2.js" type="text/javascript"></script>
+
+            <div class="contents-2col-right" >
+                <p class="pb10">
+                    <label for="dx"><span id="dx"></span></label> <!-- ② -->
+                    <label for="dy"><span id="dy"></span></label> <!-- ③ -->
+                </p>
+                <p class="pb10">
+                    係数
+                </p>
+                <p class="pb10">
+                    <label for="ma" style="width: 20px; display: inline-block">a:</label>
+                    <input type="number" id="ma" value="" style="width:40px; text-align:right;">
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+<!--    <script src="libs/etc/js/deq01.js" type="text/javascript"></script> -->
+
+        <footer>
+        </footer>
+
+</div>
+</BODY>
+
+</html>
+
+①をクリックすると、jsで定義した以下の式が
+②と③に表示されるようにしています。
+
+jsで定義されている式は以下の通りです。
+
+document.getElementById('dx').innerText = "\\[ \\frac{dx}{dt} = y(2x^2 + 2y^2 + 1) \\]";
+document.getElementById('dy').innerText = "\\[ \\frac{dy}{dt} = x(1 - 2x^2 - 2y^2) - y(2x^2 + 2y^2 + 1)((x^2 + y^2)^2 - (x^2 - y^2)) \\]";
+
+これだと③に表示する式が長すぎて、レイアウトが崩れてしまいます。
+そこで、
+\[ と\] の代わりに、\begin{eqnarray*}と\end{eqnarray*}を使用して、式を途中で折り返すようにしました。
+
+document.getElementById('dy').innerText = "\\begin{eqnarray*}
+                                           \\frac{dy}{dt} &=& x(1 - 2x^2 - 2y^2) \\\
+                                           & & {} - y(2x^2 + 2y^2 + 1)((x^2 + y^2)^2 - (x^2 - y^2))
+                                           \\begin{eqnarray*}";
+
+しかし、\begin{eqnarray*}でシンタックスエラーが出てしまいます。
+ヘッダーでのTeXの定義が問題ではないかと思うのですが、
+よく分かりません。
+アドバイスをお願いします。
+
+
+
+
+
+20240323
+
+あまり使っていない古いPCでBeckyで同様の操作をしたところ、あっと言う間にファイル一覧が取得できました。
+
+ということは、私のPCに問題がありそうです。
+Windows10、ウイルス対策ソフトはESETです。
+
+私のPCでFFFTPでホストの一覧や、ディレクトリを変更した場合のログを以下に示します。
+接続や認証に手間取っている感じがするのですが、
+私にはよく分かりません。
+以下のログで、分かることはあるでしょうか？
+
+FFFTP Ver.5.8 64bit Copyright(C) 1997-2010 Sota & cooperators.
+Copyright (C) 2011-2018 FFFTP Project (Hiromichi Matsushima, Suguru Kawamoto, IWAMOTO Kouichi, vitamin0x, unarist, Asami, fortran90, tomo1192, Yuji Tanaka, Moriguchi Hirokazu, Fu-sen, potato).
+Copyright (C) 2018- Kurata Sayuri.
+デフォルトのマスターパスワードが使われます.
+マルウェアの攻撃を防ぐため,固有のマスターパスワードを設定することをおすすめします
+----------------------------
+FTP over Explicit SSL/TLS (FTPES)を使用します.
+ホスト ftp.la.coocan.jp (164.70.20.41:21) に接続しています.
+接続しました.
+220 @nifty Homepage Service ready.
+>AUTH TLS
+500 AUTH not understood
+>AUTH SSL
+500 AUTH not understood
+ログインできません.
+通信は暗号化されていません.
+第三者にパスワードおよび内容を傍受される可能性があります.
+ホスト ftp.la.coocan.jp (164.70.20.41:21) に接続しています.
+接続しました.
+220 @nifty Homepage Service ready.
+>USER kz-page.la.coocan.jp
+331 Password required for kz-page.la.coocan.jp
+>PASS [xxxxxx]
+230 User kz-page.la.coocan.jp logged in
+>FEAT
+211-Features:
+ CLNT
+ EPRT
+ EPSV
+ HOST
+ LANG bg-BG;en-US*;es-ES;fr-FR;it-IT;ja-JP;ko-KR;ru-RU;zh-CN;zh-TW
+ MDTM
+ REST STREAM
+ SIZE
+ UTF8
+211 End
+>OPTS UTF8 ON
+200 UTF8 set to on
+>>CD E:\Data\homepage_new
+>CWD kz-page.la.coocan.jp/homepage/
+250 CWD command successful
+>XPWD
+257 "/kz-page.la.coocan.jp/homepage" is the current directory
+>TYPE A
+200 Type set to A
+>PASV
+227 Entering Passive Mode (164,70,20,41,140,56).
+ホスト 164.70.20.41 (164.70.20.41:35896) に接続しています.
+接続しました.
+>LIST
+150 Opening ASCII mode data connection for file list
+226 Transfer complete
+ファイル一覧の取得は正常終了しました. (24041 Bytes)
+切断しました
+----------------------------
+FTP over Explicit SSL/TLS (FTPES)を使用します.
+ホスト ftp.la.coocan.jp (164.70.20.41:21) に接続しています.
+接続しました.
+220 @nifty Homepage Service ready.
+>AUTH TLS
+500 AUTH not understood
+>AUTH SSL
+500 AUTH not understood
+ログインできません.
+通信は暗号化されていません.
+第三者にパスワードおよび内容を傍受される可能性があります.
+ホスト ftp.la.coocan.jp (164.70.20.41:21) に接続しています.
+接続しました.
+220 @nifty Homepage Service ready.
+>USER kz-page.la.coocan.jp
+331 Password required for kz-page.la.coocan.jp
+>PASS [xxxxxx]
+230 User kz-page.la.coocan.jp logged in
+>FEAT
+211-Features:
+ CLNT
+ EPRT
+ EPSV
+ HOST
+ LANG bg-BG;en-US*;es-ES;fr-FR;it-IT;ja-JP;ko-KR;ru-RU;zh-CN;zh-TW
+ MDTM
+ REST STREAM
+ SIZE
+ UTF8
+211 End
+>OPTS UTF8 ON
+200 UTF8 set to on
+>>CD E:\Data\homepage_new
+>CWD kz-page.la.coocan.jp/homepage/
+250 CWD command successful
+>XPWD
+257 "/kz-page.la.coocan.jp/homepage" is the current directory
+>TYPE A
+200 Type set to A
+>PASV
+227 Entering Passive Mode (164,70,20,41,136,165).
+ホスト 164.70.20.41 (164.70.20.41:34981) に接続しています.
+接続しました.
+>LIST
+150 Opening ASCII mode data connection for file list
+226 Transfer complete
+ファイル一覧の取得は正常終了しました. (24041 Bytes)
+>CWD libs
+250 CWD command successful
+>XPWD
+257 "/kz-page.la.coocan.jp/homepage/libs" is the current directory
+>TYPE A
+200 Type set to A
+>PASV
+227 Entering Passive Mode (164,70,20,41,141,160).
+ホスト 164.70.20.41 (164.70.20.41:36256) に接続しています.
+接続しました.
+>LIST
+150 Opening ASCII mode data connection for file list
+226 Transfer complete
+ファイル一覧の取得は正常終了しました. (1174 Bytes)
+>CWD etc
+250 CWD command successful
+>XPWD
+257 "/kz-page.la.coocan.jp/homepage/libs/etc" is the current directory
+>TYPE A
+200 Type set to A
+>PASV
+227 Entering Passive Mode (164,70,20,41,121,106).
+ホスト 164.70.20.41 (164.70.20.41:31082) に接続しています.
+接続しました.
+>LIST
+150 Opening ASCII mode data connection for file list
+226 Transfer complete
+ファイル一覧の取得は正常終了しました. (284 Bytes)
+>CDUP
+250 CDUP command successful
+>XPWD
+257 "/kz-page.la.coocan.jp/homepage/libs" is the current directory
+>TYPE A
+200 Type set to A
+>PASV
+227 Entering Passive Mode (164,70,20,41,134,40).
+ホスト 164.70.20.41 (164.70.20.41:34344) に接続しています.
+接続しました.
+>LIST
+150 Opening ASCII mode data connection for file list
+226 Transfer complete
+ファイル一覧の取得は正常終了しました. (1174 Bytes)
+

@@ -1,0 +1,221 @@
+
+/* index page layout */
+
+/** table whole **/
+div.table_whole {  
+	display: table; 
+	height: 100%;  
+	width: 100%; 
+	background: #FFF; 
+	border-collapse:collapse; 
+	border:0px solid gray; 
+} 
+	* html div.table_whole {		/* * html : for IE7 */ 
+		position: relative; 
+	} 
+	*+html div.table_whole {		/* *+html : for less than equal IE6 */  
+		position: relative; 
+	} 
+
+/** table left **/
+div.table_left {  
+	display: table-cell; 
+	vertical-align: middle; 
+	width: 230px; 
+	text-align: center; 
+	border: 0px solid gray; 
+} 
+	* html div.table_left { 
+		position: absolute; 
+		top: 15%; 
+	} 
+	*+html div.table_left { 
+		position: absolute; 
+		top: 15%; 
+	} 
+
+/** table partition **/
+div.table_partition { 
+	display: table-cell; 
+	width: 2px; 
+	background-color: #cccccc; 
+	} 
+	* html div.table_partition { 
+		position: absolute; 
+		left: 230px; 
+		width: 2px; 
+		height:100%; 
+		background-color: #cccccc; 
+	} 
+	*+html div.table_partition { 
+		position: absolute; 
+		left: 230px; 
+		width: 2px; 
+		height:100%; 
+		background-color: #cccccc; 
+	} 
+
+/** table right  **/
+div.table_right { 
+	display: table-cell; 
+	vertical-align: middle; 
+	text-align: center; 
+	border: 0px solid gray; 
+} 
+	* html div.table_right { 
+		position: absolute; 
+		left: 230px; 
+		top: 18%; 
+		width: 80%; 
+	} 
+	*+html div.table_right { 
+		position: absolute; 
+		left: 230px; 
+		top: 18%; 
+		width: 80%; 
+	} 
+
+/* window left */
+
+/* index title */
+p.index_title{ 
+	width: 230px; 
+	margin:  0 0 0    0; 
+	padding: 0 0 30px 0; 
+	text-align: center; 
+	font-family: 'Times New Roman', serif; 
+	color: #000080; 
+	font-size: 180%; 
+	font-weight: bold;
+} 
+/* Japanese English title */
+p.index_je{ 
+	text-align: left; 
+	margin:  0    0 0   0; 
+	padding: 15px 0 4px 0; 
+	font-family: 'Times New Roman', serif; 
+	color: #808080; 
+	font-size: 100%; 
+	font-weight: bold;
+} 
+
+/* navigation */
+
+/** ul set up **/
+.nav-ul {
+	list-style-type: none; 
+	margin:  0 0   0 0; 
+	padding: 0 5px 0 5px;
+	border: solid 0px #ccc; 
+}
+
+/** li set up left side "What's New", "Links"... **/
+.nav-left {
+	float: left;
+	margin:  0   0 0   0; 
+	padding: 2px 0 3px 0;
+	border: solid 0px #ccc; 
+}
+	* html .nav-left {		/* * html : for IE7 */ 
+		float: left;
+		margin:  0   0 0   0; 
+		padding: 5px 0 5px 0;
+		border: solid 0px #ccc; 
+	} 
+	*+html .nav-left {		/* *+html : for less than equal IE6 */  
+		float: left;
+		margin:  0   0 0   0; 
+		padding: 5px 0 5px 0;
+		border: solid 0px #ccc; 
+	} 
+
+/** li set up left side navigation img  **/
+.nav-left-img {
+	vertical-align: bottom;
+}
+/** li set up right side navigation img "NEW", "UPDATE"... (left side single) **/
+.nav-right-img-s {
+	text-align: left;
+	margin:  0     0 0 0; 
+	padding: 10px  0 0 5px; 
+	border: solid 0px #ccc; 
+}
+	* html .nav-right-img-s {		/* * html : for IE7 */ 
+		text-align: left;
+		margin:  0     0 0 0; 
+		padding: 0px   0 0 5px; 
+		border: solid 0px #ccc; 
+	} 
+	*+html .nav-right-img-s {		/* *+html : for less than equal IE6 */  
+		text-align: left;
+		margin:  0     0 0 0; 
+		padding: 0px   0 0 5px; 
+		border: solid 0px #ccc; 
+	} 
+
+/** li set up right side navigation img "NEW", "UPDATE"... (left side multi) **/
+.nav-right-img-m {
+	text-align: left;
+	margin:  0    0 0 0; 
+	padding: 22px 0 0 5px; 
+	border: solid 0px #ccc; 
+}
+
+/* index logo */
+p.index_logo{ 
+	text-align: center; 
+	margin:  0    0 0    0; 
+	padding: 50px 0 15px 0; 
+} 
+	* html p.index_logo { 
+	text-align: center; 
+	margin:  0    0 0    0; 
+	padding: 30px 0 15px 0; 
+	} 
+	*+html p.index_logo { 
+	text-align: center; 
+	margin:  0    0 0    0; 
+	padding: 30px 0 15px 0; 
+	} 
+
+/* date */
+p.index_date{ 
+	text-align: center; 
+	margin:  0    0 0   0; 
+	padding: 15px 0 8px 0; 
+	font-family: Arial, Helvetica, sans-serif;
+	color: #808080; 
+	font-size: 100%; 
+	font-weight: medium;
+} 
+
+/* window right */
+
+/* main title */
+p.main_title{ 
+	margin:  0 0 0 0; 
+	padding: 0 0 0 0; 
+	text-align: center; 
+} 
+
+/* main picture */
+p.main_pic{ 
+	margin:  0    0 0    0; 
+	padding: 30px 0 30px 0; 
+	text-align: center; 
+} 
+
+/* mail to */
+p.mail_to{ 
+	margin:  0 0 0 0; 
+	padding: 0 0 0 0; 
+	text-align: center; 
+} 
+
+/* h_line */
+p.h_line{ 
+	margin:  0    0 0 0; 
+	padding: 20px 0 0 0; 
+	text-align: center; 
+} 
+

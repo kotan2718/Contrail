@@ -1,0 +1,247 @@
+<!DOCTYPE HTML >
+<html>
+
+<HEAD>
+	<META charset="UTF-8">
+
+	<title>Suudoku Update01</title>
+
+	<!-- favicon--> 
+	<link rel="shortcut icon" href="lib_img/suudoku_img/favicon.ico"> 
+
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- css start -->
+
+		<!-- kz_etc start - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
+		<link rel="stylesheet" href="lib_img/etc/css/kz_etc_style.css" type="text/css"> 
+		<!-- kz_etc end -->
+
+	<!-- css end -->
+</HEAD>
+
+<BODY id="common-k" >
+
+	<div id="main1024"> <!-- page main: start -->
+
+		<!-- title -->
+		<div id="title20">
+			<h2 class="pt30 pb40">
+				｢数独問題作成ツール｣ アップデート
+			</h2>
+		</div>
+
+		<!-- contents -->
+		<div class="pic-left1024 pb40">
+			<div class="fwb pb10">
+				<p class="pb10">
+					このツールで作成した問題を記録するロジックを追加しました。<br>
+					せっかく作ったデータですから、面白そうなデータは簡単に記録できるようにしたいと思いました。<br>
+					このツールを初めてお使いになる方は、
+					<a href="suudoku_doc.html" target=_"blank">suudoku_doc</a>
+					をご一読下さい。レイアウトに若干の変更がありますが、<br>
+					このツールの概要を理解して頂けると思います。<br>
+					また、全体の流れを
+					<a href="suudoku_tutorial.html" target=_"blank">suudoku_tutorial</a>
+					にまとめましたので、流れに沿ってツールの動きを確認して下さい。
+				</p>
+			</div>
+
+			<div class="pic-left1024 fwb pb20">
+				<p class="pb10">
+					アップデートの概要は以下の通りです。
+				</p>
+				<ol class="fwm pb40, pl40">
+				  <li>
+						<p class="pb10">
+								このツールのファイル名を｢z.suudoku_02.xlsm｣から｢z.suudoku_03.xlsm｣に更新しました。<br>
+								z.suudoku_02.xlsmをお使いの場合は、今後必要なくなります。新しいz.suudoku_03.xlsmをお使い下さい。
+						</p>
+				  </li>
+					<li>
+						<ol class="list-lr pl40 pb10">
+							<li>
+								データ作成シート｢Make｣にデータを記録するか否か促すチェックボックスを追加しました。
+							</li>
+							<li>
+								予めオープンするマス目のパターンを指定するブロック2-2に<br>
+							  [13]から[16]のパターンを追加しました。
+							</li>
+						</ol>
+						<p class="pb10 contents-2col-left">
+							<IMG src="lib_img/update01_img/update01_01_check_box2.jpg" width="80%" border="1">
+						</p>
+					</li>
+					<li>
+						<p class="pb10">
+								作成したデータを一時的に格納する｢Stock｣シートを新規追加しました。
+						</p>
+						<p class="pb10 contents-2col-left">
+							<IMG src="lib_img/update01_img/update01_05_stock.jpg" border="1">
+						</p>
+					</li>
+					<li>
+						<p class="pb10">
+								作成したデータの中で残したいものを格納していくために、suudoku_dat.xlsm(以下suudoku_datと略記)を新規追加しました。
+						</p>
+					</li>
+				</ol>
+			</div>
+
+			<div class="pic-left1024 fwb pb20">
+				<p class="pb10">
+					上記の概要について説明します
+				</p>
+				<ol class="list-ur fwm pl40">
+				  <li>
+						<p class="pb10">
+								概要2のチェックボックスにチェックを入れなければ、アップデート前のツール｢z.suudoku_02.xlsm｣と全く同じ動きをします。<br>
+						</p>
+						<p class="pb10">
+								チェックを入れた場合は、作成されたデータが｢Stock｣シートにコピーされます。[※1]
+						</p>
+						<p class="pb10 contents-2col-left">
+							<IMG src="lib_img/update01_img/update01_05_stock1.jpg" border="1">
+						</p>
+						<div class="bdr10 left fss pb10">
+							<p>
+								[※1]
+							</p> 指定オープン数と記録されるデータの関係は以下のようになります。
+							<ol class="list-lr pl40 pb10">
+								<li>
+									指定オープン数が23以上の場合<br>
+									(オープン数&nbsp;+&nbsp;2) の問題作成に成功すると、作成したデータが記録されます。
+								</li>
+								<li>
+									指定オープン数が22以下の場合<br>
+								  指定オープン数に関わらず、オープン数26以下の問題作成に成功すると、データが記録されます。
+								</li>
+							</ol>
+							<p class="pb10">
+								各データのヘッダーには｢日付、○印、オープン数、繰返し回数、パターン｣がついています。
+							</p>
+							<p>
+								オープン数、繰返し回数、パターンについては
+								<a href="suudoku_doc.html" target=_"blank">suudoku_doc</a>
+								を参照。<br>
+								日付&nbsp;&nbsp;&nbsp;&nbsp;：データ作成日<br>
+								○印&nbsp;&nbsp;&nbsp;&nbsp;：4.のsuudoku_datにデータを転送するかどうかを決めるフラグ
+							</p>
+						</div>
+				  </li>
+					<li class="pb20">
+						<p class="pb10">
+							概要3の｢Stock｣シートで概要4のsuudoku_datにコピーしたいデータを選択します。<br>
+							｢Stock｣シートに記録されたデータには、データ毎に○印がついています。<br>
+							転送する必要がないと判断したデータは、ここで○印を消します。※2<br>
+							後で。実際に解くことを考えて、オープンしているマス目のパターンがユニークな場合や、
+							loop数が少ないデータ以外は○印を消すことを<strong>強く</strong>お勧めします。
+							｢Select｣ボタンを押すと○印のついたデータだけが残ります。※3
+						</p>
+						<p class="pb10 contents-2col-left">
+							<IMG src="lib_img/update01_img/update01_04_select.jpg" width="110%" border="1">
+						</p>
+						<div class="bdr10 left fss pb10">
+							<p class="pb10">
+								[※2]&nbsp;&nbsp;チップス：
+							</p>
+							<p class="pb10">
+								[Tab]キーを押すと、各データの○印のセルがアクティブになり、押す毎に○印を移動します。
+								残す必要ないデータは[Del]キーで○印を削除していくと、簡単に必要なデータだけ残すことが出来ます。<br>
+								(エクセルのイベント発生の関係で、[Tab]キーでうまく○印を移動しない場合は、マウスなどで○印のセルをカクティブにして削除して下さい(^^;)
+							</p>
+						</div>
+						<div class="bdr10 left fss pb10">
+							<p class="pb10">
+								[※3]
+							</p>
+							<p class="pb10">
+								｢Select｣ボタンを押す前に｢Translate｣ボタンを押すと、以下のワーニングが表示されます。
+							</p>
+							<p class="pb10 contents-2col-left">
+								<IMG src="lib_img/update01_img/update01_05_stock4.jpg" width="80%" border="1">
+							</p>
+						</div>
+					</li>
+					<li class="pb20">
+						<p>
+							｢Translate｣ボタンを押すと、
+							suudoku_datに該当データが移動します。<br>
+							｢Stock｣シートのデータでsuudoku_datに移動するのは、
+							以下の条件を満たすデータになります。<br>
+						</p>
+						<ul class="pl40">
+							<li>オープン数: 21～32</li>
+						</ul>
+						<p class="pb10 contents-2col-left">
+							<IMG src="lib_img/update01_img/update01_05_stock3.jpg" border="1">
+						</p>
+						<p>
+							｢Stock｣シートに記録されていたデータは、suudoku_datに移動したため、
+							シートのデータはクリアされます。
+						</p>
+					</li>
+					<li class="pb20">
+						<p>
+							suudoku_datは以下のシートから構成されています。
+						</p>
+						<ol class="list-lr pl40">
+							<li>
+								<p>
+									｢log｣シート：データ毎に転送されたデータの日付、オープン数、繰返し回数、パターンが記録されています。
+								</p>
+								<p class="pb10 contents-2col-left">
+									<IMG src="lib_img/update01_img/update01_06_dat_log.jpg" border="1">
+								</p>
+								<p>
+									&nbsp;リンクが張られているので、クリックするとデータが格納されているシートの当該データに移動します。
+								</p>
+								<p class="pb10 contents-2col-left">
+									<IMG src="lib_img/update01_img/update01_07_dat_28-4.jpg" border="1">
+								</p>
+							</li>
+							<li>
+								<p>
+									｢21-3｣～[32-8]シート：
+								</p>
+								<p class="pl40">
+									シート名はオープン数と繰返し数の組み合わせです。<br>
+									転送されたデータが時系列で並びます。
+								</p>
+							</li>
+						</ol>
+					</li>
+					<li class="plm10 pb10">
+						ⅠからⅣの操作を繰り返すと、データが格納されているシートのデータ数が増えてきます。<br>
+						各シートにはオープン数が同一で、難易度が同じと考えられるデータが記録されています。<br>
+						｢Sort｣ボタンを押すとパターン(※)毎にデータを並び替え、オリジナルデータが表示されているブロックの下に表示されます。<br>
+						(元々時系列で表示されているオリジナルデータは変更はありません)<br><br>
+				    ※パターンは1.の右上に表示されている3x3の真ん中のブロックで、予めナンバーがオープンされるマス目のパターンです。
+						<p class="pb10 contents-2col-left">
+							<IMG src="lib_img/update01_img/update01_08_dat_sort.jpg" width="110%" border="1">
+						</p>
+					</li>
+				</ol>
+			</div>
+
+	<footer>
+		<div class="pic-left1024">
+			<p class="fwb">
+				Copyright &copy; 2023 by Kazuo Kawamura. All rights reserved. 
+			</p>
+			<p class="fwm pb10">
+				----------------------------------------------------------------- <br>
+				mail to : 
+				<a href="mailto:vff06643@nifty.ne.jp" >
+					VFF06643@nifty.ne.jp
+				</a><br>
+				----------------------------------------------------------------- 
+			</p>
+		</div>
+	</footer>
+
+</div>
+</BODY>
+</html>

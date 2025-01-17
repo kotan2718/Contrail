@@ -1,0 +1,144 @@
+
+/* 全ファイル共通項目 */
+
+/* font */
+/* 趣味のホームページだし，こんなのブラウザに任せればよい。
+   しかし，Shift-JIS と UTF-8 で，IE はやってくれるなぁ... */
+/*
+	body {
+		font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif; 
+		
+		font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','MS Pゴシック',sans-serif; 
+	}
+*/
+
+/* 
+	とはいえ，ブラウザデフォルトでは，IE と safari が欧文フォントで転ける。とても見難い。
+	そこで...下記サイトの設定で，かなり改善されることが判明。
+	
+	 "もうfont-familyで悩まないための2行" http://snippet-editor.com/2010/08/definitive-font-family.html
+	
+	HPの再構築が一段落したら，試してみたい。
+	
+	2013/07/29
+	OSが日本語の場合と英語の場合でブラウザで表示されるデフォルトフォントが異なるようだ。
+	最初は，IEのみの現象だと思ったが，FireFoxでは日本語モードでは欧文はsans-serifだが，英語モードではserifに変化する。
+	ということは，ごちゃごちゃいじっても仕方ないのかもしれない。
+	
+	body, textarea { font-size: 95%; word-spacing: 0.1em; letter-spacing: 0.0em; line-height: 120%;  font-family: sans-serif; }
+	input, select { font-size: 95%; word-spacing: 0.1em; letter-spacing: 0.0em; line-height: 120%;  font-family: sans-serif; }
+*/
+
+/*
+	2013/07/29
+	css_browser_selector_masterを使う場合は
+	各htmlファイルの<head>...</head>間に下記を記述し，
+	<!-- browser selector -->
+		<script type="text/javascript" src="libs/css_browser_selector_master/css_browser_selector.js"></script>
+	<!-- browser selector end -->
+	このファイルで
+	ie. body, textarea { font-size: 95%; word-spacing: 0.1em; letter-spacing: 0.0em; line-height: 120%;  font-family: sans-serif; }
+	などと指定しておくと，ブラウザ別の設定が出来るが，OSの対応言語でfontのstyleが変わるので，あまり意味がない...と思う。
+*/
+
+/* カーソルが重なったときのリンク文字色の変更
+*/
+
+	a:hover{color:#000099;}
+
+/* フォーカスリングの非表示
+*/
+
+	a:focus {outline:none; }
+
+
+
+/* class指定項目 */
+
+
+/* 画像にカーソルが乗ったときボーダー色を変化させる
+*/
+
+	.change_border_color a img {border:2px solid #f0f0f0; }
+	.change_border_color a:hover img {border:2px solid #c8c8c8; }
+
+/* 上記の操作をjQueryでマウスオーバー時のブリンクに含めようと思ったが，
+   hover は，次のような処理をしているので，
+   マウスが乗る前の処理はできない。
+   
+    $("セレクタ").hover(function(){
+    マウスオーバーしたときの処理
+    },
+    function () {
+    マウスアウトしたときの処理
+    }
+    );
+    });
+
+  詳細は，   jQuery - kz - js - jq_kz_style.js を参照
+*/
+
+
+/*	カーソルオンで画像を透過
+*/
+
+	.img_trans a img {
+		-webkit-transition: 0.3s ease-in-out;
+	  	 -moz-transition: 0.3s ease-in-out;
+		 	-o-transition: 0.3s ease-in-out;
+				transition: 0.3s ease-in-out;
+	}
+	.img_trans a:hover img {
+		opacity: 0.6;
+		filter: alpha(opacity=60);
+}
+
+/*	カーソルオンで画像を切り替える
+*/
+
+	.pic_change_back a {
+		display: block;
+		width: 41px;
+		height: 15px;
+		background: url(../../../image/button/back_both.gif) no-repeat 0 0;
+	}
+	.pic_change_back a:hover {
+		background-position: 0 bottom;
+	}
+
+/*	センターリング	<- html5で TABLE の中などで用いる center="80%" が，全く使えなくなるまでは，保留だな 2013.08.13
+*/
+.center{margin-left:auto;margin-right:auto;text-align:center}
+.left{text-align:left}
+
+/* nav box 2013.08.14*/
+div.navbox{
+	padding: 5px 0 5px 0;
+	border:solid 0px #CCC;
+	margin: -8px -5px 10px -5px;
+	background: #f0f0f0;
+	/* rgba(0,0,0,0.3); */
+}
+/* nav css */
+ul#nav {
+	margin:0px;
+	padding: 0px;
+}
+ul#nav li {
+	list-style: none;
+	display: inline;
+}
+ul#nav li a {
+	height: 17px;
+	line-height:17px;
+	padding: 5px 0 4px 0;
+	margin: 0 0 0 15px;
+	border:solid 0px #CCC;
+	color: #666;
+	text-decoration: none;
+}
+ul#nav li a:hover {
+	color: #000099;
+	background: #d0d0d0;
+}
+

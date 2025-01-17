@@ -1,0 +1,16 @@
+			<div class="pic-left1024 fwb pb40">
+				<div class="contents-title-left pb20">
+					<p id="TG">
+						[Ⅰ] - (1) - ① ターゲット位置 (単位:[D] Diopter)
+					</p>
+				</div>
+				<div class="contents-title-right">
+					<p>
+						<a href="#title30">[起動時の画面]へ</a>
+					</p>
+				</div>
+				<div class="c-both"></div>
+				<div>
+					<IMG src="lib_img/SRTLM_img/doc_1-1-1_ターゲット位置2a.jpg" border="0">
+				</div>
+			</div>

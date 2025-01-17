@@ -1,0 +1,120 @@
+jsについて質問です。
+以前に組んだソースの一部ですが、jsでは「goto」が使えません。
+これを、jsで使えるようにする方法を教えて下さい。
+できるだけ、修正量が少ない方法を希望します。
+よろしくお願いします。
+
+                                let xs = 0.1;
+                                let ys = 0.1;
+
+                                let x0, y0, x1, y1, x2, y2;
+                                let f0, f1, f2, f3, f4;
+
+                                x0 = 0;
+                                y0 = 0;
+
+                                f0 = 0;
+
+                                for (let m = -13; m < 13; m++) {
+                                    for (let n = -13; n < 13; n++) {
+                                        f1 = FNA(x0 + i * xs, y0 + j * ys);
+                                        f2 = FNA(x0 + (i + 1) * xs, y0 + j * ys);
+                                        f3 = FNA(x0 + i * xs, y0 + (j + 1) * ys);
+                                        f4 = FNA(x0 + (i + 1) * xs, y0 + (j + 1) * ys);
+                                        if (f1 * f2 <= 0) {
+                                            f0 = 1;
+                                            x1 = x0 + (i + f1 / (f1 - f2) * xs;
+                                            y1 = y0 + j * ys;
+                                        }
+L_A:
+                                        if (f3 * f4 <= 0) {
+                                            if (f0 == 1) {
+                                                x2 = x0 + (i + f3 / (f3 - f4) * xs;
+                                                y2 = y0 + (j + 1) * ys;
+
+                                                pixelX = scaleX * (x2 + width0 / 2);
+                                                pixelY = scaleY * (height0 / 2 - y2);
+
+                                                if (k == 0) {
+                                                    linePoints[i].push({ x: pixelX, y: pixelY });
+                                                }
+                                                else {
+                                                    linePoints2[i].push({ x: pixelX, y: pixelY });
+                                                }
+                                                //line(x1, y1, x2, y2);
+                                                //goto L_D;
+                                                continue;
+                                            }
+                                            if (f0 == 0) {
+                                                f0 = 1;
+                                                x1 = x0 + (i + f3 / (f3 - f4) * xs;
+                                                y1 = y0 + (j + 1) * ys;
+                                                //goto L_B;
+                                            }
+                                        }
+L_B;
+                                        if (f2 * f4 <= 0) {
+                                            if (f0 == 1) {
+                                                x2 = x0 + (i + 1) * xs;
+                                                y2 = y0 + (j + f2 / (f2 - f4)) * ys;
+
+                                                pixelX = scaleX * (x2 + width0 / 2);
+                                                pixelY = scaleY * (height0 / 2 - y2);
+
+                                                if (k == 0) {
+                                                    linePoints[i].push({ x: pixelX, y: pixelY });
+                                                }
+                                                else {
+                                                    linePoints2[i].push({ x: pixelX, y: pixelY });
+                                                }
+                                                //line(x1, y1, x2, y2);
+                                                //goto L_D;
+                                                continue;
+                                            }
+                                            if (f2 * f4 != 0) {
+
+                                                pixelX = scaleX * (x2 + width0 / 2);
+                                                pixelY = scaleY * (height0 / 2 - y2);
+
+                                                if (k == 0) {
+                                                    linePoints[i].push({ x: pixelX, y: pixelY });
+                                                }
+                                                else {
+                                                    linePoints2[i].push({ x: pixelX, y: pixelY });
+                                                }
+                                                //line(x1, y1, x2, y2);
+                                                //goto L_D;
+                                                continue;
+                                            }
+                                            if (f0 == 0) {
+                                                f0 = 1;
+                                                x1 = x0 + (i + f1 / (f1 - f2) * xs;
+                                                y1 = y0 + (j + f2) / (f2 - f4) * ys;
+                                                //goto L_C;
+                                            }
+                                        }
+L_C:
+                                        if (f1 * f3 > 0) {
+                                            //goto L_D;
+                                            continue;
+                                        }
+                                        if (f0 == 1) {
+                                            x2 = x0 + i * xs;
+                                            y2 = y0 + (j + f1 / (f1 - f3)) * ys;
+
+                                            pixelX = scaleX * (x2 + width0 / 2);
+                                            pixelY = scaleY * (height0 / 2 - y2);
+
+                                            if (k == 0) {
+                                                linePoints[i].push({ x: pixelX, y: pixelY });
+                                            }
+                                            else {
+                                                linePoints2[i].push({ x: pixelX, y: pixelY });
+                                            }
+                                            //line(x1, y1, x2, y2);
+                                            //goto L_D;
+                                            continue;
+                                        }
+L_D;
+                                    }
+                                }

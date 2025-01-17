@@ -1,0 +1,146 @@
+htmlとjsについての質問です。
+以下は、入力フォームに入力された方程式をmath.jsで評価し、
+線形か非線形かを判別し、線形の場合は係数を求めるコードです。
+先日、GPTで示して頂いたものです。
+方程式は連立なので、どちらも線形の場合のみ、線形と判別されます。
+
+コードの下に質問を書きます。
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Differential Equations</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.0.0/math.min.js"></script>
+</head>
+<body>
+    <p class="pb10 input-container">
+        <label id="l_dxdt">$dx / dt = $</label>
+        <textarea id="dxdt" cols="30" rows="2">2*x + 3*y</textarea>
+    </p>
+    <p class="pb10 input-container">
+        <label id="l_dydt">$dy / dt = $</label>
+        <textarea id="dydt" cols="30" rows="2">-x + 4*y</textarea>
+    </p>
+    <button onclick="checkLinearity()">Check Linearity</button>
+    <p id="result"></p>
+
+    <script>
+        function checkLinearity() {
+            const formula_dx = document.getElementById('dxdt').value;
+            const formula_dy = document.getElementById('dydt').value;
+
+            const parseCoefficients = (expr) => {
+                const node = math.parse(expr);
+                let linear = true;
+                let coefficients = { x: 0, y: 0, constant: 0 };
+
+                const traverse = (node, sign = 1) => {
+                    if (node.type === 'OperatorNode') {
+                        if (node.op === '+' || node.op === '-') {
+                            node.args.forEach((arg, index) => {
+                                traverse(arg, sign * (node.op === '-' && index === 1 ? -1 : 1));
+                            });
+                        } else if (node.op === '*') {
+                            if (node.args[0].type === 'ConstantNode' && node.args[1].type === 'SymbolNode') {
+                                coefficients[node.args[1].name] += sign * node.args[0].value;
+                            } else if (node.args[1].type === 'ConstantNode' && node.args[0].type === 'SymbolNode') {
+                                coefficients[node.args[0].name] += sign * node.args[1].value;
+                            } else {
+                                linear = false;
+                            }
+                        } else if (node.op === '^') {
+                            const base = node.args[0];
+                            const exponent = node.args[1];
+                            if (!(exponent.type === 'ConstantNode' && exponent.value === 1)) {
+                                linear = false;
+                            }
+                        } else {
+                            linear = false;
+                        }
+                    } else if (node.type === 'SymbolNode') {
+                        coefficients[node.name] += sign;
+                    } else if (node.type === 'ConstantNode') {
+                        coefficients.constant += sign * node.value;
+                    } else {
+                        linear = false;
+                    }
+                };
+
+                traverse(node);
+                return linear ? coefficients : null;
+            };
+
+            const coefficients_dx = parseCoefficients(formula_dx);
+            const coefficients_dy = parseCoefficients(formula_dy);
+
+            let resultText = '';
+
+            if (coefficients_dx && coefficients_dy) {
+                resultText = `Linear equations with coefficients:\n`;
+                resultText += `dx/dt: x: ${coefficients_dx.x}, y: ${coefficients_dx.y}, constant: ${coefficients_dx.constant}\n`;
+                resultText += `dy/dt: x: ${coefficients_dy.x}, y: ${coefficients_dy.y}, constant: ${coefficients_dy.constant}`;
+            } else {
+                resultText = 'Non-linear equations';
+            }
+
+            document.getElementById('result').innerText = resultText;
+        }
+    </script>
+</body>
+</html>
+
+
+入力された方程式が
+
+dx/dt = 2*x + 2*y
+dxy/dt = x - y
+の場合は、線形と判別され、係数も正しく求められます。
+
+ところが、以下のように入力すると、non-linerと評価されます。
+dx/dt = 2*x + 2*y
+dxy/dt = x - y
+
+これは、何故でしょうか？
+
+
+Parsed node: r {implicit: false, op: '+', fn: 'add', args: Array(2), comment: ''}args: Array(2)0: r {implicit: false, op: '*', fn: 'multiply', args: Array(2)}1: r {implicit: false, op: '*', fn: 'multiply', args: Array(2)}length: 2[[Prototype]]: Array(0)at: ƒ at()concat: ƒ concat()constructor: ƒ Array()copyWithin: ƒ copyWithin()entries: ƒ entries()every: ƒ every()fill: ƒ fill()filter: ƒ filter()find: ƒ find()findIndex: ƒ findIndex()findLast: ƒ findLast()findLastIndex: ƒ findLastIndex()flat: ƒ flat()flatMap: ƒ flatMap()forEach: ƒ forEach()includes: ƒ includes()indexOf: ƒ indexOf()join: ƒ join()keys: ƒ keys()lastIndexOf: ƒ lastIndexOf()length: 0map: ƒ map()pop: ƒ pop()push: ƒ push()reduce: ƒ reduce()reduceRight: ƒ reduceRight()reverse: ƒ reverse()shift: ƒ shift()slice: ƒ slice()some: ƒ some()sort: ƒ sort()splice: ƒ splice()toLocaleString: ƒ toLocaleString()toReversed: ƒ toReversed()toSorted: ƒ toSorted()toSpliced: ƒ toSpliced()toString: ƒ toString()unshift: ƒ unshift()values: ƒ values()with: ƒ with()Symbol(Symbol.iterator): ƒ values()Symbol(Symbol.unscopables): {at: true, copyWithin: true, entries: true, fill: true, find: true, …}[[Prototype]]: Objectcomment: ""fn: "add"implicit: falseop: "+"[[Prototype]]: r
+
+
+Array(2)
+0: r
+args: [r]
+fn: "unaryMinus"
+implicit: false
+op: "-"
+[[Prototype]]: r
+1: a {name: 'x'}
+length: 2
+[[Prototype]]: Array(0)
+
+Array(2)
+0: r
+value: 3
+[[Prototype]]: r
+1: a
+name: "y"
+[[Prototype]]: r
+length: 2
+[[Prototype]]: Array(0)
+
+
+
+
+
+Parsed node: r {implicit: false, op: '+', fn: 'add', args: Array(2), comment: ''}
+deq01_v4.js:1540 Traversing node: r {implicit: false, op: '+', fn: 'add', args: Array(2), comment: ''}args: (2) [r, r]comment: ""fn: "add"implicit: falseop: "+"[[Prototype]]: r Sign: 1
+deq01_v4.js:1540 Traversing node: r {implicit: false, op: '*', fn: 'multiply', args: Array(2)}args: (2) [r, a]fn: "multiply"implicit: falseop: "*"[[Prototype]]: r Sign: 1
+deq01_v4.js:1540 Traversing node: r {implicit: false, op: '*', fn: 'multiply', args: Array(2)}args: (2) [r, a]fn: "multiply"implicit: falseop: "*"[[Prototype]]: r Sign: 1
+deq01_v4.js:1575 Coefficients: {x: 0, y: 3, constant: 0}constant: 0x: 0y: 3[[Prototype]]: Object Linear: false
+deq01_v4.js:1535 Parsed node: r {implicit: false, op: '-', fn: 'subtract', args: Array(2), comment: ''}args: (2) [a, r]comment: ""fn: "subtract"implicit: falseop: "-"[[Prototype]]: r
+deq01_v4.js:1540 Traversing node: r {implicit: false, op: '-', fn: 'subtract', args: Array(2), comment: ''}args: (2) [a, r]comment: ""fn: "subtract"implicit: falseop: "-"[[Prototype]]: r Sign: 1
+deq01_v4.js:1540 Traversing node: a {name: 'x'}name: "x"[[Prototype]]: r Sign: 1
+deq01_v4.js:1540 Traversing node: r {implicit: false, op: '*', fn: 'multiply', args: Array(2)}args: (2) [r, a]fn: "multiply"implicit: falseop: "*"[[Prototype]]: r Sign: -1
+deq01_v4.js:1575 Coefficients: {x: 1, y: -4, constant: 0}constant: 0x: 1y: -4[[Prototype]]: Object Linear: true

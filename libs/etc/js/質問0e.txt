@@ -1,0 +1,68 @@
+
+htmlのページから入力フォームで、入力された式を受け取り、math.jsで数式として評価されます。
+
+formula_dx = document.getElementById('dxdt').value;
+formula_dy = document.getElementById('dydt').value;
+
+①
+node_dx = math.parse(formula_dx);
+node_dy = math.parse(formula_dy);
+
+もしも入力された式が数式として評価されなかった場合に、
+①の所を工夫することでエラーを受け取ることはできないでしょうか？
+
+例えば入力された式が
+「x + y +」、「x * (1 + y」「abc」などの場合です。
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formula Evaluation</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.6.4/math.js"></script>
+</head>
+<body>
+    <form id="formulaForm">
+        <label for="dxdt">dx/dt:</label>
+        <input type="text" id="dxdt" name="dxdt"><br>
+        <label for="dydt">dy/dt:</label>
+        <input type="text" id="dydt" name="dydt"><br>
+        <button type="button" onclick="evaluateFormulas()">Evaluate</button>
+    </form>
+    <div id="errorMessages"></div>
+    <script>
+        function evaluateFormulas() {
+            var formula_dx = document.getElementById('dxdt').value;
+            var formula_dy = document.getElementById('dydt').value;
+            var errorMessages = document.getElementById('errorMessages');
+            errorMessages.innerHTML = '';
+
+            try {
+                var node_dx = math.parse(formula_dx);
+                console.log('Parsed dx/dt:', node_dx.toString());
+            } catch (error) {
+                errorMessages.innerHTML += '<p>Error in dx/dt formula: ' + error.message + '</p>';
+            }
+
+            try {
+                var node_dy = math.parse(formula_dy);
+                console.log('Parsed dy/dt:', node_dy.toString());
+            } catch (error) {
+                errorMessages.innerHTML += '<p>Error in dy/dt formula: ' + error.message + '</p>';
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+この例では、以下のように処理が行われます。
+
+ユーザーが入力した dx/dt と dy/dt の数式をそれぞれ formula_dx と formula_dy に取得します。
+try...catch ブロックを使用して、それぞれの数式を math.parse で解析します。
+解析中にエラーが発生した場合、エラーメッセージがキャッチされ、errorMessages に表示されます。
+エラーが発生しなかった場合は、解析された数式をコンソールに出力します。
+この方法により、ユーザーが入力した数式が無効な場合でも、そのエラーを適切にユーザーに通知することができます。

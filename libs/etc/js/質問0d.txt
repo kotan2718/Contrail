@@ -1,0 +1,490 @@
+項は"+", "-"で分けられるのが自然である。
+
+入力規則として、説明の段階で、
+x+x+x-y-yのような表記は係数抽出のロジックではねられることを明記しておく。
+
+①項数が4以上は非線形として追跡中止
+
+②項数が3の場合
+②-1: 3項ともx, yのいずれかが含まれる場合は、非線形として追跡中止
+②-2: 上記以外(定数項が含まれる場合)は、1, 2項目までを追跡対象として③に進む(定数項が1, 2項目の場合は、へそ曲がりとして追跡中止)
+
+③項数が2の場合
+③-1: いずれかの項にxが2つ以上、或いはyが2つ以上、或いはx, yが含まれる場合は、非線形として追跡中止
+③-2: いずれかの項に"^"が含まれている場合は追跡中止(係数がべき表記されていた場合は、諦める)
+③-3: xの係数、yの係数を格納する
+
+④項数が1の場合
+④-1: xが2つ以上、或いはyが2つ以上、或いはx, yが含まれる場合は、非線形として追跡中止
+④-2: xのみの場合はxの係数を格納し、yの係数は0とする
+④-3: yのみの場合はyの係数を格納し、xの係数は0とする
+④-4: 定数項の場合は、x, y の係数は0とする
+
+
+checkLinearity()で terms_dx, terms_dyが求められた上で、以下に示すルールに基づいて、線形か非線形かを判別して、線形の場合はその係数を求めたいと思います。
+
+項は"+", "-"で分けられるのが自然である。
+
+入力規則として、説明の段階で、
+x+x+x-y-yのような表記は係数抽出のロジックではねられることを明記しておく。
+
+①項数が4以上は非線形として追跡中止
+
+②項数が3の場合
+②-1: 3項ともx, yのいずれかが含まれる場合は、非線形として追跡中止
+②-2: 上記以外(定数項が含まれる場合)は、1, 2項目までを追跡対象として③に進む(定数項が1, 2項目の場合は、へそ曲がりとして追跡中止)
+
+③項数が2の場合
+③-1: いずれかの項にxが2つ以上、或いはyが2つ以上、或いはx, yが含まれる場合は、非線形として追跡中止
+③-2: いずれかの項に"^"が含まれている場合は追跡中止(係数がべき表記されていた場合は、諦める)
+③-3: xの係数、yの係数を格納する
+
+④項数が1の場合
+④-1: xが2つ以上、或いはyが2つ以上、或いはx, yが含まれる場合は、非線形として追跡中止
+④-2: xのみの場合はxの係数を格納し、yの係数は0とする
+④-3: yのみの場合はyの係数を格納し、xの係数は0とする
+④-4: 定数項の場合は、x, y の係数は0とする
+
+よろしくお願いします。
+ChatGPT
+了解しました。それでは、提供されたルールに従って線形か非線形かを判別し、線形の場合は係数を求める関数を作成します。
+
+html
+コードをコピーする
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Differential Equations</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.0.0/math.min.js"></script>
+    <script>
+        function checkLinearity() {
+            const formula_dx = document.getElementById('dxdt').value;
+            const formula_dy = document.getElementById('dydt').value;
+
+            const splitExpression = (expr) => {
+                return expr.replace(/\s+/g, '').split(/(?=[-+])/).filter(term => term !== '');
+            };
+
+            const parseCoefficients = (terms) => {
+                let coefficients = { x: 0, y: 0, constant: 0 };
+
+                if (terms.length >= 4) {
+                    return null;
+                }
+
+                for (let term of terms) {
+                    let hasX = term.includes('x');
+                    let hasY = term.includes('y');
+                    let hasPower = term.includes('^');
+
+                    if (hasPower) {
+                        return null;
+                    }
+
+                    if (hasX && hasY) {
+                        return null;
+                    }
+
+                    if (hasX) {
+                        let coefficient = parseFloat(term.replace('x', ''));
+                        coefficient = isNaN(coefficient) ? (term.startsWith('-') ? -1 : 1) : coefficient;
+                        coefficients.x += coefficient;
+                    } else if (hasY) {
+                        let coefficient = parseFloat(term.replace('y', ''));
+                        coefficient = isNaN(coefficient) ? (term.startsWith('-') ? -1 : 1) : coefficient;
+                        coefficients.y += coefficient;
+                    } else {
+                        coefficients.constant += parseFloat(term);
+                    }
+                }
+
+                return coefficients;
+            };
+
+            const terms_dx = splitExpression(formula_dx);
+            const terms_dy = splitExpression(formula_dy);
+
+            const coefficients_dx = parseCoefficients(terms_dx);
+            const coefficients_dy = parseCoefficients(terms_dy);
+
+            let resultText = '';
+
+            if (coefficients_dx && coefficients_dy) {
+                resultText = `Linear equations with coefficients:\n`;
+                resultText += `dx/dt: x: ${coefficients_dx.x}, y: ${coefficients_dx.y}, constant: ${coefficients_dx.constant}\n`;
+                resultText += `dy/dt: x: ${coefficients_dy.x}, y: ${coefficients_dy.y}, constant: ${coefficients_dy.constant}`;
+            } else {
+                resultText = 'Non-linear equations';
+            }
+
+            document.getElementById('result').innerText = resultText;
+        }
+    </script>
+</head>
+<body>
+    <p class="pb10 input-container">
+        <label id="l_dxdt">$dx / dt = $</label>
+        <textarea id="dxdt" cols="30" rows="2">-2*x + 3*y</textarea>
+    </p>
+    <p class="pb10 input-container">
+        <label id="l_dydt">$dy / dt = $</label>
+        <textarea id="dydt" cols="30" rows="2">x - 4*y</textarea>
+    </p>
+    <button onclick="checkLinearity()">Check Linearity</button>
+    <p id="result"></p>
+</body>
+</html>
+このコードでは、以下の手順で線形性をチェックし、係数を抽出しています：
+
+入力された式を項に分解する。
+各項を解析し、線形かどうかを判定する。
+線形の場合、係数を抽出し、結果を表示する。
+提供されたルールに基づいて、分解された各項の内容をチェックし、必要な係数を抽出しています。
+
+昨日示して頂いたsplitExpression(expr)はそのまま使うのですよね。
+ChatGPT
+はい、その通りです。splitExpression(expr)関数は、与えられた式を項に分解するために使用します。以下は、前回示したコードに、splitExpression(expr)関数をそのまま使用した完全なHTMLとJavaScriptのコードです。
+
+html
+コードをコピーする
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Differential Equations</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.0.0/math.min.js"></script>
+    <script>
+        function checkLinearity() {
+            const formula_dx = document.getElementById('dxdt').value;
+            const formula_dy = document.getElementById('dydt').value;
+
+            // 入力式を項に分解する関数
+            const splitExpression = (expr) => {
+                return expr.replace(/\s+/g, '').split(/(?=[-+])/).filter(term => term !== '');
+            };
+
+            // 各項の係数を解析する関数
+            const parseCoefficients = (terms) => {
+                let coefficients = { x: 0, y: 0, constant: 0 };
+
+                if (terms.length >= 4) {
+                    return null;
+                }
+
+                for (let term of terms) {
+                    let hasX = term.includes('x');
+                    let hasY = term.includes('y');
+                    let hasPower = term.includes('^');
+
+                    if (hasPower) {
+                        return null;
+                    }
+
+                    if (hasX && hasY) {
+                        return null;
+                    }
+
+                    if (hasX) {
+                        let coefficient = parseFloat(term.replace('x', ''));
+                        coefficient = isNaN(coefficient) ? (term.startsWith('-') ? -1 : 1) : coefficient;
+                        coefficients.x += coefficient;
+                    } else if (hasY) {
+                        let coefficient = parseFloat(term.replace('y', ''));
+                        coefficient = isNaN(coefficient) ? (term.startsWith('-') ? -1 : 1) : coefficient;
+                        coefficients.y += coefficient;
+                    } else {
+                        coefficients.constant += parseFloat(term);
+                    }
+                }
+
+                return coefficients;
+            };
+
+            const terms_dx = splitExpression(formula_dx);
+            const terms_dy = splitExpression(formula_dy);
+
+            const coefficients_dx = parseCoefficients(terms_dx);
+            const coefficients_dy = parseCoefficients(terms_dy);
+
+            let resultText = '';
+
+            if (coefficients_dx && coefficients_dy) {
+                resultText = `Linear equations with coefficients:\n`;
+                resultText += `dx/dt: x: ${coefficients_dx.x}, y: ${coefficients_dx.y}, constant: ${coefficients_dx.constant}\n`;
+                resultText += `dy/dt: x: ${coefficients_dy.x}, y: ${coefficients_dy.y}, constant: ${coefficients_dy.constant}`;
+            } else {
+                resultText = 'Non-linear equations';
+            }
+
+            document.getElementById('result').innerText = resultText;
+        }
+    </script>
+</head>
+<body>
+    <p class="pb10 input-container">
+        <label id="l_dxdt">$dx / dt = $</label>
+        <textarea id="dxdt" cols="30" rows="2">-2*x + 3*y</textarea>
+    </p>
+    <p class="pb10 input-container">
+        <label id="l_dydt">$dy / dt = $</label>
+        <textarea id="dydt" cols="30" rows="2">x - 4*y</textarea>
+    </p>
+    <button onclick="checkLinearity()">Check Linearity</button>
+    <p id="result"></p>
+</body>
+</html>
+このコードは以下の手順で動作します：
+
+splitExpression(expr)関数を使用して、入力された式を項に分解します。
+各項の係数をparseCoefficients(terms)関数で解析します。
+項の数や内容に基づいて線形性をチェックし、線形であれば係数を抽出します。
+結果を表示します。
+これにより、与えられた式が線形か非線形かを判断し、線形であれば係数を求めることができます。
+
+ありがとうございます。幾つかのパターンで式を入力して、期待通りの結果が得られることを核にしました。
+なるほど、いきなり「入力された式が線形か否かを判別し、線形なら、係数を求めて下さい」と質問すると、あなたの方も焦点が定まらないのですね。今回のようにアルゴリズムを示して、それに沿ったコードを起こして下さいとお願いすれば、適切なコードが起こせる訳ですね。
+これからは、できるだけ答えやすいように質問を工夫したいと思います。ありがとうございました。
+ChatGPT
+それは良い方法です！アルゴリズムや具体的な要件を示していただくと、こちらも具体的な解決策を提供しやすくなります。今回のケースでは、ステップごとに詳細なアルゴリズムを示していただいたおかげで、適切なコードを作成することができました。
+
+こちらこそ、詳しい説明とご協力に感謝します。質問の仕方を工夫していただければ、ますます正確で役立つ回答を提供できると思います。また何かありましたら、いつでも気軽にご相談ください。今後ともよろしくお願いいたします！
+
+
+
+
+最後に示して頂いたコードで、1つだけ問題が見つかりました。
+hasXとhasYの評価で、以下のチェックが抜けていました。
+③-1: いずれかの項にxが2つ以上、或いはyが2つ以上含まれる場合は、非線形として追跡中止
+つまり、以下の式は線形として評価されてしまいます。
+dx/dy = -2*x*x + 3*y
+このチェックを加えて頂けますか？
+ChatGPT
+了解しました。それでは、各項に含まれる x や y の数をチェックして、2つ以上の x や y が含まれている場合は非線形とするロジックを追加しましょう。
+
+以下が修正後の checkLinearity 関数です。
+
+html
+コードをコピーする
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Differential Equations</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.0.0/math.min.js"></script>
+</head>
+<body>
+    <p class="pb10 input-container">
+        <label id="l_dxdt">$dx / dt = $</label>
+        <textarea id="dxdt" cols="30" rows="2">-2*x + 3*y</textarea>
+    </p>
+    <p class="pb10 input-container">
+        <label id="l_dydt">$dy / dt = $</label>
+        <textarea id="dydt" cols="30" rows="2">x - 4*y</textarea>
+    </p>
+    <button onclick="checkLinearity()">Check Linearity</button>
+    <p id="result"></p>
+
+    <script>
+        function splitExpression(expr) {
+            // Remove spaces and split expression into terms
+            return expr.replace(/\s+/g, '').split(/(?=[+-])/).filter(term => term !== '');
+        }
+
+        function countOccurrences(str, subStr) {
+            return (str.match(new RegExp(subStr, 'g')) || []).length;
+        }
+
+        function checkLinearity() {
+            const formula_dx = document.getElementById('dxdt').value;
+            const formula_dy = document.getElementById('dydt').value;
+
+            const terms_dx = splitExpression(formula_dx);
+            const terms_dy = splitExpression(formula_dy);
+
+            console.log('terms_dx:', terms_dx);
+            console.log('terms_dy:', terms_dy);
+
+            function analyzeTerms(terms) {
+                if (terms.length > 3) return null;
+
+                let coefficients = { x: 0, y: 0, constant: 0 };
+
+                for (let term of terms) {
+                    const hasX = term.includes('x');
+                    const hasY = term.includes('y');
+                    const xCount = countOccurrences(term, 'x');
+                    const yCount = countOccurrences(term, 'y');
+                    const hasExponent = term.includes('^');
+
+                    if (hasExponent || xCount > 1 || yCount > 1) {
+                        return null; // Non-linear
+                    }
+
+                    if (hasX && hasY) {
+                        return null; // Non-linear
+                    }
+
+                    const coefficient = parseFloat(term.replace(/[*xy]/g, '')) || (term.startsWith('-') ? -1 : 1);
+
+                    if (hasX) {
+                        coefficients.x += coefficient;
+                    } else if (hasY) {
+                        coefficients.y += coefficient;
+                    } else {
+                        coefficients.constant += coefficient;
+                    }
+                }
+
+                return coefficients;
+            }
+
+            const coefficients_dx = analyzeTerms(terms_dx);
+            const coefficients_dy = analyzeTerms(terms_dy);
+
+            let resultText = '';
+
+            if (coefficients_dx && coefficients_dy) {
+                resultText = `Linear equations with coefficients:\n`;
+                resultText += `dx/dt: x: ${coefficients_dx.x}, y: ${coefficients_dx.y}, constant: ${coefficients_dx.constant}\n`;
+                resultText += `dy/dt: x: ${coefficients_dy.x}, y: ${coefficients_dy.y}, constant: ${coefficients_dy.constant}`;
+            } else {
+                resultText = 'Non-linear equations';
+            }
+
+            document.getElementById('result').innerText = resultText;
+        }
+    </script>
+</body>
+</html>
+変更点:
+
+analyzeTerms 関数内で countOccurrences 関数を用いて各項に含まれる x と y の数をカウントします。
+x や y の数が2つ以上含まれる場合は非線形と判断し、null を返すようにしました。
+これにより、 dx/dy = -2*x*x + 3*y のような式が非線形として正しく判断されるはずです。
+
+
+
+数学関数
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Differential Equations</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.0.0/math.min.js"></script>
+</head>
+<body>
+    <p class="pb10 input-container">
+        <label id="l_dxdt">$dx / dt = $</label>
+        <textarea id="dxdt" cols="30" rows="2">-2*x + 3*y</textarea>
+    </p>
+    <p class="pb10 input-container">
+        <label id="l_dydt">$dy / dt = $</label>
+        <textarea id="dydt" cols="30" rows="2">x - 4*y</textarea>
+    </p>
+    <button onclick="checkLinearity()">Check Linearity</button>
+    <p id="result"></p>
+
+    <script>
+        function splitExpression(expr) {
+            return expr.replace(/\s+/g, '').match(/[-+]?[^\-+]+/g);
+        }
+
+        function containsMathFunctions(node) {
+            const mathFunctions = ['sin', 'cos', 'tan', 'log', 'sqrt', 'exp'];
+            if (node.type === 'FunctionNode' && mathFunctions.includes(node.fn.name)) {
+                return true;
+            }
+            let containsFunction = false;
+            node.forEach(function (child) {
+                if (containsMathFunctions(child)) {
+                    containsFunction = true;
+                }
+            });
+            return containsFunction;
+        }
+
+        function checkLinearity() {
+            const formula_dx = document.getElementById('dxdt').value;
+            const formula_dy = document.getElementById('dydt').value;
+
+            const terms_dx = splitExpression(formula_dx).filter(term => term !== '');
+            const terms_dy = splitExpression(formula_dy).filter(term => term !== '');
+
+            function isNonLinear(terms) {
+                if (terms.length > 3) {
+                    return true;
+                }
+
+                for (let term of terms) {
+                    const node = math.parse(term);
+                    if (containsMathFunctions(node)) {
+                        return true;
+                    }
+
+                    const variables = {};
+                    node.traverse(function (node) {
+                        if (node.isSymbolNode) {
+                            if (!variables[node.name]) {
+                                variables[node.name] = 0;
+                            }
+                            variables[node.name]++;
+                        }
+                    });
+
+                    if (variables['x'] > 1 || variables['y'] > 1) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            const isDxNonLinear = isNonLinear(terms_dx);
+            const isDyNonLinear = isNonLinear(terms_dy);
+
+            let resultText = '';
+
+            if (isDxNonLinear || isDyNonLinear) {
+                resultText = 'Non-linear equations';
+            } else {
+                let coefficients_dx = { x: 0, y: 0, constant: 0 };
+                let coefficients_dy = { x: 0, y: 0, constant: 0 };
+
+                function extractCoefficients(terms, coefficients) {
+                    terms.forEach(term => {
+                        const node = math.parse(term);
+                        if (node.type === 'OperatorNode' && (node.op === '*' || node.op === '/')) {
+                            const [left, right] = node.args;
+                            if (left.isConstantNode && right.isSymbolNode) {
+                                coefficients[right.name] += left.value * (node.op === '/' ? 1 / right.value : 1);
+                            } else if (right.isConstantNode && left.isSymbolNode) {
+                                coefficients[left.name] += right.value * (node.op === '/' ? 1 / left.value : 1);
+                            }
+                        } else if (node.isSymbolNode) {
+                            coefficients[node.name] += 1;
+                        } else if (node.isConstantNode) {
+                            coefficients.constant += node.value;
+                        }
+                    });
+                }
+
+                extractCoefficients(terms_dx, coefficients_dx);
+                extractCoefficients(terms_dy, coefficients_dy);
+
+                resultText = `Linear equations with coefficients:\n`;
+                resultText += `dx/dt: x: ${coefficients_dx.x}, y: ${coefficients_dx.y}, constant: ${coefficients_dx.constant}\n`;
+                resultText += `dy/dt: x: ${coefficients_dy.x}, y: ${coefficients_dy.y}, constant: ${coefficients_dy.constant}`;
+            }
+
+            document.getElementById('result').innerText = resultText;
+        }
+    </script>
+</body>
+</html>
+
+

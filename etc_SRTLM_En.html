@@ -1,0 +1,260 @@
+<!DOCTYPE HTML >
+<html>
+
+<HEAD>
+	<META charset="UTF-8">
+    <META name="description" content="This page introduces the Lensmeter Simulation Tool. This tool has the following functions: Measure single-vision lenses (spherical and toric), check the lens shape, reproduce the imaging state in 3D by ray tracing, etc.">
+    <META name="keywords" content="Lens,Meter,simulation,tool,spherical,toric,shape,3D,ray,tracing">
+
+	<title>SRTLM User's Manual</title>
+
+	<!-- favicon-->
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- css start -->
+
+		<!-- kz_etc start :: class指定:change_border_color, 全ファイル共通:リンク文字色, フォーカスリング -->
+		<link rel="stylesheet" href="libs/etc/css/kz_footer_style.css" type="text/css">
+		<link rel="stylesheet" href="libs/etc/css/kz_etc_style.css" type="text/css">
+		<!-- kz_etc end -->
+
+	<!-- css end -->
+
+	<!-- js start -->
+
+		<!-- jQuery start -->
+		<script src="libs/jQuery/js/jquery-1.6.1.min.js" type="text/javascript"></script>
+
+			<!-- kz_style start - img jq_blink, img jq_change -->
+			<script src="libs/jQuery/kz/js/jq_kz_style.js" type="text/javascript"></script>
+			<!-- kz_style end -->
+
+		<!-- jQuery end -->
+
+		<!-- Sandbox DropDownMenu start -->
+		<script src="libs/sandbox/js/script.js" type="text/javascript"></script>
+		<!-- Sandbox DropDownMenu end -->
+
+	<!-- js end -->
+
+</HEAD>
+
+<BODY id="common-k" >
+
+	<header>
+		<a name="page_top"></a>
+		<div class="center jQ_change navbox" >
+			<nav>
+				<IMG src="image/top/Contrail_g.png" height="20" class="logo_img">
+				<ul class="menu" id="menu" >
+					<li><a href="index.html" class="menulink">Home</a></li>
+					<li><a href="e_whatnew.html" class="menulink">What's New</a></li>
+					<li><a href="en_etc.html" class="menulink">E.T.C.</a></li>
+					<li><a href="e_fs01.html" class="menulink">The Scenery</a>
+						<ul>
+							<li><a href="e_fs01_sc_top.html" class="sub">Screen Shots</a></li>
+							<li><a href="e_fs01_ls_top.html" class="sub">Snap Shots</a></li>
+						</ul>
+					</li>
+					<li><a href="e_link01.html" class="menulink">Links</a></li>
+					<li class="about"><a href="e_fs01_about.html" class="menulink">about Contrail</a></li>
+				</ul>
+			</nav>
+			<div class="c-both"></div>
+		</div>
+		<!-- Sandbox DropDownMenu start-->
+		<script type="text/javascript">
+			var menu=new menu.dd("menu");
+			menu.init("menu","menuhover");
+		</script>	<!-- Sandbox DropDownMenu end -->
+	</header>
+
+	<div id="main1024"> <!-- page main: start -->
+
+		<!-- title -->
+		<div id="title20">
+			<h2 class="pt30 pb40">
+				SRTLM Lens Meter Simulation Tool
+			</h2>
+			<h3 class="pic-left920">
+				Overview
+			</h3>
+		</div>
+
+		<!-- contents -->
+		<div class="pic-left920 pb40">
+			<div class="fwb pb10">
+				<p class="pb10">
+					When it comes to lens meters, auto lens meters are the mainstream these days, and there may be people who have never used manual lens meters before.
+					I think that the lens meter itself is still an essential item for those who work with eyeglasses.
+				</p>
+				<p class="pb10">
+					I created a simulation tool with the hope that you would learn the properties of eyeglass lenses through a manual lens meter.<br>
+					Hereafter abbreviated as SRTLM.
+				</p>
+				<p class="pb10">
+					If you would like to know about lens meters and eyeglass lens roughly, see
+						<a href="etc_SRTLM_about_LensMeter_En.html">about Lens Mater</a>.
+				</p>
+				<p class="pb10">
+					See
+					<a href="etc_SRTLM_document_En.html">SRTLM Document</a>
+					 for the explanation of SRTLM.
+				</p>
+			</div>
+
+			<div class="fwb pb20">
+				<p class="pb10">
+					Features
+				</p>
+				<ol class="fwm pb40, pl40">
+				  <li>
+						<p class="pb10">
+							Measurement of single vision lenses (spherical and toric) can be simulated.
+						</p>
+						<ul class="fwm pb40, pl40">
+						  <li>
+								<p class="pb10">
+									Focusing of lens
+								</p>
+						  </li>
+						  <li>
+								<p class="pb10">
+									The movement of the corona image (*) accompanying the movement of the lens (vertical movement, horizontal movement and rotation), the rotation of the focusing glass, the occurrence of astigmatism due to the tilt of the lens, etc.
+								</p>
+								<p class="pb10">
+									*The corona image consists of a small disk called a target that moves back and forth along the optical axis, and has 36 concentric pinholes.
+									A bundle of rays passing through a pinhole is visualized as an image with a focusing glass.
+									There are also types of targets that combine corona target and a cross target (cross slit).
+									This tool assumes only corona targets.
+								</p>
+						  </li>
+						</ul>
+				  </li>
+					<li>
+						<p class="pb10">
+							You can check the shape of the test lens.
+						</p>
+						<ul class="fwm pb40, pl40">
+						  <li>
+								<p class="pb10">
+									The test lens is rendered in 3D, including sections along the strong/weak principal meridians.
+								</p>
+						  </li>
+						</ul>
+					</li>
+					<li>
+						<p class="pb10">
+							Ray tracing is reproduced in 3D
+						</p>
+						<ul class="fwm pb40, pl40">
+						  <li>
+								<p class="pb10">
+									How rays emitted from the target form an image on the focusing glass is simulated.
+								</p>
+						  </li>
+						  <li>
+								<p class="pb10">
+									Movement, rotation, and tilt of the test lens are reproduced in real time.
+								</p>
+						  </li>
+						  <li>
+								<p class="pb10">
+									* Ray tracing cannot be seen with the actual lens meter<br>
+									Since SRTM is a simulation tool, it draws ray traces.
+								</p>
+						  </li>
+						</ul>
+					</li>
+					<li>
+						<p class="pb10">
+							You can create, save, and recall the lens you want to simulate.
+						</p>
+						<ul class="fwm pb40, pl40">
+						  <li>
+								<p class="pb10">
+									It can be specify the spherical power, cylindrical power, axis direction of the cylindrical lens, refractive index, center thickness, and front curve.
+								</p>
+						  </li>
+						  <li>
+								<p class="pb10">
+									The created lense can be saved and loaded.
+								</p>
+						  </li>
+						</ul>
+					</li>
+				</ol>
+			</div>
+
+			<div class="pic-left1024 fwb pb20">
+				<p id="title30" class="pb10">
+					Shows the screen at startup.
+				</p>
+				<p class="pb20 contents-2col-left">
+					<IMG src="image/SRTLM_img/startup_screen_en.jpg" border="1"><br>
+				</p>
+			</div>
+
+			<div class="left pb30" >
+				<h3>Download </h3>
+				<div class="pl30">
+					<p class="fwb pb10">
+						<a href="etc/SRTLM_En.zip" target="_blank" >SRTLM_En.zip</a>
+					</p>
+					<p class="fwm">
+						This tool is <strong>FREEWARE</strong>.
+					</p>
+				</div>
+			</div>
+
+			<div class="pb30">
+				<h3>Installation</h3>
+				<p class="pb10">
+					Unzip "SRTM_En.zip". <br>
+					After unzipping, "SRTM_En" folder will appear.
+					A set of necessary data is stored in the "SRTM_En" folder.
+					For further details, please read "readme_en.html" in the folder.
+				</p>
+			</div>
+			<div class="pb30">
+				<h3>Uninstallation</h3>
+				<p class="pb10">
+					Delete the "SRTM_En" folder.
+					This completes the removal.
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<footer>
+
+		<hr id="footer"> <!-- horizontal partition -->
+
+		<div class="jQ_change center" > <!-- select button whole: start -->
+			<p id="footer"> <!-- select button: start -->
+				<a href="en_etc.html">
+					<IMG src="image/button/back_off.gif" border="0" alt="Back" >
+				</a>
+			</p> <!-- select button: end -->
+		</div> <!-- select button whole: end -->
+
+		<div id="footer_label">
+			copyright &copy; 2003 -
+			<script type="text/javascript" language="JavaScript">
+				date = new Date();
+				document.write(date.getFullYear() + ' ');
+			</script>
+			<nonscript>
+			</nonscript>
+			Contrail -kotan- all rights reserved
+		</div>
+
+	</footer>
+
+</div>
+</BODY>
+</html>
