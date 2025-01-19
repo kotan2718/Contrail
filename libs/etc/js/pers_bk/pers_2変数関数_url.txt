@@ -1,24 +1,0 @@
-多変数関数の連続性 | ユークリッド空間 | ワイズ - WIIS
-https://wiis.info/math/euclidean-space/scalar-field/continuity-of-scalar-field/
-
-2変数関数の連続性と微分可能性 - 名古屋大学
-https://www.math.nagoya-u.ac.jp/~hisamoto/1W/hisamoto-1W17-04.pdf
-
-§1 多変数関数の極限と連続性 演習問題 2 解答
-http://msec.kumamoto-u.ac.jp/problem/pdf/calculus/2_1/ans/ex_c2_1_2_ans.pdf
-
-微分積分・多変数関数の連続性 - 湘南 理工学舎
-https://shonan-rikogaku.com/A-dein/deri-10.html
-
-
-09 ガンマ関数の絶対値
-https://sugaku.sakura.ne.jp/jx09.pdf
-
-
-7 複素数によるつながり
-http://takeno.iee.niit.ac.jp/~shige/math/lecture/basic3/hyper1/node7.html
-
-複素関数論　講義ノートhttps://www2.yukawa.kyoto-u.ac.jp/~norihiro.tanahashi/pdf/complex-analysis/note.pdf
-
-複素関数論宿題（２）https://www.math.kyoto-u.ac.jp/~ueda/complex_functions/complex_functions_no2.pdf
-

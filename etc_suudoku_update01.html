@@ -2,271 +2,271 @@
 <html>
 
 <HEAD>
-	<META charset="UTF-8">
+    <META charset="UTF-8">
     <META name="description" content="数独(ナンプレ)の問題を作成するツールをアップデート: 作成した問題を保存する機能を追加しました。オープンさせるマス目の数を指定することで、問題が作成されます。最小数は偶数が24個、奇数が23個です。">
     <META name="keywords" content="数独,ナンプレ,問題,作成,ツール,保存">
 
-	<title>Suudoku Update01</title>
+    <title>Suudoku Update01</title>
 
-	<!-- favicon-->
-	<link rel="shortcut icon" href="favicon.ico">
+    <!-- favicon-->
+    <link rel="shortcut icon" href="favicon.ico">
 
-	<!--[if lt IE 9]>
-	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 
-	<!-- css start -->
+    <!-- css start -->
 
-		<!-- kz_etc start - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
-		<link rel="stylesheet" href="libs/etc/css/kz_footer_style.css" type="text/css">
-		<link rel="stylesheet" href="libs/etc/css/kz_etc_style.css" type="text/css">
-		<!-- kz_etc end -->
+        <!-- kko_etc start - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
+        <link rel="stylesheet" href="libs/etc/css/kko_footer_style.css" type="text/css">
+        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css" type="text/css">
+        <!-- kko_etc end -->
 
-	<!-- css end -->
+    <!-- css end -->
 
-	<!-- js start -->
+    <!-- js start -->
 
-		<!-- jQuery start -->
-		<script src="libs/jQuery/js/jquery-1.6.1.min.js" type="text/javascript"></script>
+        <!-- jQuery start -->
+        <script src="libs/jQuery/js/jquery-1.6.1.min.js" type="text/javascript"></script>
 
-			<!-- kz_style start - img jq_blink, img jq_change -->
-			<script src="libs/jQuery/kz/js/jq_kz_style.js" type="text/javascript"></script>
-			<!-- kz_style end -->
+            <!-- kko_style start - img jq_blink, img jq_change -->
+            <script src="libs/jQuery/kko/js/jq_kko_style.js" type="text/javascript"></script>
+            <!-- kko_style end -->
 
-		<!-- jQuery end -->
+        <!-- jQuery end -->
 
-		<!-- Sandbox DropDownMenu start -->
-		<script src="libs/sandbox/js/script.js" type="text/javascript"></script>
-		<!-- Sandbox DropDownMenu end -->
+        <!-- Sandbox DropDownMenu start -->
+        <script src="libs/sandbox/js/script.js" type="text/javascript"></script>
+        <!-- Sandbox DropDownMenu end -->
 
-	<!-- js end -->
+    <!-- js end -->
 
 </HEAD>
 
 <BODY id="common-k" >
 
-	<header>
-		<a name="page_top"></a>
-		<div class="center jQ_change navbox" >
-			<nav>
-				<IMG src="image/top/Contrail_g.png" height="20" class="logo_img">
-				<ul class="menu" id="menu" >
-					<li><a href="index.html" class="menulink">Home</a></li>
-					<li><a href="whatnew.html" class="menulink">What's New</a></li>
-					<li><a href="etc.html" class="menulink">E.T.C.</a></li>
-					<li><a href="fs01.html" class="menulink">The Scenery</a>
-						<ul>
-							<li><a href="fs01_sc_top.html" class="sub">Screen Shots</a></li>
-							<li><a href="fs01_ls_top.html" class="sub">Snap Shots</a></li>
-						</ul>
-					</li>
-					<li><a href="link01.html" class="menulink">Links</a></li>
-					<li class="about"><a href="fs01_about.html" class="menulink">about Contrail</a></li>
-				</ul>
-			</nav>
-			<div class="c-both"></div>
-		</div>
-		<!-- Sandbox DropDownMenu start-->
-		<script type="text/javascript">
-			var menu=new menu.dd("menu");
-			menu.init("menu","menuhover");
-		</script>	<!-- Sandbox DropDownMenu end -->
-	</header>
+    <header>
+        <a name="page_top"></a>
+        <div class="center jQ_change navbox" >
+            <nav>
+                <IMG src="image/top/Contrail_g.png" height="20" class="logo_img">
+                <ul class="menu" id="menu" >
+                    <li><a href="index.html" class="menulink">Home</a></li>
+                    <li><a href="whatnew.html" class="menulink">What's New</a></li>
+                    <li><a href="etc.html" class="menulink">E.T.C.</a></li>
+                    <li><a href="fs01.html" class="menulink">The Scenery</a>
+                        <ul>
+                            <li><a href="fs01_sc_top.html" class="sub">Screen Shots</a></li>
+                            <li><a href="fs01_ls_top.html" class="sub">Snap Shots</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="link01.html" class="menulink">Links</a></li>
+                    <li class="about"><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                </ul>
+            </nav>
+            <div class="c-both"></div>
+        </div>
+        <!-- Sandbox DropDownMenu start-->
+        <script type="text/javascript">
+            var menu=new menu.dd("menu");
+            menu.init("menu","menuhover");
+        </script>    <!-- Sandbox DropDownMenu end -->
+    </header>
 
-	<div id="main1024"> <!-- page main: start -->
-		<!-- title -->
-		<div id="title20">
-			<h2 class="pt30 pb40">
-				｢数独問題作成ツール｣ アップデート
-			</h2>
-		</div>
+    <div id="main1024"> <!-- page main: start -->
+        <!-- title -->
+        <div id="title20">
+            <h2 class="pt30 pb40">
+                ｢数独問題作成ツール｣ アップデート
+            </h2>
+        </div>
 
-		<!-- contents -->
-		<div class="pic-left1024 pb40">
-			<div class="fwb pb10">
-				<p class="pb10">
-					このツールで作成した問題を記録するロジックを追加しました。<br>
-					せっかく作ったデータですから、面白そうなデータは簡単に記録できるようにしたいと思いました。<br>
-					このツールを初めてお使いになる方は、
-					<a href="etc_suudoku.html" target=_"blank">suudoku_doc</a>
-					をご一読下さい。レイアウトに若干の変更がありますが、<br>
-					このツールの概要を理解して頂けると思います。
-				</p>
-					※ ダウンロードはこのページの下の方でできます。
-				<p class="pb10">
-				</p>
-			</div>
+        <!-- contents -->
+        <div class="pic-left1024 pb40">
+            <div class="fwb pb10">
+                <p class="pb10">
+                    このツールで作成した問題を記録するロジックを追加しました。<br>
+                    せっかく作ったデータですから、面白そうなデータは簡単に記録できるようにしたいと思いました。<br>
+                    このツールを初めてお使いになる方は、
+                    <a href="etc_suudoku.html" target=_"blank">suudoku_doc</a>
+                    をご一読下さい。レイアウトに若干の変更がありますが、<br>
+                    このツールの概要を理解して頂けると思います。
+                </p>
+                    ※ ダウンロードはこのページの下の方でできます。
+                <p class="pb10">
+                </p>
+            </div>
 
-			<div class="pic-left1024 fwb pb20">
-				<p class="pb10">
-					アップデートの概要は以下の通りです。
-				</p>
-				<ol class="fwm pb40, pl40">
-				  <li>
-						<p class="pb10">
-								このツールのファイル名を｢z.suudoku_02.xlsm｣から｢z.suudoku_03.xlsm｣に更新しました。<br>
-								z.suudoku_02.xlsmをお使いの場合は、今後必要なくなります。新しいz.suudoku_03.xlsmをお使い下さい。
-						</p>
-				  </li>
-					<li>
-						<ol class="list-lr pl40 pb10">
-							<li>
-								データ作成シート｢Make｣にデータを記録するか否か促すチェックボックスを追加しました。
-							</li>
-							<li>
-								予めオープンするマス目のパターンを指定するブロック2-2に<br>
-							  [13]から[16]のパターンを追加しました。
-							</li>
-						</ol>
-						<p class="pb10 contents-2col-left">
-							<IMG src="image/Suudoku_img/update01/update01_01_check_box2.jpg" width="80%" border="1">
-						</p>
-					</li>
-					<li>
-						<p class="pb10">
-								作成したデータを一時的に格納する｢Stock｣シートを新規追加しました。
-						</p>
-					</li>
-					<li>
-						<p class="pb10">
-								作成したデータの中で残したいものを格納していくために、suudoku_dat.xlsm(以下suudoku_datと略記)を新規追加しました。
-						</p>
-					</li>
-				</ol>
-			</div>
+            <div class="pic-left1024 fwb pb20">
+                <p class="pb10">
+                    アップデートの概要は以下の通りです。
+                </p>
+                <ol class="fwm pb40, pl40">
+                  <li>
+                        <p class="pb10">
+                                このツールのファイル名を｢z.suudoku_02.xlsm｣から｢z.suudoku_03.xlsm｣に更新しました。<br>
+                                z.suudoku_02.xlsmをお使いの場合は、今後必要なくなります。新しいz.suudoku_03.xlsmをお使い下さい。
+                        </p>
+                  </li>
+                    <li>
+                        <ol class="list-lr pl40 pb10">
+                            <li>
+                                データ作成シート｢Make｣にデータを記録するか否か促すチェックボックスを追加しました。
+                            </li>
+                            <li>
+                                予めオープンするマス目のパターンを指定するブロック2-2に<br>
+                              [13]から[16]のパターンを追加しました。
+                            </li>
+                        </ol>
+                        <p class="pb10 contents-2col-left">
+                            <IMG src="image/Suudoku_img/update01/update01_01_check_box2.jpg" width="80%" border="1">
+                        </p>
+                    </li>
+                    <li>
+                        <p class="pb10">
+                                作成したデータを一時的に格納する｢Stock｣シートを新規追加しました。
+                        </p>
+                    </li>
+                    <li>
+                        <p class="pb10">
+                                作成したデータの中で残したいものを格納していくために、suudoku_dat.xlsm(以下suudoku_datと略記)を新規追加しました。
+                        </p>
+                    </li>
+                </ol>
+            </div>
 
-			<div class="pic-left1024 pb20">
-				<p class="fwb pb10">
-					問題作成の流れに沿って簡単に説明します
-				</p>
-				<ol>
-					<li class="plm10 pb10">
-						エクスプローラーから｢z.suudoku_03.xlsm｣を開きます。<br>
-						[Make]シートの右下の｢作成したデータをシート"Stock"にコピーする｣にチェックが入っていることを確認します。
-						<p class="pb10 contents-2col-left">
-							<IMG src="image/Suudoku_img/update01/update01_01_check_box.jpg" width="80%" border="1">
-						</p>
-					</li>
-					<li class="plm10 pb10">
-						｢Start｣ボタンを押します。<br>
-						しばらくすると、｢Congratulations!｣というメッセージボックが表示されます。問題の作成に成功しました！
-						<p class="pb10 contents-2col-left">
-							<IMG src="image/Suudoku_img/update01/update01_02_Congratulations.jpg" width="80%" border="1">
-						</p>
-					</li>
-					<li class="plm10 pb10">
-						<p class="pb10">
-							｢Stock｣シートタブをクリックします。
-						</p>
-						<p class="pb10 contents-2col-left">
-							<IMG src="image/Suudoku_img/update01/update01_03_sheet_stock.jpg" border="1">
-						</p>
-						<p class="pb10">
-							作成されたデータが表示されています。
-						</p>
-						データのヘッダーに○印がついています。<br>
-						データが複数表示されている場合は、記録する必要のないデータの○印を消します(1つしかない場合は○印は消さないで下さい)。<br>
-						(私見ですが、残すデータは繰返し回数(loopの下の数です)の少ないデータにするのが吉です)<br>
-						｢Select｣ボタンを押すと○印のついたデータだけが残ります。<br>
-						<p class="pb10 contents-2col-left">
-							<IMG src="image/Suudoku_img/update01/update01_04_select.jpg" width="110%" border="1">
-						</p>
-					</li>
-					<li class="plm10 pb10">
-						<p class="pb10">
-							｢Translate｣ボタンを押します。<br>
-							しばらくすると、データが消えてしまいます。でも、大丈夫です。
-						</p>
-						<p class="pb10 contents-2col-left">
-							<IMG src="image/Suudoku_img/update01/update01_05_stock_after.jpg" width="80%" border="1">
-						</p>
-						<p class="pb10">
-							ディスプレイの下に表示されているタスクバーのエクセルのアイコンにカーソルを合わせると(①)、<br>
-							｢suudoku_dat.xlxm｣のポップアップが出て来るのでクリックします(②)。
-						</p>
-						<p class="pb10 contents-2col-left">
-							<IMG src="image/Suudoku_img/update01/update01_05_stock_after2.jpg" width="105%" border="1">
-						</p>
-						<p class="pb10">
-							最初に[log]シートが表示されますが、
-							先ほど○印をつけたデータのヘッダー情報がリンク付きで、格納した日付の後に並んでいます。
-						</p>
-						<p class="pb10 contents-2col-left">
-							<IMG src="image/Suudoku_img/update01/update01_06_dat_log.jpg" border="1">
-						</p>
-						<p class="pb10">
-							リンクをクリックすると、データが格納されているシートの当該データが表示されます。<br>
-							このように作成した問題は、｢オープン数｣と｢解くための繰返し回数｣で名前付けられたシートに蓄えられて行きます。
-						</p>
-						<p class="pb10 contents-2col-left">
-							<IMG src="image/Suudoku_img/update01/update01_07_dat_28-4_mod.jpg" border="1">
-						</p>
-					</li>
-					<li class="plm10 pb10">
-						1.から4.の操作を繰り返すと、データが格納されているシートのデータ数が増えてきます。<br>
-						各シートにはオープン数が同一で、難易度が同じと考えられるデータが記録されています。<br>
-						｢Sort｣ボタンを押すとパターン(※)毎にデータを並び替え、オリジナルデータが表示されているブロックの下に表示されます。<br>
-						(元々時系列で表示されているオリジナルデータは変更はありません)<br><br>
-				    ※パターンは1.の右上に表示されている3x3の真ん中のブロックで、予めナンバーがオープンされるマス目のパターンです。
-						<p class="pb10 contents-2col-left">
-							<IMG src="image/Suudoku_img/update01/update01_08_dat_sort.jpg" width="110%" border="1">
-						</p>
-					</li>
-				</ol>
-			</div>
-		</div>
+            <div class="pic-left1024 pb20">
+                <p class="fwb pb10">
+                    問題作成の流れに沿って簡単に説明します
+                </p>
+                <ol>
+                    <li class="plm10 pb10">
+                        エクスプローラーから｢z.suudoku_03.xlsm｣を開きます。<br>
+                        [Make]シートの右下の｢作成したデータをシート"Stock"にコピーする｣にチェックが入っていることを確認します。
+                        <p class="pb10 contents-2col-left">
+                            <IMG src="image/Suudoku_img/update01/update01_01_check_box.jpg" width="80%" border="1">
+                        </p>
+                    </li>
+                    <li class="plm10 pb10">
+                        ｢Start｣ボタンを押します。<br>
+                        しばらくすると、｢Congratulations!｣というメッセージボックが表示されます。問題の作成に成功しました！
+                        <p class="pb10 contents-2col-left">
+                            <IMG src="image/Suudoku_img/update01/update01_02_Congratulations.jpg" width="80%" border="1">
+                        </p>
+                    </li>
+                    <li class="plm10 pb10">
+                        <p class="pb10">
+                            ｢Stock｣シートタブをクリックします。
+                        </p>
+                        <p class="pb10 contents-2col-left">
+                            <IMG src="image/Suudoku_img/update01/update01_03_sheet_stock.jpg" border="1">
+                        </p>
+                        <p class="pb10">
+                            作成されたデータが表示されています。
+                        </p>
+                        データのヘッダーに○印がついています。<br>
+                        データが複数表示されている場合は、記録する必要のないデータの○印を消します(1つしかない場合は○印は消さないで下さい)。<br>
+                        (私見ですが、残すデータは繰返し回数(loopの下の数です)の少ないデータにするのが吉です)<br>
+                        ｢Select｣ボタンを押すと○印のついたデータだけが残ります。<br>
+                        <p class="pb10 contents-2col-left">
+                            <IMG src="image/Suudoku_img/update01/update01_04_select.jpg" width="110%" border="1">
+                        </p>
+                    </li>
+                    <li class="plm10 pb10">
+                        <p class="pb10">
+                            ｢Translate｣ボタンを押します。<br>
+                            しばらくすると、データが消えてしまいます。でも、大丈夫です。
+                        </p>
+                        <p class="pb10 contents-2col-left">
+                            <IMG src="image/Suudoku_img/update01/update01_05_stock_after.jpg" width="80%" border="1">
+                        </p>
+                        <p class="pb10">
+                            ディスプレイの下に表示されているタスクバーのエクセルのアイコンにカーソルを合わせると(①)、<br>
+                            ｢suudoku_dat.xlxm｣のポップアップが出て来るのでクリックします(②)。
+                        </p>
+                        <p class="pb10 contents-2col-left">
+                            <IMG src="image/Suudoku_img/update01/update01_05_stock_after2.jpg" width="105%" border="1">
+                        </p>
+                        <p class="pb10">
+                            最初に[log]シートが表示されますが、
+                            先ほど○印をつけたデータのヘッダー情報がリンク付きで、格納した日付の後に並んでいます。
+                        </p>
+                        <p class="pb10 contents-2col-left">
+                            <IMG src="image/Suudoku_img/update01/update01_06_dat_log.jpg" border="1">
+                        </p>
+                        <p class="pb10">
+                            リンクをクリックすると、データが格納されているシートの当該データが表示されます。<br>
+                            このように作成した問題は、｢オープン数｣と｢解くための繰返し回数｣で名前付けられたシートに蓄えられて行きます。
+                        </p>
+                        <p class="pb10 contents-2col-left">
+                            <IMG src="image/Suudoku_img/update01/update01_07_dat_28-4_mod.jpg" border="1">
+                        </p>
+                    </li>
+                    <li class="plm10 pb10">
+                        1.から4.の操作を繰り返すと、データが格納されているシートのデータ数が増えてきます。<br>
+                        各シートにはオープン数が同一で、難易度が同じと考えられるデータが記録されています。<br>
+                        ｢Sort｣ボタンを押すとパターン(※)毎にデータを並び替え、オリジナルデータが表示されているブロックの下に表示されます。<br>
+                        (元々時系列で表示されているオリジナルデータは変更はありません)<br><br>
+                    ※パターンは1.の右上に表示されている3x3の真ん中のブロックで、予めナンバーがオープンされるマス目のパターンです。
+                        <p class="pb10 contents-2col-left">
+                            <IMG src="image/Suudoku_img/update01/update01_08_dat_sort.jpg" width="110%" border="1">
+                        </p>
+                    </li>
+                </ol>
+            </div>
+        </div>
 
-		<div class="left pb40" >
+        <div class="left pb40" >
 
-			<h3>ダウンロード </h3>
-			<div class="pl30 pb30">
-				<p class="fwb pb10">
-					このツールを使用するにあたって
-				</p>
-				<ol>
-					<li class="plm10 pb10">
-						このツールの無断転載を一切禁止します。
-					</li>
-					<li class="plm10 pb10">
-						ロジックの改善、改良をお考えの場合は、ご連絡頂ければソースコードをお送り致します。<br>
-						ロジックの改造でオープン数で22, 21に成功した場合、御一報頂けるとうれしいです。<br>
-						併せて、そのロジックも教えて頂けることを期待します。
-					</li>
-				</ol>
-				<p class="fwb pb10">
-					z.suudoku_03.zip をクリックして、ダウンロードして下さい。
-				</p>
-				<p class="fwb pb25">
-					<a href="etc/z.suudoku_03.zip" target="_blank" >z.suudoku_03.zip</a>
-				</p>
-			</div>
-		</div>
-	</div>
+            <h3>ダウンロード </h3>
+            <div class="pl30 pb30">
+                <p class="fwb pb10">
+                    このツールを使用するにあたって
+                </p>
+                <ol>
+                    <li class="plm10 pb10">
+                        このツールの無断転載を一切禁止します。
+                    </li>
+                    <li class="plm10 pb10">
+                        ロジックの改善、改良をお考えの場合は、ご連絡頂ければソースコードをお送り致します。<br>
+                        ロジックの改造でオープン数で22, 21に成功した場合、御一報頂けるとうれしいです。<br>
+                        併せて、そのロジックも教えて頂けることを期待します。
+                    </li>
+                </ol>
+                <p class="fwb pb10">
+                    z.suudoku_03.zip をクリックして、ダウンロードして下さい。
+                </p>
+                <p class="fwb pb25">
+                    <a href="etc/z.suudoku_03.zip" target="_blank" >z.suudoku_03.zip</a>
+                </p>
+            </div>
+        </div>
+    </div>
 
-	<footer>
+    <footer>
 
-		<hr id="footer"> <!-- horizontal partition -->
+        <hr id="footer"> <!-- horizontal partition -->
 
-		<div class="jQ_change center" > <!-- select button whole: start -->
-			<p id="footer"> <!-- select button: start -->
-				<a href="etc.html">
-					<IMG src="image/button/back_off.gif" border="0" alt="Back" >
-				</a>
-			</p> <!-- select button: end -->
-		</div> <!-- select button whole: end -->
+        <div class="jQ_change center" > <!-- select button whole: start -->
+            <p id="footer"> <!-- select button: start -->
+                <a href="etc.html">
+                    <IMG src="image/button/back_off.gif" border="0" alt="Back" >
+                </a>
+            </p> <!-- select button: end -->
+        </div> <!-- select button whole: end -->
 
-		<div id="footer_label">
-			copyright &copy; 2003 -
-			<script type="text/javascript" language="JavaScript">
-				date = new Date();
-				document.write(date.getFullYear() + ' ');
-			</script>
-			<nonscript>
-			</nonscript>
-			Contrail -kotan- all rights reserved
-		</div>
+        <div id="footer_label">
+            copyright &copy; 2003 -
+            <script type="text/javascript" language="JavaScript">
+                date = new Date();
+                document.write(date.getFullYear() + ' ');
+            </script>
+            <nonscript>
+            </nonscript>
+            Contrail -kotan- all rights reserved
+        </div>
 
-	</footer>
+    </footer>
 
 </BODY>
 </html>

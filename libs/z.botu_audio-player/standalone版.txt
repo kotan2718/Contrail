@@ -1,8 +1,0 @@
-wordpress版もstandoalone版も、必要なファイルは下記の2つ。
-
-audio-player.js
-player.swf
-
-wordpress版に比べてタイムスタンプが何日か前のものになっており、
-再生時間が表示されない不具合が生じる。
-homepageではwoadpress版のファイルを用いることにした。

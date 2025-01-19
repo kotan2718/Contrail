@@ -2,130 +2,130 @@
 <html>
 
 <HEAD>
-	<META charset="UTF-8">
+    <META charset="UTF-8">
 
-	<title>Suudoku User's Manual</title>
+    <title>Suudoku User's Manual</title>
 
-	<!-- favicon-->
+    <!-- favicon-->
     <link rel="shortcut icon" href="favicon.ico">
 
-	<!--[if lt IE 9]>
-	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 
-	<!-- css start -->
+    <!-- css start -->
 
-		<!-- kz_etc start - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
-        <link rel="stylesheet" href="libs/etc/css/kz_etc_style.css" type="text/css">
-		<!-- kz_etc end -->
+        <!-- kko_etc start - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
+        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css" type="text/css">
+        <!-- kko_etc end -->
 
-	<!-- css end -->
+    <!-- css end -->
 </HEAD>
 
 <BODY id="common-k" >
 
-	<div id="main1024"> <!-- page main: start -->
+    <div id="main1024"> <!-- page main: start -->
 
-		<!-- title -->
-		<div id="title10">
-			<h2 class="pt30 pb40">
-				｢数独問題作成ツール｣ ちゅ～とりある
-			</h2>
-		</div>
+        <!-- title -->
+        <div id="title10">
+            <h2 class="pt30 pb40">
+                ｢数独問題作成ツール｣ ちゅ～とりある
+            </h2>
+        </div>
 
-		<!-- contents -->
-		<div class="pic-left1024 pb40">
-			<div class="pl30 pb30">
-				<ol>
-					<li class="plm10 pb10">
-						エクスプローラーから｢z.suudoku_03.xlsm｣を開きます。<br>
-						[Make]シートの右下の｢作成したデータをシート"Stock"に移動する｣にチェックが入っていることを確認します。
-						<p class="pb10 contents-2col-left">
-							<IMG src="image/Suudoku_img/update01/update01_01_check_box.jpg" width="80%" border="1">
-						</p>
-					</li>
-					<li class="plm10 pb10">
-						｢Start｣ボタンを押します。<br>
-						しばらくすると、｢Congratulations!｣というメッセージボックが表示されます。
-						<p class="pb10 contents-2col-left">
-							<IMG src="image/Suudoku_img/update01/update01_02_Congratulations.jpg" width="80%" border="1">
-						</p>
-					</li>
-					<li class="plm10 pb10">
-						<p class="pb10">
-							｢Stock｣シートタブをクリックします。
-						</p>
-						<p class="pb10 contents-2col-left">
-							<IMG src="image/Suudoku_img/update01/update01_03_sheet_stock.jpg" border="1">
-						</p>
-						<p class="pb10">
-							作成されたデータが表示されています。
-						</p>
-						データのヘッダーに○印がついています。<br>
-						データが複数表示されている場合は、記録する必要のないデータの○印を消します(1つしかない場合は○印は消さないで下さい)。<br>
-						(私見ですが、残すデータは繰返し回数の少ないデータにするのが吉です)<br>
-						｢Select｣ボタンを押すと○印のついたデータだけが残ります。<br>
-						<p class="pb10 contents-2col-left">
-							<IMG src="image/Suudoku_img/update01/update01_04_select.jpg" width="105%" border="1">
-						</p>
-					</li>
-					<li class="plm10 pb10">
-						<p class="pb10">
-							｢Translate｣ボタンを押します。<br>
-							しばらくすると、データが消えてしまいます。でも、大丈夫です。
-						</p>
-						<p class="pb10 contents-2col-left">
-							<IMG src="image/Suudoku_img/update01/update01_05_stock_after.jpg" width="80%" border="1">
-						</p>
-						<p class="pb10">
-							ディスプレイの下に表示されているタスクバーのエクセルのアイコンにカーソルを合わせると(①)、<br>
-							｢suudoku_dat.xlxm｣のポップアップが出て来るのでクリックします(②)。
-						</p>
-						<p class="pb10 contents-2col-left">
-							<IMG src="image/Suudoku_img/update01/update01_05_stock_after2.jpg" width="105%" border="1">
-						</p>
-						<p class="pb10">
-							最初に[log]シートが表示されますが、
-							先ほど○印をつけたデータのヘッダー情報がリンク付きで、格納した日付の後に並んでいます。
-						</p>
-						<p class="pb10 contents-2col-left">
-							<IMG src="image/Suudoku_img/update01/update01_06_dat_log.jpg" border="1">
-						</p>
-						<p class="pb10">
-							リンクをクリックすると、データが格納されているシートの当該データが表示されます。
-						</p>
-						<p class="pb10 contents-2col-left">
-							<IMG src="image/Suudoku_img/update01/update01_07_dat_28-4.jpg" border="1">
-						</p>
-					</li>
-					<li class="plm10 pb10">
-						1.から4.の操作を繰り返すと、データが格納されているシートのデータ数が増えてきます。<br>
-						各シートにはオープン数が同一で、難易度が同じと考えられるデータが記録されています。<br>
-						｢Sort｣ボタンを押すとパターン(※)毎にデータを並び替え、オリジナルデータが表示されているブロックの下に表示されます。<br>
-						(元々時系列で表示されているオリジナルデータは変更はありません)<br><br>
-				    ※パターンは1.の右上に表示されている3x3の真ん中のブロックで、予めナンバーがオープンされるマス目のパターンです。
-						<p class="pb10 contents-2col-left">
-							<IMG src="image/Suudoku_img/update01/update01_08_dat_sort.jpg" width="110%" border="1">
-						</p>
-					</li>
-				</ol>
-			</div>
+        <!-- contents -->
+        <div class="pic-left1024 pb40">
+            <div class="pl30 pb30">
+                <ol>
+                    <li class="plm10 pb10">
+                        エクスプローラーから｢z.suudoku_03.xlsm｣を開きます。<br>
+                        [Make]シートの右下の｢作成したデータをシート"Stock"に移動する｣にチェックが入っていることを確認します。
+                        <p class="pb10 contents-2col-left">
+                            <IMG src="image/Suudoku_img/update01/update01_01_check_box.jpg" width="80%" border="1">
+                        </p>
+                    </li>
+                    <li class="plm10 pb10">
+                        ｢Start｣ボタンを押します。<br>
+                        しばらくすると、｢Congratulations!｣というメッセージボックが表示されます。
+                        <p class="pb10 contents-2col-left">
+                            <IMG src="image/Suudoku_img/update01/update01_02_Congratulations.jpg" width="80%" border="1">
+                        </p>
+                    </li>
+                    <li class="plm10 pb10">
+                        <p class="pb10">
+                            ｢Stock｣シートタブをクリックします。
+                        </p>
+                        <p class="pb10 contents-2col-left">
+                            <IMG src="image/Suudoku_img/update01/update01_03_sheet_stock.jpg" border="1">
+                        </p>
+                        <p class="pb10">
+                            作成されたデータが表示されています。
+                        </p>
+                        データのヘッダーに○印がついています。<br>
+                        データが複数表示されている場合は、記録する必要のないデータの○印を消します(1つしかない場合は○印は消さないで下さい)。<br>
+                        (私見ですが、残すデータは繰返し回数の少ないデータにするのが吉です)<br>
+                        ｢Select｣ボタンを押すと○印のついたデータだけが残ります。<br>
+                        <p class="pb10 contents-2col-left">
+                            <IMG src="image/Suudoku_img/update01/update01_04_select.jpg" width="105%" border="1">
+                        </p>
+                    </li>
+                    <li class="plm10 pb10">
+                        <p class="pb10">
+                            ｢Translate｣ボタンを押します。<br>
+                            しばらくすると、データが消えてしまいます。でも、大丈夫です。
+                        </p>
+                        <p class="pb10 contents-2col-left">
+                            <IMG src="image/Suudoku_img/update01/update01_05_stock_after.jpg" width="80%" border="1">
+                        </p>
+                        <p class="pb10">
+                            ディスプレイの下に表示されているタスクバーのエクセルのアイコンにカーソルを合わせると(①)、<br>
+                            ｢suudoku_dat.xlxm｣のポップアップが出て来るのでクリックします(②)。
+                        </p>
+                        <p class="pb10 contents-2col-left">
+                            <IMG src="image/Suudoku_img/update01/update01_05_stock_after2.jpg" width="105%" border="1">
+                        </p>
+                        <p class="pb10">
+                            最初に[log]シートが表示されますが、
+                            先ほど○印をつけたデータのヘッダー情報がリンク付きで、格納した日付の後に並んでいます。
+                        </p>
+                        <p class="pb10 contents-2col-left">
+                            <IMG src="image/Suudoku_img/update01/update01_06_dat_log.jpg" border="1">
+                        </p>
+                        <p class="pb10">
+                            リンクをクリックすると、データが格納されているシートの当該データが表示されます。
+                        </p>
+                        <p class="pb10 contents-2col-left">
+                            <IMG src="image/Suudoku_img/update01/update01_07_dat_28-4.jpg" border="1">
+                        </p>
+                    </li>
+                    <li class="plm10 pb10">
+                        1.から4.の操作を繰り返すと、データが格納されているシートのデータ数が増えてきます。<br>
+                        各シートにはオープン数が同一で、難易度が同じと考えられるデータが記録されています。<br>
+                        ｢Sort｣ボタンを押すとパターン(※)毎にデータを並び替え、オリジナルデータが表示されているブロックの下に表示されます。<br>
+                        (元々時系列で表示されているオリジナルデータは変更はありません)<br><br>
+                    ※パターンは1.の右上に表示されている3x3の真ん中のブロックで、予めナンバーがオープンされるマス目のパターンです。
+                        <p class="pb10 contents-2col-left">
+                            <IMG src="image/Suudoku_img/update01/update01_08_dat_sort.jpg" width="110%" border="1">
+                        </p>
+                    </li>
+                </ol>
+            </div>
 
-	<footer>
-		<div class="pic-left1024">
-			<p class="fwb">
-				Copyright &copy; 2023 by Kazuo Kawamura. All rights reserved.
-			</p>
-			<p class="fwm pb10">
-				----------------------------------------------------------------- <br>
-				mail to :
-				<a href="mailto:vff06643@nifty.ne.jp" >
-					VFF06643@nifty.ne.jp
-				</a><br>
-				-----------------------------------------------------------------
-			</p>
-		</div>
-	</footer>
+    <footer>
+        <div class="pic-left1024">
+            <p class="fwb">
+                Copyright &copy; 2023 by Kazuo Kawamura. All rights reserved.
+            </p>
+            <p class="fwm pb10">
+                ----------------------------------------------------------------- <br>
+                mail to :
+                <a href="mailto:vff06643@nifty.ne.jp" >
+                    VFF06643@nifty.ne.jp
+                </a><br>
+                -----------------------------------------------------------------
+            </p>
+        </div>
+    </footer>
 
 </div>
 </BODY>
