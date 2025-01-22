@@ -1,1 +1,1 @@
-Sitemap:http://kz-page.la.coocan.jp/sitemap.xml
+Sitemap:https://kotan2718.github.io/Contrail/sitemap.xml
