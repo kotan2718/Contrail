@@ -1,1 +1,3 @@
-Sitemap:https://kotan2718.github.io/Contrail/sitemap.xml
+User-agent: *
+Allow: /
+Sitemap: https://kotan2718.github.io/Contrail/sitemap.xml
