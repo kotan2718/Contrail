@@ -1,924 +1,928 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <!--  created with free sitemap generation system www.sitemapxml.jp  --> 
 <url>
   <loc>https://kotan2718.github.io/Contrail/</loc>
-  <priority>1.0</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
   <changefreq>weekly</changefreq>
+  <priority>1.0</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/index.html</loc>
-  <priority>1.0</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
   <changefreq>weekly</changefreq>
+  <priority>1.0</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/whatnew.html</loc>
-  <priority>0.9</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
   <changefreq>weekly</changefreq>
+  <priority>0.9</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_whatnew.html</loc>
-  <priority>0.9</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
   <changefreq>weekly</changefreq>
+  <priority>0.9</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/etc.html</loc>
-  <priority>0.9</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
   <changefreq>weekly</changefreq>
+  <priority>0.9</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/en_etc.html</loc>
-  <priority>0.9</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
   <changefreq>weekly</changefreq>
+  <priority>0.9</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01.html</loc>
-  <priority>0.9</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
   <changefreq>monthly</changefreq>
+  <priority>0.9</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01.html</loc>
-  <priority>0.9</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
   <changefreq>monthly</changefreq>
+  <priority>0.9</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/link01.html</loc>
-  <priority>0.9</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
   <changefreq>yearly</changefreq>
+  <priority>0.9</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_link01.html</loc>
-  <priority>0.9</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
   <changefreq>yearly</changefreq>
+  <priority>0.9</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_about.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_about.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_sc_top.html</loc>
-  <priority>0.8</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
   <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_top.html</loc>
-  <priority>0.8</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
   <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/etc_pers_doc1_en.html</loc>
-  <priority>0.7</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.7</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/etc_Pers_v1_en.html</loc>
-  <priority>0.7</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.7</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/etc_DEQ_v3_en.html</loc>
-  <priority>0.7</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.7</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/etc_DEQ_doc2_en.html</loc>
-  <priority>0.7</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.7</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/etc_DEQ_v2_en.html</loc>
-  <priority>0.7</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.7</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/etc_DEQ_doc3_en.html</loc>
-  <priority>0.7</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.7</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/etc_SRTLM_En.html</loc>
-  <priority>0.7</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.7</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_sc_top.html</loc>
-  <priority>0.7</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.7</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_top.html</loc>
-  <priority>0.7</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.7</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/etc_pers_doc1.html</loc>
-  <priority>0.7</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.7</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/etc_Pers_v1.html</loc>
-  <priority>0.7</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.7</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/etc_DEQ_v3.html</loc>
-  <priority>0.7</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.7</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/etc_DEQ_doc2.html</loc>
-  <priority>0.7</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.7</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/etc_DEQ_v2.html</loc>
-  <priority>0.7</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.7</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/etc_DEQ_doc3.html</loc>
-  <priority>0.7</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.7</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/etc_SRTLM.html</loc>
-  <priority>0.7</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.7</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/etc_suudoku_update01.html</loc>
-  <priority>0.7</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.7</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/etc_suudoku_another.html</loc>
-  <priority>0.7</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.7</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/etc_suudoku.html</loc>
-  <priority>0.7</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.7</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/etc_PCalen.html</loc>
-  <priority>0.7</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.7</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_sc_butterfly_location_map_from_butterflySC.html</loc>
-  <priority>0.7</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.7</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_sc_lee.html</loc>
-  <priority>0.7</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.7</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_sc_rangi.html</loc>
-  <priority>0.7</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.7</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_sc_tuamotu.html</loc>
-  <priority>0.7</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.7</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_MM_FUTTSU_SUNSET.html</loc>
-  <priority>0.7</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.7</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_MM_yosemite.html</loc>
-  <priority>0.7</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.7</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_MM_Ford_T.html</loc>
-  <priority>0.7</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.7</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_MM_lagoon.html</loc>
-  <priority>0.7</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.7</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_MM_el_mirage.html</loc>
-  <priority>0.7</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.7</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_4S_cloud.html</loc>
-  <priority>0.7</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.7</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_SeaWorld_JumpToSky.html</loc>
-  <priority>0.7</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.7</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_SeaWorld_DolphinJumping.html</loc>
-  <priority>0.7</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.7</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_SeaWorld_Nonbiri.html</loc>
-  <priority>0.7</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.7</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_SeaWorld_JumpJumpJump.html</loc>
-  <priority>0.7</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.7</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_SS_Shafter.html</loc>
-  <priority>0.7</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.7</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_SS_tal_approach_slide_show.html</loc>
-  <priority>0.7</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.7</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_sc_butterfly.html</loc>
-  <priority>0.7</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.7</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/etc_co01_top.html</loc>
-  <priority>0.7</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.7</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_sc_butterfly_location_map_from_butterflySC.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_sc_lee.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_sc_rangi.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_MM_FUTTSU_SUNSET.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_MM_yosemite.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_MM_Ford_T.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_MM_lagoon.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_el_MM_mirage.html</loc>
+  <lastmod>2025-01-19T20:50:20+09:00</lastmod>
   <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_4S_cloud.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_SeaWorld_JumpToSky.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_SeaWorld_DolphinJumping.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_SeaWorld_Nonbiri.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_SeaWorld_JumpJumpJump.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_SS_shafter.html</loc>
+  <lastmod>2025-01-19T20:50:20+09:00</lastmod>
   <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_SS_tal_approach_slide_show.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_sc_butterfly.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_MM_el_mirage.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_sc_swijx3.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_scenery_get.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_sc_butterflySC.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_sc_butterfly_location_map_from_sc_top.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_sc_tbs2k5.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_sc_midway.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_sc_HotelAdriano.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_scenery_get.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_Ufufu.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_Mishiranu_Machi.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_4seasons.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_Sky_in_the_Sky.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_SeaWorld.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_suiboku.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/etc_DEQ_IF_v2_en.html?selectedOption=04%2609</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/etc_DEQ_v2_en.html?selectedOption=09%26090</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/etc_DEQ_v2_en.html?selectedOption=09%26091</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/etc_DEQ_v2_en.html?selectedOption=09%26092</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/etc_DEQ_v2_en.html?selectedOption=09%26093</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/etc_DEQ_v2_en.html?selectedOption=09%26094</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/etc_DEQ_v2_en.html?selectedOption=09%26095</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/etc_SRTLM_about_LensMeter_En.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/etc_SRTLM_document_En.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_sc_swijx3.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_sc_butterflySC.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_sc_butterfly_location_map_from_sc_top.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_sc_tbs2k5.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_sc_midway.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_sc_HotelAdriano.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_4seasons.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_Ufufu.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_Mishiranu_Machi.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_Sky_in_the_Sky.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_SeaWorld.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_suiboku.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/etc_SRTLM_about_LensMeter.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/etc_SRTLM_document.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_sc_lee_FS_org_Tahaa.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_sc_lee_Fat_Raiatea.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_SS_tal_approach.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/co01_syakou01.html</loc>
+  <lastmod>2025-01-19T20:50:20+09:00</lastmod>
   <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/etc_co01_syakou01.html</loc>
-  <priority>0.6</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.6</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_sc_lee_FS_org_Tahaa.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_sc_lee_Fat_Raiatea.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_SS_tal_approach.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_sc_aqua_old.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_Ufufu_penguin.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_PhotoStory3.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_Ufufu_hokuro.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/image/fs/ss/source/Mojave_Coyote.JPG</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/image/fs/ss/source/Tehachapi_WindMill.JPG</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_MM_biei_panorama.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_MM_blue_pond.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_MM_D51.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_MM_hokkaido2k6.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_MM_nyc.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_MM_ayutthaya.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_4S_carpenter_bee.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_4S_midori_sakura.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_4S_momo.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_4S_c_rose.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_4S_PinkNekoyanagi.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_4S_kamochan.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_4S_KarasuUri.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_4S_HayatoHiraizumi.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_4S_AGEHA_UKA.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_4S_BeniShijimi.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_4S_Sumida.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_4S_TAKEOKA_HIKARIMO.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_4S_Bakersfield.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_SS_contrail.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_SS_takeoff_approach_landing.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_SS_Shafter2003.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_SS_ZERO_A6M2.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_SS_Shafter.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_SS_Edwards.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/SRTLM_about_LensMeter_En.html</loc>
+  <lastmod>2025-01-19T20:50:20+09:00</lastmod>
   <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_sc_aqua_old.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_4S_mokuren.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_4S_sakura-mejiro.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_4S_urashima-sou.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_4S_carpenter_bee.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_4S_midori_sakura.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_4S_momo.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_4S_c_rose.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_4S_PinkNekoyanagi.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_4S_kamochan.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_4S_KarasuUri.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_4S_HayatoHiraizumi.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_4S_AGEHA_UKA.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_4S_BeniShijimi.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_4S_Sumida.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_4S_TAKEOKA_HIKARIMO.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_4S_Bakersfield.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_Ufufu_penguin.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_PhotoStory3.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_Ufufu_hokuro.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_MM_biei_panorama.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_MM_blue_pond.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_MM_D51.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_MM_hokkaido2k6.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_MM_nyc.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_MM_ayutthaya.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_SS_contrail.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_SS_takeoff_approach_landing.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_SS_Shafter2003.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_SS_ZERO_A6M2.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_SS_Edwards.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_PhotoStory3-Setsumei.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/image/fs/ss/source/11152002_BFL_kiri3.JPG</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/image/fs/ss/source/BLUE_SKY2.JPG</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_PhotoStory3-Setsumei.html</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/image/fs/kko/source/PhotoStory3/PhotoStorySample21.wmv</loc>
-  <priority>0.5</priority>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
+  <priority>0.5</priority>
 </url>
 
 </urlset>
