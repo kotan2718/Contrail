@@ -430,32 +430,12 @@
   <priority>0.6</priority>
 </url>
 <url>
-  <loc>https://kotan2718.github.io/Contrail/etc_DEQ_IF_v2_en.html?selectedOption=04%2609</loc>
+  <loc>https://kotan2718.github.io/Contrail/etc_DEQ_IF_v2_en.html</loc>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
   <priority>0.6</priority>
 </url>
 <url>
-  <loc>https://kotan2718.github.io/Contrail/etc_DEQ_v2_en.html?selectedOption=09%26090</loc>
-  <lastmod>2025-01-19T20:50:20+09:00</lastmod>
-  <priority>0.6</priority>
-</url>
-<url>
-  <loc>https://kotan2718.github.io/Contrail/etc_DEQ_v2_en.html?selectedOption=09%26091</loc>
-  <lastmod>2025-01-19T20:50:20+09:00</lastmod>
-  <priority>0.6</priority>
-</url>
-<url>
-  <loc>https://kotan2718.github.io/Contrail/etc_DEQ_v2_en.html?selectedOption=09%26092</loc>
-  <lastmod>2025-01-19T20:50:20+09:00</lastmod>
-  <priority>0.6</priority>
-</url>
-<url>
-  <loc>https://kotan2718.github.io/Contrail/etc_DEQ_v2_en.html?selectedOption=09%26093</loc>
-  <lastmod>2025-01-19T20:50:20+09:00</lastmod>
-  <priority>0.6</priority>
-</url>
-<url>
-  <loc>https://kotan2718.github.io/Contrail/etc_DEQ_v2_en.html?selectedOption=09%26094</loc>
+  <loc>https://kotan2718.github.io/Contrail/etc_DEQ_v2_en.html</loc>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
   <priority>0.6</priority>
 </url>
@@ -601,16 +581,6 @@
 </url>
 <url>
   <loc>https://kotan2718.github.io/Contrail/e_fs01_ls_Ufufu_hokuro.html</loc>
-  <lastmod>2025-01-19T20:50:20+09:00</lastmod>
-  <priority>0.5</priority>
-</url>
-<url>
-  <loc>https://kotan2718.github.io/Contrail/image/fs/ss/source/Mojave_Coyote.JPG</loc>
-  <lastmod>2025-01-19T20:50:20+09:00</lastmod>
-  <priority>0.5</priority>
-</url>
-<url>
-  <loc>https://kotan2718.github.io/Contrail/image/fs/ss/source/Tehachapi_WindMill.JPG</loc>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
   <priority>0.5</priority>
 </url>
@@ -905,24 +875,8 @@
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://kotan2718.github.io/Contrail/image/fs/ss/source/11152002_BFL_kiri3.JPG</loc>
-  <lastmod>2025-01-19T20:50:20+09:00</lastmod>
-  <priority>0.5</priority>
-</url>
-<url>
-  <loc>https://kotan2718.github.io/Contrail/image/fs/ss/source/BLUE_SKY2.JPG</loc>
-  <lastmod>2025-01-19T20:50:20+09:00</lastmod>
-  <priority>0.5</priority>
-</url>
-<url>
   <loc>https://kotan2718.github.io/Contrail/fs01_ls_PhotoStory3-Setsumei.html</loc>
   <lastmod>2025-01-19T20:50:20+09:00</lastmod>
   <priority>0.5</priority>
 </url>
-<url>
-  <loc>https://kotan2718.github.io/Contrail/image/fs/kko/source/PhotoStory3/PhotoStorySample21.wmv</loc>
-  <lastmod>2025-01-19T20:50:20+09:00</lastmod>
-  <priority>0.5</priority>
-</url>
-
 </urlset>
