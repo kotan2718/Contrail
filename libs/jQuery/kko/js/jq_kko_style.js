@@ -13,37 +13,106 @@ $(function(){
 	);
 });
 
-/* 
-   上記の操作にhoverで画像の枠線を変化させようと思ったが，
-   デフォルトで画像に枠線をつけておく必要がある。
-   
-		$(function(){
-			$('.jQ_blink a img').hover(
-				function(){
-					$(this).fadeTo(0, 0.6).fadeTo('normal', 1.0).css("border", "2px solid #f0f0f0");
-				},
-				function(){
-					$(this).fadeTo('fast', 1.0).css("border", "2px solid #c8c8c8");
-				}
-			);
-		});
+// ホバー時のポップアップ(簡単な説明とリンク先を表示)
+// cssファイル: E:\Data\GitHub\Contrail\libs\etc\css\kko_etc_style.css
+document.addEventListener("DOMContentLoaded", function () {
+    let currentElement = null;
 
-単純に，上記を実行すると，最初に画像にマウスが乗ったとき，画像が少し動く。
-外枠なしの画像に外枠が追加されたためで，一度，マウスがはずれた後は，
-意図通りの効果を得ることができる。
-問題は，最初なので，最初で失敗すると，みっともない。
-デフォルトで画像に枠線をつけて置けば良いが...
-ならば，ブリンクと外枠の処理は切り離した方が，良いのではないかと思う。
-*/
+    function showPopup(element) {
+        let popup = document.getElementById("popup");
+        let rect = element.getBoundingClientRect();
 
-/* image CHANGE at cursor on - off */
-/* "IE" "Safari" "FireFox" "Chrome"  OK */
-$(function(){
-	$('.jQ_change a img').hover(function(){
-		$(this).attr('src', $(this).attr('src').replace('_off', '_on'));
-			}, function(){
-			   if (!$(this).hasClass('current')) {
-			   $(this).attr('src', $(this).attr('src').replace('_on', '_off'));
-		}
-	});
+        currentElement = element;
+
+        // ポップアップの内容を更新 (改行を <br> に変換)
+        document.getElementById("popup-text").innerHTML = element.getAttribute("comment-popup").replace(/\n/g, "<br>");
+
+        // <a>タグなら「詳細を見る」を表示、<span>タグなら非表示
+        if (element.tagName.toLowerCase() === "a") {
+            document.getElementById("popup-link").style.display = "block";
+            document.getElementById("popup-link").setAttribute("href", element.getAttribute("href"));
+        } else {
+            document.getElementById("popup-link").style.display = "none";
+        }
+
+        // ポップアップをリンクまたはスパンの下に表示
+        popup.style.top = window.scrollY + rect.bottom + 5 + "px";
+        popup.style.left = window.scrollX + rect.left + "px";
+        popup.style.display = "block";
+    }
+
+    function hidePopup() {
+        document.getElementById("popup").style.display = "none";
+        if (currentElement) {
+            currentElement.classList.remove("active");
+        }
+    }
+
+    document.querySelectorAll(".hover-link, .hover-comment").forEach(element => {
+        element.addEventListener("mouseenter", function () {
+            showPopup(element);
+        });
+
+        element.addEventListener("mouseleave", function () {
+            setTimeout(() => {
+                if (!document.getElementById("popup").matches(":hover")) {
+                    hidePopup();
+                }
+            }, 200);
+        });
+    });
+
+    // 画面幅を判定してクラスを切り替える
+    function adjustLayout() {
+        const mainElement = document.getElementById("main920");
+        const widthElement = document.querySelector(".c_main920");
+    const picLeftElement = document.querySelector('.pic-left920');
+        const footerElement = document.querySelector(".footer_label920");
+        const imageElements = document.querySelectorAll(".image-container > img");  // 通常表示用の画像だけを選択
+
+        if (mainElement) {
+            if (window.innerWidth > 768) { // スマホ表示
+                mainElement.id = "main920";
+                widthElement.className = "c_main920";
+                picLeftElement.className = "pic-left920";
+                footerElement.className = "footer_label920";
+                if (imageElements) {
+                    imageElements.forEach(image => {
+                        image.style.width = "700px";
+                    });
+                }
+                console.log('PCの画面です。IDを main920 に変更しました。');
+            } else {  // スマホの場合
+                mainElement.id = "main480";
+                widthElement.className = "c_main480";
+                picLeftElement.className = "pic-left480";
+                footerElement.className = "footer_label480";
+                if (imageElements) {
+                    imageElements.forEach(image => {
+                        image.style.width = "480px";
+                    });
+                }
+                console.log('スマホの画面です。IDは変更されません。');
+            }
+        } else {
+            console.error('main 要素が見つかりません。');
+        }
+    }
+    adjustLayout(); // 初回実行
 });
+
+
+// マウスのホバーで、元のサイズの画像をポップアップする
+$(document).ready(function () {
+    $(".image-container").hover(
+        function () {
+            const popupImage = $(this).find(".popup-image");
+            popupImage.css({ width: "auto", height: "auto" });  // 元のサイズを保つ
+            popupImage.fadeIn(200);
+        },
+        function () {
+            $(this).find(".popup-image").fadeOut(200);
+        }
+    );
+});
+
