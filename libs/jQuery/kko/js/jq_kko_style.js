@@ -71,10 +71,18 @@ document.addEventListener("DOMContentLoaded", function () {
         const imageElements = document.querySelectorAll(".image-container > img");  // 通常表示用の画像だけを選択
 
         if (mainElement) {
-            function isMobile() {
-              return window.innerWidth / window.devicePixelRatio < 768;
-            }
-            if (isMobile()) { // スマホの場合
+            if (window.innerWidth > 768) { // PCの場合
+                mainElement.id = "main920";
+                widthElement.className = "c_main920";
+                picLeftElement.className = "pic-left920";
+                footerElement.className = "footer_label920";
+                if (imageElements) {
+                    imageElements.forEach(image => {
+                        image.style.width = "920px";
+                    });
+                }
+                console.log('PCの画面です。IDは変更されません。');
+            } else {  // スマホの場合
                 mainElement.id = "main480";
                 widthElement.className = "c_main480";
                 picLeftElement.className = "pic-left480";
@@ -84,18 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         image.style.width = "480px";
                     });
                 }
-                console.log('スマホの画面です。IDは変更されません。');
-            } else {  // PCの場合
-                mainElement.id = "main920";
-                widthElement.className = "c_main920";
-                picLeftElement.className = "pic-left920";
-                footerElement.className = "footer_label920";
-                if (imageElements) {
-                    imageElements.forEach(image => {
-                        image.style.width = "700px";
-                    });
-                }
-                console.log('PCの画面です。IDを main920 に変更しました。');
+                console.log('スマホの画面です。IDを main480 に変更しました。');
             }
         } else {
             console.error('main 要素が見つかりません。');
