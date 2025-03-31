@@ -15,6 +15,7 @@ $(function(){
 
 // ホバー時のポップアップ(簡単な説明とリンク先を表示)
 // cssファイル: E:\Data\GitHub\Contrail\libs\etc\css\kko_etc_style.css
+
 document.addEventListener("DOMContentLoaded", function () {
     let currentElement = null;
 
@@ -62,37 +63,57 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+    document.getElementById("popup").addEventListener("mouseleave", hidePopup);
+});
+
+document.addEventListener("DOMContentLoaded", function () {
     // 画面幅を判定してクラスを切り替える
     function adjustLayout() {
         const mainElement = document.getElementById("main920");
-        const widthElement = document.querySelector(".c_main920");
-    const picLeftElement = document.querySelector('.pic-left920');
-        const footerElement = document.querySelector(".footer_label920");
-        const imageElements = document.querySelectorAll(".image-container > img");  // 通常表示用の画像だけを選択
+//        const widthElement = document.querySelector(".c_main920");
+//        const picLeftElement = document.querySelector('.pic-left920');
+//        const footerElement = document.querySelector(".footer_label920");
+        const imageElements = document.querySelectorAll(".image-container > img");
+//        const popupElement = document.querySelector(".popup > width");
 
         if (mainElement) {
-            if (window.innerWidth > 768) { // PCの場合
-                mainElement.id = "main920";
-                widthElement.className = "c_main920";
-                picLeftElement.className = "pic-left920";
-                footerElement.className = "footer_label920";
+
+            function isMobile() {
+              return window.innerWidth / window.devicePixelRatio < 768;
+            }
+
+            if (isMobile()) { // スマホの場合
+                mainElement.id = "main480";
+                //widthElement.className = "c_main480";
+                //picLeftElement.className = "pic-left480";
+                //footerElement.className = "footer_label480";
                 if (imageElements) {
                     imageElements.forEach(image => {
                         image.style.width = "920px";
                     });
                 }
-                console.log('PCの画面です。IDは変更されません。');
-            } else {  // スマホの場合
-                mainElement.id = "main480";
-                widthElement.className = "c_main480";
-                picLeftElement.className = "pic-left480";
-                footerElement.className = "footer_label480";
+/*                if (popupElement) {
+                    popupElement.forEach(style => {
+                        width = "620px";
+                    });
+                }*/
+                console.log('スマホの画面です。IDは変更されません。');
+            } else {  // PCの場合
+                mainElement.id = "main920";
+                //widthElement.className = "c_main920";
+                //picLeftElement.className = "pic-left920";
+                //footerElement.className = "footer_label920";
                 if (imageElements) {
                     imageElements.forEach(image => {
-                        image.style.width = "480px";
+                        image.style.width = "700px";
                     });
                 }
-                console.log('スマホの画面です。IDを main480 に変更しました。');
+/*                if (popupElement) {
+                    popupElement.forEach(style => {
+                        width = "300px";
+                    });
+                }*/
+                console.log('PCの画面です。IDを main920 に変更しました。');
             }
         } else {
             console.error('main 要素が見つかりません。');
@@ -103,6 +124,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 // マウスのホバーで、元のサイズの画像をポップアップする
+
 $(document).ready(function () {
     $(".image-container").hover(
         function () {
