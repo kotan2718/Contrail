@@ -59,9 +59,9 @@ body#common-p {
     border: 0px solid #FF9900;
 }
 .header_label480   { 
-    width: 480px;
-    margin-left: auto;
-    margin-right: auto; 
+    width: 240px;
+    margin-left: 0;
+    margin-right: 0; 
     text-align: center; 
     background-color: #f0f0f0; 
     border: 0px solid #FF9900;
@@ -84,7 +84,7 @@ div.navbox{
     float: left; 
     text-align: left;
     margin:  0   0    0 0; 
-    padding: 5px 30px 5px 50px; 
+    padding: 5px 0px 5px 0px; 
 }
 
 /*    ----------------- 
