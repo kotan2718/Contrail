@@ -1,102 +1,129 @@
-<!DOCTYPE HTML >
-<html>
+<!DOCTYPE html >
+<html lang="en">
 
-<HEAD>
-    <META charset="UTF-8">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="=Blue Pond= It was a pond of the mysterious color which I had never seen until now.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Contrail SnapShots : some where in the next town :: Blue Pond</title>
 
     <!-- favicon-->
-    <link rel="shortcut icon" href="favicon.ico">
-
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="icon" href="favicon.ico">
 
     <!-- css start -->
+        <!-- kko_etc - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
+        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
 
-        <!-- kko_etc start - class指定:change_border_color, 全ファイル共通:リンク文字色, フォーカスリング -->
-        <link rel="stylesheet" href="libs/etc/css/kko_preload.css" type="text/css">
-        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css" type="text/css">
-        <!-- kko_etc end -->
+        <!-- Fancybox CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css">
 
-        <!-- prettyPhoto start -->
-        <link href="libs/jQuery/prettyPhoto/css/prettyPhoto315_mod.css" media="all" rel="stylesheet" type="text/css">
-        <!-- prettyPhoto end -->
+        <style>
+            img.thumb {
+                width: 256px;
+                height: auto;
+                box-shadow: 0 0 10px rgba(0,0,0,0.2);
+                margin: 1em;
+                cursor: pointer;
+            }
 
+            /* Optional: Limit image size on small screens */
+            @media (max-width: 768px) {
+                .fancybox_image {
+                    max-width: 256px;
+                }
+                .fancybox_image2 {
+                    max-width: 300px;
+                }
+            }
+        </style>
     <!-- css end -->
 
     <!-- js start -->
-
         <!-- jQuery start -->
-        <script src="libs/jQuery/js/jquery-1.6.1.min.js" type="text/javascript"></script>
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <!-- kko_style - img jq_blink, img jq_change -->
+            <script src="libs/jQuery/kko/js/jq_kko_style.js"></script>
 
-            <!-- kko_style start - img jq_blink, img jq_change -->
-            <script src="libs/jQuery/kko/js/jq_kko_style.js" type="text/javascript"></script>
-            <!-- kko_style end -->
-
-            <!-- prettyPhoto start -->
-            <script src="libs/jQuery/prettyPhoto/js/jquery.prettyPhoto_315_mod.js" type="text/javascript"></script>
-            <script type="text/javascript">
-            $(document).ready(function(){
-                $("a[rel^='prettyPhoto']").prettyPhoto({
-                });
-            });
-            </script>
-            <!-- prettyPhoto end -->
-
+            <!-- Fancybox JS -->
+            <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
         <!-- jQuery end -->
 
-        <!-- Sandbox DropDownMenu start -->
+        <!-- Sandbox DropDownMenu -->
         <script src="libs/sandbox/js/script.js" type="text/javascript"></script>
-        <!-- Sandbox DropDownMenu end -->
-
     <!-- js end -->
 
-</HEAD>
+</head>
 
-<BODY id="common-k">
-
-<!-- Pre Loading -->
-<!-- without loading picture -->
-<div id="loader"><IMG src="image/common/ap_loader_tp.gif" width="236" height="132" class="loading..."></div>
-<div id="fade"></div>
-<div id="preload"> <!-- Pre Loading start -->
+<body id="common-k">
 
     <header>
-        <a name="page_top"></a>
-        <div class="center jQ_change navbox" >
-            <nav>
-                <IMG src="image/top/Contrail_g.png" height="20" class="logo_img">
-                <ul class="menu" id="menu" >
-                    <li><a href="index.html" class="menulink">Home</a></li>
-                    <li><a href="e_whatnew.html" class="menulink">What's New</a></li>
-                    <li><a href="en_etc.html" class="menulink">E.T.C.</a></li>
-                    <li><a href="e_fs01.html" class="menulink">The Scenery</a>
-                        <ul>
-                            <li><a href="e_fs01_sc_top.html" class="sub">Screen Shots</a></li>
-                            <li><a href="e_fs01_ls_top.html" class="sub">Snap Shots</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="e_link01.html" class="menulink">Links</a></li>
-                    <li class="about"><a href="e_fs01_about.html" class="menulink">about Contrail</a></li>
-                </ul>
-            </nav>
-            <div class="c-both"></div>
+        <div class="prettyP_PC">
+            <a name="page_top"></a>
+            <div class="center jQ_change navbox" >
+                <nav>
+                    <img src="image/top/cr32_e.png" height="20" class="logo_img">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_img">
+                    <ul class="menu" id="menu" >
+                        <li><a href="index.html" class="menulink">Home</a></li>
+                        <li><a href="whatnew.html" class="menulink">What's New</a></li>
+                        <li><a href="etc.html" class="menulink">E.T.C.</a></li>
+                        <li><a href="fs01.html" class="menulink">The Scenery</a>
+                            <ul>
+                                <li><a href="fs01_sc_top.html" class="sub">Screen Shots</a></li>
+                                <li><a href="fs01_ls_top.html" class="sub">Snap Shots</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="link01.html" class="menulink">Links</a></li>
+                        <li class="about"><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                    </ul>
+                </nav>
+                <div class="c-both"></div>
+            </div>
+            <!-- Sandbox DropDownMenu start-->
+            <script>
+                var menu=new menu.dd("menu");
+                menu.init("menu","menuhover");
+            </script>
+            <!-- Sandbox DropDownMenu end -->
         </div>
-        <!-- Sandbox DropDownMenu start-->
-        <script type="text/javascript">
-            var menu=new menu.dd("menu");
-            menu.init("menu","menuhover");
-        </script>    <!-- Sandbox DropDownMenu end -->
+        <div class="prettyP_SP">
+            <a name="MENU"></a>
+            <p id="menu-call">
+                <a href="#">MENU</a>
+            </p>
+
+            <a name="page_top"></a>
+
+            <!-- page top icon & logo -->
+            <div id="header_SP" class="header_labelSP">
+                <div class="pb4"></div>
+                <img src="image/top/cr48f_32.png">
+                <img class="pb3" src="image/top/Contrail_g.png" height="24">
+            </div>
+
+            <div id="popup-menu" class="hidden">
+                <div class="menu-title">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_image" alt="CONTRAIL">
+                </div>
+                <ul>
+                    <li><a href="index.html" class="menulink">Home</a></li>
+                    <li><a href="whatnew.html" class="menulink">What's New</a></li>
+                    <li><a href="etc.html" class="menulink">E.T.C.</a></li>
+                    <li><a href="fs01.html" class="menulink">The Scenery</a></li>
+                    <li><a href="link01.html" class="menulink">Links</a></li>
+                    <li><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                </ul>
+            </div>
+        </div>
     </header>
 
     <div id="main880" class="lineh120"> <!-- page main: start -->
 
         <!-- title -->
         <div id="title30">
-            <p id="head20" >
-                <IMG src="image/fs/kko_logo.gif" alt="Contrail Snap Shots Special Gallery">
+            <p id="head20">
+                <img src="image/fs/kko_logo.gif" alt="Contrail Snap Shots Special Gallery">
             </p>
             <h2 id="group-MM15e">
                 some where in the next town...
@@ -109,30 +136,69 @@
             </p>
         </div>
 
+        <!-- for Java Script off -->
+        <noscript>
+            <div id="attention">
+                <p>Sorry, you need to activate JavaScript in your browser.</p>
+            </div>
+        </noscript>
+
         <!-- contents -->
-        <div class="left pb20">
-            <p class="pb10">
-                When my family traveled Frano and Biei in Hokkaido ,
-                I saw this pond in the cover of a calendar being sold at the stand of "Kanno Farm".
-                I was fascinated by the color of the mysterious pond that I have never seen until now.
-                Purchasing the calendar, I asked the staff  where the lake is.
-                However, she said that it is not a lake but a pond.
-                In addition, she said ... <BR>
-                It is called "the blue pond." <BR>
-                The time required to there is about 20 minutes by car. <BR>
-                "The blue pond" is near the Shirogane hot spring. <BR>
-                We were not planning going there, but we decided to go to the pond.
-            </p>
-            <p>
-                Although I lived in Hokkaido from junior high school to high school,
-                I have not heard such a blue pond.
-                I thought that it was strange...
-                However, after 20 minutes we were able to find "the blue pond" as the staff told us. <span class="fss fwb">
-                <a href="https://maps.google.co.jp/?ie=UTF8&amp;t=h&amp;brcurrent=3,0x5f7332ad5ca79f4b:0x78582edba53dbc9b,1&amp;ll=43.493779,142.613354&amp;spn=0.021793,0.036564&amp;z=14&amp;output=embed&iframe=true&width=425&height=350&frameborder=0&scrolling=no&marginheight=0&marginwidth=0" rel="prettyPhoto"
-                    target="_blank" >
-                    map
-                </a></span>
-            </p>
+        <div class="center pb20">
+            <div class="prettyP_PC">
+                <p class="left2 pb10">
+                    When my family traveled Frano and Biei in Hokkaido ,
+                    I saw this pond in the cover of a calendar being sold at the stand of "Kanno Farm".
+                    I was fascinated by the color of the mysterious pond that I have never seen until now.
+                    Purchasing the calendar, I asked the staff  where the lake is.
+                    However, she said that it is not a lake but a pond.
+                    In addition, she said ... <br>
+                    It is called "the blue pond." <br>
+                    The time required to there is about 20 minutes by car. <br>
+                    "The blue pond" is near the Shirogane hot spring. <br>
+                    We were not planning going there, but we decided to go to the pond.
+                </p>
+                <p class="left2">
+                    Although I lived in Hokkaido from junior high school to high school,
+                    I have not heard such a blue pond.
+                    I thought that it was strange...
+                    However, after 20 minutes we were able to find "the blue pond" as the staff told us.
+                    <span class="fss fwb">
+                        <a href="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d4105.38584949163!2d142.61376200191532!3d43.493478868335124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sja!2sjp!4v1753272335445!5m2!1sja!2sjp&iframe=true&width=640&height=480"
+                           rel="prettyPhoto[iframe]" title="Blue Pond">
+                            show map
+                        </a>
+                    </span>
+                </p>
+            </div>
+            <div class="prettyP_SP">
+                <p class="left2 pb10">
+                    When my family traveled Frano and Biei in Hokkaido ,
+                    I saw this pond in the cover of a calendar being sold at the stand of "Kanno Farm".
+                    I was fascinated by the color of the mysterious pond that I have never seen until now.
+                    Purchasing the calendar, I asked the staff  where the lake is.
+                    However, she said that it is not a lake but a pond.
+                    In addition, she said ...
+                    It is called "the blue pond."
+                    The time required to there is about 20 minutes by car.
+                    "The blue pond" is near the Shirogane hot spring.
+                    We were not planning going there, but we decided to go to the pond.
+                </p>
+                <p class="center">
+                    <span class="image-container">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d4105.38584949163!2d142.61376200191532!3d43.493478868335124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sja!2sjp!4v1753272335445!5m2!1sja!2sjp"
+                            width="320" height="320" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </span>
+                </p>
+                <p class="left2">>
+                    Although I lived in Hokkaido from junior high school to high school,
+                    I have not heard such a blue pond.
+                    I thought that it was strange...
+                    However, after 20 minutes we were able to find "the blue pond" as the staff told us.
+                </p>
+            </div>
         </div>
 
         <div class="pic-left640 pb30">
@@ -140,73 +206,95 @@
                 Blue Pond
             </p>
             <p class="jQ_blink change_border_color pb5">
-                <a href="image/fs/kko/source/BluePond/BluePond_DSCN0344_1024_comp20.jpg" rel="prettyPhoto[BluePond]"
-                    title="1" target="_blank" >
-                    <IMG src="image/fs/kko/source/BluePond/BluePond_DSCN0344_512_comp20.jpg" width="512" alt="BluePond-1">
+                <a href="image/fs/kko/source/BluePond/BluePond_DSCN0344_1024_comp20.jpg"
+                    data-fancybox="gallery1" data-caption="BluePond-1">
+                    <img class="fancybox_image" src="image/fs/kko/source/BluePond/BluePond_DSCN0344_512_comp20.jpg" width="512"
+                        alt="BluePond-1">
                 </a>
             </p>
-            <p>
+            <p class="left2">
                 It is the same color as we looked by the cover of the calendar.
-                Not the color of organic systems such as the algae, the water itself seems to be tinged with blue. <BR>
-                Not blue to suggest the deep blue sky even if I say blue.
-                Is it the feeling of the color of a soft blue sky...?
+                Not the color of organic systems such as the algae, the water itself seems to be tinged with blue. 
+                Not blue to suggest the deep blue sky even if I say blue. 
+                Is it the feeling of the color of a soft blue sky...? 
             </p>
+            <div class="prettyP_SP"><div class="pb30"></div></div>
         </div>
 
         <div class="center pb40">
-            <p class="contents-col pr20">
-                <IMG src="image/fs/kko/source/BluePond/BluePond_P1170249_512_comp20.jpg" width="384" alt="BluePond-2">
-            </p>
-            <p class="contents-col">
-                <IMG src="image/fs/kko/source/BluePond/BluePond_P1170274_512_comp20.jpg" width="384" alt="BluePond-3">
-            </p>
-            <p class="">
-                Pictures above are a part of the trees which stood blighted. <BR>
-                The transparency of the water does not seem to be high. <BR>
-                It is not muddy and is the feeling that dissolved watercolors.
+            <div class="prettyP_PC">
+                <p class="contents-col pr20">
+                    <img class="fancybox_image" src="image/fs/kko/source/BluePond/BluePond_P1170249_512_comp20.jpg" width="384"
+                        alt="BluePond-2">
+                </p>
+                <p class="contents-col">
+                    <img class="fancybox_image" src="image/fs/kko/source/BluePond/BluePond_P1170274_512_comp20.jpg" width="384"
+                        alt="BluePond-3">
+                </p>
+            </div>
+            <div class="prettyP_SP">
+                <p class="left2 pb10">
+                    <img class="fancybox_image" src="image/fs/kko/source/BluePond/BluePond_P1170249_512_comp20.jpg" width="384"
+                        alt="BluePond-2">
+                </p>
+                <p class="center">
+                    <img class="fancybox_image" src="image/fs/kko/source/BluePond/BluePond_P1170274_512_comp20.jpg" width="384"
+                        alt="BluePond-3">
+                </p>
+            </div>
+            <p class="left2 pb40">
+                Pictures above are a part of the trees which stood blighted. 
+                The transparency of the water does not seem to be high. 
+                It is not muddy and is the feeling that dissolved watercolors. 
             </p>
         </div>
 
-        <div class="pic-center640 pb30">
-            <p class="fs100 fwb pb20">
+        <div class="pic-center640new pb30">
+            <p class="fs90 fss fwb pb20">
                 As well as a blue color, the trees which stood blighted in the pond may give a mysterious atmosphere to this pond.
             </p>
             <p class="jQ_blink change_border_color">
-                <a href="image/fs/kko/source/BluePond/BluePond_P1000037_1024_comp20.jpg" rel="prettyPhoto[BluePond]"
-                    title="2" target="_blank" >
-                    <IMG src="image/fs/kko/source/BluePond/BluePond_P1000037_512_comp20.jpg" width="512" alt="BluePond-4">
+                <a href="image/fs/kko/source/BluePond/BluePond_P1000037_1024_comp20.jpg"
+                    data-fancybox="gallery1" data-caption="BluePond-4">
+                    <img class="fancybox_image" src="image/fs/kko/source/BluePond/BluePond_P1000037_512_comp20.jpg" width="512"
+                        alt="BluePond-4">
                 </a>
             </p>
+            <div class="prettyP_SP"><div class="pb30"></div></div>
         </div>
 
-        <div class="pic-right640 pb30">
+        <div class="pic-right640new pb30">
             <p class="jQ_blink change_border_color">
-                <a href="image/fs/kko/source/BluePond/BluePond_P1170266_1024_comp20.jpg" rel="prettyPhoto[BluePond]"
-                    title="3" target="_blank" >
-                    <IMG src="image/fs/kko/source/BluePond/BluePond_P1170266_512_comp20.jpg" width="512" alt="BluePond-5">
+                <a href="image/fs/kko/source/BluePond/BluePond_P1170266_1024_comp20.jpg"
+                    data-fancybox="gallery1" data-caption="BluePond-5">
+                    <img class="fancybox_image" src="image/fs/kko/source/BluePond/BluePond_P1170266_512_comp20.jpg" width="512"
+                        alt="BluePond-5">
                 </a>
             </p>
+            <div class="prettyP_SP"><div class="pb30"></div></div>
         </div>
 
         <div class="center pb30">
             <p class="jQ_blink change_border_color">
-                <a href="image/fs/kko/source/BluePond/BluePond_P1170275_mod2_1024_comp20.jpg" rel="prettyPhoto[BluePond]"
-                    title="4" target="_blank" >
-                    <IMG src="image/fs/kko/source/BluePond/BluePond_P1170275_mod2_512_comp20.jpg" width="512" alt="BluePond-6">
+                <a href="image/fs/kko/source/BluePond/BluePond_P1170275_mod2_1024_comp20.jpg"
+                    data-fancybox="gallery1" data-caption="BluePond-6">
+                    <img class="fancybox_image" src="image/fs/kko/source/BluePond/BluePond_P1170275_mod2_512_comp20.jpg" width="512"
+                        alt="BluePond-6">
                 </a>
             </p>
         </div>
 
         <div class="pic-left640 pb30">
-            <p class="pb5">
-                A river appeared when I went to the back along the pond. <BR>
-                Surprisingly, the water of the river as well as the pond was the same blue color.
+            <p class="left2 pb5">
+                A river appeared when I went to the back along the pond. 
+                Surprisingly, the water of the river as well as the pond was the same blue color. 
             </p>
             <p>
-                <IMG src="image/fs/kko/source/BluePond/BluePond_P1170268_512_comp20.jpg" width="512" alt="BluePond-7">
+                <img class="fancybox_image" src="image/fs/kko/source/BluePond/BluePond_P1170268_512_comp20.jpg" width="512"
+                    alt="BluePond-7">
             </p>
+            <div class="prettyP_SP"><div class="pb30"></div></div>
         </div>
-        <a name="page_bottom"></a>
 
     </div> <!-- page main: end -->
 
@@ -214,15 +302,17 @@
 
         <hr id="footer"> <!-- horizontal partition -->
 
-        <div class="jQ_change center" > <!-- select button whole: start -->
+        <p id="page-top"><a href="#">TOP</a></p>
+
+        <div class="jQ_change center"> <!-- select button whole: start -->
             <p id="footer">  <!-- select button 1: start -->
                 <a href="e_fs01_ls_Mishiranu_Machi.html#BluePond">
-                    <IMG src="image/button/back_off.gif" border="0" alt="Back" >
+                    <img src="image/button/back_off.gif" border="0" alt="Back">
                 </a>
             </p> <!-- select button 1: end -->
         </div> <!-- select button whole: end -->
 
-        <div id="footer_label">
+        <div class="footer_labelPC">
             copyright &copy; 2003 -
             <script type="text/javascript" language="JavaScript">
                 date = new Date();
@@ -235,6 +325,5 @@
 
     </footer>
 
-</div> <!-- Pre Loading end -->
-</BODY>
+</body>
 </html>

@@ -1,42 +1,31 @@
-<!DOCTYPE HTML >
-<html>
+<!DOCTYPE html >
+<html lang="en">
 
-<HEAD>
-    <META charset="UTF-8">
+<head>
+    <meta charset="UTF-8">
 
     <title>SRTLM Document</title>
+    <meta name="description" content="This is the manual for the lens-meter simulation tool 'SRTLM'">
+    <meta name="keywords" content="Lens,Meter,simulation,tool,spherical,toric,shape,3D,ray,tracing">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- favicon-->
-    <link rel="shortcut icon" href="image/SRTLM_img/favicon.ico">
-
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="icon" href="favicon.ico">
 
     <!-- css start -->
-
-        <!-- kko_etc start :: class指定:change_border_color, 全ファイル共通:リンク文字色, フォーカスリング -->
-        <link rel="stylesheet" href="libs/etc/css/kko_footer_style.css" type="text/css">
-        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css" type="text/css">
-        <!-- kko_etc end -->
-
+        <!-- kko_etc - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
+        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
     <!-- css end -->
 
     <!-- js start -->
-
         <!-- jQuery start -->
-        <script src="libs/jQuery/js/jquery-1.6.1.min.js" type="text/javascript"></script>
-
-            <!-- kko_style start - img jq_blink, img jq_change -->
-            <script src="libs/jQuery/kko/js/jq_kko_style.js" type="text/javascript"></script>
-            <!-- kko_style end -->
-
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <!-- kko_style - img jq_blink, img jq_change -->
+            <script src="libs/jQuery/kko/js/jq_kko_style.js"></script>
         <!-- jQuery end -->
 
-        <!-- Sandbox DropDownMenu start -->
-        <script src="libs/sandbox/js/script.js" type="text/javascript"></script>
-        <!-- Sandbox DropDownMenu end -->
-
+        <!-- Sandbox DropDownMenu -->
+        <script src="libs/sandbox/js/script.js"></script>
     <!-- js end -->
 
     <style>
@@ -60,39 +49,72 @@
     }
     </style>
 
-</HEAD>
+</head>
 
-<BODY id="common-k" class="f-family" >
+<body id="common-k">
 
     <header>
-        <a name="page_top"></a>
-        <div class="center jQ_change navbox" >
-            <nav>
-                <IMG src="image/top/Contrail_g.png" height="20" class="logo_img">
-                <ul class="menu" id="menu" >
-                    <li><a href="index.html" class="menulink">Home</a></li>
-                    <li><a href="e_whatnew.html" class="menulink">What's New</a></li>
-                    <li><a href="en_etc.html" class="menulink">E.T.C.</a></li>
-                    <li><a href="e_fs01.html" class="menulink">The Scenery</a>
-                        <ul>
-                            <li><a href="e_fs01_sc_top.html" class="sub">Screen Shots</a></li>
-                            <li><a href="e_fs01_ls_top.html" class="sub">Snap Shots</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="e_link01.html" class="menulink">Links</a></li>
-                    <li class="about"><a href="e_fs01_about.html" class="menulink">about Contrail</a></li>
-                </ul>
-            </nav>
-            <div class="c-both"></div>
+        <div class="prettyP_PC">
+            <a name="page_top"></a>
+            <div class="center jQ_change navbox" >
+                <nav>
+                    <img src="image/top/cr32_e.png" height="20" class="logo_img">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_img">
+                    <ul class="menu" id="menu" >
+                        <li><a href="index.html" class="menulink">Home</a></li>
+                        <li><a href="e_whatnew.html" class="menulink">What's New</a></li>
+                        <li><a href="en_etc.html" class="menulink">E.T.C.</a></li>
+                        <li><a href="e_fs01.html" class="menulink">The Scenery</a>
+                            <ul>
+                                <li><a href="e_fs01_sc_top.html" class="sub">Screen Shots</a></li>
+                                <li><a href="e_fs01_ls_top.html" class="sub">Snap Shots</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="e_link01.html" class="menulink">Links</a></li>
+                        <li class="about"><a href="e_fs01_about.html" class="menulink">about Contrail</a></li>
+                    </ul>
+                </nav>
+                <div class="c-both"></div>
+            </div>
+            <!-- Sandbox DropDownMenu start-->
+            <script>
+                var menu=new menu.dd("menu");
+                menu.init("menu","menuhover");
+            </script>
+            <!-- Sandbox DropDownMenu end -->
         </div>
-        <!-- Sandbox DropDownMenu start-->
-        <script type="text/javascript">
-            var menu=new menu.dd("menu");
-            menu.init("menu","menuhover");
-        </script>    <!-- Sandbox DropDownMenu end -->
+        <div class="prettyP_SP">
+            <a name="MENU"></a>
+            <p id="menu-call">
+                <a href="#">MENU</a>
+            </p>
+
+            <a name="page_top"></a>
+
+            <!-- page top icon & logo -->
+            <div id="header_SP" class="header_labelSP">
+                <div class="pb4"></div>
+                <img src="image/top/cr48f_32.png">
+                <img class="pb3" src="image/top/Contrail_g.png" height="24">
+            </div>
+
+            <div id="popup-menu" class="hidden">
+                <div class="menu-title">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_image" alt="CONTRAIL">
+                </div>
+                <ul>
+                <li><a href="index.html" class="menulink">Home</a></li>
+                <li><a href="e_whatnew.html" class="menulink">What's New</a></li>
+                <li><a href="en_etc.html" class="menulink">E.T.C.</a></li>
+                <li><a href="e_fs01.html" class="menulink">The Scenery</a>
+                <li><a href="e_link01.html" class="menulink">Links</a></li>
+                <li><a href="e_fs01_about.html" class="menulink">about Contrail</a></li>
+                </ul>
+            </div>
+        </div>
     </header>
 
-    <div id="main1024"> <!-- page main: start -->
+    <div id="main1024-480"> <!-- page main: start -->
 
         <!-- title -->
         <div id="title20">
@@ -100,6 +122,13 @@
                 SRTLM Instruction Manual
             </h2>
         </div>
+
+        <!-- for Java Script off -->
+        <noscript>
+            <div id="attention">
+                <p>Sorry, you need to activate JavaScript in your browser.</p>
+            </div>
+        </noscript>
 
         <!-- contents -->
         <div class="pic-left1024 pb40">
@@ -319,285 +348,297 @@
                     and the green frame (Lens Data section).
                     Please observe the following rules.
                 </p>
-             <table class="fwm top pb10 pl30" border="0">
-                <tr>
-                    <td width=100 class="clr_blu">blue frame</td>
-                    <td width=160>background gray</td>
-                    <td width=250>do not enter the number directly</td>
-                    <td width=300>change with slider or spin button</td>
-                </tr>
-                <tr>
-                    <td width=100 class="clr_red">red frame</td>
-                    <td width=160>background gray</td>
-                    <td width=250>do not enter the number directly</td>
-                    <td width=300>change with slider or spin button</td>
-                </tr>
-                <tr>
-                    <td width=100 class="clr_grn">green frame</td>
-                    <td width=160>background sky blue</td>
-                    <td width=250>can enter numbers directly</td>
-                    <td width=300>can also use the arrow keys to change</td>
-                </tr>
-            </table>
+                <!-- スマホ時横スクロール許可 -->
+                <div class="table-container">
+                    <table class="fss top" border="0">
+                        <tr>
+                            <td width=100 class="clr_blu">blue frame</td>
+                            <td width=160>background gray</td>
+                            <td width=250>do not enter the number directly</td>
+                            <td width=300>change with slider or spin button</td>
+                        </tr>
+                        <tr>
+                            <td width=100 class="clr_red">red frame</td>
+                            <td width=160>background gray</td>
+                            <td width=250>do not enter the number directly</td>
+                            <td width=300>change with slider or spin button</td>
+                        </tr>
+                        <tr>
+                            <td width=100 class="clr_grn">green frame</td>
+                            <td width=160>background sky blue</td>
+                            <td width=250>can enter numbers directly</td>
+                            <td width=300>can also use the arrow keys to change</td>
+                        </tr>
+                    </table>
+                </div>
+                <p class="pb20">
+                </p>
                 <p class="pb10 pl20 fwb fss">
                     * Hereafter, the lens meter is abbreviated as LM, and the focusing glass as FG.
                 </p>
+                <p>
+                    <span class="image-container">
+                        <img src="image/SRTLM_img/doc_起動時の画面2_en.jpg" border="1"><br>
+                    </span>
+                </p>
                 <p class="pb20 contents-2col-left">
-                    <IMG src="image/SRTLM_img/doc_起動時の画面2_en.jpg" border="1"><br>
                     Fig. 1 Screen configuration
                 </p>
                 <p class="pb10 fwm">
                     Below is a list of features, color-coded by section in Fig. 1. <br>
                     Click on the underlined feature name to go to feature details.
                 </p>
-                 <table class="fwm top pb40 pl20" border="0">
-                    <tr>
-                        <td width=40>[&#8544;]</td>    <!--&#8544;-->
-                        <td colspan="2">Upper side of screen</td>
-                        <td width=100></td>
-                        <td width=100></td>
-                    </tr>
-                    <!-- 全般 -->
-                    <tr>
-                        <td width=40></td>
-                        <td width=100>(1)</td>
-                        <td width=100>General</td>
-                        <td width=200>Operate as functions of LM</td>
-                    </tr>
-                    <tr>
-                        <td width=40></td>
-                        <td width=100></td>
-                        <td width=100 class="fwb clr_red">#1</td>
-                        <td width=100><a href="#TG">Target Position</a></td>
-                        <td width=600>Function to move the target back and forth on the optical axis<br>
-                                      (equivalent to the LM's power measurement dial)</td>
-                    </tr>
-                    <tr>
-                        <td width=40></td>
-                        <td width=100></td>
-                        <td width=100 class="fwb clr_red">#2</td>
-                        <td width=100><a href="#Juji">Crosshair Rotation</a></td>
-                        <td width=600>Ability to rotate FG's crosshair<br></td>
-                    </tr>
-                    <!-- Lens Settings -->
-                    <tr>
-                        <td width=40></td>
-                        <td width=100>(2)</td>
-                        <td width=100>Lens Settings</td>
-                        <td width=200>Manual operation</td>
-                    </tr>
-                    <tr>
-                        <td width=40></td>
-                        <td width=100></td>
-                        <td width=100 class="fwb clr_blu">#1</td>
-                        <td width=100><a href="#Kaiten">Lens Rotation</a></td>
-                        <td width=600>Operations required to measure astigmatic lens</td>
-                    </tr>
-                    <tr>
-                        <td width=40></td>
-                        <td width=100></td>
-                        <td width=100 class="fwb clr_blu">#2</td>
-                        <td width=100><a href="#Iti">Lens Position</a></td>
-                        <td width=600>Vertical and horizontal movement of the lens<br>
-                                                    to position the corona image at the center of the FG</td>
-                    </tr>
-                    <tr>
-                        <td width=40></td>
-                        <td width=100></td>
-                        <td width=100 class="fwb clr_blu">#3</td>
-                        <td width=100><a href="#Keisha">Lens Tilt</a></td>
-                        <td width=600>LM does not have the function to display the tilt of the lens.<br>
-                                                    In SRTLM, It is intentionally provided because it can be expected to have a large effect as a simulation.</td>
-                    </tr>
-                    <!-- CheckBox -->
-                    <tr>
-                        <td width=40></td>
-                        <td width=100></td>
-                        <td width=100>CheckBox</td>
-                        <td width=200>Utility Functions</td>
-                    </tr>
-                    <tr>
-                        <td width=40></td>
-                        <td width=100></td>
-                        <td width=100 class="fwb clr_blu">#4</td>
-                        <td width=200>Tilt Following</td>
-                        <td width=600>Link the lens movement with the curve on the back of the lens. <br>
-                                                    Since the back surface of the lens is in contact with the lens holder of the LM,
-                                                    the tilt of the lens changes according to the curve of the back surface of the lens
-                                                    when the lens moves up, down, left, or right.
-                                                    Normally, when the lens is fixed after being moved, it tilts, so it is checked by default. </td>
-                    </tr>
-                    <tr>
-                        <td width=40></td>
-                        <td width=100></td>
-                        <td width=100 class="fwb clr_blu">#5</td>
-                        <td width=200>Crosshair Following</td>
-                        <td width=600>If checked, the movement of the lens will follow the crosshair at any angle (this is not possible with the actual LM). <br>
-                                                    This is a feature for future use and is not checked by default. </td>
-                    </tr>
-                    <tr>
-                        <td width=40></td>
-                        <td width=100></td>
-                        <td width=100 class="fwb clr_blu">#6</td>
-                        <td width=200>Reversal</td>
-                        <td width=600>Reverce the orientation of the lens. <br>
-                                                    It is possible to simulate the meniscus shape of spectacle lenses
-                                                    and how the center thickness of the lens affectted the orientation of the lens. </td>
-                    </tr>
-                    <!-- Lens Data -->
-                    <tr>
-                        <td width=40></td>
-                        <td width=100>(2)</td>
-                        <td width=100>Lens Data</td>
-                        <td width=200>Various data of the lens</td>
-                    </tr>
-                    <tr>
-                        <td width=40></td>
-                        <td width=100></td>
-                        <td width=100 class="fwb clr_grn">#1</td>
-                        <td width=100><a href="#S-C">spherical power</a></td>
-                        <td width=600>Enterable: See details</td>
-                    </tr>
-                    <tr>
-                        <td width=40></td>
-                        <td width=100></td>
-                        <td width=100 class="fwb clr_grn">#2</td>
-                        <td width=100><a href="#S-C">cylinder power</a></td>
-                        <td width=600>ditto</td>
-                    </tr>
-                    <tr>
-                        <td width=40></td>
-                        <td width=100></td>
-                        <td width=100 class="fwb clr_grn">#3</td>
-                        <td width=100><a href="#Ax">Cylindrical lens axis</a></td>
-                        <td width=600>ditto</td>
-                    </tr>
-                    <tr>
-                        <td width=40></td>
-                        <td width=100></td>
-                        <td width=100 class="fwb clr_grn">#4</td>
-                        <td width=100><a href="#n">refractive index</a></td>
-                        <td width=600>ditto</td>
-                    </tr>
-                    <tr>
-                        <td width=40></td>
-                        <td width=100></td>
-                        <td width=100 class="fwb clr_grn">#5</td>
-                        <td width=100><a href="#t">center thickness</a></td>
-                        <td width=600>ditto</td>
-                    </tr>
-                    <tr>
-                        <td width=40></td>
-                        <td width=100></td>
-                        <td width=100 class="fwb clr_grn">#6</td>
-                        <td width=100><a href="#curve">curve in front of lens</a></td>
-                        <td width=600>ditto</td>
-                    </tr>
-                    <tr>
-                        <td width=40></td>
-                        <td width=100></td>
-                        <td width=100 class="fwb clr_grn">#7</td>
-                        <td width=300>Radius of the front surface of the lens</td>
-                        <td width=600>Cannot be entered:<br>
-                                                    Calculation results based on lens data are displayed</td>
-                    </tr>
-                    <tr>
-                        <td width=40></td>
-                        <td width=100></td>
-                        <td width=100 class="fwb clr_grn">#8</td>
-                        <td width=300>Radius of the minor meridional direction<br>
-                                                    on the rear surface of the lens</td>
-                        <td width=600>ditto</td>
-                    </tr>
-                    <tr>
-                        <td width=40></td>
-                        <td width=100></td>
-                        <td width=100 class="fwb clr_grn">#9</td>
-                        <td width=300>Radius of the mojor meridional direction<br>
-                                                    on the rear surface of the lens</td>
-                        <td width=600>ditto</td>
-                    </tr>
-                    <tr>
-                        <td width=40></td>
-                        <td width=100></td>
-                        <td width=100 class="clr_grn">DATA IN</td>
-                        <td width=300><a href="#data_in">Loading saved lenses data</a></td>
-                    </tr>
-                    <tr>
-                        <td width=40></td>
-                        <td width=100></td>
-                        <td width=100 class="clr_grn">DATA OUT</td>
-                        <td width=300><a href="#data_out">Saving created lenses data</a></td>
-                    </tr>
-                    <!-- その他 -->
-                    <tr>
-                        <td width=40></td>
-                        <td width=100>(4)</td>
-                        <td width=100>Others: Buttons</td>
-                    </tr>
-                    <tr>
-                        <td width=40></td>
-                        <td width=100></td>
-                        <td width=200 class="clr_orng">RESET CURRENT DATA</td>
-                        <td colspan="2">Returns to the initial state of the lens set in [Lens Data]</td>
-                    </tr>
-                    <tr>
-                        <td width=40></td>
-                        <td width=100></td>
-                        <td width=200 class="clr_orng">RESET</td>
-                        <td width=300>Return when loaded with [Data In]</td>
-                    </tr>
-                    <tr>
-                        <td width=40></td>
-                        <td width=100></td>
-                        <td width=200 class="clr_orng">EXIT</td>
-                        <td width=300>Program exit</td>
-                    </tr>
-                    <tr>
-                        <td width=40></td>
-                        <td width=100></td>
-                        <td width=200 class="clr_cyn">1x</td>
-                        <td width=300><a href="#1x">1x: Magnification of corona image (default)</a></td>
-                    </tr>
-                    <tr>
-                        <td width=40></td>
-                        <td width=100></td>
-                        <td width=200 class="clr_cyn">2x</td>
-                        <td width=300><a href="#2x">2x: Magnification of corona image</a></td>
-                    </tr>
-                    <tr>
-                        <td width=40></td>
-                        <td width=100></td>
-                        <td width=200 class="clr_cyn">10x</td>
-                        <td width=300><a href="#10x">10x: Magnification of corona image</a></td>
-                    </tr>
-                        <td width=40></td>
-                        <td width=100></td>
-                        <td width=200 class="clr_cyn">AF(Check Box)</td>
-                        <td width=300>Simulation of lens settings when making glasses.<br>
-                                                    When unchecked, the lens position, target position, and lens rotation change randomly.</td>
-                    </tr>
-                    <tr>
-                        <td width=40>[&#8545;]</td>
-                        <td width=100>Lower side of screen</td>
-                        <td width=100></td>
-                        <td width=100></td>
-                        <td width=100></td>
-                    </tr>
-                    <!-- ピクチャーボックス -->
-                    <tr>
-                        <td width=40></td>
-                        <td width=100>(1)</td>
-                        <td width=100>Left Window</td>
-                        <td width=400>Ray Tracing</td>
-                    </tr>
-                    <tr>
-                        <td width=40></td>
-                        <td width=100>(2)</td>
-                        <td width=100>Right Window</td>
-                        <td width=400>Drawing of focusing glass(FG) and corona image</td>
-                    </tr>
-                </table>
+                <!-- スマホ時横スクロール許可 -->
+                <div class="table-container">
+                    <table class="fss" border="1">
+                        <tr>
+                            <td width=40>[&#8544;]</td>    <!--&#8544;-->
+                            <td colspan="2">Upper side of screen</td>
+                            <td width=100></td>
+                            <td width=100></td>
+                        </tr>
+                        <!-- 全般 -->
+                        <tr>
+                            <td width=40></td>
+                            <td width=100>(1)</td>
+                            <td width=100>General</td>
+                            <td width=200>Operate as functions of LM</td>
+                        </tr>
+                        <tr>
+                            <td width=40></td>
+                            <td width=100></td>
+                            <td width=100 class="fwb clr_red">#1</td>
+                            <td width=100><a href="#TG">Target Position</a></td>
+                            <td width=600>Function to move the target back and forth on the optical axis<br>
+                                          (equivalent to the LM's power measurement dial)</td>
+                        </tr>
+                        <tr>
+                            <td width=40></td>
+                            <td width=100></td>
+                            <td width=100 class="fwb clr_red">#2</td>
+                            <td width=100><a href="#Juji">Crosshair Rotation</a></td>
+                            <td width=600>Ability to rotate FG's crosshair<br></td>
+                        </tr>
+                        <!-- Lens Settings -->
+                        <tr>
+                            <td width=40></td>
+                            <td width=100>(2)</td>
+                            <td width=100>Lens Settings</td>
+                            <td width=200>Manual operation</td>
+                        </tr>
+                        <tr>
+                            <td width=40></td>
+                            <td width=100></td>
+                            <td width=100 class="fwb clr_blu">#1</td>
+                            <td width=100><a href="#Kaiten">Lens Rotation</a></td>
+                            <td width=600>Operations required to measure astigmatic lens</td>
+                        </tr>
+                        <tr>
+                            <td width=40></td>
+                            <td width=100></td>
+                            <td width=100 class="fwb clr_blu">#2</td>
+                            <td width=100><a href="#Iti">Lens Position</a></td>
+                            <td width=600>Vertical and horizontal movement of the lens<br>
+                                                        to position the corona image at the center of the FG</td>
+                        </tr>
+                        <tr>
+                            <td width=40></td>
+                            <td width=100></td>
+                            <td width=100 class="fwb clr_blu">#3</td>
+                            <td width=100><a href="#Keisha">Lens Tilt</a></td>
+                            <td width=600>LM does not have the function to display the tilt of the lens.<br>
+                                                        In SRTLM, It is intentionally provided because it can be expected to have a large effect as a simulation.</td>
+                        </tr>
+                        <!-- CheckBox -->
+                        <tr>
+                            <td width=40></td>
+                            <td width=100></td>
+                            <td width=100>CheckBox</td>
+                            <td width=200>Utility Functions</td>
+                        </tr>
+                        <tr>
+                            <td width=40></td>
+                            <td width=100></td>
+                            <td width=100 class="fwb clr_blu">#4</td>
+                            <td width=200>Tilt Following</td>
+                            <td width=600>Link the lens movement with the curve on the back of the lens. <br>
+                                                        Since the back surface of the lens is in contact with the lens holder of the LM,
+                                                        the tilt of the lens changes according to the curve of the back surface of the lens
+                                                        when the lens moves up, down, left, or right.
+                                                        Normally, when the lens is fixed after being moved, it tilts, so it is checked by default. </td>
+                        </tr>
+                        <tr>
+                            <td width=40></td>
+                            <td width=100></td>
+                            <td width=100 class="fwb clr_blu">#5</td>
+                            <td width=200>Crosshair Following</td>
+                            <td width=600>If checked, the movement of the lens will follow the crosshair at any angle (this is not possible with the actual LM). <br>
+                                                        This is a feature for future use and is not checked by default. </td>
+                        </tr>
+                        <tr>
+                            <td width=40></td>
+                            <td width=100></td>
+                            <td width=100 class="fwb clr_blu">#6</td>
+                            <td width=200>Reversal</td>
+                            <td width=600>Reverce the orientation of the lens. <br>
+                                                        It is possible to simulate the meniscus shape of spectacle lenses
+                                                        and how the center thickness of the lens affectted the orientation of the lens. </td>
+                        </tr>
+                        <!-- Lens Data -->
+                        <tr>
+                            <td width=40></td>
+                            <td width=100>(2)</td>
+                            <td width=100>Lens Data</td>
+                            <td width=200>Various data of the lens</td>
+                        </tr>
+                        <tr>
+                            <td width=40></td>
+                            <td width=100></td>
+                            <td width=100 class="fwb clr_grn">#1</td>
+                            <td width=100><a href="#S-C">spherical power</a></td>
+                            <td width=600>Enterable: See details</td>
+                        </tr>
+                        <tr>
+                            <td width=40></td>
+                            <td width=100></td>
+                            <td width=100 class="fwb clr_grn">#2</td>
+                            <td width=100><a href="#S-C">cylinder power</a></td>
+                            <td width=600>ditto</td>
+                        </tr>
+                        <tr>
+                            <td width=40></td>
+                            <td width=100></td>
+                            <td width=100 class="fwb clr_grn">#3</td>
+                            <td width=100><a href="#Ax">Cylindrical lens axis</a></td>
+                            <td width=600>ditto</td>
+                        </tr>
+                        <tr>
+                            <td width=40></td>
+                            <td width=100></td>
+                            <td width=100 class="fwb clr_grn">#4</td>
+                            <td width=100><a href="#n">refractive index</a></td>
+                            <td width=600>ditto</td>
+                        </tr>
+                        <tr>
+                            <td width=40></td>
+                            <td width=100></td>
+                            <td width=100 class="fwb clr_grn">#5</td>
+                            <td width=100><a href="#t">center thickness</a></td>
+                            <td width=600>ditto</td>
+                        </tr>
+                        <tr>
+                            <td width=40></td>
+                            <td width=100></td>
+                            <td width=100 class="fwb clr_grn">#6</td>
+                            <td width=100><a href="#curve">curve in front of lens</a></td>
+                            <td width=600>ditto</td>
+                        </tr>
+                        <tr>
+                            <td width=40></td>
+                            <td width=100></td>
+                            <td width=100 class="fwb clr_grn">#7</td>
+                            <td width=300>Radius of the front surface of the lens</td>
+                            <td width=600>Cannot be entered:<br>
+                                                        Calculation results based on lens data are displayed</td>
+                        </tr>
+                        <tr>
+                            <td width=40></td>
+                            <td width=100></td>
+                            <td width=100 class="fwb clr_grn">#8</td>
+                            <td width=300>Radius of the minor meridional direction<br>
+                                                        on the rear surface of the lens</td>
+                            <td width=600>ditto</td>
+                        </tr>
+                        <tr>
+                            <td width=40></td>
+                            <td width=100></td>
+                            <td width=100 class="fwb clr_grn">#9</td>
+                            <td width=300>Radius of the mojor meridional direction<br>
+                                                        on the rear surface of the lens</td>
+                            <td width=600>ditto</td>
+                        </tr>
+                        <tr>
+                            <td width=40></td>
+                            <td width=100></td>
+                            <td width=100 class="clr_grn">DATA IN</td>
+                            <td width=300><a href="#data_in">Loading saved lenses data</a></td>
+                        </tr>
+                        <tr>
+                            <td width=40></td>
+                            <td width=100></td>
+                            <td width=100 class="clr_grn">DATA OUT</td>
+                            <td width=300><a href="#data_out">Saving created lenses data</a></td>
+                        </tr>
+                        <!-- その他 -->
+                        <tr>
+                            <td width=40></td>
+                            <td width=100>(4)</td>
+                            <td width=100>Others: Buttons</td>
+                        </tr>
+                        <tr>
+                            <td width=40></td>
+                            <td width=100></td>
+                            <td width=200 class="clr_orng">RESET CURRENT DATA</td>
+                            <td colspan="2">Returns to the initial state of the lens set in [Lens Data]</td>
+                        </tr>
+                        <tr>
+                            <td width=40></td>
+                            <td width=100></td>
+                            <td width=200 class="clr_orng">RESET</td>
+                            <td width=300>Return when loaded with [Data In]</td>
+                        </tr>
+                        <tr>
+                            <td width=40></td>
+                            <td width=100></td>
+                            <td width=200 class="clr_orng">EXIT</td>
+                            <td width=300>Program exit</td>
+                        </tr>
+                        <tr>
+                            <td width=40></td>
+                            <td width=100></td>
+                            <td width=200 class="clr_cyn">1x</td>
+                            <td width=300><a href="#1x">1x: Magnification of corona image (default)</a></td>
+                        </tr>
+                        <tr>
+                            <td width=40></td>
+                            <td width=100></td>
+                            <td width=200 class="clr_cyn">2x</td>
+                            <td width=300><a href="#2x">2x: Magnification of corona image</a></td>
+                        </tr>
+                        <tr>
+                            <td width=40></td>
+                            <td width=100></td>
+                            <td width=200 class="clr_cyn">10x</td>
+                            <td width=300><a href="#10x">10x: Magnification of corona image</a></td>
+                        </tr>
+                            <td width=40></td>
+                            <td width=100></td>
+                            <td width=200 class="clr_cyn">AF(Check Box)</td>
+                            <td width=300>Simulation of lens settings when making glasses.<br>
+                                                        When unchecked, the lens position, target position, and lens rotation change randomly.</td>
+                        </tr>
+                        <tr>
+                            <td width=40>[&#8545;]</td>
+                            <td width=100>Lower side of screen</td>
+                            <td width=100></td>
+                            <td width=100></td>
+                            <td width=100></td>
+                        </tr>
+                        <!-- ピクチャーボックス -->
+                        <tr>
+                            <td width=40></td>
+                            <td width=100>(1)</td>
+                            <td width=100>Left Window</td>
+                            <td width=400>Ray Tracing</td>
+                        </tr>
+                        <tr>
+                            <td width=40></td>
+                            <td width=100>(2)</td>
+                            <td width=100>Right Window</td>
+                            <td width=400>Drawing of focusing glass(FG) and corona image</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
 
             <div class="pic-left1024 fwb pb40">
@@ -613,7 +654,9 @@
                 </div>
                 <div class="c-both"></div>
                 <div>
-                    <IMG src="image/SRTLM_img/en_doc_1-1-1_target_pos.jpg" border="0">
+                    <span class="image-container">
+                        <img src="image/SRTLM_img/en_doc_1-1-1_target_pos.jpg" border="0">
+                    </span>
                 </div>
             </div>
 
@@ -630,7 +673,9 @@
                 </div>
                 <div class="c-both"></div>
                 <div>
-                    <IMG src="image/SRTLM_img/en_doc_1-1-2_crosshair.jpg" border="0">
+                    <span class="image-container">
+                        <img src="image/SRTLM_img/en_doc_1-1-2_crosshair.jpg" border="0">
+                    </span>
                 </div>
             </div>
 
@@ -647,7 +692,9 @@
                 </div>
                 <div class="c-both"></div>
                 <div>
-                    <IMG src="image/SRTLM_img/en_doc_1-2-1_lens_rotation.jpg" border="0">
+                    <span class="image-container">
+                        <img src="image/SRTLM_img/en_doc_1-2-1_lens_rotation.jpg" border="0">
+                    </span>
                 </div>
             </div>
 
@@ -664,7 +711,9 @@
                 </div>
                 <div class="c-both"></div>
                 <div>
-                    <IMG src="image/SRTLM_img/en_doc_1-2-2_lens_pos.jpg" border="0">
+                    <span class="image-container">
+                        <img src="image/SRTLM_img/en_doc_1-2-2_lens_pos.jpg" border="0">
+                    </span>
                 </div>
             </div>
             <div class="fss fwb pb50 pl30">
@@ -693,7 +742,9 @@
                         so the spin button is not necessary, but it is purposely provided for SRTM simulation purposes.
                     </p>
                     <p>
-                        <IMG src="image/SRTLM_img/en_doc_1-2-3_lens_tilt.jpg" border="0">
+                    <span class="image-container">
+                        <img src="image/SRTLM_img/en_doc_1-2-3_lens_tilt.jpg" border="0">
+                    </span>
                     </p>
                 </div>
             </div>
@@ -736,7 +787,9 @@
                     The ray tracing window also changes in real time.
                 </div>
                 <div>
-                    <IMG src="image/SRTLM_img/en_doc_1-3_Lens_Settings_S_C.jpg" border="0">
+                    <span class="image-container">
+                        <img src="image/SRTLM_img/en_doc_1-3_Lens_Settings_S_C.jpg" border="0">
+                    </span>
                 </div>
             </div>
 
@@ -758,7 +811,9 @@
                     Also, the position of the lens rotation slider in the Lens Settings section changes.
                 </div>
                 <div>
-                    <IMG src="image/SRTLM_img/en_doc_1-3_Lens_Settings_Ax.jpg" border="0">
+                    <span class="image-container">
+                        <img src="image/SRTLM_img/en_doc_1-3_Lens_Settings_Ax.jpg" border="0">
+                    </span>
                 </div>
             </div>
 
@@ -779,7 +834,9 @@
                     The ray tracing window changes in real time as the refractive index changed.
                 </div>
                 <div>
-                    <IMG src="image/SRTLM_img/en_doc_1-3_Lens_Settings_index.jpg" border="0">
+                    <span class="image-container">
+                        <img src="image/SRTLM_img/en_doc_1-3_Lens_Settings_index.jpg" border="0">
+                    </span>
                 </div>
             </div>
             <div class="fss fwb pb50 pl30">
@@ -811,7 +868,9 @@
                     Please simulate with SRTL how to reduce the thickness of the (+) lens when making eyeglasses.
                 </div>
                 <div>
-                    <IMG src="image/SRTLM_img/en_doc_1-3_Lens_Settings_thickness.jpg" border="0">
+                    <span class="image-container">
+                        <img src="image/SRTLM_img/en_doc_1-3_Lens_Settings_thickness.jpg" border="0">
+                    </span>
                 </div>
             </div>
 
@@ -834,7 +893,9 @@
                     In the case of spectacle lenses, I think that 5 curves were common in the past, but I think that 3 to 4 curves are more common these days. It seems that the frame that incorporates the lens is also designed according to these curves.
                 </div>
                 <div>
-                    <IMG src="image/SRTLM_img/en_doc_1-3_Lens_Settings_curve.jpg" border="0">
+                    <span class="image-container">
+                        <img src="image/SRTLM_img/en_doc_1-3_Lens_Settings_curve.jpg" border="0">
+                    </span>
                 </div>
             </div>
             <div class="fss fwb pl30 pb40">
@@ -848,7 +909,7 @@
 
             <div class="pic-left1024 fwb pb40">
                 <div class="contents-title-left pb20">
-                    <p id="data_in"">
+                    <p id="data_in">
                         [DATA IN] Loading saved lens data
                     </p>
                 </div>
@@ -859,7 +920,9 @@
                 </div>
                 <div class="c-both"></div>
                 <div class="contents-2col-left">
-                    <IMG src="image/SRTLM_img/en_doc_1-3_Data_In.jpg" border="0">
+                    <span class="image-container">
+                        <img src="image/SRTLM_img/en_doc_1-3_Data_In.jpg" border="0">
+                    </span>
                 </div>
             </div>
 
@@ -876,7 +939,9 @@
                 </div>
                 <div class="c-both"></div>
                 <div class="contents-2col-left">
-                    <IMG src="image/SRTLM_img/en_doc_1-3_Data_Out.jpg" border="0">
+                    <span class="image-container">
+                        <img src="image/SRTLM_img/en_doc_1-3_Data_Out.jpg" border="0">
+                    </span>
                 </div>
             </div>
             <div class="fss fwb pb40 pl30">
@@ -905,7 +970,9 @@
                 </div>
                 <div class="c-both"></div>
                 <div>
-                    <IMG src="image/SRTLM_img/en_doc_1-4_x1.jpg" border="0">
+                    <span class="image-container">
+                        <img src="image/SRTLM_img/en_doc_1-4_x1.jpg" border="0">
+                    </span>
                 </div>
             </div>
 
@@ -922,7 +989,9 @@
                 </div>
                 <div class="c-both"></div>
                 <div>
-                    <IMG src="image/SRTLM_img/en_doc_1-4_x2.jpg" border="0">
+                    <span class="image-container">
+                        <img src="image/SRTLM_img/en_doc_1-4_x2.jpg" border="0">
+                    </span>
                 </div>
             </div>
 
@@ -939,7 +1008,9 @@
                 </div>
                 <div class="c-both"></div>
                 <div>
-                    <IMG src="image/SRTLM_img/en_doc_1-4_x10.jpg" border="0">
+                    <span class="image-container">
+                        <img src="image/SRTLM_img/en_doc_1-4_x10.jpg" border="0">
+                    </span>
                 </div>
             </div>
 
@@ -963,7 +1034,9 @@
                         When unchecked, the lens position, target position, and lens rotation change randomly.
                     </p>
                     <p>
-                        <IMG src="image/SRTLM_img/en_doc_1-4_AF.jpg" border="0">
+                    <span class="image-container">
+                        <img src="image/SRTLM_img/en_doc_1-4_AF.jpg" border="0">
+                    </span>
                     </p>
                 </div>
             </div>
@@ -975,17 +1048,19 @@
 
         <hr id="footer"> <!-- horizontal partition -->
 
-        <div class="jQ_change center" > <!-- select button whole: start -->
+        <p id="page-top"><a href="#">TOP</a></p>
+
+        <div class="jQ_change center"> <!-- select button whole: start -->
             <p id="footer"> <!-- select button: start -->
                 <a href="etc_SRTLM_En.html">
-                    <IMG src="image/button/back_off.gif" border="0" alt="Back" >
+                    <img src="image/button/back_off.gif" border="0" alt="Back">
                 </a>
             </p> <!-- select button: end -->
         </div> <!-- select button whole: end -->
 
-        <div id="footer_label">
+        <div class="footer_labelPC">
             copyright &copy; 2003 -
-            <script type="text/javascript" language="JavaScript">
+            <script>
                 date = new Date();
                 document.write(date.getFullYear() + ' ');
             </script>
@@ -996,6 +1071,5 @@
 
     </footer>
 
-</div>
-</BODY>
+</body>
 </html>

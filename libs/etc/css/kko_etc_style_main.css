@@ -1,0 +1,298 @@
+body {
+  outline: 2px dashed red;
+  overflow-x: auto;
+}
+
+/* 画面の余白を取り払う */
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+/*============
+ *** body ***
+============*/
+
+body#common-k {
+    background-image: url(../../../image/back/back_kko.gif);
+    background-color:#FFFFFF;
+    color: navy;
+    font-size:100%; font-family:-apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI","Noto Sans Japanese","ヒラギノ角ゴ ProN W3", Meiryo, sans-serif;
+}
+
+body#common-k_920 {
+    background-image: url(../../../image/back/back_kko.gif);
+    background-color:#FFFFFF;
+    color: navy;
+    font-size:100%; font-family:-apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI","Noto Sans Japanese","ヒラギノ角ゴ ProN W3", Meiryo, sans-serif;
+}
+body#common-k_960 {
+    background-image: url(../../../image/back/back_kko.gif);
+    background-color:#FFFFFF;
+    color: navy;
+    font-size:100%; font-family:-apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI","Noto Sans Japanese","ヒラギノ角ゴ ProN W3", Meiryo, sans-serif;
+}
+
+body#common-k_800 {
+    background-image: url(../../../image/back/back_kko.gif);
+    background-color:#FFFFFF;
+    color: navy;
+    font-size:100%; font-family:-apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI","Noto Sans Japanese","ヒラギノ角ゴ ProN W3", Meiryo, sans-serif;
+}
+
+body#common-k_480 {
+    background-image: url(../../../image/back/back_kko.gif);
+    background-color:#FFFFFF;
+    color: navy;
+    font-size:100%; font-family:-apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI","Noto Sans Japanese","ヒラギノ角ゴ ProN W3", Meiryo, sans-serif;
+}
+body#common-k_420 {
+    background-image: url(../../../image/back/back_kko.gif);
+    background-color:#FFFFFF;
+    color: navy;
+    font-size:115%; font-family:-apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI","Noto Sans Japanese","ヒラギノ角ゴ ProN W3", Meiryo, sans-serif;
+}
+body#common-k_400 {
+    background-image: url(../../../image/back/back_kko.gif);
+    background-color:#FFFFFF;
+    color: navy;
+    font-size:115%; font-family:-apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI","Noto Sans Japanese","ヒラギノ角ゴ ProN W3", Meiryo, sans-serif;
+}
+
+body#common-k_g { /* green version */
+    background-image: url(../../../image/back/back_kko_g.gif);
+    background-color:#FFFFFF;
+    color: navy;
+    font-size:95%; font-family:-apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI","Noto Sans Japanese","ヒラギノ角ゴ ProN W3", Meiryo, sans-serif;
+}
+body#common-k_lavender {/* lavender version */
+    background-image: url(../../../image/back/back_kko_lavender.gif);
+    background-color:#FFFFFF;
+    color: navy;
+    font-size:95%; font-family:-apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI","Noto Sans Japanese","ヒラギノ角ゴ ProN W3", Meiryo, sans-serif;
+}
+body#common-s {
+    background-image: url(../../../image/back/back_ss.gif);
+    background-color:#FFFFFF;
+    color: navy;
+    font-size:95%; font-family:-apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI","Noto Sans Japanese","ヒラギノ角ゴ ProN W3", Meiryo, sans-serif;
+}
+body#common-p {
+    background-image: url(../../../image/back/back_pp.gif);
+    background-color:#FFFFFF;
+    color: navy;
+    font-size:95%; font-family:-apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI","Noto Sans Japanese","ヒラギノ角ゴ ProN W3", Meiryo, sans-serif;
+}
+
+/*--------------------
+ ** 全体サイズ指定 **
+--------------------*/
+div#main     {                margin-left: auto;  margin-right: auto; text-align: center; border: 0px solid #FF9900;}
+div#main480  { width: 480px;  margin-left: auto;  margin-right: auto; text-align: center; border: 0px solid #009900;}
+div#main720  { width: 720px;  margin-left: auto;  margin-right: auto; text-align: center; border: 0px solid #009900;}
+div#main760  { width: 760px;  margin-left: auto;  margin-right: auto; text-align: center; border: 0px solid #FF9900;}
+div#main800  { width: 800px;  margin-left: auto;  margin-right: auto; text-align: center; border: 0px solid #FF9900;}
+div#main880  { width: 880px;  margin-left: auto;  margin-right: auto; text-align: center; border: 0px solid #FF9900;}
+div#main920  { width: 920px;  margin-left: auto;  margin-right: auto; text-align: center; border: 0px solid #FF9900;}
+div#main960  { width: 960px;  margin-left: auto;  margin-right: auto; text-align: center; border: 0px solid #FF9900;}
+div#main990  { width: 990px;  margin-left: auto;  margin-right: auto; text-align: center; border: 0px solid #FF9900;}
+div#main1024 { width: 1024px; margin-left: auto;  margin-right: auto; text-align: center; border: 0px solid #FF9900;}
+div#main1280 { width: 1280px; margin-left: auto;  margin-right: auto; text-align: center; border: 0px solid #FF9900;}
+
+div#main480new  {
+    max-width: 480px;
+    margin: auto;
+    padding-left: 10px; padding-right: 10px;
+    text-align: center;
+    border: 0px solid #FF9900;
+    box-sizing: border-box;
+}
+div#main420  {
+    max-width: 420px;
+    margin: auto;
+    padding-left: 10px; padding-right: 10px;
+    text-align: center;
+    border: 0px solid #FF9900;
+    box-sizing: border-box;
+}
+div#main400  {
+    max-width: 400px;
+    margin: auto;
+    padding-left: 10px; padding-right: 10px;
+    text-align: center;
+    border: 0px solid #FF9900;
+    box-sizing: border-box;
+}
+.c_main920  { width: 920px;  margin-left: auto;  margin-right: auto; text-align: center; border: 0px solid #FF9900;}
+.c_main960  { width: 960px;  margin-left: auto;  margin-right: auto; text-align: center; border: 0px solid #FF9900;}
+.c_main420  { max-width: 100%; text-align: center; border: 0px solid #FF9900;}
+.c_main400  { max-width: 100%; text-align: center; border: 0px solid #FF9900;}
+
+/* horizontal partition */
+hr.main {   width: 70%; height: 2px; border:none; background-color: #aaa; margin: 0px auto  0px auto;}
+hr.main720 {width: 70%; height: 2px; border:none; background-color: #aaa; margin: 0px auto  0px auto;}
+hr.main800 {width: 70%; height: 2px; border:none; background-color: #aaa; margin: 0px auto  0px auto;}
+hr.main990 {width: 70%; height: 2px; border:none; background-color: #aaa; margin: 0px auto 20px auto;}
+
+/*    picture と その下にテキスト(自由な位置に配置したい)を含むボックスの配置 */
+.pic-center320 {width:  320px; text-align:center; margin-left:auto; margin-right:auto; } /* Takeoff !? ... wow */
+.pic-left480   {width:  480px; text-align:left;                     margin-right:auto; } /* MM_Ayutthaya */
+.pic-center480 {width:  480px; text-align:center; margin-left:auto; margin-right:auto; }
+.pic-right480  {width:  480px; text-align:right;  margin-left:auto;                    } /* 4S_TAKEOKA */
+.pic-left640   {width:  640px; text-align:left;                     margin-right:auto; } /* 多くのページで使用 */
+.pic-center640 {width:  640px; text-align:center; margin-left:auto; margin-right:auto; } /* 多くのページで使用 */
+.pic-right640  {width:  640px; text-align:right;  margin-left:auto;                    } /* 多くのページで使用 */
+.pic-left720   {width:  720px; text-align:left;                     margin-right:auto; } /* 4S Bakersfield, mokuren */
+.pic-center720 {width:  720px; text-align:center; margin-left:auto; margin-right:auto; } /* 多くのページで使用 */
+.pic-right720  {width:  720px; text-align:right;  margin-left:auto;                    } /* 4S mokuren, SC Tuamotu A Rangiroa */
+.pic-left760   {width:  760px; text-align:left;                     margin-right:auto; } /* 多くのページで使用 */
+.pic-center760 {width:  760px; text-align:center; margin-left:auto; margin-right:auto; }
+.pic-right760  {width:  760px; text-align:right;  margin-left:auto;                    }
+.pic-left800   {width:  800px; text-align:left;                     margin-right:auto; } /* 多くのページで使用 */
+.pic-center800 {width:  800px; text-align:center; margin-left:auto; margin-right:auto; } /* 多くのページで使用 */
+.pic-right800  {width:  800px; text-align:right;  margin-left:auto;                    } /* 多くのページで使用 */
+.pic-left840   {width:  840px; text-align:left;                     margin-right:auto; } /* 多くのページで使用 */
+.pic-center840 {width:  840px; text-align:center; margin-left:auto; margin-right:auto; } /* SC Tuamotu Top */
+.pic-right840  {width:  840px; text-align:right;  margin-left:auto;                    }
+.pic-left880   {width:  880px; text-align:left;                     margin-right:auto; } /* 多くのページで使用 */
+.pic-center880 {width:  880px; text-align:center; margin-left:auto; margin-right:auto; } /* 多くのページで使用 */
+.pic-right880  {width:  880px; text-align:right;  margin-left:auto;                    } /* SC Tuamotu E Amanu */
+.pic-left920   {width:  920px; text-align:left;                     margin-right:auto; } /* 多くのページで使用 */
+.pic-center920 {width:  920px; text-align:center; margin-left:auto; margin-right:auto; } /* 4S Urashima, SC Tuamotu A Arutua */
+.pic-right920  {width:  920px; text-align:right;  margin-left:auto;                    }
+.pic-left960   {width:  960px; text-align:left;                     margin-right:auto; } /* 多くのページで使用 */
+
+.pic-center960 {width:  960px; text-align:center; margin-left:auto; margin-right:auto; } /* 4S Benishijimi */
+.pic-right960  {width:  960px; text-align:right;  margin-left:auto;                    }
+.pic-left990   {width:  990px; text-align:left;                     margin-right:auto; } /* 多くのページで使用 */
+.pic-center990 {width:  990px; text-align:center; margin-left:auto; margin-right:auto; } /* 4S mokuren */
+.pic-right990  {width:  990px; text-align:right;  margin-left:auto;                    }
+.pic-left1024  {width: 1024px; text-align:left;                     margin-right:auto; }
+.pic-center1024{width: 1024px; text-align:center; margin-left:auto; margin-right:auto; } /* 4S Benishijimi */
+.pic-right1024 {width: 1024px; text-align:right;  margin-left:auto;                    }
+
+
+.pic-left480new {max-width: 100%; text-align:left;                     margin-right:auto; }
+.pic-left420    {max-width: 100%; text-align:left;                     margin-right:auto; }
+.pic-left400    {max-width: 100%; text-align:left;                     margin-right:auto; }
+
+/*==============
+ *** header ***
+==============*/
+
+.header_labelPC {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background-color: #f0f0f0;
+    border: 0px solid #FF9900;
+}
+.header_label960   {
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background-color: #f0f0f0;
+    border: 0px solid #FF9900;
+}
+.header_label920   {
+    width: 920px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background-color: #f0f0f0;
+    border: 0px solid #FF9900;
+}
+.header_label800   {
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background-color: #f0f0f0;
+    border: 0px solid #FF9900;
+}
+.header_label480   {
+    max-width: 100%;
+    text-align: center;
+    background-color: #f0f0f0;
+    border: 0px solid #FF9900;
+}
+.header_label420   {
+    max-width: 100%;
+    text-align: center;
+    background-color: #f0f0f0;
+    border: 0px solid #FF9900;
+}
+.header_label400   {
+    max-width: 100%;
+    text-align: center;
+    background-color: #f0f0f0;
+    border: 0px solid #FF9900;
+}
+
+/* メニュー本体のスタイル */
+#menu-call {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 14px;
+  line-height: 1;
+  z-index: 99;
+}
+#menu-call a {
+  background: #929292;
+  text-decoration: none;
+  color: #fff;
+  width: 60px;
+  padding: 8px 5px;
+  text-align: center;
+  display: block;
+  border-radius: 4px;
+}
+#menu-call a:hover {
+  text-decoration: none;
+  opacity: .5;
+}
+
+/* 新たに追加 */
+#popup-menu {
+  position: fixed;
+  top: 60px; /* MENUボタンのすぐ下 */
+  right: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  z-index: 98;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  width: 180px;
+}
+
+/* 非表示にするためのクラス */
+.hidden {
+  display: none;
+}
+
+/* メニュー項目のスタイル */
+#popup-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#popup-menu li a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+}
+#popup-menu li a:hover {
+  background-color: #eee;
+}
+
+.menu-title {
+  text-align: center;
+  padding: 8px 0 4px;
+  border-bottom: 1px solid #ccc;
+}
+.menu-title img.logo_img {
+  vertical-align: middle;
+}

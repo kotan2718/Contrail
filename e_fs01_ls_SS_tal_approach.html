@@ -1,99 +1,115 @@
-<!DOCTYPE HTML >
-<html>
+<!DOCTYPE html >
+<html lang="en">
 
-<HEAD>
-    <META charset="UTF-8">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="This page shows passenger planes approaching at Haneda Airport.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Contrail SnapShots : Sky in the Sky :: Take off / [Approach] / Landing</title>
 
     <!-- favicon-->
-    <link rel="shortcut icon" href="favicon.ico">
-
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="icon" href="favicon.ico">
 
     <!-- css start -->
+        <!-- kko_etc - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
+        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
 
-        <!-- kko_etc start - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
-        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css" type="text/css">
-        <!-- kko_etc end -->
+        <!-- Fancybox CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css">
 
-        <style type="text/css">
-            <!--
+        <style>
+            /* Optional: Limit image size on small screens */
+            @media (max-width: 768px) {
+                .fancybox_image {
+                    max-width: 256px;
+                }
+                .fancybox_image2 {
+                    max-width: 300px;
+                }
+            }
+
             span {color: #9999bb;}
-            -->
         </style>
-
-        <!-- prettyPhoto start -->
-        <link href="libs/jQuery/prettyPhoto/css/prettyPhoto315_mod.css" media="all" rel="stylesheet" type="text/css">
-        <!-- prettyPhoto end -->
-
     <!-- css end -->
 
     <!-- js start -->
-
         <!-- jQuery start -->
-        <script src="libs/jQuery/js/jquery-1.6.1.min.js" type="text/javascript"></script>
-
-            <!-- kko_style start - img jq_blink, img jq_change -->
-            <script src="libs/jQuery/kko/js/jq_kko_preload.js" type="text/javascript"></script>
-            <script src="libs/jQuery/kko/js/jq_kko_style.js" type="text/javascript"></script>
-            <!-- kko_style end -->
-
-            <!-- prettyPhoto start -->
-            <script src="libs/jQuery/prettyPhoto/js/jquery.prettyPhoto_315_mod.js" type="text/javascript"></script>
-            <script type="text/javascript">
-                $(document).ready(function(){
-                    $("a[rel^='prettyPhoto']").prettyPhoto();
-                });
-            </script>
-            <!-- prettyPhoto end -->
-
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <!-- kko_style - img jq_blink, img jq_change -->
+            <script src="libs/jQuery/kko/js/jq_kko_style.js"></script>
         <!-- jQuery end -->
 
-        <!-- Sandbox DropDownMenu start -->
-        <script src="libs/sandbox/js/script.js" type="text/javascript"></script>
-        <!-- Sandbox DropDownMenu end -->
+        <!-- Fancybox JS -->
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
 
+        <!-- Sandbox DropDownMenu -->
+        <script src="libs/sandbox/js/script.js"></script>
     <!-- js end -->
 
-</HEAD>
+</head>
 
-<BODY id="common-k" >
-
-<!-- Pre Loading -->
-<!-- without loading picture -->
-<div id="loader"></div>
-<div id="fade"></div>
-<div id="preload"> <!-- Pre Loading start -->
+<body id="common-k">
 
     <header>
-        <a name="page_top"></a>
-        <div class="center jQ_change navbox" >
-            <nav>
-                <IMG src="image/top/Contrail_g.png" height="20" class="logo_img">
-                <ul class="menu" id="menu" >
-                    <li><a href="index.html" class="menulink">Home</a></li>
-                    <li><a href="e_whatnew.html" class="menulink">What's New</a></li>
-                    <li><a href="en_etc.html" class="menulink">E.T.C.</a></li>
-                    <li><a href="e_fs01.html" class="menulink">The Scenery</a>
-                        <ul>
-                            <li><a href="e_fs01_sc_top.html" class="sub">Screen Shots</a></li>
-                            <li><a href="e_fs01_ls_top.html" class="sub">Snap Shots</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="e_link01.html" class="menulink">Links</a></li>
-                    <li class="about"><a href="e_fs01_about.html" class="menulink">about Contrail</a></li>
-                </ul>
-            </nav>
-            <div class="c-both"></div>
+        <div class="prettyP_PC">
+            <a name="page_top"></a>
+            <div class="center jQ_change navbox" >
+                <nav>
+                    <img src="image/top/cr32_e.png" height="20" class="logo_img">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_img">
+                    <ul class="menu" id="menu" >
+                        <li><a href="index.html" class="menulink">Home</a></li>
+                        <li><a href="whatnew.html" class="menulink">What's New</a></li>
+                        <li><a href="etc.html" class="menulink">E.T.C.</a></li>
+                        <li><a href="fs01.html" class="menulink">The Scenery</a>
+                            <ul>
+                                <li><a href="fs01_sc_top.html" class="sub">Screen Shots</a></li>
+                                <li><a href="fs01_ls_top.html" class="sub">Snap Shots</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="link01.html" class="menulink">Links</a></li>
+                        <li class="about"><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                    </ul>
+                </nav>
+                <div class="c-both"></div>
+            </div>
+            <!-- Sandbox DropDownMenu start-->
+            <script>
+                var menu=new menu.dd("menu");
+                menu.init("menu","menuhover");
+            </script>
+            <!-- Sandbox DropDownMenu end -->
         </div>
-        <!-- Sandbox DropDownMenu start-->
-        <script type="text/javascript">
-            var menu=new menu.dd("menu");
-            menu.init("menu","menuhover");
-        </script>    <!-- Sandbox DropDownMenu end -->
+        <div class="prettyP_SP">
+            <a name="MENU"></a>
+            <p id="menu-call">
+                <a href="#">MENU</a>
+            </p>
+
+            <a name="page_top"></a>
+
+            <!-- page top icon & logo -->
+            <div id="header_SP" class="header_labelSP">
+                <div class="pb4"></div>
+                <img src="image/top/cr48f_32.png">
+                <img class="pb3" src="image/top/Contrail_g.png" height="24">
+            </div>
+
+            <div id="popup-menu" class="hidden">
+                <div class="menu-title">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_image" alt="CONTRAIL">
+                </div>
+                <ul>
+                    <li><a href="index.html" class="menulink">Home</a></li>
+                    <li><a href="whatnew.html" class="menulink">What's New</a></li>
+                    <li><a href="etc.html" class="menulink">E.T.C.</a></li>
+                    <li><a href="fs01.html" class="menulink">The Scenery</a></li>
+                    <li><a href="link01.html" class="menulink">Links</a></li>
+                    <li><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                </ul>
+            </div>
+        </div>
     </header>
 
     <div id="main800"> <!-- page main: start -->
@@ -101,74 +117,108 @@
         <!-- title -->
         <div id="title30">
             <p id="head10">
-                <IMG src="image/fs/kko_logo.gif" border="0" alt="Contrail Snap Shots Special Gallery">
+                <img src="image/fs/kko_logo.gif" border="0" alt="Contrail Snap Shots Special Gallery">
             </p>
-            <h2 id="group-SS" >
+            <h2 id="group-SS">
                 Sky in the Sky
             </h2>
-            <h1 id="main_fs" >
+            <h1 id="main_fs">
                 <span>Take off</span> / Approach / <span>Landing</span>
             </h1>
-            <p id="author" >
+            <p id="author">
                 photo kotan
             </p>
         </div>
 
+        <!-- for Java Script off -->
+        <noscript>
+            <div id="attention">
+                <p>Sorry, you need to activate JavaScript in your browser.</p>
+            </div>
+        </noscript>
+
         <!-- contents -->
         <div class="center pb40">
             <p class="jQ_blink change_border_color pb5">
-                 <a href="e_fs01_ls_SS_tal_approach_slide_show.html" >
-                    <IMG src="image/fs/kko/source/TAL/P1030276mod3a_640.jpg" width="384" alt="Approach Slide Show">
+                 <a href="e_fs01_ls_SS_tal_approach_slide_show.html">
+                    <img class="fancybox_image" src="image/fs/kko/source/TAL/P1030276mod3a_640.jpg" width="384" alt="Approach Slide Show">
                 </a>
             </p>
-            <p class="fss fwb">
-                 <a href="e_fs01_ls_SS_tal_approach_slide_show.html" >
-                    Approach Shots to Haneda 16L = Photo Movie =
+            <p class="fss">
+                 <a href="fs01_ls_SS_tal_approach_slide_show.html">
+                    <div class="prettyP_PC">
+                        Approach Shots to Haneda 16L = Photo Movie =
+                    </div>
+                    <div class="prettyP_SP fss">
+                        Approach Shots to Haneda 16L = Photo Movie =
+                    </div>
                 </a>
             </p>
         </div>
 
         <div class="center pb40">
-            <p class="jQ_blink change_border_color pb5">
-                <a href="image/fs/kko/source/TAL/approach_05101_16L.jpg"rel="prettyPhoto"
-                    title="Approach Haneda 16L (overlapped images)" target="_blank" >
-                    <IMG src="image/fs/kko/source/TAL/approach_05101_16L.jpg" width="600" alt="16L Approach">
+             <p class="jQ_blink change_border_color pb5">
+                <a href="image/fs/kko/source/TAL/approach_05101_16L.jpg"
+                    data-fancybox="gallery1" data-caption="Approach Haneda 16L (overlapped images)">
+                    <img class="fancybox_image2" src="image/fs/kko/source/TAL/approach_05101_16L.jpg"
+                        width="600" alt="16L Approach">
                 </a>
             </p>
-            <p class="fss lineh140">
-                Approach Haneda 16L (overlapped images)
-            </p>
+            <div class="prettyP_PC">
+                <p class="fss lineh140">
+                    Approach Haneda 16L (overlapped images)
+                </p>
+            </div>
+            <div class="prettyP_SP">
+                <p class="left2 fss lineh140">
+                    Approach Haneda 16L (overlapped images)
+                </p>
+            </div>
         </div>
 
         <div class="pb40">
             <div class="pic-left640">
                 <p class="jQ_blink change_border_color">
-                     <a href="image/fs/kko/source/TAL/approach_P1020560a_1024.jpg"rel="prettyPhoto"
-                        title="A Jumbo jet approach to Haneda 34L" target="_blank" >
-                        <IMG src="image/fs/kko/source/TAL/approach_P1020560a_1024.jpg" width="640" alt="approach 747">
+                     <a href="image/fs/kko/source/TAL/approach_P1020560a_1024.jpg"
+                        data-fancybox="gallery1" data-caption="A Jumbo jet approach to Haneda 34L">
+                        <img class="fancybox_image" src="image/fs/kko/source/TAL/approach_P1020560a_1024.jpg" width="640" alt="approach 747">
                     </a>
                 </p>
-                <p class="center fss">
-                    A Jumbo jet approach to Haneda 34L
-                </p>
+                <div class="prettyP_PC">
+                    <p class="center fss">
+                        A Jumbo jet approach to Haneda 34L
+                    </p>
+                </div>
+                <div class="prettyP_SP">
+                    <p class="left2 fss">
+                        A Jumbo jet approach to Haneda 34L
+                    </p>
+                </div>
             </div>
         </div>
 
         <div class="pic-center720 pb40">
-            <div class="pic-right640">
+            <div class="pic-right640new">
                 <p class="jQ_blink change_border_color">
-                     <a href="image/fs/kko/source/TAL/approach_P1040259_1024.jpg"rel="prettyPhoto"
-                        title="ANA B777 approach to Haneda 34L" target="_blank" >
-                        <IMG src="image/fs/kko/source/TAL/approach_P1040259_1024.jpg" width="640" alt="Approach 777 ANA">
+                     <a href="image/fs/kko/source/TAL/approach_P1040259_1024.jpg"
+                        data-fancybox="gallery1" data-caption="ANA B777 approach to Haneda 34L">
+                        <img class="fancybox_image" src="image/fs/kko/source/TAL/approach_P1040259_1024.jpg" width="640" alt="Approach 777 ANA">
                     </a>
                 </p>
-                <p class="center fss">
-                    ANA B777 approach to Haneda 34L
-                </p>
+                <div class="prettyP_PC">
+                    <p class="center fss">
+                        ANA B777 approach to Haneda 34L
+                    </p>
+                </div>
+                <div class="prettyP_SP">
+                    <p class="rightr fss pb40">
+                        ANA B777 approach to Haneda 34L
+                    </p>
+                </div>
             </div>
         </div>
 
-        <hr class="main800" style="width:800px; margin-bottom: 25px">
+        <hr style="margin-bottom:30px">
 
         <div class="center pb25">
             <p class="fss fwb">
@@ -178,9 +228,9 @@
 
         <div class="center pb40">
             <p class="jQ_blink change_border_color pb5">
-                 <a href="image/fs/kko/source/TAL/approach_P1000043_c1024.jpg"rel="prettyPhoto"
-                        title="ANA B767" target="_blank" >
-                    <IMG src="image/fs/kko/source/TAL/approach_P1000043_c1024.jpg" width="640" alt="Approach ANA B6">
+                 <a href="image/fs/kko/source/TAL/approach_P1000043_c1024.jpg"
+                    data-fancybox="gallery1" data-caption="ANA B767">
+                    <img class="fancybox_image" src="image/fs/kko/source/TAL/approach_P1000043_c1024.jpg" width="640" alt="Approach ANA B6">
                 </a>
             </p>
             <p class="fss">
@@ -191,22 +241,29 @@
         <div class="pic-center800 pb40">
             <div class="pic-left640">
                 <p class="jQ_blink change_border_color">
-                     <a href="image/fs/kko/source/TAL/approach_P1000062_c1024.jpg"rel="prettyPhoto"
-                            title="JAL B747" target="_blank" >
-                        <IMG src="image/fs/kko/source/TAL/approach_P1000062_c1024.jpg" width="640" alt="Approach 747">
+                     <a href="image/fs/kko/source/TAL/approach_P1000062_c1024.jpg"
+                        data-fancybox="gallery1" data-caption="JAL B747">
+                        <img class="fancybox_image" src="image/fs/kko/source/TAL/approach_P1000062_c1024.jpg" width="640" alt="Approach 747">
                     </a>
                 </p>
-                <p class="center fss">
-                    JAL B747
-                </p>
+                <div class="prettyP_PC fss">
+                    <p class="center">
+                        JAL B747
+                    </p>
+                </div>
+                <div class="prettyP_SP">
+                    <p class="center pb40">
+                        JAL B747
+                    </p>
+                </div>
             </div>
         </div>
 
         <div class="center pb40">
             <p class="jQ_blink change_border_color pb5">
-                <a href="image/fs/kko/source/TAL/approach_P1000564_1024.jpg"rel="prettyPhoto"
-                        title="ANA B767" target="_blank" >
-                    <IMG src="image/fs/kko/source/TAL/approach_P1000564_1024.jpg" width="640" alt="Approach B767">
+                <a href="image/fs/kko/source/TAL/approach_P1000564_1024.jpg"
+                    data-fancybox="gallery1" data-caption="ANA B767">
+                    <img class="fancybox_image" src="image/fs/kko/source/TAL/approach_P1000564_1024.jpg" width="640" alt="Approach B767">
                 </a>
             </p>
             <p class="fss">
@@ -215,19 +272,25 @@
         </div>
 
         <div class="pic-center800 pb30">
-            <div class="pic-right640">
+            <div class="pic-right640new">
                 <p class="jQ_blink change_border_color">
-                     <a href="image/fs/kko/source/TAL/approach_P1000716_c1024.jpg"rel="prettyPhoto"
-                            title="Rainbow Seven" target="_blank" >
-                        <IMG src="image/fs/kko/source/TAL/approach_P1000716_c1024.jpg" width="640" alt="Approach B777">
+                     <a href="image/fs/kko/source/TAL/approach_P1000716_c1024.jpg"
+                        data-fancybox="gallery1" data-caption="Rainbow Seven">
+                        <img class="fancybox_image" src="image/fs/kko/source/TAL/approach_P1000716_c1024.jpg" width="640" alt="Approach B777">
                     </a>
                 </p>
-                <p class="center fss">
-                    B777 Rainbow Seven
-                </p>
+                <div class="prettyP_PC fss">
+                    <p class="center">
+                        B777 Rainbow Seven
+                    </p>
+                </div>
+                <div class="prettyP_SP fss pl10">
+                    <p class="center pb30">
+                        B777 Rainbow Seven
+                    </p>
+                </div>
             </div>
         </div>
-        <a name="page_bottom"></a>
 
     </div> <!-- page main: end -->
 
@@ -235,17 +298,19 @@
 
         <hr id="footer"> <!-- horizontal partition -->
 
-        <div class="jQ_change center" > <!-- select button whole: start -->
+        <p id="page-top"><a href="#">TOP</a></p>
+
+        <div class="jQ_change center"> <!-- select button whole: start -->
             <p id="footer">  <!-- select button 1: start -->
                 <a href="e_fs01_ls_SS_takeoff_approach_landing.html">
-                    <IMG src="image/button/back_off.gif" border="0" alt="Back" >
+                    <img src="image/button/back_off.gif" border="0" alt="Back">
                 </a>
             </p> <!-- select button 1: end -->
         </div> <!-- select button whole: end -->
 
-        <div id="footer_label">
+        <div class="footer_labelPC">
             copyright &copy; 2003 -
-            <script type="text/javascript" language="JavaScript">
+            <script>
                 date = new Date();
                 document.write(date.getFullYear() + ' ');
             </script>
@@ -256,6 +321,5 @@
 
     </footer>
 
-</div> <!-- Pre Loading end -->
-</BODY>
+</body>
 </html>

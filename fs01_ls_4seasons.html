@@ -1,1048 +1,919 @@
-<!DOCTYPE HTML >
-<html>
+<!DOCTYPE html >
+<html lang="ja">
 
-<HEAD>
-    <META charset="UTF-8">
-    <META name="description" content="庭先で，街角で..偶然見かけた四季折々の表情です。">
-    <META name="keywords" content="スナップショット,四季,折々,偶然,表情">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="庭先で，街角で..偶然見かけた四季折々の表情です。">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Contrail SnapShots : 四季折々</title>
 
     <!-- favicon-->
-    <link rel="shortcut icon" href="favicon.ico">
-
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="icon" href="favicon.ico">
 
     <!-- css start -->
+        <!-- kko_etc - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
+        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
 
-        <!-- kko_etc start - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
-        <link rel="stylesheet" href="libs/etc/css/kko_preload.css" type="text/css">
-        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css" type="text/css">
-        <!-- kko_etc end -->
+        <!-- Fancybox CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css">
 
-        <!-- prettyPhoto start -->
-        <link href="libs/jQuery/prettyPhoto/css/prettyPhoto315_mod.css" media="all" rel="stylesheet" type="text/css">
-        <!-- prettyPhoto end -->
-
+        <style>
+            /* Optional: Limit image size on small screens */
+            @media (max-width: 768px) {
+                .fancybox_image {
+                    max-width: 256px;
+                }
+                .fancybox_image2 {
+                    max-width: 300px;
+                }
+            }
+        </style>
     <!-- css end -->
 
     <!-- js start -->
-
         <!-- jQuery start -->
-        <script src="libs/jQuery/js/jquery-1.6.1.min.js" type="text/javascript"></script>
-
-            <!-- kko_style start - img jq_blink, img jq_change -->
-            <script src="libs/jQuery/kko/js/jq_kko_preload.js" type="text/javascript"></script>
-            <script src="libs/jQuery/kko/js/jq_kko_style.js" type="text/javascript"></script>
-            <!-- kko_style end -->
-
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <!-- kko_style - img jq_blink, img jq_change -->
+            <script src="libs/jQuery/kko/js/jq_kko_style.js"></script>
         <!-- jQuery end -->
 
-        <!-- Sandbox DropDownMenu start -->
-        <script src="libs/sandbox/js/script.js" type="text/javascript"></script>
-        <!-- Sandbox DropDownMenu end -->
+        <!-- Fancybox JS -->
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
 
-    <!-- js end -->
+        <!-- Sandbox DropDownMenu -->
+        <script src="libs/sandbox/js/script.js"></script>
+   <!-- js end -->
 
-</HEAD>
+</head>
 
-<BODY id="common-k" >
-
-<!-- Pre Loading -->
-<!-- with loading picture -->
-<div id="loader"><IMG src="image/common/ap_loader_tp.gif" width="236" height="132" class="loading..."></div>
-<div id="fade"></div>
-<div id="preload"> <!-- Pre Loading start -->
+<body id="common-k">
 
     <header>
-        <a name="page_top"></a>
-        <div class="center jQ_change navbox" >
-            <nav>
-                <IMG src="image/top/Contrail_g.png" height="20" class="logo_img">
-                <ul class="menu" id="menu" >
+        <div class="prettyP_PC">
+            <a name="page_top"></a>
+            <div class="center jQ_change navbox" >
+                <nav>
+                    <img src="image/top/cr32_e.png" height="20" class="logo_img">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_img">
+                    <ul class="menu" id="menu" >
+                        <li><a href="index.html" class="menulink">Home</a></li>
+                        <li><a href="whatnew.html" class="menulink">What's New</a></li>
+                        <li><a href="etc.html" class="menulink">E.T.C.</a></li>
+                        <li><a href="fs01.html" class="menulink">The Scenery</a>
+                            <ul>
+                                <li><a href="fs01_sc_top.html" class="sub">Screen Shots</a></li>
+                                <li><a href="fs01_ls_top.html" class="sub">Snap Shots</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="link01.html" class="menulink">Links</a></li>
+                        <li class="about"><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                    </ul>
+                </nav>
+                <div class="c-both"></div>
+            </div>
+            <!-- Sandbox DropDownMenu start-->
+            <script>
+                var menu=new menu.dd("menu");
+                menu.init("menu","menuhover");
+            </script>
+            <!-- Sandbox DropDownMenu end -->
+        </div>
+        <div class="prettyP_SP">
+            <a name="MENU"></a>
+            <p id="menu-call">
+                <a href="#">MENU</a>
+            </p>
+
+            <a name="page_top"></a>
+
+            <!-- page top icon & logo -->
+            <div id="header_SP" class="header_labelSP">
+                <div class="pb4"></div>
+                <img src="image/top/cr48f_32.png">
+                <img class="pb3" src="image/top/Contrail_g.png" height="24">
+            </div>
+
+            <div id="popup-menu" class="hidden">
+                <div class="menu-title">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_image" alt="CONTRAIL">
+                </div>
+                <ul>
                     <li><a href="index.html" class="menulink">Home</a></li>
                     <li><a href="whatnew.html" class="menulink">What's New</a></li>
                     <li><a href="etc.html" class="menulink">E.T.C.</a></li>
-                    <li><a href="fs01.html" class="menulink">The Scenery</a>
-                        <ul>
-                            <li><a href="fs01_sc_top.html" class="sub">Screen Shots</a></li>
-                            <li><a href="fs01_ls_top.html" class="sub">Snap Shots</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="fs01.html" class="menulink">The Scenery</a></li>
                     <li><a href="link01.html" class="menulink">Links</a></li>
-                    <li class="about"><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                    <li><a href="fs01_about.html" class="menulink">about Contrail</a></li>
                 </ul>
-            </nav>
-            <div class="c-both"></div>
+            </div>
         </div>
-        <!-- Sandbox DropDownMenu start-->
-        <script type="text/javascript">
-            var menu=new menu.dd("menu");
-            menu.init("menu","menuhover");
-        </script>    <!-- Sandbox DropDownMenu end -->
     </header>
 
-    <div id="main760" > <!-- page main: start -->
+    <div id="main720-480"> <!-- page main: start -->
 
         <!-- title -->
         <div id="title30">
-            <p id="head25" >
-                <IMG src="image/fs/kko_logo.gif" alt="Contrail Snap Shots Special Gallery">
+            <p id="head25">
+                <img src="image/fs/kko_logo.gif" alt="Contrail Snap Shots Special Gallery">
             </p>
             <h1 id="main-logo15">
-                <IMG src="image/fs/4seasons18.gif" alt="The four seasons">
+                <img src="image/fs/4seasons18.gif" alt="The four seasons">
             </h1>
         </div>
 
+        <!-- for Java Script off -->
+        <noscript>
+            <div id="attention">
+                <p>ご覧頂くにはブラウザの JavaScript をアクティブにして下さい</p>
+            </div>
+        </noscript>
+
         <!-- contents -->
 
-        <!-- もくれん -->
-        <div class="pic-left760">
-            <div class="contents-2col-left">
-                <p class="jQ_blink change_border_color" >
-                    <!-- コメントが長くなって画像の上下幅を超えたときは，name属性をタイトルに付けるようにする。-->
-                    <!-- <a name="mokuren"></a> -->
+        <div class="pic-left720">
+
+            <!-- もくれん -->
+            <div class="flex2">
+                <div class="mtb20 flx2_itemL2">
+                    <div id="mokuren"></div>
                     <a href="fs01_ls_4S_mokuren.html">
-                        <IMG src="image/fs/kko/thumb_mokuren_P1180278_CB_mod_256.jpg" width="256" border="0">
+                        もくれん
+                    </a>
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/button/new_b.gif" width="62" height="14"> -->
+                    <!-- <img src="image/button/update.gif" width="62" height="14"> -->
+                </div>
+            </div>
+            <div class="contents-2col-left">
+                <p class="jQ_blink change_border_color">
+                    <a href="fs01_ls_4S_mokuren.html">
+                        <img src="image/fs/kko/thumb_mokuren_P1180278_CB_mod_256.jpg" width="256" border="0">
                     </a>
                 </p>
             </div>
-            <div class="contents-2col-right760t" >
-                <h2 class="contents-title-4seasons" >
-                    <!-- コメントが短いときは，name属性を画像に付けるようにする。-->
-                    <a name="mokuren"></a>
-                    <a href="fs01_ls_4S_mokuren.html" >
-                        もくれん
-                    </a>
-                </h2>
-                <p class="left pb10" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
-                    <IMG src="image/common/white_block.gif" width="62" height="14" >
-                    <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                    <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
-                </p>
-                <p class="left" >
-                    もくれんが咲き始めました。<BR>
-                    庭のもくれんは白い花を咲かせます。<BR>
-                    この時期に何度も撮っているのですが、<BR>
-                    撮ろうと思ったときには<BR>
+            <div class="contents-2col-right720">
+                <p class="pb5 border-ccc">
+                    もくれんが咲き始めました。<br>
+                    庭のもくれんは白い花を咲かせます。<br>
+                    この時期に何度も撮っているのですが、<br>
+                    撮ろうと思ったときには<br>
                     すでに
-                    <a href="image/fs/kko/source/mokuren/mokuren_simi_20100320_P1160597_cut640.jpg" rel="prettyPhoto"
-                    title="もくれん = シミが出た後 =" target="_blank" >
+                    <a href="image/fs/kko/source/mokuren/mokuren_simi_20100320_P1160597_cut640.jpg"
+                        data-fancybox="gallery1" data-caption="もくれん = シミが出た後 =">
                         茶色のシミ
                     </a>
                     が花に出てしまっています。
                 </p>
-                <p class="left" >
+                <p>
                     今年こそ白いもくれんを撮りたいと....
                 </p>
             </div>
-        </div>
+            <div class="pb40"></div>
 
-        <div class="pic-left800" >
-            <p class="page-top_hidden" >
-                Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-            </p>
-        </div>
-
-        <!-- 桜とメジロ -->
-        <div class="pic-left760">
-            <div class="contents-2col-left">
-                <p class="jQ_blink change_border_color" >
-                    <a name="sakura-mejiro"></a>
-                    <a href="fs01_ls_4S_sakura-mejiro.html">
-                        <IMG src="image/fs/kko/thumb_sakura-mejiro1_P1160616_256.jpg" width="256" border="0">
-                    </a>
-                </p>
-            </div>
-            <div class="contents-2col-right760t">
-                <h2 class="contents-title-4seasons" >
+            <!-- 桜とメジロ -->
+            <div class="flex2">
+                <div id="sakura-mejiro"></div>
+                <div class="mtb20 flx2_itemL2">
                     <a href="fs01_ls_4S_sakura-mejiro.html">
                         桜とメジロ
                     </a>
-                </h2>
-                <p class="left pb20" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
-                    <IMG src="image/common/white_block.gif" width="62" height="14" >
-                    <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                    <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/button/new_b.gif" width="62" height="14"> -->
+                    <!-- <img src="image/button/update.gif" width="62" height="14"> -->
+                </div>
+            </div>
+            <div class="contents-2col-left">
+                <p class="jQ_blink change_border_color">
+                    <a href="fs01_ls_4S_sakura-mejiro.html">
+                        <img src="image/fs/kko/thumb_sakura-mejiro1_P1160616_256.jpg" width="256" border="0">
+                    </a>
                 </p>
-                <p class="left" >
-                    満開の桜にメジロの群れが蜜を求めにやって来ました。<BR>
-                    えっ、分からない？？<BR>
-                    画像をクリックして下さい。<BR>
+            </div>
+            <div class="contents-2col-right720">
+                <p class="pb5 border-ccc">
+                    満開の桜にメジロの群れが蜜を求めにやって来ました。<br>
+                    えっ、分からない？？<br>
+                    画像をクリックして下さい。<br>
                     ちゃんとメジロも写っています (^^)。
                 </p>
             </div>
-        </div>
+            <div class="pb40"></div>
 
-        <div class="pic-left800" >
-            <p class="page-top" >
-                Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-            </p>
-        </div>
-
-        <!-- 浦島草 -->
-        <div class="pic-left760">
-            <div class="contents-2col-left">
-                <p class="jQ_blink change_border_color" >
-                    <a name="Urashima"></a>
-                    <a href="fs01_ls_4S_urashima-sou.html">
-                        <IMG src="image/fs/kko/thumb_Urashima-sou-P1110849.jpg" width="256" border="0">
-                    </a>
-                </p>
-            </div>
-            <div class="contents-2col-right760t">
-                <h2 class="contents-title-4seasons" >
+            <!-- 浦島草 -->
+            <div class="flex2">
+                <div id="Urashima"></div>
+                <div class="mtb20 flx2_itemL2">
                     <a href="fs01_ls_4S_urashima-sou.html">
                         浦島草
                     </a>
-                </h2>
-                <p class="left pb20" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
-                    <IMG src="image/common/white_block.gif" width="62" height="14" >
-                    <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                    <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/button/new_b.gif" width="62" height="14"> -->
+                    <!-- <img src="image/button/update.gif" width="62" height="14"> -->
+                </div>
+            </div>
+            <div class="contents-2col-left">
+                <p class="jQ_blink change_border_color">
+                    <a href="fs01_ls_4S_urashima-sou.html">
+                        <img src="image/fs/kko/thumb_Urashima-sou-P1110849.jpg" width="256" border="0">
+                    </a>
                 </p>
-                <p class="left" >
-                    何の変哲もない葉っぱですが<BR>
+            </div>
+            <div class="contents-2col-right720">
+                <p class="pb5 border-ccc">
+                    何の変哲もない葉っぱですが<br>
                     この葉っぱの下に驚くべき花が....
                 </p>
             </div>
-        </div>
+            <div class="pb40"></div>
 
-        <div class="pic-left800" >
-            <p class="page-top_hidden" >
-                Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-            </p>
-        </div>
-
-        <!-- Cloud -->
-        <div class="pic-left760">
-            <div class="contents-2col-left">
-                <p class="jQ_blink change_border_color" >
-                    <a name="Cloud"></a>
-                    <a href="fs01_ls_4S_cloud.html">
-                        <IMG src="image/fs/ss/thumb_Nature01.jpg" width="256" height="175" border="0">
-                    </a>
-                </p>
-            </div>
-            <div class="contents-2col-right760t">
-                <h2 class="contents-title-4seasons" >
+            <!-- Cloud -->
+            <div class="flex2">
+                <div id="Cloud"></div>
+                <div class="mtb20 flx2_itemL2">
                     <a href="fs01_ls_4S_cloud.html">
                         Cloud
                     </a>
-                </h2>
-                <p class="left pb20" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
-                    <IMG src="image/common/white_block.gif" width="62" height="14" >
-                    <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                    <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/button/new_b.gif" width="62" height="14"> -->
+                    <!-- <img src="image/button/update.gif" width="62" height="14"> -->
+                </div>
+            </div>
+            <div class="contents-2col-left">
+                <p class="jQ_blink change_border_color">
+                    <a href="fs01_ls_4S_cloud.html">
+                        <img src="image/fs/ss/thumb_Nature01.jpg" width="256" height="175" border="0">
+                    </a>
                 </p>
-                <p class="left" >
+            </div>
+            <div class="contents-2col-right720">
+                <p class="pb5 border-ccc">
                     雲と山が織りなす絶妙のコントラストをお楽しみ下さい。
                 </p>
             </div>
-        </div>
+            <div class="pb40"></div>
 
-        <div class="pic-left800" >
-            <p class="page-top" >
-                Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-            </p>
-        </div>
-
-        <!-- Voice of Fukurou -->
-        <div class="pic-left760">
-            <div class="contents-2col-left pb10" >
-                <a name="Voice_of_Fukurou"></a>
+            <!-- Voice of Fukurou -->
+            <div class="flex2">
+                <div id="Voice_of_Fukurou"></div>
+                <div class="mtb20 flx2_itemL2">
+                    Voice of Fukurou
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/button/new_b.gif" width="62" height="14"> -->
+                    <!-- <img src="image/button/update.gif" width="62" height="14"> -->
+                </div>
+            </div>
+            <div class="contents-2col-left">
                 <p class="center">
-                    <IMG src="image/fs/kko/fuku20m.gif" width="111" border="0">
+                    <img src="image/fs/kko/fuku20m.gif" width="111" border="0">
                 </p>
                 <p class="center" style="width: 256px">Voice of Fukurou</p>
             </div>
-            <div class="contents-2col-right760t">
-                <h2 class="contents-title-4seasons" >
-                        Voice of Fukurou
-                </h2>
-                <p class="left pb20" >
-                    <IMG src="image/common/white_block.gif" width="62" height="14" >
-                    <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                    <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
-                </p>
-                <p class="left" >
-                    フクロウの実際の鳴き声を聞いたことがある方は<BR>
-                    少ないのではないでしょうか。<BR>
-                    この時期になると自宅の近くでフクロウの声を耳にします。<BR>
-                    夜，家に戻ったとき丁度鳴いていたので<BR>
+            <div class="contents-2col-right720">
+                <p class="pb5 border-ccc">
+                    フクロウの実際の鳴き声を聞いたことがある方は<br>
+                    少ないのではないでしょうか。<br>
+                    この時期になると自宅の近くでフクロウの声を耳にします。<br>
+                    夜，家に戻ったとき丁度鳴いていたので<br>
                     デジカメの動画撮影モードで鳴き声を録りました。
                 </p>
             </div>
             <audio controls src="image/fs/kko/source/040607_VOF_P1010605.mp3" type="audio/mp3">Voice of Fukurou</audio>
-        </div>
+            <div class="pb40"></div>
 
-        <div class="pic-left800" >
-            <p class="page-top_hidden" >
-                Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-            </p>
-        </div>
-
-        <!-- 熊ん蜂 -->
-        <div class="pic-left760">
-            <div class="contents-2col-left">
-                <p class="jQ_blink change_border_color" >
-                    <a name="carpenter_bee"></a>
-                    <a href="fs01_ls_4S_carpenter_bee.html">
-                        <IMG src="image/fs/kko/thumb_carpenter_bee_P1060164c1024.jpg" width="256" border="0">
-                    </a>
-                </p>
-            </div>
-            <div class="contents-2col-right760t">
-                <h2 class="contents-title-4seasons" >
+            <!-- 熊ん蜂 -->
+            <div class="flex2">
+                <div id="carpenter_bee"></div>
+                <div class="mtb20 flx2_itemL2">
                     <a href="fs01_ls_4S_carpenter_bee.html">
                         熊ん蜂
                     </a>
-                </h2>
-                <p class="left pb30" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
-                    <IMG src="image/common/white_block.gif" width="62" height="14" >
-                    <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                    <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/button/new_b.gif" width="62" height="14"> -->
+                    <!-- <img src="image/button/update.gif" width="62" height="14"> -->
+                </div>
+            </div>
+            <div class="contents-2col-left">
+                <p class="jQ_blink change_border_color">
+                    <a href="fs01_ls_4S_carpenter_bee.html">
+                        <img src="image/fs/kko/thumb_carpenter_bee_P1060164c1024.jpg" width="256" border="0">
+                    </a>
                 </p>
-                <p class="left" >
+            </div>
+            <div class="contents-2col-right720">
+                <p class="pb5 border-ccc">
                     せっせせっせと働く姿はまさに "Carpenter Bee" です。
                 </p>
             </div>
-        </div>
+            <div class="pb40"></div>
 
-        <div class="pic-left800" >
-            <p class="page-top" >
-                Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-            </p>
-        </div>
-
-        <!-- 緑の桜 -->
-        <div class="pic-left760">
-            <div class="contents-2col-left">
-                <p class="jQ_blink change_border_color" >
-                    <a name="midori_sakura"></a>
-                    <a href="fs01_ls_4S_midori_sakura.html">
-                        <IMG src="image/fs/kko/thumb_midori_sakura_P1060051.jpg" width="256" border="0">
-                    </a>
-                </p>
-            </div>
-            <div class="contents-2col-right760t">
-                <h2 class="contents-title-4seasons" >
+            <!-- 緑の桜 -->
+            <div class="flex2">
+                <div id="midori_sakura"></div>
+                <div class="mtb20 flx2_itemL2">
                     <a href="fs01_ls_4S_midori_sakura.html">
                         緑の桜
                     </a>
-                </h2>
-                <p class="left pb20" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
-                    <IMG src="image/common/white_block.gif" width="62" height="14" >
-                    <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                    <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/button/new_b.gif" width="62" height="14"> -->
+                    <!-- <img src="image/button/update.gif" width="62" height="14"> -->
+                </div>
+            </div>
+            <div class="contents-2col-left">
+                <p class="jQ_blink change_border_color">
+                    <a href="fs01_ls_4S_midori_sakura.html">
+                        <img src="image/fs/kko/thumb_midori_sakura_P1060051.jpg" width="256" border="0">
+                    </a>
                 </p>
-                <p class="left" >
-                    良くご覧頂きたいのですが，桜の花です。<BR>
+            </div>
+            <div class="contents-2col-right720">
+                <p class="pb5 border-ccc">
+                    良くご覧頂きたいのですが，桜の花です。<br>
                     緑色の桜の花です。
                 </p>
             </div>
-        </div>
+            <div class="pb40"></div>
 
-        <div class="pic-left800" >
-            <p class="page-top_hidden" >
-                Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-            </p>
-        </div>
-
-        <!-- 花もも -->
-        <div class="pic-left760">
-            <div class="contents-2col-left">
-                <p class="jQ_blink change_border_color" >
-                    <a name="hana_momo"></a>
-                    <a href="fs01_ls_4S_momo.html">
-                        <IMG src="image/fs/kko/thumb_momo_P1050741_1024.jpg" width="256" border="0" >
-                    </a>
-                </p>
-            </div>
-            <div class="contents-2col-right760t">
-                <h2 class="contents-title-4seasons" >
+            <!-- 花もも -->
+            <div class="flex2">
+                <div id="hana_momo"></div>
+                <div class="mtb20 flx2_itemL2">
                     <a href="fs01_ls_4S_momo.html">
                         花もも
                     </a>
-                </h2>
-                <p class="left pb20" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
-                    <IMG src="image/common/white_block.gif" width="62" height="14" >
-                    <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                    <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/button/new_b.gif" width="62" height="14"> -->
+                    <!-- <img src="image/button/update.gif" width="62" height="14"> -->
+                </div>
+            </div>
+            <div class="contents-2col-left">
+                <p class="jQ_blink change_border_color">
+                    <a href="fs01_ls_4S_momo.html">
+                        <img src="image/fs/kko/thumb_momo_P1050741_1024.jpg" width="256" border="0">
+                    </a>
                 </p>
-                <p class="left" >
-                    庭先の花ももが満開になりました。<BR>
-                    この花を撮るのは快晴の青空ではなく<BR>
-                    曇りの日にしたいと思っていました。<BR>
-                    休みの日にそのようなコンディションに恵まれました。<BR>
+            </div>
+            <div class="contents-2col-right720">
+                <p class="pb5 border-ccc">
+                    庭先の花ももが満開になりました。<br>
+                    この花を撮るのは快晴の青空ではなく<br>
+                    曇りの日にしたいと思っていました。<br>
+                    休みの日にそのようなコンディションに恵まれました。<br>
                     コンディションには恵まれたのですが...
                 </p>
             </div>
-        </div>
+            <div class="pb40"></div>
 
-        <div class="pic-left800" >
-            <p class="page-top" >
-                Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-            </p>
-        </div>
-
-        <!-- Christmas Rose -->
-        <div class="pic-left760">
-            <div class="contents-2col-left">
-                <p class="jQ_blink change_border_color" >
-                    <a name="christmas_rose"></a>
-                    <a href="fs01_ls_4S_c_rose.html">
-                        <IMG src="image/fs/kko/thumb_c_rose_P1050709_1024.jpg" width="256" border="0">
-                    </a>
-                </p>
-            </div>
-            <div class="contents-2col-right760t">
-                <h2 class="contents-title-4seasons" >
+            <!-- Christmas Rose -->
+            <div class="flex2">
+                <div id="christmas_rose"></div>
+                <div class="mtb20 flx2_itemL2">
                     <a href="fs01_ls_4S_c_rose.html">
                         Christmas Rose
                     </a>
-                </h2>
-                <p class="left pb20" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
-                    <IMG src="image/common/white_block.gif" width="62" height="14" >
-                    <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                    <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/button/new_b.gif" width="62" height="14"> -->
+                    <!-- <img src="image/button/update.gif" width="62" height="14"> -->
+                </div>
+            </div>
+            <div class="contents-2col-left">
+                <p class="jQ_blink change_border_color">
+                    <a href="fs01_ls_4S_c_rose.html">
+                        <img src="image/fs/kko/thumb_c_rose_P1050709_1024.jpg" width="256" border="0">
+                    </a>
                 </p>
-                <p class="left" >
-                    春先に花を咲かせるのに<BR>
-                    何故かクリスマスという名前がついています。<BR>
-                    背が低くうつむいたまま咲くので<BR>
-                    つぼみのうちは目立ちませんが，<BR>
+            </div>
+            <div class="contents-2col-right720">
+                <p class="pb5 border-ccc">
+                    春先に花を咲かせるのに<br>
+                    何故かクリスマスという名前がついています。<br>
+                    背が低くうつむいたまま咲くので<br>
+                    つぼみのうちは目立ちませんが，<br>
                     咲き始めると見事です。
                 </p>
             </div>
-        </div>
+            <div class="pb40"></div>
 
-        <div class="pic-left800" >
-            <p class="page-top_hidden" >
-                Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-            </p>
-        </div>
-
-        <!-- ピンク・ネコヤナギ -->
-        <div class="pic-left760">
-            <div class="contents-2col-left">
-                <p class="jQ_blink change_border_color" >
-                    <a name="pink_nekoyanagi"></a>
-                    <a href="fs01_ls_4S_PinkNekoyanagi.html">
-                        <IMG src="image/fs/kko/thumb_pink_neko_P1050537.jpg" width="256" border="0">
-                    </a>
-                </p>
-            </div>
-            <div class="contents-2col-right760t">
-                <h2 class="contents-title-4seasons" >
+            <!-- ピンク・ネコヤナギ -->
+            <div class="flex2">
+                <div id="pink_nekoyanagi"></div>
+                <div class="mtb20 flx2_itemL2">
                     <a href="fs01_ls_4S_PinkNekoyanagi.html">
                         ピンク・ネコヤナギ
                     </a>
-                </h2>
-                <p class="left pb20" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
-                    <IMG src="image/common/white_block.gif" width="62" height="14" >
-                    <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                    <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/button/new_b.gif" width="62" height="14"> -->
+                    <!-- <img src="image/button/update.gif" width="62" height="14"> -->
+                </div>
+            </div>
+            <div class="contents-2col-left">
+                <p class="jQ_blink change_border_color">
+                    <a href="fs01_ls_4S_PinkNekoyanagi.html">
+                        <img src="image/fs/kko/thumb_pink_neko_P1050537.jpg" width="256" border="0">
+                    </a>
                 </p>
-                <p class="left" >
-                    春に向かって<BR>
-                    ネコヤナギが活動を開始しました。<BR>
-                    我が家のネコヤナギは<BR>
+            </div>
+            <div class="contents-2col-right720">
+                <p class="pb5 border-ccc">
+                    春に向かって<br>
+                    ネコヤナギが咲き出しました。<br>
+                    我が家のネコヤナギは<br>
                     何故かピンクです (^^;。
                 </p>
             </div>
-        </div>
+            <div class="pb40"></div>
 
-        <div class="pic-left800" >
-            <p class="page-top" >
-                Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-            </p>
-        </div>
-
-        <!-- カモちゃん -->
-        <div class="pic-left760">
-            <div class="contents-2col-left">
-                <p class="jQ_blink change_border_color" >
-                    <a href="fs01_ls_4S_kamochan.html">
-                        <IMG src="image/fs/kko/thumb_kamochan_P1010550_1024.jpg" width="256" border="0">
-                    </a>
-                </p>
-            </div>
-            <div class="contents-2col-right760">
-                <h2 class="contents-title-4seasons" >
-                    <a name="kamo-chan"></a>
+            <!-- カモちゃん -->
+            <div class="flex2">
+                <div id="kamo-chan"></div>
+                <div class="mtb20 flx2_itemL2">
                     <a href="fs01_ls_4S_kamochan.html">
                         カモちゃん
                     </a>
-                </h2>
-                <p class="left" >
-                    鴨川の海岸に野生のアザラシが現れるようになって<BR>
-                    数年になります。<BR>
-                    今冬もやって来たと新聞に報じられています。<BR>
-                    <BR>
-                        今日(05/12/28)，数カ月ぶりにシーワールドを訪れたのですが，<BR>
-                     残念ながら浜辺にはカモちゃんはいませんでした。<BR>
-                     しかし帰り際に，波間を泳ぐアザラシ（？）を見かけました。<BR>
-                    本当は１頭のはずなのですが...<BR>
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/button/new_b.gif" width="62" height="14"> -->
+                    <!-- <img src="image/button/update.gif" width="62" height="14"> -->
+                </div>
+            </div>
+            <div class="contents-2col-left">
+                <p class="jQ_blink change_border_color">
+                    <a href="fs01_ls_4S_kamochan.html">
+                        <img src="image/fs/kko/thumb_kamochan_P1010550_1024.jpg" width="256" border="0">
+                    </a>
+                </p>
+            </div>
+            <div class="contents-2col-right720">
+                <p class="pb5 border-ccc">
+                    鴨川の海岸に野生のアザラシが現れるようになって<br>
+                    数年になります。<br>
+                    今冬もやって来たと新聞に報じられています。<br>
+                    <br>
+                        今日(05/12/28)，数カ月ぶりにシーワールドを訪れたのですが，<br>
+                     残念ながら浜辺にはカモちゃんはいませんでした。<br>
+                     しかし帰り際に，波間を泳ぐアザラシ（？）を見かけました。<br>
+                    本当は１頭のはずなのですが...<br>
                     １頭ではなく２頭いたような気がするのです。
                 </p>
             </div>
-        </div>
+            <div class="pb40"></div>
 
-        <div class="pic-left800" >
-            <p class="page-top_hidden" >
-                Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-            </p>
-        </div>
-
-        <!-- 冬に向かって -->
-        <div class="pic-left760">
+            <!-- 冬に向かって -->
+            <div class="flex2">
+                <div id="Late_in_the_fall"></div>
+                <div class="mtb20 flx2_itemL2">
+                    冬に向かって
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/button/new_b.gif" width="62" height="14"> -->
+                    <!-- <img src="image/button/update.gif" width="62" height="14"> -->
+                </div>
+            </div>
             <div class="contents-2col-left">
-                <p class="jQ_blink change_border_color" >
-                    <a name="fuyu_ni_mukatte"></a>
-                    <a href="image/fs/ss/source/fuyu_ni_mukatte.jpg" rel="prettyPhoto"
-                        title="冬に向かって" target="_blank" >
-                        <IMG src="image/fs/ss/thumb_fuyu_ni_mukatte.jpg" border="0">
+                <p class="jQ_blink change_border_color">
+                    <a href="image/fs/ss/source/fuyu_ni_mukatte.jpg"
+                        data-fancybox="gallery2" data-caption="冬に向かって">
+                        <img class="fancybox_image" src="image/fs/ss/thumb_fuyu_ni_mukatte.jpg" border="0">
                     </a>
                 </p>
             </div>
-            <div class="contents-2col-right760t">
-                <h2 class="contents-title-4seasons" >
-                    <a href="image/fs/ss/source/fuyu_ni_mukatte.jpg" rel="prettyPhoto"
-                        title="冬に向かって" target="_blank" >
-                        冬に向かって
-                    </a>
-                </h2>
-                <p class="left pb10" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
-                    <IMG src="image/common/white_block.gif" width="62" height="14" >
-                    <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                    <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
-                </p>
-                <p class="left" >
-                    前景の紅葉と背景の山の雪景色が<BR>
-                    鮮やかな対比を見せています。<BR>
-                    是非，拡大してご覧下さい。<BR>
+            <div class="contents-2col-right720">
+                <p class="pb5 border-ccc">
+                    前景の紅葉と背景の山の雪景色が<br>
+                    鮮やかな対比を見せています。<br>
+                    是非，拡大してご覧下さい。<br>
                     Kamui氏からの画像です。
                 </p>
             </div>
-        </div>
+            <div class="pb40"></div>
 
-        <div class="pic-left800" >
-            <p class="page-top" >
-                Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-            </p>
-        </div>
-
-        <!-- からす瓜 -->
-        <div class="pic-left760">
-            <div class="contents-2col-left">
-                <p class="jQ_blink change_border_color" >
-                    <a name="karasu-uri"></a>
+            <!-- からす瓜 -->
+            <div class="flex2">
+                <div id="karasu-uri"></div>
+                <div class="mtb20 flx2_itemL2">
                     <a href="fs01_ls_4S_KarasuUri.html">
-                        <IMG src="image/fs/kko/thumb_KarasuUri_P1030037_1024.jpg" width="256" border="0">
+                        からす瓜
                     </a>
-                    </p>
                 </div>
-            <div class="contents-2col-right760t">
-                <h2 class="contents-title-4seasons" >
-                        <a href="fs01_ls_4S_KarasuUri.html">
-                            からす瓜
-                        </a>
-                </h2>
-                <p class="left pb20" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
-                    <IMG src="image/common/white_block.gif" width="62" height="14" >
-                    <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                    <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/button/new_b.gif" width="62" height="14"> -->
+                    <!-- <img src="image/button/update.gif" width="62" height="14"> -->
+                </div>
+            </div>
+            <div class="contents-2col-left">
+                <p class="jQ_blink change_border_color">
+                    <a href="fs01_ls_4S_KarasuUri.html">
+                        <img src="image/fs/kko/thumb_KarasuUri_P1030037_1024.jpg" width="256" border="0">
+                    </a>
                 </p>
-                <p class="left" >
-                    霜柱が立つようになると，<BR>
-                    黄葉して我慢していた広葉樹の葉が<BR>
-                    一斉に落ち始めます。<BR>
-                    そんな冬景色の中で，<BR>
+            </div>
+            <div class="contents-2col-right720">
+                <p class="pb5 border-ccc">
+                    霜柱が立つようになると，<br>
+                    黄葉して我慢していた広葉樹の葉が<br>
+                    一斉に落ち始めます。<br>
+                    そんな冬景色の中で，<br>
                     からす瓜の実が朱に色づいていました。
                 </p>
             </div>
-        </div>
+            <div class="pb40"></div>
 
-        <div class="pic-left800" >
-            <p class="page-top_hidden" >
-                Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-            </p>
-        </div>
-
-        <!-- 秋. . . -->
-        <div class="pic-left760">
-            <div class="contents-2col-left">
-                <p class="jQ_blink change_border_color" >
-                    <a name="haze-no-ki"></a>
-                    <a href="image/fs/kko/source/Kareha.jpg" rel="prettyPhoto"
-                        title="秋. . . " target="_blank" >
-                        <IMG src="image/fs/kko/Kareha_256.jpg" border="0">
-                    </a>
-                    </p>
+            <!-- 秋. . . -->
+            <div class="flex2">
+                <div id="haze-no-ki"></div>
+                <div class="mtb20 flx2_itemL2">
+                    秋. . .
                 </div>
-            <div class="contents-2col-right760t">
-                <h2 class="contents-title-4seasons" >
-                        <a href="image/fs/kko/source/Kareha.jpg" rel="prettyPhoto"
-                            title="秋. . . " target="_blank" >
-                            秋. . .
-                        </a>
-                </h2>
-                <p class="left pb20" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
-                    <IMG src="image/common/white_block.gif" width="62" height="14" >
-                    <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                    <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/button/new_b.gif" width="62" height="14"> -->
+                    <!-- <img src="image/button/update.gif" width="62" height="14"> -->
+                </div>
+            </div>
+            <div class="contents-2col-left">
+                <p class="jQ_blink change_border_color">
+                    <a href="image/fs/kko/source/Kareha.jpg"
+                        data-fancybox="gallery3" data-caption="秋. . . ">
+                        <img class="fancybox_image" src="image/fs/kko/Kareha_256.jpg" border="0">
+                    </a>
                 </p>
-                <p class="left" >
+            </div>
+            <div class="contents-2col-right720">
+                <p class="pb5 border-ccc">
                     以前に
-                    <a href="image/fs/kko/source/kko212014a_hazenoki.jpg" rel="prettyPhoto"
-                        title="" target="_blank" >
+                    <a href="image/fs/kko/source/kko212014a_hazenoki.jpg"
+                        data-fancybox="gallery4">
                         <u>落葉寸前のハゼノキ</u>
                     </a>
-                    の画像を掲載しました。<BR>
+                    の画像を掲載しました。<br>
                     今年は少し洒落た感じに仕上げてみました。
                 </p>
             </div>
-        </div>
+            <div class="pb40"></div>
 
-        <div class="pic-left800" >
-            <p class="page-top" >
-                Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-            </p>
-        </div>
-
-        <!-- 往く夏と往く秋と -->
-        <div class="pic-left760">
-            <div class="contents-2col-left">
-                <p class="jQ_blink change_border_color" >
-                    <a name="late_summer_late_autumn"></a>
-                    <a href="fs01_ls_4S_HayatoHiraizumi.html">
-                        <IMG src="image/fs/ss/thumb_kemariji1.jpg" width="256" border="0">
-                    </a>
-                </p>
-            </div>
-            <div class="contents-2col-right760t">
-                <h2 class="contents-title-4seasons" >
+            <!-- 往く夏と往く秋と -->
+            <div class="flex2">
+                <div id="late_summer_late_autumn"></div>
+                <div class="mtb20 flx2_itemL2">
                     <a href="fs01_ls_4S_HayatoHiraizumi.html">
                         往く夏と往く秋と
                     </a>
-                </h2>
-                <p class="left pb10" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
-                    <IMG src="image/common/white_block.gif" width="62" height="14" >
-                    <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                    <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
-                </p>
-                <p class="left" >
-                    Kamui氏から素晴らしい画像が届きました。<BR>
-                    往く夏の桜島と，往く秋の平泉。<BR>
-                    隼人港にぽっかり浮かぶ桜島は，<BR>
-                    何処かのんびりした気分にさせてくれます。<BR>
-                    対照的に平泉は，はっとするような紅葉の世界です。
-                </p>
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/button/new_b.gif" width="62" height="14"> -->
+                    <!-- <img src="image/button/update.gif" width="62" height="14"> -->
+                </div>
             </div>
-        </div>
-
-        <div class="pic-left800" >
-            <p class="page-top_hidden" >
-                Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-            </p>
-        </div>
-
-        <!-- 羽化 -->
-        <div class="pic-left760">
             <div class="contents-2col-left">
-                <p class="jQ_blink change_border_color" >
-                    <a name="ageha_uka"></a>
-                    <a href="fs01_ls_4S_AGEHA_UKA.html">
-                        <IMG src="image/fs/kko/thumb_P1060001Ageha1_1024.jpg" width="256" border="0">
+                <p class="jQ_blink change_border_color">
+                    <a href="fs01_ls_4S_HayatoHiraizumi.html">
+                        <img src="image/fs/ss/thumb_kemariji1.jpg" width="256" border="0">
                     </a>
                 </p>
             </div>
-            <div class="contents-2col-right760t">
-                <h2 class="contents-title-4seasons" >
+            <div class="contents-2col-right720">
+                <p class="pb5 border-ccc">
+                    往く夏の桜島と，往く秋の平泉。<br>
+                    隼人港にぽっかり浮かぶ桜島は，
+                    何処かのんびりした気分にさせてくれます。
+                    対照的に平泉は，はっとするような紅葉の世界です。</br>
+                    Kamui氏からの画像です。
+                </p>
+            </div>
+            <div class="pb40"></div>
+
+        <!-- 羽化 -->
+            <div class="flex2">
+                <div id="ageha_uka"></div>
+                <div class="mtb20 flx2_itemL2">
                     <a href="fs01_ls_4S_AGEHA_UKA.html">
                         羽化
                     </a>
-                </h2>
-                <p class="left pb10" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
-                    <IMG src="image/common/white_block.gif" width="62" height="14" >
-                    <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                    <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/button/new_b.gif" width="62" height="14"> -->
+                    <!-- <img src="image/button/update.gif" width="62" height="14"> -->
+                </div>
+            </div>
+            <div class="contents-2col-left">
+                <p class="jQ_blink change_border_color">
+                    <a href="fs01_ls_4S_AGEHA_UKA.html">
+                        <img src="image/fs/kko/thumb_P1060001Ageha1_1024.jpg" width="256" border="0">
+                    </a>
                 </p>
-                <p class="left" >
-                    フェンネルというハーブで育ち<BR>
-                    "さなぎ" になった黄アゲハが羽化しました。<BR>
-                    あのサイケデリックな幼虫は<BR>
-                    フェンネルではあまりに目立ったのか，<BR>
-                    ９匹いた幼虫のうちさなぎにこぎつけたのは<BR>
+            </div>
+            <div class="contents-2col-right720">
+                <p class="pb5 border-ccc">
+                    フェンネルというハーブで育ち<br>
+                    "さなぎ" になった黄アゲハが羽化しました。<br>
+                    あのサイケデリックな幼虫は<br>
+                    フェンネルではあまりに目立ったのか，<br>
+                    ９匹いた幼虫のうちさなぎにこぎつけたのは<br>
                     この１匹だけでした。
                 </p>
             </div>
-        </div>
+            <div class="pb40"></div>
 
-        <div class="pic-left800" >
-            <p class="page-top" >
-                Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-            </p>
-        </div>
-
-        <!-- 紅シジミ -->
-        <div class="pic-left760">
-            <div class="contents-2col-left">
-                <p class="jQ_blink change_border_color" >
-                    <a name="beni-sijimi"></a>
+            <!-- 紅シジミ -->
+            <div class="flex2">
+                <div id="beni-sijimi"></div>
+                <div class="mtb20 flx2_itemL2">
                     <a href="fs01_ls_4S_BeniShijimi.html">
-                        <IMG src="image/fs/kko/thumb_P1060059aBeni1_cut1024.jpg" width="256" border="0">
+                        紅シジミ
                     </a>
-                    </p>
                 </div>
-            <div class="contents-2col-right760t">
-                <h2 class="contents-title-4seasons" >
-                        <a href="fs01_ls_4S_BeniShijimi.html">
-                            紅シジミ
-                        </a>
-                </h2>
-                <p class="left pb20" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
-                    <IMG src="image/common/white_block.gif" width="62" height="14" >
-                    <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                    <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/button/new_b.gif" width="62" height="14"> -->
+                    <!-- <img src="image/button/update.gif" width="62" height="14"> -->
+                </div>
+            </div>
+            <div class="contents-2col-left">
+                <p class="jQ_blink change_border_color">
+                    <a href="fs01_ls_4S_BeniShijimi.html">
+                        <img src="image/fs/kko/thumb_P1060059aBeni1_cut1024.jpg" width="256" border="0">
+                    </a>
                 </p>
-                <p class="left" >
-                    今年も庭に紅シジミがやって来ました。<BR>
-                    丁度 背の高い花に止まってくれたので，<BR>
-                    羽を閉じたときの写真をとることが出来ました。<BR>
+            </div>
+            <div class="contents-2col-right720">
+                <p class="pb5 border-ccc">
+                    今年も庭に紅シジミがやって来ました。<br>
+                    丁度 背の高い花に止まってくれたので，<br>
+                    羽を閉じたときの写真をとることが出来ました。<br>
                     いつ見てもこの蝶の美しさには驚かされます。
                 </p>
             </div>
-        </div>
+            <div class="pb40"></div>
 
-        <div class="pic-left800" >
-            <p class="page-top_hidden" >
-                Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-            </p>
-        </div>
-
-        <!-- 墨田の花火 -->
-        <div class="pic-left760">
-            <div class="contents-2col-left">
-                <p class="jQ_blink change_border_color" >
-                    <a name="sumida_no_hanabi"></a>
-                    <a href="fs01_ls_4S_Sumida.html">
-                        <IMG src="image/fs/kko/thumb_P1060016Sumida1_1024.jpg" width="256" border="0">
-                    </a>
-                </p>
-            </div>
-            <div class="contents-2col-right760t">
-                <h2 class="contents-title-4seasons" >
+            <!-- 墨田の花火 -->
+            <div class="flex2">
+                <div id="sumida_no_hanabi"></div>
+                <div class="mtb20 flx2_itemL2">
                     <a href="fs01_ls_4S_Sumida.html">
                         墨田の花火
                     </a>
-                </h2>
-                <p class="left pb20" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
-                    <IMG src="image/common/white_block.gif" width="62" height="14" >
-                    <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                    <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/button/new_b.gif" width="62" height="14"> -->
+                    <!-- <img src="image/button/update.gif" width="62" height="14"> -->
+                </div>
+            </div>
+            <div class="contents-2col-left">
+                <p class="jQ_blink change_border_color">
+                    <a href="fs01_ls_4S_Sumida.html">
+                        <img src="image/fs/kko/thumb_P1060016Sumida1_1024.jpg" width="256" border="0">
+                    </a>
                 </p>
-                <p class="left" >
-                    "墨田の花火" という名前の紫陽花です。<BR>
-                    この花の感じ....<BR>
-                    夏の夜空に どぉーんと上がってぱっと咲く，<BR>
+            </div>
+            <div class="contents-2col-right720">
+                <p class="pb5 border-ccc">
+                    "墨田の花火" という名前の紫陽花です。<br>
+                    この花の感じ....<br>
+                    夏の夜空に どぉーんと上がってぱっと咲く，<br>
                     大輪の花火を彷彿とさせてくれます。
                 </p>
             </div>
-        </div>
+            <div class="pb40"></div>
 
-        <div class="pic-left800" >
-            <p class="page-top" >
-                Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-            </p>
-        </div>
-
-        <!-- ヒカリモ -->
-        <div class="pic-left760">
-            <div class="contents-2col-left">
-                <p class="jQ_blink change_border_color" >
-                    <a name="hikari-mo"></a>
-                    <a href="fs01_ls_4S_TAKEOKA_HIKARIMO.html">
-                        <IMG src="image/fs/kko/thumb_P1040517_800.jpg" width="256" border="0">
-                    </a>
-                </p>
-            </div>
-            <div class="contents-2col-right760t">
-                <h2 class="contents-title-4seasons" >
+            <!-- ヒカリモ -->
+            <div class="flex2">
+                <div id="hikari-mo"></div>
+                <div class="mtb20 flx2_itemL2">
                     <a href="fs01_ls_4S_TAKEOKA_HIKARIMO.html">
                         ヒカリモ
                     </a>
-                </h2>
-                <p class="left pb20" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
-                    <IMG src="image/common/white_block.gif" width="62" height="14" >
-                    <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                    <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/button/new_b.gif" width="62" height="14"> -->
+                    <!-- <img src="image/button/update.gif" width="62" height="14"> -->
+                </div>
+            </div>
+            <div class="contents-2col-left">
+                <p class="jQ_blink change_border_color">
+                    <a href="fs01_ls_4S_TAKEOKA_HIKARIMO.html">
+                        <img src="image/fs/kko/thumb_P1040517_800.jpg" width="256" border="0">
+                    </a>
                 </p>
-                <p class="left" >
-                    内房・竹岡のヒカリモです。<BR>
-                    黄金井戸と呼ばれる小さい洞窟に湧き出す井戸に<BR>
-                    自生しています。<BR>
-                    １年のうち菜の花が咲く頃だけ<BR>
+            </div>
+            <div class="contents-2col-right720">
+                <p class="pb5 border-ccc">
+                    内房・竹岡のヒカリモです。<br>
+                    黄金井戸と呼ばれる小さい洞窟に湧き出す井戸に<br>
+                    自生しています。<br>
+                    １年のうち菜の花が咲く頃だけ<br>
                     光を反射して光るそうです。
                 </p>
             </div>
-        </div>
+            <div class="pb40"></div>
 
-        <div class="pic-left800" >
-            <p class="page-top_hidden" >
-                Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-            </p>
-        </div>
-
-        <!-- Bakersfield -->
-        <div class="pic-left760">
-            <div class="contents-2col-left">
-                <p class="jQ_blink change_border_color" >
-                    <a name="Bakersfield"></a>
-                    <a href="fs01_ls_4S_Bakersfield.html">
-                        <IMG src="image/fs/ss/thumb_BLUE_SKY2.jpg" width="256" border="0">
-                    </a>
-                </p>
-            </div>
-            <div class="contents-2col-right760t">
-                <h2 class="contents-title-4seasons" >
+            <!-- Bakersfield -->
+            <div class="flex2">
+                <div id="Bakersfield"></div>
+                <div class="mtb20 flx2_itemL2">
                     <a href="fs01_ls_4S_Bakersfield.html">
                         Bakersfield
                     </a>
-                </h2>
-                <p class="left pb20" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
-                    <IMG src="image/common/white_block.gif" width="62" height="14" >
-                    <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                    <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
-                </p>
-                <p class="left" >
-                    カリフォルニアから春の便りが...<BR>
-                    画像をクリックすると<BR>
-                    FOG，CLEAR，SOARER と<BR>
-                    早春のベーカーズフィールドが続きます。
-                </p>
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/button/new_b.gif" width="62" height="14"> -->
+                    <!-- <img src="image/button/update.gif" width="62" height="14"> -->
+                </div>
             </div>
-        </div>
-
-        <div class="pic-left800" >
-            <p class="page-top" >
-                Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-            </p>
-        </div>
-
-        <!-- アクアライン -->
-        <div class="pic-left760">
             <div class="contents-2col-left">
-                <p class="jQ_blink change_border_color" >
-                    <a href="image/fs/kko/source/P1030553_800.jpg" rel="prettyPhoto"
-                        title="アクアライン " target="_blank" >
-                        <IMG src="image/fs/kko/thumb_P1030553_800.jpg" width="256" border="0">
+                <p class="jQ_blink change_border_color">
+                    <a href="fs01_ls_4S_Bakersfield.html">
+                        <img src="image/fs/ss/thumb_BLUE_SKY2.jpg" width="256" border="0">
                     </a>
                 </p>
             </div>
-            <div class="contents-2col-right760t">
-                <h2 class="contents-title-4seasons" >
-                    <a href="image/fs/kko/source/P1030553_800.jpg" rel="prettyPhoto"
-                        title="アクアライン " target="_blank" >
-                        アクアライン
-                    </a>
-                </h2>
-                <p class="left pb20" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
-                    <IMG src="image/common/white_block.gif" width="62" height="14" >
-                    <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                    <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
+            <div class="contents-2col-right720">
+                <p class="pb5 border-ccc">
+                    カリフォルニアから春の便りが...<br>
+                    画像をクリックすると
+                    FOG，CLEAR，SOARER と
+                    早春のベーカーズフィールドが続きます。<br>
+                    Kamui氏からの画像です。
                 </p>
-                <p class="left" >
-                    海ほたるの屋上は凍えそうな寒さでした。<BR>
-                    でも，仕上がった写真は<BR>
+            </div>
+            <div class="pb40"></div>
+
+            <!-- アクアライン -->
+            <div class="flex2">
+                <div id="AquaLine"></div>
+                <div class="mtb20 flx2_itemL2">
+                    アクアライン
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/button/new_b.gif" width="62" height="14"> -->
+                    <!-- <img src="image/button/update.gif" width="62" height="14"> -->
+                </div>
+            </div>
+            <div class="contents-2col-left">
+                <p class="jQ_blink change_border_color">
+                    <a href="image/fs/kko/source/P1030553_800.jpg"
+                        data-fancybox="gallery5" data-caption="アクアライン">
+                        <img class="fancybox_image" src="image/fs/kko/thumb_P1030553_800.jpg" width="256" border="0">
+                    </a>
+                </p>
+            </div>
+            <div class="contents-2col-right720">
+                <p class="border-ccc">
+                    海ほたるの屋上は凍えそうな寒さでした。<br>
+                    でも，仕上がった写真は<br>
                     ほっとするような暖かみのある色調に...
                 </p>
             </div>
-        </div>
+            <div class="pb50"></div>
 
-        <div class="pic-left800" >
-            <p class="page-top_hidden" >
-                Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-            </p>
-        </div>
-
-        <!-- すみれ -->
-        <div class="pic-left760">
+            <!-- すみれ -->
+            <div class="flex2">
+                <div id="Violets"></div>
+                <div class="mtb20 flx2_itemL2">
+                    すみれ
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/button/new_b.gif" width="62" height="14"> -->
+                    <!-- <img src="image/button/update.gif" width="62" height="14"> -->
+                </div>
+            </div>
             <div class="contents-2col-left">
-                <p class="jQ_blink change_border_color" >
-                    <a href="image/fs/kko/source/Haru005_sumire1.jpg" rel="prettyPhoto"
-                        title="すみれ " target="_blank" >
-                        <IMG src="image/fs/kko/thumb_Haru005_sumire1.jpg" width="256" height="192" border="0">
+                <p class="jQ_blink change_border_color">
+                    <a href="image/fs/kko/source/Haru005_sumire1.jpg"
+                        data-fancybox="gallery6" data-caption="すみれ ">
+                        <img class="fancybox_image" src="image/fs/kko/thumb_Haru005_sumire1.jpg" width="256" height="192" border="0">
                     </a>
                 </p>
             </div>
-            <div class="contents-2col-right760t">
-                <h2 class="contents-title-4seasons" >
-                    <a href="image/fs/kko/source/Haru005_sumire1.jpg" rel="prettyPhoto"
-                        title="すみれ " target="_blank" >
-                        すみれ
-                    </a>
-                </h2>
-                <p class="left pb10" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
-                    <IMG src="image/common/white_block.gif" width="62" height="14" >
-                    <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                    <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
-                </p>
-                <p class="left" >
-                    自生している野生のすみれです。<BR>
-                    一斉に咲き出すと，<BR>
-                    地面一体が霞がかったようになります。<BR>
-                    以外と開花期が短く，<BR>
-                    気がつくと葉だけになっています。<BR>
+            <div class="contents-2col-right720">
+                <p class="border-ccc">
+                    自生している野生のすみれです。
+                    一斉に咲き出すと，
+                    地面一体が霞がかったようになります。
+                    以外と開花期が短く，
+                    気がつくと葉だけになっています。
                     やっとカメラに収めることが出来ました。
                 </p>
             </div>
-        </div>
+            <div class="pb50"></div>
 
-        <div class="pic-left800" >
-            <p class="page-top" >
-                Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-            </p>
-        </div>
-
-        <!-- すみれ２ -->
-        <div class="pic-left760">
-            <div class="contents-2col-left" style="padding-right: 72px;"> <!-- 例外-->
-                <p class="jQ_blink change_border_color" >
-                    <a href="image/fs/kko/source/Haru006_sumire2.jpg" rel="prettyPhoto"
-                        title="すみれ ２" target="_blank" >
-                        <IMG src="image/fs/kko/thumb_Haru006_sumire2.jpg" width="205" height="256" border="0">
+            <!-- すみれ２ -->
+            <div class="flex2">
+                <div id="Violets_2"></div>
+                <div class="mtb20 flx2_itemL2">
+                    すみれ２
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/button/new_b.gif" width="62" height="14"> -->
+                    <!-- <img src="image/button/update.gif" width="62" height="14"> -->
+                </div>
+            </div>
+            <div class="contents-2col-left">
+                <p class="jQ_blink change_border_color">
+                    <a href="image/fs/kko/source/Haru006_sumire2.jpg"
+                        data-fancybox="gallery6" data-caption="すみれ ２">
+                        <img class="fancybox_image" src="image/fs/kko/thumb_Haru006_sumire2.jpg" width="205" height="256" border="0">
                     </a>
                 </p>
             </div>
-            <div class="contents-2col-right760t">
-                <h2 class="contents-title-4seasons" >
-                    <a href="image/fs/kko/source/Haru006_sumire2.jpg" rel="prettyPhoto"
-                        title="すみれ ２" target="_blank" >
-                        すみれ２
-                    </a>
-                </h2>
-                <p class="left pb30" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
-                    <IMG src="image/common/white_block.gif" width="62" height="14" >
-                    <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                    <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
-                </p>
-                <p class="left" >
-                    春を告げるすみれです。<BR>
-                    パンジーやビオラにはない<BR>
+            <div class="contents-2col-right720">
+                <p class="border-ccc">
+                    春を告げるすみれです。<br>
+                    パンジーやビオラにはない
                     独特の雰囲気を持っています。
                 </p>
             </div>
-        </div>
+            <div class="pb50"></div>
 
-        <div class="pic-left800" >
-            <p class="page-top_hidden" >
-                Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-            </p>
-        </div>
-
-        <!-- ハートのカメムシ -->
-        <div class="pic-left760">
-            <div class="contents-2col-left" style="padding-right: 76px;"> <!-- 例外-->
-                <p class="jQ_blink change_border_color" >
-                    <IMG src="image/fs/kko/source/heart_kamemushi.jpg" width="198" height="268" border="0">
-                </p>
+            <!-- ハートのカメムシ -->
+            <div class="flex2">
+                <div id="kamemushi"></div>
+                <div class="mtb20 flx2_itemL2">
+                    ハートのカメムシ
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/button/new_b.gif" width="62" height="14"> -->
+                    <!-- <img src="image/button/update.gif" width="62" height="14"> -->
+                </div>
             </div>
-            <div class="contents-2col-right760t">
-                <h2 class="contents-title-4seasons" >
-                        ハートのカメムシ
-                </h2>
-                <p class="left pb30" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
-                    <IMG src="image/common/white_block.gif" width="62" height="14" >
-                    <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                    <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
-                </p>
-                <p class="left" >
-                    ちょっとピンぼけですが<BR>
-                    背中のハートマークを見て下さい。<BR>
-                    臭いで遠慮されがちなカメムシですが，<BR>
-                    面目躍如のワンショットとなるや否や...<BR>
-                    （拡大画像はありません）
-                </p>
-            </div>
-        </div>
-
-        <div class="pic-left800" >
-            <p class="page-top" >
-                Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-            </p>
-        </div>
-
-        <!-- スーパー赤トンボ -->
-        <div class="pic-left760">
             <div class="contents-2col-left">
-                <p class="jQ_blink change_border_color" >
-                    <a href="image/fs/kko/source/super_akatombo1.jpg" rel="prettyPhoto"
-                        title="スーパー赤トンボ" target="_blank" >
-                        <IMG src="image/fs/kko/thumb_super_akatombo1.jpg" width="256" height="192" border="0">
-                    </a>
-                    </p>
+                <img class="fancybox_image" src="image/fs/kko/source/heart_kamemushi.jpg" width="198" height="268" border="0">
             </div>
-            <div class="contents-2col-right760t">
-                <h2 class="contents-title-4seasons" >
-                    <a href="image/fs/kko/source/super_akatombo1.jpg" rel="prettyPhoto"
-                        title="スーパー赤トンボ" target="_blank" >
-                        スーパー赤トンボ
-                    </a>
-                </h2>
-                <p class="left pb20" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
-                    <IMG src="image/common/white_block.gif" width="62" height="14" >
-                    <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                    <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
+            <div class="contents-2col-right720">
+                <p class="border-ccc">
+                    ちょっとピンぼけですが<br>
+                    背中のハートマークを見て下さい。<br>
+                    臭いで遠慮されがちなカメムシですが，<br>
+                    面目躍如のワンショットとなるや否や...
                 </p>
-                <p class="left" >
-                    といってもJRの特急ではありません。<BR>
-                    アキアカネだと思うのですが，<BR>
+            </div>
+            <div class="pb50"></div>
+
+            <!-- スーパー赤トンボ -->
+            <div class="flex2">
+                <div id="Super_Aka_Tombo"></div>
+                <div class="mtb20 flx2_itemL2">
+                    スーパー赤トンボ
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/button/new_b.gif" width="62" height="14"> -->
+                    <!-- <img src="image/button/update.gif" width="62" height="14"> -->
+                </div>
+            </div>
+            <div class="contents-2col-left">
+                <p class="jQ_blink change_border_color">
+                    <a href="image/fs/kko/source/super_akatombo1.jpg"
+                        data-fancybox="gallery8" data-caption="スーパー赤トンボ">
+                        <img class="fancybox_image" src="image/fs/kko/thumb_super_akatombo1.jpg" width="256" height="192" border="0">
+                    </a>
+                </p>
+            </div>
+            <div class="contents-2col-right720">
+                <p class="border-ccc">
+                    といってもJRの特急ではありません。<br>
+                    アキアカネだと思うのですが，<br>
                     こんな鮮やかな色をしたトンボは初めて見ました。
                 </p>
             </div>
-        </div>
+            <div class="pb50"></div>
 
-        <div class="pic-left800" >
-            <p class="page-top_hidden" >
-                Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-            </p>
-        </div>
-
-        <!-- 十二単 -->
-        <div class="pic-left800 pb20 border-ccc">
+            <!-- 十二単 -->
+            <div class="flex2">
+                <div id="Juuni-Hitoe"></div>
+                <div class="mtb20 flx2_itemL2">
+                    十二単
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/button/new_b.gif" width="62" height="14"> -->
+                    <!-- <img src="image/button/update.gif" width="62" height="14"> -->
+                </div>
+            </div>
             <div class="contents-2col-left">
-                <p class="jQ_blink change_border_color" >
-                    <a href="image/fs/kko/source/kko205031_12hitoe.jpg" rel="prettyPhoto"
-                        title="十二単" target="_blank" >
-                        <IMG src="image/fs/kko/thumb_kz205031_12hitoe.jpg" width="256" height="192" border="0">
+                <p class="jQ_blink change_border_color">
+                    <a href="image/fs/kko/source/kko205031_12hitoe.jpg"
+                        data-fancybox="gallery9" data-caption="十二単">
+                        <img class="fancybox_image" src="image/fs/kko/thumb_kko205031_12hitoe.jpg" width="256" height="192" border="0">
                     </a>
                 </p>
             </div>
-            <div class="contents-2col-right760t">
-                <h2 class="contents-title-4seasons" >
-                    <a href="image/fs/kko/source/kko205031_12hitoe.jpg" rel="prettyPhoto"
-                        title="十二単" target="_blank">
-                        十二単
-                    </a>
-                </h2>
-                <p class="left pb20" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
-                    <IMG src="image/common/white_block.gif" width="62" height="14" >
-                    <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                    <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
-                </p>
-                <p class="left" >
-                    葉だけでもきれいな草ですが，<BR>
-                    開花すると深みのある紫の葉の上に<BR>
-                    鮮やかな紫の花が重なる独特の色合いが<BR>
+            <div class="contents-2col-right720">
+                <p class="border-ccc">
+                    葉だけでもきれいな草ですが，<br>
+                    開花すると深みのある紫の葉の上に<br>
+                    鮮やかな紫の花が重なる独特の色合いが<br>
                     何ともいえない気品を漂わせます。
                 </p>
             </div>
-        </div>
-        <a name="page_bottom"></a>
+            <div class="pb50"></div>
+
+        </div> <!-- pic-left720: end -->
 
     </div> <!-- page main: end -->
 
@@ -1050,17 +921,19 @@
 
         <hr id="footer"> <!-- horizontal partition -->
 
-        <div class="jQ_change center" > <!-- select button whole: start -->
+        <p id="page-top"><a href="#">TOP</a></p>
+
+        <div class="jQ_change center"> <!-- select button whole: start -->
             <p id="footer">  <!-- select button 1: start -->
                 <a href="fs01_ls_top.html#4SEASONS">
-                        <IMG src="image/button/snap_top_off.gif" border="0" alt="Snap Shots Top" >
+                        <img src="image/button/snap_top_off.gif" border="0" alt="Snap Shots Top">
                 </a>
             </p> <!-- select button 1: end -->
         </div> <!-- select button whole: end -->
 
-        <div id="footer_label">
+        <div class="footer_labelPC">
             copyright &copy; 2003 -
-            <script type="text/javascript" language="JavaScript">
+            <script>
                 date = new Date();
                 document.write(date.getFullYear() + ' ');
             </script>
@@ -1071,6 +944,5 @@
 
     </footer>
 
-</div> <!-- Pre Loading end -->
-</BODY>
+</body>
 </html>

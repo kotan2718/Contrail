@@ -1,71 +1,67 @@
-<!DOCTYPE HTML >
-<html>
+<!DOCTYPE html >
+<html lang="ja">
 
-<HEAD>
-    <META charset="UTF-8">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Shafter Air Showで撮影されたさまざまな飛行機をご覧ください。">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Contrail SnapShots : Sky in the Sky :: Shafter Air Show</title>
 
     <!-- favicon-->
-    <link rel="shortcut icon" href="favicon.ico">
-
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="icon" href="favicon.ico">
 
     <!-- css start -->
-
-        <!-- kko_etc start - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
-        <link rel="stylesheet" href="libs/etc/css/kko_footer_style.css" type="text/css">
-        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css" type="text/css">
-        <!-- kko_etc end -->
-
+        <!-- kko_etc - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
+        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
     <!-- css end -->
 
     <!-- js start -->
-
         <!-- jQuery start -->
-        <script src="libs/jQuery/js/jquery-1.6.1.min.js" type="text/javascript"></script>
-
-            <!-- レイアウトを崩さないために画像の先読み -->
-            <script type="text/javascript">
-            $(function(){
-                jQuery.preloadImages = function(){
-                    for(var i = 0; i<arguments.length; i++){
-                        jQuery("<img>").attr("src", arguments[i]);
-                    }
-                };
-                $.preloadImages(
-                    "image/fs/ss/thumb_Shafter640P5110006.jpg",
-                    "image/fs/ss/thumb_Shafter640P5110012.jpg",
-                    "image/fs/ss/thumb_Shafter640P5110053.jpg"
-                );
-            });
-            </script>
-
-            <!-- kko_style start - img jq_blink, img jq_change -->
-            <script src="libs/jQuery/kko/js/jq_kko_style.js" type="text/javascript"></script>
-            <!-- kko_style end -->
-
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <!-- kko_style - img jq_blink, img jq_change -->
+            <script src="libs/jQuery/kko/js/jq_kko_style.js"></script>
         <!-- jQuery end -->
-
-        <!-- Sandbox DropDownMenu start -->
-        <script src="libs/sandbox/js/script.js" type="text/javascript"></script>
-        <!-- Sandbox DropDownMenu end -->
-
     <!-- js end -->
 
-</HEAD>
+    <style>
 
-<BODY id="common-s" >
+        .grid-sw {
+            display: grid;
+            grid-template-columns	:1fr;
+            gap: 20px;
+        }
+        .grid-sw .block {
+            display: flex;
+            align-items: center; /* ← 画像の中央に文字を合わせる */
+            gap: 10px;
+        }
+        .grid-sw .block .image {
+            flex-shrink: 0;
+        }
 
-    <div id="container">
+        img.thumb {
+            width: 256px;
+            height: auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            margin: 1em;
+            cursor: pointer;
+        }
 
-        <header>
+    </style>
+
+</head>
+
+<!--<body id="common-s">-->
+<body id="common-k">
+
+    <header>
+        <div class="prettyP_PC">
             <a name="page_top"></a>
             <div class="center jQ_change navbox" >
                 <nav>
-                    <IMG src="image/top/Contrail_g.png" height="20" class="logo_img">
+                    <img src="image/top/cr32_e.png" height="20" class="logo_img">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_img">
                     <ul class="menu" id="menu" >
                         <li><a href="index.html" class="menulink">Home</a></li>
                         <li><a href="whatnew.html" class="menulink">What's New</a></li>
@@ -83,126 +79,200 @@
                 <div class="c-both"></div>
             </div>
             <!-- Sandbox DropDownMenu start-->
-            <script type="text/javascript">
+            <script>
                 var menu=new menu.dd("menu");
                 menu.init("menu","menuhover");
-            </script>    <!-- Sandbox DropDownMenu end -->
-        </header>
+            </script>
+            <!-- Sandbox DropDownMenu end -->
+        </div>
+        <div class="prettyP_SP">
+            <a name="MENU"></a>
+            <p id="menu-call">
+                <a href="#">MENU</a>
+            </p>
 
-        <div id="main720"> <!-- page main: start -->
+            <a name="page_top"></a>
 
-            <!-- title -->
-            <div id="title30">
-                <p id="head10" >
-                    <IMG src="image/fs/kko_logo.gif" alt="Contrail Snap Shots Special Gallery">
-                </p>
-                <h2 id="group-SS" >
+            <!-- page top icon & logo -->
+            <div id="header_SP" class="header_labelSP">
+                <div class="pb4"></div>
+                <img src="image/top/cr48f_32.png">
+                <img class="pb3" src="image/top/Contrail_g.png" height="24">
+            </div>
+
+            <div id="popup-menu" class="hidden">
+                <div class="menu-title">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_image" alt="CONTRAIL">
+                </div>
+                <ul>
+                    <li><a href="index.html" class="menulink">Home</a></li>
+                    <li><a href="whatnew.html" class="menulink">What's New</a></li>
+                    <li><a href="etc.html" class="menulink">E.T.C.</a></li>
+                    <li><a href="fs01.html" class="menulink">The Scenery</a></li>
+                    <li><a href="link01.html" class="menulink">Links</a></li>
+                    <li><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div id="main720-480"> <!-- page main: start -->
+
+        <!-- title -->
+        <div id="title30">
+            <p id="head10">
+                <img src="image/fs/kko_logo.gif" alt="Contrail Snap Shots Special Gallery">
+            </p>
+            <div class="prettyP_PC">
+                <h2 id="group-SS">
                     Sky in the Sky
                 </h2>
                 <h1 class="pb10">
-                    <IMG src="image/fs/ShafterAirShow26.gif" width="374" alt="Shafter Air Show">
+                    <img src="image/fs/ShafterAirShow26.gif" width="374" alt="Shafter Air Show">
                 </h1>
-                <p id="author" >
+                <p id="author">
                     photo kamui
                 </p>
             </div>
+            <div class="prettyP_SP">
+                <h4 id="group-SS" class="pb10">
+                    Sky in the Sky
+                </h4>
+                <h2 class="pb10">
+                    <img src="image/fs/ShafterAirShow26.gif" width="320" alt="Shafter Air Show">
+                </h2>
+                <p id="author">
+                    photo kamui
+                </p>
+            </div>
+        </div>
 
-            <!-- contents -->
-            <div class="pb15">
-                <table class="table-ss center">
-                    <tr>
-                        <td class="jQ_blink change_border_color " rowspan="2">
+        <!-- for Java Script off -->
+        <noscript>
+            <div id="attention">
+                <p>ご覧頂くにはブラウザの JavaScript をアクティブにして下さい</p>
+            </div>
+        </noscript>
+
+        <!-- contents -->
+        <div class="pb15">
+            <div class="prettyP_PC">
+                <div class="grid-sw pb20">
+                    <div class="block">
+                        <div>
+                            <img src="image/common/white_block.gif" width="84">
+                        </div>
+                        <div class="image jQ_blink change_border_color">
                             <a name="SHAFTER_VOL1"></a>
                             <a href="fs01_ls_SS_Shafter1.html">
-                                <IMG src="image/fs/ss/thumb_Shafter640P5110006.jpg" width="256" >
+                                <img src="image/fs/ss/thumb_Shafter640P5110006.jpg" width="256">
                             </a>
-                        </td>
-                        <td height="14">
-                            <IMG src="image/common/white_block.gif" width="62" height="14" >
-                            <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p class="pl20 fs110 fwb pb50">
+                        </div>
+                        <div class="left2">
+                            <p class="pl20 fs110 fwb">
                                 <a href="fs01_ls_SS_Shafter1.html">Vol.1</a>
                             </p>
-                        </td>
-                    </tr>
+                        </div>
+                    </div>
+                </div>
 
-                    <tr>
-                        <td class="height="14"   >
-                            <IMG src="image/common/white_block.gif" width="62" height="14" >
-                            <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
-                        </td>
-                        <td class="jQ_blink change_border_color" rowspan="2" >
-                            <a name="SHAFTER_VOL2"></a>
-                            <a href="fs01_ls_SS_Shafter2.html">
-                                <IMG src="image/fs/ss/thumb_Shafter640P5110012.jpg" width="256" >
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p class="right pr20 fs110 fwb pb50">
+                <div class="grid-sw pb20">
+                    <div class="block">
+                        <div class="right">
+                            <p class="pl20 fs110 fwb">
                                 <a href="fs01_ls_SS_Shafter2.html">Vol.2</a>
                             </p>
-                        </td>
-                    </tr>
+                        </div>
+                        <div class="image jQ_blink change_border_color">
+                            <a name="SHAFTER_VOL2"></a>
+                            <a href="fs01_ls_SS_Shafter2.html">
+                                <img src="image/fs/ss/thumb_Shafter640P5110012.jpg" width="256">
+                            </a>
+                        </div>
+                        <div>
+                            <img src="image/common/white_block.gif" width="84">
+                        </div>
+                    </div>
+                </div>
 
-                    <tr>
-                        <td class="jQ_blink change_border_color " rowspan="2">
+                <div class="grid-sw pb20">
+                    <div class="block">
+                        <div>
+                            <img src="image/common/white_block.gif" width="84">
+                        </div>
+                        <div class="image jQ_blink change_border_color">
                             <a name="SHAFTER_VOL3"></a>
                             <a href="fs01_ls_SS_Shafter3.html">
-                                <IMG src="image/fs/ss/thumb_Shafter640P5110053.jpg" width="256" >
+                                <img src="image/fs/ss/thumb_Shafter640P5110053.jpg" width="256">
                             </a>
-                        </td>
-                        <td height="14">
-                            <IMG src="image/common/white_block.gif" width="62" height="14" >
-                            <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p class="pl20 fs110 fwb pb50">
+                        </div>
+                        <div class="left2 fs110 fwb">
+                            <p class="pl20 fs110 fwb">
                                 <a href="fs01_ls_SS_Shafter3.html">Vol.3</a>
                             </p>
-                        </td>
-                    </tr>
-                </table>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <a name="page_bottom"></a>
-
-        </div> <!-- page main: end -->
-
-        <footer>
-
-            <hr id="footer" style="width: 50%"> <!-- horizontal partition -->
-
-            <div class="jQ_change center" > <!-- select button whole: start -->
-                <p id="footer">  <!-- select button 1: start -->
-                    <a href="fs01_ls_Sky_in_the_Sky.html#SHAFTER">
-                        <IMG src="image/button/back_off.gif" border="0" alt="Back" >
-                    </a>
-                </p> <!-- select button 1: end -->
-            </div> <!-- select button whole: end -->
-
-            <div class="wrap">
+            <div class="prettyP_SP">
+                <div class="center" style="width: 256px">
+                    <div class="left2 fss fwb pb10">Vol.1</div>
+                    <div>
+                        <a href="fs01_ls_SS_Shafter1.html">
+                            <span class="image-container">
+                                <img src="image/fs/ss/thumb_Shafter640P5110006.jpg" width="256">
+                            </span>
+                            <div class="pb30"></div>
+                        </a>
+                    </div>
+                    <div class="left2 fss fwb pb10">Vol.2</div>
+                    <div>
+                        <a href="fs01_ls_SS_Shafter1.html">
+                            <span class="image-container">
+                                <img src="image/fs/ss/thumb_Shafter640P5110012.jpg" width="256">
+                            </span>
+                            <div class="pb30"></div>
+                        </a>
+                    </div>
+                    <div class="left2 fss fwb pb10">Vol.3</div>
+                    <div>
+                        <a href="fs01_ls_SS_Shafter3.html">
+                            <span class="image-container">
+                                <img src="image/fs/ss/thumb_Shafter640P5110053.jpg" width="256">
+                            </span>
+                            <div class="pb30"></div>
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="footer_bottom_fixed">
-                copyright &copy; 2003 -
-                <script type="text/javascript" language="JavaScript">
-                    date = new Date();
-                    document.write(date.getFullYear() + ' ');
-                </script>
-                <nonscript>
-                </nonscript>
-                Contrail -kotan- all rights reserved
-            </div>
+        </div>
 
-        </footer>
+    </div> <!-- page main: end -->
 
-    </div>
+    <footer>
+        <hr id="footer"> <!-- horizontal partition -->
 
-</BODY>
+        <p id="page-top"><a href="#">TOP</a></p>
+
+        <div class="jQ_change center"> <!-- select button whole: start -->
+            <p id="footer"> <!-- select button: start -->
+                <a href="fs01_ls_Sky_in_the_Sky.html#SHAFTER">
+                    <img src="image/button/back_off.gif" border="0" alt="Back">
+                </a>
+            <p> <!-- select button: end -->
+        </div> <!-- select button whole: end -->
+
+        <div class="footer_labelPC">
+            copyright &copy; 2003 -
+            <script>
+                date = new Date();
+                document.write(date.getFullYear() + ' ');
+            </script>
+            <nonscript>
+            </nonscript>
+            Contrail -kotan- all rights reserved
+        </div>
+    </footer>
+
+</body>
 </html>

@@ -1,147 +1,254 @@
-<!DOCTYPE HTML >
-<html>
+<!DOCTYPE html >
+<html lang="ja">
 
-<HEAD>
-    <META charset="UTF-8">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="良くご覧頂きたいのですが，桜の花です。緑色の桜の花です。">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Contrail SnapShots : 四季折々 :: 緑の桜の花</title>
 
-    <!-- favicon-->
-    <link rel="shortcut icon" href="favicon.ico">
-
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
     <!-- css start -->
+        <!-- kko_etc - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
+        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
 
-        <!-- kko_etc start - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
-        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css" type="text/css">
-        <!-- kko_etc end -->
+        <!-- Fancybox CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css">
 
+        <style>
+            /* Optional: Limit image size on small screens */
+            @media (max-width: 768px) {
+                .fancybox_image {
+                    max-width: 256px;
+                }
+                .fancybox_image2 {
+                    max-width: 300px;
+                }
+            }
+        </style>
     <!-- css end -->
 
     <!-- js start -->
-
         <!-- jQuery start -->
-        <script src="libs/jQuery/js/jquery-1.6.1.min.js" type="text/javascript"></script>
-
-            <!-- kko_style start - img jq_blink, img jq_change -->
-            <script src="libs/jQuery/kko/js/jq_kko_preload.js" type="text/javascript"></script>
-            <script src="libs/jQuery/kko/js/jq_kko_style.js" type="text/javascript"></script>
-            <!-- kko_style end -->
-
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <!-- kko_style - img jq_blink, img jq_change -->
+            <script src="libs/jQuery/kko/js/jq_kko_style.js"></script>
         <!-- jQuery end -->
 
-        <!-- Sandbox DropDownMenu start -->
-        <script src="libs/sandbox/js/script.js" type="text/javascript"></script>
-        <!-- Sandbox DropDownMenu end -->
+        <!-- Fancybox JS -->
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
 
-    <!-- js end -->
+        <!-- Sandbox DropDownMenu -->
+        <script src="libs/sandbox/js/script.js"></script>
+   <!-- js end -->
 
-</HEAD>
+</head>
 
-<BODY id="common-k" >
-
-<!-- Pre Loading -->
-<!-- without loading picture -->
-<div id="loader"></div>
-<div id="fade"></div>
-<div id="preload"> <!-- Pre Loading start -->
+<body id="common-k">
 
     <header>
-        <a name="page_top"></a>
-        <div class="center jQ_change navbox" >
-            <nav>
-                <IMG src="image/top/Contrail_g.png" height="20" class="logo_img">
-                <ul class="menu" id="menu" >
+        <div class="prettyP_PC">
+            <a name="page_top"></a>
+            <div class="center jQ_change navbox" >
+                <nav>
+                    <img src="image/top/cr32_e.png" height="20" class="logo_img">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_img">
+                    <ul class="menu" id="menu" >
+                        <li><a href="index.html" class="menulink">Home</a></li>
+                        <li><a href="whatnew.html" class="menulink">What's New</a></li>
+                        <li><a href="etc.html" class="menulink">E.T.C.</a></li>
+                        <li><a href="fs01.html" class="menulink">The Scenery</a>
+                            <ul>
+                                <li><a href="fs01_sc_top.html" class="sub">Screen Shots</a></li>
+                                <li><a href="fs01_ls_top.html" class="sub">Snap Shots</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="link01.html" class="menulink">Links</a></li>
+                        <li class="about"><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                    </ul>
+                </nav>
+                <div class="c-both"></div>
+            </div>
+            <!-- Sandbox DropDownMenu start-->
+            <script>
+                var menu=new menu.dd("menu");
+                menu.init("menu","menuhover");
+            </script>
+            <!-- Sandbox DropDownMenu end -->
+        </div>
+        <div class="prettyP_SP">
+            <a name="MENU"></a>
+            <p id="menu-call">
+                <a href="#">MENU</a>
+            </p>
+
+            <a name="page_top"></a>
+
+            <!-- page top icon & logo -->
+            <div id="header_SP" class="header_labelSP">
+                <div class="pb4"></div>
+                <img src="image/top/cr48f_32.png">
+                <img class="pb3" src="image/top/Contrail_g.png" height="24">
+            </div>
+
+            <div id="popup-menu" class="hidden">
+                <div class="menu-title">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_image" alt="CONTRAIL">
+                </div>
+                <ul>
                     <li><a href="index.html" class="menulink">Home</a></li>
                     <li><a href="whatnew.html" class="menulink">What's New</a></li>
                     <li><a href="etc.html" class="menulink">E.T.C.</a></li>
-                    <li><a href="fs01.html" class="menulink">The Scenery</a>
-                        <ul>
-                            <li><a href="fs01_sc_top.html" class="sub">Screen Shots</a></li>
-                            <li><a href="fs01_ls_top.html" class="sub">Snap Shots</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="fs01.html" class="menulink">The Scenery</a></li>
                     <li><a href="link01.html" class="menulink">Links</a></li>
-                    <li class="about"><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                    <li><a href="fs01_about.html" class="menulink">about Contrail</a></li>
                 </ul>
-            </nav>
-            <div class="c-both"></div>
+            </div>
         </div>
-        <!-- Sandbox DropDownMenu start-->
-        <script type="text/javascript">
-            var menu=new menu.dd("menu");
-            menu.init("menu","menuhover");
-        </script>    <!-- Sandbox DropDownMenu end -->
     </header>
 
     <div id="main960" class="lineh130"> <!-- page main: start -->
 
         <!-- title -->
         <div id="title30">
-            <p id="head10" >
-                <IMG src="image/fs/kko_logo.gif" border="0" alt="Contrail Snap Shots Special Gallery">
+            <p id="head10">
+                <img src="image/fs/kko_logo.gif" border="0" alt="Contrail Snap Shots Special Gallery">
             </p>
             <h2 id="group-4S15">
                 四季折々
             </h2>
-            <h1 id="main_fs" style="color: #6b8e23;" >
-                緑の桜の花
-            </h1>
-            <p id="author">
-                photo kotan
-            </p>
+            <div class="prettyP_PC">
+                <h1 id="main_fs" style="color: #6b8e23;">
+                    緑の桜の花
+                </h1>
+                <p id="author">
+                    photo kotan
+                </p>
+            </div>
+            <div class="prettyP_SP">
+                <h2 id="main_fs" style="color: #6b8e23;">
+                    緑の桜の花
+                </h2>
+                <p id="author">
+                    photo kotan
+                </p>
+            </div>
         </div>
+
+        <!-- for Java Script off -->
+        <noscript>
+            <div id="attention">
+                <p>ご覧頂くにはブラウザの JavaScript をアクティブにして下さい</p>
+            </div>
+        </noscript>
 
         <!-- contents -->
-        <div class="pic-center800 pb40" >
-            <p class="pb10" >
-                桜の花はほんのりとしたピンクと相場が決まっていると思っていたのですが，<BR>
-                このような色の桜もありました。<BR>
-                仕事場のすぐ近くの神社に数本生えています。<BR>
-                地元では珍しくないのか話題にもならないのですが，<BR>
-                数年前に初めて観たときはびっくりしました。
-            </p>
-            <p>
-                <IMG src="image/fs/kko/source/midori_sakura_P1060051_1024.jpg" width="800"
-                    alt="green cherry blossoms 01">
-            </p>
+        <div class="pic-center800 pb40">
+            <div class="prettyP_PC">
+                <p class="pb10">
+                    桜の花はほんのりとしたピンクと相場が決まっていると思っていたのですが，<br>
+                    このような色の桜もありました。<br>
+                    仕事場のすぐ近くの神社に数本生えています。<br>
+                    地元では珍しくないのか話題にもならないのですが，<br>
+                    数年前に初めて観たときはびっくりしました。
+                </p>
+                <p>
+                    <img src="image/fs/kko/source/midori_sakura_P1060051_1024.jpg" width="800"
+                        alt="green cherry blossoms 01">
+                </p>
+            </div>
+            <div class="prettyP_SP">
+                <p class="left2 pb10">
+                    桜の花はほんのりとしたピンクと相場が決まっていると思っていたのですが，
+                    このような色の桜もありました。
+                    仕事場のすぐ近くの神社に数本生えています。
+                    地元では珍しくないのか話題にもならないのですが，
+                    数年前に初めて観たときはびっくりしました。
+                </p>
+                <p>
+                    <span class="image-container">
+                        <img src="image/fs/kko/source/midori_sakura_P1060051_1024.jpg" height="232"
+                            alt="green cherry blossoms 01">
+                    </span>
+                </p>
+            </div>
         </div>
 
-        <div class="pic-left800 pb40" >
-            <p class="pb10" >
-                同じ場所には桜らしい桜も咲いています。<BR>
-                緑の桜の方が開花が遅いようで，<BR>
-                桜らしい桜の方は少し時期を過ぎていますが，<BR>
-                比較のために撮してみました。
-            </p>
-            <p>
-                <IMG src="image/fs/kko/source/midori_sakura_P1060015ch_g640b.jpg" width="640"
-                alt="green cherry blossoms 02">
-            </p>
+        <div class="pic-left800 pb40">
+            <div class="prettyP_PC">
+                <p class="pb10">
+                    同じ場所には桜らしい桜も咲いています。<br>
+                    緑の桜の方が開花が遅いようで，<br>
+                    桜らしい桜の方は少し時期を過ぎていますが，<br>
+                    比較のために撮してみました。
+                </p>
+                <p>
+                    <img src="image/fs/kko/source/midori_sakura_P1060015ch_g640b.jpg" width="640"
+                    alt="green cherry blossoms 02">
+                </p>
+            </div>
+            <div class="prettyP_SP">
+                <p class="pb10">
+                    同じ場所には桜らしい桜も咲いています。
+                    緑の桜の方が開花が遅いようで，
+                    桜らしい桜の方は少し時期を過ぎていますが，
+                    比較のために撮してみました。
+                </p>
+                <p>
+                    <span class="image-container">
+                        <img src="image/fs/kko/source/midori_sakura_P1060015ch_g640b.jpg" height="212"
+                            alt="green cherry blossoms 02">
+                    </span>
+                </p>
+                <div class="pb40"></div>
+            </div>
         </div>
 
-        <div class="pic-right800 pb40" >
-            <p>
-                <IMG src="image/fs/kko/source/midori_sakura_P1060024ch_g1024.jpg" width="800"
-                alt="green cherry blossoms 03">
-            </p>
-            <p class="center" >
-                ちょっと露出オーバー気味ですが...
-            </p>
+        <div class="pic-right800 pb40">
+            <div class="prettyP_PC">
+                <p>
+                    <img src="image/fs/kko/source/midori_sakura_P1060024ch_g1024.jpg" width="800"
+                    alt="green cherry blossoms 03">
+                </p>
+                <p class="center">
+                    ちょっと露出オーバー気味ですが...
+                </p>
+            </div>
+            <div class="prettyP_SP">
+                <p class="right">
+                    <span class="image-container">
+                        <img src="image/fs/kko/source/midori_sakura_P1060024ch_g1024.jpg" height="212"
+                            alt="green cherry blossoms 03">
+                    </span>
+                </p>
+                <p class="right">
+                    ちょっと露出オーバー気味ですが...
+                </p>
+                <div class="pb40"></div>
+            </div>
         </div>
 
-        <div class="pic-center800 pb20" >
-            <p class="pb5" >
-                再び 緑の桜です
-            <p>
-                <IMG src="image/fs/kko/source/midori_sakura_P1060101cut1024.jpg" width="800"
-                        alt="green cherry blossoms 04">
-            </p>
+        <div class="pic-center800 pb20">
+            <div class="prettyP_PC">
+                <p class="pb5">
+                    再び 緑の桜です
+                <p>
+                    <img src="image/fs/kko/source/midori_sakura_P1060101cut1024.jpg" width="800"
+                            alt="green cherry blossoms 04">
+                </p>
+            </div>
+            <div class="prettyP_SP">
+                <p class="pb5">
+                    再び 緑の桜です
+                <p>
+                    <span class="image-container">
+                        <img src="image/fs/kko/source/midori_sakura_P1060101cut1024.jpg" height="212"
+                            alt="green cherry blossoms 04">
+                    </span>
+                </p>
+                <div class="pb20"></div>
+            </div>
         </div>
-        <a name="page_bottom"></a>
 
     </div> <!-- page main: end -->
 
@@ -149,17 +256,19 @@
 
         <hr id="footer"> <!-- horizontal partition -->
 
-        <div class="jQ_change center" > <!-- select button whole: start -->
+        <p id="page-top"><a href="#">TOP</a></p>
+
+        <div class="jQ_change center"> <!-- select button whole: start -->
             <p id="footer"> <!-- select button: start -->
                 <a href="fs01_ls_4seasons.html#midori_sakura">
-                    <IMG src="image/button/back_off.gif" border="0" alt="Back" >
+                    <img src="image/button/back_off.gif" border="0" alt="Back">
                 </a>
             </p> <!-- select button: end -->
         </div> <!-- select button whole: end -->
 
-        <div id="footer_label">
+        <div class="footer_labelPC">
             copyright &copy; 2003 -
-            <script type="text/javascript" language="JavaScript">
+            <script>
                 date = new Date();
                 document.write(date.getFullYear() + ' ');
             </script>
@@ -171,5 +280,5 @@
     </footer>
 
 </div> <!-- Pre Loading end -->
-</BODY>
+</body>
 </html>

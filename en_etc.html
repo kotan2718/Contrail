@@ -1,100 +1,126 @@
-<!DOCTYPE HTML >
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
-<HEAD>
-    <META charset="UTF-8">
-    <META name="description" content="This page introduces the following tools: Lens Meter simulation tool, Differential Equations drawing tools. ">
-    <META name="keywords" content="Lens,Meter,simulation,differential,equations,drawing,tool">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="This page introduces the following tools: Lens Meter simulation tool, Differential Equations drawing tools. ">
+    <meta name="keywords" content="Lens,Meter,simulation,differential,equations,drawing,tool">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Contrail E.T.C.</title>
 
-    <!-- favicon-->
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="icon" href="favicon.ico">
 
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <!-- js start -->
-
-        <!-- jQuery start -->
-        <script src="libs/jQuery/js/jquery-1.6.1.min.js" type="text/javascript"></script>
-
-            <!-- kko_style start - img jq_blink, img jq_change -->
-            <script src="libs/jQuery/kko/js/jq_kko_style.js" type="text/javascript"></script>
-            <!-- kko_style end -->
-
-        <!-- jQuery end -->
-
-        <!-- Sandbox DropDownMenu start -->
-        <script src="libs/sandbox/js/script.js" type="text/javascript"></script>
-        <!-- Sandbox DropDownMenu end -->
-
-    <!-- js end -->
-
-        <!-- kko_etc start - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
-        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css" type="text/css">
-        <!-- kko_etc end -->
-
+    <!-- css start -->
+        <!-- kko_etc - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
+        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
     <!-- css end -->
 
-</HEAD>
+    <!-- js start -->
+        <!-- jQuery start -->
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <!-- kko_style - img jq_blink, img jq_change -->
+            <script src="libs/jQuery/kko/js/jq_kko_style.js"></script>
+        <!-- jQuery end -->
+    <!-- js end -->
 
-<BODY id="common-k" >
+</head>
+
+<body id="common-k">
 
     <header>
-        <a name="page_top"></a>
-        <div class="center jQ_change navbox" >
-            <nav>
-                <IMG src="image/top/Contrail_g.png" height="20" class="logo_img">
-                <ul class="menu" id="menu" >
-                    <li><a href="index.html" class="menulink">Home</a></li>
-                    <li><a href="e_whatnew.html" class="menulink">What's New</a></li>
-                    <li><a href="en_etc.html" class="menulink">E.T.C.</a></li>
-                    <li><a href="e_fs01.html" class="menulink">The Scenery</a>
-                        <ul>
-                            <li><a href="e_fs01_sc_top.html" class="sub">Screen Shots</a></li>
-                            <li><a href="e_fs01_ls_top.html" class="sub">Snap Shots</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="e_link01.html" class="menulink">Links</a></li>
-                    <li class="about"><a href="e_fs01_about.html" class="menulink">about Contrail</a></li>
-                </ul>
-            </nav>
-            <div class="c-both"></div>
+        <div class="prettyP_PC">
+            <a name="page_top"></a>
+            <div class="center jQ_change navbox" >
+                <nav>
+                    <img src="image/top/cr32_e.png" height="20" class="logo_img">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_img">
+                    <ul class="menu" id="menu" >
+                        <li><a href="index.html" class="menulink">Home</a></li>
+                        <li><a href="e_whatnew.html" class="menulink">What's New</a></li>
+                        <li><a href="en_etc.html" class="menulink">E.T.C.</a></li>
+                        <li><a href="e_fs01.html" class="menulink">The Scenery</a>
+                            <ul>
+                                <li><a href="e_fs01_sc_top.html" class="sub">Screen Shots</a></li>
+                                <li><a href="e_fs01_ls_top.html" class="sub">Snap Shots</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="e_link01.html" class="menulink">Links</a></li>
+                        <li class="about"><a href="e_fs01_about.html" class="menulink">about Contrail</a></li>
+                    </ul>
+                </nav>
+                <div class="c-both"></div>
+            </div>
+            <!-- Sandbox DropDownMenu start-->
+            <script>
+                var menu=new menu.dd("menu");
+                menu.init("menu","menuhover");
+            </script>
+            <!-- Sandbox DropDownMenu end -->
         </div>
-        <!-- Sandbox DropDownMenu start-->
-        <script type="text/javascript">
-            var menu=new menu.dd("menu");
-            menu.init("menu","menuhover");
-        </script>    <!-- Sandbox DropDownMenu end -->
+        <div class="prettyP_SP">
+            <a name="MENU"></a>
+            <p id="menu-call">
+                <a href="#">MENU</a>
+            </p>
+
+            <a name="page_top"></a>
+
+            <!-- page top icon & logo -->
+            <div id="header_SP" class="header_labelSP">
+                <div class="pb4"></div>
+                <img src="image/top/cr48f_32.png">
+                <img class="pb3" src="image/top/Contrail_g.png" height="24">
+            </div>
+
+            <div id="popup-menu" class="hidden">
+                <div class="menu-title">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_image" alt="CONTRAIL">
+                </div>
+                <ul>
+                <li><a href="index.html" class="menulink">Home</a></li>
+                <li><a href="e_whatnew.html" class="menulink">What's New</a></li>
+                <li><a href="en_etc.html" class="menulink">E.T.C.</a></li>
+                <li><a href="e_fs01.html" class="menulink">The Scenery</a>
+                <li><a href="e_link01.html" class="menulink">Links</a></li>
+                <li><a href="e_fs01_about.html" class="menulink">about Contrail</a></li>
+                </ul>
+            </div>
+        </div>
     </header>
 
-    <div id="main920" class="lineh140"> <!-- page main: start -->
+    <div id="main960-480new_en"> <!-- page main: start -->
 
         <!-- title -->
         <div id="title30">
             <p class="pb15"></p>
-            <h1 id="main_fss_E" >
+            <h1 id="main_fss_E">
                 E.T.C.
             </h1>
-            <h4 class="left pb10" >
+            <h4 class="left2 pb10">
                 On this page I introduce the simulation tools I have built so far.
-                Since there is no uniformity in the genres, I have grouped them all together under "etc." (        ;.
+                Since there is no uniformity in the genres, I have grouped them all together under "etc." :-).
                 I've been updating quite frequently recently.
                 I'm not sure how long I can keep up these updates, but I'd like to keep trying as long as I'm still interested.
                 The tools I've introduced are as follows:
             </h4>
-            <h4 class="contents-col left pb10">
+            <h4 class="left2 pb10">
                 Lens Meter Simulation tool <br>
                 Differential Equations drawing tools <br>
                 Rendering Surfaces with Hidden Line Meshes
                 <p class="pb10"></p>
-                <p class="fss fwm">
+                <p class="fss">
                     * These tools are introduced in order of update.
                 </p>
             </h4>
         </div>
+
+        <!-- for Java Script off -->
+        <noscript>
+            <div id="attention">
+                <p>Sorry, you need to activate JavaScript in your browser.</p>
+            </div>
+        </noscript>
 
         <!-- contents -->
 
@@ -104,253 +130,262 @@
         -->
 
         <!-- 25/03/26 -->
-        <div class="left pb20">
-            <div class="contents-col_top_l">
-                <p>
-                    Mar. 26, 2025
-                </p>
+        <div class="left2 flex pb30">
+            <div class="flx_itemL">
+                03/26/25
             </div>
-            <div class="contents-col_top_c">
-                <p><IMG src="image/common/b-tri.gif" alt="label"></p>
+            <div class="flx_itemC">
+                <img src="image/common/b-tri.gif" alt="label">
             </div>
-            <div class="contents-col_top_r pb20">
-                <p class="pb10" >
+            <div class="flx_itemR960">
+                <div class="pb10">
                     For this site, this is a rather unique topic.
-                </p>
-                <p class="pb10" >
+                </div>
+                <div class="pb10">
                     I seriously considered
                     "the mystery of the seafarers who transported obsidian by boat
                     from Kozushima Island in the Izu Islands to the mainland 38,000 years ago. "
-                </p>
-                <p class="pb10" >
+                </div>
+                <div>
                     [E.T.C.] - <a href="etc_Voyager_en.html">Voyagers of 38,000 years ago</a>
-                </p>
+                </div>
             </div>
         </div>
 
         <!-- 24/09/08 -->
-        <div class="left pb20">
-            <div class="contents-col_top_l">
-                <p>
-                    Sep. 08, 2024
-                </p>
+        <div class="left2 flex pb30">
+            <div class="flx_itemL">
+                09/08/24
             </div>
-            <div class="contents-col_top_c">
-                <p><IMG src="image/common/b-tri.gif" alt="label"></p>
+            <div class="flx_itemC">
+                <img src="image/common/b-tri.gif" alt="label">
             </div>
-            <div class="contents-col_top_r pb20">
-                <p class="pb10" >
+            <div class="flx_itemR960">
+                <div class="pb10">
                     I have released a page that plots graphs (surfaces) of functions of two variables
                     using a mesh with hidden line.
                     Select a function on the select box to plot the surface.
-                </p>
-                <p class="pb5">
+                </div>
+                <div class="pb10">
                     Below is link to explanatory page:
-                </p>
-                <p class="pb15 fwb fss">
+                </div>
+                <div class="pb10">
                     [E.T.C.] - <a href="etc_pers_doc1_en.html">Brief Explanation: Rendering Surfaces Using Hidden Line Meshes</a>
-                </p>
-                <p class="pb5">
+                </div>
+                <div class="pb10">
                     The following link directly jumps to the drawing page:<br>
-                    Select an function from the dropdown box and click [Start] to begin plot the surface.
-                </p>
-                <p class="pb15 fwb fss">
+                    Select an function from the dropdown box and click [Start] to begin plot the surface.<br>
                      [E.T.C.] - <a href="etc_Pers_v1_en.html">Plotting Surfaces Using Hidden Line Meshes</a>
-                </p>
-                <p>
+                </div>
+                <div>
                     In addition to the pre-prepared functions,
                     the plotting page also has a feature that allows users to enter function directly and render graphs.
                     By entering the function you want to check, you can quickly check the shape of the surface.
+                </div>
             </div>
         </div>
 
         <!-- 24/07/06 -->
-        <div class="left pb20">
-            <div class="contents-col_top_l">
-                <p>
-                    Jul. 06, 2024
-                </p>
-                <p>
-                    <IMG class="nav-right-img" src="image/button/update_c.gif" width="52" height="14" >
-                </p>
+        <div class="left2 flex">
+            <div class="flx_itemL">
+                <div>
+                    07/06/24
+                </div>
+                <div>
+                    <img class="nav-right-img" src="image/button/update_c.gif" width="52" height="14">
+                </div>
             </div>
-            <div class="contents-col_top_c">
-                <p><IMG src="image/common/b-tri.gif" alt="label"></p>
+            <div class="flx_itemC">
+                <img src="image/common/b-tri.gif" alt="label">
             </div>
-            <div class="contents-col_top_r pb20">
-                <p class="pb10" >
-                    <a href="#3D">
-                    On the page for drawing the solution trajectory of a differential equation (3D),
-                    </a>
+            <div class="flx_itemR960">
+                <div class="pb10">
+                    <a href="#3D">On the page for drawing the solution trajectory of a differential equation (3D), </a>
                     I have changed the operation using the spin button to a slider bar.
+                </div>
+                <div class="pb10">
                     Previously, the coordinate system could be rotated after drawing using the spin button.
                     However, this was difficult to use, so we have modified it
                     so that it can be rotated smoothly using the slider.
-                </p>
-                <p>
-                    <a href="etc_DEQ_v3_en.html">
-                        <IMG src="image/DEQ_img/deq3_slider_en_75.jpg">
-                    </a>
-                </p>
+                </div>
+            </div>
+        </div>
+        <div class="pb30">
+            <div>
+                <a href="etc_DEQ_v3_en.html">
+                    <span class="image-container">
+                        <img src="image/DEQ_img/deq3_slider_75.jpg">
+                    </span>
+                </a>
             </div>
         </div>
 
         <!-- 24/06/24 -->
-        <div class="left pb20">
-            <div class="contents-col_top_l">
-                <p>
-                    Jun. 24, 2024
-                </p>
-                <p>
-                    <IMG class="nav-right-img" src="image/button/update_c.gif" width="52" height="14" >
-                </p>
+        <div class="left2 flex">
+            <div class="flx_itemL">
+                <div>
+                    06/24/24
+                </div>
+                <div>
+                    <!--<img class="nav-right-img" src="image/button/update_c.gif" width="52" height="14">-->
+                </div>
             </div>
-            <div class="contents-col_top_c">
-                <p><IMG src="image/common/b-tri.gif" alt="label"></p>
+            <div class="flx_itemC">
+                <img src="image/common/b-tri.gif" alt="label">
             </div>
-            <div class="contents-col_top_r pb20">
-                <p class="pb10" >
+            <div class="flx_itemR960">
+                <div class="pb10">
                     Previously, the drawing page only allowed you to draw solution orbits for pre-set equations,
                     but by selecting "User Input", you can freely set equations.
                     You can quickly investigate the solution orbits, equilibrium points, etc.
                     of the equations you want to check.
                     This is a feature I personally wanted on the drawing page, so I hope you will find it useful.
-                </p>
-                <p class="pb10">
+                </div>
+                <div class="pb10">
                     Refer to <a href="etc_DEQ_doc2_en.html#a99">User defined Equations</a> for details.
-                </p>
-                <p>
-                    <a href="etc_DEQ_doc2_en.html#a99">
-                        <IMG src="image/DEQ_img/deq4_formula_en_75.jpg">
-                    </a>
-                </p>
+                </div>
+            </div>
+        </div>
+        <div class="pb30">
+            <div>
+                <a href="etc_DEQ_doc2_en.html#a99">
+                    <span class="image-container">
+                        <img src="image/DEQ_img/deq4_formula_075.jpg">
+                    </span>
+                </a>
             </div>
         </div>
 
         <!-- 24/05/11 -->
-        <div class="left pb20">
-            <div class="contents-col_top_l">
-                <p>
-                    May 11, 2024
-                </p>
-                <p>
-                    <!--<IMG class="nav-right-img" src="image/button/update_c.gif" width="52" height="14" >-->
-                </p>
+        <div class="left2 flex">
+            <div class="flx_itemL">
+                <div>
+                    05/11/24
+                </div>
+                <div>
+                    <!--<img class="nav-right-img" src="image/button/update_c.gif" width="52" height="14">-->
+                </div>
             </div>
-            <div class="contents-col_top_c">
-                <p><IMG src="image/common/b-tri.gif" alt="label"></p>
+            <div class="flx_itemC">
+                <img src="image/common/b-tri.gif" alt="label">
             </div>
-            <div class="contents-col_top_r pb20">
-                <p class="pb10" >
+            <div class="flx_itemR960">
+                <div class="pb10">
                     The following equation has been added to the page for drawing solution trajectories of differential equations (2-dimensional).
-                </p>
-                <p class="pb0" >
+                </div>
+                <div>
                     [04] 2-Dimensional Autonomous System Examples
-                </p>
-                <ul class="fwm pl40">
-                  <li>
+                </div>
+                <ul class="fwm">
+                    <li>
                       Hamilton system 1 &emsp; Cassini oval
-                  </li>
-                  <li>
+                    </li>
+                    <li>
                       Hamilton system 2 &emsp; folium of Descartes
-                  </li>
-                  <li>
+                    </li>
+                    <li>
                       Hamilton system 3 &emsp; derivatives of "folium of Descartes"
-                  </li>
-                  <li>
+                    </li>
+                    <li>
                       Hamilton system 4 &emsp; Case of the periodicity of trigonometric functions is reflected
-                  </li>
+                    </li>
                 </ul>
-                <p class="pb15">
+                <div class="pb15">
                     [E.T.C.] - <a href="etc_DEQ_doc2_en.html">Differential Equations &nbsp; Plotting Trajectory of Solutions: Simplified Explanation</a>
-                </p>
-                <p class="pb5">
-                    <a href="etc_DEQ_doc2_en.html#04&09">
-                        <IMG src="image/DEQ_img/deq2_0409.jpg" border="0" width="20%" height="20%">
-                    </a>
-                    &emsp;
-                    <a href="etc_DEQ_doc2_en.html#04&10">
-                        <IMG src="image/DEQ_img/deq2_0410.jpg" border="0" width="20%" height="20%">
-                    </a>
-                    &emsp;
-                    <a href="etc_DEQ_doc2_en.html#04&11">
-                        <IMG src="image/DEQ_img/deq2_0411.jpg" border="0" width="20%" height="20%">
-                    </a>
-                    &emsp;
-                    <a href="etc_DEQ_doc2_en.html#04&12">
-                        <IMG src="image/DEQ_img/deq2_0412.jpg" border="0" width="20%" height="20%">
-                    </a>
-                </p>
-
+                </div>
             </div>
+        </div>
+        <div class="pb30">
+            <a href="etc_DEQ_doc2_en.html#04&09">
+                <span class="deq_pic_size">
+                    <img src="image/DEQ_img/deq2_0409.jpg" border="0">
+                </span>
+            </a>
+            <a href="etc_DEQ_doc2_en.html#04&10">
+                <span class="deq_pic_size">
+                    <img src="image/DEQ_img/deq2_0410.jpg" border="0">
+                </span>
+            </a>
+            <a href="etc_DEQ_doc2_en.html#04&11">
+                <span class="deq_pic_size">
+                    <img src="image/DEQ_img/deq2_0411.jpg" border="0">
+                </span>
+            </a>
+            <a href="etc_DEQ_doc2_en.html#04&12">
+                <span class="deq_pic_size">
+                    <img src="image/DEQ_img/deq2_0412.jpg" border="0">
+                </span>
+            </a>
         </div>
 
         <!-- 24/04/28 -->
-        <div class="left pb20">
-            <div class="contents-col_top_l">
-                <p>
-                    Apr. 28, 2024
-                </p>
-                <p>
-                    <!--<IMG class="nav-right-img" src="image/button/update_c.gif" width="52" height="14" >-->
-                </p>
+        <div class="left2 flex">
+            <div class="flx_itemL">
+                <div>
+                    04/28/24
+                </div>
+                <div>
+                    <!--<img class="nav-right-img" src="image/button/update_c.gif" width="52" height="14">-->
+                </div>
             </div>
-            <div class="contents-col_top_c">
-                <p><IMG src="image/common/b-tri.gif" alt="label"></p>
+            <div class="flx_itemC">
+                <img src="image/common/b-tri.gif" alt="label">
             </div>
-            <div class="contents-col_top_r pb20">
-                <p class="pb10" >
+            <div class="flx_itemR960">
+                <div class="pb10">
                     The following equation has been added to the page for drawing solution trajectories of differential equations (2-dimensional).
-                </p>
-                <p class="pb0" >
+                </div>
+                <div>
                     [04] 2-Dimensional Autonomous System Examples
-                </p>
-                <ul class="fwm pl40">
-                  <li>
+                </div>
+                <ul class="fwm">
+                    <li>
                     Limit Cycle: example 4 &emsp; Linear approximation with purely imaginary numbers - 1 <br>
                     Case of no limit circle exists
-                  </li>
-                  <li>
+                    </li>
+                    <li>
                     Limit Cycle: example 5 &emsp; Linear approximation with purely imaginary numbers - 2<br>
                     case : an infinite number of limit circles appear
-                  </li>
+                    </li>
                 </ul>
-                <p class="pb15">
+                <div class="pb15">
                     [E.T.C.] - <a href="etc_DEQ_doc2_en.html">Differential Equations &nbsp; Plotting Trajectory of Solutions: Simplified Explanation</a>
-                </p>
-                <p class="pb5">
-                    <a href="etc_DEQ_doc2_en.html#04&07">
-                        <IMG src="image/DEQ_img/deq2_0407.jpg" border="0" width="20%" height="20%">
-                    </a>
-                    &emsp;
-                    <a href="etc_DEQ_doc2_en.html#04&08">
-                        <IMG src="image/DEQ_img/deq2_0408.jpg" border="0" width="20%" height="20%">
-                    </a>
-                </p>
-
+                </div>
             </div>
+        </div>
+        <div class="pb30">
+            <a href="etc_DEQ_doc2_en.html#04&07">
+                <span class="deq_pic_size">
+                    <img src="image/DEQ_img/deq2_0407.jpg" border="0">
+                </span>
+            </a>
+            <a href="etc_DEQ_doc2_en.html#04&08">
+                <span class="deq_pic_size">
+                    <img src="image/DEQ_img/deq2_0408.jpg" border="0">
+                </span>
+            </a>
         </div>
 
         <!-- 24/04/15 -->
-        <div class="left pb20">
-            <div class="contents-col_top_l">
-                <p>
-                    Apr. 15, 2024
-                </p>
-                <p>
-                    <!--<IMG class="nav-right-img" src="image/button/update_c.gif" width="52" height="14" >-->
-                </p>
+        <div class="left2 flex">
+            <div class="flx_itemL">
+                <div>
+                    04/15/24
+                </div>
+                <div>
+                    <!--<img class="nav-right-img" src="image/button/update_c.gif" width="52" height="14">-->
+                </div>
             </div>
-            <div class="contents-col_top_c">
-                <p><IMG src="image/common/b-tri.gif" alt="label"></p>
+            <div class="flx_itemC">
+                <img src="image/common/b-tri.gif" alt="label">
             </div>
-            <div class="contents-col_top_r pb20">
-                <p class="pb10" >
+            <div class="flx_itemR960">
+                <div class="pb10">
                     The following equation has been added to the page for drawing solution trajectories of differential equations (2-dimensional).
-                </p>
-                <p class="pb0" >
+                </div>
+                <div>
                     [04] 2-Dimensional Autonomous System Examples
-                </p>
+                </div>
                 <ul class="fwm pl40">
                   <li>
                       Limit Cycle Example 1
@@ -362,45 +397,49 @@
                       Limit Cycle Example 3: Lemniscate
                   </li>
                 </ul>
-                <p class="pb15">
+                <div class="pb15">
                     [E.T.C.] - <a href="etc_DEQ_doc2_en.html">Differential Equations &nbsp; Plotting Trajectory of Solutions: Simplified Explanation</a>
-                </p>
-                <p class="pb5">
-                    <a href="etc_DEQ_doc2_en.html#04&04">
-                        <IMG src="image/DEQ_img/deq2_0404.jpg" border="0" width="20%" height="20%">
-                    </a>
-                    &emsp;
-                    <a href="etc_DEQ_doc2_en.html#04&05">
-                        <IMG src="image/DEQ_img/deq2_0405.jpg" border="0" width="20%" height="20%">
-                    </a>
-                    &emsp;
-                    <a href="etc_DEQ_doc2_en.html#04&06">
-                        <IMG src="image/DEQ_img/deq2_0406.jpg" border="0" width="20%" height="20%">
-                    </a>
-                </p>
-
+                </div>
             </div>
         </div>
+        <div class="pb30">
+            <a href="etc_DEQ_doc2_en.html#04&04">
+                <span class="deq_pic_size">
+                    <img src="image/DEQ_img/deq2_0404.jpg" border="0">
+                </span>
+            </a>
+            <a href="etc_DEQ_doc2_en.html#04&05">
+                <span class="deq_pic_size">
+                    <img src="image/DEQ_img/deq2_0405.jpg" border="0">
+                </span>
+            </a>
+            <a href="etc_DEQ_doc2_en.html#04&06">
+                <span class="deq_pic_size">
+                    <img src="image/DEQ_img/deq2_0406.jpg" border="0">
+                </span>
+            </a>
+        </div>
 
-        <div class="left pb20">
-            <div class="contents-col_top_l">
-                <p>
-                    Mar. 23, 2024
-                </p>
-                <p>
-                    <!--<IMG class="nav-right-img" src="image/button/update_c.gif" width="52" height="14" >-->
-                </p>
+        <!-- 24/03/23 -->
+        <div class="left2 flex">
+            <div class="flx_itemL">
+                <div>
+                    03/23/24
+                </div>
+                <div>
+                    <!--<img class="nav-right-img" src="image/button/update_c.gif" width="52" height="14">-->
+                </div>
             </div>
-            <div class="contents-col_top_c">
-                <p><IMG src="image/common/b-tri.gif" alt="label"></p>
+            <div class="flx_itemC">
+                <img src="image/common/b-tri.gif" alt="label">
             </div>
-            <div class="contents-col_top_r pb20">
-                <p class="pb10" >
+            <div class="flx_itemR960">
+                <div class="pb10">
                     The following equation has been added to the page for drawing solution trajectories of differential equations (2-dimensional).
-                </p>
-                <p class="pb0" >
+                </div>
+                <div>
                     [04] 2-Dimensional Autonomous System Examples
-                </p>
+                </div>
                 <ul class="fwm pl40">
                   <li>
                       Autonomous system with periodic equilibrium points on x-axis
@@ -412,41 +451,44 @@
                       Autonomous system with 8 equilibrium points on a plane
                   </li>
                 </ul>
-                <p class="pb15">
+                <div class="pb15">
                     [E.T.C.] - <a href="etc_DEQ_doc2_en.html">Differential Equations &nbsp; Plotting Trajectory of Solutions: Simplified Explanation</a>
-                </p>
-                <p class="pb5">
-                    <a href="etc_DEQ_doc2_en.html#04&01">
-                        <IMG src="image/DEQ_img/deq_fish.jpg" border="0" width="20%" height="20%">
-                    </a>
-                    &emsp;
-                    <a href="etc_DEQ_doc2_en.html#04&02">
-                        <IMG src="image/DEQ_img/deq_face.jpg" border="0" width="20%" height="20%">
-                    </a>
-                    &emsp;
-                    <a href="etc_DEQ_doc2_en.html#04&03">
-                        <IMG src="image/DEQ_img/deq_ tapestry.jpg" border="0" width="20%" height="20%">
-                    </a>
-                </p>
-
+                </div>
             </div>
+        </div>
+        <div class="pb30">
+            <a href="etc_DEQ_doc2_en.html#04&01">
+                <span class="deq_pic_size">
+                    <img src="image/DEQ_img/deq_fish.jpg" border="0">
+                </span>
+            </a>
+            <a href="etc_DEQ_doc2_en.html#04&02">
+                <span class="deq_pic_size">
+                    <img src="image/DEQ_img/deq_face.jpg" border="0">
+                </span>
+            </a>
+            <a href="etc_DEQ_doc2_en.html#04&03">
+                <span class="deq_pic_size">
+                    <img src="image/DEQ_img/deq_ tapestry.jpg" border="0">
+                </span>
+            </a>
         </div>
 
         <!-- 24/03/xx -->
-        <div class="left pb20">
-            <div class="contents-col_top_l">
-                <p>
-                    Mar. 10, 2024
-                </p>
-                <p>
-                    <!-- <IMG class="nav-right-img" src="image/button/new_c.gif" width="52" height="14" > -->
-                </p>
+        <div class="left2 flex pb30">
+            <div class="flx_itemL">
+                <div>
+                    03/10/24
+                </div>
+                <div>
+                    <!--<img class="nav-right-img" src="image/button/update_c.gif" width="52" height="14">-->
+                </div>
             </div>
-            <div class="contents-col_top_c">
-                <p><IMG src="image/common/b-tri.gif" alt="label"></p>
+            <div class="flx_itemC">
+                <img src="image/common/b-tri.gif" alt="label">
             </div>
-            <div class="contents-col_top_r pb20">
-                <p class="pb10" >
+            <div class="flx_itemR960">
+                <div class="pb10">
                     I have published a page for drawing solution trajectories of (2-dimensional) differential equations.
                     When you select an equation on the page, it dynamically plots the solution trajectory. <br>
                     Originally, I had built a drawing tool in C#, but I wanted to directly draw on the web,
@@ -455,86 +497,87 @@
                     and I encountered several "Hmm, how do I do this again?" moments. <br>
                     So, I utilized ChatGPT.
                     I want to explicitly mention here that using ChatGPT significantly saved me time in looking up things while coding.
-                </p>
-                <p class="pb15" >
+                </div>
+                <div class="pb10">
                     The equations featured on this page are based on excerpts from
                     <a href="https://www.asakura.co.jp/author_books.php?author_code=48217" target="_blank">"Differential Equations on Personal Computers" by Mitsuo Morimoto</a>.
                     Although Morimoto has introduced many equations, I haven't completed confirmation on my end yet.
                     Once confirmed, I intend to gradually add them.
-                </p>
-                <p class="pb5">
+                </div>
+                <div class="pb10">
                     Below is link to explanatory page:<br>
                     Clicking "To Plot" in the explanation section of each equation will transition you to the drawing page with the necessary data set for plotting.
-                    Clicking the [START] button begins plotting the solution curves.<br>
-                </p>
-                <p class="pb15 fwb fss">
+                    Clicking the [START] button begins plotting the solution curves.
+                </div>
+                <div class="pb10">
                     [E.T.C.] - <a href="etc_DEQ_doc2_en.html">Differential Equations &nbsp; Plotting Trajectory of Solutions: Simplified Explanation</a>
-                </p>
-                <p class="pb5">
+                </div>
+                <div class="pb10">
                     The following link directly jumps to the drawing page:<br>
                     Select an equation from the dropdown box and click [Start] to begin plottinf the solution trajectory.<br>
-                </p>
-                <p class="pb15 fwb fss">
+                </div>
+                <div class="pb10">
                      [E.T.C.] - <a href="etc_DEQ_v2_en.html">Differential Equations &nbsp; Plotting Trajectory of Solutions</a>
-                </p>
-                <p class="fwb fss">
+                </div>
+                <div class="fwb fss">
                     On the drawing page, you can configure the following settings:
-                </p>
-                <p>
+                </div>
+                <div>
                     1. Coefficients (modifiable parameters vary for each equation)<br>
                     2. Plotting range<br>
                     3. Increment width (width of elapsed time)<br>
                     4. Iteration count (number of executions of the increment width)<br>
                     5. Approximation method (Euler's method, Modified Euler's method, 4th Order Runge-Kutta method)
+                </div>
             </div>
         </div>
 
         <!-- 24/03/xx -->
-        <div class="left pb20">
-            <div class="contents-col_top_l">
-                <p id="3D">
-                    Mar. 10, 2024
-                </p>
-                <p>
-                    <!-- <IMG class="nav-right-img" src="image/button/new_c.gif" width="52" height="14" > -->
-                </p>
+        <div class="left2 flex pb10">
+            <div id="3D" class="flx_itemL">
+                <div>
+                    03/10/24
+                </div>
+                <div>
+                    <!--<img class="nav-right-img" src="image/button/update_c.gif" width="52" height="14">-->
+                </div>
             </div>
-            <div class="contents-col_top_c">
-                <p><IMG src="image/common/b-tri.gif" alt="label"></p>
+            <div class="flx_itemC">
+                <img src="image/common/b-tri.gif" alt="label">
             </div>
-            <div class="contents-col_top_r pb20">
-                <p class="pb10" >
+            <div class="flx_itemR960">
+                <div class="pb10">
                     I have also published a page for plotting solution trajectories of differential equations with 3D.
                     It operates similarly to the 2D version of the differential equation page,
                     and I would like to note that I utilized ChatGPT in the same manner.
-                </p>
-                <p class="pb15" >
+                </div>
+                <div class="pb10">
                     The equations showcased on this page primarily focus on chaotic trajectories.
                     If I find interesting equations, I plan to increase the samples.
-                </p>
-                <p class="pb10">
+                </div>
+                <div class="pb10">
                     Below are links to explanatory pages:
                     Clicking "To Plot" in the explanation section of each equation
                     will transition you to the drawing page with the necessary data set for plotting.
                     Clicking the [START] button begins plotting the solution curves.
                     After drawing, you can observe the solution trajectories from various angles by changing the Angle and Vertical Axis.
-                </p>
-                <p class="pb15 fwb fss">
+                </div>
+                <div class="pb15 fwb fss">
                     [E.T.C.] - <a href="etc_DEQ_doc3_en.html">Differential Equations &nbsp; Plotting Trajectory of Solutions with 3D: Simplified Explanation</a>
-                </p>
-                <p class="pb15">
+                </div>
+                <div class="pb10">
                     The following link directly jumps to the drawing page:<br>
                     Select an equation from the dropdown box and click [Start] to begin drawing the solution trajectory.
                     After drawing,
                     you can observe the solution trajectories from various angles by changing the "Angle" and "Vertical Axis".
-                </p>
-                <p class="pb15 fwb fss">
+                </div>
+                <div class="pb15 fwb fss">
                     [E.T.C.] - <a href="etc_DEQ_v3_en.html">Differential Equations &nbsp; Plotting Trajectory of Solutions with 3D</a>
-                </p>
-                <p class="fwb fss">
+                </div>
+                <div class="fwb fss">
                     On the drawing page, you can configure the following settings:
-                </p>
-                <p>
+                </div>
+                <div>
                     1. Coefficients (modifiable parameters vary for each equation)<br>
                     2. Plotting range<br>
                     3. Increment width (width of elapsed time)<br>
@@ -542,30 +585,31 @@
                     5. Initial values (can specify 2 points)<br>
                     6. Angle (left-right, up-down)<br>
                     7. Vertical Axis (default is z-axis, but you can also choose x-axis and y-axis)
+                </div>
             </div>
         </div>
 
         <!-- 23/07/31-->
-        <div class="left pb20">
-            <div class="contents-col_top_l">
-                <p class="pb10">
-                    Aug. 01, 2023
-                </p>
-                <p>
-                    <!--<IMG class="nav-right-img" src="image/button/new_c.gif" width="52" height="14" >-->
-                </p>
+        <div class="left2 flex pb30">
+            <div class="flx_itemL">
+                <div>
+                    08/01/23
+                </div>
+                <div>
+                    <!--<img class="nav-right-img" src="image/button/update_c.gif" width="52" height="14">-->
+                </div>
             </div>
-            <div class="contents-col_top_c">
-                <p><IMG src="image/common/b-tri.gif" alt="label"></p>
+            <div class="flx_itemC">
+                <img src="image/common/b-tri.gif" alt="label">
             </div>
-            <div class="contents-col_top_r">
-                <p class="pb10" >
+            <div class="flx_itemR960">
+                <div class="pb10">
                     Lens meter simulation tool "SRTLM" has been released. <br>
                     This tool can be downloaded as freeware.
-                </p>
-                <p>
+                </div>
+                <div>
                      [E.T.C.] - <a href="etc_SRTLM_En.html">SRTLM_En</a>
-                </p>
+                </div>
             </div>
         </div>
 
@@ -574,17 +618,19 @@
 
         <hr id="footer"> <!-- horizontal partition -->
 
-        <div class="jQ_change center" > <!-- select button whole: start -->
+        <p id="page-top"><a href="#">TOP</a></p>
+
+        <div class="jQ_change center"> <!-- select button whole: start -->
             <p id="footer"> <!-- select button: start -->
-                <a href="index.html" >
-                    <IMG src="image/button/home_off.gif" border="0" alt="Back" >
+                <a href="index.html">
+                    <img src="image/button/home_off.gif" border="0" alt="Back">
                 </a>
             </p> <!-- select button: end -->
         </div> <!-- select button whole: end -->
 
-        <div id="footer_label">
+        <div class="footer_labelPC">
             copyright &copy; 2003 -
-            <script type="text/javascript" language="JavaScript">
+            <script>
                 date = new Date();
                 document.write(date.getFullYear() + ' ');
             </script>
@@ -595,5 +641,5 @@
 
     </footer>
 
-</BODY>
+</body>
 </html>

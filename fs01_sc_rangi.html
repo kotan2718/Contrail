@@ -1,70 +1,46 @@
-<!DOCTYPE HTML >
-<html>
+<!DOCTYPE html >
+<html lang="ja">
 
-<HEAD>
-    <META charset="UTF-8">
-    <META name="description" content="Flight Simulator(FS9/FS2004)のアドオンシーナリー : Tahiti Rangiroa Scenery を紹介するページです。 ">
-    <META name="keywords" content="Flight Simulator,FS,FS9,FS2004,Addon,scenery,Tahiti,Rangiroa,タヒチ,ランギロア">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Flight Simulator(FS9/FS2004)のアドオンシーナリー : Tahiti Rangiroa Scenery を紹介するページです。 ">
+    <meta name="keywords" content="Flight Simulator,FS,FS9,FS2004,Addon,scenery,Tahiti,Rangiroa,タヒチ,ランギロア">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Contrail ScreenShots : RANGIROA</title>
 
     <!-- favicon -->
-    <link rel="shortcut icon" href="favicon.ico">
-
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="icon" href="favicon.ico">
 
     <!-- css start -->
+        <!-- kko_etc - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
+        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
 
-        <!-- kko_etc start - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
-        <link rel="stylesheet" href="libs/etc/css/kko_preload.css" type="text/css">
-        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css" type="text/css">
-        <!-- kko_etc end -->
+        <!-- Fancybox CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css">
 
-        <!-- prettyPhoto start -->
-        <link href="libs/jQuery/prettyPhoto/css/prettyPhoto315_mod.css" media="all" rel="stylesheet" type="text/css">
-        <!-- prettyPhoto end -->
-
+        <style>
+            /* Optional: Limit image size on small screens */
+            @media (max-width: 768px) {
+                .fancybox_image {
+                    max-width: 256px;
+                }
+                .fancybox_image2 {
+                    max-width: 300px;
+                }
+            }
+        </style>
     <!-- css end -->
 
     <!-- js start -->
-
         <!-- jQuery start -->
-        <script src="libs/jQuery/js/jquery-1.6.1.min.js" type="text/javascript"></script>
-
-            <!-- kko_style start - img jq_blink, img jq_change -->
-            <script src="libs/jQuery/kko/js/jq_kko_preload.js" type="text/javascript"></script>
-            <script src="libs/jQuery/kko/js/jq_kko_style.js" type="text/javascript"></script>
-            <!-- kko_style end -->
-
-            <!-- prettyPhoto start -->
-            <script src="libs/jQuery/prettyPhoto/js/jquery.prettyPhoto_315_mod.js" type="text/javascript"></script>
-            <script type="text/javascript">
-                $(document).ready(function(){
-                    $("a[rel^='prettyPhoto']").prettyPhoto();
-                });
-            </script>
-            <!-- prettyPhoto end -->
+            <script src="libs/jQuery/js/jquery-1.6.1.min.js"></script>
+            <!-- kko_style - img jq_blink, img jq_change -->
+            <script src="libs/jQuery/kko/js/jq_kko_style.js"></script>
 
             <!-- ImageMapStar_style start - Clickable map Extension -->
-            <script src="libs/jQuery/imageMAPster/js/jquery.imagemapster.min.js"></script>
-            <!-- IE 8 までは対応していないので，Clickable map Extension は使わない -->
-            <script type="text/javascript">
-            <!--
-                var kk = -1;
-                if (typeof document.documentElement.style.maxHeight != "undefined") {
-                    if (!/*@cc_on!@*/false){
-                        // other than IE
-                    }else if (document.documentMode >=9) {
-                        // after IE9
-                    }else {
-                        kk = 0; //IE7, IE8（IE7 mode)
-                    }
-                } else {
-                  kk = 0; // before IE 6.0
-                }
-                if( kk == -1) {
+                <script src="libs/jQuery/imageMAPster/js/jquery.imagemapster.min.js"></script>
+                <script>
                     $(document).ready(function ()
                     {
                         $('#flt_sim_rangiroa').mapster({
@@ -76,92 +52,170 @@
                             fillOpacity : 1
                         });
                     });
-                }
-            -->
-            </script>
+                </script>
             <!-- ImageMapStar_style end -->
-
         <!-- jQuery end -->
 
-        <!-- Sandbox DropDownMenu start -->
-        <script src="libs/sandbox/js/script.js" type="text/javascript"></script>
-        <!-- Sandbox DropDownMenu end -->
+        <!-- Fancybox JS -->
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
 
+        <!-- Sandbox DropDownMenu -->
+        <script src="libs/sandbox/js/script.js"></script>
     <!-- js end -->
 
-</HEAD>
+</head>
 
-<BODY id="common-k" >
-
-<!-- Pre Loading -->
-<!-- with loading picture -->
-<div id="loader"><IMG src="image/common/ap_loader_tp.gif" width="236" height="132" class="loading..."></div>
-<div id="fade"></div>
-<div id="preload"> <!-- Pre Loading start -->
+<body id="common-k">
 
     <header>
-        <a name="page_top"></a>
-        <div class="center jQ_change navbox" >
-            <nav>
-                <IMG src="image/top/Contrail_g.png" height="20" class="logo_img">
-                <ul class="menu" id="menu" >
+        <div class="prettyP_PC">
+            <a name="page_top"></a>
+            <div class="center jQ_change navbox" >
+                <nav>
+                    <img src="image/top/cr32_e.png" height="20" class="logo_img">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_img">
+                    <ul class="menu" id="menu" >
+                        <li><a href="index.html" class="menulink">Home</a></li>
+                        <li><a href="whatnew.html" class="menulink">What's New</a></li>
+                        <li><a href="etc.html" class="menulink">E.T.C.</a></li>
+                        <li><a href="fs01.html" class="menulink">The Scenery</a>
+                            <ul>
+                                <li><a href="fs01_sc_top.html" class="sub">Screen Shots</a></li>
+                                <li><a href="fs01_ls_top.html" class="sub">Snap Shots</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="link01.html" class="menulink">Links</a></li>
+                        <li class="about"><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                    </ul>
+                </nav>
+                <div class="c-both"></div>
+            </div>
+            <!-- Sandbox DropDownMenu start-->
+            <script>
+                var menu=new menu.dd("menu");
+                menu.init("menu","menuhover");
+            </script>
+            <!-- Sandbox DropDownMenu end -->
+        </div>
+        <div class="prettyP_SP">
+            <a name="MENU"></a>
+            <p id="menu-call">
+                <a href="#">MENU</a>
+            </p>
+
+            <a name="page_top"></a>
+
+            <!-- page top icon & logo -->
+            <div id="header_SP" class="header_labelSP">
+                <div class="pb4"></div>
+                <img src="image/top/cr48f_32.png">
+                <img class="pb3" src="image/top/Contrail_g.png" height="24">
+            </div>
+
+            <div id="popup-menu" class="hidden">
+                <div class="menu-title">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_image" alt="CONTRAIL">
+                </div>
+                <ul>
                     <li><a href="index.html" class="menulink">Home</a></li>
                     <li><a href="whatnew.html" class="menulink">What's New</a></li>
                     <li><a href="etc.html" class="menulink">E.T.C.</a></li>
-                    <li><a href="fs01.html" class="menulink">The Scenery</a>
-                        <ul>
-                            <li><a href="fs01_sc_top.html" class="sub">Screen Shots</a></li>
-                            <li><a href="fs01_ls_top.html" class="sub">Snap Shots</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="fs01.html" class="menulink">The Scenery</a></li>
                     <li><a href="link01.html" class="menulink">Links</a></li>
-                    <li class="about"><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                    <li><a href="fs01_about.html" class="menulink">about Contrail</a></li>
                 </ul>
-            </nav>
-            <div class="c-both"></div>
+            </div>
         </div>
-        <!-- Sandbox DropDownMenu start-->
-        <script type="text/javascript">
-            var menu=new menu.dd("menu");
-            menu.init("menu","menuhover");
-        </script>    <!-- Sandbox DropDownMenu end -->
     </header>
 
-    <div id="main800"> <!-- page main: start -->
+    <div id="main800-480"> <!-- page main: start -->
 
         <!-- title -->
-        <div id="title30">
-            <p id="head25" >
-                <IMG src="image/fs/kko_fssg_logo.gif" alt="Contrail Flight Simulation Special Gallery">
-            </p>
-            <h1 id="main_fss_E">
-                TAHITI RANGIROA SCENERY
-            </h1>
+        <div class="prettyP_PC">
+            <div id="title20new">
+                <p id="head20">
+                    <img src="image/fs/kko_fssg_logo.gif" alt="Contrail Flight Simulation Special Gallery">
+                </p>
+                <h1 id="main_fss_E">
+                    TAHITI RANGIROA SCENERY
+                </h1>
+            </div>
+            <div class="pb10"></div>
+        </div>
+        <div class="prettyP_SP">
+            <div id="title20new">
+                <p id="head20 pb10">
+                    <img src="image/fs/kko_fssg_logo.gif" alt="Contrail Flight Simulation Special Gallery">
+                </p>
+                <div class="pb20"></div>
+                <h3 id="main_fss_E">
+                    TAHITI RANGIROA SCENERY
+                </h3>
+                <div class="pb20"></div>
+            </div>
         </div>
 
+        <!-- for Java Script off -->
+        <noscript>
+            <div id="attention">
+                <p>ご覧頂くにはブラウザの JavaScript をアクティブにして下さい</p>
+            </div>
+        </noscript>
+
         <!-- contents -->
-        <div class="pic-center640 pb40">
-            <p class="pb10">
-                <IMG id="flt_sim_rangiroa" src="image/fs/rangiroa/source/rangiroa_map_off.gif" border="0"
-                    width="640" border="0" usemap="#flt_sim_rangiroa" alt="Rangiroa Map" >
-            </p>
-            <map name="flt_sim_rangiroa">
-                <!-- 同窓でのジャンプ -->
-                <area key="Mataiva"        href="#Mataiva"        alt="Jump to Mataiva"        shape="poly" coords="32,114, 32,159, 77,159, 128,135, 128,114" >
-                <area key="Tikehau"        href="#Tikehau"        alt="Jump to Tikehau"        shape="poly" coords="124,148, 88,201, 88,225, 175,225, 175,203, 153,203, 175,169, 175,148" >
-                <area key="Makatea"        href="#Makatea"        alt="Jump to Makatea"        shape="rect" coords="112,297, 240,326" >
-                <area key="Rangiroa"    href="#Rangiroa"    alt="Jump to Rangiroa"    shape="poly" coords="192,126, 192,150, 174,183, 174,194, 227,236, 314,236, 314,126" >
-                <area key="Ahe"                href="#Ahe"                alt="Jump to Ahe"                shape="rect" coords="419,56, 481,120" >
-                <area key="Manihi"        href="#Manihi"        alt="Jump to Manihi"        shape="rect" coords="493,31, 588,90" >
-                <!--
-                <area key="Arutua"        href="#Arutua"        alt="Jump to Arutua"        shape="poly" coords="355,183, 355,249, 410,249, 445,183" >
-                <area key="Kaukura"        href="#Kaukura"        alt="Jump to Kaukura"        shape="poly" coords="291,259, 291,330, 438,330, 438,306, 379,259" >
-                <area key="Apataki"        href="#Apataki"        alt="Jump to Apataki"        shape="poly" coords="453,200, 431,228, 434,284, 477,284, 552,222, 552,200" >
-                -->
-            </map>
-            <p class="left fss fwb">
-                ご覧になりたい島をクリックして下さい
-            </p>
+        <!-- map -->
+        <div class="prettyP_PC">
+            <div class="pic-center640 pb40">
+                <p class="pb10">
+                    <img id="flt_sim_rangiroa" src="image/fs/rangiroa/source/rangiroa_map_off.gif" border="0"
+                        width="640" border="0" usemap="#flt_sim_rangiroa" alt="Rangiroa Map">
+                </p>
+                <map name="flt_sim_rangiroa">
+                    <!-- 同窓でのジャンプ -->
+                    <area key="Mataiva"  href="#Mataiva"  alt="Jump to Mataiva"  shape="poly" coords="32,114, 32,159, 77,159, 128,135, 128,114">
+                    <area key="Tikehau"  href="#Tikehau"  alt="Jump to Tikehau"  shape="poly" coords="124,148, 88,201, 88,225, 175,225, 175,203, 153,203, 175,169, 175,148">
+                    <area key="Makatea"  href="#Makatea"  alt="Jump to Makatea"  shape="rect" coords="112,297, 240,326">
+                    <area key="Rangiroa" href="#Rangiroa" alt="Jump to Rangiroa" shape="poly" coords="192,126, 192,150, 174,183, 174,194, 227,236, 314,236, 314,126">
+                    <area key="Ahe"      href="#Ahe"      alt="Jump to Ahe"      shape="rect" coords="419,56, 481,120">
+                    <area key="Manihi"   href="#Manihi"   alt="Jump to Manihi"   shape="rect" coords="493,31, 588,90">
+                    <!--
+                    <area key="Arutua"   href="#Arutua"   alt="Jump to Arutua"   shape="poly" coords="355,183, 355,249, 410,249, 445,183">
+                    <area key="Kaukura"  href="#Kaukura"  alt="Jump to Kaukura"  shape="poly" coords="291,259, 291,330, 438,330, 438,306, 379,259">
+                    <area key="Apataki"  href="#Apataki"  alt="Jump to Apataki"  shape="poly" coords="453,200, 431,228, 434,284, 477,284, 552,222, 552,200">
+                    -->
+                </map>
+                <p class="left2 fss fwb">
+                    ご覧になりたい島をクリックして下さい
+                </p>
+            </div>
+        </div>
+        <div class="prettyP_SP">
+            <div class="table-container">
+                <div class="pic-center640 pb10">
+                    <p class="pb10">
+                        <img id="flt_sim_rangiroa" src="image/fs/rangiroa/source/rangiroa_map_off.gif" border="0"
+                            width="640" border="0" usemap="#flt_sim_rangiroa" alt="Rangiroa Map">
+                    </p>
+                    <map name="flt_sim_rangiroa">
+                        <!-- 同窓でのジャンプ -->
+                    <area key="Mataiva"  href="#Mataiva"  alt="Jump to Mataiva"  shape="poly" coords="32,114, 32,159, 77,159, 128,135, 128,114">
+                    <area key="Tikehau"  href="#Tikehau"  alt="Jump to Tikehau"  shape="poly" coords="124,148, 88,201, 88,225, 175,225, 175,203, 153,203, 175,169, 175,148">
+                    <area key="Makatea"  href="#Makatea"  alt="Jump to Makatea"  shape="rect" coords="112,297, 240,326">
+                    <area key="Rangiroa" href="#Rangiroa" alt="Jump to Rangiroa" shape="poly" coords="192,126, 192,150, 174,183, 174,194, 227,236, 314,236, 314,126">
+                    <area key="Ahe"      href="#Ahe"      alt="Jump to Ahe"      shape="rect" coords="419,56, 481,120">
+                    <area key="Manihi"   href="#Manihi"   alt="Jump to Manihi"   shape="rect" coords="493,31, 588,90">
+                    <!--
+                    <area key="Arutua"   href="#Arutua"   alt="Jump to Arutua"   shape="poly" coords="355,183, 355,249, 410,249, 445,183">
+                    <area key="Kaukura"  href="#Kaukura"  alt="Jump to Kaukura"  shape="poly" coords="291,259, 291,330, 438,330, 438,306, 379,259">
+                    <area key="Apataki"  href="#Apataki"  alt="Jump to Apataki"  shape="poly" coords="453,200, 431,228, 434,284, 477,284, 552,222, 552,200">
+                    -->
+                    </map>
+                    <p class="left2 fss fwb">
+                        ご覧になりたい島をクリックして下さい
+                    </p>
+                </div>
+            </div>
+            <div class="pb40"></div>
         </div>
 
         <!-- Mataiva start -->
@@ -169,34 +223,33 @@
         <div class="pb15">
             <div class="pb5">
                 <h2 class="contents-title-left">
-                    <a name="Mataiva"></a>
+                    <div id="Mataiva"></div>
                     <p>
                         Mataiva
                     </p>
                 </h2>
                 <div class="contents-title-right">
-                    <p class="fss fwb" >
-                        Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
+                    <p class="fss fwb">
                     </p>
                 </div>
                 <div class="c-both"></div>
             </div>
             <!-- contents -->
-            <div class="pic-left800 pb15 border-ccc" >
-                <div class="contents-2col-left" >
-                    <p class="jQ_blink change_border_color " >
-                        <a href="image/fs/rangiroa/source/Mataiva2k4.jpg" rel="prettyPhoto" title="Tuamotu - Mataiva" target="_blank">
-                            <IMG src="image/fs/rangiroa/thumb_Mataiva2k4.jpg" width="256" >
+            <div class="pic-left920 pb15 border-ccc">
+                <div class="contents-2col-left">
+                    <p class="jQ_blink change_border_color ">
+                        <a href="image/fs/rangiroa/source/Mataiva2k4.jpg" data-fancybox="gallery-Mataiva" data-caption="Tuamotu - Mataiva">
+                            <img src="image/fs/rangiroa/thumb_Mataiva2k4.jpg" width="256">
                         </a>
                     </p>
                 </div>
-                <div class="contents-2col-right800 border-ccc" >
-                    <p class="lineh140" >
-                        Tuamotu諸島最西端に位置するMataivaです。<BR>
-                        Rangiroa Sceneryを作成しているとき，<BR>
-                        Rangiroaの西にMataivaという島があることは<BR>
-                        分かっていたのですが，空撮画像を観て仰天しました。<BR>
-                        島全体が巨大なプールなのです。<BR>
+                <div class="contents-2col-right800 border-ccc">
+                    <p class="lineh140">
+                        Tuamotu諸島最西端に位置するMataivaです。
+                        Rangiroa Sceneryを作成しているとき，
+                        Rangiroaの西にMataivaという島があることは
+                        分かっていたのですが，空撮画像を観て仰天しました。
+                        島全体が巨大なプールなのです。
                         テクスチャの作成には苦労しました。
                     </p>
                 </div>
@@ -208,35 +261,32 @@
         <div class="pb15">
             <div class="pb5">
                 <h2 class="contents-title-left">
-                    <a name="Tikehau"></a>
+                    <div id="Tikehau"></div>
                     <p>
                         Tikehau
                     </p>
                 </h2>
                 <div class="contents-title-right">
-                    <p class="fss fwb" >
-                        Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-                    </p>
                 </div>
                 <div class="c-both"></div>
             </div>
             <!-- contents -->
-            <div class="pic-left800 pb15 border-ccc" >
-                <div class="contents-2col-left" >
-                    <p class="jQ_blink change_border_color " >
-                        <a href="image/fs/rangiroa/source/Rangiroa_from_Tikehau2.jpg" rel="prettyPhoto" title="Tuamotu - Tikehau" target="_blank" >
-                            <IMG src="image/fs/rangiroa/thumb_Rangiroa_from_Tikehau2.jpg" width="256" >
+            <div class="pic-left800 pb15 border-ccc">
+                <div class="contents-2col-left">
+                    <p class="jQ_blink change_border_color ">
+                        <a href="image/fs/rangiroa/source/Rangiroa_from_Tikehau2.jpg" data-fancybox="gallery-Tikehau" data-caption="Tuamotu - Tikehau">
+                            <img src="image/fs/rangiroa/thumb_Rangiroa_from_Tikehau2.jpg" width="256">
                         </a>
                     </p>
                 </div>
-                <div class="contents-2col-right800 border-ccc" >
-                    <p class="lineh140" >
-                        MataivaとRangiroaの中間に位置する<BR>
-                        Tikehauから望むRangiroaです。<BR>
-                        FS2000以降のアドオンシーナリーでは<BR>
-                        視程が極端に短くなってしまったのですが，<BR>
-                        このRangiroa SceneryとLeeWard Sceneryは<BR>
-                        LVR(Long Visual Range Tool)を使用することで，<BR>
+                <div class="contents-2col-right800 border-ccc">
+                    <p class="lineh140">
+                        MataivaとRangiroaの中間に位置する
+                        Tikehauから望むRangiroaです。
+                        FS2000以降のアドオンシーナリーでは
+                        視程が極端に短くなってしまったのですが，
+                        このRangiroa SceneryとLeeWard Sceneryは
+                        LVR(Long Visual Range Tool)を使用することで，
                         100km以上の視程を確保しています。
                     </p>
                 </div>
@@ -248,32 +298,29 @@
         <div class="pb15">
             <div class="pb5">
                 <h2 class="contents-title-left">
-                    <a name="Makatea"></a>
+                    <div id="Makatea"></div>
                     <p>
                         Makatea
                     </p>
                 </h2>
                 <div class="contents-title-right">
-                    <p class="fss fwb" >
-                        Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-                    </p>
                 </div>
                 <div class="c-both"></div>
             </div>
             <!-- contents -->
-            <div class="pic-left800 pb15 border-ccc" >
-                <div class="contents-2col-left" >
-                    <p class="jQ_blink change_border_color " >
-                        <a href="image/fs/rangiroa/source/Makatea2k4.jpg" rel="prettyPhoto" title="Tuamotu - Makatea" target="_blank" >
-                            <IMG src="image/fs/rangiroa/thumb_Makatea2k4.jpg" width="256" >
+            <div class="pic-left800 pb15 border-ccc">
+                <div class="contents-2col-left">
+                    <p class="jQ_blink change_border_color ">
+                        <a href="image/fs/rangiroa/source/Makatea2k4.jpg" data-fancybox="gallery-Makatea" data-caption="Tuamotu - Makatea">
+                            <img src="image/fs/rangiroa/thumb_Makatea2k4.jpg" width="256">
                         </a>
                     </p>
                 </div>
-                <div class="contents-2col-right800 border-ccc" >
-                    <p class="lineh140" >
-                        Rangiroaから遠く南に位置するMakateaです。<BR>
-                        私がデザインしたTuamotuの島の中では，<BR>
-                        Makateaだけが環礁ではなく，<BR>
+                <div class="contents-2col-right800 border-ccc">
+                    <p class="lineh140">
+                        Rangiroaから遠く南に位置するMakateaです。<br>
+                        私がデザインしたTuamotuの島の中では，
+                        Makateaだけが環礁ではなく，
                         標高のある島らしい形状の島です。
                     </p>
                 </div>
@@ -285,74 +332,71 @@
         <div class="pb15">
             <div class="pb5">
                 <h2 class="contents-title-left">
-                    <a name="Rangiroa"></a>
+                    <div id="Rangiroa"></div>
                     <p>
                         Rangiroa
                     </p>
                 </h2>
                 <div class="contents-title-right">
-                    <p class="fss fwb" >
-                        Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-                    </p>
                 </div>
                 <div class="c-both"></div>
             </div>
             <!-- contents -->
-            <div class="pic-left800 pb15 border-ccc" >
-                <div class="contents-2col-left" >
-                    <p class="jQ_blink change_border_color " >
-                        <a href="image/fs/rangiroa/source/Rangiroa2004_03c.jpg" rel="prettyPhoto[Rangiroa]" title="Tuamotu - Rangiroa" target="_blank" >
-                            <IMG src="image/fs/rangiroa/thumb_Rangiroa2004_03c.jpg" width="256" >
+            <div class="pic-left800 pb15 border-ccc">
+                <div class="contents-2col-left">
+                    <p class="jQ_blink change_border_color ">
+                        <a href="image/fs/rangiroa/source/Rangiroa2004_03c.jpg" data-fancybox="gallery-Rangiroa" data-caption="Tuamotu - Rangiroa">
+                            <img src="image/fs/rangiroa/thumb_Rangiroa2004_03c.jpg" width="256">
                         </a>
                     </p>
                 </div>
-                <div class="contents-2col-right800 border-ccc" >
-                    <p class="lineh140" >
-                        Tuamotu諸島で一番大きなラグーンを持つランギロアです。<BR>
+                <div class="contents-2col-right800 border-ccc">
+                    <p class="lineh140">
+                        Tuamotu諸島で一番大きなラグーンを持つランギロアです。<br>
                         画像は，西南西からラグーンを望んだショットです。
                     </p>
                 </div>
             </div>
-            <div class="pic-left800 pb15 border-ccc" >
-                <div class="contents-2col-left" >
-                    <p class="jQ_blink change_border_color " >
-                        <a href="image/fs/rangiroa/source/Kia-Ora2k4.jpg" rel="prettyPhoto[Rangiroa]" title="Tuamotu - Rangiroa Kia-Ora Village" target="_blank" >
-                            <IMG src="image/fs/rangiroa/thumb_Kia-Ora2k4.jpg" width="256" >
+            <div class="pic-left800 pb15 border-ccc">
+                <div class="contents-2col-left">
+                    <p class="jQ_blink change_border_color ">
+                        <a href="image/fs/rangiroa/source/Kia-Ora2k4.jpg" data-fancybox="gallery-Rangiroa" data-caption="Tuamotu - Rangiroa Kia-Ora Village">
+                            <img src="image/fs/rangiroa/thumb_Kia-Ora2k4.jpg" width="256">
                         </a>
                     </p>
                 </div>
-                <div class="contents-2col-right800 border-ccc" >
-                    <p class="lineh140" >
+                <div class="contents-2col-right800 border-ccc">
+                    <p class="lineh140">
                         Avatoru の東に位置する Kia-Ora Village
                     </p>
                 </div>
             </div>
-            <div class="pic-left800 pb15 border-ccc" >
-                <div class="contents-2col-left" >
-                    <p class="jQ_blink change_border_color " >
-                        <a href="image/fs/rangiroa/source/Ran_Savoia_SC1a800.jpg" rel="prettyPhoto[Rangiroa]" title="Tuamotu - Rangiroa motu & yackt" target="_blank">
-                            <IMG src="image/fs/rangiroa/thumb_Ran_Savoia_SC1a800.jpg" width="256" >
+            <div class="pic-left800 pb15 border-ccc">
+                <div class="contents-2col-left">
+                    <p class="jQ_blink change_border_color ">
+                        <a href="image/fs/rangiroa/source/Ran_Savoia_SC1a800.jpg" data-fancybox="gallery-Rangiroa" data-caption="Tuamotu - Rangiroa motu & yackt">
+                            <img src="image/fs/rangiroa/thumb_Ran_Savoia_SC1a800.jpg" width="256">
                         </a>
                     </p>
                 </div>
-                <div class="contents-2col-right800 border-ccc" >
-                    <p class="lineh140" >
-                        ラグーンに点在する motu を背景にヨットと<BR>
+                <div class="contents-2col-right800 border-ccc">
+                    <p class="lineh140">
+                        ラグーンに点在する motu を背景にヨットと
                         クラシカルな飛行艇の組み合わせです。
                     </p>
                 </div>
             </div>
-            <div class="pic-left800 pb15 border-ccc" >
-                <div class="contents-2col-left" >
-                    <p class="jQ_blink change_border_color " >
-                        <a href="image/fs/rangiroa/source/Rangiroa_approach.jpg" rel="prettyPhoto[Rangiroa]" title="Tuamotu - Rangiroa Approach" target="_blank" >
-                            <IMG src="image/fs/rangiroa/thumb_Rangiroa_approach.jpg" width="256" >
+            <div class="pic-left800 pb15 border-ccc">
+                <div class="contents-2col-left">
+                    <p class="jQ_blink change_border_color ">
+                        <a href="image/fs/rangiroa/source/Rangiroa_approach.jpg" data-fancybox="gallery-Rangiroa" data-caption="Tuamotu - Rangiroa Approach">
+                            <img src="image/fs/rangiroa/thumb_Rangiroa_approach.jpg" width="256">
                         </a>
                     </p>
                 </div>
-                <div class="contents-2col-right800 border-ccc" >
-                    <p class="lineh140" >
-                        ランギロア空港へアプローチ中の<BR>
+                <div class="contents-2col-right800 border-ccc">
+                    <p class="lineh140">
+                        ランギロア空港へアプローチ中の
                         エアータヒチ双発機。
                     </p>
                 </div>
@@ -364,32 +408,29 @@
         <div class="pb15">
             <div class="pb5">
                 <h2 class="contents-title-left">
-                    <a name="Manihi"></a>
+                    <div id="Manihi"></div>
                     <p>
                         Manihi
                     </p>
                 </h2>
                 <div class="contents-title-right">
-                    <p class="fss fwb" >
-                        Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-                    </p>
                 </div>
                 <div class="c-both"></div>
             </div>
             <!-- contents -->
-            <div class="pic-left800 pb15 border-ccc" >
-                <div class="contents-2col-left" >
-                    <p class="jQ_blink change_border_color " >
-                        <a href="image/fs/rangiroa/source/Manihi2.jpg" rel="prettyPhoto" title="Tuamotu - Manihi" target="_blank" >
-                            <IMG src="image/fs/rangiroa/thumb_Manihi2.jpg" width="256" >
+            <div class="pic-left800 pb15 border-ccc">
+                <div class="contents-2col-left">
+                    <p class="jQ_blink change_border_color ">
+                        <a href="image/fs/rangiroa/source/Manihi2.jpg" data-fancybox="gallery-Manihi" data-caption="Tuamotu - Manihi">
+                            <img src="image/fs/rangiroa/thumb_Manihi2.jpg" width="256">
                         </a>
                     </p>
                 </div>
-                <div class="contents-2col-right800 border-ccc" >
-                    <p class="lineh140" >
-                        Rangiroaの北東に位置するManihi。<BR>
-                        まさにネックレスアイランドと呼ぶにふさわしい<BR>
-                        美しい環礁です。<BR>
+                <div class="contents-2col-right800 border-ccc">
+                    <p class="lineh140">
+                        Rangiroaの北東に位置するManihi。<br>
+                        まさにネックレスアイランドと呼ぶにふさわしい
+                        美しい環礁です。
                         この島はブラックパールの養殖でも世界的に有名です。
                     </p>
                 </div>
@@ -401,37 +442,33 @@
         <div class="pb15">
             <div class="pb5">
                 <h2 class="contents-title-left">
-                    <a name="Ahe"></a>
+                    <div id="Ahe"></div>
                     <p>
                         Ahe
                     </p>
                 </h2>
                 <div class="contents-title-right">
-                    <p class="fss fwb" >
-                        Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-                    </p>
                 </div>
                 <div class="c-both"></div>
             </div>
             <!-- contents -->
-            <div class="pic-left800 pb15 border-ccc" >
-                <div class="contents-2col-left" >
-                    <p class="jQ_blink change_border_color " >
-                        <a href="image/fs/rangiroa/source/Ahe2k4.jpg" rel="prettyPhoto" title="Tuamotu - Ahe" target="_blank" >
-                            <IMG src="image/fs/rangiroa/thumb_Ahe2k4.jpg" width="256" >
+            <div class="pic-left800 pb15 border-ccc">
+                <div class="contents-2col-left">
+                    <p class="jQ_blink change_border_color ">
+                        <a href="image/fs/rangiroa/source/Ahe2k4.jpg" data-fancybox="gallery-Ahe" data-caption="Tuamotu - Ahe">
+                            <img src="image/fs/rangiroa/thumb_Ahe2k4.jpg" width="256">
                         </a>
                     </p>
                 </div>
-                <div class="contents-2col-right800 border-ccc" >
-                    <p class="lineh140" >
-                        Manihiの西隣に位置するこれまた非常に美しい環礁です。<BR>
-                        観光ガイドにはほとんど紹介されていませんが，<BR>
+                <div class="contents-2col-right800 border-ccc">
+                    <p class="lineh140">
+                        Manihiの西隣に位置するこれまた非常に美しい環礁です。
+                        観光ガイドにはほとんど紹介されていませんが，
                         典型的なTuamotuの環礁を形成しています。
                     </p>
                 </div>
             </div>
         </div>
-        <a name="page_bottom"></a>
 
     </div> <!-- page main: end -->
 
@@ -439,17 +476,19 @@
 
         <hr id="footer"> <!-- horizontal partition -->
 
-        <div class="jQ_change center" > <!-- select button whole: start -->
+        <p id="page-top"><a href="#">TOP</a></p>
+
+        <div class="jQ_change center"> <!-- select button whole: start -->
             <p id="footer">  <!-- select button 1: start -->
                 <a href="fs01_sc_top.html#Rangiroa">
-                    <IMG src="image/button/screen_top_off.gif" border="0" alt="Screen Shots Top" >
+                    <img src="image/button/screen_top_off.gif" border="0" alt="Screen Shots Top">
                 </a>
             </p> <!-- select button 1: end -->
         </div> <!-- select button whole: end -->
 
-        <div id="footer_label">
+        <div class="footer_labelPC">
             copyright &copy; 2003 -
-            <script type="text/javascript" language="JavaScript">
+            <script>
                 date = new Date();
                 document.write(date.getFullYear() + ' ');
             </script>
@@ -460,6 +499,5 @@
 
     </footer>
 
-</div> <!-- Pre Loading end -->
-</BODY>
+</body>
 </html>

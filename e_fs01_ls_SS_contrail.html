@@ -1,93 +1,121 @@
-<!DOCTYPE HTML >
-<html>
+<!DOCTYPE html >
+<html lang="en">
 
-<HEAD>
-    <META charset="UTF-8">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Here are some images of the contrails that are the title of this page...">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Contrail SnapShots : Sky in the Sky :: Contrail</title>
 
     <!-- favicon-->
-    <link rel="shortcut icon" href="favicon.ico">
-
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="icon" href="favicon.ico">
 
     <!-- css start -->
+        <!-- kko_etc - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
+        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
 
-        <!-- kko_etc start - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
-        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css" type="text/css">
-        <!-- kko_etc end -->
+        <!-- Fancybox CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css">
 
-        <!-- prettyPhoto start -->
-        <link href="libs/jQuery/prettyPhoto/css/prettyPhoto315_mod.css" media="all" rel="stylesheet" type="text/css">
-        <!-- prettyPhoto end -->
+        <style>
+            img.thumb {
+                width: 256px;
+                height: auto;
+                box-shadow: 0 0 10px rgba(0,0,0,0.2);
+                margin: 1em;
+                cursor: pointer;
+            }
 
+            /* Optional: Limit image size on small screens */
+            @media (max-width: 768px) {
+                .fancybox_image {
+                    max-width: 256px;
+                }
+                .fancybox_image2 {
+                    max-width: 300px;
+                }
+            }
+        </style>
     <!-- css end -->
 
     <!-- js start -->
-
         <!-- jQuery start -->
-        <script src="libs/jQuery/js/jquery-1.6.1.min.js" type="text/javascript"></script>
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <!-- kko_style - img jq_blink, img jq_change -->
+            <script src="libs/jQuery/kko/js/jq_kko_style.js"></script>
 
-            <!-- kko_style start - img jq_blink, img jq_change -->
-            <script src="libs/jQuery/kko/js/jq_kko_preload.js" type="text/javascript"></script>
-            <script src="libs/jQuery/kko/js/jq_kko_style.js" type="text/javascript"></script>
-            <!-- kko_style end -->
-
-            <!-- prettyPhoto start -->
-            <script src="libs/jQuery/prettyPhoto/js/jquery.prettyPhoto_315_mod.js" type="text/javascript"></script>
-            <script type="text/javascript">
-                $(document).ready(function(){
-                    $("a[rel^='prettyPhoto']").prettyPhoto();
-                });
-            </script>
-            <!-- prettyPhoto end -->
-
+            <!-- Fancybox JS -->
+            <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
         <!-- jQuery end -->
 
-        <!-- Sandbox DropDownMenu start -->
-        <script src="libs/sandbox/js/script.js" type="text/javascript"></script>
-        <!-- Sandbox DropDownMenu end -->
-
+        <!-- Sandbox DropDownMenu -->
+        <script src="libs/sandbox/js/script.js"></script>
     <!-- js end -->
 
-</HEAD>
+</head>
 
-<BODY id="common-k" >
-
-<!-- Pre Loading -->
-<!-- without loading picture -->
-<div id="loader"></div>
-<div id="fade"></div>
-<div id="preload"> <!-- Pre Loading start -->
+<body id="common-k">
 
     <header>
-        <a name="page_top"></a>
-        <div class="center jQ_change navbox" >
-            <nav>
-                <IMG src="image/top/Contrail_g.png" height="20" class="logo_img">
-                <ul class="menu" id="menu" >
-                    <li><a href="index.html" class="menulink">Home</a></li>
-                    <li><a href="e_whatnew.html" class="menulink">What's New</a></li>
-                    <li><a href="en_etc.html" class="menulink">E.T.C.</a></li>
-                    <li><a href="e_fs01.html" class="menulink">The Scenery</a>
-                        <ul>
-                            <li><a href="e_fs01_sc_top.html" class="sub">Screen Shots</a></li>
-                            <li><a href="e_fs01_ls_top.html" class="sub">Snap Shots</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="e_link01.html" class="menulink">Links</a></li>
-                    <li class="about"><a href="e_fs01_about.html" class="menulink">about Contrail</a></li>
-                </ul>
-            </nav>
-            <div class="c-both"></div>
+        <div class="prettyP_PC">
+            <a name="page_top"></a>
+            <div class="center jQ_change navbox" >
+                <nav>
+                    <img src="image/top/cr32_e.png" height="20" class="logo_img">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_img">
+                    <ul class="menu" id="menu" >
+                        <li><a href="index.html" class="menulink">Home</a></li>
+                        <li><a href="whatnew.html" class="menulink">What's New</a></li>
+                        <li><a href="etc.html" class="menulink">E.T.C.</a></li>
+                        <li><a href="fs01.html" class="menulink">The Scenery</a>
+                            <ul>
+                                <li><a href="fs01_sc_top.html" class="sub">Screen Shots</a></li>
+                                <li><a href="fs01_ls_top.html" class="sub">Snap Shots</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="link01.html" class="menulink">Links</a></li>
+                        <li class="about"><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                    </ul>
+                </nav>
+                <div class="c-both"></div>
+            </div>
+            <!-- Sandbox DropDownMenu start-->
+            <script>
+                var menu=new menu.dd("menu");
+                menu.init("menu","menuhover");
+            </script>
+            <!-- Sandbox DropDownMenu end -->
         </div>
-        <!-- Sandbox DropDownMenu start-->
-        <script type="text/javascript">
-            var menu=new menu.dd("menu");
-            menu.init("menu","menuhover");
-        </script>    <!-- Sandbox DropDownMenu end -->
+        <div class="prettyP_SP">
+            <a name="MENU"></a>
+            <p id="menu-call">
+                <a href="#">MENU</a>
+            </p>
+
+            <a name="page_top"></a>
+
+            <!-- page top icon & logo -->
+            <div id="header_SP" class="header_labelSP">
+                <div class="pb4"></div>
+                <img src="image/top/cr48f_32.png">
+                <img class="pb3" src="image/top/Contrail_g.png" height="24">
+            </div>
+
+            <div id="popup-menu" class="hidden">
+                <div class="menu-title">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_image" alt="CONTRAIL">
+                </div>
+                <ul>
+                    <li><a href="index.html" class="menulink">Home</a></li>
+                    <li><a href="whatnew.html" class="menulink">What's New</a></li>
+                    <li><a href="etc.html" class="menulink">E.T.C.</a></li>
+                    <li><a href="fs01.html" class="menulink">The Scenery</a></li>
+                    <li><a href="link01.html" class="menulink">Links</a></li>
+                    <li><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                </ul>
+            </div>
+        </div>
     </header>
 
     <div id="main800"> <!-- page main: start -->
@@ -95,25 +123,33 @@
         <!-- title -->
         <div id="title30">
             <p id="head10">
-                <IMG src="image/fs/kko_logo.gif" alt="Contrail Snap Shots Special Gallery">
+                <img src="image/fs/kko_logo.gif" alt="Contrail Snap Shots Special Gallery">
             </p>
-            <h2 id="group-SS" >
+            <h2 id="group-SS">
                 Sky in the Sky
             </h2>
-            <h1 id="main" style="color: #4169e1;" >
+            <h1 id="main" style="color: #4169e1;">
                 Contrail
             </h1>
-            <p id="author" >
+            <p id="author">
                 Photo: kotan
             </p>
         </div>
 
+        <!-- for Java Script off -->
+        <noscript>
+            <div id="attention">
+                <p>Sorry, you need to activate JavaScript in your browser.</p>
+            </div>
+        </noscript>
+
         <!-- contents -->
         <div class="center pb40">
             <p class="jQ_blink change_border_color pb5">
-                 <a href="image/fs/kko/source/contrail_P1050136_cut_r800.jpg"  rel="prettyPhoto"
-                        title="afterglow...contrail" target="_blank" >
-                    <IMG src="image/fs/kko/source/contrail_P1050136_cut_r800.jpg" width="640">
+                 <a href="image/fs/kko/source/contrail_P1050136_cut_r800.jpg"
+                    data-fancybox="gallery1" data-caption="afterglow...contrail">
+                    <img class="fancybox_image" src="image/fs/kko/source/contrail_P1050136_cut_r800.jpg"
+                        width="640" alt="afterglow...contrail">
                 </a>
             </p>
             <p class="fss">
@@ -124,9 +160,10 @@
         <div class="pb40">
             <div class="pic-left640">
                 <p class="jQ_blink change_border_color">
-                     <a href="image/fs/kko/source/contrail_P1000749cut2_r800.jpg"  rel="prettyPhoto"
-                            title="contrail...my favorite picture" target="_blank" >
-                        <IMG src="image/fs/kko/source/contrail_P1000749cut2_r800.jpg" width="640" >
+                    <a href="image/fs/kko/source/contrail_P1000749cut2_r800.jpg"
+                        data-fancybox="gallery1" data-caption="contrail...my favorite picture">
+                       <img class="fancybox_image" src="image/fs/kko/source/contrail_P1000749cut2_r800.jpg"
+                            width="640" alt="contrail...my favorite picture">
                     </a>
                 </p>
                 <p class="fss pl50">
@@ -138,31 +175,32 @@
         <div class="pb40">
             <div class="pic-right640">
                 <p class="jQ_blink change_border_color">
-                     <a href="image/fs/kko/source/contrail_P1050112_r800.jpg"  rel="prettyPhoto"
-                            title="afterglow..contrail 2" target="_blank" >
-                        <IMG src="image/fs/kko/source/contrail_P1050112_r800.jpg" width="640" >
+                     <a href="image/fs/kko/source/contrail_P1050112_r800.jpg"
+                        data-fancybox="gallery1" data-caption="afterglow...contrail 2">
+                            <img class="fancybox_image" src="image/fs/kko/source/contrail_P1050112_r800.jpg"
+                                width="640" alt="afterglow...contrail 2">
                     </a>
                 </p>
                 <p class="fss pr30">
-                    After sunset, the plane flew over the Futtsu Promontory from the west to the east.
+                    After sunset, the plane flew over the Cape Futtsu from the west to the east.
                 </p>
             </div>
         </div>
 
         <div class="center pb30">
             <p class="jQ_blink change_border_color pb5">
-                 <a href="image/fs/kko/source/contrail_with_fuji_P1050217_c_r800.jpg"  rel="prettyPhoto"
-                        title="contrail with Mt. Fuji" target="_blank" >
-                    <IMG src="image/fs/kko/source/contrail_with_fuji_P1050217_c_r800.jpg" width="640" >
+                 <a href="image/fs/kko/source/contrail_with_fuji_P1050217_c_r800.jpg"
+                        data-fancybox="gallery1" data-caption="contrail with Mt. Fuji">
+                        <img class="fancybox_image" src="image/fs/kko/source/contrail_with_fuji_P1050217_c_r800.jpg"
+                                width="640" alt="contrail with Mt. Fuji">
                 </a>
             </p>
             <p class="fss">
                 Two contrails have been expanded toward Mt. Fuji
-                though the planes had already disappeared. <BR>
-                Three bugs are CH-47 Chinook. <BR>
+                though the planes had already disappeared. <br>
+                Three bugs are CH-47 Chinook. <br>
             </p>
         </div>
-        <a name="page_bottom"></a>
 
     </div> <!-- page main: end -->
 
@@ -170,17 +208,19 @@
 
         <hr id="footer"> <!-- horizontal partition -->
 
-        <div class="jQ_change center" > <!-- select button whole: start -->
+        <p id="page-top"><a href="#">TOP</a></p>
+
+        <div class="jQ_change center"> <!-- select button whole: start -->
             <p id="footer">  <!-- select button 1: start -->
                 <a href="e_fs01_ls_Sky_in_the_Sky.html#CONTRAIL">
-                    <IMG src="image/button/back_off.gif" border="0" alt="back" >
+                    <img src="image/button/back_off.gif" border="0" alt="back">
                 </a>
             </p> <!-- select button 1: end -->
         </div> <!-- select button whole: end -->
 
-        <div id="footer_label">
+        <div class="footer_labelPC">
             copyright &copy; 2003 -
-            <script type="text/javascript" language="JavaScript">
+            <script>
                 date = new Date();
                 document.write(date.getFullYear() + ' ');
             </script>
@@ -191,6 +231,5 @@
 
     </footer>
 
-</div> <!-- Pre Loading end -->
-</BODY>
+</body>
 </html>

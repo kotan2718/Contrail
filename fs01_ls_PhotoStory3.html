@@ -1,90 +1,102 @@
-<!DOCTYPE HTML >
-<html>
+<!DOCTYPE html >
+<html lang="ja">
 
-<HEAD>
-    <META charset="UTF-8">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="フォトストーリー3は静止画像を動画に変換する優れソフトです。フォトストーリー3で作成したサンプルのショートストーリーを作ってみました。">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Contrail SnapShot : 街角の う・ふ・ふ :: フォトストーリー3</title>
 
     <!-- favicon-->
-    <link rel="shortcut icon" href="favicon.ico">
-
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="icon" href="favicon.ico">
 
     <!-- css start -->
-
-        <!-- kko_etc start - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
-        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css" type="text/css">
-        <!-- kko_etc end -->
-
+        <!-- kko_etc - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
+        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
     <!-- css end -->
 
     <!-- js start -->
-
         <!-- jQuery start -->
-        <script src="libs/jQuery/js/jquery-1.6.1.min.js" type="text/javascript"></script>
-
-            <!-- kko_style start - img jq_blink, img jq_change -->
-            <script src="libs/jQuery/kko/js/jq_kko_preload.js" type="text/javascript"></script>
-            <script src="libs/jQuery/kko/js/jq_kko_style.js" type="text/javascript"></script>
-            <!-- kko_style end -->
-
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <!-- kko_style - img jq_blink, img jq_change -->
+            <script src="libs/jQuery/kko/js/jq_kko_style.js"></script>
         <!-- jQuery end -->
-
-        <!-- Sandbox DropDownMenu start -->
-        <script src="libs/sandbox/js/script.js" type="text/javascript"></script>
-        <!-- Sandbox DropDownMenu end -->
-
     <!-- js end -->
 
-</HEAD>
+</head>
 
-<BODY id="common-k" >
-
-<!-- Pre Loading -->
-<!-- without loading picture -->
-<div id="loader"></div>
-<div id="fade"></div>
-<div id="preload"> <!-- Pre Loading start -->
+<body id="common-k">
 
     <header>
-        <a name="page_top"></a>
-        <div class="center jQ_change navbox" >
-            <nav>
-                <IMG src="image/top/Contrail_g.png" height="20" class="logo_img">
-                <ul class="menu" id="menu" >
+        <div class="prettyP_PC">
+            <a name="page_top"></a>
+            <div class="center jQ_change navbox" >
+                <nav>
+                    <img src="image/top/cr32_e.png" height="20" class="logo_img">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_img">
+                    <ul class="menu" id="menu" >
+                        <li><a href="index.html" class="menulink">Home</a></li>
+                        <li><a href="whatnew.html" class="menulink">What's New</a></li>
+                        <li><a href="etc.html" class="menulink">E.T.C.</a></li>
+                        <li><a href="fs01.html" class="menulink">The Scenery</a>
+                            <ul>
+                                <li><a href="fs01_sc_top.html" class="sub">Screen Shots</a></li>
+                                <li><a href="fs01_ls_top.html" class="sub">Snap Shots</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="link01.html" class="menulink">Links</a></li>
+                        <li class="about"><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                    </ul>
+                </nav>
+                <div class="c-both"></div>
+            </div>
+            <!-- Sandbox DropDownMenu start-->
+            <script>
+                var menu=new menu.dd("menu");
+                menu.init("menu","menuhover");
+            </script>
+            <!-- Sandbox DropDownMenu end -->
+        </div>
+        <div class="prettyP_SP">
+            <a name="MENU"></a>
+            <p id="menu-call">
+                <a href="#">MENU</a>
+            </p>
+
+            <a name="page_top"></a>
+
+            <!-- page top icon & logo -->
+            <div id="header_SP" class="header_labelSP">
+                <div class="pb4"></div>
+                <img src="image/top/cr48f_32.png">
+                <img class="pb3" src="image/top/Contrail_g.png" height="24">
+            </div>
+
+            <div id="popup-menu" class="hidden">
+                <div class="menu-title">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_image" alt="CONTRAIL">
+                </div>
+                <ul>
                     <li><a href="index.html" class="menulink">Home</a></li>
                     <li><a href="whatnew.html" class="menulink">What's New</a></li>
                     <li><a href="etc.html" class="menulink">E.T.C.</a></li>
-                    <li><a href="fs01.html" class="menulink">The Scenery</a>
-                        <ul>
-                            <li><a href="fs01_sc_top.html" class="sub">Screen Shots</a></li>
-                            <li><a href="fs01_ls_top.html" class="sub">Snap Shots</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="fs01.html" class="menulink">The Scenery</a></li>
                     <li><a href="link01.html" class="menulink">Links</a></li>
-                    <li class="about"><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                    <li><a href="fs01_about.html" class="menulink">about Contrail</a></li>
                 </ul>
-            </nav>
-            <div class="c-both"></div>
+            </div>
         </div>
-        <!-- Sandbox DropDownMenu start-->
-        <script type="text/javascript">
-            var menu=new menu.dd("menu");
-            menu.init("menu","menuhover");
-        </script>    <!-- Sandbox DropDownMenu end -->
     </header>
 
-    <div id="main720" class="lineh130"> <!-- page main: start -->
+    <div id="main720-480" class="lineh130"> <!-- page main: start -->
 
         <!-- title -->
         <div id="title40">
-            <p id="head15" >
-                <IMG src="image/fs/kko_logo.gif" alt="Contrail Snap Shots Special Gallery">
+            <p id="head15">
+                <img src="image/fs/kko_logo.gif" alt="Contrail Snap Shots Special Gallery">
             </p>
-            <h2 id="group-UFe" >
+            <h2 id="group-UFe">
                 街角の う・ふ・ふ
             </h2>
             <p class="fss fwb pb15">
@@ -95,44 +107,56 @@
             </h1>
         </div>
 
+        <!-- for Java Script off -->
+        <noscript>
+            <div id="attention">
+                <p>ご覧頂くにはブラウザの JavaScript をアクティブにして下さい</p>
+            </div>
+        </noscript>
+
         <!-- contents -->
-        <div class="left pb20">
+        <div class="left2 pb20">
             <p class="pb10">
-                フォトストーリー3は静止画像を動画に変換するソフトです。<BR>
-                静止画のアルバムをDVD-Videoに落とす方法がないものかと考えていたとき，<BR>
+                フォトストーリー3は静止画像を動画に変換するソフトです。<br>
+                静止画のアルバムをDVD-Videoに落とす方法がないものかと考えていたとき，
                 カムイ氏からこのすぐれソフトを教えて頂きました。
             </p>
             <p class="pb10">
-                静止画像でもスライドショーに仕上げてBGMを加えると<BR>
-                見違えるようなアルバムを作ることが出来ますが，<BR>
-                静止画像を動画に変換するという発想のなかった私にとって，<BR>
-                フォトストーリー3は驚くべきソフトでした。
+                静止画像でもスライドショーに仕上げてBGMを加えると
+                見違えるようなアルバムを作ることが出来ますが，
+                静止画像を動画に変換するという発想のなかった私にとって，
+                フォトストーリー3はびっくりソフトでした。
             </p>
-            <p>
+            <p class="pb10">
                 フォトストーリー3で作成したサンプルのショートストーリーを作ってみました。
             </p>
         </div>
 
-            <!-- for Java Script off -->
-            <noscript>
-                <div id="attention">
-                    <p>ご覧頂くにはブラウザの JavaScript をアクティブにして下さい</p>
-                </div>
-            </noscript>
-
         <div class="center pb30">
-            <iframe width="640" height="480"
-                src="https://www.youtube.com/embed/8LV5YxjPjcc?vq=hd720&fs=0&rel=0"
-                frameborder="0">
-            </iframe>
+            <div class="prettyP_PC">
+                <iframe width="640" height="480"
+                    src="https://www.youtube.com/embed/8LV5YxjPjcc?vq=hd720&fs=0&rel=0"
+                    frameborder="0">
+                </iframe>
+            </div>
+            <div class="prettyP_SP">
+                    <iframe width="320" height="240"
+                    src="https://www.youtube.com/embed/8LV5YxjPjcc?vq=hd720&fs=0&rel=0"
+                    frameborder="0">
+                </iframe>
+            </div>
         </div>
 
-        <div class="left pb20">
+        <div class="left2 pb20">
             <p class="pb10">
-                素晴らしいソフトなので，使用感・簡単な操作方法をまとめたページも作成しました。<BR>
-                フォトストーリー3のホームページへのリンクなども含まれています。<BR>
-                興味のある方は一度フォトストリー3をお試し下さい。<BR>
+                素晴らしいソフトなので，使用感・簡単な操作方法をまとめたページも作成しました。<br>
+                フォトストーリー3のホームページへのリンクなども含まれています。
+                興味のある方は一度フォトストリー3をお試し下さい。
                 すごいツールです。
+            </p>
+            <p class="pb40 fwb fss">
+                残念ながらWindows10/11ではフォトストーリー3は使用できません。
+                しかし、面白いソフトがあったことをアーカイブとして残しておきたいと思います。
             </p>
             <p class="fss fwb">
                  <a href="fs01_ls_PhotoStory3-Setsumei.html">
@@ -148,17 +172,19 @@
 
         <hr id="footer"> <!-- horizontal partition -->
 
-        <div class="jQ_change center" > <!-- select button whole: start -->
+        <p id="page-top"><a href="#">TOP</a></p>
+
+        <div class="jQ_change center"> <!-- select button whole: start -->
             <p id="footer"> <!-- select button: start -->
-                <a href="fs01_ls_Ufufu.html">
-                    <IMG src="image/button/back_off.gif" border="0" alt="Back" >
+                <a href="fs01_ls_Ufufu.html#PhotStory3">
+                    <img src="image/button/back_off.gif" border="0" alt="Back">
                 </a>
             </p> <!-- select button: end -->
         </div> <!-- select button whole: end -->
 
-        <div id="footer_label">
+        <div class="footer_labelPC">
             copyright &copy; 2003 -
-            <script type="text/javascript" language="JavaScript">
+            <script>
                 date = new Date();
                 document.write(date.getFullYear() + ' ');
             </script>
@@ -169,6 +195,5 @@
 
     </footer>
 
-</div> <!-- Pre Loading end -->
-</BODY>
+</body>
 </html>

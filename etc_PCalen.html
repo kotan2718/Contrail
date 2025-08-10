@@ -1,55 +1,41 @@
-<!DOCTYPE HTML >
-<html>
+<!DOCTYPE html >
+<html lang="ja">
 
-<HEAD>
-    <META charset="UTF-8">
-    <META name="description" content="このページでは万年カレンダー =PCalen= を紹介しています。PCalenは祝祭日のついたカレンダーです。 来年とか、再来年に旅行の計画を立てるとき、 祝祭日が分かれば便利だろうなと思って作成しました。メモ書きの機能も付いています。">
-    <META name="keywords" content="PCalen,万年カレンダー">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="このページでは万年カレンダー =PCalen= を紹介しています。PCalenは祝祭日のついたカレンダーです。 来年とか、再来年に旅行の計画を立てるとき、 祝祭日が分かれば便利だろうなと思って作成しました。メモ書きの機能も付いています。">
+    <meta name="keywords" content="PCalen,万年カレンダー">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>PCalen User's Manual</title>
 
     <!-- favicon-->
-    <link rel="shortcut icon" href="favicon.ico">
-
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="icon" href="favicon.ico">
 
     <!-- css start -->
-
-        <!-- kko_etc start :: class指定:change_border_color, 全ファイル共通:リンク文字色, フォーカスリング -->
-        <link rel="stylesheet" href="libs/etc/css/kko_footer_style.css" type="text/css">
-        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css" type="text/css">
-        <!-- kko_etc end -->
-
+        <!-- kko_etc :: class指定:change_border_color, 全ファイル共通:リンク文字色, フォーカスリング -->
+        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
     <!-- css end -->
 
     <!-- js start -->
-
         <!-- jQuery start -->
-        <script src="libs/jQuery/js/jquery-1.6.1.min.js" type="text/javascript"></script>
-
-            <!-- kko_style start - img jq_blink, img jq_change -->
-            <script src="libs/jQuery/kko/js/jq_kko_style.js" type="text/javascript"></script>
-            <!-- kko_style end -->
-
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <!-- kko_style - img jq_blink, img jq_change -->
+            <script src="libs/jQuery/kko/js/jq_kko_style.js"></script>
         <!-- jQuery end -->
-
-        <!-- Sandbox DropDownMenu start -->
-        <script src="libs/sandbox/js/script.js" type="text/javascript"></script>
-        <!-- Sandbox DropDownMenu end -->
-
     <!-- js end -->
 
-</HEAD>
+</head>
 
-<BODY id="common-k" >
+<body id="common-k">
 
-        <header>
+    <header>
+        <div class="prettyP_PC">
             <a name="page_top"></a>
             <div class="center jQ_change navbox" >
                 <nav>
-                    <IMG src="image/top/Contrail_g.png" height="20" class="logo_img">
+                    <img src="image/top/cr32_e.png" height="20" class="logo_img">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_img">
                     <ul class="menu" id="menu" >
                         <li><a href="index.html" class="menulink">Home</a></li>
                         <li><a href="whatnew.html" class="menulink">What's New</a></li>
@@ -67,13 +53,44 @@
                 <div class="c-both"></div>
             </div>
             <!-- Sandbox DropDownMenu start-->
-            <script type="text/javascript">
+            <script>
                 var menu=new menu.dd("menu");
                 menu.init("menu","menuhover");
-            </script>    <!-- Sandbox DropDownMenu end -->
-        </header>
+            </script>
+            <!-- Sandbox DropDownMenu end -->
+        </div>
+        <div class="prettyP_SP">
+            <a name="MENU"></a>
+            <p id="menu-call">
+                <a href="#">MENU</a>
+            </p>
 
-    <div id="main920"> <!-- page main: start -->
+            <a name="page_top"></a>
+
+            <!-- page top icon & logo -->
+            <div id="header_SP" class="header_labelSP">
+                <div class="pb4"></div>
+                <img src="image/top/cr48f_32.png">
+                <img class="pb3" src="image/top/Contrail_g.png" height="24">
+            </div>
+
+            <div id="popup-menu" class="hidden">
+                <div class="menu-title">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_image" alt="CONTRAIL">
+                </div>
+                <ul>
+                    <li><a href="index.html" class="menulink">Home</a></li>
+                    <li><a href="whatnew.html" class="menulink">What's New</a></li>
+                    <li><a href="etc.html" class="menulink">E.T.C.</a></li>
+                    <li><a href="fs01.html" class="menulink">The Scenery</a></li>
+                    <li><a href="link01.html" class="menulink">Links</a></li>
+                    <li><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div id="main920-480"> <!-- page main: start -->
 
         <!-- title -->
         <div id="title20">
@@ -85,8 +102,15 @@
             </h3>
         </div>
 
+        <!-- for Java Script off -->
+        <noscript>
+            <div id="attention">
+                <p>ご覧頂くにはブラウザの JavaScript をアクティブにして下さい</p>
+            </div>
+        </noscript>
+
         <!-- contents -->
-        <div class="pic-left920 pb40">
+        <div class="pic-left920_480 pb40">
             <div class="fwb pb10">
                 <p class="pb10">
                     いわゆる万年カレンダーです。
@@ -98,7 +122,9 @@
                     (ダウンロードはこのページの下の方でできます。WindowsPC専用です｡)
                 </p>
                 <p class="pb5">
-                    <IMG src="image/PCalen_img/起動時0.jpg" border="0">
+                    <span class="image-container">
+                        <img src="image/PCalen_img/起動時0.jpg" border="0">
+                    </span>
                 </p>
             </div>
             <div class="pic-left920 fwb pb20">
@@ -168,7 +194,9 @@
                                 ウインドウ上部に、年・月が表示されています。
                         </p>
                         <p class="pb5">
-                            <IMG src="image/PCalen_img/起動時1.jpg" border="0">
+                            <span class="image-container">
+                                <img src="image/PCalen_img/起動時1.jpg" border="0">
+                            </span>
                         </p>
                         <p class="fss pb10">
                             ※今日の日付(この画像をキャプチャーした日付)は2022年12月8日です。
@@ -180,7 +208,9 @@
                           <li>直接、表示させたい年・月を入力して<br>
                                     Enterキーを押すことで切り替えることもできます。
                                 <p class="pb5">
-                                    <IMG src="image/PCalen_img/year_month_move.gif" border="0">
+                                    <span class="image-container">
+                                        <img src="image/PCalen_img/year_month_move.gif" border="0">
+                                    </span>
                                 </p>
                                 <p class="fss pb10">
                                     ※2019年9月に台風15号が房総を直撃したときのメモが記録として残っていました。
@@ -196,7 +226,9 @@
                                 ウインドウ右上の｢年単位メモ編集｣をクリックすると｢年単位メモ｣画面が開きます。
                         </p>
                         <p class="pb5">
-                            <IMG src="image/PCalen_img/年単位メモ0.jpg" border="0">
+                            <span class="image-container">
+                                <img src="image/PCalen_img/年単位メモ0.jpg" border="0">
+                            </span>
                         </p>
                         <p class="fss pb10">
                             ※今日の日付(この画像をキャプチャーした日付)は2022年12月9日です。
@@ -216,7 +248,9 @@
                                             直接、年・月を入力してEnterキーを押すことで指定します。
                                         </p>
                                         <p class="pb10 contents-2col-left">
-                                            <IMG src="image/PCalen_img/年単位メモ1.jpg" border="0">
+                                            <span class="image-container">
+                                                <img src="image/PCalen_img/年単位メモ1.jpg" border="0">
+                                            </span>
                                         </p>
                                         <p class="fwm pb10 contents-2col-right">
                                             例として誕生日の日付を<br>
@@ -231,7 +265,9 @@
                                                 入力後、Enterキーを押すと｢更新｣、｢キャンセル｣ボタンが現れます。
                                         </p>
                                         <p class="pb10">
-                                            <IMG src="image/PCalen_img/年単位メモ2.jpg" border="0">
+                                            <span class="image-container">
+                                                <img src="image/PCalen_img/年単位メモ2.jpg" border="0">
+                                            </span>
                                         </p>
                                     </li>
                                     <li>
@@ -239,14 +275,18 @@
                                                 更新ボタンを押す。
                                         </p>
                                         <p class="pb10">
-                                            <IMG src="image/PCalen_img/年単位メモ3.jpg" border="0">
+                                            <span class="image-container">
+                                                <img src="image/PCalen_img/年単位メモ3.jpg" border="0">
+                                            </span>
                                         </p>
                                         <p class="fwm pb10">
                                                 編集したメモが追加された後、初期のウインドウに戻ります。<br>
                                                 続けてメモを追加することができます。
                                         </p>
                                         <p class="pb10">
-                                            <IMG src="image/PCalen_img/年単位メモ0a.jpg" border="0">
+                                            <span class="image-container">
+                                                <img src="image/PCalen_img/年単位メモ0a.jpg" border="0">
+                                            </span>
                                         </p>
                                         <p class="fwm pb10">
                                                 ※｢キャンセル｣ボタンを押した場合も初期のウインドウに戻りますが、<br>
@@ -270,7 +310,9 @@
                                                 1996年まで6月を表示すると、メモが表示されます。
                                         </p>
                                         <p class="pb10">
-                                            <IMG src="image/PCalen_img/年単位メモ4.jpg" border="0">
+                                            <span class="image-container">
+                                                <img src="image/PCalen_img/年単位メモ4.jpg" border="0">
+                                            </span>
                                         </p>
                                     </li>
                                 </ol>
@@ -285,13 +327,17 @@
                                             変更を選択すると編集モードの選択とプルダウンメニュー、｢終了ボタン｣以外は使用できなくなります。
                                         </p>
                                         <p class="pb10 contents-2col-left">
-                                            <IMG src="image/PCalen_img/年単位メモ5.jpg" border="0">
+                                            <span class="image-container">
+                                                <img src="image/PCalen_img/年単位メモ5.jpg" border="0">
+                                            </span>
                                         </p>
                                         <p class="fwm pb10">
                                             メニュー右の｢▼｣をクリックすると、登録されている年単位メモのリストが表示されます。
                                         </p>
                                         <p class="pb10 contents-2col-left">
-                                            <IMG src="image/PCalen_img/年単位メモ6.jpg" border="0">
+                                            <span class="image-container">
+                                                <img src="image/PCalen_img/年単位メモ6.jpg" border="0">
+                                            </span>
                                         </p>
                                         <p class="fwm pb10">
                                             まだ1つしか登録されていませんが、年単位メモを沢山追加すれば、登録されているメモが全て表示されます｡<br>
@@ -299,7 +345,9 @@
                                             赤枠の中が編集対象です。
                                         </p>
                                         <p class="pb10">
-                                            <IMG src="image/PCalen_img/年単位メモ7.jpg" border="0">
+                                            <span class="image-container">
+                                                <img src="image/PCalen_img/年単位メモ7.jpg" border="0">
+                                            </span>
                                         </p>
                                     </li>
                                     <li>
@@ -319,19 +367,25 @@
                                             削除を選択すると編集モードの選択とプルダウンメニュー、｢終了ボタン｣以外は使用できなくなります。
                                         </p>
                                         <p class="pb10 contents-2col-left">
-                                            <IMG src="image/PCalen_img/年単位メモ8.jpg" border="0">
+                                            <span class="image-container">
+                                                <img src="image/PCalen_img/年単位メモ8.jpg" border="0">
+                                            </span>
                                         </p>
                                         <p class="fwm pb10">
                                             メニュー右の｢▼｣をクリックすると、登録されている年単位メモのリストが表示されます。
                                         </p>
                                         <p class="pb10 contents-2col-left">
-                                            <IMG src="image/PCalen_img/年単位メモ9.jpg" border="0">
+                                            <span class="image-container">
+                                                <img src="image/PCalen_img/年単位メモ9.jpg" border="0">
+                                            </span>
                                         </p>
                                         <p class="fwm pb10">
                                             目的のメモをクリックすると、｢更新｣、｢キャンセル｣ボタンが現れます。
                                         </p>
                                         <p class="pb10">
-                                            <IMG src="image/PCalen_img/年単位メモ10.jpg" border="0">
+                                            <span class="image-container">
+                                                <img src="image/PCalen_img/年単位メモ10.jpg" border="0">
+                                            </span>
                                         </p>
                                     </li>
                                     <li>
@@ -372,14 +426,18 @@
                                     日付が表示されている枠内の下の方にカーソルを合わせると、背景が白く変化します。
                                 </p>
                                 <p class="pb10">
-                                    <IMG src="image/PCalen_img/簡易メモ0.jpg" border="0">
+                                    <span class="image-container">
+                                        <img src="image/PCalen_img/簡易メモ0.jpg" border="0">
+                                    </span>
                                 </p>
                                 <p class="fwm pb10">
                                     この状態でマウスを左クリックすると、文字の入力が可能になります。<br>
                                     入力後にEnterキーを押すことで入力完了となり、背景が白から元のライトグレーに戻ります。
                                 </p>
                                 <p class="pb10">
-                                    <IMG src="image/PCalen_img/簡易メモ1.jpg" border="0">
+                                    <span class="image-container">
+                                        <img src="image/PCalen_img/簡易メモ1.jpg" border="0">
+                                    </span>
                                 </p>
                                 <p class="fwm pb10">
                                     上の図を見ると途中で入力範囲をはみ出して、メモを書き続けています。<br>
@@ -390,7 +448,9 @@
                                     ※年単位メモでも同様です。
                                 </p>
                                 <p class="pb10">
-                                    <IMG src="image/PCalen_img/簡易メモ2.jpg" border="0">
+                                    <span class="image-container">
+                                        <img src="image/PCalen_img/簡易メモ2.jpg" border="0">
+                                    </span>
                                 </p>
                             </li>
                           <li>
@@ -413,16 +473,15 @@
                 </ul>
             </div>
 
-            <div class="left" >
-
-                <h3>ダウンロード </h3>
+            <div class="pb20">
+                <h3 class="pb20">ダウンロード </h3>
                 <div class="pl30">
                     <p class="fwb pb10">
-                        <a href="etc/PCalen.zip" target="_blank" >PCalen.zip</a>
+                        <a href="etc/PCalen.zip" target="_blank">PCalen.zip</a>
                     </p>
                 </div>
             </div>
-            <div class="left pb40" >
+            <div class="pb40">
                     <p class="fss fwm">
                         フリーウェアです。
                     </p>
@@ -473,17 +532,19 @@
 
         <hr id="footer"> <!-- horizontal partition -->
 
-        <div class="jQ_change center" > <!-- select button whole: start -->
+        <p id="page-top"><a href="#">TOP</a></p>
+
+        <div class="jQ_change center"> <!-- select button whole: start -->
             <p id="footer"> <!-- select button: start -->
                 <a href="etc.html">
-                    <IMG src="image/button/back_off.gif" border="0" alt="Back" >
+                    <img src="image/button/back_off.gif" border="0" alt="Back">
                 </a>
             </p> <!-- select button: end -->
         </div> <!-- select button whole: end -->
 
-        <div id="footer_label">
+        <div class="footer_labelPC">
             copyright &copy; 2003 -
-            <script type="text/javascript" language="JavaScript">
+            <script>
                 date = new Date();
                 document.write(date.getFullYear() + ' ');
             </script>
@@ -494,6 +555,5 @@
 
     </footer>
 
-</div>
-</BODY>
+</body>
 </html>

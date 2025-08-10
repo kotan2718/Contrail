@@ -1,10 +1,16 @@
 
 /* picture change with fade */
 .pic_change_fade {
-	cursor: pointer;
-	display: block;
-	width: 640px;
-	height="480px";
-	background: url(../../../../image/fs/kz/source/pink_neko_P1020295_640_on.jpg) no-repeat 0 0;
+    cursor: pointer;
+    display: block;
+    width: 640px;
+    background: url(../../../../image/fs/kko/source/pink_neko_P1020295_640_on.jpg) no-repeat 0 0;
+}
+
+.pic_change_fade_SP {
+    cursor: pointer;
+    display: block;
+    width: 256px;
+    background: url(../../../../image/fs/kko/source/pink_neko_P1020295_256_on.jpg) no-repeat 0 0;
 }
 

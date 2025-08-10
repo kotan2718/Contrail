@@ -1,754 +1,680 @@
-<!DOCTYPE HTML >
-<html>
+<!DOCTYPE html >
+<html lang="ja">
 
-<HEAD>
-    <META charset="UTF-8">
-    <META name="description" content="街角で偶然見かけた面白シーンです。画像の構成も色とりどりで，おもちゃ箱をひっくり返したようなページを目指しています (^^;。">
-    <META name="keywords" content="SnapShots,街角,うふふ,スナップショット,photo,story">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="街角で偶然見かけた面白シーンです。画像の構成も色とりどりで，おもちゃ箱をひっくり返したようなページを目指しています (^^;。">
+    <meta name="keywords" content="SnapShots,街角,うふふ,スナップショット,photo,story">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Contrail SnapShots : 街角の う・ふ・ふ</title>
 
     <!-- favicon-->
-    <link rel="shortcut icon" href="favicon.ico">
-
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="icon" href="favicon.ico">
 
     <!-- css start -->
+        <!-- kko_etc - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
+        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
 
-        <!-- kko_etc start - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
-        <link rel="stylesheet" href="libs/etc/css/kko_preload.css" type="text/css">
-        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css" type="text/css">
-        <!-- kko_etc end -->
+        <!-- Fancybox CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css">
 
-        <!-- prettyPhoto start -->
-        <link href="libs/jQuery/prettyPhoto/css/prettyPhoto315_mod.css" media="all" rel="stylesheet" type="text/css">
-        <!-- prettyPhoto end -->
-
+        <style>
+            /* Optional: Limit image size on small screens */
+            @media (max-width: 768px) {
+                .fancybox_image {
+                    max-width: 256px;
+                }
+            }
+        </style>
     <!-- css end -->
 
     <!-- js start -->
-
         <!-- jQuery start -->
-        <script src="libs/jQuery/js/jquery-1.6.1.min.js" type="text/javascript"></script>
-
-            <!-- kko_style start - img jq_blink, img jq_change -->
-            <script src="libs/jQuery/kko/js/jq_kko_preload.js" type="text/javascript"></script>
-            <script src="libs/jQuery/kko/js/jq_kko_style.js" type="text/javascript"></script>
-            <!-- kko_style end -->
-
-            <!-- prettyPhoto start -->
-            <script src="libs/jQuery/prettyPhoto/js/jquery.prettyPhoto_315_mod.js" type="text/javascript"></script>
-            <script type="text/javascript">
-                $(document).ready(function(){
-                    $("a[rel^='prettyPhoto']").prettyPhoto();
-                });
-            </script>
-            <!-- prettyPhoto end -->
-
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <!-- kko_style - img jq_blink, img jq_change -->
+            <script src="libs/jQuery/kko/js/jq_kko_style.js"></script>
         <!-- jQuery end -->
 
-        <!-- Sandbox DropDownMenu start -->
-        <script src="libs/sandbox/js/script.js" type="text/javascript"></script>
-        <!-- Sandbox DropDownMenu end -->
+        <!-- Fancybox JS -->
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
 
-    <!-- js end -->
+         <!-- Sandbox DropDownMenu -->
+        <script src="libs/sandbox/js/script.js"></script>
+   <!-- js end -->
 
-</HEAD>
+</head>
 
-<BODY id="common-k" >
-
-<!-- Pre Loading -->
-<!-- with loading picture -->
-<div id="loader"><IMG src="image/common/ap_loader_tp.gif" width="236" height="132" class="loading..."></div>
-<div id="fade"></div>
-<div id="preload"> <!-- Pre Loading start -->
+<body id="common-k">
 
     <header>
-        <a name="page_top"></a>
-        <div class="center jQ_change navbox" >
-            <nav>
-                <IMG src="image/top/Contrail_g.png" height="20" class="logo_img">
-                <ul class="menu" id="menu" >
+        <div class="prettyP_PC">
+            <a name="page_top"></a>
+            <div class="center jQ_change navbox" >
+                <nav>
+                    <img src="image/top/cr32_e.png" height="20" class="logo_img">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_img">
+                    <ul class="menu" id="menu" >
+                        <li><a href="index.html" class="menulink">Home</a></li>
+                        <li><a href="whatnew.html" class="menulink">What's New</a></li>
+                        <li><a href="etc.html" class="menulink">E.T.C.</a></li>
+                        <li><a href="fs01.html" class="menulink">The Scenery</a>
+                            <ul>
+                                <li><a href="fs01_sc_top.html" class="sub">Screen Shots</a></li>
+                                <li><a href="fs01_ls_top.html" class="sub">Snap Shots</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="link01.html" class="menulink">Links</a></li>
+                        <li class="about"><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                    </ul>
+                </nav>
+                <div class="c-both"></div>
+            </div>
+            <!-- Sandbox DropDownMenu start-->
+            <script>
+                var menu=new menu.dd("menu");
+                menu.init("menu","menuhover");
+            </script>
+            <!-- Sandbox DropDownMenu end -->
+        </div>
+        <div class="prettyP_SP">
+            <a name="MENU"></a>
+            <p id="menu-call">
+                <a href="#">MENU</a>
+            </p>
+
+            <a name="page_top"></a>
+
+            <!-- page top icon & logo -->
+            <div id="header_SP" class="header_labelSP">
+                <div class="pb4"></div>
+                <img src="image/top/cr48f_32.png">
+                <img class="pb3" src="image/top/Contrail_g.png" height="24">
+            </div>
+
+            <div id="popup-menu" class="hidden">
+                <div class="menu-title">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_image" alt="CONTRAIL">
+                </div>
+                <ul>
                     <li><a href="index.html" class="menulink">Home</a></li>
                     <li><a href="whatnew.html" class="menulink">What's New</a></li>
                     <li><a href="etc.html" class="menulink">E.T.C.</a></li>
-                    <li><a href="fs01.html" class="menulink">The Scenery</a>
-                        <ul>
-                            <li><a href="fs01_sc_top.html" class="sub">Screen Shots</a></li>
-                            <li><a href="fs01_ls_top.html" class="sub">Snap Shots</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="fs01.html" class="menulink">The Scenery</a></li>
                     <li><a href="link01.html" class="menulink">Links</a></li>
-                    <li class="about"><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                    <li><a href="fs01_about.html" class="menulink">about Contrail</a></li>
                 </ul>
-            </nav>
-            <div class="c-both"></div>
+            </div>
         </div>
-        <!-- Sandbox DropDownMenu start-->
-        <script type="text/javascript">
-            var menu=new menu.dd("menu");
-            menu.init("menu","menuhover");
-        </script>    <!-- Sandbox DropDownMenu end -->
     </header>
 
-    <div id="main800" class="lineh130"> <!-- page main: start -->
+    <div id="main800" class="lineh130 pb50"> <!-- page main: start -->
 
         <!-- title -->
         <div id="title30">
-            <p id="head20" >
-                <IMG src="image/fs/kko_logo.gif" border="0" alt="Contrail Snap Shots Special Gallery">
+            <p id="head20">
+                <img src="image/fs/kko_logo.gif" border="0" alt="Contrail Snap Shots Special Gallery">
             </p>
-            <h1 id="main-logo20" >
-                <IMG src="image/fs/ufufu2.gif" width="222" border="0" alt="街角の う・ふ・ふ">
+            <h1 id="main-logo20">
+                <img src="image/fs/ufufu2.gif" width="222" border="0" alt="街角の う・ふ・ふ">
             </h1>
         </div>
 
+        <!-- for Java Script off -->
+        <noscript>
+            <div id="attention">
+                <p>ご覧頂くにはブラウザの JavaScript をアクティブにして下さい</p>
+            </div>
+        </noscript>
+
         <!-- contents -->
 
-        <!-- flying penguin -->
-        <div class="pic-left800 pb20" >
-            <div class="contents-2col-left">
-                <p class="jQ_blink change_border_color" >
-                    <a name="PENGUIN" ></a>
-                    <a href="fs01_ls_Ufufu_penguin.html" >
-                        <IMG src="image/fs/kko/thumb_penguin_P1170487_cut256_comp20.jpg" width="256" border="0">
-                    </a>
-                </p>
-            </div>
-            <div class="contents-2col-right800t">
-                <h2 class="contents-title-Ufufu" >
+        <div class="pic-left800 pb20">
+
+            <!-- flying penguin -->
+            <div class="flex2">
+                <div id="PENGUIN"></div>
+                <div class="mtb20 flx2_itemL2">
                     <a href="fs01_ls_Ufufu_penguin.html">
                         ペンギン 空を飛ぶ
                     </a>
-                </h2>
-                <p class="left pb60 border-ccc" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定する -->
-                    <!-- <IMG src="image/common/white_block.gif" width="62" height="14" > -->
-                    <IMG src="image/button/new_b.gif" width="62" height="14" >
-                    <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/button/new_b.gif" width="62" height="14"> -->
+                    <!-- <img src="image/button/update.gif" width="62" height="14"> -->
+                </div>
+            </div>
+            <div class="contents-2col-left">
+                <p class="jQ_blink change_border_color">
+                    <a href="fs01_ls_Ufufu_penguin.html">
+                        <img src="image/fs/kko/thumb_penguin_P1170487_cut256_comp20.jpg" width="256" border="0">
+                    </a>
                 </p>
-                <p class="left pb5 border-ccc" >
-                    ペンギンは空を飛ぶことは出来ません。<BR>
-                    しかし，彼らは水中を自由に泳ぐことが出来ます。<BR>
+            </div>
+            <div class="contents-2col-right800">
+                <p class="pb5 border-ccc">
+                    ペンギンは空を飛ぶことは出来ません。<br>
+                    しかし，彼らは水中を自由に泳ぐことが出来ます。<br>
                     彼らが泳ぐ姿を下から眺めると，立派に空を飛んでいます。
                 </p>
             </div>
-        </div>
+            <div class="pb40"></div>
 
-        <div class="pic-left840">
-            <p class="page-top_hidden" >
-                Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-            </p>
-        </div>
-
-        <div class="pic-left800 pb40">
+            <!-- PhotoStory3 -->
+            <div class="flex2">
+                <div id="PhotoStory3"></div>
+                <div class="mtb20 flx2_itemL2">
+                    <a href="fs01_ls_Ufufu_penguin.html">
+                        フォトストーリー3
+                    </a>
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/button/new_b.gif" width="62" height="14"> -->
+                    <!-- <img src="image/button/update.gif" width="62" height="14"> -->
+                </div>
+            </div>
             <div class="contents-2col-left">
-                <p class="jQ_blink change_border_color" >
-                    <a href="fs01_ls_PhotoStory3.html" >
-                        <IMG src="image/fs/kko/thumb_PhotoStory3.jpg" border="0">
+                <p class="jQ_blink change_border_color">
+                    <a href="fs01_ls_PhotoStory3.html">
+                        <img src="image/fs/kko/thumb_PhotoStory3.jpg" width="256" border="0">
                     </a>
                 </p>
             </div>
-            <div class="contents-2col-right">
-                <h2 class="contents-title-Ufufu" >
-                    <a href="fs01_ls_PhotoStory3.html" >
-                        フォトストーリー3
-                    </a>
-                </h2>
-                <p class="left pb50 border-ccc" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定する -->
-                    <IMG src="image/common/white_block.gif" width="62" height="14" >
-                    <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                    <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
-                </p>
-                <p class="left pb5" >
-                    静止画をあっという間に動画に変換して<BR>
-                    フォトストーリーなるものを作ってしまう<BR>
+            <div class="contents-2col-right800">
+                <p class="pb5">
+                    静止画をあっという間に動画に変換して<br>
+                    フォトストーリーなるものを作ってしまう<br>
                     すぐれソフトを紹介します。
                 </p>
-                <p class="left fss fwb" >
+                <p class="fss fwb">
                     街角のうふふ 番外編です (^^;
                 </p>
             </div>
-        </div>
+            <div class="pb40"></div>
 
-        <!-- ほくろが出来たりくぼんだり... -->
-        <div class="pic-left800 pb30" >
-            <div class="contents-2col-left">
-                <p class="jQ_blink change_border_color" >
-                    <a name="HOKURO" ></a>
-                    <a href="fs01_ls_Ufufu_hokuro.html" >
-                        <IMG src="image/fs/kko/P1010621_1020590_256.jpg" width="256" border="0">
-                    </a>
-                </p>
-            </div>
-            <div class="contents-2col-right800t">
-                <h2 class="contents-title-Ufufu" >
-                    <a href="fs01_ls_Ufufu_hokuro.html">
+            <!-- ほくろが出来たりくぼんだり... -->
+            <div class="flex2">
+                <div id="HOKURO"></div>
+                <div class="mtb20 flx2_itemL2">
+                    <a href="fs01_ls_Ufufu_penguin.html">
                         ほくろが出来たりくぼんだり...
                     </a>
-                </h2>
-                <p class="left pb10 border-ccc" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定する -->
-                    <IMG src="image/common/white_block.gif" width="62" height="14" >
-                    <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                    <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/button/new_b.gif" width="62" height="14"> -->
+                    <!-- <img src="image/button/update.gif" width="62" height="14"> -->
+                </div>
+            </div>
+            <div class="contents-2col-left">
+                <p class="jQ_blink change_border_color">
+                    <a href="fs01_ls_Ufufu_hokuro.html">
+                        <img src="image/fs/kko/P1010621_1020590_256.jpg" width="256" border="0">
+                    </a>
                 </p>
-                <p class="left pb5 border-ccc" >
-                    今年の太陽は忙しかったようです。<BR>
-                    太陽面の金星通過と部分日食のスナップです。<BR>
-                    カメラの前に２枚の偏光フィルムを直交させて組み合わせ，<BR>
+            </div>
+            <div class="contents-2col-right800">
+                <p class="pb5 border-ccc">
+                    今年の太陽は忙しかったようです。<br>
+                    太陽面の金星通過と部分日食のスナップです。<br>
+                    カメラの前に２枚の偏光フィルムを直交させて組み合わせ，<br>
                     セロテープで貼って (^^;，撮影しました。
                 </p>
-                <p class="left fss fwb border-ccc" >
-                    注意: 偏光について詳しく知らない場合は，上記の方法は危険です。<BR>
-                    カメラのファインダーを直接覗いてはいけません。目を痛めます。<BR>
-                    露出設定によっては，カメラが破損する危険性があります。<BR>
-
+                <p class="fss fwb border-ccc">
+                    注意: 偏光について詳しく知らない場合は，上記の方法は危険です。<br>
+                    カメラのファインダーを直接覗いてはいけません。目を痛めます。<br>
+                    露出設定によっては，カメラが破損する危険性があります。
                 </p>
             </div>
-        </div>
+            <div class="pb50"></div>
 
-        <div class="pb15">
-            <p class="left fss fwb" >
-                画像をクリックすると拡大画像が現れます
-            </p>
-        </div>
-
-        <!-- かみしめます -->
-        <div class="pic-left800" >
+            <!-- かみしめます -->
+            <div class="flex2">
+                <div class="mtb20 flx2_itemL2">
+                    かみしめます
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/button/new_b.gif" width="62" height="14"> -->
+                    <!-- <img src="image/button/update.gif" width="62" height="14"> -->
+                </div>
+            </div>
             <div class="contents-2col-left">
-                <p class="jQ_blink change_border_color" >
-                    <a href="image/fs/kko/source/HWIN_P1090171_cut_h800.jpg" rel="prettyPhoto"
-                        title="かみしめます!!  でも 次にこのお米が販売されるのはいつなのだろう...(^^;" target="_blank" >
-                        <IMG src="image/fs/kko/HWIN_P1090171_cut2_256.jpg" width="256" border="0">
+                <p class="jQ_blink change_border_color">
+                    <a href="image/fs/kko/source/HWIN_P1090171_cut_h800.jpg"
+                        data-fancybox="gallery1" data-caption="かみしめます!!  でも 次にこのお米が販売されるのはいつなのだろう...(^^;">
+                        <img src="image/fs/kko/HWIN_P1090171_cut2_256.jpg" width="256" border="0">
                     </a>
                 </p>
             </div>
-            <div class="contents-2col-right800t">
-                <h2 class="contents-title-Ufufu" >
-                    かみしめます
-                </h2>
-                <p class="left pb5 border-ccc" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定する -->
-                    <IMG src="image/common/white_block.gif" width="62" height="14" >
-                    <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                    <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
-                </p>
-                <p class="left fss fwb pb5 border-ccc" >
+            <div class="contents-2col-right800">
+                <p class="fss fwb pb5 border-ccc">
                     = 優勝記念 お米の袋 =
                 </p>
-                <p class="left pb5 border-ccc" >
-                    久々の優勝で巷に溢れ出した阪神グッズ…<BR>
-                    少々フライングもありましたが、これは笑えました (^^;。<BR>
+                <p class="pb5 border-ccc">
+                    久々の優勝で巷に溢れ出した阪神グッズ…<br>
+                    少々フライングもありましたが、これは笑えました (^^;。<br>
                     中田さんありがとう！
                 </p>
-                <p class="left fss fwb border-ccc" >
-                    是非、左の画像をクリックして下さい
-                </p>
             </div>
-        </div>
+            <div class="pb50"></div>
 
-        <div class="pic-left840" >
-            <p class="page-top" >
-                Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-            </p>
-        </div>
-
-        <!-- 鉢の...底から -->
-        <div class="pic-left800" >
+            <!-- 鉢の...底から -->
+            <div class="flex2">
+                <div class="mtb20 flx2_itemL2">
+                    鉢の底から...
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/button/new_b.gif" width="62" height="14"> -->
+                    <!-- <img src="image/button/update.gif" width="62" height="14"> -->
+                </div>
+            </div>
             <div class="contents-2col-left" style="padding-right: 76px;"> <!-- 例外-->
-                <p class="jQ_blink change_border_color" >
-                    <a href="image/fs/kko/source/BottomFlower_P1090175_800.jpg" rel="prettyPhoto"
-                        title="鉢の...底から" target="_blank" >
-                        <IMG src="image/fs/kko/thumb_BottomFlower_P1090175.jpg" height="256" border="0">
+                <p class="jQ_blink change_border_color">
+                    <a href="image/fs/kko/source/BottomFlower_P1090175_800.jpg"
+                        data-fancybox="gallery2" data-caption="鉢の...底から">
+                        <img src="image/fs/kko/thumb_BottomFlower_P1090175.jpg" height="256" border="0">
                     </a>
                 </p>
             </div>
-            <div class="contents-2col-right800t">
-                <h2 class="contents-title-Ufufu" >
-                    鉢の底から...
-                </h2>
-                <p class="left pb60 border-ccc" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定する -->
-                    <IMG src="image/common/white_block.gif" width="62" height="14" >
-                    <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                    <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
-                </p>
-                <p class="left border-ccc" >
-                    根が下に向かって延びて行き，<BR>
-                    底の穴から溢れ出し，<BR>
-                    そこから茎が出て，<BR>
-                    花が咲いたのだと....思います。<BR>
-                    それにしても，<BR>
+            <div class="contents-2col-right800">
+                <p class="border-ccc">
+                    根が下に向かって延びて行き，<br>
+                    底の穴から溢れ出し，<br>
+                    そこから茎が出て，<br>
+                    花が咲いたのだと....思います。<br>
+                    それにしても，<br>
                     下の花の方が元気のようです。
                 </p>
             </div>
-        </div>
+            <div class="pb50"></div>
 
-        <div class="pic-left840" >
-            <p class="page-top_hidden" >
-                Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-            </p>
-        </div>
-
-        <!-- フクロウ コレクション -->
-        <div class="pic-left800 pb30" >
+<!--
+            <!-- フクロウ コレクション -->
+<!--            <div class="flex2">
+                <div class="mtb20 flx2_itemL2">
+                    フクロウ コレクション
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/button/new_b.gif" width="62" height="14"> -->
+                    <!-- <img src="image/button/update.gif" width="62" height="14"> -->
+<!--                </div>
+            </div>
             <div class="contents-2col-left">
-                <p class="jQ_blink change_border_color" >
-                    <a href="image/fs/kko/source/fukurou_all_comp20.jpg" rel="prettyPhoto"
-                        title="FUKUROU COLLECTION" target="_blank" >
-                        <IMG src="image/fs/kko/P1080681_cut_256.jpg" width="256" border="0">
+                <p class="jQ_blink change_border_color">
+                    <a href="image/fs/kko/source/fukurou_all_comp20.jpg"
+                        data-fancybox="gallery3" data-caption="フクロウ コレクション">
+                        <img src="image/fs/kko/P1080681_cut_256.jpg" width="256" border="0">
                     </a>
                 </p>
             </div>
-            <div class="contents-2col-right800t">
-                <h2 class="contents-title-Ufufu" >
-                    フクロウ コレクション
-                    </a>
-                </h2>
-                <p class="left pb40 border-ccc" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定する -->
-                    <IMG src="image/common/white_block.gif" width="62" height="14" >
-                    <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                    <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
-                </p>
-                <p class="left border-ccc" >
-                    最近，お土産屋さんには，<BR>
-                    沢山のフクロウが並んでいます。<BR>
-                    ブームなんでしょうね。<BR>
-                    この方のコレクションは<BR>
+            <div class="contents-2col-right800">
+                <p class="border-ccc">
+                    最近，お土産屋さんには，<br>
+                    沢山のフクロウが並んでいます。<br>
+                    ブームなんでしょうね。<br>
+                    この方のコレクションは<br>
                     ブームの起こるずっと以前から....
                 </p>
             </div>
-        </div>
+            <div class="pb50"></div>
+-->
 
-        <div class="pic-left840" >
-            <p class="page-top_hidden" >
-                Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-            </p>
-        </div>
-
-        <!-- =WIDE= Futtsu Misaki -->
-        <div class="pic-left800 pb30" >
+            <!-- =WIDE= Futtsu Misaki -->
+            <div class="flex2">
+                <div class="mtb20 flx2_itemL2">
+                    =WIDE= Futtsu Misaki
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/button/new_b.gif" width="62" height="14"> -->
+                    <!-- <img src="image/button/update.gif" width="62" height="14"> -->
+                </div>
+            </div>
             <div class="contents-2col-left">
-                <p class="jQ_blink change_border_color" >
-                    <a href="image/fs/kko/source/Futtsu-Misaki_WIDE2_640_comp20.jpg" rel="prettyPhoto"
-                        title="=WIDE= Futtsu Misaki" target="_blank" >
-                        <IMG src="image/fs/kko/thumb_Futtsu-Misaki_WIDE.jpg" width="256" >
+                <p class="jQ_blink change_border_color">
+                    <a href="image/fs/kko/source/Futtsu-Misaki_WIDE2_640_comp20.jpg"
+                        data-fancybox="gallery4" data-caption="=WIDE= Futtsu Misaki">
+                        <img src="image/fs/kko/thumb_Futtsu-Misaki_WIDE.jpg" width="256">
                     </a>
                 </p>
             </div>
-            <div class="contents-2col-right800t">
-                <h2 class="contents-title-Ufufu" >
-                    =WIDE= Futtsu Misaki
-                </h2>
-                <p class="left pb10 border-ccc" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定する -->
-                    <IMG src="image/common/white_block.gif" width="62" height="14" >
-                    <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                    <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
-                </p>
-                <p class="left border-ccc" >
-                    視野角270度超のワイドパノラマ。<BR>
+            <div class="contents-2col-right800">
+                <p class="border-ccc">
+                    視野角270度超のワイドパノラマ。<br>
                     迫力の横スクロール画像です。
                 </p>
             </div>
-        </div>
+            <div class="pb50"></div>
 
-        <div class="pic-left840" >
-            <p class="page-top" >
-                Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-            </p>
-        </div>
-
-        <!-- 頭上注意！！ -->
-        <div class="pic-left800" >
+            <!-- 頭上注意！！ -->
+            <div class="flex2">
+                <div class="mtb20 flx2_itemL2">
+                    頭上注意！！
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/button/new_b.gif" width="62" height="14"> -->
+                    <!-- <img src="image/button/update.gif" width="62" height="14"> -->
+                </div>
+            </div>
             <div class="contents-2col-left">
-                <p class="jQ_blink change_border_color" >
-                    <a href="image/fs/kko/source/Rangiroa_19TS.jpg" rel="prettyPhoto"
-                        title="頭上注意!! == Tuamotu - Rangiroa ==" target="_blank" >
-                        <IMG src="image/fs/kko/thumb_Rangiroa_19TS.jpg" width="256" border="0">
+                <p class="jQ_blink change_border_color">
+                    <a href="image/fs/kko/source/Rangiroa_19TS.jpg"
+                        data-fancybox="gallery5" data-caption="頭上注意!! == Tuamotu - Rangiroa ==">
+                        <img src="image/fs/kko/thumb_Rangiroa_19TS.jpg" width="256" border="0">
                     </a>
                 </p>
             </div>
-            <div class="contents-2col-right800t">
-                <h2 class="contents-title-Ufufu" >
-                    頭上注意！！
-                </h2>
-                <p class="left pb30 border-ccc" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定する -->
-                    <IMG src="image/common/white_block.gif" width="62" height="14" >
-                    <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                    <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
-                </p>
-                <p class="left border-ccc" >
-                    椰子はびっくりするほど高い木です。<BR>
-                    そして てっぺんに<BR>
-                    子供の頭ほどもありそうな実をたわわに実らせています。<BR>
+            <div class="contents-2col-right800">
+                <p class="border-ccc">
+                    椰子はびっくりするほど高い木です。<br>
+                    そして てっぺんに<br>
+                    子供の頭ほどもありそうな実をたわわに実らせています。<br>
                     これが，突然落ちてきます。
                 </p>
             </div>
-        </div>
+            <div class="pb50"></div>
 
-        <div class="pic-left840" >
-            <p class="page-top_hidden" >
-                Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-            </p>
-        </div>
-
-        <!-- テハチャピ ループ -->
-        <div class="pic-left800" >
+            <!-- テハチャピ ループ -->
+            <div class="flex2">
+                <div class="mtb20 flx2_itemL2">
+                    テハチャピ ループ
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/button/new_b.gif" width="62" height="14"> -->
+                    <!-- <img src="image/button/update.gif" width="62" height="14"> -->
+                </div>
+            </div>
             <div class="contents-2col-left">
-                <p class="jQ_blink change_border_color" >
-                    <a href="image/fs/ss/source/TRAIN02_1024.jpg" rel="prettyPhoto"
-                        title="TehachapiLoop  == Photo: Kamui ==" target="_blank" >
-                        <IMG src="image/fs/ss/thumb_TRAIN02_1024.jpg" width="256" border="0">
+                <p class="jQ_blink change_border_color">
+                    <a href="image/fs/ss/source/TRAIN02_1024.jpg"
+                        data-fancybox="gallery6" data-caption="TehachapiLoop  == Photo: Kamui ==">
+                        <img src="image/fs/ss/thumb_TRAIN02_1024.jpg" width="256" border="0">
                     </a>
                 </p>
             </div>
-            <div class="contents-2col-right800t">
-                <h2 class="contents-title-Ufufu" >
-                    テハチャピ ループ
-                </h2>
-                <p class="left pb40 border-ccc" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定する -->
-                    <IMG src="image/common/white_block.gif" width="62" height="14" >
-                    <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                    <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
-                </p>
-                <p class="left border-ccc" >
-                    この勇壮な光景には鉄道ファンならずとも....<BR>
-                    一体何両で走っているのでしょう。<BR>
-                    <BR>
+            <div class="contents-2col-right800">
+                <p class="border-ccc">
+                    この勇壮な光景には鉄道ファンならずとも....<br>
+                    一体何両で走っているのでしょう。<br>
+                    <br>
                     ==Photo: Kamui==
                 </p>
             </div>
-        </div>
-
-        <div class="pic-left840" >
-            <p class="page-top_hidden" >
-                Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-            </p>
-        </div>
+            <div class="pb50"></div>
 
         <!-- ポケモンの飛行機が -->
-        <div class="pic-left800" >
-            <div class="contents-2col-left">
-                <p class="jQ_blink change_border_color" >
-                    <a name="pokemon" >
-                        <a href="image/fs/kko/source/pokemon.jpg" rel="prettyPhoto"
-                            title="別にポケモンの飛行機が珍しい訳ではないのですが..." target="_blank" >
-                            <IMG src="image/fs/kko/thumb_pokemon.jpg" width="256" border="0">
-                        </a>
-                    </a>
-                </p>
-            </div>
-            <div class="contents-2col-right800t">
-                <h2 class="contents-title-Ufufu" >
+            <div class="flex2">
+                <div class="mtb20 flx2_itemL2">
                     別にポケモンの飛行機が珍しい訳ではないのですが...
-                </h2>
-                <p class="left pb20 border-ccc" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定する -->
-                    <IMG src="image/common/white_block.gif" width="62" height="14" >
-                    <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                    <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
-                </p>
-                <p class="left border-ccc" >
-                    この写真ですが，420mm相当の望遠カメラで，<BR>
-                    ３脚なしの手持ちで撮影したものです。<BR>
-                    左の画像をクリックすると無修正画像をご覧頂けます。<BR>
-                    <BR>
-                    使用のカメラは Panasonic DMC-FZ1 です。<BR>
-                </p>
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/button/new_b.gif" width="62" height="14"> -->
+                    <!-- <img src="image/button/update.gif" width="62" height="14"> -->
+                </div>
             </div>
-        </div>
-
-        <div class="pic-left840" >
-            <p class="page-top" >
-                Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-            </p>
-        </div>
-
-        <!-- モハビ砂漠のコヨーテ -->
-        <div class="pic-left800" >
-            <div class="contents-2col-left" style="padding-right: 86px;"> <!-- 例外-->
-                <p class="jQ_blink change_border_color" >
-                    <a name="MojaveCoyote" >
-                        <a href="image/fs/ss/source/Mojave_Coyote.JPG" rel="prettyPhoto"
-                            title="Mojave - Coyote == Photo: Kamui ==" target="_blank" >
-                            <IMG src="image/fs/ss/thumb_Mojave_Coyote.jpg" width="188" height="256" border="0">
-                        </a>
+            <div class="contents-2col-left">
+                <p class="jQ_blink change_border_color">
+                    <a href="image/fs/kko/source/pokemon.jpg"
+                        data-fancybox="gallery7" data-caption="別にポケモンの飛行機が珍しい訳ではないのですが...">
+                        <img src="image/fs/kko/thumb_pokemon.jpg" width="256" border="0">
                     </a>
                 </p>
             </div>
-            <div class="contents-2col-right800t">
-                <h2 class="contents-title-Ufufu" >
-                    モハビ砂漠のコヨーテ
-                </h2>
-                <p class="left pb40 border-ccc" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定する -->
-                    <IMG src="image/common/white_block.gif" width="62" height="14" >
-                    <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                    <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
+            <div class="contents-2col-right800">
+                <p class="border-ccc">
+                    この写真ですが，420mm相当の望遠カメラで，手持ちで撮影したものです。<br>
+                    左の画像をクリックすると無修正画像をご覧になれます。<br>
+                    <br>
+                    使用のカメラは Panasonic DMC-FZ1 です。<br>
                 </p>
-                <p class="left border-ccc" >
-                    犬といえば犬。オオカミといえばオオカミ。<BR>
-                    キツネといえば...<BR>
-                    写真で見るとかわいらしそうですが，<BR>
-                    ぶらぶらと散歩しているときに<BR>
-                    出くわしたくはない相手です。<BR>
-                    <BR>
+            </div>
+            <div class="pb50"></div>
+
+            <!-- モハビ砂漠のコヨーテ -->
+            <div class="flex2">
+                <div class="mtb20 flx2_itemL2">
+                    モハビ砂漠のコヨーテ
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/button/new_b.gif" width="62" height="14"> -->
+                    <!-- <img src="image/button/update.gif" width="62" height="14"> -->
+                </div>
+            </div>
+            <div class="contents-2col-left" style="padding-right: 86px;"> <!-- 例外-->
+                <p class="jQ_blink change_border_color">
+                    <a href="image/fs/ss/source/Mojave_Coyote.JPG"
+                        data-fancybox="gallery8" data-caption="Mojave - Coyote == Photo: Kamui ==">
+                        <img src="image/fs/ss/thumb_Mojave_Coyote.jpg" width="188" height="256" border="0">
+                    </a>
+                </p>
+            </div>
+            <div class="contents-2col-right800">
+                <p class="border-ccc">
+                    犬といえば犬。オオカミといえばオオカミ。
+                    キツネといえば...<br>
+                    写真で見るとかわいらしそうですが，
+                    ぶらぶらと散歩しているときに
+                    出くわしたくはない相手です。<br>
+                    <br>
                     ==Photo: Kamui==
                 </p>
             </div>
-        </div>
+            <div class="pb50"></div>
 
-        <div class="pic-left840" >
-            <p class="page-top_hidden" >
-                Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-            </p>
-        </div>
-
-        <!-- Tehachapiの大風車群 -->
-        <div class="pic-left800" >
-            <div class="contents-2col-left">
-                <p class="jQ_blink change_border_color" >
-                    <a name="TehachapiWindMill" >
-                        <a href="image/fs/ss/source/Tehachapi_WindMill.JPG" rel="prettyPhoto"
-                            title="Tehachapi - WindMill == Photo: Kamui ==" target="_blank" >
-                            <IMG src="image/fs/ss/thumb_Tehachapi_WindMill.jpg" width="256" height="192" border="0">
-                        </a>
-                    </a>
-                </p>
-            </div>
-            <div class="contents-2col-right800t">
-                <h2 class="contents-title-Ufufu" >
+            <!-- Tehachapiの大風車群 -->
+            <div class="flex2">
+                <div class="mtb20 flx2_itemL2">
                     Tehachapiの大風車群
-                </h2>
-                <p class="left pb0 border-ccc" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定する -->
-                    <IMG src="image/common/white_block.gif" width="62" height="14" >
-                    <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                    <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
-                </p>
-                <p class="left border-ccc" >
-                    延々と続く風車群です。<BR>
-                    アメリカという国はスケールが違います。<BR>
-                    これだけあると風力発電という言葉も<BR>
-                    現実味を帯びてきます。<BR>
-                    Kamui氏からご提供頂いた画像ですが，<BR>
-                    氏は "風の音" という短編を作成されています。<BR>
-                    耳をすますと 本当に風の音が...
-                </p>
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/button/new_b.gif" width="62" height="14"> -->
+                    <!-- <img src="image/button/update.gif" width="62" height="14"> -->
+                </div>
             </div>
-        </div>
-
-        <div class="pic-left840" >
-            <p class="page-top_hidden" >
-                Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-            </p>
-        </div>
-
-        <!-- 目線が "柿" に -->
-        <div class="pic-left800" >
-            <div class="contents-2col-left" style="padding-right: 86px;"> <!-- 例外-->
-                <p class="jQ_blink change_border_color" >
-                    <a name="Laura" ></a>
-                    <a href="image/fs/kko/source/kko210033_kakimesen.jpg" rel="prettyPhoto"
-                        title="目線が &quot;柿&quot; に == Laura ==" target="_blank" >
-                        <IMG src="image/fs/kko/thumb_kz210033_kakimesen.jpg" width="188" height="256" border="0">
+            <div class="contents-2col-left">
+                <p class="jQ_blink change_border_color">
+                    <a href="image/fs/ss/source/Tehachapi_WindMill.JPG"
+                        data-fancybox="gallery9" data-caption="Tehachapi - WindMill == Photo: Kamui ==">
+                        <img src="image/fs/ss/thumb_Tehachapi_WindMill.jpg" width="256" height="192" border="0">
                     </a>
                 </p>
             </div>
-            <div class="contents-2col-right800t">
-                <h2 class="contents-title-Ufufu" >
-                    目線が "柿" に
-                </h2>
-                <p class="left pb40 border-ccc" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定する -->
-                    <IMG src="image/common/white_block.gif" width="62" height="14" >
-                    <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                    <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
+            <div class="contents-2col-right800">
+                <p class="border-ccc">
+                    延々と続く風車群です。
+                    アメリカという国はスケールが違います。<br>
+                    これだけあると風力発電という言葉も
+                    現実味を帯びてきます。<br>
+                    Kamui氏からご提供頂いた画像ですが，
+                    氏は "風の音" という短編を作成されています。
+                    耳をすますと 本当に風の音が...<br>
+                    <br>
+                    ==Photo: Kamui==
                 </p>
-                <p class="left border-ccc" >
-                    Lauraの大好物は何故か "柿"。<BR>
-                    この時期は毎日が<BR>
-                    幸せいっぱい，柿いっぱい。<BR>
-                    写真に収めることは出来ませんでしたが<BR>
-                    よく木になっている柿にジャンプして，<BR>
+            </div>
+            <div class="pb50"></div>
+
+            <!-- 目線が "柿" に -->
+            <div class="flex2">
+                <div class="mtb20 flx2_itemL2">
+                    目線が "柿" に
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/button/new_b.gif" width="62" height="14"> -->
+                    <!-- <img src="image/button/update.gif" width="62" height="14"> -->
+                </div>
+            </div>
+            <div class="contents-2col-left" style="padding-right: 86px;"> <!-- 例外-->
+                <p class="jQ_blink change_border_color">
+                    <a href="image/fs/kko/source/kko210033_kakimesen.jpg"
+                        data-fancybox="gallery10" data-caption="目線が &quot;柿&quot; に == Laura ==">
+                        <img src="image/fs/kko/thumb_kko210033_kakimesen.jpg" width="188" height="256" border="0">
+                    </a>
+                </p>
+            </div>
+            <div class="contents-2col-right800">
+                <p class="border-ccc">
+                    ローラの大好物は何故か "柿"。<br>
+                    この時期は毎日が
+                    幸せいっぱい，柿いっぱい。<br>
+                    写真に収めることは出来ませんでしたが
+                    よく木になっている柿にジャンプして，
                     好物をゲットしていました。
                 </p>
             </div>
-        </div>
+            <div class="pb50"></div>
 
-        <div class="pic-left840" >
-            <p class="page-top" >
-                Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-            </p>
-        </div>
-
-        <!-- ヤドカリは木に登る？ -->
-        <div class="pic-left800" >
+            <!-- ヤドカリは木に登る!？ -->
+            <div class="flex2">
+                <div class="mtb20 flx2_itemL2">
+                    ヤドカリは木に登る!?
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/button/new_b.gif" width="62" height="14"> -->
+                    <!-- <img src="image/button/update.gif" width="62" height="14"> -->
+                </div>
+            </div>
             <div class="contents-2col-left">
-                <p class="jQ_blink change_border_color" >
-                    <a name="yadokari" >
-                        <a href="image/fs/kko/source/Rangiroa_47_yadokari.jpg" rel="prettyPhoto"
-                            title="ヤドカリは木に登る？ == at KiaOra Village ==" target="_blank" >
-                            <IMG src="image/fs/kko/thumb_Rangiroa_47_yadokari.jpg" width="256" height="170" border="0">
-                        </a>
+                <p class="jQ_blink change_border_color">
+                    <a href="image/fs/kko/source/Rangiroa_47_yadokari.jpg"
+                        data-fancybox="gallery11" data-caption="ヤドカリは木に登る!? == at KiaOra Village ==">
+                        <img src="image/fs/kko/thumb_Rangiroa_47_yadokari.jpg" width="256" height="170" border="0">
                     </a>
                 </p>
             </div>
-            <div class="contents-2col-right800t">
-                <h2 class="contents-title-Ufufu" >
-                    ヤドカリは木に登る？
-                </h2>
-                <p class="left pb10 border-ccc" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定する -->
-                    <IMG src="image/common/white_block.gif" width="62" height="14" >
-                    <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                    <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
-                </p>
-                <p class="left border-ccc" >
-                    昼間は何処にいるのか姿が見えないのですが，<BR>
-                    朝は，この通り木に登っています。<BR>
-                    それも１匹ではなく，何十匹も...<BR>
-                    <BR>
+            <div class="contents-2col-right800">
+                <p class="border-ccc">
+                    昼間は何処にいるのか姿が見えないのですが，
+                    朝は，この通り木に登っています。
+                    それも１匹ではなく，何十匹も...<br>
+                    <br>
                     キアオラビレッジにて
                 </p>
             </div>
-        </div>
-
-        <div class="pic-left840" >
-            <p class="page-top_hidden" >
-                Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-            </p>
-        </div>
+            <div class="pb50"></div>
 
 <!--
-        <!-- 飛行機だったら...
-        <div class="pic-left800" >
-            <div class="contents-2col-left">
-                <p class="jQ_blink change_border_color" >
-                    <a href="image/fs/ss/source/no-parking.JPG" rel="prettyPhoto"
-                        title="NO-PARKING" target="blank" >
-                        <IMG src="image/fs/ss/thumb_no-parking.jpg" width="256" height="192" border="0">
-                    </a>
-                </a>
-            </div>
-            <div class="contents-2col-right800t">
-                <h2 class="contents-title-Ufufu" >
+            <!-- 飛行機だったら... -->
+<!--            <div class="flex2">
+                <div class="mtb20 flx2_itemL2">
                     飛行機だったら...
-                </h2>
-                <p class="left pb40 border-ccc" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定する --> <!--
-                    <IMG src="image/common/white_block.gif" width="62" height="14" border="0">
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/button/new_b.gif" width="62" height="14"> -->
+                    <!-- <img src="image/button/update.gif" width="62" height="14"> -->
+<!--                </div>
+            </div>
+<!--            <div class="contents-2col-left">
+                <p class="jQ_blink change_border_color">
+                    <a href="image/fs/ss/source/no-parking.JPG"
+                        data-fancybox="gallery12" data-caption="NO-PARKING" target="blank">
+                        <img src="image/fs/ss/thumb_no-parking.jpg" width="256" height="192" border="0">
+                    </a>
                 </p>
-                <p class="left border-ccc" >
-                    この場合は駐車になるんでしょうか？<BR>
-                    飛行機ですからねぇ。<BR>
-                    ところでこの飛行機，<BR>
-                    自家用機なのでしょうか。<BR>
-                    ちらっと "NAVY" らしきロゴも見えますが...
-                    <BR>
+            </div>
+            <div class="contents-2col-right800">
+                <p class="border-ccc">
+                    この場合は駐車になるんでしょうか？
+                    飛行機ですからねぇ。<br>
+                    ところでこの飛行機，
+                    自家用機なのでしょうか。
+                    ちらっと "NAVY" らしきロゴも見えますが...<br>
+                    <br>
                     ==Photo: Kamui==
                 </p>
             </div>
-        </div>
-//-->
+            <div class="pb50"></div>
+-->
 
-        <!-- 春の陽ざしに誘われるように... -->
-        <div class="pic-left800" >
-            <div class="contents-2col-left">
-                <p class="jQ_blink change_border_color" >
-                    <a name="dokudami" >
-                        <a href="image/fs/kko/source/ki203001_dokudami.jpg" rel="prettyPhoto"
-                            title="春の陽ざしに誘われるように..." target="_blank" >
-                            <IMG src="image/fs/kko/thumb_ki203001_dokudami.jpg" width="256" height="192" border="0">
-                        </a>
-                    </a>
-                </p>
-            </div>
-            <div class="contents-2col-right800t">
-                <h2 class="contents-title-Ufufu" >
+            <!-- 春の陽ざしに誘われるように... -->
+            <div class="flex2">
+                <div class="mtb20 flx2_itemL2">
                     春の陽ざしに誘われるように...
-                </h2>
-                <p class="left pb40 border-ccc" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定する -->
-                    <IMG src="image/common/white_block.gif" width="62" height="14" >
-                    <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                    <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
-                </p>
-                <p class="left border-ccc" >
-                    名前は分かりませんが<BR>
-                    かわいい芽が元気よく地面から顔を出しました。<BR>
-                    何になるんだろうと毎日楽しみに見ていたのですが...<BR>
-                    一月後には彼らと格闘する羽目に (^_^;。
-                </p>
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/button/new_b.gif" width="62" height="14"> -->
+                    <!-- <img src="image/button/update.gif" width="62" height="14"> -->
+                </div>
             </div>
-        </div>
-
-        <div class="pic-left840" >
-            <p class="page-top_hidden" >
-                Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-            </p>
-        </div>
-
-        <!-- カンだけにして... -->
-        <div class="pic-left800" >
-            <div class="contents-2col-left" style="padding-right: 84px;"> <!-- 例外-->
-                <p class="jQ_blink change_border_color" >
-                    <a name="bindakeni" >
-                        <a href="image/fs/kko/source/kko210012_bindakeni.jpg" rel="prettyPhoto"
-                            title="カンだけにして..." target="_blank" >
-                            <IMG src="image/fs/kko/thumb_kz210012_bindakeni.jpg" width="192" height="256" border="0">
-                        </a>
+            <div class="contents-2col-left">
+                <p class="jQ_blink change_border_color">
+                    <a href="image/fs/kko/source/ki203001_dokudami.jpg"
+                        data-fancybox="gallery13" data-caption="春の陽ざしに誘われるように...">
+                        <img src="image/fs/kko/thumb_ki203001_dokudami.jpg" width="256" height="192" border="0">
                     </a>
                 </p>
             </div>
-            <div class="contents-2col-right800t">
-                <h2 class="contents-title-Ufufu" >
-                    観光客が多く訪れる港なので<BR>
-                    苦労されているんだと思います。
-                </h2>
-                <p class="left pb40 border-ccc" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定する -->
-                    <IMG src="image/common/white_block.gif" width="62" height="14" >
-                    <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                    <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
+            <div class="contents-2col-right800">
+                <p class="border-ccc">
+                    名前は分かりませんが、
+                    かわいい芽が元気よく地面から顔を出しました。
+                    何になるんだろうと毎日楽しみに見ていたのですが...<br>
+                    一月後には彼らと格闘する羽目に (^^;。
                 </p>
-                <p class="left border-ccc" >
-                    口語体調でこのように訴えられると思わず分別。<BR>
-                    というより，ここで捨てないで<BR>
-                    家に持って帰ろうという気持ちに...<BR>
-                    <BR>
+            </div>
+            <div class="pb50"></div>
+
+            <!-- カンだけにして... -->
+            <div class="flex2">
+                <div class="mtb20 flx2_itemL2">
+                    ここはカンだけに...
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/button/new_b.gif" width="62" height="14"> -->
+                    <!-- <img src="image/button/update.gif" width="62" height="14"> -->
+                </div>
+            </div>
+            <div class="contents-2col-left" style="padding-right: 84px;"> <!-- 例外-->
+                <p class="jQ_blink change_border_color">
+                    <a href="image/fs/kko/source/kko210012_bindakeni.jpg"
+                        data-fancybox="gallery14" data-caption="カンだけにして...">
+                        <img src="image/fs/kko/thumb_kko210012_bindakeni.jpg" width="192" height="256" border="0">
+                    </a>
+                </p>
+            </div>
+            <div class="contents-2col-right800">
+                <p class="pb10">
+                    観光客が多く訪れる港なので<br>
+                    苦労されているんだと思います。
+                </p>
+                <p class="border-ccc pb30">
+                    口語体調でこのように訴えられると思わず分別。
+                    というより，ここで捨てないで<br>
+                    家に持って帰ろうという気持ちに...<br>
+                    <br>
                     保田の漁協にて
                 </p>
             </div>
-        </div>
+            <div class="pb50"></div>
 
-        <div class="pic-left840" >
-            <p class="page-top" >
-                Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-            </p>
-        </div>
-
-        <!-- 毎朝の配達は新聞ではなく... -->
-        <div class="pic-left800 pb20" >
+            <!-- 毎朝の配達は新聞ではなく... -->
+            <div class="flex2">
+                <div class="mtb20 flx2_itemL2">
+                    毎朝の配達は新聞ではなく...
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/button/new_b.gif" width="62" height="14"> -->
+                    <!-- <img src="image/button/update.gif" width="62" height="14"> -->
+                </div>
+            </div>
             <div class="contents-2col-left">
-                <p class="jQ_blink change_border_color" >
-                    <a name="yuubin-post" >
-                        <a href="image/fs/kko/source/Rangiroa_03_yuubin_post.jpg" rel="prettyPhoto"
-                            title="毎朝の配達は新聞ではなく..." target="_blank" >
-                            <IMG src="image/fs/kko/thumb_Rangiroa_03_yuubin_post.jpg" width="256" height="171" border="0">
-                        </a>
+                <p class="jQ_blink change_border_color">
+                    <a href="image/fs/kko/source/Rangiroa_03_yuubin_post.jpg"
+                        data-fancybox="gallery15" data-caption="毎朝の配達は新聞ではなく... == at KiaOra Village ==">
+                        <img src="image/fs/kko/thumb_Rangiroa_03_yuubin_post.jpg" width="256" height="171" border="0">
                     </a>
                 </p>
             </div>
-            <div class="contents-2col-right800t">
-                <h2 class="contents-title-Ufufu" >
-                    毎朝の配達は新聞ではなく...
-                </h2>
-                <p class="left pb30 border-ccc" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定する -->
-                    <IMG src="image/common/white_block.gif" width="62" height="14" >
-                    <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                    <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
-                </p>
-                <p class="left border-ccc" >
-                    タヒチはランギロア，民家の郵便ポスト。<BR>
-                    新聞なんて来なくても，<BR>
-                    郵便もたまにしか来なくても，<BR>
-                    郵便ポストは毎朝，大活躍しています。
+            <div class="contents-2col-right800">
+                <p class="border-ccc pb30">
+                    タヒチはランギロア，民家の郵便ポスト。<br>
+                    新聞なんて来なくても，<br>
+                    郵便もたまにしか来なくても，<br>
+                    郵便ポストは毎朝，大活躍しています。<br>
+                    <br>
+                    ランギロアにて
                 </p>
             </div>
-        </div>
-        <a name="page_bottom"></a>
+
+        </div> <!-- pic-left800: end -->
 
     </div> <!-- page main: end -->
 
@@ -756,17 +682,19 @@
 
         <hr id="footer"> <!-- horizontal partition -->
 
-        <div class="jQ_change center" > <!-- select button whole: start -->
+        <p id="page-top"><a href="#">TOP</a></p>
+
+        <div class="jQ_change center"> <!-- select button whole: start -->
             <p id="footer">  <!-- select button 1: start -->
-                    <a href="fs01_ls_top.html#UFUFU" style="outline:none" >
-                        <IMG src="image/button/snap_top_off.gif" border="0" alt="Snap Shots Top" >
+                    <a href="fs01_ls_top.html#UFUFU" style="outline:none">
+                        <img src="image/button/snap_top_off.gif" border="0" alt="Snap Shots Top">
                     </a>
             </p> <!-- select button 1: end -->
         </div> <!-- select button whole: end -->
 
-        <div id="footer_label">
+        <div class="footer_labelPC">
             copyright &copy; 2003 -
-            <script type="text/javascript" language="JavaScript">
+            <script>
                 date = new Date();
                 document.write(date.getFullYear() + ' ');
             </script>
@@ -777,6 +705,5 @@
 
     </footer>
 
-</div> <!-- Pre Loading end -->
-</BODY>
+</body>
 </html>

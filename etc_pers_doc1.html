@@ -1,44 +1,29 @@
-<!DOCTYPE HTML >
-<html>
+<!DOCTYPE html>
+<html lang="ja">
 
-<HEAD>
-    <META charset="UTF-8">
-    <META name="description" content="z = f(x, y)で定義される曲面を隠線処理が施されたメッシュで描画するページの簡易解説です。ユーザーが任意の曲面を入力して描画させる方法についても解説しています。">
-    <META name="keywords" content="3D,曲面,プロット,隠線,陰線,メッシュ,回転,アングル,ユーザー,任意,入力,解説">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="z = f(x, y)で定義される曲面を隠線処理が施されたメッシュで描画するページの簡易解説です。ユーザーが任意の曲面を入力して描画させる方法についても解説しています。">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>簡易解説: 隠線処理されたメッシュを使用した曲面の描画</title>
 
     <!-- favicon-->
-    <link rel="shortcut icon" href="image/SRTLM_img/favicon.ico">
-
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="icon" href="favicon.ico">
 
     <!-- css start -->
-
-        <!-- kko_etc start :: class指定:change_border_color, 全ファイル共通:リンク文字色, フォーカスリング -->
-        <link rel="stylesheet" href="libs/etc/css/kko_footer_style.css" type="text/css">
-        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css" type="text/css">
-        <!-- kko_etc end -->
-
+        <!-- kko_etc :: class指定:change_border_color, 全ファイル共通:リンク文字色, フォーカスリング -->
+        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
     <!-- css end -->
 
     <!-- js start -->
 
         <!-- jQuery start -->
-        <!--<script src="libs/jQuery/js/jquery-1.6.1.min.js" type="text/javascript"></script>-->
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js" type="text/javascript"></script>
-        <!-- kko_style start - img jq_blink, img jq_change -->
-        <script src="libs/jQuery/kko/js/jq_kko_style.js" type="text/javascript"></script>
-        <!-- kko_style end -->
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script src="libs/jQuery/kko/js/jq_kko_style.js"></script>
         <!-- jQuery end -->
 
-        <!-- Sandbox DropDownMenu start -->
-        <script src="libs/sandbox/js/script.js" type="text/javascript"></script>
-        <!-- Sandbox DropDownMenu end -->
-
-        <script type="text/javascript"
+        <script
             src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
         </script>
         <script type="text/x-mathjax-config">
@@ -54,43 +39,79 @@
             });
         </script>
 
+        <!-- Sandbox DropDownMenu -->
+        <script src="libs/sandbox/js/script.js"></script>
+
         <!-- pers_doc initialize -->
-        <script src="libs/etc/js/pers00_doc1.js" type="text/javascript"></script>
+        <script src="libs/etc/js/pers00_doc1.js"></script>
 
     <!-- js end -->
-</HEAD>
+</head>
 
-<BODY id="common-k" onload="initialize()">
+<body id="common-k" onload="initialize()">
 
     <header>
-        <a name="page_top"></a>
-        <div class="center jQ_change navbox" >
-            <nav>
-                <IMG src="image/top/Contrail_g.png" height="20" class="logo_img">
-                <ul class="menu" id="menu" >
-                    <li class="pb40"><a href="index.html" class="menulink">Home</a></li>
-                    <li class="pb40"><a href="whatnew.html" class="menulink">What's New</a></li>
-                    <li class="pb40"><a href="etc.html" class="menulink">E.T.C.</a></li>
-                    <li class="pb40"><a href="fs01.html" class="menulink">The Scenery</a>
-                        <ul>
-                            <li class="pb40"><a href="fs01_sc_top.html" class="sub">Screen Shots</a></li>
-                            <li class="pb40"><a href="fs01_ls_top.html" class="sub">Snap Shots</a></li>
-                        </ul>
-                    </li>
-                    <li class="pb40"><a href="link01.html" class="menulink">Links</a></li>
-                    <li class="about"><a href="fs01_about.html" class="menulink">about Contrail</a></li>
-                </ul>
-            </nav>
-            <div class="c-both"></div>
+        <div class="prettyP_PC">
+            <a name="page_top"></a>
+            <div class="center jQ_change navbox" >
+                <nav>
+                    <img src="image/top/cr32_e.png" height="20" class="logo_img">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_img">
+                    <ul class="menu" id="menu" >
+                        <li><a href="index.html" class="menulink">Home</a></li>
+                        <li><a href="whatnew.html" class="menulink">What's New</a></li>
+                        <li><a href="etc.html" class="menulink">E.T.C.</a></li>
+                        <li><a href="fs01.html" class="menulink">The Scenery</a>
+                            <ul>
+                                <li><a href="fs01_sc_top.html" class="sub">Screen Shots</a></li>
+                                <li><a href="fs01_ls_top.html" class="sub">Snap Shots</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="link01.html" class="menulink">Links</a></li>
+                        <li class="about"><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                    </ul>
+                </nav>
+                <div class="c-both"></div>
+            </div>
+            <!-- Sandbox DropDownMenu start-->
+            <script>
+                var menu=new menu.dd("menu");
+                menu.init("menu","menuhover");
+            </script>
+            <!-- Sandbox DropDownMenu end -->
         </div>
-        <!-- Sandbox DropDownMenu start-->
-        <script type="text/javascript">
-            var menu=new menu.dd("menu");
-            menu.init("menu","menuhover");
-        </script>    <!-- Sandbox DropDownMenu end -->
+        <div class="prettyP_SP">
+            <a name="MENU"></a>
+            <p id="menu-call">
+                <a href="#">MENU</a>
+            </p>
+
+            <a name="page_top"></a>
+
+            <!-- page top icon & logo -->
+            <div id="header_SP" class="header_labelSP">
+                <div class="pb4"></div>
+                <img src="image/top/cr48f_32.png">
+                <img class="pb3" src="image/top/Contrail_g.png" height="24">
+            </div>
+
+            <div id="popup-menu" class="hidden">
+                <div class="menu-title">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_image" alt="CONTRAIL">
+                </div>
+                <ul>
+                    <li><a href="index.html" class="menulink">Home</a></li>
+                    <li><a href="whatnew.html" class="menulink">What's New</a></li>
+                    <li><a href="etc.html" class="menulink">E.T.C.</a></li>
+                    <li><a href="fs01.html" class="menulink">The Scenery</a></li>
+                    <li><a href="link01.html" class="menulink">Links</a></li>
+                    <li><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                </ul>
+            </div>
+        </div>
     </header>
 
-    <div id="main720"> <!-- ① page main: start -->
+    <div id="main720-480"> <!-- ① page main: start -->
 
         <!-- title -->
         <div id="title20">
@@ -100,6 +121,13 @@
                 簡易解説
             </h3>
         </div>
+
+        <!-- for Java Script off -->
+        <noscript>
+            <div id="attention">
+                <p>ご覧頂くにはブラウザの JavaScript をアクティブにして下さい</p>
+            </div>
+        </noscript>
 
         <!-- contents -->
         <div class="pic-left720 pb40">
@@ -142,7 +170,9 @@
 
             <div class="fwb pb10">
                 <p>
-                    <img src="image/pers/Pers_v1_over_view_a_75.png" border="0">
+                    <span class="image-container">
+                        <img src="image/pers/Pers_v1_over_view_a_75.png" border="0">
+                    </span>
                 </p>
             </div>
 
@@ -325,30 +355,29 @@
                         不連続な曲面(分数で定義される関数の分母が0になる場合など)ではいわゆる0割が発生する可能性がありますが、
                         Javascriptの仕様に従って、以下のように対処しています。
                     </p>
-                     <table class="pl10 pb10 fwm" border="0">
-                        <tr>
-                          <td>正の実数 / 0.0</td>
-                          <td>-></td>
-                          <td align="right">Infinity(仕様)</td>
-                          <td>-></td>
-                          <td align="right">9999.0</td>
-                        </tr>
-                        <tr>
-                          <td>負の実数 / 0.0</td>
-                          <td>-></td>
-                          <td align="right">-Infinity(仕様)</td>
-                          <td>-></td>
-                          <td align="right">-9999.0</td>
-                        </tr>
-                        <tr>
-                          <td>0.0 / 0.0</td>
-                          <td>-></td>
-                          <td align="right">Nan(仕様)</td>
-                          <td>-></td>
-                          <td align="right">0.0</td>
-                        </tr>
-                      </table>
-                </div>
+                         <table class="pl10 pb10 fwm fss" border="0">
+                            <tr>
+                              <td >正の実数 / 0.0</td>
+                              <td>-></td>
+                              <td align="right">Infinity(仕様)</td>
+                              <td>-></td>
+                              <td align="right">9999.0</td>
+                            </tr>
+                            <tr>
+                              <td>負の実数 / 0.0</td>
+                              <td>-></td>
+                              <td align="right">-Infinity(仕様)</td>
+                              <td>-></td>
+                              <td align="right">-9999.0</td>
+                            </tr>
+                            <tr>
+                              <td>0.0 / 0.0</td>
+                              <td>-></td>
+                              <td align="right">Nan(仕様)</td>
+                              <td>-></td>
+                              <td align="right">0.0</td>
+                            </tr>
+                          </table>
 
                 <div class="pic-left720 fwb pb20">
                     <div class="contents-title-left pb20"
@@ -386,21 +415,25 @@
                                 </p>
                             </div>
                             <div class="c-both"></div>
-                            <div class="contents-left pb10"
-                                <p class="pb10">
-                                    $ \omega = x + iy $ とすると
-                                </p>
-                                <p class="pb10">
-                                   $ \sin(\omega) = \sin x \cosh y + i \cos x \sinh y $ より
-                                </p>
-                                <p class="pb10">
-                                   $ |\sin(\omega)| = \sqrt{\sin^2 x \cosh^2 y + \cos^2 x \sinh^2 y} $
-                                </p>
+                            <div class="table-container">
+                                <div class="contents-left pb10"
+                                    <p class="pb10">
+                                        $ \omega = x + iy $ とすると
+                                    </p>
+                                    <p class="pb10">
+                                       $ \sin(\omega) = \sin x \cosh y + i \cos x \sinh y $ より
+                                    </p>
+                                    <p class="pb10">
+                                       $ |\sin(\omega)| = \sqrt{\sin^2 x \cosh^2 y + \cos^2 x \sinh^2 y} $
+                                    </p>
+                                </div>
                             </div>
                             <div class="contents-right"
                                 <p>
                                     <a href="etc_Pers_v1.html?selectedOption=02%2601">
-                                        <img src="image/pers/pers_v1_0201w_25.jpg" border="0">
+                                        <span class="image-container">
+                                            <img src="image/pers/pers_v1_0201w_25.jpg" border="0">
+                                        </span>
                                     </a>
                                 </p>
                             </div>
@@ -429,7 +462,7 @@
                                 </p>
                             </div>
                             <div class="c-both"></div>
-                            <div class="contents-left pb10"
+                            <div class="table-container">
                                 <p class="pb10">
                                     $ \omega = x + iy $ とすると
                                 </p>
@@ -465,18 +498,22 @@
                                 </p>
                             </div>
                             <div class="c-both"></div>
-                            <div class="contents-left pb10"
-                                <p class="pb10">
-                                    gamma関数です。
-                                </p>
-                                <p class="pb10">
-                                    $ |\Gamma(x + iy)| = |\Gamma(x)| / \prod \sqrt{1 + (y / (n + x))^2}, \quad n:0～∞ $
-                                </p>
+                            <div class="table-container">
+                                <div class="contents-left pb10"
+                                    <p class="pb10">
+                                        gamma関数です。
+                                    </p>
+                                    <p class="pb10">
+                                        $ |\Gamma(x + iy)| = |\Gamma(x)| / \prod \sqrt{1 + (y / (n + x))^2}, \quad n:0～∞ $
+                                    </p>
+                                </div>
                             </div>
                             <div class="contents-right"
                                 <p>
                                     <a href="etc_Pers_v1.html?selectedOption=02%2603">
-                                        <img src="image/pers/pers_v1_0203_25.png" border="0">
+                                        <span class="image-container">
+                                            <img src="image/pers/pers_v1_0203_25.png" border="0">
+                                        </span>
                                     </a>
                                 </p>
                             </div>
@@ -531,14 +568,18 @@
                            Cassini(カシニ)の燈形
                         </p>
                         <p class="pb10">
-                            <img src="image/pers/pers_v1_para_0301.jpg">
+                            <span class="image-container">
+                                <img src="image/pers/pers_v1_para_0301.jpg">
+                            </span>
                         </p>
                         <!--
                         <p class="pb5">
                            Descartes(デカルト)の葉線の派生形
                         </p>
                         <p class="pb10">
-                            <img src="image/pers/pers_v1_para_0302.jpg">
+                            <span class="image-container">
+                                <img src="image/pers/pers_v1_para_0302.jpg">
+                            </span>
                         </p>
                         -->
                         <p class="pb10">
@@ -562,21 +603,25 @@
                                 </p>
                             </div>
                             <div class="c-both"></div>
-                            <div class="contents-left pb10"
-                                <p class="pb10">
-                                    $ f(x, y) = (x^2 + y^2 + a^2)^2 - 4a^2x^2 - b^4 $ <br><br>
-                                </p>
-                                <p class="pb10">
-                                    パラメータ&thinsp; (デフォルト) : $ a = 0.6, &thinsp; b =0.4 $
-                                </p>
-                            </div>
-                                <div class="contents-right"
-                                    <p>
-                                        <a href="etc_Pers_v1.html?selectedOption=03%2601">
-                                            <img src="image/pers/pers_v1_0301w_IF_25.jpg" border="0">
-                                        </a>
+                            <div class="table-container">
+                                <div class="contents-left pb10"
+                                    <p class="pb10">
+                                        $ f(x, y) = (x^2 + y^2 + a^2)^2 - 4a^2x^2 - b^4 $ <br><br>
+                                    </p>
+                                    <p class="pb10">
+                                        パラメータ&thinsp; (デフォルト) : $ a = 0.6, &thinsp; b =0.4 $
                                     </p>
                                 </div>
+                            </div>
+                            <div class="contents-right"
+                                <p>
+                                    <a href="etc_Pers_v1.html?selectedOption=03%2601">
+                                        <span class="image-container">
+                                            <img src="image/pers/pers_v1_0301w_IF_25.jpg" border="0">
+                                        </span>
+                                    </a>
+                                </p>
+                            </div>
                             <div class="c-both"></div>
                             <p class="pb10">
                                 陰関数は $ (x^2 + y^2 + a^2)^2 - 4a^2x^2 - b^4 = 0$ です。
@@ -594,32 +639,34 @@
                                 スライダーを移動させてみて下さい。
                                 目的の曲線が描画されていると思います。
                             </p>
-                            <table class="pl10 pb10 fwm" frame="void" border="1">
-                               <tr bgcolor="lightgray">
-                                 <th>$a$ &emsp;&emsp;</th>
-                                 <th>$b$ &emsp;&emsp;</th>
-                                 <th class="fwm">曲線の特徴</th>
-                                 <th class="fwm">グラフの概形</th>
-                               </tr>
-                               <tr>
-                                 <td>0.6</td>
-                                 <td>0.4</td>
-                                 <td>原点対称の2つの閉曲線</td>
-                                 <td><img src="image/pers/pers_v1_0301w_IF_0604_25.jpg" border="0"></td>
-                               </tr>
-                               <tr>
-                                 <td>0.6</td>
-                                 <td>0.6</td>
-                                 <td>原点を通る曲線</td>
-                                 <td><img src="image/pers/pers_v1_0301w_IF_0606_25.jpg" border="0"></td>
-                               </tr>
-                               <tr>
-                                 <td>0.6</td>
-                                 <td>0.8</td>
-                                 <td>楕円っぽい曲線</td>
-                                 <td><img src="image/pers/pers_v1_0301w_IF_0608_25.jpg" border="0"></td>
-                               </tr>
-                            </table>
+                            <div class="table-container">
+                                <table class="pl10 pb10 fwm" frame="void" border="1">
+                                   <tr bgcolor="lightgray">
+                                     <th>$a$ &emsp;&emsp;</th>
+                                     <th>$b$ &emsp;&emsp;</th>
+                                     <th class="fwm">曲線の特徴</th>
+                                     <th class="fwm">グラフの概形</th>
+                                   </tr>
+                                   <tr>
+                                     <td>0.6</td>
+                                     <td>0.4</td>
+                                     <td>原点対称の2つの閉曲線</td>
+                                     <td><img src="image/pers/pers_v1_0301w_IF_0604_25.jpg" border="0"></td>
+                                   </tr>
+                                   <tr>
+                                     <td>0.6</td>
+                                     <td>0.6</td>
+                                     <td>原点を通る曲線</td>
+                                     <td><img src="image/pers/pers_v1_0301w_IF_0606_25.jpg" border="0"></td>
+                                   </tr>
+                                   <tr>
+                                     <td>0.6</td>
+                                     <td>0.8</td>
+                                     <td>楕円っぽい曲線</td>
+                                     <td><img src="image/pers/pers_v1_0301w_IF_0608_25.jpg" border="0"></td>
+                                   </tr>
+                                </table>
+                            </div>
                             <p class="pb10">
                                 $ a = b $ のとき、Lemniscate(レムニスケート)と呼ばれる曲線になります。<br>
                                 この場合、$ a = 0.6, \quad b = 0.6 $ のときの曲線がLemniccateです。
@@ -655,7 +702,9 @@
                                 <div class="contents-right"
                                     <p>
                                         <a href="etc_Pers_v1.html?selectedOption=04%2603">
-                                            <img src="image/pers/pers_v1_0203_25.jpg" border="0">
+                                            <span class="image-container">
+                                                <img src="image/pers/pers_v1_0203_25.jpg" border="0">
+                                            </span>
                                         </a>
                                     </p>
                                 </div>
@@ -689,10 +738,14 @@
                             <div class="contents-right"
                                 <p>
                                     <a href="etc_Pers_v1.html?selectedOption=03%2603">
-                                        <img src="image/pers/pers_v1_0303w_25.jpg" border="0">
+                                        <span class="image-container">
+                                            <img src="image/pers/pers_v1_0303w_25.jpg" border="0">
+                                        </span>
                                     </a>
                                     <a href="etc_Pers_v1.html?selectedOption=03%2603">
-                                        <img src="image/pers/pers_v1_0303w_IF_pm1_25.jpg" border="0">
+                                        <span class="image-container">
+                                            <img src="image/pers/pers_v1_0303w_IF_pm1_25.jpg" border="0">
+                                        </span>
                                     </a>
                                 </p>
                             </div>
@@ -743,7 +796,9 @@
                     </p>
                     <p class="pb10">
                         <a href="etc_Pers_v1.html?selectedOption=09%2601">
-                            <img src="image/pers/Pers_v1_user_over_view_75.jpg" border="1">
+                            <span class="image-container">
+                                <img src="image/pers/Pers_v1_user_over_view_75.jpg" border="1">
+                            </span>
                         </a>
                     </p>
                     <div class="contents-left pb10"
@@ -762,11 +817,15 @@
                     </p>
                     <div class="fwm pb40, pl40">
                         <div class="pb40">
-                            <p class="pb20">
-                                $ f(x, y) = x^3 -3xy + y^3 \quad (  z = 0 のときの等高線はデカルトの葉線) $
-                            </p>
+                            <div class="table-container">
+                                <p class="pb20">
+                                    $ f(x, y) = x^3 -3xy + y^3 \quad (  z = 0 のときの等高線はデカルトの葉線) $
+                                </p>
+                            </div>
                             <p class="pb10">
-                                <img src="image/pers/pers_v1_user_00.jpg">
+                                <span class="image-container">
+                                    <img src="image/pers/pers_v1_user_00.jpg">
+                                </span>
                             </p>
                             <p class="pb10">
                                 $ f(x, y) = $ と表示されている右の入力ボックスに描かせたい関数を入力します。
@@ -776,7 +835,9 @@
                                 ここでは何も入力する必要はありません。
                             </p>
                             <p class="pb10">
-                                <img src="image/pers/pers_v1_user_01.jpg">
+                                <span class="image-container">
+                                    <img src="image/pers/pers_v1_user_01.jpg">
+                                </span>
                             </p>
                             <p class="pb10">
                                 式の書き方には幾つかのルールがあるので、ここで簡単にまとめておきます。
@@ -841,7 +902,9 @@
                                             無理に長い式は入力しない方が無難です(時間がある時に見直すつもり...ではあります)。
                                         </p>
                                         <p>
-                                            <img src="image/pers/pers_v1_user_02_long.jpg">
+                                            <span class="image-container">
+                                                <img src="image/pers/pers_v1_user_02_long.jpg">
+                                            </span>
                                         </p>
                                     </li>
                                     <li class="pb40">
@@ -855,7 +918,9 @@
 
                                         </p>
                                         <p>
-                                            <img src="image/pers/pers_v1_user_02_where.jpg">
+                                            <span class="image-container">
+                                                <img src="image/pers/pers_v1_user_02_where.jpg">
+                                            </span>
                                         </p>
                                     </li>
                                 </ol>
@@ -889,9 +954,11 @@
                             <p id="09&03"; class="pb10 fwb">
                                 長い式の入力例で示した関数
                             </p>
-                            <p class="pb10 fwm">
-                                $ x * (1 - 2 * r) - y * (1 + 2 * r) * (r^2 - (x^2 - y^2)) \quad $ where, $ \;  r= x^2 + y^2 $
-                            </p>
+                            <div class="table-container">
+                                <p class="pb10 fwm">
+                                    $ x * (1 - 2 * r) - y * (1 + 2 * r) * (r^2 - (x^2 - y^2)) \quad $ where, $ \;  r= x^2 + y^2 $
+                                </p>
+                            </div>
                             <div class="contents-left pb10"
                                 <p class="pb10">
                                     &emsp;
@@ -915,7 +982,7 @@
                     == 脚注 ==
                 </p>
             </div>
-            <div class="bdr10 left fsm fwm pb10" style="width:760px">
+            <div class="bdr10 fsm fwm pb10">
                 <p id="*1" class="bd10">
                     [1.]
                 </p>
@@ -929,7 +996,9 @@
                                 隠線処理有りの場合
                             </p>
                             <p>
-                                <img src="image/pers/pers_v1_with_hidden_line_50.png">
+                                <span class="image-container">
+                                    <img src="image/pers/pers_v1_with_hidden_line_50.png">
+                                </span>
                             </p>
                         </li>
                         <li>
@@ -937,11 +1006,13 @@
                                 隠線処理無しの場合
                             </p>
                             <p>
-                                <img src="image/pers/pers_v1_without_hidden_line_50.png">
+                                <span class="image-container">
+                                    <img src="image/pers/pers_v1_without_hidden_line_50.png">
+                                </span>
                             </p>
-                            <p class="pl500">
+<!--                            <p class="pl500">
                                 <a href="#">戻る</a>
-                            </p>
+                            </p>-->
                         </li>
                     </ol>
                 </div>
@@ -971,7 +1042,9 @@
                     そこで、以下に示すように選択されたリストの位置を保持するためのチェックボックスを設置しました。
                 </p>
                 <p class="pb10">
-                    <img src="image/pers/pers_v1_local_storage01.jpg">
+                    <span class="image-container">
+                        <img src="image/pers/pers_v1_local_storage01.jpg">
+                    </span>
                 </p>
                 <p>
                     チェックを入れてから特定の項目を選択すると、
@@ -983,7 +1056,7 @@
                     ただし、チェックを外すとLocal Storageに保存されていたデータは、keyと共に削除されるため、
                     ブラウザの更新ボタンが押された場合や、ページを閉じた後に再度ページを開いたとき、リストの先頭が選択された状態に戻ります。
                 </p>
-                <p class="pb10" >
+                <p class="pb10">
                     Local Storageに保存されるデータ ( key, vakue ) は次の2点です。
                 </p>
                 <p>
@@ -998,7 +1071,9 @@
                     黒だったり、白だったりすることに関係しています。
                 </p>
                 <p class="pb10">
-                    <img src="image/pers/pers_v1_back_color.png">
+                    <span class="image-container">
+                        <img src="image/pers/pers_v1_back_color.png">
+                    </span>
                 </p>
                 <p class="pb10">
                     個人的には、背景が黒の方が見やすいと思うのですが、画面が小さいとラインが黒の背景に埋もれてしまい、
@@ -1008,7 +1083,9 @@
                     チェックを入れると、背景が白になります。
                 </p>
                 <p class="pb10">
-                    <img src="image/pers/pers_v1_local_storage02.jpg">
+                    <span class="image-container">
+                        <img src="image/pers/pers_v1_local_storage02.jpg" width="600px">
+                    </span>
                 </p>
                 <p>
                     チェックを入れたら、ブラウザの更新ボタンをクリックして下さい。
@@ -1048,18 +1125,19 @@
 
         <hr id="footer"> <!-- horizontal partition -->
 
-        <p id="page-top"><a href="#">トップへ</a></p>
-        <div class="jQ_change center" > <!-- select button whole: start -->
+        <p id="page-top"><a href="#">TOP</a></p>
+
+        <div class="jQ_change center"> <!-- select button whole: start -->
             <p id="footer"> <!-- select button: start -->
                 <a href="etc.html">
-                    <IMG src="image/button/back_off.gif" border="0" alt="Back" >
+                    <IMG src="image/button/back_off.gif" border="0" alt="Back">
                 </a>
             </p> <!-- select button: end -->
         </div> <!-- select button whole: end -->
 
-        <div id="footer_label">
+        <div class="footer_labelPC">
             copyright &copy; 2003 -
-            <script type="text/javascript" language="JavaScript">
+            <script>
                 date = new Date();
                 document.write(date.getFullYear() + ' ');
             </script>
@@ -1071,5 +1149,5 @@
     </footer>
 
 </div>
-</BODY>
+</body>
 </html>

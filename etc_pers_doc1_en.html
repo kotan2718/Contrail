@@ -1,43 +1,29 @@
-<!DOCTYPE HTML >
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
-<HEAD>
-    <META charset="UTF-8">
-    <META name="description" content="A brief explanation of a page that plotss surfaces defined by z = f(x, y) using a hidden line processed mesh. It also explains how users can input and render arbitrary surfaces. ">
-    <META name="keywords" content="3D,surface,plot,hidden line,mesh,rotation,view angle,user defined,arbitrary surface,user input,explanation">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="A brief explanation of a page that plotss surfaces defined by z = f(x, y) using a hidden line processed mesh. It also explains how users can input and render arbitrary surfaces. ">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Brief Explanation: Plotting Surfaces Using Hidden Line Meshes</title>
 
     <!-- favicon-->
-    <link rel="shortcut icon" href="image/SRTLM_img/favicon.ico">
-
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="icon" href="favicon.ico">
 
     <!-- css start -->
-
-        <!-- kko_etc start :: class指定:change_border_color, 全ファイル共通:リンク文字色, フォーカスリング -->
-        <link rel="stylesheet" href="libs/etc/css/kko_footer_style.css" type="text/css">
-        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css" type="text/css">
-        <!-- kko_etc end -->
-
+        <!-- kko_etc :: class指定:change_border_color, 全ファイル共通:リンク文字色, フォーカスリング -->
+        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
     <!-- css end -->
 
     <!-- js start -->
 
         <!-- jQuery start -->
-        <script src="libs/jQuery/js/jquery-1.6.1.min.js" type="text/javascript"></script>
-        <!-- kko_style start - img jq_blink, img jq_change -->
-        <script src="libs/jQuery/kko/js/jq_kko_style.js" type="text/javascript"></script>
-        <!-- kko_style end -->
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script src="libs/jQuery/kko/js/jq_kko_style.js"></script>
         <!-- jQuery end -->
 
-        <!-- Sandbox DropDownMenu start -->
-        <script src="libs/sandbox/js/script.js" type="text/javascript"></script>
-        <!-- Sandbox DropDownMenu end -->
-
-        <script type="text/javascript"
+        <script
             src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
         </script>
         <script type="text/x-mathjax-config">
@@ -53,43 +39,79 @@
             });
         </script>
 
+        <!-- Sandbox DropDownMenu -->
+        <script src="libs/sandbox/js/script.js"></script>
+
         <!-- pers_doc initialize -->
-        <script src="libs/etc/js/pers00_doc1.js" type="text/javascript"></script>
+        <script src="libs/etc/js/pers00_doc1.js"></script>
 
     <!-- js end -->
-</HEAD>
+</head>
 
-<BODY id="common-k" onload="initialize()">
+<body id="common-k" onload="initialize()">
 
     <header>
-        <a name="page_top"></a>
-        <div class="center jQ_change navbox" >
-            <nav>
-                <IMG src="image/top/Contrail_g.png" height="20" class="logo_img">
-                <ul class="menu" id="menu" >
-                    <li class="pb40"><a href="index.html" class="menulink">Home</a></li>
-                    <li class="pb40"><a href="whatnew.html" class="menulink">What's New</a></li>
-                    <li class="pb40"><a href="etc.html" class="menulink">E.T.C.</a></li>
-                    <li class="pb40"><a href="fs01.html" class="menulink">The Scenery</a>
-                        <ul>
-                            <li class="pb40"><a href="fs01_sc_top.html" class="sub">Screen Shots</a></li>
-                            <li class="pb40"><a href="fs01_ls_top.html" class="sub">Snap Shots</a></li>
-                        </ul>
-                    </li>
-                    <li class="pb40"><a href="link01.html" class="menulink">Links</a></li>
-                    <li class="about"><a href="fs01_about.html" class="menulink">about Contrail</a></li>
-                </ul>
-            </nav>
-            <div class="c-both"></div>
+        <div class="prettyP_PC">
+            <a name="page_top"></a>
+            <div class="center jQ_change navbox" >
+                <nav>
+                    <img src="image/top/cr32_e.png" height="20" class="logo_img">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_img">
+                    <ul class="menu" id="menu" >
+                        <li><a href="index.html" class="menulink">Home</a></li>
+                        <li><a href="e_whatnew.html" class="menulink">What's New</a></li>
+                        <li><a href="en_etc.html" class="menulink">E.T.C.</a></li>
+                        <li><a href="e_fs01.html" class="menulink">The Scenery</a>
+                            <ul>
+                                <li><a href="e_fs01_sc_top.html" class="sub">Screen Shots</a></li>
+                                <li><a href="e_fs01_ls_top.html" class="sub">Snap Shots</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="e_link01.html" class="menulink">Links</a></li>
+                        <li class="about"><a href="e_fs01_about.html" class="menulink">about Contrail</a></li>
+                    </ul>
+                </nav>
+                <div class="c-both"></div>
+            </div>
+            <!-- Sandbox DropDownMenu start-->
+            <script>
+                var menu=new menu.dd("menu");
+                menu.init("menu","menuhover");
+            </script>
+            <!-- Sandbox DropDownMenu end -->
         </div>
-        <!-- Sandbox DropDownMenu start-->
-        <script type="text/javascript">
-            var menu=new menu.dd("menu");
-            menu.init("menu","menuhover");
-        </script>    <!-- Sandbox DropDownMenu end -->
+        <div class="prettyP_SP">
+            <a name="MENU"></a>
+            <p id="menu-call">
+                <a href="#">MENU</a>
+            </p>
+
+            <a name="page_top"></a>
+
+            <!-- page top icon & logo -->
+            <div id="header_SP" class="header_labelSP">
+                <div class="pb4"></div>
+                <img src="image/top/cr48f_32.png">
+                <img class="pb3" src="image/top/Contrail_g.png" height="24">
+            </div>
+
+            <div id="popup-menu" class="hidden">
+                <div class="menu-title">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_image" alt="CONTRAIL">
+                </div>
+                <ul>
+                <li><a href="index.html" class="menulink">Home</a></li>
+                <li><a href="e_whatnew.html" class="menulink">What's New</a></li>
+                <li><a href="en_etc.html" class="menulink">E.T.C.</a></li>
+                <li><a href="e_fs01.html" class="menulink">The Scenery</a>
+                <li><a href="e_link01.html" class="menulink">Links</a></li>
+                <li><a href="e_fs01_about.html" class="menulink">about Contrail</a></li>
+                </ul>
+            </div>
+        </div>
     </header>
 
-    <div id="main720"> <!-- ① page main: start -->
+    <div id="main720-480_en"> <!-- ① page main: start -->
 
         <!-- title -->
         <div id="title20">
@@ -99,6 +121,13 @@
                 Brief Explanation
             </h3>
         </div>
+
+        <!-- for Java Script off -->
+        <noscript>
+            <div id="attention">
+                <p>Sorry, you need to activate JavaScript in your browser.</p>
+            </div>
+        </noscript>
 
         <!-- contents -->
         <div class="pic-left720 pb40">
@@ -144,7 +173,9 @@
 
             <div class="fwb pb10">
                 <p>
-                    <img src="image/pers/Pers_v1_over_view_a_75.png" border="0">
+                    <span class="image-container">
+                        <img src="image/pers/Pers_v1_over_view_a_75.png" border="0">
+                    </span>
                 </p>
             </div>
 
@@ -331,7 +362,7 @@
                         where the denominator may become 0), division by zero might occur.
                         In such cases, we handle them according to the following rules based on JavaScript's specifications.
                     </p>
-                     <table class="pl10 pb10 fwm" border="0">
+                     <table class="pl10 pb10 fwm fss" border="0">
                         <tr>
                           <td>Positive real number / 0.0</td>
                           <td>-></td>
@@ -392,21 +423,25 @@
                                 </p>
                             </div>
                             <div class="c-both"></div>
-                            <div class="contents-left pb10"
-                                <p class="pb10">
-                                    Let &emsp; $ \omega = x + iy $
-                                </p>
-                                <p class="pb10">
-                                   From &emsp; $ \sin(\omega) = \sin x \cosh y + i \cos x \sinh y $
-                                </p>
-                                <p class="pb10">
-                                   $ |\sin(\omega)| = \sqrt{\sin^2 x \cosh^2 y + \cos^2 x \sinh^2 y} $
-                                </p>
+                            <div class="table-container">
+                                <div class="contents-left pb10"
+                                    <p class="pb10">
+                                        Let &emsp; $ \omega = x + iy $
+                                    </p>
+                                    <p class="pb10">
+                                       From &emsp; $ \sin(\omega) = \sin x \cosh y + i \cos x \sinh y $
+                                    </p>
+                                    <p class="pb10">
+                                       $ |\sin(\omega)| = \sqrt{\sin^2 x \cosh^2 y + \cos^2 x \sinh^2 y} $
+                                    </p>
+                                </div>
                             </div>
                             <div class="contents-right"
                                 <p>
                                     <a href="etc_Pers_v1_en.html?selectedOption=02%2601">
-                                        <img src="image/pers/pers_v1_0201w_25.jpg" border="0">
+                                        <span class="image-container">
+                                            <img src="image/pers/pers_v1_0201w_25.jpg" border="0">
+                                        </span>
                                     </a>
                                 </p>
                             </div>
@@ -436,16 +471,18 @@
                                 </p>
                             </div>
                             <div class="c-both"></div>
-                            <div class="contents-left pb10"
-                                <p class="pb10">
-                                    Let &emsp; $ \omega = x + iy $
-                                </p>
-                                <p class="pb10">
-                                   From &emsp; $ \cos(\omega) = \cos x \cosh y + i \sin x \sinh y $
-                                </p>
-                                <p class="pb10">
-                                   $ |\cos(\omega)| = \sqrt{\cos^2 x \cosh^2 y + \sin^2 x \sinh^2 y} $
-                                </p>
+                            <div class="table-container">
+                                <div class="contents-left pb10"
+                                    <p class="pb10">
+                                        Let &emsp; $ \omega = x + iy $
+                                    </p>
+                                    <p class="pb10">
+                                       From &emsp; $ \cos(\omega) = \cos x \cosh y + i \sin x \sinh y $
+                                    </p>
+                                    <p class="pb10">
+                                       $ |\cos(\omega)| = \sqrt{\cos^2 x \cosh^2 y + \sin^2 x \sinh^2 y} $
+                                    </p>
+                                </div>
                             </div>
                             <div class="contents-right"
                                 <p>
@@ -474,18 +511,22 @@
                                 </p>
                             </div>
                             <div class="c-both"></div>
-                            <div class="contents-left pb10"
-                                <p class="pb10">
-                                    Gamma function
-                                </p>
-                                <p class="pb10">
-                                    $ |\Gamma(x + iy)| = |\Gamma(x)| / \prod \sqrt{1 + (y / (n + x))^2}, \quad n:0～∞ $
-                                </p>
+                            <div class="table-container">
+                                <div class="contents-left pb10"
+                                    <p class="pb10">
+                                        Gamma function
+                                    </p>
+                                    <p class="pb10">
+                                        $ |\Gamma(x + iy)| = |\Gamma(x)| / \prod \sqrt{1 + (y / (n + x))^2}, \quad n:0～∞ $
+                                    </p>
+                                </div>
                             </div>
                             <div class="contents-right"
                                 <p>
                                     <a href="etc_Pers_v1_en.html?selectedOption=02%2603">
-                                        <img src="image/pers/pers_v1_0203_25.png" border="0">
+                                        <span class="image-container">
+                                            <img src="image/pers/pers_v1_0203_25.png" border="0">
+                                        </span>
                                     </a>
                                 </p>
                             </div>
@@ -540,14 +581,18 @@
                            Cassini Oval
                         </p>
                         <p class="pb10">
-                            <img src="image/pers/pers_v1_para_0301.jpg">
+                            <span class="image-container">
+                                <img src="image/pers/pers_v1_para_0301.jpg">
+                            </span>
                         </p>
                         <!--
                         <p class="pb5">
                            Derivative form of the "Folium of Descartes"
                         </p>
                         <p class="pb10">
-                            <img src="image/pers/pers_v1_para_0302.jpg">
+                            <span class="image-container">
+                                <img src="image/pers/pers_v1_para_0302.jpg">
+                            </span>
                         </p>
                         -->
                         <p class="pb10">
@@ -571,21 +616,25 @@
                                 </p>
                             </div>
                             <div class="c-both"></div>
-                            <div class="contents-left pb10"
-                                <p class="pb10">
-                                    $ f(x, y) = (x^2 + y^2 + a^2)^2 - 4a^2x^2 - b^4 $ <br><br>
-                                </p>
-                                <p class="pb10">
-                                    Parameters &thinsp;  (Default) : $ a = 0.6, &thinsp; b =0.4 $
-                                </p>
-                            </div>
-                                <div class="contents-right"
-                                    <p>
-                                        <a href="etc_Pers_v1_en.html?selectedOption=03%2601">
-                                            <img src="image/pers/pers_v1_0301w_IF_25.jpg" border="0">
-                                        </a>
+                            <div class="table-container">
+                                <div class="contents-left pb10"
+                                    <p class="pb10">
+                                        $ f(x, y) = (x^2 + y^2 + a^2)^2 - 4a^2x^2 - b^4 $ <br><br>
+                                    </p>
+                                    <p class="pb10">
+                                        Parameters &thinsp;  (Default) : $ a = 0.6, &thinsp; b =0.4 $
                                     </p>
                                 </div>
+                            </div>
+                            <div class="contents-right"
+                                <p>
+                                    <a href="etc_Pers_v1_en.html?selectedOption=03%2601">
+                                        <span class="image-container">
+                                            <img src="image/pers/pers_v1_0301w_IF_25.jpg" border="0">
+                                        </span>
+                                    </a>
+                                </p>
+                            </div>
                             <div class="c-both"></div>
                             <p class="pb10">
                                 The implicit function is $ (x^2 + y^2 + a^2)^2 - 4a^2x^2 - b^4 = 0 $.
@@ -605,32 +654,34 @@
                                 so try moving the slider until the "$\gamma$" reaches $ \pm 90$.
                                 I think the purpose curves(contour lines) have been plotting.
                             </p>
-                            <table class="pl10 pb10 fwm" frame="void" border="1">
-                               <tr bgcolor="lightgray">
-                                 <th>$a$ &emsp;&emsp;</th>
-                                 <th>$b$ &emsp;&emsp;</th>
-                                 <th class="fwm">Curve Features</th>
-                                 <th class="fwm">Graph Outline</th>
-                               </tr>
-                               <tr>
-                                 <td>0.6</td>
-                                 <td>0.4</td>
-                                 <td>Two closed curves <br>symmetrical around the origin</td>
-                                 <td><img src="image/pers/pers_v1_0301w_IF_0604_25.jpg" border="0"></td>
-                               </tr>
-                               <tr>
-                                 <td>0.6</td>
-                                 <td>0.6</td>
-                                 <td>Curve through the origin</td>
-                                 <td><img src="image/pers/pers_v1_0301w_IF_0606_25.jpg" border="0"></td>
-                               </tr>
-                               <tr>
-                                 <td>0.6</td>
-                                 <td>0.8</td>
-                                 <td>Ellipse-like curve</td>
-                                 <td><img src="image/pers/pers_v1_0301w_IF_0608_25.jpg" border="0"></td>
-                               </tr>
-                            </table>
+                            <div class="table-container">
+                                <table class="pl10 pb10 fwm" frame="void" border="1">
+                                   <tr bgcolor="lightgray">
+                                     <th>$a$ &emsp;&emsp;</th>
+                                     <th>$b$ &emsp;&emsp;</th>
+                                     <th class="fwm">Curve Features</th>
+                                     <th class="fwm">Graph Outline</th>
+                                   </tr>
+                                   <tr>
+                                     <td>0.6</td>
+                                     <td>0.4</td>
+                                     <td>Two closed curves <br>symmetrical around the origin</td>
+                                     <td><img src="image/pers/pers_v1_0301w_IF_0604_25.jpg" border="0"></td>
+                                   </tr>
+                                   <tr>
+                                     <td>0.6</td>
+                                     <td>0.6</td>
+                                     <td>Curve through the origin</td>
+                                     <td><img src="image/pers/pers_v1_0301w_IF_0606_25.jpg" border="0"></td>
+                                   </tr>
+                                   <tr>
+                                     <td>0.6</td>
+                                     <td>0.8</td>
+                                     <td>Ellipse-like curve</td>
+                                     <td><img src="image/pers/pers_v1_0301w_IF_0608_25.jpg" border="0"></td>
+                                   </tr>
+                                </table>
+                            </div>
                             <p class="pb10">
                                 When $ a = b $, the curve is called a Lemniscate.
                                 In this case, the curve with $ a = 0.6, \quad b = 0.6 $ is the Lemniscate.
@@ -666,7 +717,9 @@
                                 <div class="contents-right"
                                     <p>
                                         <a href="etc_Pers_v1_en.html?selectedOption=04%2603">
-                                            <img src="image/pers/pers_v1_0203_25.jpg" border="0">
+                                            <span class="image-container">
+                                                <img src="image/pers/pers_v1_0203_25.jpg" border="0">
+                                            </span>
                                         </a>
                                     </p>
                                 </div>
@@ -700,10 +753,14 @@
                             <div class="contents-right"
                                 <p>
                                     <a href="etc_Pers_v1_en.html?selectedOption=03%2603">
-                                        <img src="image/pers/pers_v1_0303w_25.jpg" border="0">
+                                        <span class="image-container">
+                                            <img src="image/pers/pers_v1_0303w_25.jpg" border="0">
+                                        </span>
                                     </a>
                                     <a href="etc_Pers_v1_en.html?selectedOption=03%2603">
-                                        <img src="image/pers/pers_v1_0303w_IF_pm1_25.jpg" border="0">
+                                        <span class="image-container">
+                                            <img src="image/pers/pers_v1_0303w_IF_pm1_25.jpg" border="0">
+                                        </span>
                                     </a>
                                 </p>
                             </div>
@@ -758,7 +815,9 @@
                     </p>
                     <p class="pb10">
                         <a href="etc_Pers_v1_en.html?selectedOption=09%2601">
-                            <img src="image/pers/Pers_v1_user_over_view_75.jpg" border="1">
+                            <span class="image-container">
+                                <img src="image/pers/Pers_v1_user_over_view_75.jpg" border="1">
+                            </span>
                         </a>
                     </p>
                     <div class="contents-left pb10"
@@ -777,12 +836,16 @@
                     </p>
                     <div class="fwm pb40, pl40">
                         <div class="pb40">
-                            <p class="pb20">
-                                $ f(x, y) = x^3 -3xy + y^3 \quad $
-                                (The contour at $ z = 0 $ corresponds to the "Folium of Descartes")
-                            </p>
+                            <div class="table-container">
+                                <p class="pb20">
+                                    $ f(x, y) = x^3 -3xy + y^3 \quad $
+                                    (The contour at $ z = 0 $ corresponds to the "Folium of Descartes")
+                                </p>
+                            </div>
                             <p class="pb10">
-                                <img src="image/pers/pers_v1_user_00.jpg">
+                                <span class="image-container">
+                                    <img src="image/pers/pers_v1_user_00.jpg">
+                                </span>
                             </p>
                             <p class="pb10">
                                 Enter the function you want to plot in the input box to the right of "$ f(x, y) = $".
@@ -792,7 +855,9 @@
                                 it will be explained later, but there is no need to enter anything now.
                             </p>
                             <p class="pb10">
-                                <img src="image/pers/pers_v1_user_01.jpg">
+                                <span class="image-container">
+                                    <img src="image/pers/pers_v1_user_01.jpg">
+                                </span>
                             </p>
                             <p class="pb10">
                                 There are some rules for entering formulas, so I'll summarize them briefly here.
@@ -860,7 +925,9 @@
                                             (I plan to review this problem when I have time... I think so. )
                                         </p>
                                         <p>
-                                            <img src="image/pers/pers_v1_user_02_long.jpg">
+                                            <span class="image-container">
+                                                <img src="image/pers/pers_v1_user_02_long.jpg">
+                                            </span>
                                         </p>
                                     </li>
                                     <li class="pb40">
@@ -875,7 +942,9 @@
 
                                         </p>
                                         <p>
-                                            <img src="image/pers/pers_v1_user_02_where.jpg">
+                                            <span class="image-container">
+                                                <img src="image/pers/pers_v1_user_02_where.jpg">
+                                            </span>
                                         </p>
                                     </li>
                                 </ol>
@@ -909,9 +978,11 @@
                             <p id="09&03"; class="pb10 fwb">
                                 Function shown in long formula
                             </p>
-                            <p class="pb10 fwm">
-                                $ x * (1 - 2 * r) - y * (1 + 2 * r) * (r^2 - (x^2 - y^2)) \quad $ where, $ \;  r= x^2 + y^2 $
-                            </p>
+                            <div class="table-container">
+                                <p class="pb10 fwm">
+                                    $ x * (1 - 2 * r) - y * (1 + 2 * r) * (r^2 - (x^2 - y^2)) \quad $ where, $ \;  r= x^2 + y^2 $
+                                </p>
+                            </div>
                             <div class="contents-left pb10"
                                 <p class="pb10">
                                     &emsp;
@@ -934,7 +1005,7 @@
                 == Footnote ==
                 </p>
             </div>
-            <div class="bdr10 left fsm fwm pb10" style="width:760px">
+            <div class="bdr10 fsm fwm pb10">
                 <p id="*1" class="bd10">
                     [1.]
                 </p>
@@ -948,7 +1019,9 @@
                                 Case with hidden line processing
                             </p>
                             <p>
-                                <img src="image/pers/pers_v1_with_hidden_line_50.png">
+                                <span class="image-container">
+                                    <img src="image/pers/pers_v1_with_hidden_line_50.png">
+                                </span>
                             </p>
                         </li>
                         <li>
@@ -956,11 +1029,13 @@
                                 Case without hidden line processing
                             </p>
                             <p>
-                                <img src="image/pers/pers_v1_without_hidden_line_50.png">
+                                <span class="image-container">
+                                    <img src="image/pers/pers_v1_without_hidden_line_50.png">
+                                </span>
                             </p>
-                            <p class="pl500">
+<!--                            <p class="pl500">
                                 <a href="#">Back</a>
-                            </p>
+                            </p>-->
                         </li>
                     </ol>
                 </div>
@@ -992,7 +1067,9 @@
                     Therefore, I have added a checkbox to retain the position of the selected list, as shown below.
                 </p>
                 <p class="pb10">
-                    <img src="image/pers/pers_v1_local_storage01.jpg">
+                    <span class="image-container">
+                        <img src="image/pers/pers_v1_local_storage01.jpg">
+                    </span>
                 </p>
                 <p class="pb10">
                     When you check the box and select a specific item,
@@ -1006,7 +1083,7 @@
                     so if you press the browser's refresh button or close and reopen the page,
                     the top of the list will return to being selected.
                 </p>
-                <p class="pb10" >
+                <p class="pb10">
                     The data (key, value) stored in Local Storage includes the following 2 points:
                 </p>
                 <p>
@@ -1021,7 +1098,9 @@
                     Did you notice that the thumbnails have either a black or white background?
                 </p>
                 <p class="pb10">
-                    <img src="image/pers/pers_v1_back_color.png">
+                    <span class="image-container">
+                        <img src="image/pers/pers_v1_back_color.png">
+                    </span>
                 </p>
                 <p class="pb10">
                     Personally,I think the black background easier to see, but I realized that on smaller screens,
@@ -1031,7 +1110,9 @@
                     When you check the box, the background changes to white.
                 </p>
                 <p class="pb10">
-                    <img src="image/pers/pers_v1_local_storage02.jpg">
+                    <span class="image-container">
+                        <img src="image/pers/pers_v1_local_storage02.jpg" width="600px">
+                    </span>
                 </p>
                 <p class="pb10">
                     Once you've checked the box, click your browser's refresh button.
@@ -1069,18 +1150,19 @@
 
         <hr id="footer"> <!-- horizontal partition -->
 
-        <p id="page-top"><a href="#">to Top</a></p>
-        <div class="jQ_change center" > <!-- select button whole: start -->
+        <p id="page-top"><a href="#">TOP</a></p>
+
+        <div class="jQ_change center"> <!-- select button whole: start -->
             <p id="footer"> <!-- select button: start -->
                 <a href="en_etc.html">
-                    <IMG src="image/button/back_off.gif" border="0" alt="Back" >
+                    <IMG src="image/button/back_off.gif" border="0" alt="Back">
                 </a>
             </p> <!-- select button: end -->
         </div> <!-- select button whole: end -->
 
-        <div id="footer_label">
+        <div class="footer_labelPC">
             copyright &copy; 2003 -
-            <script type="text/javascript" language="JavaScript">
+            <script>
                 date = new Date();
                 document.write(date.getFullYear() + ' ');
             </script>
@@ -1092,5 +1174,5 @@
     </footer>
 
 </div>
-</BODY>
+</body>
 </html>

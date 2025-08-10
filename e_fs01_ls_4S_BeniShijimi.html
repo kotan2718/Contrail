@@ -1,93 +1,126 @@
-<!DOCTYPE HTML >
-<html>
+<!DOCTYPE html >
+<html lang="en">
 
-<HEAD>
-    <META charset="UTF-8">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Some photos of a Small Copper that came to my garden...">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Contrail SnapShots : The four seasons :: Small Copper</title>
 
     <!-- favicon-->
-    <link rel="shortcut icon" href="favicon.ico">
-
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="icon" href="favicon.ico">
 
     <!-- css start -->
+        <!-- kko_etc - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
+        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
 
-        <!-- kko_etc start - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
-        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css" type="text/css">
-        <!-- kko_etc end -->
+        <!-- Fancybox CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css">
 
+        <style>
+            /* Optional: Limit image size on small screens */
+            @media (max-width: 768px) {
+                .fancybox_image {
+                    max-width: 256px;
+                }
+                .fancybox_image2 {
+                    max-width: 300px;
+                }
+            }
+        </style>
     <!-- css end -->
 
     <!-- js start -->
-
         <!-- jQuery start -->
-        <script src="libs/jQuery/js/jquery-1.6.1.min.js" type="text/javascript"></script>
-
-            <!-- kko_style start - img jq_blink, img jq_change -->
-            <script src="libs/jQuery/kko/js/jq_kko_preload.js" type="text/javascript"></script>
-            <script src="libs/jQuery/kko/js/jq_kko_style.js" type="text/javascript"></script>
-            <!-- kko_style end -->
-
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <!-- kko_style - img jq_blink, img jq_change -->
+            <script src="libs/jQuery/kko/js/jq_kko_style.js"></script>
         <!-- jQuery end -->
 
-        <!-- Sandbox DropDownMenu start -->
-        <script src="libs/sandbox/js/script.js" type="text/javascript"></script>
-        <!-- Sandbox DropDownMenu end -->
+        <!-- Fancybox JS -->
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
 
-    <!-- js end -->
+         <!-- Sandbox DropDownMenu -->
+        <script src="libs/sandbox/js/script.js"></script>
+   <!-- js end -->
 
-</HEAD>
+</head>
 
-<BODY id="common-k" >
-
-<!-- Pre Loading -->
-<!-- without loading picture -->
-<div id="loader"></div>
-<div id="fade"></div>
-<div id="preload"> <!-- Pre Loading start -->
+<body id="common-k">
 
     <header>
-        <a name="page_top"></a>
-        <div class="center jQ_change navbox" >
-            <nav>
-                <IMG src="image/top/Contrail_g.png" height="20" class="logo_img">
-                <ul class="menu" id="menu" >
+        <div class="prettyP_PC">
+            <a name="page_top"></a>
+            <div class="center jQ_change navbox" >
+                <nav>
+                    <img src="image/top/cr32_e.png" height="20" class="logo_img">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_img">
+                    <ul class="menu" id="menu" >
+                        <li><a href="index.html" class="menulink">Home</a></li>
+                        <li><a href="e_whatnew.html" class="menulink">What's New</a></li>
+                        <li><a href="en_etc.html" class="menulink">E.T.C.</a></li>
+                        <li><a href="e_fs01.html" class="menulink">The Scenery</a>
+                            <ul>
+                                <li><a href="e_fs01_sc_top.html" class="sub">Screen Shots</a></li>
+                                <li><a href="e_fs01_ls_top.html" class="sub">Snap Shots</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="e_link01.html" class="menulink">Links</a></li>
+                        <li class="about"><a href="e_fs01_about.html" class="menulink">about Contrail</a></li>
+                    </ul>
+                </nav>
+                <div class="c-both"></div>
+            </div>
+            <!-- Sandbox DropDownMenu start-->
+            <script>
+                var menu=new menu.dd("menu");
+                menu.init("menu","menuhover");
+            </script>
+            <!-- Sandbox DropDownMenu end -->
+        </div>
+        <div class="prettyP_SP">
+            <a name="MENU"></a>
+            <p id="menu-call">
+                <a href="#">MENU</a>
+            </p>
+
+            <a name="page_top"></a>
+
+            <!-- page top icon & logo -->
+            <div id="header_SP" class="header_labelSP">
+                <div class="pb4"></div>
+                <img src="image/top/cr48f_32.png">
+                <img class="pb3" src="image/top/Contrail_g.png" height="24">
+            </div>
+
+            <div id="popup-menu" class="hidden">
+                <div class="menu-title">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_image" alt="CONTRAIL">
+                </div>
+                <ul>
                     <li><a href="index.html" class="menulink">Home</a></li>
                     <li><a href="e_whatnew.html" class="menulink">What's New</a></li>
                     <li><a href="en_etc.html" class="menulink">E.T.C.</a></li>
                     <li><a href="e_fs01.html" class="menulink">The Scenery</a>
-                        <ul>
-                            <li><a href="e_fs01_sc_top.html" class="sub">Screen Shots</a></li>
-                            <li><a href="e_fs01_ls_top.html" class="sub">Snap Shots</a></li>
-                        </ul>
-                    </li>
                     <li><a href="e_link01.html" class="menulink">Links</a></li>
-                    <li class="about"><a href="e_fs01_about.html" class="menulink">about Contrail</a></li>
+                    <li><a href="e_fs01_about.html" class="menulink">about Contrail</a></li>
                 </ul>
-            </nav>
-            <div class="c-both"></div>
+            </div>
         </div>
-        <!-- Sandbox DropDownMenu start-->
-        <script type="text/javascript">
-            var menu=new menu.dd("menu");
-            menu.init("menu","menuhover");
-        </script>    <!-- Sandbox DropDownMenu end -->
     </header>
 
-    <div id="main" class="lineh120"> <!-- page main: start -->
+    <div id="main1024" class="lineh120"> <!-- page main: start -->
 
         <!-- title -->
         <div id="title30">
-            <p id="head10" >
-                <IMG src="image/fs/kko_logo.gif" alt="Contrail Snap Shots Special Gallery">
+            <p id="head10">
+                <img src="image/fs/kko_logo.gif" alt="Contrail Snap Shots Special Gallery">
             </p>
             <h2 id="group-4S10">
                 The four seasons
             </h2>
-            <h1 id="main" style="color: #A02600;" >
+            <h1 id="main" style="color: #A02600;">
                 Small Copper
             </h1>
             <p id="author">
@@ -95,51 +128,116 @@
             </p>
         </div>
 
+        <!-- for Java Script off -->
+        <noscript>
+            <div id="attention">
+                <p>Sorry, you need to activate JavaScript in your browser.</p>
+            </div>
+        </noscript>
+
         <!-- contents -->
-        <div class="pic-center1024 pb40" >
-            <p class="pb10" >
-                I saw a small copper unexpectedly several years ago in the yard. <BR>
-                It was a butterfly that had not been able to see any longer under my life environment.
-            </p>
-            <p class="pb10" >
-                However, it was still alive. I became very glad at that time. <BR>
-                After that, it comes to my yard early in the summer every year. <BR>
-                This year it came here on the day as if it's going to rain any minute now.
-            </p>
-            <p>
-                <IMG src="image/fs/kko/source/P1060059aBeni1_cut1024.jpg" width="1024" alt="Small Copper 1">
+        <div class="pic-center1024 pb40">
+            <div class="prettyP_PC">
+                <p class="pb10">
+                    I saw a small copper unexpectedly several years ago in the yard. <br>
+                    It was a butterfly that had not been able to see any longer under my life environment.
+                </p>
+                <p class="pb10">
+                    However, it was still alive. I became very glad at that time. <br>
+                    After that, it comes to my yard early in the summer every year. <br>
+                    This year it came here on the day as if it's going to rain any minute now.
+                </p>
+            </div>
+            <div class="prettyP_SP">
+                <p class="pb10">
+                    I saw a small copper unexpectedly several years ago in the yard.
+                    It was a butterfly that had not been able to see any longer under my life environment.
+                </p>
+                <p class="pb10">
+                    However, it was still alive. I became very glad at that time.
+                    After that, it comes to my yard early in the summer every year.
+                    This year it came here on the day as if it's going to rain any minute now.
+                </p>
+            </div>
+            <p class="center jQ_blink change_border_color">
+                <a href="image/fs/kko/source/P1060059aBeni1_cut1024.jpg"
+                    data-fancybox="gallery1" data-caption="Small Copper 1">
+                    <img class="fancybox_image2" src="image/fs/kko/source/P1060059aBeni1_cut1024.jpg"
+                        width="640" alt="Small Copper 1">
+                </a>
             </p>
         </div>
 
-        <div class="pic-center960 pb40" >
-            <p class="left pb10" >
-                Although it is an appearance to close the wings, <BR>
-                the angle of closed wings is a little different from the picture above. <BR>
-                A red belt that lines on an edge of the outside wing is not an orange <BR>
-                but red just like a ruby.
+        <div class="pic-center960 pb40">
+            <div class="prettyP_PC">
+                <p class="left2 pb10">
+                    Although it is an appearance to close the wings, <br>
+                    the angle of closed wings is a little different from the picture above. <br>
+                    A red belt that lines on an edge of the outside wing is not an orange <br>
+                    but red just like a ruby.
+                </p>
+            </div>
+            <div class="prettyP_SP">
+                <p class="left2 pb10">
+                    Although it is an appearance to close the wings,
+                    the angle of closed wings is a little different from the picture above.
+                    A red belt that lines on an edge of the outside wing is not an orange
+                    but red just like a ruby.
+                </p>
+            </div>
+            <p class="left2 jQ_blink change_border_color">
+                <a href="image/fs/kko/source/P1060071aBeni3_cut800.jpg"
+                    data-fancybox="gallery1" data-caption="Small Copper 2">
+                    <img class="fancybox_image" src="image/fs/kko/source/P1060071aBeni3_cut800.jpg"
+                        width="640" alt="Small Copper 2">
+                </a>
             </p>
-            <p class="left" >
-                <IMG src="image/fs/kko/source/P1060071aBeni3_cut800.jpg" width="800" border="0"
-                alt="Small Copper 2">
-            </p>
+            <div class="prettyP_SP"><div class="pb40"></div></div>
         </div>
 
-        <div class="pic-center1024 pb20" >
-            <p class="left fss fwb pb10" >
-                a look which opened the wings
-            </p>
-            <p class="pb30" >
-                <IMG src="image/fs/kko/source/P1060064Beni2_1024.jpg" width="1024" border="0"
-                    alt="Small Copper 3">
-            </p>
-            <p class="pb30 pl150" >
-                <IMG src="image/fs/kko/source/kko104011.jpg" width="640" border="0" alt="Small Copper 4">
-            </p>
-            <p class="pr150" >
-                <IMG src="image/fs/kko/source/kko104013.jpg" width="640" border="0" alt="Small Copper 5">
-            </p>
+        <div class="pic-center1024 pb20">
+            <div class="prettyP_PC">
+                <p class="left2 fss fwb pb20">
+                    a look which opened the wings
+                </p>
+                <p class="pb30">
+                    <img src="image/fs/kko/source/P1060064Beni2_1024.jpg" width="1024" border="0"
+                        alt="Small Copper 3">
+                </p>
+                <p class="pb30 pl150">
+                    <img src="image/fs/kko/source/kko104011.jpg" width="640" border="0" alt="Small Copper 4">
+                </p>
+                <p class="pr150">
+                    <img src="image/fs/kko/source/kko104013.jpg" width="640" border="0" alt="Small Copper 5">
+                </p>
+            </div>
+            <div class="prettyP_SP left2">
+                <p class="fss fwb pb10">
+                    a look which opened the wings
+                </p>
+                <p class="pb30">
+                    <a href="image/fs/kko/source/P1060064Beni2_1024.jpg"
+                        data-fancybox="gallery2" data-caption="Small Copper 3">
+                        <img src="image/fs/kko/source/P1060064Beni2_1024.jpg" height="212" border="0"
+                            alt="Small Copper 3">
+                    </a>
+                </p>
+                <p class="pb30 pl50">
+                    <a href="image/fs/kko/source/kko104011.jpg"
+                        data-fancybox="gallery2" data-caption="Small Copper 4">
+                        <img src="image/fs/kko/source/kko104011.jpg" height="192" border="0"
+                            alt="Small Copper 4">
+                    </a>
+                </p>
+                <p class="pr50 pb40">
+                    <a href="image/fs/kko/source/kko104013.jpg"
+                        data-fancybox="gallery2" data-caption="Small Copper 4">
+                        <img src="image/fs/kko/source/kko104013.jpg" height="192"
+                            alt="Small Copper 5">
+                    </a>
+                </p>
+            </div>
         </div>
-        <a name="page_bottom"></a>
 
     </div> <!-- page main: end -->
 
@@ -147,17 +245,19 @@
 
         <hr id="footer"> <!-- horizontal partition -->
 
-        <div class="jQ_change center" > <!-- select button whole: start -->
+        <p id="page-top"><a href="#">TOP</a></p>
+
+        <div class="jQ_change center"> <!-- select button whole: start -->
             <p id="footer"> <!-- select button: start -->
                 <a href="e_fs01_ls_4seasons.html#beni-sijimi">
-                    <IMG src="image/button/back_off.gif" border="0" alt="Back" >
+                    <img src="image/button/back_off.gif" border="0" alt="Back">
                 </a>
             </p> <!-- select button: end -->
         </div> <!-- select button whole: end -->
 
-        <div id="footer_label">
+        <div class="footer_labelPC">
             copyright &copy; 2003 -
-            <script type="text/javascript" language="JavaScript">
+            <script>
                 date = new Date();
                 document.write(date.getFullYear() + ' ');
             </script>
@@ -169,5 +269,5 @@
     </footer>
 
 </div> <!-- Pre Loading end -->
-</BODY>
+</body>
 </html>

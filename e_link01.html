@@ -1,89 +1,107 @@
-<!DOCTYPE HTML >
-<html>
+<!DOCTYPE html >
+<html lang="en">
 
 <head>
-    <META charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="description" content="CONTRAIL Links == Introducing the FLT.SIM general site and Dr. Kepler's homepage =">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Contrail Links </title>
 
     <!-- favicon-->
-    <link rel="shortcut icon" href="favicon.ico">
-
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="icon" href="favicon.ico">
 
     <!-- css start -->
+        <!-- kko_etc - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
+        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
+        <!-- PC用（幅769px以上に適用） -->
+        <link rel="stylesheet" href="libs/etc/css/kko_footer_style.css"  media="screen and (min-width: 769px)">
 
-        <!-- kko_etc start - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
-        <link rel="stylesheet" href="libs/etc/css/kko_footer_style.css" type="text/css">
-        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css" type="text/css">
-        <!-- kko_etc end -->
-
+        <style>
+            .grid1 {
+                display: grid;
+                grid-template-columns: auto 1fr;
+                align-items: center;
+                column-gap: 10px;
+                outline: solid 1px gray;
+            }
+        </style>
     <!-- css end -->
 
     <!-- js start -->
-
         <!-- jQuery start -->
-        <script src="libs/jQuery/js/jquery-1.6.1.min.js" type="text/javascript"></script>
-
-            <!-- 画像の先読み -->
-            <!-- IE7 以下は through -->
-            <script type="text/javascript">
-            $(function(){
-                jQuery.preloadImages = function(){
-                    for(var i = 0; i<arguments.length; i++){
-                        jQuery("<img>").attr("src", arguments[i]);
-                    }
-                };
-                $.preloadImages(
-                    "image/fs/rangiroa/source/2k2_Rangiroa.jpg"
-                );
-            });
-            </script>
-
-            <!-- kko_style start - img jq_blink, img jq_change -->
-            <script src="libs/jQuery/kko/js/jq_kko_style.js" type="text/javascript"></script>
-            <!-- kko_style end -->
-
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <!-- kko_style - img jq_blink, img jq_change -->
+            <script src="libs/jQuery/kko/js/jq_kko_style_main.js"></script>
         <!-- jQuery end -->
 
-        <!-- Sandbox DropDownMenu start -->
-        <script src="libs/sandbox/js/script.js" type="text/javascript"></script>
-        <!-- Sandbox DropDownMenu end -->
-
+         <!-- Sandbox DropDownMenu -->
+        <script src="libs/sandbox/js/script.js"></script>
     <!-- js end -->
 
 </head>
 
-<BODY id="common-k" >
+<body id="common-k">
 
     <header>
-        <a name="page_top"></a>
-        <div class="center jQ_change navbox" >
-            <nav>
-                <IMG src="image/top/Contrail_g.png" height="20" class="logo_img">
-                <ul class="menu" id="menu" >
-                    <li><a href="index.html" class="menulink">Home</a></li>
-                    <li><a href="e_whatnew.html" class="menulink">What's New</a></li>
-                    <li><a href="en_etc.html" class="menulink">E.T.C.</a></li>
-                    <li><a href="e_fs01.html" class="menulink">The Scenery</a>
-                        <ul>
-                            <li><a href="e_fs01_sc_top.html" class="sub">Screen Shots</a></li>
-                            <li><a href="e_fs01_ls_top.html" class="sub">Snap Shots</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="e_link01.html" class="menulink">Links</a></li>
-                    <li class="about"><a href="e_fs01_about.html" class="menulink">about Contrail</a></li>
-                </ul>
-            </nav>
-            <div class="c-both"></div>
+        <div class="prettyP_PC">
+            <a name="page_top"></a>
+            <div class="center jQ_change navbox" >
+                <nav>
+                    <img src="image/top/cr32_e.png" height="20" class="logo_img">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_img">
+                    <ul class="menu" id="menu" >
+                        <li><a href="index.html" class="menulink">Home</a></li>
+                        <li><a href="e_whatnew.html" class="menulink">What's New</a></li>
+                        <li><a href="en_etc.html" class="menulink">E.T.C.</a></li>
+                        <li><a href="e_fs01.html" class="menulink">The Scenery</a>
+                            <ul>
+                                <li><a href="e_fs01_sc_top.html" class="sub">Screen Shots</a></li>
+                                <li><a href="e_fs01_ls_top.html" class="sub">Snap Shots</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="e_link01.html" class="menulink">Links</a></li>
+                        <li class="about"><a href="e_fs01_about.html" class="menulink">about Contrail</a></li>
+                    </ul>
+                </nav>
+                <div class="c-both"></div>
+            </div>
+            <!-- Sandbox DropDownMenu start-->
+            <script>
+                var menu=new menu.dd("menu");
+                menu.init("menu","menuhover");
+            </script>
+            <!-- Sandbox DropDownMenu end -->
         </div>
-        <!-- Sandbox DropDownMenu start-->
-        <script type="text/javascript">
-            var menu=new menu.dd("menu");
-            menu.init("menu","menuhover");
-        </script>    <!-- Sandbox DropDownMenu end -->
+        <div class="prettyP_SP">
+            <a name="MENU"></a>
+            <p id="menu-call">
+                <a href="#">MENU</a>
+            </p>
+
+            <a name="page_top"></a>
+
+            <!-- page top icon & logo -->
+            <div id="header_SP" class="header_labelSP">
+                <div class="pb4"></div>
+                <img src="image/top/cr48f_32.png">
+                <img class="pb3" src="image/top/Contrail_g.png" height="24">
+            </div>
+
+            <div id="popup-menu" class="hidden">
+                <div class="menu-title">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_image" alt="CONTRAIL">
+                </div>
+                <ul>
+                <li><a href="index.html" class="menulink">Home</a></li>
+                <li><a href="e_whatnew.html" class="menulink">What's New</a></li>
+                <li><a href="en_etc.html" class="menulink">E.T.C.</a></li>
+                <li><a href="e_fs01.html" class="menulink">The Scenery</a>
+                <li><a href="e_link01.html" class="menulink">Links</a></li>
+                <li><a href="e_fs01_about.html" class="menulink">about Contrail</a></li>
+                </ul>
+            </div>
+        </div>
     </header>
 
     <div id="main800"> <!-- page main: start -->
@@ -91,80 +109,142 @@
         <!-- title -->
         <div id="title30">
             <p class="pb15"></p>
-            <h1 id="main_fss_E" >
+            <h1 id="main_fss_E">
                 Contrail Links
             </p>
         </div>
 
+        <!-- for Java Script off -->
+        <noscript>
+            <div id="attention">
+                <p>Sorry, you need to activate JavaScript in your browser.</p>
+            </div>
+        </noscript>
+
+        <!-- contents -->
         <div class="pb20">
-            <table width="856" border="4" bgcolor="white" >
+            <div class="prettyP_PC">
+                <table width="856" border="4" bgcolor="white">
+                    <!-- No.01 //-->
+                    <tr>
+                        <td width="256">
+                            <p class="table-link_left">
+                                <a href="http://www.flightsim.com/" target="_blank">
+                                    <img src="image/link/fslogo.gif" border="0">
+                                </a>
+                            </p>
+                        </td>
+                        <td>
+                            <p class="table-link_right fwb">
+                                If you are interested in Flight-Simulation, <br>
+                                I recommend you visit this site. 
+                                A enormous addon data is registered. 
+                                You will be able to find your necessary add-on data in this site. 
+                            </p>
+                        </td>
+                    </tr>
+                    <!-- No.02 //-->
+                    <tr>
+                        <td width="256">
+                            <p class="table-link_left">
+                                <a href="http://www.avsim.com/" target="_blank">
+                                    <img src="image/link/avsim.jpg" width="120" border="0">
+                                </a>
+                            </p>
+                        </td>
+                        <td>
+                            <p class="table-link_right fwb">
+                                Addon data all over the world is registered on this site as well as Flightsim. 
+                                For a free member, the data can be downloaded more high-speed than Flightsim. 
+                                But 'avsim' several times received hacking and had to register the data which I registered again each time. <br>
+                                In 'avsim', management seems to have a problem in comparison with 'flightsim'. 
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="prettyP_SP">
                 <!-- No.01 //-->
-                <tr>
-                    <td width="256" >
-                        <p class="table-link_left" >
-                            <a href="http://www.flightsim.com/" target="_blank">
-                                <img src="image/link/fslogo.gif" border="0">
-                            </a>
-                        </p>
-                    </td>
-                    <td>
-                        <p class="table-link_right fwb" >
-                            If you are interested in Flight-Simulation, <BR>
-                            I recommend you visit this site.
-                            A enormous addon data is registered.
-                            You will be able to find your necessary add-on data in this site.
-                        </p>
-                    </td>
-                </tr>
+                <div class="grid1 pb10">
+                    <div>
+                        <a href="http://www.flightsim.com/" target="_blank">
+                            <img src="image/link/fslogo.gif" width="64" border="0">
+                        </a>
+                    </div>
+                    <div class="left2">
+                        If you are interested in Flight-Simulation, 
+                        I recommend you visit this site. 
+                        A enormous addon data is registered. 
+                        You will be able to find your necessary add-on data in this site. 
+                    </div>
+                </div>
+                <div class="pb5"></div>
                 <!-- No.02 //-->
-                <tr>
-                    <td width="256">
-                        <p class="table-link_left" >
-                            <a href="http://www.avsim.com/" target="_blank">
-                                <img src="image/link/avsim.jpg" width="120" border="0">
-                            </a>
-                        </p>
-                    </td>
-                    <td>
-                        <p class="table-link_right fwb" >
-                            Addon data all over the world is registered on this site as well as Flightsim.
-                            For a free member, the data can be downloaded more high-speed than Flightsim.
-                            But 'avsim' several times received hacking and had to register the data which I registered again each time. <BR>
-                            In 'avsim', management seems to have a problem in comparison with 'flightsim'.
-                        </p>
-                    </td>
-                </tr>
-            </table>
+                <div class="grid1 pb10">
+                    <div>
+                        <a href="http://www.avsim.com/" target="_blank">
+                            <img src="image/link/avsim.jpg" width="64" border="0">
+                        </a>
+                    </div>
+                    <div class="left2">
+                        Addon data all over the world is registered on this site as well as Flightsim. 
+                        For a free member, the data can be downloaded more high-speed than Flightsim. 
+                        But 'avsim' several times received hacking and had to register the data which I registered again each time. 
+                        In 'avsim', management seems to have a problem in comparison with 'flightsim'. 
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="pb20">
 
-            <p class="fwb pb5" >
+            <p class="fwb pb5">
                 Special Link
             </p>
 
-            <table width="856" border="4" bgcolor="white" >
+            <div class="prettyP_PC">
+                <table width="856" border="4" bgcolor="white">
+                    <!-- No.01 //-->
+                    <tr>
+                        <td width="256">
+                            <p class="table-link_left">
+                                <a href="http://www.pacificwideconsulting.com/" target="_blank">
+                                    <img src="image/link/world_of_bananas.gif" width="228" border="0">
+                                </a>
+                            </p>
+                        </td>
+                        <td>
+                            <p class="table-link_right fwb">
+                                Dr. Kepler's homepage.
+                                She gives much advice to me now about Tuamotu.
+                                She's well-known ornithologist, but she's playing an active part in the various fields. 
+                                Moreover, she is also naturalist. She says.... 
+                                "I operate a farm too, growing almost all our own food, with 400 banana plants, 
+                                140 fruit trees (including coffee - I ferment & prepare all our own coffee), 
+                                60 chickens & ducks & lots of pretty flowers too!" 
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="prettyP_SP">
                 <!-- No.01 //-->
-                <tr>
-                    <td width="256" >
-                        <p class="table-link_left" >
-                            <a href="http://www.pacificwideconsulting.com/" target="_blank">
-                                <img src="image/link/world_of_bananas.gif" width="228" border="0">
-                            </a>
-                        </p>
-                    </td>
-                    <td>
-                        <p class="table-link_right fwb" >
-                            Dr. Kepler's homepage.
-                            She gives much advice to me now about Tuamotu.
-                            She's well-known ornithologist, but she's playing an active part in the various fields.
-                            Moreover, she is also naturalist. She says....
-                            "I operate a farm too, growing almost all our own food, with 400 banana plants,
-                            140 fruit trees (including coffee - I ferment & prepare all our own coffee),
-                            60 chickens & ducks & lots of pretty flowers too!"
-                        </p>
-                    </td>
-                </tr>
-            </table>
+                <div class="grid1 pb10">
+                    <div class="pb10">
+                        <a href="http://www.pacificwideconsulting.com/" target="_blank">
+                            <img src="image/link/world_of_bananas.gif" width="86" border="0">
+                        </a>
+                    </div>
+                    <div class="left2">
+                        Dr. Kepler's homepage. 
+                        She gives much advice to me now about Tuamotu. 
+                        She's well-known ornithologist, but she's playing an active part in the various fields. 
+                        Moreover, she is also naturalist. She says.... 
+                        "I operate a farm too, growing almost all our own food, with 400 banana plants, 
+                        140 fruit trees (including coffee - I ferment & prepare all our own coffee), 
+                        60 chickens & ducks & lots of pretty flowers too!" 
+                    </div>
+                </div>
+            </div>
         </div>
 
         <a name="page_bottom"></a>
@@ -172,21 +252,49 @@
     </div> <!-- page main: end -->
 
     <footer>
-        <div class="wrap">
+        <div class="prettyP_PC">
+            <div class="wrap">
+            </div>
+            <div class="footer_bottom_fixed2">
+                <hr id="footer"> <!-- horizontal partition -->
+
+                <div class="jQ_change center"> <!-- select button whole: start -->
+                    <p id="footer"> <!-- select button: start -->
+                        <a href="index.html">
+                            <img src="image/button/home_off.gif" border="0" alt="Home">
+                        </a>
+                    </p> <!-- select button: end -->
+                </div> <!-- select button whole: end -->
+
+                <div class="footer_labelPC">
+                    copyright &copy; 2003 -
+                    <script>
+                        date = new Date();
+                        document.write(date.getFullYear() + ' ');
+                    </script>
+                    <nonscript>
+                    </nonscript>
+                    Contrail -kotan- all rights reserved
+                </div>
+            </div>
         </div>
-        <div class="footer_bottom_fixed2">
+        <div class="prettyP_SP">
+
             <hr id="footer"> <!-- horizontal partition -->
 
-            <div class="jQ_change center" > <!-- select button whole: start -->
+            <p id="page-top"><a href="#">トップ</a></p>
+
+            <div class="jQ_change center"> <!-- select button whole: start -->
                 <p id="footer"> <!-- select button: start -->
-                    <a href="index.html" >
-                        <IMG src="image/button/home_off.gif" border="0" alt="Home" >
+                    <a href="index.html">
+                        <img src="image/button/home_off.gif" border="0" alt="Home">
                     </a>
                 </p> <!-- select button: end -->
             </div> <!-- select button whole: end -->
-            <div class="footer_bottom_fixed2_col">
+
+            <div class="footer_labelPC">
                 copyright &copy; 2003 -
-                <script type="text/javascript" language="JavaScript">
+                <script>
                     date = new Date();
                     document.write(date.getFullYear() + ' ');
                 </script>

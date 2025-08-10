@@ -1,167 +1,231 @@
-<!DOCTYPE HTML >
-<html>
+<!DOCTYPE html >
+<html lang="en">
 
-<HEAD>
-    <META charset="UTF-8">
-    <META name="description" content="This page introduces Flight Simulator add-on scenery: French Polynesia Tuamotu Archipelago FS9/FSX Addon Scenery. ">
-    <META name="keywords" content="Flight Simulator,FS,FS9,FSX,Addon,scenery,Tuamotu,Archipelago,French,Polynesia">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="This page introduces Flight Simulator add-on scenery: French Polynesia Tuamotu Archipelago FS9/FSX Addon Scenery. ">
+    <meta name="keywords" content="Flight Simulator,FS,FS9,FSX,Addon,scenery,Tuamotu,Archipelago,French,Polynesia">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Contrail French Polynesia Tuamotu Archipelago FS9/FSX Addon Scenery</title>
 
     <!-- favicon-->
-    <link rel="shortcut icon" href="favicon.ico">
-
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="icon" href="favicon.ico">
 
     <!-- css start -->
+        <!-- kko_etc - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
+        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
 
-        <!-- kko_etc start - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
-        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css" type="text/css">
-        <!-- kko_etc end -->
+        <!-- Fancybox CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css">
 
+        <style>
+            /* Optional: Limit image size on small screens */
+            @media (max-width: 768px) {
+                .fancybox_image {
+                    max-width: 256px;
+                }
+                .fancybox_image2 {
+                    max-width: 300px;
+                }
+            }
+        </style>
     <!-- css end -->
 
     <!-- js start -->
-
         <!-- jQuery start -->
-        <script src="libs/jQuery/js/jquery-1.6.1.min.js" type="text/javascript"></script>
-
-            <!-- kko_style start - img jq_blink, img jq_change -->
-            <script src="libs/jQuery/kko/js/jq_kko_style.js" type="text/javascript"></script>
-            <!-- kko_style end -->
+        <script src="libs/jQuery/js/jquery-1.6.1.min.js"></script>
+            <!-- kko_style - img jq_blink, img jq_change -->
+            <script src="libs/jQuery/kko/js/jq_kko_style.js"></script>
 
             <!-- ImageMapStar_style start - Clickable map Extension -->
             <script src="libs/jQuery/imageMAPster/js/jquery.imagemapster.min.js"></script>
-            <!-- IE 8 までは対応していないので，Clickable map Extension は使わない -->
-            <script type="text/javascript">
-            <!--
-                var kk = -1;
-                if (typeof document.documentElement.style.maxHeight != "undefined") {
-                    if (!/*@cc_on!@*/false){
-                        // other than IE
-                    }else if (document.documentMode >=9) {
-                        // after IE9
-                    }else {
-                        kk = 0; //IE7, IE8（IE7 mode)
-                    }
-                } else {
-                  kk = 0; // before IE 6.0
-                }
-                if( kk == -1) {
-                    $(document).ready(function ()
-                    {
-                        $('#flt_sim_tuamotu_whole').mapster({
-                            singleSelect : true,
-                            clickNavigate : true,
-                            render_highlight : { altImage : 'image/fs/tuamotu/source/Tuamotu_whole_map_on.gif' },
-                            mapKey: 'key',
-                            fill : true,
-                            fillOpacity : 1
-                        });
+            <script>
+                $(document).ready(function ()
+                {
+                    $('#flt_sim_tuamotu_whole').mapster({
+                        singleSelect : true,
+                        clickNavigate : true,
+                        render_highlight : { altImage : 'image/fs/tuamotu/source/Tuamotu_whole_map_on.gif' },
+                        mapKey: 'key',
+                        fill : true,
+                        fillOpacity : 1
                     });
-                }
-            -->
+                });
             </script>
             <!-- ImageMapStar_style end -->
-
         <!-- jQuery end -->
 
-        <!-- Sandbox DropDownMenu start -->
-        <script src="libs/sandbox/js/script.js" type="text/javascript"></script>
-        <!-- Sandbox DropDownMenu end -->
+        <!-- Fancybox JS -->
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
 
+        <!-- Sandbox DropDownMenu -->
+        <script src="libs/sandbox/js/script.js"></script>
     <!-- js end -->
 
-</HEAD>
+</head>
 
-<BODY id="common-k" >
+<body id="common-k_Roman">
 
     <header>
-        <a name="page_top"></a>
-        <div class="center jQ_change navbox" >
-            <nav>
-                <IMG src="image/top/Contrail_g.png" height="20" class="logo_img">
-                <ul class="menu" id="menu" >
-                    <li><a href="index.html" class="menulink">Home</a></li>
-                    <li><a href="fs01_sc_top.html#Tuamotu" class="menulink">Back - Jp</a></li>
-                    <li><a href="e_fs01_sc_top.html#Tuamotu" class="menulink">Back - En</a></li>
-                    <li class="about"><a href="e_fs01_about.html" class="menulink">about Contrail</a></li>
-                </ul>
-            </nav>
-            <div class="c-both"></div>
+        <div class="prettyP_PC">
+            <a name="page_top"></a>
+            <div class="center jQ_change navbox" >
+                <nav>
+                    <img src="image/top/cr32_e.png" height="20" class="logo_img">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_img">
+                    <ul class="menu" id="menu" >
+                        <li><a href="index.html" class="menulink">Home</a></li>
+                        <li><a href="e_whatnew.html" class="menulink">What's New</a></li>
+                        <li><a href="en_etc.html" class="menulink">E.T.C.</a></li>
+                        <li><a href="e_fs01.html" class="menulink">The Scenery</a>
+                            <ul>
+                                <li><a href="e_fs01_sc_top.html" class="sub">Screen Shots</a></li>
+                                <li><a href="e_fs01_ls_top.html" class="sub">Snap Shots</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="e_link01.html" class="menulink">Links</a></li>
+                        <li class="about"><a href="e_fs01_about.html" class="menulink">about Contrail</a></li>
+                    </ul>
+                </nav>
+                <div class="c-both"></div>
+            </div>
+            <!-- Sandbox DropDownMenu start-->
+            <script>
+                var menu=new menu.dd("menu");
+                menu.init("menu","menuhover");
+            </script>
+            <!-- Sandbox DropDownMenu end -->
         </div>
-        <!-- Sandbox DropDownMenu start-->
-        <script type="text/javascript">
-            var menu=new menu.dd("menu");
-            menu.init("menu","menuhover");
-        </script>
-        <!-- Sandbox DropDownMenu end -->
+        <div class="prettyP_SP">
+            <a name="MENU"></a>
+            <p id="menu-call">
+                <a href="#">MENU</a>
+            </p>
+
+            <a name="page_top"></a>
+
+            <!-- page top icon & logo -->
+            <div id="header_SP" class="header_labelSP">
+                <div class="pb4"></div>
+                <img src="image/top/cr48f_32.png">
+                <img class="pb3" src="image/top/Contrail_g.png" height="24">
+            </div>
+
+            <div id="popup-menu" class="hidden">
+                <div class="menu-title">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_image" alt="CONTRAIL">
+                </div>
+                <ul>
+                <li><a href="index.html" class="menulink">Home</a></li>
+                <li><a href="e_whatnew.html" class="menulink">What's New</a></li>
+                <li><a href="en_etc.html" class="menulink">E.T.C.</a></li>
+                <li><a href="e_fs01.html" class="menulink">The Scenery</a>
+                <li><a href="e_link01.html" class="menulink">Links</a></li>
+                <li><a href="e_fs01_about.html" class="menulink">about Contrail</a></li>
+                </ul>
+            </div>
+        </div>
     </header>
 
-    <div id="main880" class="lineh120"> <!-- page main: start -->
+    <div id="main880-480new_en" class="lineh140"> <!-- page main: start -->
 
         <!-- title -->
         <div id="title40">
             <p id="head25">
                 <a name="page_top">
-                    <IMG src="image/fs/kko_fssg_logo.gif" alt="Contrail Flight Simulation Special Gallery">
+                    <img src="image/fs/kko_fssg_logo.gif" alt="Contrail Flight Simulation Special Gallery">
                 </a>
             </p>
-            <h1 id="main_fs_E">
-                French Polynesia Tuamotu Archipelago <BR>
-                FS9/FSX Addon Scenery
-            </h1>
+            <div class="prettyP_PC">
+                <h1 id="main_fs_E">
+                    French Polynesia Tuamotu Archipelago <br>
+                    FS9/FSX Addon Scenery
+                </h1>
+            </div>
+            <div class="prettyP_SP">
+                <h3>
+                    French Polynesia Tuamotu Archipelago <br>
+                    FS9/FSX Addon Scenery
+                </h3>
+            </div>
         </div>
 
+        <!-- for Java Script off -->
+        <noscript>
+            <div id="attention">
+                <p>Sorry, you need to activate JavaScript in your browser.</p>
+            </div>
+        </noscript>
+
         <!-- contents -->
+
         <!-- <div class="pic-center800 pb50"> -->
-        <div class="pic-center800 pb30">
-            <div class="left pb10">
+        <div class="pic-left800 pb30">
+            <div class="pb10">
                 <p class="fwb">
-                    Tuamotu Archipelago is located in the south Pacific Ocean and is part of the French Polynesia. <BR>
-                    The archiperago scattered in the northeast of Tahiti island is composed of 78 islands. <BR>
-                    The west edge of the archipelago is Mataiva island located in 14:53 South and 148:43 West. <BR>
-                    The southeast edge reaches the Gambiers islands located in 23:09 South and 134:58 West. <BR>
-                    Each island of the archipelago is made in a toroidal coral reef excluding the Makatea island. <BR>
+                    Tuamotu Archipelago is located in the south Pacific Ocean and is part of the French Polynesia.
+                    The archiperago scattered in the northeast of Tahiti island is composed of 78 islands.
+                    The west edge of the archipelago is Mataiva island located in 14:53 South and 148:43 West.
+                    The southeast edge reaches the Gambiers islands located in 23:09 South and 134:58 West.
+                    Each island of the archipelago is made in a toroidal coral reef excluding the Makatea island.
                     They are islands like a beautiful necklace sprinkled in the tropical ocean.
                 </p>
             </div>
-            <div class="left pb10">
-                <div class="contents-2col-left w512">
-                    <p class="fwb">
-                        The pictures that appear by clicking the following map are the screen shots of the scene
-                        reproduced on the Microsoft Flight Simulator 2004 (FS9) and Flight Simulator X (FSX). <BR>
-                        I thought I'd like to reproduce the beautiful atolls, lagoons
-                        and reefs of the "Tuamotu Archipelago" on FS9/FSX. <BR>
-                        I reproduced about fifty islands in the archipelago as add-on senery.
-                    </p>
+            <div class="pb10">
+                <div class="prettyP_PC">
+                    <div class="contents-2col-left w512">
+                        <p class="fwb">
+                            The pictures that appear by clicking the following map are the screen shots of the scene
+                            reproduced on the Microsoft Flight Simulator 2004 (FS9) and Flight Simulator X (FSX).
+                            I thought I'd like to reproduce the beautiful atolls, lagoons
+                            and reefs of the "Tuamotu Archipelago" on FS9/FSX.
+                            I reproduced about fifty islands in the archipelago as add-on scenery.
+                        </p>
+                    </div>
+                    <div class="contents-2col-right">
+                        <p>
+                            <img src="image/fs/tuamotu/tuamotu_b_thumb_Anaa_SC01.jpg" alt="Tuamotu Anaa">
+                        </p>
+                    </div>
                 </div>
-                <div class="contents-2col-right">
-                    <p>
-                        <IMG src="image/fs/tuamotu/tuamotu_b_thumb_Anaa_SC01.jpg" alt="Tuamotu Anaa">
-                    </p>
+                <div class="prettyP_SP">
+                    <div class="contents-2col-left">
+                        <p>
+                            <span class="image-container">
+                                <img src="image/fs/tuamotu/tuamotu_b_thumb_Anaa_SC01.jpg" alt="Tuamotu Anaa">
+                            </span>
+                        </p>
+                    </div>
+                    <div class="contents-2col-right800">
+                        <p class="fwb">
+                            The pictures that appear by clicking the following map are the screen shots of the scene
+                            reproduced on the Microsoft Flight Simulator 2004 (FS9) and Flight Simulator X (FSX).
+                            I thought I'd like to reproduce the beautiful atolls, lagoons
+                            and reefs of the "Tuamotu Archipelago" on FS9/FSX.
+                            I reproduced about fifty islands in the archipelago as add-on scenery.
+                        </p>
+                    </div>
                 </div>
             </div>
-            <div class="left">
+            <div>
                 <!-- <p class="fwb"> --> <!-- アップデートなし -->
                 <p class="fwb pb20"> <!-- アップデートあり -->
                     FS9/FSX Scenery "French Polynesia Tuamotu Archipelago" is registered in
                     <a href="http://www.flightsim.com/" target="_blank">"flightsim"</a>
-                    and <a href="http://www.avsim.com/" target="_blank">"avsim"</a>. <BR>
-                    This scenery is released as freeware. <BR>
+                    and <a href="http://www.avsim.com/" target="_blank">"avsim"</a>. <br>
+                    This scenery is released as freeware. <br>
                     It is divided into two files because of the data size.
                 </p>
             </div>
-            <div class="left">
+            <div>
                 <p class="fwb pb5">
-                    <IMG src="image/button/update.gif" width="62" height="14" >
+                    <img src="image/button/update.gif" width="62" height="14">
                      [Tuamotu Group B] - <a href="fs01_sc_tuamotu_b.html#Niau">Niau</a>
                 </p>
                 <!--
                 <p class="fwb">
-                    <IMG src="image/button/update.gif" width="62" height="14" >
+                    <img src="image/button/update.gif" width="62" height="14">
                      [Tuamotu Group C] - <a href="fs01_sc_tuamotu_c.html#Napuka">Napuka</a>
                 </p>
                 -->
@@ -169,34 +233,54 @@
 
         </div>
 
-        <div class="pb10">
-            <p class="fwb">
-                == Click the desired area ==
-            </p>
+        <div class="prettyP_PC">
+            <div class="pb10">
+                <p class="fwb">
+                    == Click the desired area ==
+                </p>
+            </div>
+
+            <div class="pic-center840 pb20">
+                <p>
+                    <img id="flt_sim_tuamotu_whole" src="image/fs/tuamotu/source/Tuamotu_whole_map_off.gif" border="0"
+                        alt="Tuamotu Whole Map" usemap="#flt_sim_tuamotu_whole">
+                </p>
+                <map name="flt_sim_tuamotu_whole">
+                    <!-- 別窓へのジャンプ -->
+                    <area key="Tuamotu Group A" shape="rect" coords="4,84,356,277"        href="fs01_sc_tuamotu_a.html" alt="Jamp to Tuamotu Group A">
+                    <area key="Tuamotu Group B" shape="rect" coords="188,276,497,482"    href="fs01_sc_tuamotu_b.html" alt="Jamp to Tuamotu Group B">
+                    <area key="Tuamotu Group C" shape="rect" coords="493,45,732,174"    href="fs01_sc_tuamotu_c.html" alt="Jamp to Tuamotu Group C">
+                    <area key="Tuamotu Group D" shape="rect" coords="493,233,731,453"    href="fs01_sc_tuamotu_d.html" alt="Jamp to Tuamotu Group D">
+                    <area key="Tuamotu Group E" shape="rect" coords="494,449,824,668"    href="fs01_sc_tuamotu_e.html" alt="Jamp to Tuamotu Group E">
+                </map>
+            </div>
+        </div>
+        <div class="prettyP_SP pt30">
+            <div class="table-container pb30">
+                <div class="pic-center840 pb20">
+                    <p>
+                        <img id="flt_sim_tuamotu_whole" src="image/fs/tuamotu/source/Tuamotu_whole_map_off.gif" border="0"
+                            alt="Tuamotu Whole Map" usemap="#flt_sim_tuamotu_whole">
+                    </p>
+                    <map name="flt_sim_tuamotu_whole">
+                        <!-- 別窓へのジャンプ -->
+                        <area key="Tuamotu Group A" shape="rect" coords="4,84,356,277"        href="fs01_sc_tuamotu_a.html" alt="Jamp to Tuamotu Group A">
+                        <area key="Tuamotu Group B" shape="rect" coords="188,276,497,482"    href="fs01_sc_tuamotu_b.html" alt="Jamp to Tuamotu Group B">
+                        <area key="Tuamotu Group C" shape="rect" coords="493,45,732,174"    href="fs01_sc_tuamotu_c.html" alt="Jamp to Tuamotu Group C">
+                        <area key="Tuamotu Group D" shape="rect" coords="493,233,731,453"    href="fs01_sc_tuamotu_d.html" alt="Jamp to Tuamotu Group D">
+                        <area key="Tuamotu Group E" shape="rect" coords="494,449,824,668"    href="fs01_sc_tuamotu_e.html" alt="Jamp to Tuamotu Group E">
+                    </map>
+                </div>
+            </div>
         </div>
 
-        <div class="pic-center840 pb20">
-            <p>
-                <IMG id="flt_sim_tuamotu_whole" src="image/fs/tuamotu/source/Tuamotu_whole_map_off.gif" border="0"
-                    alt="Tuamotu Whole Map" usemap="#flt_sim_tuamotu_whole">
-            </p>
-            <map name="flt_sim_tuamotu_whole">
-                <!-- 別窓へのジャンプ -->
-                <area key="Tuamotu Group A" shape="rect" coords="4,84,356,277"        href="fs01_sc_tuamotu_a.html" alt="Jamp to Tuamotu Group A">
-                <area key="Tuamotu Group B" shape="rect" coords="188,276,497,482"    href="fs01_sc_tuamotu_b.html" alt="Jamp to Tuamotu Group B">
-                <area key="Tuamotu Group C" shape="rect" coords="493,45,732,174"    href="fs01_sc_tuamotu_c.html" alt="Jamp to Tuamotu Group C">
-                <area key="Tuamotu Group D" shape="rect" coords="493,233,731,453"    href="fs01_sc_tuamotu_d.html" alt="Jamp to Tuamotu Group D">
-                <area key="Tuamotu Group E" shape="rect" coords="494,449,824,668"    href="fs01_sc_tuamotu_e.html" alt="Jamp to Tuamotu Group E">
-            </map>
-        </div>
-
-        <div class="left pb20">
+        <div class="left2 pt30 pb20">
             <h3 class="fs110 pb20">
                 The Supplement:
             </h3>
 
             <p class="pb15">
-                I referred a lot of information to make these pages. <BR>
+                I referred a lot of information to make these pages. <br>
                 The data of the following Web sites were especially profitable for me:
             </p>
 
@@ -220,44 +304,66 @@
 
             <p class="pb10">
                 The grouping of above figure is
-                what I did expediently to introduce the Tuamotu Scenery. <BR>
+                what I did expediently to introduce the Tuamotu Scenery. <br>
                 Refer to the above links for actual grouping.
             </p>
 
             <p class="pb25">
                 Tuamotu archipelago is also called
-                <a href="image/fs/tuamotu/source/Tuamotu_twin_chains_atolls.gif" rel="prettyPhoto"
-                    title="The Chain Islands" target="_blank">
+                <a href="image/fs/tuamotu/source/Tuamotu_twin_chains_atolls.gif" data-fancybox="gallery1"
+                    data-caption="The Chain Islands">
                     <span class="fss fwb">"The Chain Islands"</span>
-                </a>. <BR>
+                </a>. <br>
                 You can see why when you look at the northwest region of the archipelago,
                 the main atolls are spread out from the northwest to the
-                southeast looking like "twin chains". <BR>
-                <a href="image/fs/tuamotu/source/Tuamotu_terrain_with_sea_level.jpg" rel="prettyPhoto"
-                    title="The terrain data including undersea " target="_blank">
+                southeast looking like "twin chains". <br>
+                <a href="image/fs/tuamotu/source/Tuamotu_terrain_with_sea_level.jpg" data-fancybox="gallery2"
+                    data-caption="The terrain data including undersea ">
                     <span class="fss fwb">The terrain data including undersea</span>
                 </a>
                 indicates that there is a vast oceanic plateau underneath and the
                 entire "Chain Islands" are sitting right in the middle of it.
             </p>
 
-            <h4 class="pb15">
-                Special Thanks: <span class="fs90">Mr. Porco, Dr. Angela Kay Kepler</span>
-            </h4>
-            <h4 class="pb15">
-                Author:
-                    <span class="fs90">Kazuo Kawamura</span>
-            </h4>
-            <h4 class="pb15">
-                Released libraries:
-                <a href="https://www.flightsim.com/search/?&q=Kazuo%20Kawamura&page=1&quick=1&search_and_or=and&sortby=relevancy target="_blank"">
-                <span class="fs90">Flightsim.com search</span>
-                </a>
-                &nbsp;&nbsp;
-                <a href="https://library.avsim.net/search.php?SearchTerm=Kazuo+Kawamura&CatID=root&Go=Search" target="_blank">
-                <span class="fs90">AVSIM search</span>
-                </a>
-            </h4>
+            <div class="prettyP_PC">
+                <h4 class="pb15">
+                    Special Thanks: <span class="fs90">Mr. Porco, Dr. Angela Kay Kepler</span>
+                </h4>
+                <h4 class="pb15">
+                    Author:
+                        <span class="fs90">Kazuo Kawamura</span>
+                </h4>
+                <h4 class="pb15">
+                    Released libraries:
+                    <a href="https://www.flightsim.com/search/?&q=Kazuo%20Kawamura&page=1&quick=1&search_and_or=and&sortby=relevancy target="_blank"">
+                    <span class="fs90">Flightsim.com search</span>
+                    </a>
+                    &nbsp;&nbsp;
+                    <a href="https://library.avsim.net/search.php?SearchTerm=Kazuo+Kawamura&CatID=root&Go=Search" target="_blank">
+                    <span class="fs90">AVSIM search</span>
+                    </a>
+                </h4>
+            </div>
+            <div class="prettyP_SP">
+                <h4 class="pb15">
+                    <div class="info-block">
+                        <div class="label">Special Thanks:</div>
+                        <div class="content">
+                            Mr. Porco<br>
+                            Dr. Angela Kay Kepler
+                        </div>
+
+                        <div class="label">Author:</div>
+                        <div class="content">Kazuo Kawamura</div>
+
+                        <div class="label">Released libraries:</div>
+                        <div class="content">
+                            <a href="https://www.flightsim.com/search/?&q=Kazuo%20Kawamura&page=1&quick=1&search_and_or=and&sortby=relevancy" target="_blank">Flightsim.com search</a><br>
+                            <a href="https://library.avsim.net/search.php?SearchTerm=Kazuo+Kawamura&CatID=root&Go=Search" target="_blank">AVSIM search</a>
+                        </div>
+                    </div>
+                </h4>
+            </div>
         </div>
 
     </div> <!-- page main: end -->
@@ -266,17 +372,19 @@
     <footer>
         <hr id="footer"> <!-- horizontal partition -->
 
-        <div class="jQ_change center" > <!-- select button whole: start -->
+        <p id="page-top"><a href="#">TOP</a></p>
+
+        <div class="jQ_change center"> <!-- select button whole: start -->
             <p id="footer">  <!-- select button 1: start -->
                 <a href="e_fs01_sc_top.html#Rangiroa">
-                    <IMG src="image/button/screen_top_off.gif" border="0" alt="Screen Shots Top" >
+                    <img src="image/button/screen_top_off.gif" border="0" alt="Screen Shots Top">
                 </a>
             </p> <!-- select button 1: end -->
         </div> <!-- select button whole: end -->
 
-        <div id="footer_label">
+        <div class="footer_labelPC">
             copyright &copy; 2003 -
-            <script type="text/javascript" language="JavaScript">
+            <script>
                 date = new Date();
                 document.write(date.getFullYear() + ' ');
             </script>
@@ -287,5 +395,5 @@
     </footer>
     <!-- Tuamotu Top footer: end -->
 
-</BODY>
+</body>
 </html>

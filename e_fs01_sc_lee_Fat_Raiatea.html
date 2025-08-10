@@ -1,137 +1,217 @@
-<!DOCTYPE HTML >
-<html>
+<!DOCTYPE html >
+<html lang="en">
 
-<HEAD>
-    <META charset="UTF-8">
-    <META name="robots" content="follow, noindex">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="follow, noindex">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Contrail ScreenShots : Tahiti LeeWard Scenery :: FatRaiatea</title>
 
     <!-- favicon-->
-    <link rel="shortcut icon" href="favicon.ico">
-
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="icon" href="favicon.ico">
 
     <!-- css start -->
-
-        <!-- kko_etc start - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
-        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css" type="text/css">
-        <!-- kko_etc end -->
-
+        <!-- kko_etc - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
+        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
     <!-- css end -->
 
     <!-- js start -->
-
         <!-- jQuery start -->
-        <script src="libs/jQuery/js/jquery-1.6.1.min.js" type="text/javascript"></script>
-
-            <!-- kko_style start - img jq_blink, img jq_change -->
-            <script src="libs/jQuery/kko/js/jq_kko_preload.js" type="text/javascript"></script>
-            <script src="libs/jQuery/kko/js/jq_kko_style.js" type="text/javascript"></script>
-            <!-- kko_style end -->
-
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <!-- kko_style - img jq_blink, img jq_change -->
+            <script src="libs/jQuery/kko/js/jq_kko_style.js"></script>
         <!-- jQuery end -->
-
-        <!-- Sandbox DropDownMenu start -->
-        <script src="libs/sandbox/js/script.js" type="text/javascript"></script>
-        <!-- Sandbox DropDownMenu end -->
-
     <!-- js end -->
 
-</HEAD>
+</head>
 
-<BODY id="common-k" >
-
-<!-- Pre Loading -->
-<!-- without loading picture -->
-<div id="loader"></div>
-<div id="fade"></div>
-<div id="preload"> <!-- Pre Loading start -->
+<body id="common-k">
 
     <header>
-        <a name="page_top"></a>
-        <div class="center jQ_change navbox" >
-            <nav>
-                <IMG src="image/top/Contrail_g.png" height="20" class="logo_img">
-                <ul class="menu" id="menu" >
-                    <li><a href="index.html" class="menulink">Home</a></li>
-                    <li><a href="e_whatnew.html" class="menulink">What's New</a></li>
-                    <li><a href="en_etc.html" class="menulink">E.T.C.</a></li>
-                    <li><a href="e_fs01.html" class="menulink">The Scenery</a>
-                        <ul>
-                            <li><a href="e_fs01_sc_top.html" class="sub">Screen Shots</a></li>
-                            <li><a href="e_fs01_ls_top.html" class="sub">Snap Shots</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="e_link01.html" class="menulink">Links</a></li>
-                    <li class="about"><a href="e_fs01_about.html" class="menulink">about Contrail</a></li>
-                </ul>
-            </nav>
-            <div class="c-both"></div>
+        <div class="prettyP_PC">
+            <a name="page_top"></a>
+            <div class="center jQ_change navbox" >
+                <nav>
+                    <img src="image/top/cr32_e.png" height="20" class="logo_img">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_img">
+                    <ul class="menu" id="menu" >
+                        <li><a href="index.html" class="menulink">Home</a></li>
+                        <li><a href="e_whatnew.html" class="menulink">What's New</a></li>
+                        <li><a href="en_etc.html" class="menulink">E.T.C.</a></li>
+                        <li><a href="e_fs01.html" class="menulink">The Scenery</a>
+                            <ul>
+                                <li><a href="e_fs01_sc_top.html" class="sub">Screen Shots</a></li>
+                                <li><a href="e_fs01_ls_top.html" class="sub">Snap Shots</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="e_link01.html" class="menulink">Links</a></li>
+                        <li class="about"><a href="e_fs01_about.html" class="menulink">about Contrail</a></li>
+                    </ul>
+                </nav>
+                <div class="c-both"></div>
+            </div>
+            <!-- Sandbox DropDownMenu start-->
+            <script>
+                var menu=new menu.dd("menu");
+                menu.init("menu","menuhover");
+            </script>
+            <!-- Sandbox DropDownMenu end -->
         </div>
-        <!-- Sandbox DropDownMenu start-->
-        <script type="text/javascript">
-            var menu=new menu.dd("menu");
-            menu.init("menu","menuhover");
-        </script>    <!-- Sandbox DropDownMenu end -->
+        <div class="prettyP_SP">
+            <a name="MENU"></a>
+            <p id="menu-call">
+                <a href="#">MENU</a>
+            </p>
+
+            <a name="page_top"></a>
+
+            <!-- page top icon & logo -->
+            <div id="header_SP" class="header_labelSP">
+                <div class="pb4"></div>
+                <img src="image/top/cr48f_32.png">
+                <img class="pb3" src="image/top/Contrail_g.png" height="24">
+            </div>
+
+            <div id="popup-menu" class="hidden">
+                <div class="menu-title">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_image" alt="CONTRAIL">
+                </div>
+                <ul>
+                <li><a href="index.html" class="menulink">Home</a></li>
+                <li><a href="e_whatnew.html" class="menulink">What's New</a></li>
+                <li><a href="en_etc.html" class="menulink">E.T.C.</a></li>
+                <li><a href="e_fs01.html" class="menulink">The Scenery</a>
+                <li><a href="e_link01.html" class="menulink">Links</a></li>
+                <li><a href="e_fs01_about.html" class="menulink">about Contrail</a></li>
+                </ul>
+            </div>
+        </div>
     </header>
 
-    <div id="main880"> <!-- page main: start -->
+    <div id="main880-480new_en"> <!-- page main: start -->
 
         <!-- title -->
-        <div id="title10">
-            <p id="head20" >
-                <IMG src="image/fs/kko_fssg_logo.gif" alt="Contrail Flight Simulation Special Gallery">
-            </p>
-            <h1 id="main_fssSC">
-                Fat Raiatea
-            </h1>
-            <h2 id="sub-SC">
-                ... from the various topics of my scenery design
-            </h2>
+        <div class="prettyP_PC">
+            <div id="title10">
+                <p id="head20">
+                    <img src="image/fs/kko_fssg_logo.gif" alt="Contrail Flight Simulation Special Gallery">
+                </p>
+                <h1 id="main_fss_E" class="pb30">
+                    Fat Raiatea
+                </h1>
+                <h2 id="sub-SC2">
+                    ... from the various topics of my scenery design
+                </h2>
+            </div>
+            <div class="pb10"></div>
+        </div>
+        <div class="prettyP_SP">
+            <div id="title20new">
+                <p id="head20 pb10">
+                    <img src="image/fs/kko_fssg_logo.gif" alt="Contrail Flight Simulation Special Gallery">
+                </p>
+                <div class="pb20"></div>
+                <h3 id="main_fss_E" class="pb30">
+                    Fat Raiatea
+                </h3>
+                <h4 id="sub-SC2">
+                    ... from the various topics of my scenery design
+                </h4>
+            </div>
         </div>
 
+        <!-- for Java Script off -->
+        <noscript>
+            <div id="attention">
+                <p>Sorry, you need to activate JavaScript in your browser.</p>
+            </div>
+        </noscript>
+
         <!-- contents -->
-        <div class="pb20">
-            <p class="pb15">
-                <IMG src="image/fs/leeward/source/Fat_Raiatea_512.jpg" width="512"
-                    alt="LeeWard_Fat_Raiatea">
-            </p>
-            <p class="pb10">
-                The above picture is Raiatea created based on the contour line. <BR>
-                Since the mountains consisted of polygons,
-                I designed considering so that each polygon may connect smoothly. <BR>
-                It became the island of soft appearance
-                and became a result satisfactory as me.
-            </p>
-            <p class="pb15">
-                When I began making the texture, <BR>
-                I found following image on the web page of NASA.
-            </p>
-            <p class="pb15">
-                <IMG src="image/fs/leeward/source/NASA_Bora.gif" width="232"
-                    alt="Tahaa_Raiatea_BoraBora by NASA">
-            </p>
-            <p class="pb10">
-                I felt let down when I looked at the picture. <BR>
-                The expression of the island is stern like a back of dinosaur,
-                it seems to have shaved all flab from the island which I designed.
-            </p>
-            <p class="pb10">
-            However, I redesigned Raiatea once again. <BR>
-            It is difficult to design a sharp form like Raiatea by polygons. <BR>
-            </p>
-            <p class="pb15">
-            The results of efforts is the following picture.
-            </p>
-            <p>
-                <IMG src="image/fs/leeward/source/Smart_Raiatea_509.jpg" width="509"
-                    alt="LeeWard_Smart_Raiatea">
-            </p>
+        <div class="prettyP_PC">
+            <div class="pb20">
+                <p class="pb15">
+                    <img src="image/fs/leeward/source/Fat_Raiatea_512.jpg" width="512"
+                        alt="LeeWard_Fat_Raiatea">
+                </p>
+                <p class="pb10">
+                    The above picture is Raiatea created based on the contour line. <br>
+                    Since the mountains consisted of polygons,
+                    I designed considering so that each polygon may connect smoothly. <br>
+                    It became the island of soft appearance
+                    and became a result satisfactory as me.
+                </p>
+                <p class="pb15">
+                    When I began making the texture, <br>
+                    I found following image on the web page of NASA.
+                </p>
+                <p class="pb15">
+                    <img src="image/fs/leeward/source/NASA_Bora.gif" width="232"
+                        alt="Tahaa_Raiatea_BoraBora by NASA">
+                </p>
+                <p class="pb10">
+                    I felt let down when I looked at the picture. <br>
+                    The expression of the island is stern like a back of dinosaur,
+                    it seems to have shaved all flab from the island which I designed.
+                </p>
+                <p class="pb10">
+                However, I redesigned Raiatea once again. <br>
+                It is difficult to design a sharp form like Raiatea by polygons. <br>
+                </p>
+                <p class="pb15">
+                The results of efforts is the following picture.
+                </p>
+                <p>
+                    <img src="image/fs/leeward/source/Smart_Raiatea_509.jpg" width="509"
+                        alt="LeeWard_Smart_Raiatea">
+                </p>
+            </div>
         </div>
-        <a name="page_bottom"></a>
+        <div class="prettyP_SP">
+            <div class="pb20 lineh140">
+                <p class="pb15">
+                    <span class="image-container">
+                        <img src="image/fs/leeward/source/Fat_Raiatea_512.jpg" height="222"
+                            alt="LeeWard_Fat_Raiatea">
+                    </span>
+                </p>
+                <div class="left2">
+                    <p class="pb10">
+                        The above picture is Raiatea created based on the contour line.
+                        Since the mountains consisted of polygons,
+                        I designed considering so that each polygon may connect smoothly.
+                        It became the island of soft appearance
+                        and became a result satisfactory as me.
+                    </p>
+                    <p class="pb15">
+                        When I began making the texture,
+                        I found following image on the web page of NASA.
+                    </p>
+                </div>
+                    <p class="pb15">
+                        <img src="image/fs/leeward/source/NASA_Bora.gif" width="232"
+                            alt="Tahaa_Raiatea_BoraBora by NASA">
+                    </p>
+                <div class="left2">
+                    <p class="pb10">
+                        I felt let down when I looked at the picture.
+                        The expression of the island is stern like a back of dinosaur,
+                        it seems to have shaved all flab from the island which I designed.
+                    </p>
+                    <p class="pb10">
+                    However, I redesigned Raiatea once again.
+                    It is difficult to design a sharp form like Raiatea by polygons.
+                    </p>
+                </div>
+                <p>
+                    <span class="image-container">
+                        <img src="image/fs/leeward/source/Smart_Raiatea_509.jpg" height="222"
+                            alt="LeeWard_Smart_Raiatea">
+                    </span>
+                </p>
+            </div>
+        </div>
 
     </div> <!-- page main: end -->
 
@@ -139,17 +219,19 @@
 
         <hr id="footer"> <!-- horizontal partition -->
 
-        <div class="jQ_change center" > <!-- select button whole: start -->
+        <p id="page-top"><a href="#">TOP</a></p>
+
+        <div class="jQ_change center"> <!-- select button whole: start -->
             <p id="footer">  <!-- select button 1: start -->
                 <a href="e_fs01_sc_lee.html#Tahaa">
-                    <IMG src="image/button/back_off.gif" border="0" alt="back" >
+                    <img src="image/button/back_off.gif" border="0" alt="back">
                 </a>
             </p> <!-- select button 1: end -->
         </div> <!-- select button whole: end -->
 
-        <div id="footer_label">
+        <div class="footer_labelPC">
             copyright &copy; 2003 -
-            <script type="text/javascript" language="JavaScript">
+            <script>
                 date = new Date();
                 document.write(date.getFullYear() + ' ');
             </script>
@@ -160,6 +242,5 @@
 
     </footer>
 
-</div> <!-- Pre Loading end -->
-</BODY>
+</body>
 </html>

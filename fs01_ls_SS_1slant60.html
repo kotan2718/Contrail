@@ -1,93 +1,113 @@
-<!DOCTYPE HTML >
-<html>
+<!DOCTYPE html >
+<html lang="ja">
 
-<HEAD>
-    <META charset="UTF-8">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="シャッタースピードを固定してヘリのブレードの回転を捉えたかったのですが...">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Contrail SnapShots : Sky in the Sky :: 1/60 秒</title>
 
     <!-- favicon-->
-    <link rel="shortcut icon" href="favicon.ico">
-
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="icon" href="favicon.ico">
 
     <!-- css start -->
+        <!-- kko_etc - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
+        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
 
-        <!-- kko_etc start :: class指定:change_border_color, 全ファイル共通:リンク文字色, フォーカスリング -->
-        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css" type="text/css">
-        <!-- kko_etc end -->
+        <!-- Fancybox CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css">
 
-        <!-- prettyPhoto start -->
-        <link href="libs/jQuery/prettyPhoto/css/prettyPhoto315_mod.css" media="all" rel="stylesheet" type="text/css">
-        <!-- prettyPhoto end -->
-
+        <style>
+            /* Optional: Limit image size on small screens */
+            @media (max-width: 768px) {
+                .fancybox_image {
+                    max-width: 256px;
+                }
+                .fancybox_image2 {
+                    max-width: 300px;
+                }
+            }
+        </style>
     <!-- css end -->
 
     <!-- js start -->
-
         <!-- jQuery start -->
-        <script src="libs/jQuery/js/jquery-1.6.1.min.js" type="text/javascript"></script>
-
-            <!-- kko_style start - img jq_blink, img jq_change -->
-            <script src="libs/jQuery/kko/js/jq_kko_preload.js" type="text/javascript"></script>
-            <script src="libs/jQuery/kko/js/jq_kko_style.js" type="text/javascript"></script>
-            <!-- kko_style end -->
-
-            <!-- prettyPhoto start -->
-            <script src="libs/jQuery/prettyPhoto/js/jquery.prettyPhoto_315_mod.js" type="text/javascript"></script>
-            <script type="text/javascript">
-                $(document).ready(function(){
-                    $("a[rel^='prettyPhoto']").prettyPhoto();
-                });
-            </script>
-            <!-- prettyPhoto end -->
-
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <!-- kko_style - img jq_blink, img jq_change -->
+            <script src="libs/jQuery/kko/js/jq_kko_style.js"></script>
         <!-- jQuery end -->
 
-        <!-- Sandbox DropDownMenu start -->
-        <script src="libs/sandbox/js/script.js" type="text/javascript"></script>
-        <!-- Sandbox DropDownMenu end -->
+        <!-- Fancybox JS -->
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
 
-    <!-- js end -->
+        <!-- Sandbox DropDownMenu -->
+        <script src="libs/sandbox/js/script.js"></script>
+   <!-- js end -->
 
-</HEAD>
+</head>
 
-<BODY id="common-k" >
-
-<!-- Pre Loading -->
-<!-- without loading picture -->
-<div id="loader"></div>
-<div id="fade"></div>
-<div id="preload"> <!-- Pre Loading start -->
+<body id="common-k">
 
     <header>
-        <a name="page_top"></a>
-        <div class="center jQ_change navbox" >
-            <nav>
-                <IMG src="image/top/Contrail_g.png" height="20" class="logo_img">
-                <ul class="menu" id="menu" >
+        <div class="prettyP_PC">
+            <a name="page_top"></a>
+            <div class="center jQ_change navbox" >
+                <nav>
+                    <img src="image/top/cr32_e.png" height="20" class="logo_img">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_img">
+                    <ul class="menu" id="menu" >
+                        <li><a href="index.html" class="menulink">Home</a></li>
+                        <li><a href="whatnew.html" class="menulink">What's New</a></li>
+                        <li><a href="etc.html" class="menulink">E.T.C.</a></li>
+                        <li><a href="fs01.html" class="menulink">The Scenery</a>
+                            <ul>
+                                <li><a href="fs01_sc_top.html" class="sub">Screen Shots</a></li>
+                                <li><a href="fs01_ls_top.html" class="sub">Snap Shots</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="link01.html" class="menulink">Links</a></li>
+                        <li class="about"><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                    </ul>
+                </nav>
+                <div class="c-both"></div>
+            </div>
+            <!-- Sandbox DropDownMenu start-->
+            <script>
+                var menu=new menu.dd("menu");
+                menu.init("menu","menuhover");
+            </script>
+            <!-- Sandbox DropDownMenu end -->
+        </div>
+        <div class="prettyP_SP">
+            <a name="MENU"></a>
+            <p id="menu-call">
+                <a href="#">MENU</a>
+            </p>
+
+            <a name="page_top"></a>
+
+            <!-- page top icon & logo -->
+            <div id="header_SP" class="header_labelSP">
+                <div class="pb4"></div>
+                <img src="image/top/cr48f_32.png">
+                <img class="pb3" src="image/top/Contrail_g.png" height="24">
+            </div>
+
+            <div id="popup-menu" class="hidden">
+                <div class="menu-title">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_image" alt="CONTRAIL">
+                </div>
+                <ul>
                     <li><a href="index.html" class="menulink">Home</a></li>
                     <li><a href="whatnew.html" class="menulink">What's New</a></li>
                     <li><a href="etc.html" class="menulink">E.T.C.</a></li>
-                    <li><a href="fs01.html" class="menulink">The Scenery</a>
-                        <ul>
-                            <li><a href="fs01_sc_top.html" class="sub">Screen Shots</a></li>
-                            <li><a href="fs01_ls_top.html" class="sub">Snap Shots</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="fs01.html" class="menulink">The Scenery</a></li>
                     <li><a href="link01.html" class="menulink">Links</a></li>
-                    <li class="about"><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                    <li><a href="fs01_about.html" class="menulink">about Contrail</a></li>
                 </ul>
-            </nav>
-            <div class="c-both"></div>
+            </div>
         </div>
-        <!-- Sandbox DropDownMenu start-->
-        <script type="text/javascript">
-            var menu=new menu.dd("menu");
-            menu.init("menu","menuhover");
-        </script>    <!-- Sandbox DropDownMenu end -->
     </header>
 
     <div id="main920"> <!-- page main: start -->
@@ -95,60 +115,87 @@
         <!-- title -->
         <div id="title30">
             <p id="head10">
-                <IMG src="image/fs/kko_logo.gif" border="0" alt="Contrail Snap Shots Special Gallery">
+                <img src="image/fs/kko_logo.gif" border="0" alt="Contrail Snap Shots Special Gallery">
             </p>
-            <h2 id="group-SS" >
+            <h2 id="group-SS">
                 Sky in the Sky
             </h2>
-            <h1 id="main" >
+            <h1 id="main">
                 1 / 60 seconds
             </h1>
-            <p id="author" >
+            <p id="author">
                 Photo: kotan
             </p>
         </div>
 
+        <!-- for Java Script off -->
+        <noscript>
+            <div id="attention">
+                <p>ご覧頂くにはブラウザの JavaScript をアクティブにして下さい</p>
+            </div>
+        </noscript>
+
         <!-- contents -->
-        <div class="center pb50" >
-            <p class="fs95 fwb pb10" >
-                近くに陸上自衛隊のヘリコプター基地があります。<BR>
+        <div class="center pb50">
+            <div class="prettyP_PC">
+                <p class="fwb pb10">
+                近くに陸上自衛隊のヘリコプター基地があります。<br>
                 木更津港を挟んだ対岸の公園からトラフィックパターンを飛行中のヘリを
-                間近に見ることが出来ます。<BR>
-                最初の頃は間近に見ることの出来るヘリに圧倒されていました。<BR>
+                間近に見ることが出来ます。<br>
+                最初の頃は間近に見ることの出来るヘリに圧倒されていました。<br>
                 しかし，撮った画像を見ると，翼が止まっているのです。
-            </p>
+                </p>
+            </div>
+            <div class="prettyP_SP">
+                <p class="left2 pb10">
+                近くに陸上自衛隊のヘリコプター基地があります。<
+                木更津港を挟んだ対岸の公園からトラフィックパターンを飛行中のヘリを
+                間近に見ることが出来ます。
+                最初の頃は間近に見ることの出来るヘリに圧倒されていました。
+                しかし，撮った画像を見ると，翼が止まっているのです。
+                </p>
+            </div>
             <p class="pb10">
-                <IMG src="image/fs/kko/source/1slant60_normal_P1020838.jpg" border="0"
-                    alt="1/60 seconds normal shutter speed">
-            </p>
-            <p class="fs95 fwb">
-                シャッタースピードが速すぎて，翼の回転している様子を捉えることが出来ないのです。<BR>
-                シャッタースピードを下げて行くと翼の回転を捉えられるようになりますが，<BR>
-                動いている機体を追うのが難しくなります。<BR>
+                <img class="fancybox_image" src="image/fs/kko/source/1slant60_normal_P1020838.jpg"
+                        border="0" alt="1/60 seconds normal shutter speed">
+            <div class="prettyP_PC">
+                <p class="fwb">
+                シャッタースピードが速すぎて，翼の回転している様子を捉えることが出来ないのです。<br>
+                シャッタースピードを下げて行くと翼の回転を捉えられるようになりますが，<br>
+                動いている機体を追うのが難しくなります。<br>
                 私にとって1/60秒というのが翼の回転を伝えられるギリギリのスピードです。
-            </p>
+                </p>
+            </div>
+            <div class="prettyP_SP">
+                <p class="left2">
+                シャッタースピードが速すぎて，翼の回転している様子を捉えることが出来ないのです。
+                シャッタースピードを下げて行くと翼の回転を捉えられるようになりますが，
+                動いている機体を追うのが難しくなります。
+                私にとって1/60秒というのが翼の回転を伝えられるギリギリのスピードです。
+                </p>
+            </div>
         </div>
 
         <div class="center pb30">
-            <p class="fwb pb10" >
+            <p class="fwb pb10">
                 CH47 Chinook
             </p>
             <p class="jQ_blink change_border_color">
-                <a href="image/fs/kko/source/1slant60_P1030315_1024.jpg" rel="prettyPhoto[1/60]"
-                    title="1/60 seconds CH47 01" target="_blank" >
-                    <IMG src="image/fs/kko/source/1slant60_P1030315_1024.jpg" width="800" border="0" alt="1/60 seconds CH47 01">
+                <a href="image/fs/kko/source/1slant60_P1030315_1024.jpg"
+                    data-fancybox="gallery[1/60]" data-caption="1/60 seconds CH47 01">
+                    <img class="fancybox_image" src="image/fs/kko/source/1slant60_P1030315_1024.jpg" width="800" border="0" alt="1/60 seconds CH47 01">
                 </a>
             </p>
         </div>
 
-        <div class="left pb30">
-            <p class="fwb pb10" >
+        <div class="left2 pb50">
+            <p class="fwb pb10">
                 AH-1S
             </p>
             <p class="jQ_blink change_border_color">
-                 <a href="image/fs/kko/source/1slant60_P1000636_1024.jpg" rel="prettyPhoto[1/60]"
-                     title="1/60 seconds AH-1S 01" target="_blank" >
-                    <IMG src="image/fs/kko/source/1slant60_P1000636_1024.jpg" width="800" border="0" alt="1/60 seconds AH-1S 01">
+                 <a href="image/fs/kko/source/1slant60_P1000636_1024.jpg"
+                    data-fancybox="gallery[1/60]" data-caption="1/60 seconds AH-1S 01">
+                    <img class="fancybox_image" src="image/fs/kko/source/1slant60_P1000636_1024.jpg" width="800" border="0" alt="1/60 seconds AH-1S 01">
                 </a>
             </p>
         </div>
@@ -160,62 +207,61 @@
             </p>
 
             <!-- CH47 02 -->
-            <p class="pb25" >
-                 <a href="image/fs/kko/source/1slant60_P1030143_1024.jpg" rel="prettyPhoto[1/60]"
-                    title="1/60 seconds CH47 02" target="_blank" >
-                    <IMG src="image/fs/kko/source/1slant60_P1030143_1024.jpg" width="640" border="0" alt="1/60 seconds CH47 02">
+            <p class="pb25">
+                 <a href="image/fs/kko/source/1slant60_P1030143_1024.jpg"
+                    data-fancybox="gallery[1/60]" data-caption="1/60 seconds CH47 02">
+                    <img class="fancybox_image" src="image/fs/kko/source/1slant60_P1030143_1024.jpg" width="640" border="0" alt="1/60 seconds CH47 02">
                 </a>
             </p>
 
             <!-- CH47 03 -->
             <p class="pb25 pr250">
-                 <a href="image/fs/kko/source/1slant60_P1030200_1024.jpg" rel="prettyPhoto[1/60]"
-                        title="1/60 seconds CH47 03" target="_blank" >
-                    <IMG src="image/fs/kko/source/1slant60_P1030200_1024.jpg" width="640" border="0" alt="1/60 seconds CH47 03">
+                 <a href="image/fs/kko/source/1slant60_P1030200_1024.jpg"
+                    data-fancybox="gallery[1/60]" data-caption="1/60 seconds CH47 03">
+                    <img class="fancybox_image" src="image/fs/kko/source/1slant60_P1030200_1024.jpg" width="640" border="0" alt="1/60 seconds CH47 03">
                 </a>
             </p>
 
             <!-- CH47 04 -->
             <p class="pb25 pr150">
-                 <a href="image/fs/kko/source/1slant60_P1000706_1024.jpg" rel="prettyPhoto[1/60]"
-                        title="1/60 seconds CH47 04" target="_blank" >
-                    <IMG src="image/fs/kko/source/1slant60_P1000706_1024.jpg" width="640" border="0" alt="1/60 seconds CH47 04">
+                 <a href="image/fs/kko/source/1slant60_P1000706_1024.jpg"
+                    data-fancybox="gallery[1/60]" data-caption="1/60 seconds CH47 04">
+                    <img class="fancybox_image" src="image/fs/kko/source/1slant60_P1000706_1024.jpg" width="640" border="0" alt="1/60 seconds CH47 04">
                 </a>
             </p>
 
             <!-- AH-1S 02 -->
             <p class="pb25">
-                 <a href="image/fs/kko/source/1slant60_P1000722_1024.jpg" rel="prettyPhoto[1/60]"
-                        title="1/60 seconds AH-1S 02" target="_blank" >
-                    <IMG src="image/fs/kko/source/1slant60_P1000722_1024.jpg" width="640" border="0" alt="1/60 seconds AH-1S 02">
+                 <a href="image/fs/kko/source/1slant60_P1000722_1024.jpg"
+                    data-fancybox="gallery[1/60]" data-caption="1/60 seconds AH-1S 02">
+                    <img class="fancybox_image" src="image/fs/kko/source/1slant60_P1000722_1024.jpg" width="640" border="0" alt="1/60 seconds AH-1S 02">
                 </a>
             </p>
 
             <!-- CH47 05 -->
-            <p class="pb25 pl150">
-                 <a href="image/fs/kko/source/1slant60_P1030245_1024.jpg" rel="prettyPhoto[1/60]"
-                        title="1/60 seconds CH47 05" target="_blank" >
-                    <IMG src="image/fs/kko/source/1slant60_P1030245_1024.jpg" width="640" border="0" alt="1/60 seconds CH47 05">
+            <p class="pb25 pl80">
+                 <a href="image/fs/kko/source/1slant60_P1030245_1024.jpg"
+                    data-fancybox="gallery[1/60]" data-caption="1/60 seconds CH47 05">
+                    <img class="fancybox_image" src="image/fs/kko/source/1slant60_P1030245_1024.jpg" width="640" border="0" alt="1/60 seconds CH47 05">
                 </a>
             </p>
 
             <!-- CH47 06 -->
             <p class="pb25 pr150">
-                 <a href="image/fs/kko/source/1slant60_P1030307_1024.jpg" rel="prettyPhoto[1/60]"
-                        title="1/60 seconds CH47 06" target="_blank" >
-                    <IMG src="image/fs/kko/source/1slant60_P1030307_1024.jpg" width="640" border="0" alt="1/60 seconds CH47 06">
+                 <a href="image/fs/kko/source/1slant60_P1030307_1024.jpg"
+                    data-fancybox="gallery[1/60]" data-caption="1/60 seconds CH47 06">
+                    <img class="fancybox_image" src="image/fs/kko/source/1slant60_P1030307_1024.jpg" width="640" border="0" alt="1/60 seconds CH47 06">
                 </a>
             </p>
 
             <!-- CH47 07 -->
             <p>
-                 <a href="image/fs/kko/source/1slant60_P1010227_1024.jpg" rel="prettyPhoto[1/60]"
-                        title="1/60 seconds CH47 07" target="_blank" >
-                    <IMG src="image/fs/kko/source/1slant60_P1010227_1024.jpg" width="640" border="0" alt="1/60 seconds CH47 07">
+                 <a href="image/fs/kko/source/1slant60_P1010227_1024.jpg"
+                    data-fancybox="gallery[1/60]" data-caption="1/60 seconds CH47 07">
+                    <img class="fancybox_image" src="image/fs/kko/source/1slant60_P1010227_1024.jpg" width="640" border="0" alt="1/60 seconds CH47 07">
                 </a>
             </p>
         </div>
-        <a name="page_bottom"></a>
 
     </div> <!-- page main: end -->
 
@@ -223,17 +269,19 @@
 
         <hr id="footer"> <!-- horizontal partition -->
 
-        <div class="jQ_change center" > <!-- select button whole: start -->
+        <p id="page-top"><a href="#">TOP</a></p>
+
+        <div class="jQ_change center"> <!-- select button whole: start -->
             <p id="footer">  <!-- select button 1: start -->
                 <a href="fs01_ls_Sky_in_the_Sky.html#1_60_seconds">
-                    <IMG src="image/button/back_off.gif" border="0" alt="back" >
+                    <img src="image/button/back_off.gif" border="0" alt="back">
                 </a>
             </p> <!-- select button 1: end -->
         </div> <!-- select button whole: end -->
 
-        <div id="footer_label">
+        <div class="footer_labelPC">
             copyright &copy; 2003 -
-            <script type="text/javascript" language="JavaScript">
+            <script>
                 date = new Date();
                 document.write(date.getFullYear() + ' ');
             </script>
@@ -244,6 +292,5 @@
 
     </footer>
 
-</div> <!-- Pre Loading end -->
-</BODY>
+</body>
 </html>

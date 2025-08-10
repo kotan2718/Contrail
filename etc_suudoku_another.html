@@ -1,15 +1,15 @@
-<!DOCTYPE HTML >
+<!DOCTYPE html >
 <html>
 
-<HEAD>
-    <META charset="UTF-8">
-    <META name="description" content="数独(ナンプレ)の問題を作成するツールの別バージョンをエクセルのマクロで組みました。こちらはオープンさせるマス目の位置を指定させることで問題を作成することができます。">
-    <META name="keywords" content="数独,another,ナンプレ,問題,作成,ツール,">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="数独(ナンプレ)の問題を作成するツールの別バージョンをエクセルのマクロで組みました。こちらはオープンさせるマス目の位置を指定させることで問題を作成することができます。">
+    <meta name="keywords" content="数独,another,ナンプレ,問題,作成,ツール,">
 
     <title>Suudoku Another</title>
 
     <!-- favicon-->
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="icon" href="favicon.ico">
 
     <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -18,40 +18,40 @@
     <!-- css start -->
 
         <!-- kko_etc start - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
-        <link rel="stylesheet" href="libs/etc/css/kko_footer_style.css" type="text/css">
-        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css" type="text/css">
+        <link rel="stylesheet" href="libs/etc/css/kko_footer_style.css">
+        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
         <!-- kko_etc end -->
 
     <!-- css end -->
     <!-- js start -->
 
         <!-- jQuery start -->
-        <script src="libs/jQuery/js/jquery-1.6.1.min.js" type="text/javascript"></script>
+        <script src="libs/jQuery/js/jquery-1.6.1.min.js"></script>
 
             <!-- kko_style start - img jq_blink, img jq_change -->
-            <script src="libs/jQuery/kko/js/jq_kko_style.js" type="text/javascript"></script>
+            <script src="libs/jQuery/kko/js/jq_kko_style.js"></script>
             <!-- kko_style end -->
 
         <!-- jQuery end -->
 
         <!-- Sandbox DropDownMenu start -->
-        <script src="libs/sandbox/js/script.js" type="text/javascript"></script>
+        <script src="libs/sandbox/js/script.js"></script>
         <!-- Sandbox DropDownMenu end -->
 
     <!-- js end -->
 
-</HEAD>
+</head>
 
-<BODY id="common-k" >
+<body id="common-k">
 
     <div id="main1024"> <!-- page main: start -->
 
         <header>
             <a name="page_top"></a>
-            <div class="center jQ_change navbox" >
+            <div class="center jQ_change navbox">
                 <nav>
-                    <IMG src="image/top/Contrail_g.png" height="20" class="logo_img">
-                    <ul class="menu" id="menu" >
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_img">
+                    <ul class="menu" id="menu">
                         <li><a href="index.html" class="menulink">Home</a></li>
                         <li><a href="whatnew.html" class="menulink">What's New</a></li>
                         <li><a href="etc.html" class="menulink">E.T.C.</a></li>
@@ -68,7 +68,7 @@
                 <div class="c-both"></div>
             </div>
             <!-- Sandbox DropDownMenu start-->
-            <script type="text/javascript">
+            <script>
                 var menu=new menu.dd("menu");
                 menu.init("menu","menuhover");
             </script>    <!-- Sandbox DropDownMenu end -->
@@ -80,6 +80,13 @@
                 数独問題作成ツール 別解法
             </h2>
         </div>
+
+        <!-- for Java Script off -->
+        <noscript>
+            <div id="attention">
+                <p>ご覧頂くにはブラウザの JavaScript をアクティブにして下さい</p>
+            </div>
+        </noscript>
 
         <!-- contents -->
         <div class="pic-left1024 pb40">
@@ -97,7 +104,7 @@
                     自分が思い描いたパターンの問題を作ることはできませんでした。<br>
                 </p>
                 <p class="pb10 contents-2col-left">
-                    <IMG src="image/Suudoku_img/another/another01.jpg" border="1">
+                    <img src="image/Suudoku_img/another/another01.jpg" border="1">
                 </p>
                 <div class="bdr10 left fss pb10">
                     <p>
@@ -125,7 +132,7 @@
                                 エクスプローラーから｢z.suudoku_04.xlsm｣を開きます。
                         </p>
                         <p class="pb10 contents-2col-left">
-                            <IMG src="image/Suudoku_img/another/another02.jpg" width="100%" border="1">
+                            <img src="image/Suudoku_img/another/another02.jpg" width="100%" border="1">
                         </p>
                   </li>
                     <li>
@@ -139,7 +146,7 @@
                                     枠内の適当なセルをクリックすると、そのセルと対角のセルがオレンジ色に変わります。
                                 </p>
                                 <p class="pb10 contents-2col-left">
-                                    <IMG src="image/Suudoku_img/another/another03.jpg" width="90%" border="1">
+                                    <img src="image/Suudoku_img/another/another03.jpg" width="90%" border="1">
                                 </p>
                             </li>
                             <li>
@@ -148,7 +155,7 @@
                                   消したい場合は、対角のセルをクリックするとオレンジ色が消えます。
                                 </p>
                                 <p class="pb10 contents-2col-left">
-                                    <IMG src="image/Suudoku_img/another/another04.jpg" width="90%" border="1">
+                                    <img src="image/Suudoku_img/another/another04.jpg" width="90%" border="1">
                                 </p>
                             </li>
                             <li>
@@ -156,7 +163,7 @@
                                     作成したパターンの例を以下に示しました。
                                 </p>
                                 <p class="pb10 contents-2col-left">
-                                    <IMG src="image/Suudoku_img/another/another05.jpg" width="100%" border="1">
+                                    <img src="image/Suudoku_img/another/another05.jpg" width="100%" border="1">
                                 </p>
                                 <p class="pb10">
                                     ｢START｣ボタンを押すと問題作成が開始されます。
@@ -167,7 +174,7 @@
                                     問題の作成の成功すると、以下のような画面になります。
                                 </p>
                                 <p class="pb10 contents-2col-left">
-                                    <IMG src="image/Suudoku_img/another/another06.jpg" width="100%" border="1">
+                                    <img src="image/Suudoku_img/another/another06.jpg" width="100%" border="1">
                                 </p>
                                 <p class="pb10">
                                     オレンジ色のセルにオープンするナンバーが書き込まれていることが分かります。<br>
@@ -190,7 +197,7 @@
             </div>
         </div>
 
-        <div class="left pb40" >
+        <div class="left pb40">
 
             <h3>ダウンロード </h3>
             <div class="pl30 pb30">
@@ -209,7 +216,7 @@
                     z.suudoku_04.zip をクリックして、ダウンロードして下さい。
                 </p>
                 <p class="fwb pb25">
-                    <a href="etc/z.suudoku_04.zip" target="_blank" >z.suudoku_04.zip</a>
+                    <a href="etc/z.suudoku_04.zip" target="_blank">z.suudoku_04.zip</a>
                 </p>
             </div>
         </div>
@@ -219,17 +226,17 @@
 
         <hr id="footer"> <!-- horizontal partition -->
 
-        <div class="jQ_change center" > <!-- select button whole: start -->
+        <div class="jQ_change center"> <!-- select button whole: start -->
             <p id="footer"> <!-- select button: start -->
                 <a href="etc.html">
-                    <IMG src="image/button/back_off.gif" border="0" alt="Back" >
+                    <img src="image/button/back_off.gif" border="0" alt="Back">
                 </a>
             </p> <!-- select button: end -->
         </div> <!-- select button whole: end -->
 
         <div id="footer_label">
             copyright &copy; 2003 -
-            <script type="text/javascript" language="JavaScript">
+            <script>
                 date = new Date();
                 document.write(date.getFullYear() + ' ');
             </script>
@@ -240,5 +247,5 @@
 
     </footer>
 
-</BODY>
+</body>
 </html>

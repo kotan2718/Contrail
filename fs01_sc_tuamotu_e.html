@@ -1,202 +1,232 @@
-<!DOCTYPE HTML >
-<html>
+<!DOCTYPE html >
+<html lang="en">
 
-<HEAD>
-    <META charset="UTF-8">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="This page introduces Flight Simulator add-on scenery: French Polynesia Tuamotu Archipelago FS9/FSX Addon Scenery. ">
+    <meta name="keywords" content="Flight Simulator,FS,FS9,FSX,Addon,scenery,Tuamotu,Archipelago,French,Polynesia">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Contrail French Polynesia Tuamotu Archipelago Group E</title>
 
-    <!-- favicon-->
-    <link rel="shortcut icon" href="favicon.ico">
-
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
     <!-- css start -->
+        <!-- kko_etc - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
+        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
 
-        <!-- kko_etc start - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
-        <link rel="stylesheet" href="libs/etc/css/kko_preload.css" type="text/css">
-        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css" type="text/css">
-        <!-- kko_etc end -->
+        <!-- Fancybox CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css">
 
-        <!-- prettyPhoto start -->
-        <link href="libs/jQuery/prettyPhoto/css/prettyPhoto315_mod.css" media="all" rel="stylesheet" type="text/css">
-        <!-- prettyPhoto end -->
-
+        <style>
+            /* Optional: Limit image size on small screens */
+            @media (max-width: 768px) {
+                .fancybox_image {
+                    max-width: 256px;
+                }
+                .fancybox_image2 {
+                    max-width: 300px;
+                }
+            }
+        </style>
     <!-- css end -->
 
     <!-- js start -->
-
         <!-- jQuery start -->
-        <script src="libs/jQuery/js/jquery-1.6.1.min.js" type="text/javascript"></script>
-
-            <!-- kko_style start - img jq_blink, img jq_change -->
-            <script src="libs/jQuery/kko/js/jq_kko_preload.js" type="text/javascript"></script>
-            <script src="libs/jQuery/kko/js/jq_kko_style.js" type="text/javascript"></script>
+        <script src="libs/jQuery/js/jquery-1.6.1.min.js"></script>
+            <!-- kko_style - img jq_blink, img jq_change -->
+            <script src="libs/jQuery/kko/js/jq_kko_style.js"></script>
             <!-- kko_style end -->
-
-            <!-- prettyPhoto start -->
-            <script src="libs/jQuery/prettyPhoto/js/jquery.prettyPhoto_315_mod.js" type="text/javascript"></script>
-            <script type="text/javascript">
-                $(document).ready(function(){
-                    $("a[rel^='prettyPhoto']").prettyPhoto();
-                });
-            </script>
-            <!-- prettyPhoto end -->
 
             <!-- ImageMapStar_style start - Clickable map Extension -->
             <script src="libs/jQuery/imageMAPster/js/jquery.imagemapster.min.js"></script>
-            <!-- IE 8 までは対応していないので，Clickable map Extension は使わない -->
-            <script type="text/javascript">
-            <!--
-                var kk = -1;
-                if (typeof document.documentElement.style.maxHeight != "undefined") {
-                    if (!/*@cc_on!@*/false){
-                        // other than IE
-                    }else if (document.documentMode >=9) {
-                        // after IE9
-                    }else {
-                        kk = 0; //IE7, IE8（IE7 mode)
-                    }
-                } else {
-                  kk = 0; // before IE 6.0
-                }
-                if( kk == -1) {
-                    $(document).ready(function ()
-                    {
-                        $('#flt_sim_tuamotu_E').mapster({
-                            singleSelect : true,
-                            clickNavigate : true,
-                            render_highlight : { altImage : 'image/fs/tuamotu/source/Tuamotu_map_E_on.gif' },
-                            mapKey: 'key',
-                            fill : true,
-                            fillOpacity : 1
-                        });
+            <script>
+                $(document).ready(function ()
+                {
+                    $('#flt_sim_tuamotu_E').mapster({
+                        singleSelect : true,
+                        clickNavigate : true,
+                        render_highlight : { altImage : 'image/fs/tuamotu/source/Tuamotu_map_E_on.gif' },
+                        mapKey: 'key',
+                        fill : true,
+                        fillOpacity : 1
                     });
-                }
-            -->
+                });
             </script>
             <!-- ImageMapStar_style end -->
-
         <!-- jQuery end -->
 
-        <!-- Sandbox DropDownMenu start -->
-        <script src="libs/sandbox/js/script.js" type="text/javascript"></script>
-        <!-- Sandbox DropDownMenu end -->
-
+        <!-- Fancybox JS -->
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
     <!-- js end -->
 
-</HEAD>
+</head>
 
-<BODY id="common-k" >
-
-<!-- Pre Loading -->
-<!-- with loading picture -->
-<div id="loader"><IMG src="image/common/ap_loader_tp.gif" width="236" height="132" class="loading..."></div>
-<div id="fade"></div>
-<div id="preload"> <!-- Pre Loading start -->
+<body id="common-k_Roman">
 
     <header>
-        <a name="page_top"></a>
-        <div class="center jQ_change navbox" >
-            <nav>
-                <IMG src="image/top/Contrail_g.png" height="20" class="logo_img">
-                <ul class="menu" id="menu" >
+        <div class="prettyP_PC">
+            <a name="page_top"></a>
+            <div class="center jQ_change navbox" >
+                <nav>
+                    <img src="image/top/cr32_e.png" height="20" class="logo_img">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_img">
+                    <ul class="menu" id="menu" >
+                        <li><a href="fs01_sc_tuamotu.html" class="menulink">Tuamotu Top</a></li>
+                        <li><a href="fs01_sc_tuamotu_a.html" class="menulink">Group A</a></li>
+                        <li><a href="fs01_sc_tuamotu_b.html" class="menulink">Group B</a></li>
+                        <li><a href="fs01_sc_tuamotu_c.html" class="menulink">Group C</a></li>
+                        <li><a href="fs01_sc_tuamotu_d.html" class="menulink">Group D</a></li>
+                        <li><a href="fs01_sc_tuamotu_e.html" class="menulink">Group E</a></li>
+                        <li class="about"><a href="e_fs01_about.html" class="menulink">about Contrail</a></li>
+                    </ul>
+                </nav>
+                <div class="c-both"></div>
+            </div>
+        </div>
+        <div class="prettyP_SP">
+            <a name="MENU"></a>
+            <p id="menu-call">
+                <a href="#">MENU</a>
+            </p>
+
+            <a name="page_top"></a>
+
+            <!-- page top icon & logo -->
+            <div id="header_SP" class="header_labelSP">
+                <div class="pb4"></div>
+                <img src="image/top/cr48f_32.png">
+                <img class="pb3" src="image/top/Contrail_g.png" height="24">
+            </div>
+
+            <div id="popup-menu" class="hidden">
+                <div class="menu-title">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_image" alt="CONTRAIL">
+                </div>
+                <ul>
                     <li><a href="fs01_sc_tuamotu.html" class="menulink">Tuamotu Top</a></li>
                     <li><a href="fs01_sc_tuamotu_a.html" class="menulink">Group A</a></li>
                     <li><a href="fs01_sc_tuamotu_b.html" class="menulink">Group B</a></li>
                     <li><a href="fs01_sc_tuamotu_c.html" class="menulink">Group C</a></li>
                     <li><a href="fs01_sc_tuamotu_d.html" class="menulink">Group D</a></li>
                     <li><a href="fs01_sc_tuamotu_e.html" class="menulink">Group E</a></li>
-                    <li class="about"><a href="e_fs01_about.html" class="menulink">about Contrail</a></li>
+                    <li><a href="e_fs01_about.html" class="menulink">about Contrail</a></li>
                 </ul>
-            </nav>
-            <div class="c-both"></div>
+            </div>
         </div>
-        <!-- Sandbox DropDownMenu start-->
-        <script type="text/javascript">
-            var menu=new menu.dd("menu");
-            menu.init("menu","menuhover");
-        </script>    <!-- Sandbox DropDownMenu end -->
     </header>
 
-    <div id="main960"> <!-- page main: start -->
+    <div id="main960-480new_en"> <!-- page main: start -->
 
         <!-- title -->
         <div id="title40">
             <p id="head20">
-                <IMG src="image/fs/kko_fssg_logo.gif" alt="Contrail Flight Simulation Special Gallery">
+                <img src="image/fs/kko_fssg_logo.gif" alt="Contrail Flight Simulation Special Gallery">
             </p>
-            <h1 id="main_fss_E">
-                FS9 / FSX Addon Scenery French Polynesia <BR>
-                Tuamotu Archipelago Group E
-            </h1>
+            <div class="prettyP_PC">
+                <h1 id="main_fs_E">
+                    FS9 / FSX Addon Scenery French Polynesia <br>
+                    Tuamotu Archipelago Group E
+                </h1>
+            </div>
+            <div class="prettyP_SP">
+                <h3>
+                    FS9 / FSX Addon Scenery French Polynesia <br>
+                    Tuamotu Archipelago Group E
+                </h3>
+            </div>
         </div>
 
+        <!-- for Java Script off -->
+        <noscript>
+            <div id="attention">
+                <p>Sorry, you need to activate JavaScript in your browser.</p>
+            </div>
+        </noscript>
+
         <!-- map -->
-        <div class="pic-center_Tuamotu_E pb40">
-            <p class="center pb5">
-                <IMG id="flt_sim_tuamotu_E" src="image/fs/tuamotu/source/Tuamotu_map_E_off.gif" border="0"
-                    usemap="#flt_sim_tuamotu_E">
-            </p>
-            <map name="flt_sim_tuamotu_E">
-                <!-- 同窓でのジャンプ -->
-                <area key="Marokau"            href="#Marokau"            alt="Jump to Marokau"            shape="poly" coords="31,70, 31,119, 59,139, 64,139, 83,93, 126,93, 126,70" >
-                <area key="Ravahere"        href="#Marokau"        alt="Jump to Ravahere"        shape="poly" coords="67,135, 62,143, 62,178, 29,178, 29,200, 123,200, 123,178, 76,135" >
-                <area key="Amanu"                href="#Amanu"                alt="Jump to Amanu"                shape="rect" coords="276,32, 390,90" >
-                <area key="Hao"                    href="#Hao"                    alt="Jump to Hao"                    shape="rect" coords="254,112, 356,205" >
-                <area key="NengoNengo"    href="#NengoNengo"    alt="Jump to NengoNengo"    shape="rect" coords="68,256, 201,315" >
-                <area key="Manuhangi"        href="#Manuhangi"        alt="Jump to Manuhangi"        shape="rect" coords="162,364, 277,404" >
-                <area key="Paraoa"            href="#Paraoa"            alt="Jump to Paraoa"            shape="rect" coords="290,331, 363,368" >
-                <area key="Ahunui"            href="#Ahunui"            alt="Jump to Ahunui"            shape="rect" coords="333,439, 412,483" >
-                <area key="Akiaki"            href="#Akiaki"            alt="Jump to Akiaki"            shape="rect" coords="528,199, 606,233" >
-                <area key="Vahitahi"        href="#Vahitahi"        alt="Jump to Vahitahi"        shape="rect" coords="612,249, 700,284" >
-                <area key="Nukutavake"    href="#Nukutavake"    alt="Jump to Nukutavake"    shape="rect" coords="603,359, 734,399" >
-                <area key="Vairaatea"        href="#Vairaatea"        alt="Jump to Vairaatea"        shape="rect" coords="493,392, 596,440" >
-                <area key="Pinaki"            href="#Pinaki"            alt="Jump to Pinaki"            shape="rect" coords="608,408, 689,447" >
-            </map>
-            <p class="left fss fwb">
-                Click the desired island
-            </p>
+        <div class="prettyP_PC">
+            <div class="pic-center_Tuamotu_E">
+                <p class="center pb5">
+                    <img id="flt_sim_tuamotu_E" src="image/fs/tuamotu/source/Tuamotu_map_E_off.gif" border="0"
+                        usemap="#flt_sim_tuamotu_E">
+                </p>
+                <map name="flt_sim_tuamotu_E">
+                    <!-- 同窓でのジャンプ -->
+                    <area key="Marokau"    href="#Marokau"    alt="Jump to Marokau"    shape="poly" coords="31,70, 31,119, 59,139, 64,139, 83,93, 126,93, 126,70">
+                    <area key="Ravahere"   href="#Marokau"    alt="Jump to Ravahere"   shape="poly" coords="67,135, 62,143, 62,178, 29,178, 29,200, 123,200, 123,178, 76,135">
+                    <area key="Amanu"      href="#Amanu"      alt="Jump to Amanu"      shape="rect" coords="276,32, 390,90">
+                    <area key="Hao"        href="#Hao"        alt="Jump to Hao"        shape="rect" coords="254,112, 356,205">
+                    <area key="NengoNengo" href="#NengoNengo" alt="Jump to NengoNengo" shape="rect" coords="68,256, 201,315">
+                    <area key="Manuhangi"  href="#Manuhangi"  alt="Jump to Manuhangi"  shape="rect" coords="162,364, 277,404">
+                    <area key="Paraoa"     href="#Paraoa"     alt="Jump to Paraoa"     shape="rect" coords="290,331, 363,368">
+                    <area key="Ahunui"     href="#Ahunui"     alt="Jump to Ahunui"     shape="rect" coords="333,439, 412,483">
+                    <area key="Akiaki"     href="#Akiaki"     alt="Jump to Akiaki"     shape="rect" coords="528,199, 606,233">
+                    <area key="Vahitahi"   href="#Vahitahi"   alt="Jump to Vahitahi"   shape="rect" coords="612,249, 700,284">
+                    <area key="Nukutavake" href="#Nukutavake" alt="Jump to Nukutavake" shape="rect" coords="603,359, 734,399">
+                    <area key="Vairaatea"  href="#Vairaatea"  alt="Jump to Vairaatea"  shape="rect" coords="493,392, 596,440">
+                    <area key="Pinaki"     href="#Pinaki"     alt="Jump to Pinaki"     shape="rect" coords="608,408, 689,447">
+                </map>
+                <p class="left2 fss fwb">
+                    Click the desired island
+                </p>
+            </div>
+        </div>
+        <div class="prettyP_SP">
+            <div class="table-container pb30">
+                <div class="pic-center_Tuamotu_E">
+                    <p class="center pb5">
+                        <img id="flt_sim_tuamotu_E" src="image/fs/tuamotu/source/Tuamotu_map_E_off.gif" border="0"
+                            usemap="#flt_sim_tuamotu_E">
+                    </p>
+                    <map name="flt_sim_tuamotu_E">
+                        <!-- 同窓でのジャンプ -->
+                        <area key="Marokau"    href="#Marokau"    alt="Jump to Marokau"    shape="poly" coords="31,70, 31,119, 59,139, 64,139, 83,93, 126,93, 126,70">
+                        <area key="Ravahere"   href="#Marokau"    alt="Jump to Ravahere"   shape="poly" coords="67,135, 62,143, 62,178, 29,178, 29,200, 123,200, 123,178, 76,135">
+                        <area key="Amanu"      href="#Amanu"      alt="Jump to Amanu"      shape="rect" coords="276,32, 390,90">
+                        <area key="Hao"        href="#Hao"        alt="Jump to Hao"        shape="rect" coords="254,112, 356,205">
+                        <area key="NengoNengo" href="#NengoNengo" alt="Jump to NengoNengo" shape="rect" coords="68,256, 201,315">
+                        <area key="Manuhangi"  href="#Manuhangi"  alt="Jump to Manuhangi"  shape="rect" coords="162,364, 277,404">
+                        <area key="Paraoa"     href="#Paraoa"     alt="Jump to Paraoa"     shape="rect" coords="290,331, 363,368">
+                        <area key="Ahunui"     href="#Ahunui"     alt="Jump to Ahunui"     shape="rect" coords="333,439, 412,483">
+                        <area key="Akiaki"     href="#Akiaki"     alt="Jump to Akiaki"     shape="rect" coords="528,199, 606,233">
+                        <area key="Vahitahi"   href="#Vahitahi"   alt="Jump to Vahitahi"   shape="rect" coords="612,249, 700,284">
+                        <area key="Nukutavake" href="#Nukutavake" alt="Jump to Nukutavake" shape="rect" coords="603,359, 734,399">
+                        <area key="Vairaatea"  href="#Vairaatea"  alt="Jump to Vairaatea"  shape="rect" coords="493,392, 596,440">
+                        <area key="Pinaki"     href="#Pinaki"     alt="Jump to Pinaki"     shape="rect" coords="608,408, 689,447">
+                    </map>
+                    <p class="left2 fss fwb">
+                        Click the desired island
+                    </p>
+                </div>
+            </div>
         </div>
 
         <!-- Marokau - Ravahere start --> <!-- exception -->
 
         <!-- title - both side - Makarou with page top-->
-        <div class="left pb0">
+        <div class="left2 pt30 pb0">
             <div class="pb5">
                 <h3 class="contents-title-left">
-                    <a name="Marokau"></a>
+                    <div id="Marokau"></div>
                     <p>
                         <a href="fs01_sc_tuamotu_e_marokau-ravahere.html"><span class="fwb">Marokau</span></a> / Ravahere
                     </p>
                 </h3>
                 <div class="contents-title-right">
-                    <p class="page-top" >
-                        Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-                    </p>
                 </div>
                 <div class="c-both"></div>
             </div>
-        </div>
-
-        <!-- contents left -->
-        <div class="left">
-            <div class="contents-2col-left pb15" style="width: 670px">
-
-                <!-- Marokau -->
-                <div class="left pb15" >
-                    <div class="contents-col_256" > <!-- left side -->
-                        <p class="jQ_blink change_border_color " >
-                            <a href="image/fs/tuamotu/source/tuamotu_e_Marokau_SC01.jpg" rel="prettyPhoto [Marokau - Ravahere]"
-                                title="Tuamotu Archipelago Group E - Marokau" target="_blank">
-                                <IMG src="image/fs/tuamotu/tuamotu_e_thumb_Marokau_SC01.jpg" width="256">
-                            </a>
-                        </p>
-                    </div>
-                    <div class="contents-col-c_398" >
-                        <p>
+            <!-- contents -->
+            <div class="pb15">
+                <div class="contents-col_256"> <!-- left side -->
+                    <p class="jQ_blink change_border_color ">
+                        <a href="image/fs/tuamotu/source/tuamotu_e_Marokau_SC01.jpg" data-fancybox="gallery [Marokau - Ravahere]"
+                            data-caption="Tuamotu Archipelago Group E - Marokau">
+                            <img src="image/fs/tuamotu/tuamotu_e_thumb_Marokau_SC01.jpg" width="256">
+                        </a>
+                    </p>
+                </div>
+                <div class="contents-col-c_416">
+                    <p>
                         The shape of Marokau is roughly triangular (20km in length).
                         The atoll is located less than 2 km north of Ravahere.
                         The reef spread out on the southwest side of the atoll is almost submerged.
@@ -206,84 +236,83 @@
                         at the southwest of the atoll.
                         It is uncertain whether there is enough depth that
                         the ship can enter the lagoon through these passes.
-                        </p>
-                    </div>
+                    </p>
                 </div>
-
-                <!-- title - left side only - Ravahere without page top -->
-                <div class="pb5">
-                    <h3 class="contents-title-left">
-<!--                    <a name="Ravahere"></a> -->
-                        <p>
-                            Marokau / <a href="fs01_sc_tuamotu_e_marokau-ravahere.html"><span class="fwb">Ravahere</span></a>
-                        </p>
-                    </h3>
-                    <div class="c-both"></div>
-                </div>
-
-                <!-- Ravahere -->
-                <div class="left pb15"  style="width: 670px">
-                    <div class="contents-col_256" > <!-- left side -->
-                        <p class="jQ_blink change_border_color " >
-                            <a href="image/fs/tuamotu/source/tuamotu_e_Ravahere_SC01.jpg" rel="prettyPhoto [Marokau - Ravahere]"
-                                title="Tuamotu Archipelago Group E - Ravahere" target="_blank">
-                                <IMG src="image/fs/tuamotu/tuamotu_e_thumb_Ravahere_SC01.jpg" width="256">
-                            </a>
-                        </p>
-                    </div>
-                    <div class="contents-col-c_398" >
-                        <p>
-                            Ravahere is a small, boomerang-shaped atoll,
-                            located nearby in the south of Marokau.
-                            There is no passage connecting the lagoon into the open ocean.
-                            The shallow lagoon is divided into two basins.
-                            The smaller and shallower basin is found in the south of the lagoon.
-                            It is separated from the main body of lagoon by
-                            the submarine ridge extended from the west of the atoll.
-                        </p>
-                    </div>
+                <div class="contents-col_256"> <!-- right side -->
+                    <p class="jQ_blink change_border_color">
+                        <a href="fs01_sc_tuamotu_e_marokau-ravahere.html">
+                            <img src="image/fs/tuamotu/Bird_sEyeView/Marokau-RavahereBEV256.jpg">
+                         </a>
+                    </p>
                 </div>
             </div>
+        </div>
 
-            <div class="center contents-col_256" >
-                <p class="jQ_blink change_border_color" >
-                    <a href="fs01_sc_tuamotu_e_marokau-ravahere.html">
-                        <IMG src="image/fs/tuamotu/Bird_sEyeView/Marokau-RavahereBEV256.jpg">
-                     </a>
-                </p>
+        <div class="left2 pb15">
+            <div class="pb5">
+                <h3 class="contents-title-left">
+                    <div id="Ravahere"></div>
+                    <p>
+                        Marokau / <a href="fs01_sc_tuamotu_e_marokau-ravahere.html"><span class="fwb">Ravahere</span></a>
+                    </p>
+                </h3>
+                <div class="contents-title-right">
+                </div>
+                <div class="c-both"></div>
+            </div>
+            <!-- contents -->
+            <div class="pb15">
+                <div class="contents-col_256"> <!-- left side -->
+                    <p class="jQ_blink change_border_color ">
+                        <a href="image/fs/tuamotu/source/tuamotu_e_Ravahere_SC01.jpg" data-fancybox="gallery [Marokau - Ravahere]"
+                            data-caption="Tuamotu Archipelago Group E - Marokau">
+                            <img src="image/fs/tuamotu/tuamotu_e_thumb_Ravahere_SC01.jpg" width="256">
+                        </a>
+                    </p>
+                </div>
+                <div class="contents-col-c_416">
+                    <p>
+                        Ravahere is a small, boomerang-shaped atoll,
+                        located nearby in the south of Marokau.
+                        There is no passage connecting the lagoon into the open ocean.
+                        The shallow lagoon is divided into two basins.
+                        The smaller and shallower basin is found in the south of the lagoon.
+                        It is separated from the main body of lagoon by
+                        the submarine ridge extended from the west of the atoll.
+                    </p>
+                </div>
+                <div class="contents-col_256"> <!-- right side -->
+                </div>
             </div>
         </div>
 
         <!-- Amanu start -->
         <!-- title -->
-        <div class="left pb15">
+        <div class="left2 pb15">
             <div class="pb5">
                 <h3 class="contents-title-left">
-                    <a name="Amanu"></a>
-                    <p class="fwb" >
+                    <div id="Amanu"></div>
+                    <p class="fwb">
                         <a href="fs01_sc_tuamotu_e_amanu.html">
                             Amanu
                         </a>
                     </p>
                 </h3>
                 <div class="contents-title-right">
-                    <p class="page-top" >
-                        Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-                    </p>
                 </div>
                 <div class="c-both"></div>
             </div>
             <!-- contents -->
-            <div class="pb15" >
-                <div class="contents-col_256" > <!-- left side -->
-                    <p class="jQ_blink change_border_color " >
-                        <a href="image/fs/tuamotu/source/tuamotu_e_Amanu_SC01.jpg" rel="prettyPhoto"
-                            title="Tuamotu Archipelago Group E - Amanu" target="_blank">
-                            <IMG src="image/fs/tuamotu/tuamotu_e_thumb_Amanu_SC01.jpg" width="256">
+            <div class="pb15">
+                <div class="contents-col_256"> <!-- left side -->
+                    <p class="jQ_blink change_border_color ">
+                        <a href="image/fs/tuamotu/source/tuamotu_e_Amanu_SC01.jpg" data-fancybox="gallery1"
+                            data-caption="Tuamotu Archipelago Group E - Amanu">
+                            <img src="image/fs/tuamotu/tuamotu_e_thumb_Amanu_SC01.jpg" width="256">
                         </a>
                     </p>
                 </div>
-                <div class="contents-col-c_416" >
+                <div class="contents-col-c_416">
                     <p>
                         Amanu is located in 52 km to the northeast of Hao.
                         The shape of the atoll is a slender oval, with northeast to southwest orientated.
@@ -294,10 +323,10 @@
                         there is not an airfield.
                     </p>
                 </div>
-                <div class="center contents-col_256" >
-                    <p class="jQ_blink change_border_color" >
+                <div class="center contents-col_256">
+                    <p class="jQ_blink change_border_color">
                         <a href="fs01_sc_tuamotu_e_amanu.html">
-                            <IMG src="image/fs/tuamotu/Bird_sEyeView/AmanuBEV256.jpg">
+                            <img src="image/fs/tuamotu/Bird_sEyeView/AmanuBEV256.jpg">
                          </a>
                     </p>
                 </div>
@@ -306,48 +335,45 @@
 
         <!-- Hao start -->
         <!-- title -->
-        <div class="left pb15">
+        <div class="left2 pb15">
             <div class="pb5">
                 <h3 class="contents-title-left">
-                    <a name="Hao"></a>
-                    <p class="fwb" >
+                    <div id="Hao"></div>
+                    <p class="fwb">
                         <a href="fs01_sc_tuamotu_e_hao.html">
                             Hao
                         </a>
                     </p>
                 </h3>
                 <div class="contents-title-right">
-                    <p class="page-top" >
-                        Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-                    </p>
                 </div>
                 <div class="c-both"></div>
             </div>
             <!-- contents -->
-            <div class="pb15" >
-                <div class="contents-col_256" > <!-- left side -->
-                    <p class="jQ_blink change_border_color " >
-                        <a href="image/fs/tuamotu/source/tuamotu_e_Hao_SC01.jpg" rel="prettyPhoto"
-                            title="Tuamotu Archipelago Group E - Hao" target="_blank">
-                            <IMG src="image/fs/tuamotu/tuamotu_e_thumb_Hao_SC01.jpg" width="256">
+            <div class="pb15">
+                <div class="contents-col_256"> <!-- left side -->
+                    <p class="jQ_blink change_border_color ">
+                        <a href="image/fs/tuamotu/source/tuamotu_e_Hao_SC01.jpg" data-fancybox="gallery2"
+                            data-caption="Tuamotu Archipelago Group E - Hao">
+                            <img src="image/fs/tuamotu/tuamotu_e_thumb_Hao_SC01.jpg" width="256">
                         </a>
                     </p>
                 </div>
-                <div class="contents-col-c_416" >
+                <div class="contents-col-c_416">
                     <p>
                         Hao is a large atoll in the central part of the Tuamotu Archipelago.
                         Because of its shape, French explorer Bougainville named it Harp Island.
                         The shape of the atoll might certainly be seen the harp-shaped from the shipboard.
-                        How do you image the shape from the sky? <BR>
+                        How do you image the shape from the sky? <br>
                         The lagoon is one of the longest (55km from northwest to southeast) in French Polynesia.
                         However, Hao has only one navigable passage, named Kaki, on the north end of the atoll.
                         Because of geographical features the tidal current of the passage is very fast.
                     </p>
                 </div>
-                <div class="center contents-col_256" >
-                    <p class="jQ_blink change_border_color" >
+                <div class="center contents-col_256">
+                    <p class="jQ_blink change_border_color">
                         <a href="fs01_sc_tuamotu_e_hao.html">
-                            <IMG src="image/fs/tuamotu/Bird_sEyeView/HaoBEV256.jpg">
+                            <img src="image/fs/tuamotu/Bird_sEyeView/HaoBEV256.jpg">
                          </a>
                     </p>
                 </div>
@@ -356,47 +382,44 @@
 
         <!-- NengoNengo start -->
         <!-- title -->
-        <div class="left pb15">
+        <div class="left2 pb15">
             <div class="pb5">
                 <h3 class="contents-title-left">
-                    <a name="NengoNengo"></a>
-                    <p class="fwb" >
+                    <div id="NengoNengo"></div>
+                    <p class="fwb">
                         <a href="fs01_sc_tuamotu_e_nengonengo.html">
                             NengoNengo
                         </a>
                     </p>
                 </h3>
                 <div class="contents-title-right">
-                    <p class="page-top" >
-                        Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-                    </p>
                 </div>
                 <div class="c-both"></div>
             </div>
             <!-- contents -->
-            <div class="pb15" >
-                <div class="contents-col_256" > <!-- left side -->
-                    <p class="jQ_blink change_border_color " >
-                        <a href="image/fs/tuamotu/source/tuamotu_e_NengoNengo_SC01.jpg" rel="prettyPhoto"
-                            title="Tuamotu Archipelago Group E - NengoNengo" target="_blank">
-                            <IMG src="image/fs/tuamotu/tuamotu_e_thumb_NengoNengo_SC01.jpg" width="256">
+            <div class="pb15">
+                <div class="contents-col_256"> <!-- left side -->
+                    <p class="jQ_blink change_border_color ">
+                        <a href="image/fs/tuamotu/source/tuamotu_e_NengoNengo_SC01.jpg" data-fancybox="gallery3"
+                            data-caption="Tuamotu Archipelago Group E - NengoNengo">
+                            <img src="image/fs/tuamotu/tuamotu_e_thumb_NengoNengo_SC01.jpg" width="256">
                         </a>
                     </p>
                 </div>
-                <div class="contents-col-c_416" >
+                <div class="contents-col-c_416">
                     <p>
-                        NengoNengo is located in approximately 100km southwest of Hao.<BR>
+                        NengoNengo is located in approximately 100km southwest of Hao.<br>
                         The atoll completely encloses the lagoon except a passage connecting with the open sea.
-                        The pass is located in the north side of the atoll.<BR>
+                        The pass is located in the north side of the atoll.<br>
                         In my impression, the plant of this atoll seems to be a little.
-                        The greater part of the land seems to be covered with sand.<BR>
+                        The greater part of the land seems to be covered with sand.<br>
                         There is a private airfield on the southeast of this atoll.
                     </p>
                 </div>
-                <div class="contents-col_256" > <!-- right side -->
-                    <p class="jQ_blink change_border_color" >
+                <div class="contents-col_256"> <!-- right side -->
+                    <p class="jQ_blink change_border_color">
                         <a href="fs01_sc_tuamotu_e_nengonengo.html">
-                            <IMG src="image/fs/tuamotu/Bird_sEyeView/NengoNengoBEV256.jpg">
+                            <img src="image/fs/tuamotu/Bird_sEyeView/NengoNengoBEV256.jpg">
                          </a>
                     </p>
                 </div>
@@ -405,37 +428,34 @@
 
         <!-- Manuhangi start -->
         <!-- title -->
-        <div class="left pb15">
+        <div class="left2 pb15">
             <div class="pb5">
                 <h3 class="contents-title-left">
-                    <a name="Manuhangi"></a>
-                    <p class="fwb" >
+                    <div id="Manuhangi"></div>
+                    <p class="fwb">
                         <a href="fs01_sc_tuamotu_e_manuhangi.html">
                             Manuhangi
                         </a>
                     </p>
                 </h3>
                 <div class="contents-title-right">
-                    <p class="page-top" >
-                        Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-                    </p>
                 </div>
                 <div class="c-both"></div>
             </div>
             <!-- contents -->
-            <div class="pb15" >
-                <div class="contents-col_256" > <!-- left side -->
-                    <p class="jQ_blink change_border_color " >
-                        <a href="image/fs/tuamotu/source/tuamotu_e_Manuhangi_SC01.jpg" rel="prettyPhoto"
-                            title="Tuamotu Archipelago Group E - Manuhangi" target="_blank">
-                            <IMG src="image/fs/tuamotu/tuamotu_e_thumb_Manuhangi_SC01.jpg" width="256">
+            <div class="pb15">
+                <div class="contents-col_256"> <!-- left side -->
+                    <p class="jQ_blink change_border_color ">
+                        <a href="image/fs/tuamotu/source/tuamotu_e_Manuhangi_SC01.jpg" data-fancybox="gallery4"
+                            data-caption="Tuamotu Archipelago Group E - Manuhangi">
+                            <img src="image/fs/tuamotu/tuamotu_e_thumb_Manuhangi_SC01.jpg" width="256">
                         </a>
                     </p>
                 </div>
-                <div class="contents-col-c_416" >
+                <div class="contents-col-c_416">
                     <p>
                         Manuhangi, a small oval-shaped atoll,
-                        is located approximately 100 km to the south-southwest of Hao.<BR>
+                        is located approximately 100 km to the south-southwest of Hao.<br>
                         The atoll encloses almost the lagoon.
                         Though there is a narrow passage on the south of the atoll,
                         its depth is considerably shallow.
@@ -443,10 +463,10 @@
                         As a result, the concentration of salt of its waters seems to be a high level.
                     </p>
                 </div>
-                <div class="contents-col_256" >
-                    <p class="jQ_blink change_border_color" >
+                <div class="contents-col_256">
+                    <p class="jQ_blink change_border_color">
                         <a href="fs01_sc_tuamotu_e_manuhangi.html">
-                            <IMG src="image/fs/tuamotu/Bird_sEyeView/ManuhangiBEV256.jpg">
+                            <img src="image/fs/tuamotu/Bird_sEyeView/ManuhangiBEV256.jpg">
                          </a>
                     </p>
                 </div>
@@ -455,39 +475,36 @@
 
         <!-- Paraoa start -->
         <!-- title -->
-        <div class="left pb15">
+        <div class="left2 pb15">
             <div class="pb5">
                 <h3 class="contents-title-left">
-                    <a name="Paraoa"></a>
-                    <p class="fwb" >
+                    <div id="Paraoa"></div>
+                    <p class="fwb">
                         <a href="fs01_sc_tuamotu_e_paraoa.html">
                             Paraoa
                         </a>
                     </p>
                 </h3>
                 <div class="contents-title-right">
-                    <p class="page-top" >
-                        Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-                    </p>
                 </div>
                 <div class="c-both"></div>
             </div>
             <!-- contents -->
-            <div class="pb15" >
-                <div class="contents-col_256" > <!-- left side -->
-                    <p class="jQ_blink change_border_color " >
-                        <a href="image/fs/tuamotu/source/tuamotu_e_Paraoa_SC01.jpg" rel="prettyPhoto"
-                            title="Tuamotu Archipelago Group E - Paraoa" target="_blank">
-                            <IMG src="image/fs/tuamotu/tuamotu_e_thumb_Paraoa_SC01.jpg" width="256">
+            <div class="pb15">
+                <div class="contents-col_256"> <!-- left side -->
+                    <p class="jQ_blink change_border_color ">
+                        <a href="image/fs/tuamotu/source/tuamotu_e_Paraoa_SC01.jpg" data-fancybox="gallery5"
+                            data-caption="Tuamotu Archipelago Group E - Paraoa">
+                            <img src="image/fs/tuamotu/tuamotu_e_thumb_Paraoa_SC01.jpg" width="256">
                         </a>
                     </p>
                 </div>
-                <div class="contents-col-c_416" >
+                <div class="contents-col-c_416">
                     <p>
                         Paraoa, a small roughly heart-shaped atoll,
-                        is located 75 km to the south of Hao.<BR>
+                        is located 75 km to the south of Hao.<br>
                         The information can hardly be obtained about Paraoa.
-                        I inferred about this atoll based on the scenery that I designed.<BR>
+                        I inferred about this atoll based on the scenery that I designed.<br>
                         The atoll that consists of an single island encloses a shallow lagoon.
                         There is no passage connecting the lagoon with the open ocean.
                         Therefore, usually the lagoon has no channel linking it with the open sea;
@@ -496,10 +513,10 @@
                         As a result, its waters are a high concentration of salt.
                     </p>
                 </div>
-                <div class="contents-col_256" >
-                    <p class="jQ_blink change_border_color" >
+                <div class="contents-col_256">
+                    <p class="jQ_blink change_border_color">
                         <a href="fs01_sc_tuamotu_e_paraoa.html">
-                            <IMG src="image/fs/tuamotu/Bird_sEyeView/ParaoaBEV256.jpg">
+                            <img src="image/fs/tuamotu/Bird_sEyeView/ParaoaBEV256.jpg">
                          </a>
                     </p>
                 </div>
@@ -508,45 +525,42 @@
 
         <!-- Ahunui start -->
         <!-- title -->
-        <div class="left pb15">
+        <div class="left2 pb15">
             <div class="pb5">
                 <h3 class="contents-title-left">
-                    <a name="Ahunui"></a>
-                    <p class="fwb" >
+                    <div id="Ahunui"></div>
+                    <p class="fwb">
                         <a href="fs01_sc_tuamotu_e_ahunui.html">
                             Ahunui
                         </a>
                     </p>
                 </h3>
                 <div class="contents-title-right">
-                    <p class="page-top" >
-                        Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-                    </p>
                 </div>
                 <div class="c-both"></div>
             </div>
             <!-- contents -->
-            <div class="pb15" >
-                <div class="contents-col_256" > <!-- left side -->
-                    <p class="jQ_blink change_border_color " >
-                        <a href="image/fs/tuamotu/source/tuamotu_e_Ahunui_SC01.jpg" rel="prettyPhoto"
-                            title="Tuamotu Archipelago Group E - Ahunui" target="_blank">
-                            <IMG src="image/fs/tuamotu/tuamotu_e_thumb_Ahunui_SC01.jpg" width="256">
+            <div class="pb15">
+                <div class="contents-col_256"> <!-- left side -->
+                    <p class="jQ_blink change_border_color ">
+                        <a href="image/fs/tuamotu/source/tuamotu_e_Ahunui_SC01.jpg" data-fancybox="gallery6"
+                            data-caption="Tuamotu Archipelago Group E - Ahunui">
+                            <img src="image/fs/tuamotu/tuamotu_e_thumb_Ahunui_SC01.jpg" width="256">
                         </a>
                     </p>
                 </div>
-                <div class="contents-col-c_416" >
+                <div class="contents-col-c_416">
                     <p>
-                        Ahunui is located in southernmost of the Tuamotu Scenery that I designed.<BR>
-                        A small roughly circular-shaped atoll is located 56 km to the south-southeast of Paraoa.<BR>
+                        Ahunui is located in southernmost of the Tuamotu Scenery that I designed.<br>
+                        A small roughly circular-shaped atoll is located 56 km to the south-southeast of Paraoa.<br>
                         The atoll encloses the lagoon except two passages connecting with the open sea.
                         The both of passages are located in the south of the atolls.
                     </p>
                 </div>
-                <div class="contents-col_256" >
-                    <p class="jQ_blink change_border_color" >
+                <div class="contents-col_256">
+                    <p class="jQ_blink change_border_color">
                         <a href="fs01_sc_tuamotu_e_ahunui.html">
-                            <IMG src="image/fs/tuamotu/Bird_sEyeView/AhunuiBEV256.jpg">
+                            <img src="image/fs/tuamotu/Bird_sEyeView/AhunuiBEV256.jpg">
                          </a>
                     </p>
                 </div>
@@ -555,34 +569,31 @@
 
         <!-- Akiaki start -->
         <!-- title -->
-        <div class="left pb15">
+        <div class="left2 pb15">
             <div class="pb5">
                 <h3 class="contents-title-left">
-                    <a name="Akiaki"></a>
-                    <p class="fwb" >
+                    <div id="Akiaki"></div>
+                    <p class="fwb">
                         <a href="fs01_sc_tuamotu_e_akiaki.html">
                             Akiaki
                         </a>
                     </p>
                 </h3>
                 <div class="contents-title-right">
-                    <p class="page-top" >
-                        Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-                    </p>
                 </div>
                 <div class="c-both"></div>
             </div>
             <!-- contents -->
-            <div class="pb15" >
-                <div class="contents-col_256" > <!-- left side -->
-                    <p class="jQ_blink change_border_color " >
-                        <a href="image/fs/tuamotu/source/tuamotu_e_Akiaki_SC01.jpg" rel="prettyPhoto"
-                            title="Tuamotu Archipelago Group E - Akiaki" target="_blank">
-                            <IMG src="image/fs/tuamotu/tuamotu_e_thumb_Akiaki_SC01.jpg" width="256">
+            <div class="pb15">
+                <div class="contents-col_256"> <!-- left side -->
+                    <p class="jQ_blink change_border_color ">
+                        <a href="image/fs/tuamotu/source/tuamotu_e_Akiaki_SC01.jpg" data-fancybox="gallery7"
+                            data-caption="Tuamotu Archipelago Group E - Akiaki">
+                            <img src="image/fs/tuamotu/tuamotu_e_thumb_Akiaki_SC01.jpg" width="256">
                         </a>
                     </p>
                 </div>
-                <div class="contents-col-c_416" >
+                <div class="contents-col-c_416">
                     <p>
                         There are three flat-surfaced islands without the lagoon in Tuamotu islands.
                         They are tereporepo, Nukutavake, and Akiaki.
@@ -590,10 +601,10 @@
                         The atoll is covered by dense vegetation.
                     </p>
                 </div>
-                <div class="contents-col_256" >
-                    <p class="jQ_blink change_border_color" >
+                <div class="contents-col_256">
+                    <p class="jQ_blink change_border_color">
                         <a href="fs01_sc_tuamotu_e_akiaki.html">
-                            <IMG src="image/fs/tuamotu/Bird_sEyeView/AkiakiBEV256.jpg">
+                            <img src="image/fs/tuamotu/Bird_sEyeView/AkiakiBEV256.jpg">
                          </a>
                     </p>
                 </div>
@@ -602,34 +613,31 @@
 
         <!-- Vahitahi start -->
         <!-- title -->
-        <div class="left pb15">
+        <div class="left2 pb15">
             <div class="pb5">
                 <h3 class="contents-title-left">
-                    <a name="Vahitahi"></a>
-                    <p class="fwb" >
+                    <div id="Vahitahi"></div>
+                    <p class="fwb">
                         <a href="fs01_sc_tuamotu_e_vahitahi.html">
                             Vahitahi
                         </a>
                     </p>
                 </h3>
                 <div class="contents-title-right">
-                    <p class="page-top" >
-                        Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-                    </p>
                 </div>
                 <div class="c-both"></div>
             </div>
             <!-- contents -->
-            <div class="pb15" >
-                <div class="contents-col_256" > <!-- left side -->
-                    <p class="jQ_blink change_border_color " >
-                        <a href="image/fs/tuamotu/source/tuamotu_e_Vahitahi_SC01.jpg" rel="prettyPhoto"
-                            title="Tuamotu Archipelago Group E - Vahitahi" target="_blank">
-                            <IMG src="image/fs/tuamotu/tuamotu_e_thumb_Vahitahi_SC01.jpg" width="256">
+            <div class="pb15">
+                <div class="contents-col_256"> <!-- left side -->
+                    <p class="jQ_blink change_border_color ">
+                        <a href="image/fs/tuamotu/source/tuamotu_e_Vahitahi_SC01.jpg" data-fancybox="gallery8"
+                            data-caption="Tuamotu Archipelago Group E - Vahitahi">
+                            <img src="image/fs/tuamotu/tuamotu_e_thumb_Vahitahi_SC01.jpg" width="256">
                         </a>
                     </p>
                 </div>
-                <div class="contents-col-c_416" >
+                <div class="contents-col-c_416">
                     <p>
                         Vahitahi is a small and narrow atoll with which size is 8 km by 2.6 km.
                         On the north side of the atoll there are around a dozen motu,
@@ -637,10 +645,10 @@
                         The lagoon is shallow with no passage connecting to the open sea.
                     </p>
                 </div>
-                <div class="contents-col_256" >
-                    <p class="jQ_blink change_border_color" >
+                <div class="contents-col_256">
+                    <p class="jQ_blink change_border_color">
                         <a href="fs01_sc_tuamotu_e_vahitahi.html">
-                            <IMG src="image/fs/tuamotu/Bird_sEyeView/VahitahiBEV256.jpg">
+                            <img src="image/fs/tuamotu/Bird_sEyeView/VahitahiBEV256.jpg">
                          </a>
                     </p>
                 </div>
@@ -649,34 +657,31 @@
 
         <!-- Nukutavake start -->
         <!-- title -->
-        <div class="left pb15">
+        <div class="left2 pb15">
             <div class="pb5">
                 <h3 class="contents-title-left">
-                    <a name="Nukutavake"></a>
-                    <p class="fwb" >
+                    <div id="Nukutavake"></div>
+                    <p class="fwb">
                         <a href="fs01_sc_tuamotu_e_nukutavake.html">
                             Nukutavake
                         </a>
                     </p>
                 </h3>
                 <div class="contents-title-right">
-                    <p class="page-top" >
-                        Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-                    </p>
                 </div>
                 <div class="c-both"></div>
             </div>
             <!-- contents -->
-            <div class="pb15" >
-                <div class="contents-col_256" > <!-- left side -->
-                    <p class="jQ_blink change_border_color " >
-                        <a href="image/fs/tuamotu/source/tuamotu_e_Nukutavake_SC01.jpg" rel="prettyPhoto"
-                            title="Tuamotu Archipelago Group E - Nukutavake" target="_blank">
-                            <IMG src="image/fs/tuamotu/tuamotu_e_thumb_Nukutavake_SC01.jpg" width="256">
+            <div class="pb15">
+                <div class="contents-col_256"> <!-- left side -->
+                    <p class="jQ_blink change_border_color ">
+                        <a href="image/fs/tuamotu/source/tuamotu_e_Nukutavake_SC01.jpg" data-fancybox="gallery9"
+                            data-caption="Tuamotu Archipelago Group E - Nukutavake">
+                            <img src="image/fs/tuamotu/tuamotu_e_thumb_Nukutavake_SC01.jpg" width="256">
                         </a>
                     </p>
                 </div>
-                <div class="contents-col-c_416" >
+                <div class="contents-col-c_416">
                     <p>
                         Nukutavake is an atoll located in the eastern part of the Tuamotu Archipelago.
                         It is over 1000 km from Tahiti island.
@@ -689,10 +694,10 @@
                         linking the atoll to the outside world.
                     </p>
                 </div>
-                <div class="contents-col_256" >
-                    <p class="jQ_blink change_border_color" >
+                <div class="contents-col_256">
+                    <p class="jQ_blink change_border_color">
                         <a href="fs01_sc_tuamotu_e_nukutavake.html">
-                            <IMG src="image/fs/tuamotu/Bird_sEyeView/NukutavakeBEV256.jpg">
+                            <img src="image/fs/tuamotu/Bird_sEyeView/NukutavakeBEV256.jpg">
                          </a>
                     </p>
                 </div>
@@ -701,45 +706,42 @@
 
         <!-- Vairaatea start -->
         <!-- title -->
-        <div class="left pb15">
+        <div class="left2 pb15">
             <div class="pb5">
                 <h3 class="contents-title-left">
-                    <a name="Vairaatea"></a>
-                    <p class="fwb" >
+                    <div id="Vairaatea"></div>
+                    <p class="fwb">
                         <a href="fs01_sc_tuamotu_e_vairaatea.html">
                             Vairaatea
                         </a>
                     </p>
                 </h3>
                 <div class="contents-title-right">
-                    <p class="page-top" >
-                        Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-                    </p>
                 </div>
                 <div class="c-both"></div>
             </div>
             <!-- contents -->
-            <div class="pb15" >
-                <div class="contents-col_256" > <!-- left side -->
-                    <p class="jQ_blink change_border_color " >
-                        <a href="image/fs/tuamotu/source/tuamotu_e_Vairaatea_SC01.jpg" rel="prettyPhoto"
-                            title="Tuamotu Archipelago Group E - Vairaatea" target="_blank">
-                            <IMG src="image/fs/tuamotu/tuamotu_e_thumb_Vairaatea_SC01.jpg" width="256">
+            <div class="pb15">
+                <div class="contents-col_256"> <!-- left side -->
+                    <p class="jQ_blink change_border_color ">
+                        <a href="image/fs/tuamotu/source/tuamotu_e_Vairaatea_SC01.jpg" data-fancybox="gallery10"
+                            data-caption="Tuamotu Archipelago Group E - Vairaatea">
+                            <img src="image/fs/tuamotu/tuamotu_e_thumb_Vairaatea_SC01.jpg" width="256">
                         </a>
                     </p>
                 </div>
-                <div class="contents-col-c_416" >
+                <div class="contents-col-c_416">
                     <p>
-                        Vairaatea is a small atoll located in 40km west-southwest of Nukutavake.<BR>
+                        Vairaatea is a small atoll located in 40km west-southwest of Nukutavake.<br>
                         There are reef submerged on south side and northwest side of the atoll.
                         However, the passage from which the ship can go in and out seems not exist.
                         The remainder part of the atoll is the land area covered with the plant.
                     </p>
                 </div>
-                <div class="contents-col_256" >
-                    <p class="jQ_blink change_border_color" >
+                <div class="contents-col_256">
+                    <p class="jQ_blink change_border_color">
                         <a href="fs01_sc_tuamotu_e_vairaatea.html">
-                            <IMG src="image/fs/tuamotu/Bird_sEyeView/VairaateaBEV256.jpg">
+                            <img src="image/fs/tuamotu/Bird_sEyeView/VairaateaBEV256.jpg">
                          </a>
                     </p>
                 </div>
@@ -748,55 +750,51 @@
 
         <!-- Pinaki start -->
         <!-- title -->
-        <div class="left pb15">
+        <div class="left2 pb15">
             <div class="pb5">
                 <h3 class="contents-title-left">
-                    <a name="Pinaki"></a>
-                    <p class="fwb" >
+                    <div id="Pinaki"></div>
+                    <p class="fwb">
                         <a href="fs01_sc_tuamotu_e_pinaki.html">
                             Pinaki
                         </a>
                     </p>
                 </h3>
                 <div class="contents-title-right">
-                    <p class="page-top" >
-                        Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-                    </p>
                 </div>
                 <div class="c-both"></div>
             </div>
             <!-- contents -->
-            <div class="pb15" >
-                <div class="contents-col_256" > <!-- left side -->
-                    <p class="jQ_blink change_border_color " >
-                        <a href="image/fs/tuamotu/source/tuamotu_e_Pinaki_SC01.jpg" rel="prettyPhoto"
-                            title="Tuamotu Archipelago Group E - Pinaki" target="_blank">
-                            <IMG src="image/fs/tuamotu/tuamotu_e_thumb_Pinaki_SC01.jpg" width="256">
+            <div class="pb15">
+                <div class="contents-col_256"> <!-- left side -->
+                    <p class="jQ_blink change_border_color ">
+                        <a href="image/fs/tuamotu/source/tuamotu_e_Pinaki_SC01.jpg" data-fancybox="gallery11"
+                            data-caption="Tuamotu Archipelago Group E - Pinaki">
+                            <img src="image/fs/tuamotu/tuamotu_e_thumb_Pinaki_SC01.jpg" width="256">
                         </a>
                     </p>
                 </div>
-                <div class="contents-col-c_416" >
+                <div class="contents-col-c_416">
                     <p>
                         Pinaki, located in 15km southeast of Nukutavake,
-                        is one of the smallest of the Tuamotu atolls. <BR>
+                        is one of the smallest of the Tuamotu atolls. <br>
                         The atoll that consists of an single island
                         encloses a lagoon except a single narrow spillway.
-                        The inner lagoon is extremely shallow. <BR>
+                        The inner lagoon is extremely shallow. <br>
                         In the distant future,
                         this atoll might become an island with no lagoon, just like Nukutavake.
                     </p>
                 </div>
-                <div class="contents-col_256" >
-                    <p class="jQ_blink change_border_color" >
+                <div class="contents-col_256">
+                    <p class="jQ_blink change_border_color">
                         <a href="fs01_sc_tuamotu_e_pinaki.html">
-                            <IMG src="image/fs/tuamotu/Bird_sEyeView/PinakiBEV256.jpg">
+                            <img src="image/fs/tuamotu/Bird_sEyeView/PinakiBEV256.jpg">
                          </a>
                     </p>
                 </div>
             </div>
         </div>
 
-        <a name="page_bottom"></a>
 
     </div> <!-- page main: end -->
 
@@ -804,17 +802,19 @@
 
         <hr id="footer"> <!-- horizontal partition -->
 
-        <div class="jQ_change center" > <!-- select button whole: start -->
+        <p id="page-top"><a href="#">TOP</a></p>
+
+        <div class="jQ_change center"> <!-- select button whole: start -->
             <p id="footer">  <!-- select button 1: start -->
                 <a href="fs01_sc_tuamotu.html">
-                    <IMG src="image/button/back_off.gif" alt="back" border="0">
+                    <img src="image/button/back_off.gif" alt="back" border="0">
                 </a>
             </p> <!-- select button 1: end -->
         </div> <!-- select button whole: end -->
 
-        <div id="footer_label">
+        <div class="footer_labelPC">
             copyright &copy; 2003 -
-            <script type="text/javascript" language="JavaScript">
+            <script>
                 date = new Date();
                 document.write(date.getFullYear() + ' ');
             </script>
@@ -825,6 +825,5 @@
 
     </footer>
 
-</div> <!-- Pre Loading end -->
-</BODY>
+</body>
 </html>

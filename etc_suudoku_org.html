@@ -1,13 +1,13 @@
-<!DOCTYPE HTML >
+<!DOCTYPE html >
 <html>
 
-<HEAD>
-    <META charset="UTF-8">
+<head>
+    <meta charset="UTF-8">
 
     <title>Suudoku User's Manual</title>
 
     <!-- favicon-->
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="icon" href="favicon.ico">
 
     <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -16,8 +16,8 @@
     <!-- css start -->
 
         <!-- kko_etc start :: class指定:change_border_color, 全ファイル共通:リンク文字色, フォーカスリング -->
-        <link rel="stylesheet" href="libs/etc/css/kko_footer_style.css" type="text/css">
-        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css" type="text/css">
+        <link rel="stylesheet" href="libs/etc/css/kko_footer_style.css">
+        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
         <!-- kko_etc end -->
 
     <!-- css end -->
@@ -25,30 +25,30 @@
     <!-- js start -->
 
         <!-- jQuery start -->
-        <script src="libs/jQuery/js/jquery-1.6.1.min.js" type="text/javascript"></script>
+        <script src="libs/jQuery/js/jquery-1.6.1.min.js"></script>
 
             <!-- kko_style start - img jq_blink, img jq_change -->
-            <script src="libs/jQuery/kko/js/jq_kko_style.js" type="text/javascript"></script>
+            <script src="libs/jQuery/kko/js/jq_kko_style.js"></script>
             <!-- kko_style end -->
 
         <!-- jQuery end -->
 
         <!-- Sandbox DropDownMenu start -->
-        <script src="libs/sandbox/js/script.js" type="text/javascript"></script>
+        <script src="libs/sandbox/js/script.js"></script>
         <!-- Sandbox DropDownMenu end -->
 
     <!-- js end -->
 
-</HEAD>
+</head>
 
-<BODY id="common-k" >
+<body id="common-k">
 
         <header>
             <a name="page_top"></a>
-            <div class="center jQ_change navbox" >
+            <div class="center jQ_change navbox">
                 <nav>
-                    <IMG src="image/top/Contrail_g.png" height="20" class="logo_img">
-                    <ul class="menu" id="menu" >
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_img">
+                    <ul class="menu" id="menu">
                         <li><a href="index.html" class="menulink">Home</a></li>
                         <li><a href="whatnew.html" class="menulink">What's New</a></li>
                         <li><a href="etc.html" class="menulink">E.T.C.</a></li>
@@ -65,7 +65,7 @@
                 <div class="c-both"></div>
             </div>
             <!-- Sandbox DropDownMenu start-->
-            <script type="text/javascript">
+            <script>
                 var menu=new menu.dd("menu");
                 menu.init("menu","menuhover");
             </script>    <!-- Sandbox DropDownMenu end -->
@@ -80,6 +80,13 @@
             </h2>
         </div>
 
+        <!-- for Java Script off -->
+        <noscript>
+            <div id="attention">
+                <p>ご覧頂くにはブラウザの JavaScript をアクティブにして下さい</p>
+            </div>
+        </noscript>
+
         <!-- contents -->
         <div class="pic-left1024 pb40">
             <div class="fwb pb10">
@@ -88,7 +95,7 @@
                     (ダウンロードはこのページの下の方でできます。)
                 </p>
                 <p class="pb5">
-                    <IMG src="image/Suudoku_img/suudoku_whole.jpg" width="800" border="1">
+                    <img src="image/Suudoku_img/suudoku_whole.jpg" width="800" border="1">
                 </p>
             </div>
             <div class="pic-left1024 fwb pb20">
@@ -101,7 +108,7 @@
                                 ｢パターン選択｣には、真ん中のブロックでオープンさせるマス目を明示的に指定します。
                         </p>
                         <p class="pb10 contents-2col-left">
-                            <IMG src="image/Suudoku_img/suudoku_pattern_select.jpg" border="1">
+                            <img src="image/Suudoku_img/suudoku_pattern_select.jpg" border="1">
                         </p>
                         <p class="fwm pb10 contents-2col-right">
                             数値は直接入力して下さい。特に上下限チェックなどしていないので、1～12までの値を入力して下さい。<br>
@@ -113,7 +120,7 @@
                                 ｢オープン数｣に最初にオープンさせるマス目の数を指定します。
                         </p>
                         <p class="pb10 contents-2col-left">
-                            <IMG src="image/Suudoku_img/suudoku_opensuu.jpg" border="1">
+                            <img src="image/Suudoku_img/suudoku_opensuu.jpg" border="1">
                         </p>
                         <p class="fwm pb10 contents-2col-right">
                             数値は直接入力して下さい。特に上下限チェックなどしていないので、妥当と思われる値を入力して下さい。<br>
@@ -128,7 +135,7 @@
                                 ｢繰返し回数｣には、試行回数を指定します。
                         </p>
                         <p class="pb10 contents-2col-left">
-                            <IMG src="image/Suudoku_img/suudoku_kurikaeshi.jpg" border="1">
+                            <img src="image/Suudoku_img/suudoku_kurikaeshi.jpg" border="1">
                         </p>
                         <p class="fwm pb10 contents-2col-right">
                             数値は直接入力して下さい。特に上下限チェックなどしていないので、妥当と思われる値を入力して下さい。<br>
@@ -137,7 +144,7 @@
                     </li>
                   <li>｢全てが埋められた完成形を表示する｣は、チェックを入れると問題が作成が終了したとき、問題を解いたときの答えが表示されます。
                         <p class="pb10 contents-2col-left">
-                            <IMG src="image/Suudoku_img/suudoku_kanseikei_check_flg.jpg" border="1">
+                            <img src="image/Suudoku_img/suudoku_kanseikei_check_flg.jpg" border="1">
                         </p>
                     </li>
                     <li>
@@ -168,7 +175,7 @@
                             </ul>
                         </p>
                         <p class="pb10 contents-2col-left">
-                            <IMG src="image/Suudoku_img/suudoku_rule.jpg" border="1">
+                            <img src="image/Suudoku_img/suudoku_rule.jpg" border="1">
                         </p>
                     </li>
                     <li class="pb20">作成の手順(ニコリの場合)
@@ -178,7 +185,7 @@
                             完成形が作れるようにマス目に入れるナンバーを選んでいくというものでした。
                         </p>
                         <p class="pb10 contents-2col-left">
-                            <IMG src="image/Suudoku_img/suudoku_nikori.jpg" border="1">
+                            <img src="image/Suudoku_img/suudoku_nikori.jpg" border="1">
                         </p>
                         <p class="fwm pb10">
                             上の図で要となるのは②です。オレンジ色のマス目にナンバーを入れつつ、
@@ -238,7 +245,7 @@
                                 </p>
                             </li>
                             <p class="pb10 contents-2col-left">
-                                <IMG src="image/Suudoku_img/suudoku_my_method.jpg" border="1">
+                                <img src="image/Suudoku_img/suudoku_my_method.jpg" border="1">
                             </p>
                         </ol>
                     </li>
@@ -262,7 +269,7 @@
                             statの行数も考慮して、無理のない問題を作成されることをお勧めします。
                         </p>
                         <p class="pb10 contents-2col-left">
-                            <IMG src="image/Suudoku_img/suudoku_stat.jpg" border="1">
+                            <img src="image/Suudoku_img/suudoku_stat.jpg" border="1">
                         </p>
                   </li>
                   <li>
@@ -295,7 +302,7 @@
                 </ol>
             </div>
 
-        <div class="left pb40" >
+        <div class="left pb40">
 
             <h3>ダウンロード </h3>
             <div class="pl30 pb30">
@@ -321,7 +328,7 @@
                     上記の約束を守って頂ける方は、以下の suudoku.zip を右クリックして下さい。
                 </p>
                 <p class="fwb pb25">
-                    <a href="etc/suudoku.zip" target="_blank" >suudoku.zip</a>
+                    <a href="etc/suudoku.zip" target="_blank">suudoku.zip</a>
                 </p>
             </div>
         </div>
@@ -329,17 +336,17 @@
 
         <hr id="footer"> <!-- horizontal partition -->
 
-        <div class="jQ_change center" > <!-- select button whole: start -->
+        <div class="jQ_change center"> <!-- select button whole: start -->
             <p id="footer"> <!-- select button: start -->
                 <a href="etc.html">
-                    <IMG src="image/button/back_off.gif" border="0" alt="Back" >
+                    <img src="image/button/back_off.gif" border="0" alt="Back">
                 </a>
             </p> <!-- select button: end -->
         </div> <!-- select button whole: end -->
 
         <div id="footer_label">
             copyright &copy; 2003 -
-            <script type="text/javascript" language="JavaScript">
+            <script>
                 date = new Date();
                 document.write(date.getFullYear() + ' ');
             </script>
@@ -351,5 +358,5 @@
     </footer>
 
 </div>
-</BODY>
+</body>
 </html>

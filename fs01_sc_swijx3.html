@@ -1,70 +1,46 @@
-<!DOCTYPE HTML >
-<html>
+<!DOCTYPE html >
+<html lang="ja">
 
-<HEAD>
-    <META charset="UTF-8">
-    <META name="description" content="Flight Simulator(FSX)のアドオンシーナリー : South West Islands of Japan FSX Addon Scenery を紹介するページです。">
-    <META name="keywords" content="Flight Simulator,FS,FSX,Addon,scenery,South West Islands,Tokara,Amami,Okinawa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Flight Simulator(FSX)のアドオンシーナリー : South West Islands of Japan FSX Addon Scenery を紹介するページです。">
+    <meta name="keywords" content="Flight Simulator,FS,FSX,Addon,scenery,South West Islands,Tokara,Amami,Okinawa">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Contrail South West Islands of Japan FSX Addon Scenery</title>
 
     <!-- favicon-->
-    <link rel="shortcut icon" href="favicon.ico">
-
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="icon" href="favicon.ico">
 
     <!-- css start -->
+        <!-- kko_etc - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
+        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
 
-        <!-- kko_etc start - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
-        <link rel="stylesheet" href="libs/etc/css/kko_preload.css" type="text/css">
-        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css" type="text/css">
+        <!-- Fancybox CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css">
 
-        <!-- prettyPhoto start -->
-        <link href="libs/jQuery/prettyPhoto/css/prettyPhoto315_mod.css" media="all" rel="stylesheet" type="text/css">
-        <!-- prettyPhoto end -->
-        <!-- kko_etc end -->
-
+        <style>
+            /* Optional: Limit image size on small screens */
+            @media (max-width: 768px) {
+                .fancybox_image {
+                    max-width: 256px;
+                }
+                .fancybox_image2 {
+                    max-width: 300px;
+                }
+            }
+        </style>
     <!-- css end -->
 
     <!-- js start -->
-
         <!-- jQuery start -->
-        <script src="libs/jQuery/js/jquery-1.6.1.min.js" type="text/javascript"></script>
-
-            <!-- kko_style start - img jq_blink, img jq_change -->
-            <script src="libs/jQuery/kko/js/jq_kko_preload.js" type="text/javascript"></script>
-            <script src="libs/jQuery/kko/js/jq_kko_style.js" type="text/javascript"></script>
-            <!-- kko_style end -->
-
-            <!-- prettyPhoto start -->
-            <script src="libs/jQuery/prettyPhoto/js/jquery.prettyPhoto_315_mod.js" type="text/javascript"></script>
-            <script type="text/javascript">
-                $(document).ready(function(){
-                    $("a[rel^='prettyPhoto']").prettyPhoto();
-                });
-            </script>
-            <!-- prettyPhoto end -->
+            <script src="libs/jQuery/js/jquery-1.6.1.min.js"></script>
+            <!-- kko_style - img jq_blink, img jq_change -->
+            <script src="libs/jQuery/kko/js/jq_kko_style.js"></script>
 
             <!-- ImageMapStar_style start - Clickable map Extension -->
-            <script src="libs/jQuery/imageMAPster/js/jquery.imagemapster.min.js"></script>
-            <!-- IE 8 までは対応していないので，Clickable map Extension は使わない -->
-            <script type="text/javascript">
-            <!--
-                var kk = -1;
-                if (typeof document.documentElement.style.maxHeight != "undefined") {
-                    if (!/*@cc_on!@*/false){
-                        // other than IE
-                    }else if (document.documentMode >=9) {
-                        // after IE9
-                    }else {
-                        kk = 0; //IE7, IE8（IE7 mode)
-                    }
-                } else {
-                  kk = 0; // before IE 6.0
-                }
-                if( kk == -1) {
+                <script src="libs/jQuery/imageMAPster/js/jquery.imagemapster.min.js"></script>
+                <script>
                     $(document).ready(function ()
                     {
                         $('#flt_sim_swijx_whole').mapster({
@@ -76,113 +52,188 @@
                             fillOpacity : 1
                         });
                     });
-                }
-            -->
-            </script>
+                </script>
             <!-- ImageMapStar_style end -->
-
         <!-- jQuery end -->
 
-        <!-- Sandbox DropDownMenu start -->
-        <script src="libs/sandbox/js/script.js" type="text/javascript"></script>
-        <!-- Sandbox DropDownMenu end -->
+        <!-- Fancybox JS -->
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
 
+         <!-- Sandbox DropDownMenu -->
+        <script src="libs/sandbox/js/script.js"></script>
     <!-- js end -->
 
-</HEAD>
+</head>
 
-<BODY id="common-k">
+<body id="common-k">
 
     <header>
-        <a name="page_top"></a>
-        <div class="center jQ_change navbox" >
-            <nav>
-                <IMG src="image/top/Contrail_g.png" height="20" class="logo_img">
-                <ul class="menu" id="menu" >
-                    <li><a href="index.html" class="menulink">Home</a></li>
-                    <li><a href="fs01_sc_top.html#SWIJX" class="menulink">Back - Jp</a></li>
-                    <li><a href="e_fs01_sc_top.html#SWIJX" class="menulink">Back - En</a></li>
-                    <li class="about"><a href="fs01_about.html" class="menulink">about Contrail</a></li>
-                </ul>
-            </nav>
-            <div class="c-both"></div>
+        <div class="prettyP_PC">
+            <a name="page_top"></a>
+            <div class="center jQ_change navbox" >
+                <nav>
+                    <img src="image/top/cr32_e.png" height="20" class="logo_img">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_img">
+                    <ul class="menu" id="menu" >
+                        <li><a href="index.html" class="menulink">Home</a></li>
+                        <li><a href="whatnew.html" class="menulink">What's New</a></li>
+                        <li><a href="etc.html" class="menulink">E.T.C.</a></li>
+                        <li><a href="fs01.html" class="menulink">The Scenery</a>
+                            <ul>
+                                <li><a href="fs01_sc_top.html" class="sub">Screen Shots</a></li>
+                                <li><a href="fs01_ls_top.html" class="sub">Snap Shots</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="link01.html" class="menulink">Links</a></li>
+                        <li class="about"><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                    </ul>
+                </nav>
+                <div class="c-both"></div>
+            </div>
+            <!-- Sandbox DropDownMenu start-->
+            <script>
+                var menu=new menu.dd("menu");
+                menu.init("menu","menuhover");
+            </script>
+            <!-- Sandbox DropDownMenu end -->
         </div>
-        <!-- Sandbox DropDownMenu start-->
-        <script type="text/javascript">
-            var menu=new menu.dd("menu");
-            menu.init("menu","menuhover");
-        </script>
-        <!-- Sandbox DropDownMenu end -->
+        <div class="prettyP_SP">
+            <a name="MENU"></a>
+            <p id="menu-call">
+                <a href="#">MENU</a>
+            </p>
+
+            <a name="page_top"></a>
+
+            <!-- page top icon & logo -->
+            <div id="header_SP" class="header_labelSP">
+                <div class="pb4"></div>
+                <img src="image/top/cr48f_32.png">
+                <img class="pb3" src="image/top/Contrail_g.png" height="24">
+            </div>
+
+            <div id="popup-menu" class="hidden">
+                <div class="menu-title">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_image" alt="CONTRAIL">
+                </div>
+                <ul>
+                    <li><a href="index.html" class="menulink">Home</a></li>
+                    <li><a href="whatnew.html" class="menulink">What's New</a></li>
+                    <li><a href="etc.html" class="menulink">E.T.C.</a></li>
+                    <li><a href="fs01.html" class="menulink">The Scenery</a></li>
+                    <li><a href="link01.html" class="menulink">Links</a></li>
+                    <li><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                </ul>
+            </div>
+        </div>
     </header>
 
-    <div id="main920" class="lineh120"> <!-- page main: start -->
+    <div id="main800" class="lineh140"> <!-- page main: start -->
 
         <!-- title -->
         <div id="title40">
             <p id="head25">
                 <a name="page_top">
-                    <IMG src="image/fs/kko_fssg_logo.gif" alt="Contrail Flight Simulation Special Gallery">
+                    <img src="image/fs/kko_fssg_logo.gif" alt="Contrail Flight Simulation Special Gallery">
                 </a>
             </p>
-            <h1 id="main_fs_E">
-                South West Islands of Japan <BR>
-                FSX Addon Scenery
-            </h1>
+            <div class="prettyP_PC">
+                <h1 id="main_fs_E">
+                    South West Islands of Japan <br>
+                    FSX Addon Scenery
+                </h1>
+            </div>
+            <div class="prettyP_SP">
+                <h3>
+                    South West Islands of Japan <br>
+                    FSX Addon Scenery
+                </h3>
+            </div>
         </div>
+
+        <!-- for Java Script off -->
+        <noscript>
+            <div id="attention">
+                <p>ご覧頂くにはブラウザの JavaScript をアクティブにして下さい</p>
+            </div>
+        </noscript>
 
         <!-- contents -->
         <!-- <div class="pic-center800 pb50"> -->
-        <div class="pic-center800 pb30">
-            <div class="left">
+        <div class="pic-left800 pb30">
+            <div>
                 <p class="pb20">
                     南西諸島は沖縄の周囲 N31 E131( northeast )から N24 E123( southwest )にかけて位置します。
                     このページはMicrosoft Flight Simulator X( FSX )用に再構築した南西諸島のアドオンシーナリー( SWIJX )を紹介しています。
                 </p>
             </div>
-            <div class="left">
-                <div class="contents-2col-left w512">
-                    <p class="pb10">
-                        北部の種子島にはJAXA( Japan Aerospace eXploration Agency )が種子島宇宙センターを設置しており、
-                        多くの衛星が打ち上げられることで有名です。
-                        種子島の西に位置する屋久島は、九州最高峰の宮之浦岳をはじめ2000m近い山々が連なるため、
-                        亜熱帯に位置するにも関わらず、高所では冬に雪が観測される自然豊かな島です。
-                    </p>
+            <div>
+                <div class="prettyP_PC">
+                    <div class="contents-2col-left w512">
+                        <p class="pb10">
+                            北部の種子島にはJAXA( Japan Aerospace eXploration Agency )が種子島宇宙センターを設置しており、
+                            多くの衛星が打ち上げられることで有名です。
+                            種子島の西に位置する屋久島は、九州最高峰の宮之浦岳をはじめ2000m近い山々が連なるため、
+                            亜熱帯に位置するにも関わらず、高所では冬に雪が観測される自然豊かな島です。
+                        </p>
+                    </div>
+                    <div class="contents-2col-right">
+                        <p>
+                            <img src="image/fs/swijx/source/12_Kume04_1268_512.jpg" width="256" alt="SWIJX Kume">
+                        </p>
+                    </div>
                 </div>
-                <div class="contents-2col-right">
-                    <p>
-                        <IMG src="image/fs/swijx/source/12_Kume04_1268_512.jpg" width="256" alt="SWIJX Kume">
-                    </p>
+                <div class="prettyP_SP">
+                    <div class="contents-2col-left">
+                        <p>
+                            <span class="image-container">
+                                <img src="image/fs/swijx/source/12_Kume04_1268_512.jpg" width="256" alt="SWIJX Kume">
+                            </span>
+                        </p>
+                    </div>
+                    <div class="contents-2col-right800">
+                        <p class="pb10">
+                            北部の種子島にはJAXA( Japan Aerospace eXploration Agency )が種子島宇宙センターを設置しており、
+                            多くの衛星が打ち上げられることで有名です。
+                            種子島の西に位置する屋久島は、九州最高峰の宮之浦岳をはじめ2000m近い山々が連なるため、
+                            亜熱帯に位置するにも関わらず、高所では冬に雪が観測される自然豊かな島です。
+                        </p>
+                    </div>
                 </div>
             </div>
-            <div class="left">
+            <div>
                 <p class="pb10">
-                    余談になりますが...<BR>
+                    余談になりますが...<br>
                     私は1990年代後半からFlight Simulatorのアドオンシーナリーをデザインし始めました。
                     そして、最初に手がけた島が、屋久島でした。当時は、島もポリゴンで設計する仕様でした。
                     実際に作成を始めると、屋久島は非常に複雑な地形であることが分かり、隠面処理を含めての設計に大変な思いをした記憶があります。
                 </p>
             </div>
-            <div class="left">
+            <div>
                 <table class="pb10 fss table-swijx">
                     <tr>
                         <td>
                             <p>
-                                <IMG src="image/fs/swijx/thumb/Yaku98first.jpg" width="256" >
+                                <span class="image-container">
+                                    <img src="image/fs/swijx/thumb/Yaku98first.jpg" width="256">
+                                </span>
                             </p>
                         </td>
                         <td>
                             <p>
-                                <IMG src="image/fs/swijx/thumb/Yaku98Default.jpg" width="256" >
+                                <span class="image-container">
+                                    <img src="image/fs/swijx/thumb/Yaku98Default.jpg" width="256">
+                                </span>
                             </p>
                         </td>
                     </tr>
                     <tr>
-                        <td>1'st Island I designed</td>
-                        <td>FS6 Default Yakushima ... :-O</td>
+                        <td>1'st Island I designed &emsp;</td>
+                        <td>FS6 Default Yakushima... :-O</td>
                     </tr>
                 </table>
             </div>
-            <div class="left">
+            <div>
                 <p class="pb10">
                     一方、
                     南西には西表島や波照間島存在します。
@@ -191,22 +242,39 @@
                     そして、西表の南に位置する波照間からは南十字星を見ることができます。
                 </p>
             </div>
-            <div class="left pb10">
-                <div class="contents-2col-left w512">
-                <p class="pb10">
-                    私はこのアドオンシーナリーを2007年から2008年にかけて作成していました。
-                    テクスチャーは、Landsat画像をベースに様々な処理を加えて仕上げていったのですが、
-                    沖縄本島の北部と西表島のランドサット画像はほぼ全体が雲で覆われ、どう頑張っても地表を再現することができませんでした。
-                    結局、南西諸島シーナリーは未完に終わり、様々な理由から私はシーナリーの作成を中止していました。
-                </p>
+            <div class="pb10">
+                <div class="prettyP_PC">
+                    <div class="contents-2col-left w512">
+                        <p class="pb10">
+                            私はこのアドオンシーナリーを2007年から2008年にかけて作成していました。
+                            テクスチャーは、Landsat画像をベースに様々な処理を加えて仕上げていったのですが、
+                            沖縄本島の北部と西表島のランドサット画像はほぼ全体が雲で覆われ、どう頑張っても地表を再現することができませんでした。
+                            結局、南西諸島シーナリーは未完に終わり、様々な理由から私はシーナリーの作成を中止していました。
+                        </p>
+                    </div>
+                    <div class="contents-2col-right">
+                        <p>
+                            <img src="image/fs/swijx/source/CoverdCloudsOkinawa.jpg" width="192">
+                        </p>
+                    </div>
                 </div>
-                <div class="contents-2col-right">
-                    <p>
-                        <IMG src="image/fs/swijx/source/CoverdCloudsOkinawa.jpg" width="192" >
-                    </p>
+                <div class="prettyP_SP">
+                    <div class="contents-2col-left">
+                        <span class="image-container">
+                            <img src="image/fs/swijx/source/CoverdCloudsOkinawa.jpg" width="192">
+                        </span>
+                    </div>
+                    <div class="contents-2col-right800">
+                        <p class="pb10">
+                            私はこのアドオンシーナリーを2007年から2008年にかけて作成していました。
+                            テクスチャーは、Landsat画像をベースに様々な処理を加えて仕上げていったのですが、
+                            沖縄本島の北部と西表島のランドサット画像はほぼ全体が雲で覆われ、どう頑張っても地表を再現することができませんでした。
+                            結局、南西諸島シーナリーは未完に終わり、様々な理由から私はシーナリーの作成を中止していました。
+                        </p>
+                    </div>
                 </div>
             </div>
-            <div class="left pb10">
+            <div class="pb10">
                 <p class="pb10">
                     それから8年近い歳月が流れました...
                     数ヶ月前に偶然、最近のLandsat画像を見る機会がありました。
@@ -220,26 +288,26 @@
                     SWIJX は近々公開の予定です。
                 </p>
             </div>
-            <div class="left">
+            <div>
                 <!-- <p class="fwb"> --> <!-- アップデートなし -->
                 <!--
                 <p class="pb20">
                     FS9/FSX Scenery "French Polynesia Tuamotu Archipelago" is registered in
-                    <a href="http://www.flightsim.com/" target="_blank">"flightsim"</a>. <BR>
+                    <a href="http://www.flightsim.com/" target="_blank">"flightsim"</a>. <br>
                     This scenery is released as freeware.
                 </p>
                 -->
             </div>
-            <div class="left">
+            <div>
                 <!--
                 <p class="pb5">
-                    <IMG src="image/button/update.gif" width="62" height="14" >
+                    <img src="image/button/update.gif" width="62" height="14">
                      [Tuamotu Group D] - <a href="fs01_sc_tuamotu_d.html#Tehuata">Tehuata</a>
                 </p>
                 -->
                 <!--
                 <p class="fwb">
-                    <IMG src="image/button/update.gif" width="62" height="14" >
+                    <img src="image/button/update.gif" width="62" height="14">
                      [Tuamotu Group C] - <a href="fs01_sc_tuamotu_c.html#Napuka">Napuka</a>
                 </p>
                 -->
@@ -247,23 +315,47 @@
 
         </div>
 
-        <div class="pb10">
-            <p class="fwb">
-                == Click the desired area ==
-            </p>
-        </div>
+        <div class="prettyP_PC">
+            <div class="pb10">
+                <p class="fwb">
+                    == Click the desired area ==
+                </p>
+            </div>
 
-        <div class="pic-center840 pb20">
-            <p>
-                <IMG id="flt_sim_swijx_whole" src="image/fs/swijx/source/SWIJX_whole_map_off.gif" border="0"
-                    alt="SWIJ Whole Map" usemap="#flt_sim_swijx_whole">
-            </p>
-            <map name="flt_sim_swijx_whole">
-                <!-- 同窓でのジャンプ -->
-                <area key="GroupA"        href="#GroupA"        alt="Jump to GroupA"        shape="rect" coords="539,66,813,266" >
-                <area key="GroupB"        href="#GroupB"        alt="Jump to GroupB"        shape="rect" coords="322,277,651,520" >
-                <area key="GroupC"        href="#GroupC"        alt="Jump to GroupC"        shape="rect" coords="19,576,323,692" >
-            </map>
+            <div class="pic-center800 pb20">
+                <p>
+                    <img id="flt_sim_swijx_whole" src="image/fs/swijx/source/SWIJX_whole_map_off.gif" border="0"
+                        alt="SWIJ Whole Map" usemap="#flt_sim_swijx_whole">
+                </p>
+                <map name="flt_sim_swijx_whole">
+                    <!-- 同窓でのジャンプ -->
+                    <area key="GroupA"        href="#GroupA"        alt="Jump to GroupA"        shape="rect" coords="539,66,813,266">
+                    <area key="GroupB"        href="#GroupB"        alt="Jump to GroupB"        shape="rect" coords="322,277,651,520">
+                    <area key="GroupC"        href="#GroupC"        alt="Jump to GroupC"        shape="rect" coords="19,576,323,692">
+                </map>
+            </div>
+        </div>
+        <div class="prettyP_SP">
+            <div class="table-container pb30">
+                <div class="pb10">
+                    <p class="fwb">
+                        == Click the desired area ==
+                    </p>
+                </div>
+
+                <div class="pic-center800 pb20">
+                    <p>
+                        <img id="flt_sim_swijx_whole" src="image/fs/swijx/source/SWIJX_whole_map_off.gif" border="0"
+                            alt="SWIJ Whole Map" usemap="#flt_sim_swijx_whole">
+                    </p>
+                    <map name="flt_sim_swijx_whole">
+                        <!-- 同窓でのジャンプ -->
+                        <area key="GroupA"        href="#GroupA"        alt="Jump to GroupA"        shape="rect" coords="539,66,813,266">
+                        <area key="GroupB"        href="#GroupB"        alt="Jump to GroupB"        shape="rect" coords="322,277,651,520">
+                        <area key="GroupC"        href="#GroupC"        alt="Jump to GroupC"        shape="rect" coords="19,576,323,692">
+                    </map>
+                </div>
+            </div>
         </div>
 
         <!-- GroupA start -->
@@ -277,185 +369,184 @@
                     </p>
                 </h2>
                 <div class="contents-title-right">
-                    <p class="fss fwb" >
-                        Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-                    </p>
                 </div>
                 <div class="c-both"></div>
             </div>
         </div>
-            <!-- contents -->
-        <div class="pb15">
-                <table class="pb10 fss fwb table-swijx">
-                    <tr>
-                        <td>
-                            <p class="jQ_blink change_border_color " >
-                                <!-- Photo Gallery -->
-                                <a href="image/fs/swijx/source/00_Kuroshima05_1107_894.jpg" rel="prettyPhoto[Northeastern]"
-                                    title="SWIJX - Kuroshima - day 1" target="_blank">
-                                    <IMG src="image/fs/swijx/thumb/00_Kuroshima05_1107_256.jpg" width="256" >
-                                </a>
-                                <!-- additional images -->
-                                <a href="image/fs/swijx/source/00_Kuroshima02_896_724.jpg" rel="prettyPhoto[Northeastern]"
-                                    title="SWIJX - Kuroshima - dusk" target="_blank" >
-                                </a>
-                            </p>
-                        </td>
-                        <td>
-                            <p class="jQ_blink change_border_color " >
-                                <!-- Photo Gallery -->
-                                <a href="image/fs/swijx/source/00_SatsumaIwojima04_1268_1024.jpg" rel="prettyPhoto[Northeastern]"
-                                    title="SWIJX - SatsumaIwojima" target="_blank">
-                                    <IMG src="image/fs/swijx/thumb/00_SatsumaIwojima04_1268_256.jpg" width="256" >
-                                </a>
-                            </p>
-                        </td>
-                        <td>
-                            <p class="jQ_blink change_border_color " >
-                                <!-- Photo Gallery -->
-                                <a href="image/fs/swijx/source/00_Takeshima03_1193_963.jpg" rel="prettyPhoto[Northeastern]"
-                                    title="SWIJX - Takeshima" target="_blank">
-                                    <IMG src="image/fs/swijx/thumb/00_Takeshima03_1193_256.jpg" width="256" >
-                                </a>
-                            </p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Kuroshima</td>
-                        <td>SatsumaIwojima</td>
-                        <td>Takeshima</td>
-                    </tr>
-                </table>
-                <table class="pb10 fss fwb table-swijx">
-                    <tr>
-                        <td>
-                            <p class="jQ_blink change_border_color " >
-                                <!-- Photo Gallery -->
-                                <a href="image/fs/swijx/source/00_Tanegashima02_1268_1024.jpg" rel="prettyPhoto[Northeastern]"
-                                    title="SWIJX - Tanegashima 1" target="_blank">
-                                    <IMG src="image/fs/swijx/thumb/00_Tanegashima02_256.jpg" width="256" >
-                                </a>
-                                <!-- additional images -->
-                                <a href="image/fs/swijx/source/00_Tanegashima03_1268_1024.jpg" rel="prettyPhoto[Northeastern]"
-                                    title="SWIJX - Tanegashima 2" target="_blank" >
-                                </a>
-                                <a href="image/fs/swijx/source/00_Tanegashima06_1268_1024.jpg" rel="prettyPhoto[Northeastern]"
-                                    title="SWIJX - Tanegashima 3" target="_blank" >
-                                </a>
-                            </p>
-                        </td>
-                        <td>
-                            <p class="jQ_blink change_border_color " >
-                                <!-- Photo Gallery -->
-                                <a href="image/fs/swijx/source/00_KuchinoErabu04_1268_1024.jpg" rel="prettyPhoto[Northeastern]"
-                                    title="SWIJX - KuchinoErabu 1" target="_blank">
-                                    <IMG src="image/fs/swijx/thumb/00_KuchinoErabu04_1268_256.jpg" width="256" >
-                                </a>
-                                <!-- additional images -->
-                                <a href="image/fs/swijx/source/00_KuchinoErabu02_1268_1024.jpg" rel="prettyPhoto[Northeastern]"
-                                    title="SWIJX - KuchinoErabu 2" target="_blank" >
-                                </a>
-                            </p>
-                        </td>
-                        <td>
-                            <p class="jQ_blink change_border_color " >
-                                <!-- Photo Gallery -->
-                                <a href="image/fs/swijx/source/00_Yakushima09_1268_1024.jpg" rel="prettyPhoto[Northeastern]"
-                                    title="SWIJX - Yakushima 1" target="_blank">
-                                    <IMG src="image/fs/swijx/thumb/00_Yakushima09_1268_256.jpg" width="256" >
-                                </a>
-                                <!-- additional images -->
-                                <a href="image/fs/swijx/source/00_Yakushima04_1268_1024.jpg" rel="prettyPhoto[Northeastern]"
-                                    title="SWIJX - Yakushima 2" target="_blank" >
-                                </a>
-                                <a href="image/fs/swijx/source/00_Yakushima05_1268_1024.jpg" rel="prettyPhoto[Northeastern]"
-                                    title="SWIJX - Yakushima 3" target="_blank" >
-                                </a>
-                                <a href="image/fs/swijx/source/00_Yakushima06_1268_1024.jpg" rel="prettyPhoto[Northeastern]"
-                                    title="SWIJX - Yakushima 4" target="_blank" >
-                                </a>
-                            </p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Tanegashima</td>
-                        <td>KuchinoErabu</td>
-                        <td>Yakushima</td>
-                    </tr>
-                </table>
-                <table class="pb10 fss fwb table-swijx">
-                    <tr>
-                        <td>
-                            <p class="jQ_blink change_border_color " >
-                                <!-- Photo Gallery -->
-                                <a href="image/fs/swijx/source/01_Kuchinoshima03_927_749.jpg" rel="prettyPhoto[Northeastern - Tokara Islands]"
-                                    title="SWIJX - Kuchinoshima" target="_blank">
-                                    <IMG src="image/fs/swijx/thumb/01_Kuchinoshima03_256.jpg" width="256" >
-                                </a>
-                            </p>
-                        </td>
-                        <td>
-                            <p class="jQ_blink change_border_color " >
-                                <!-- Photo Gallery -->
-                                <a href="image/fs/swijx/source/01_Nakanoshima03_1197_967.jpg" rel="prettyPhoto[Northeastern - Tokara Islands]"
-                                    title="SWIJX - Nakanoshima" target="_blank">
-                                    <IMG src="image/fs/swijx/thumb/01_Nakanoshima03_902_256.jpg" width="256" >
-                                </a>
-                            </p>
-                        </td>
-                        <td>
-                            <p class="jQ_blink change_border_color " >
-                                <!-- Photo Gallery -->
-                                <a href="image/fs/swijx/source/01_Akusekijima02_1118_903.jpg" rel="prettyPhoto[Northeastern - Tokara Islands]"
-                                    title="SWIJX - Akusekijima" target="_blank">
-                                    <IMG src="image/fs/swijx/thumb/01_Akusekijima02_1118_256.jpg" width="256" >
-                                </a>
-                            </p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Tokara - Kuchinoshima</td>
-                        <td>Tokara - Nakanoshima</td>
-                        <td>Tokara - Akusekijima</td>
-                    </tr>
-                </table>
-                <table class="pb10 fss fwb table-swijx">
-                    <tr>
-                        <td>
-                            <p class="jQ_blink change_border_color " >
-                                <!-- Photo Gallery -->
-                                <a href="image/fs/swijx/source/01_Kodakara02_1157_934.jpg" rel="prettyPhoto[Northeastern - Tokara Islands]"
-                                    title="SWIJX - Kodakarajima" target="_blank">
-                                    <IMG src="image/fs/swijx/thumb/01_Kodakara02_1157_256.jpg" width="256" >
-                                </a>
-                            </p>
-                        </td>
-                        <td>
-                            <p class="jQ_blink change_border_color " >
-                                <!-- Photo Gallery -->
-                                <a href="image/fs/swijx/source/01_Takara02_1234_997.jpg" rel="prettyPhoto[Northeastern - Tokara Islands]"
-                                    title="SWIJX - Takarajima" target="_blank">
-                                    <IMG src="image/fs/swijx/thumb/01_Takara02_1234_256.jpg" width="256" >
-                                </a>
-                            </p>
-                        </td>
-                        <td>
-                            <p class="jQ_blink change_border_color " >
-                                <!-- Photo Gallery -->
-                                <a href="image/fs/swijx/source/01_Yokoate02_1173_947.jpg" rel="prettyPhoto[Northeastern - Tokara Islands]"
-                                    title="SWIJX - Yokoatejima" target="_blank">
-                                    <IMG src="image/fs/swijx/thumb/01_Yokoate02_1173_256.jpg" width="256" >
-                                </a>
-                            </p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Tokara - Kodakarajima</td>
-                        <td>Tokara - Takarajima</td>
-                        <td>Tokara - Yokoatejima</td>
-                    </tr>
-                </table>
+
+        <!-- contents -->
+        <div class="table-container pb30">
+            <table class="pb10 fss fwb table-swijx">
+                <tr>
+                    <td>
+                        <p class="jQ_blink change_border_color ">
+                            <!-- Photo Gallery -->
+                            <a href="image/fs/swijx/source/00_Kuroshima05_1107_894.jpg" data-fancybox="gallery[Northeastern]"
+                                data-caption="SWIJX - Kuroshima - day 1">
+                                <IMG src="image/fs/swijx/thumb/00_Kuroshima05_1107_256.jpg" width="256">
+                            </a>
+                            <!-- additional images -->
+                            <a href="image/fs/swijx/source/00_Kuroshima02_896_724.jpg" data-fancybox="gallery[Northeastern]"
+                                data-caption="SWIJX - Kuroshima - dusk">
+                            </a>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="jQ_blink change_border_color ">
+                            <!-- Photo Gallery -->
+                            <a href="image/fs/swijx/source/00_SatsumaIwojima04_1268_1024.jpg" data-fancybox="gallery[Northeastern]"
+                                data-caption="SWIJX - SatsumaIwojima">
+                                <IMG src="image/fs/swijx/thumb/00_SatsumaIwojima04_1268_256.jpg" width="256">
+                            </a>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="jQ_blink change_border_color ">
+                            <!-- Photo Gallery -->
+                            <a href="image/fs/swijx/source/00_Takeshima03_1193_963.jpg" data-fancybox="gallery[Northeastern]"
+                                data-caption="SWIJX - Takeshima">
+                                <IMG src="image/fs/swijx/thumb/00_Takeshima03_1193_256.jpg" width="256">
+                            </a>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Kuroshima</td>
+                    <td>SatsumaIwojima</td>
+                    <td>Takeshima</td>
+                </tr>
+            </table>
+            <table class="pb10 fss fwb table-swijx">
+                <tr>
+                    <td>
+                        <p class="jQ_blink change_border_color ">
+                            <!-- Photo Gallery -->
+                            <a href="image/fs/swijx/source/00_Tanegashima02_1268_1024.jpg" data-fancybox="gallery[Northeastern]"
+                                data-caption="SWIJX - Tanegashima 1">
+                                <IMG src="image/fs/swijx/thumb/00_Tanegashima02_256.jpg" width="256">
+                            </a>
+                            <!-- additional images -->
+                            <a href="image/fs/swijx/source/00_Tanegashima03_1268_1024.jpg" data-fancybox="gallery[Northeastern]"
+                                data-caption="SWIJX - Tanegashima 2">
+                            </a>
+                            <a href="image/fs/swijx/source/00_Tanegashima06_1268_1024.jpg" data-fancybox="gallery[Northeastern]"
+                                data-caption="SWIJX - Tanegashima 3">
+                            </a>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="jQ_blink change_border_color ">
+                            <!-- Photo Gallery -->
+                            <a href="image/fs/swijx/source/00_KuchinoErabu04_1268_1024.jpg" data-fancybox="gallery[Northeastern]"
+                                data-caption="SWIJX - KuchinoErabu 1">
+                                <IMG src="image/fs/swijx/thumb/00_KuchinoErabu04_1268_256.jpg" width="256">
+                            </a>
+                            <!-- additional images -->
+                            <a href="image/fs/swijx/source/00_KuchinoErabu02_1268_1024.jpg" data-fancybox="gallery[Northeastern]"
+                                data-caption="SWIJX - KuchinoErabu 2">
+                            </a>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="jQ_blink change_border_color ">
+                            <!-- Photo Gallery -->
+                            <a href="image/fs/swijx/source/00_Yakushima09_1268_1024.jpg" data-fancybox="gallery[Northeastern]"
+                                data-caption="SWIJX - Yakushima 1">
+                                <IMG src="image/fs/swijx/thumb/00_Yakushima09_1268_256.jpg" width="256">
+                            </a>
+                            <!-- additional images -->
+                            <a href="image/fs/swijx/source/00_Yakushima04_1268_1024.jpg" data-fancybox="gallery[Northeastern]"
+                                data-caption="SWIJX - Yakushima 2">
+                            </a>
+                            <a href="image/fs/swijx/source/00_Yakushima05_1268_1024.jpg" data-fancybox="gallery[Northeastern]"
+                                data-caption="SWIJX - Yakushima 3">
+                            </a>
+                            <a href="image/fs/swijx/source/00_Yakushima06_1268_1024.jpg" data-fancybox="gallery[Northeastern]"
+                                data-caption="SWIJX - Yakushima 4">
+                            </a>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tanegashima</td>
+                    <td>KuchinoErabu</td>
+                    <td>Yakushima</td>
+                </tr>
+            </table>
+            <table class="pb10 fss fwb table-swijx">
+                <tr>
+                    <td>
+                        <p class="jQ_blink change_border_color ">
+                            <!-- Photo Gallery -->
+                            <a href="image/fs/swijx/source/01_Kuchinoshima03_927_749.jpg" data-fancybox="gallery[Northeastern - Tokara Islands]"
+                                data-caption="SWIJX - Kuchinoshima">
+                                <IMG src="image/fs/swijx/thumb/01_Kuchinoshima03_256.jpg" width="256">
+                            </a>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="jQ_blink change_border_color ">
+                            <!-- Photo Gallery -->
+                            <a href="image/fs/swijx/source/01_Nakanoshima03_1197_967.jpg" data-fancybox="gallery[Northeastern - Tokara Islands]"
+                                data-caption="SWIJX - Nakanoshima">
+                                <IMG src="image/fs/swijx/thumb/01_Nakanoshima03_902_256.jpg" width="256">
+                            </a>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="jQ_blink change_border_color ">
+                            <!-- Photo Gallery -->
+                            <a href="image/fs/swijx/source/01_Akusekijima02_1118_903.jpg" data-fancybox="gallery[Northeastern - Tokara Islands]"
+                                data-caption="SWIJX - Akusekijima">
+                                <IMG src="image/fs/swijx/thumb/01_Akusekijima02_1118_256.jpg" width="256">
+                            </a>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tokara - Kuchinoshima</td>
+                    <td>Tokara - Nakanoshima</td>
+                    <td>Tokara - Akusekijima</td>
+                </tr>
+            </table>
+            <table class="pb10 fss fwb table-swijx">
+                <tr>
+                    <td>
+                        <p class="jQ_blink change_border_color ">
+                            <!-- Photo Gallery -->
+                            <a href="image/fs/swijx/source/01_Kodakara02_1157_934.jpg" data-fancybox="gallery[Northeastern - Tokara Islands]"
+                                data-caption="SWIJX - Kodakarajima">
+                                <IMG src="image/fs/swijx/thumb/01_Kodakara02_1157_256.jpg" width="256">
+                            </a>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="jQ_blink change_border_color ">
+                            <!-- Photo Gallery -->
+                            <a href="image/fs/swijx/source/01_Takara02_1234_997.jpg" data-fancybox="gallery[Northeastern - Tokara Islands]"
+                                data-caption="SWIJX - Takarajima">
+                                <IMG src="image/fs/swijx/thumb/01_Takara02_1234_256.jpg" width="256">
+                            </a>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="jQ_blink change_border_color ">
+                            <!-- Photo Gallery -->
+                            <a href="image/fs/swijx/source/01_Yokoate02_1173_947.jpg" data-fancybox="gallery[Northeastern - Tokara Islands]"
+                                data-caption="SWIJX - Yokoatejima">
+                                <IMG src="image/fs/swijx/thumb/01_Yokoate02_1173_256.jpg" width="256">
+                            </a>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tokara - Kodakarajima</td>
+                    <td>Tokara - Takarajima</td>
+                    <td>Tokara - Yokoatejima</td>
+                </tr>
+            </table>
         </div>
+        <div class="prettyP_SP"><div class="pb40"></div></div>
 
         <!-- GroupB start -->
         <!-- title -->
@@ -468,213 +559,214 @@
                     </p>
                 </h2>
                 <div class="contents-title-right">
-                    <p class="fss fwb" >
-                        Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
+                    <p class="fss fwb">
                     </p>
                 </div>
                 <div class="c-both"></div>
             </div>
         </div>
-            <!-- contents -->
-        <div class="pb15">
-                <table class="pb10 fss fwb table-swijx">
-                    <tr>
-                        <td>
-                            <p class="jQ_blink change_border_color " >
-                                <!-- Photo Gallery -->
-                                <a href="image/fs/swijx/source/10_Amami01_1268_1024.jpg" rel="prettyPhoto[Central - Amami Kikai Toku]"
-                                    title="SWIJX - Amami Islands" target="_blank">
-                                    <IMG src="image/fs/swijx/thumb/10_Amami01_1268_256.jpg" width="256" >
-                                </a>
-                                <!-- additional images -->
-                                <a href="image/fs/swijx/source/10_Amami02_1268_1024.jpg" rel="prettyPhoto[Central - Amami Kikai Toku]"
-                                    title="SWIJX - Amami Islands 2" target="_blank" >
-                                </a>
-                            </p>
-                        </td>
-                        <td>
-                            <p class="jQ_blink change_border_color " >
-                                <!-- Photo Gallery -->
-                                <a href="image/fs/swijx/source/10_Kikai04_1268_1024.jpg" rel="prettyPhoto[Central - Amami Kikai Toku]"
-                                    title="SWIJX - Kikai" target="_blank">
-                                    <IMG src="image/fs/swijx/thumb/10_Kikai04_1268_256.jpg" width="256" >
-                                </a>
-                            </p>
-                        </td>
-                        <td>
-                            <p class="jQ_blink change_border_color " >
-                                <!-- Photo Gallery -->
-                                <a href="image/fs/swijx/source/10_Tokunoshima05_1268_1024.jpg" rel="prettyPhoto[Central - Amami Kikai Toku]"
-                                    title="SWIJX - Tokunoshima" target="_blank">
-                                    <IMG src="image/fs/swijx/thumb/10_Tokunoshima05_1268_256.jpg" width="256" >
-                                </a>
-                                <!-- additional images -->
-                                <a href="image/fs/swijx/source/10_Tokunoshima02_1268_1024.jpg" rel="prettyPhoto[Central - Amami Kikai Toku]"
-                                    title="SWIJX - Tokunoshima 2" target="_blank" >
-                                </a>
-                            </p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Amami Islands</td>
-                        <td>Kikai</td>
-                        <td>Tokunoshima</td>
-                    </tr>
-                </table>
-                <table class="pb10 fss fwb table-swijx">
-                    <tr>
-                        <td>
-                            <p class="jQ_blink change_border_color " >
-                                <!-- Photo Gallery -->
-                                <a href="image/fs/swijx/source/11_OkiEra02_1268_1024.jpg" rel="prettyPhoto[Central - OkiEra Yoron Ihe-Ize]"
-                                    title="SWIJX - OkinoErabu" target="_blank">
-                                    <IMG src="image/fs/swijx/thumb/11_OkiEra02_1268_256.jpg" width="256" >
-                                </a>
-                                <!-- additional images -->
-                                <a href="image/fs/swijx/source/11_OkiEra01_1268_1024.jpg" rel="prettyPhoto[Central - OkiEra Yoron Ihe-Ize]"
-                                    title="SWIJX - OkinoErabu 2" target="_blank" >
-                                </a>
-                            </p>
-                        </td>
-                        <td>
-                            <p class="jQ_blink change_border_color " >
-                                <!-- Photo Gallery -->
-                                <a href="image/fs/swijx/source/11_Yoron04_1268_1024.jpg" rel="prettyPhoto[Central - OkiEra Yoron Ihe-Ize]"
-                                    title="SWIJX - Yoron" target="_blank">
-                                    <IMG src="image/fs/swijx/thumb/11_Yoron04_1268_256.jpg" width="256" >
-                                </a>
-                                <!-- additional images -->
-                                <a href="image/fs/swijx/source/11_Yoron07_1050_848.jpg" rel="prettyPhoto[Central - OkiEra Yoron Ihe-Ize]"
-                                    title="SWIJX - Yoron Dusk" target="_blank" >
-                                </a>
-                                <a href="image/fs/swijx/source/11_Yoron06_1238_1000.jpg" rel="prettyPhoto[Central - OkiEra Yoron Ihe-Ize]"
-                                    title="SWIJX - Yoron 2" target="_blank" >
-                                </a>
-                            </p>
-                        </td>
-                        <td>
-                            <p class="jQ_blink change_border_color " >
-                                <!-- Photo Gallery -->
-                                <a href="image/fs/swijx/source/11_Iheya_Izena02_1268_1024.jpg" rel="prettyPhoto[Central - OkiEra Yoron Ihe-Ize]"
-                                    title="SWIJX - Iheya Izena" target="_blank">
-                                    <IMG src="image/fs/swijx/thumb/11_Iheya_Izena02_1268_256.jpg" width="256" >
-                                </a>
-                                <!-- additional images -->
-                                <a href="image/fs/swijx/source/11_Iheya_Izena03_1212_979.jpg" rel="prettyPhoto[Central - OkiEra Yoron Ihe-Ize]"
-                                    title="SWIJX - Iheya Izena 2" target="_blank" >
-                                </a>
-                            </p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>OkinoErabu</td>
-                        <td>Yoron</td>
-                        <td>Iheya Izena</td>
-                    </tr>
-                </table>
-                <table class="pb10 fss fwb table-swijx">
-                    <tr>
-                        <td>
-                            <p class="jQ_blink change_border_color " >
-                                <!-- Photo Gallery -->
-                                <a href="image/fs/swijx/source/12_OkinawaN03_1186_958.jpg" rel="prettyPhoto[Central - Okinawa]"
-                                    title="SWIJX - Okinawa North" target="_blank">
-                                    <IMG src="image/fs/swijx/thumb/12_OkinawaN03_1186_256.jpg" width="256" >
-                                </a>
-                                <!-- additional images -->
-                                <a href="image/fs/swijx/source/12_OkinawaN202_1268_1024.jpg" rel="prettyPhoto[Central - Okinawa]"
-                                    title="SWIJX - Okinawa North 2" target="_blank" >
-                                </a>
-                            </p>
-                        </td>
-                        <td>
-                            <p class="jQ_blink change_border_color " >
-                                <!-- Photo Gallery -->
-                                <a href="image/fs/swijx/source/12_OkinawaM301_1268_1024.jpg" rel="prettyPhoto[Central - Okinawa]"
-                                    title="SWIJX - Okinawa Central" target="_blank">
-                                    <IMG src="image/fs/swijx/thumb/12_OkinawaM301_1268_256.jpg" width="256" >
-                                </a>
-                                <!-- additional images -->
-                                <a href="image/fs/swijx/source/12_OkinawaM305_1268_1024.jpg" rel="prettyPhoto[Central - Okinawa]"
-                                    title="SWIJX - Okinawa Central 2" target="_blank" >
-                                </a>
-                                <a href="image/fs/swijx/source/12_OkinawaM307_1268_1024.jpg" rel="prettyPhoto[Central - Okinawa]"
-                                    title="SWIJX - Okinawa Central 3" target="_blank" >
-                                </a>
-                            </p>
-                        </td>
-                        <td>
-                            <p class="jQ_blink change_border_color " >
-                                <!-- Photo Gallery -->
-                                <a href="image/fs/swijx/source/12_OkinawaS405_1268_1024.jpg" rel="prettyPhoto[Central - Okinawa]"
-                                    title="SWIJX - Okinawa South" target="_blank">
-                                    <IMG src="image/fs/swijx/thumb/12_OkinawaS405_1268_256.jpg" width="256" >
-                                </a>
-                                <!-- additional images -->
-                                <a href="image/fs/swijx/source/12_OkinawaS404_1268_1024.jpg" rel="prettyPhoto[Central - Okinawa]"
-                                    title="SWIJX - Okinawa South 2" target="_blank" >
-                                </a>
-                            </p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Okinawa North</td>
-                        <td>Okinawa Central</td>
-                        <td>Okinawa South</td>
-                    </tr>
-                </table>
-                <table class="pb10 fss fwb table-swijx">
-                    <tr>
-                        <td>
-                            <p class="jQ_blink change_border_color " >
-                                <!-- Photo Gallery -->
-                                <a href="image/fs/swijx/source/13_Kerama_new025_1268_1024.jpg" rel="prettyPhoto[Central - West]"
-                                    title="SWIJX - Kerama" target="_blank">
-                                    <IMG src="image/fs/swijx/thumb/13_Kerama_new025_1268_256.jpg" width="256" >
-                                </a>
-                                <!-- additional images -->
-                                <a href="image/fs/swijx/source/13_Kerama_new01_1268_1024.jpg" rel="prettyPhoto[Central - West]"
-                                    title="SWIJX - Kerama 2" target="_blank" >
-                                </a>
-                            </p>
-                        </td>
-                        <td>
-                            <p class="jQ_blink change_border_color " >
-                                <!-- Photo Gallery -->
-                                <a href="image/fs/swijx/source/13_Aguni_new01_1047_827.jpg" rel="prettyPhoto[Central - West]"
-                                    title="SWIJX - Aguni" target="_blank">
-                                    <IMG src="image/fs/swijx/thumb/13_Aguni_new01_1047_256.jpg" width="256" >
-                                </a>
-                                <!-- additional images -->
-                                <a href="image/fs/swijx/source/13_Aguni_new02_957_773.jpg" rel="prettyPhoto[Central - West]"
-                                    title="SWIJX - Aguni 2" target="_blank" >
-                                </a>
-                            </p>
-                        </td>
-                        <td>
-                            <p class="jQ_blink change_border_color " >
-                                <!-- Photo Gallery -->
-                                <a href="image/fs/swijx/source/13_Kume_new05_1268_1024.jpg" rel="prettyPhoto[Central - West]"
-                                    title="SWIJX - Kume" target="_blank">
-                                    <IMG src="image/fs/swijx/thumb/13_Kume_new05_1268_256.jpg" width="256" >
-                                </a>
-                                <!-- additional images -->
-                                <a href="image/fs/swijx/source/13_Kume_new01a_994_803.jpg" rel="prettyPhoto[Central - West]"
-                                    title="SWIJX - Kume 2" target="_blank" >
-                                </a>
-                                <a href="image/fs/swijx/source/13_Kume_new02_1213_980.jpg" rel="prettyPhoto[Central - West]"
-                                    title="SWIJX - Kume 3" target="_blank" >
-                                </a>
-                            </p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Kerama</td>
-                        <td>Aguni</td>
-                        <td>Kume</td>
-                    </tr>
-                </table>
+
+        <!-- contents -->
+        <div class="table-container pb30">
+            <table class="pb10 fss fwb table-swijx">
+                <tr>
+                    <td>
+                        <p class="jQ_blink change_border_color ">
+                            <!-- Photo Gallery -->
+                            <a href="image/fs/swijx/source/10_Amami01_1268_1024.jpg" data-fancybox="gallery[Central - Amami Kikai Toku]"
+                                data-caption="SWIJX - Amami Islands">
+                                <IMG src="image/fs/swijx/thumb/10_Amami01_1268_256.jpg" width="256">
+                            </a>
+                            <!-- additional images -->
+                            <a href="image/fs/swijx/source/10_Amami02_1268_1024.jpg" data-fancybox="gallery[Central - Amami Kikai Toku]"
+                                data-caption="SWIJX - Amami Islands 2">
+                            </a>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="jQ_blink change_border_color ">
+                            <!-- Photo Gallery -->
+                            <a href="image/fs/swijx/source/10_Kikai04_1268_1024.jpg" data-fancybox="gallery[Central - Amami Kikai Toku]"
+                                data-caption="SWIJX - Kikai">
+                                <IMG src="image/fs/swijx/thumb/10_Kikai04_1268_256.jpg" width="256">
+                            </a>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="jQ_blink change_border_color ">
+                            <!-- Photo Gallery -->
+                            <a href="image/fs/swijx/source/10_Tokunoshima05_1268_1024.jpg" data-fancybox="gallery[Central - Amami Kikai Toku]"
+                                data-caption="SWIJX - Tokunoshima">
+                                <IMG src="image/fs/swijx/thumb/10_Tokunoshima05_1268_256.jpg" width="256">
+                            </a>
+                            <!-- additional images -->
+                            <a href="image/fs/swijx/source/10_Tokunoshima02_1268_1024.jpg" data-fancybox="gallery[Central - Amami Kikai Toku]"
+                                data-caption="SWIJX - Tokunoshima 2">
+                            </a>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Amami Islands</td>
+                    <td>Kikai</td>
+                    <td>Tokunoshima</td>
+                </tr>
+            </table>
+            <table class="pb10 fss fwb table-swijx">
+                <tr>
+                    <td>
+                        <p class="jQ_blink change_border_color ">
+                            <!-- Photo Gallery -->
+                            <a href="image/fs/swijx/source/11_OkiEra02_1268_1024.jpg" data-fancybox="gallery[Central - OkiEra Yoron Ihe-Ize]"
+                                data-caption="SWIJX - OkinoErabu">
+                                <IMG src="image/fs/swijx/thumb/11_OkiEra02_1268_256.jpg" width="256">
+                            </a>
+                            <!-- additional images -->
+                            <a href="image/fs/swijx/source/11_OkiEra01_1268_1024.jpg" data-fancybox="gallery[Central - OkiEra Yoron Ihe-Ize]"
+                                data-caption="SWIJX - OkinoErabu 2">
+                            </a>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="jQ_blink change_border_color ">
+                            <!-- Photo Gallery -->
+                            <a href="image/fs/swijx/source/11_Yoron04_1268_1024.jpg" data-fancybox="gallery[Central - OkiEra Yoron Ihe-Ize]"
+                                data-caption="SWIJX - Yoron">
+                                <IMG src="image/fs/swijx/thumb/11_Yoron04_1268_256.jpg" width="256">
+                            </a>
+                            <!-- additional images -->
+                            <a href="image/fs/swijx/source/11_Yoron07_1050_848.jpg" data-fancybox="gallery[Central - OkiEra Yoron Ihe-Ize]"
+                                data-caption="SWIJX - Yoron Dusk">
+                            </a>
+                            <a href="image/fs/swijx/source/11_Yoron06_1238_1000.jpg" data-fancybox="gallery[Central - OkiEra Yoron Ihe-Ize]"
+                                data-caption="SWIJX - Yoron 2">
+                            </a>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="jQ_blink change_border_color ">
+                            <!-- Photo Gallery -->
+                            <a href="image/fs/swijx/source/11_Iheya_Izena02_1268_1024.jpg" data-fancybox="gallery[Central - OkiEra Yoron Ihe-Ize]"
+                                data-caption="SWIJX - Iheya Izena">
+                                <IMG src="image/fs/swijx/thumb/11_Iheya_Izena02_1268_256.jpg" width="256">
+                            </a>
+                            <!-- additional images -->
+                            <a href="image/fs/swijx/source/11_Iheya_Izena03_1212_979.jpg" data-fancybox="gallery[Central - OkiEra Yoron Ihe-Ize]"
+                                data-caption="SWIJX - Iheya Izena 2">
+                            </a>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>OkinoErabu</td>
+                    <td>Yoron</td>
+                    <td>Iheya Izena</td>
+                </tr>
+            </table>
+            <table class="pb10 fss fwb table-swijx">
+                <tr>
+                    <td>
+                        <p class="jQ_blink change_border_color ">
+                            <!-- Photo Gallery -->
+                            <a href="image/fs/swijx/source/12_OkinawaN03_1186_958.jpg" data-fancybox="gallery[Central - Okinawa]"
+                                data-caption="SWIJX - Okinawa North">
+                                <IMG src="image/fs/swijx/thumb/12_OkinawaN03_1186_256.jpg" width="256">
+                            </a>
+                            <!-- additional images -->
+                            <a href="image/fs/swijx/source/12_OkinawaN202_1268_1024.jpg" data-fancybox="gallery[Central - Okinawa]"
+                                data-caption="SWIJX - Okinawa North 2">
+                            </a>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="jQ_blink change_border_color ">
+                            <!-- Photo Gallery -->
+                            <a href="image/fs/swijx/source/12_OkinawaM301_1268_1024.jpg" data-fancybox="gallery[Central - Okinawa]"
+                                data-caption="SWIJX - Okinawa Central">
+                                <IMG src="image/fs/swijx/thumb/12_OkinawaM301_1268_256.jpg" width="256">
+                            </a>
+                            <!-- additional images -->
+                            <a href="image/fs/swijx/source/12_OkinawaM305_1268_1024.jpg" data-fancybox="gallery[Central - Okinawa]"
+                                data-caption="SWIJX - Okinawa Central 2">
+                            </a>
+                            <a href="image/fs/swijx/source/12_OkinawaM307_1268_1024.jpg" data-fancybox="gallery[Central - Okinawa]"
+                                data-caption="SWIJX - Okinawa Central 3">
+                            </a>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="jQ_blink change_border_color ">
+                            <!-- Photo Gallery -->
+                            <a href="image/fs/swijx/source/12_OkinawaS405_1268_1024.jpg" data-fancybox="gallery[Central - Okinawa]"
+                                data-caption="SWIJX - Okinawa South">
+                                <IMG src="image/fs/swijx/thumb/12_OkinawaS405_1268_256.jpg" width="256">
+                            </a>
+                            <!-- additional images -->
+                            <a href="image/fs/swijx/source/12_OkinawaS404_1268_1024.jpg" data-fancybox="gallery[Central - Okinawa]"
+                                data-caption="SWIJX - Okinawa South 2">
+                            </a>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Okinawa North</td>
+                    <td>Okinawa Central</td>
+                    <td>Okinawa South</td>
+                </tr>
+            </table>
+            <table class="pb10 fss fwb table-swijx">
+                <tr>
+                    <td>
+                        <p class="jQ_blink change_border_color ">
+                            <!-- Photo Gallery -->
+                            <a href="image/fs/swijx/source/13_Kerama_new025_1268_1024.jpg" data-fancybox="gallery[Central - West]"
+                                data-caption="SWIJX - Kerama">
+                                <IMG src="image/fs/swijx/thumb/13_Kerama_new025_1268_256.jpg" width="256">
+                            </a>
+                            <!-- additional images -->
+                            <a href="image/fs/swijx/source/13_Kerama_new01_1268_1024.jpg" data-fancybox="gallery[Central - West]"
+                                data-caption="SWIJX - Kerama 2">
+                            </a>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="jQ_blink change_border_color ">
+                            <!-- Photo Gallery -->
+                            <a href="image/fs/swijx/source/13_Aguni_new01_1047_827.jpg" data-fancybox="gallery[Central - West]"
+                                data-caption="SWIJX - Aguni">
+                                <IMG src="image/fs/swijx/thumb/13_Aguni_new01_1047_256.jpg" width="256">
+                            </a>
+                            <!-- additional images -->
+                            <a href="image/fs/swijx/source/13_Aguni_new02_957_773.jpg" data-fancybox="gallery[Central - West]"
+                                data-caption="SWIJX - Aguni 2">
+                            </a>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="jQ_blink change_border_color ">
+                            <!-- Photo Gallery -->
+                            <a href="image/fs/swijx/source/13_Kume_new05_1268_1024.jpg" data-fancybox="gallery[Central - West]"
+                                data-caption="SWIJX - Kume">
+                                <IMG src="image/fs/swijx/thumb/13_Kume_new05_1268_256.jpg" width="256">
+                            </a>
+                            <!-- additional images -->
+                            <a href="image/fs/swijx/source/13_Kume_new01a_994_803.jpg" data-fancybox="gallery[Central - West]"
+                                data-caption="SWIJX - Kume 2">
+                            </a>
+                            <a href="image/fs/swijx/source/13_Kume_new02_1213_980.jpg" data-fancybox="gallery[Central - West]"
+                                data-caption="SWIJX - Kume 3">
+                            </a>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Kerama</td>
+                    <td>Aguni</td>
+                    <td>Kume</td>
+                </tr>
+            </table>
         </div>
+        <div class="prettyP_SP"><div class="pb40"></div></div>
 
         <!-- GroupC start -->
         <!-- title -->
@@ -687,156 +779,174 @@
                     </p>
                 </h2>
                 <div class="contents-title-right">
-                    <p class="fss fwb" >
-                        Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
+                    <p class="fss fwb">
                     </p>
                 </div>
                 <div class="c-both"></div>
             </div>
         </div>
             <!-- contents -->
-        <div class="pb15">
-                <table class="pb10 fss fwb table-swijx">
-                    <tr>
-                        <td>
-                            <p class="jQ_blink change_border_color " >
-                                <!-- Photo Gallery -->
-                                <a href="image/fs/swijx/source/21_Miyako_04_1268_1024.jpg" rel="prettyPhoto[South West]"
-                                    title="SWIJX - Miyako Shimoji" target="_blank">
-                                    <IMG src="image/fs/swijx/thumb/21_Miyako_04_1268_256.jpg" width="256" >
-                                </a>
-                                <!-- additional images -->
-                                <a href="image/fs/swijx/source/21_Miyako_03_1199_968.jpg" rel="prettyPhoto[South West]"
-                                    title="SWIJX - Miyako Shimoji 2" target="_blank" >
-                                </a>
-                                <a href="image/fs/swijx/source/21_Miyako_new03a_1268_1024.jpg" rel="prettyPhoto[South West]"
-                                    title="SWIJX - Miyako Shimoji 3" target="_blank" >
-                                </a>
-                            </p>
-                        </td>
-                        <td>
-                            <p class="jQ_blink change_border_color " >
-                                <!-- Photo Gallery -->
-                                <a href="image/fs/swijx/source/21_Tarama_new02_1194_964.jpg" rel="prettyPhoto[South West]"
-                                    title="SWIJX - Tarama" target="_blank">
-                                    <IMG src="image/fs/swijx/thumb/21_Tarama_new02_1194_256.jpg" width="256" >
-                                </a>
-                                <!-- additional images -->
-                                <a href="image/fs/swijx/source/21_Tarama_new01a_1189_960.jpg" rel="prettyPhoto[South West]"
-                                    title="SWIJX - Tarama 2" target="_blank" >
-                                </a>
-                            </p>
-                        </td>
-                        <td>
-                            <p class="jQ_blink change_border_color " >
-                                <!-- Photo Gallery -->
-                                <a href="image/fs/swijx/source/22_Ishigaki_new041_1268_1024.jpg" rel="prettyPhoto[South West]"
-                                    title="SWIJX - Ishigaki" target="_blank">
-                                    <IMG src="image/fs/swijx/thumb/22_Ishigaki_new041_1268_256.jpg" width="256" >
-                                </a>
-                                <!-- additional images -->
-                                <a href="image/fs/swijx/source/22_Ishigaki02_1234_997.jpg" rel="prettyPhoto[South West]"
-                                    title="SWIJX - Ishigaki 2" target="_blank" >
-                                </a>
-                                <a href="image/fs/swijx/source/22_Ishigaki_new052_1024.jpg" rel="prettyPhoto[South West]"
-                                    title="SWIJX - Taketomi" target="_blank" >
-                                </a>
-                            </p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Miyako</td>
-                        <td>Tarama</td>
-                        <td>Ishigaki</td>
-                    </tr>
-                </table>
-                <table class="pb10 fss fwb table-swijx">
-                    <tr>
-                        <td>
-                            <p class="jQ_blink change_border_color " >
-                                <!-- Photo Gallery -->
-                                <a href="image/fs/swijx/source/22_Iriomote_new040_1215_981.jpg" rel="prettyPhoto[South West]"
-                                    title="SWIJX - Iriomote" target="_blank">
-                                    <IMG src="image/fs/swijx/thumb/22_Iriomote_new040_1215_256.jpg" width="256" >
-                                </a>
-                                <!-- additional images -->
-                                <a href="image/fs/swijx/source/22_Iriomote_new030_1268_1024.jpg" rel="prettyPhoto[South West]"
-                                    title="SWIJX - Iriomote 2" target="_blank" >
-                                </a>
-                                <a href="image/fs/swijx/source/22_Iriomote_new07a_1268_1024.jpg" rel="prettyPhoto[South West]"
-                                    title="SWIJX - Iriomote 3" target="_blank" >
-                                </a>
-                                <a href="image/fs/swijx/source/22_Iriomote_new03a_1268_1024.jpg" rel="prettyPhoto[South West]"
-                                    title="SWIJX - Iriomote 4" target="_blank" >
-                                </a>
-                            </p>
-                        </td>
-                        <td>
-                            <p class="jQ_blink change_border_color " >
-                                <!-- Photo Gallery -->
-                                <a href="image/fs/swijx/source/22_Hateruma_new12_1184_956.jpg" rel="prettyPhoto[South West]"
-                                    title="SWIJX - Hateruma" target="_blank">
-                                    <IMG src="image/fs/swijx/thumb/22_Hateruma_new12_1184_256.jpg" width="256" >
-                                </a>
-                                <!-- additional images -->
-                                <a href="image/fs/swijx/source/22_Hateruma_new11_1140_921.jpg" rel="prettyPhoto[South West]"
-                                    title="SWIJX - Hateruma 2" target="_blank" >
-                                </a>
-                            </p>
-                        </td>
-                        <td>
-                            <p class="jQ_blink change_border_color " >
-                                <!-- Photo Gallery -->
-                                <a href="image/fs/swijx/source/22_Yonaguni_new30_1165_941.jpg" rel="prettyPhoto[South West]"
-                                    title="SWIJX - Yonaguni" target="_blank">
-                                    <IMG src="image/fs/swijx/thumb/22_Yonaguni_new30_1165_256.jpg" width="256" >
-                                </a>
-                            </p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Iriomote</td>
-                        <td>Hateruma</td>
-                        <td>Reference</td>
-                    </tr>
-                </table>
+        <div class="table-container pb30">
+            <table class="pb10 fss fwb table-swijx">
+                <tr>
+                    <td>
+                        <p class="jQ_blink change_border_color ">
+                            <!-- Photo Gallery -->
+                            <a href="image/fs/swijx/source/21_Miyako_04_1268_1024.jpg" data-fancybox="gallery[South West]"
+                                data-caption="SWIJX - Miyako Shimoji">
+                                <IMG src="image/fs/swijx/thumb/21_Miyako_04_1268_256.jpg" width="256">
+                            </a>
+                            <!-- additional images -->
+                            <a href="image/fs/swijx/source/21_Miyako_03_1199_968.jpg" data-fancybox="gallery[South West]"
+                                data-caption="SWIJX - Miyako Shimoji 2">
+                            </a>
+                            <a href="image/fs/swijx/source/21_Miyako_new03a_1268_1024.jpg" data-fancybox="gallery[South West]"
+                                data-caption="SWIJX - Miyako Shimoji 3">
+                            </a>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="jQ_blink change_border_color ">
+                            <!-- Photo Gallery -->
+                            <a href="image/fs/swijx/source/21_Tarama_new02_1194_964.jpg" data-fancybox="gallery[South West]"
+                                data-caption="SWIJX - Tarama">
+                                <IMG src="image/fs/swijx/thumb/21_Tarama_new02_1194_256.jpg" width="256">
+                            </a>
+                            <!-- additional images -->
+                            <a href="image/fs/swijx/source/21_Tarama_new01a_1189_960.jpg" data-fancybox="gallery[South West]"
+                                data-caption="SWIJX - Tarama 2">
+                            </a>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="jQ_blink change_border_color ">
+                            <!-- Photo Gallery -->
+                            <a href="image/fs/swijx/source/22_Ishigaki_new041_1268_1024.jpg" data-fancybox="gallery[South West]"
+                                data-caption="SWIJX - Ishigaki">
+                                <IMG src="image/fs/swijx/thumb/22_Ishigaki_new041_1268_256.jpg" width="256">
+                            </a>
+                            <!-- additional images -->
+                            <a href="image/fs/swijx/source/22_Ishigaki02_1234_997.jpg" data-fancybox="gallery[South West]"
+                                data-caption="SWIJX - Ishigaki 2">
+                            </a>
+                            <a href="image/fs/swijx/source/22_Ishigaki_new052_1024.jpg" data-fancybox="gallery[South West]"
+                                data-caption="SWIJX - Taketomi">
+                            </a>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Miyako</td>
+                    <td>Tarama</td>
+                    <td>Ishigaki</td>
+                </tr>
+            </table>
+            <table class="pb10 fss fwb table-swijx">
+                <tr>
+                    <td>
+                        <p class="jQ_blink change_border_color ">
+                            <!-- Photo Gallery -->
+                            <a href="image/fs/swijx/source/22_Iriomote_new040_1215_981.jpg" data-fancybox="gallery[South West]"
+                                data-caption="SWIJX - Iriomote">
+                                <IMG src="image/fs/swijx/thumb/22_Iriomote_new040_1215_256.jpg" width="256">
+                            </a>
+                            <!-- additional images -->
+                            <a href="image/fs/swijx/source/22_Iriomote_new030_1268_1024.jpg" data-fancybox="gallery[South West]"
+                                data-caption="SWIJX - Iriomote 2">
+                            </a>
+                            <a href="image/fs/swijx/source/22_Iriomote_new07a_1268_1024.jpg" data-fancybox="gallery[South West]"
+                                data-caption="SWIJX - Iriomote 3">
+                            </a>
+                            <a href="image/fs/swijx/source/22_Iriomote_new03a_1268_1024.jpg" data-fancybox="gallery[South West]"
+                                data-caption="SWIJX - Iriomote 4">
+                            </a>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="jQ_blink change_border_color ">
+                            <!-- Photo Gallery -->
+                            <a href="image/fs/swijx/source/22_Hateruma_new12_1184_956.jpg" data-fancybox="gallery[South West]"
+                                data-caption="SWIJX - Hateruma">
+                                <IMG src="image/fs/swijx/thumb/22_Hateruma_new12_1184_256.jpg" width="256">
+                            </a>
+                            <!-- additional images -->
+                            <a href="image/fs/swijx/source/22_Hateruma_new11_1140_921.jpg" data-fancybox="gallery[South West]"
+                                data-caption="SWIJX - Hateruma 2">
+                            </a>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="jQ_blink change_border_color ">
+                            <!-- Photo Gallery -->
+                            <a href="image/fs/swijx/source/22_Yonaguni_new30_1165_941.jpg" data-fancybox="gallery[South West]"
+                                data-caption="SWIJX - Yonaguni">
+                                <IMG src="image/fs/swijx/thumb/22_Yonaguni_new30_1165_256.jpg" width="256">
+                            </a>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Iriomote</td>
+                    <td>Hateruma</td>
+                    <td>Reference</td>
+                </tr>
+            </table>
         </div>
+        <div class="prettyP_SP"><div class="pb40"></div></div>
 
-        <div class="left pb20">
-            <h4 class="pb15">
-                Author:
-                    <span class="fs90">Kazuo Kawamura</span>
-            </h4>
-            <h4 class="pb15">
-                Released libraries:
-                <a href="https://www.flightsim.com/search/?&q=Kazuo%20Kawamura&page=1&quick=1&search_and_or=and&sortby=relevancy target="_blank"">
-                <span class="fs90">Flightsim.com search</span>
-                </a>
-                &nbsp;&nbsp;
-                <a href="https://library.avsim.net/search.php?SearchTerm=Kazuo+Kawamura&CatID=root&Go=Search" target="_blank">
-                <span class="fs90">AVSIM search</span>
-                </a>
-            </h4>
+        <div class="left2 pb20">
+            <div class="prettyP_PC">
+                <h4 class="pb15">
+                    Author:
+                        <span class="fs90">Kazuo Kawamura</span>
+                </h4>
+                <h4 class="pb15">
+                    Released libraries:
+                    <a href="https://www.flightsim.com/search/?&q=Kazuo%20Kawamura&page=1&quick=1&search_and_or=and&sortby=relevancy target="_blank"">
+                    <span class="fs90">Flightsim.com search</span>
+                    </a>
+                    &nbsp;&nbsp;
+                    <a href="https://library.avsim.net/search.php?SearchTerm=Kazuo+Kawamura&CatID=root&Go=Search" target="_blank">
+                    <span class="fs90">AVSIM search</span>
+                    </a>
+                </h4>
+            </div>
+            <div class="prettyP_SP">
+                <h4 class="pb15">
+                    <div class="info-block">
+                        <div class="label">Author:</div>
+                        <div class="content">Kazuo Kawamura</div>
+
+                        <div class="label">Released libraries:</div>
+                        <div class="content">
+                            <a href="https://www.flightsim.com/search/?&q=Kazuo%20Kawamura&page=1&quick=1&search_and_or=and&sortby=relevancy target="_blank"">Flightsim.com search</a><br>
+                            <a href="https://library.avsim.net/search.php?SearchTerm=Kazuo+Kawamura&CatID=root&Go=Search" target="_blank">AVSIM search</a>
+                        </div>
+                    </div>
+                </h4>
+            </div>
         </div>
-        <a name="page_bottom"></a>
 
     </div> <!-- page main: end -->
 
     <!-- SWIJX footer: start -->
     <footer>
+
         <hr id="footer"> <!-- horizontal partition -->
 
-        <div class="jQ_change center" > <!-- select button whole: start -->
+        <p id="page-top"><a href="#">TOP</a></p>
+
+        <div class="jQ_change center"> <!-- select button whole: start -->
             <p id="footer">  <!-- select button 1: start -->
                 <a href="fs01_sc_top.html#Rangiroa">
-                    <IMG src="image/button/screen_top_off.gif" border="0" alt="Screen Shots Top" >
+                    <img src="image/button/screen_top_off.gif" border="0" alt="Screen Shots Top">
                 </a>
             </p> <!-- select button 1: end -->
         </div> <!-- select button whole: end -->
 
-        <div id="footer_label">
+        <div class="footer_labelPC">
             copyright &copy; 2003 -
-            <script type="text/javascript" language="JavaScript">
+            <script>
                 date = new Date();
                 document.write(date.getFullYear() + ' ');
             </script>
@@ -847,5 +957,5 @@
     </footer>
     <!-- SWIJX footer: end -->
 
-</BODY>
+</body>
 </html>

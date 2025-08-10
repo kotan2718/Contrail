@@ -1,127 +1,122 @@
-<!DOCTYPE HTML >
-<HTML>
+<!DOCTYPE html>
+<html lang="ja">
 
-<HEAD>
-    <META charset="UTF-8">
-    <META name="description" content="Flight Simulator(FS9/FSX) のアドオンシーナリーを紹介するページです。">
-    <META name="keywords" content="Flight Simulator,FS,FS9,FS2004,FSX,Addon,scenery,フライトシミュレーター,シーナリー,アドオン,South West Islands,Tuamotu Archipelago,Butterfly Island,Tokyo Bay scenery 2005,Tahiti Rangiroa scenery, Midway Scenery, Tahiti LeeWard Scenery">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Flight Simulator(FS9/FSX) のアドオンシーナリーを紹介するページです。">
+    <meta name="keywords" content="Flight Simulator,FS,FS9,FS2004,FSX,Addon,scenery,フライトシミュレーター,シーナリー,アドオン,South West Islands,Tuamotu Archipelago,Butterfly Island,Tokyo Bay scenery 2005,Tahiti Rangiroa scenery, Midway Scenery, Tahiti LeeWard Scenery">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Contrail ScreenShots Top</title>
 
-    <!-- favicon-->
-    <link rel="shortcut icon" href="favicon.ico">
-
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="icon" href="favicon.ico">
 
     <!-- css start -->
-
-        <!-- kko_etc start - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
-        <link rel="stylesheet" href="libs/etc/css/kko_preload.css" type="text/css">
-        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css" type="text/css">
-        <!-- kko_etc end -->
-
+        <!-- kko_etc - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
+        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
     <!-- css end -->
 
     <!-- js start -->
-
         <!-- jQuery start -->
-        <script src="libs/jQuery/js/jquery-1.6.1.min.js" type="text/javascript"></script>
-
-            <!-- kko_style start - img jq_blink, img jq_change -->
-            <script src="libs/jQuery/kko/js/jq_kko_preload.js" type="text/javascript"></script>
-            <script src="libs/jQuery/kko/js/jq_kko_style.js" type="text/javascript"></script>
-            <!-- kko_style end -->
-
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <!-- kko_style - img jq_blink, img jq_change -->
+            <script src="libs/jQuery/kko/js/jq_kko_style.js"></script>
         <!-- jQuery end -->
 
-        <!-- Sandbox DropDownMenu start -->
-        <script src="libs/sandbox/js/script.js" type="text/javascript"></script>
-        <!-- Sandbox DropDownMenu end -->
+        <!-- Sandbox DropDownMenu -->
+        <script src="libs/sandbox/js/script.js"></script>
+   <!-- js end -->
 
-    <!-- js end -->
+</head>
 
-</HEAD>
-
-<BODY id="common-k">
-
-<!-- Pre Loading -->
-<!-- with loading picture -->
-<div id="loader"><IMG src="image/common/ap_loader_tp.gif" width="236" height="132" class="loading..."></div>
-<div id="fade"></div>
-<div id="preload"> <!-- Pre Loading start -->
+<body id="common-k">
 
     <header>
+        <a name="MENU"></a>
+        <p id="menu-call">
+            <a href="#">MENU</a>
+        </p>
+
         <a name="page_top"></a>
-        <div class="center jQ_change navbox" >
-            <nav>
-                <IMG src="image/top/Contrail_g.png" height="20" class="logo_img">
-                <ul class="menu" id="menu" >
-                    <li><a href="index.html" class="menulink">Home</a></li>
-                    <li><a href="whatnew.html" class="menulink">What's New</a></li>
-                    <li><a href="etc.html" class="menulink">E.T.C.</a></li>
-                    <li><a href="fs01.html" class="menulink">The Scenery</a>
-                        <ul>
-                            <li><a href="fs01_sc_top.html" class="sub">Screen Shots</a></li>
-                            <li><a href="fs01_ls_top.html" class="sub">Snap Shots</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="link01.html" class="menulink">Links</a></li>
-                    <li class="about"><a href="fs01_about.html" class="menulink">about Contrail</a></li>
-                </ul>
-            </nav>
-            <div class="c-both"></div>
+
+        <!-- page top icon & logo -->
+        <div id="header_PC" class="header_labelPC">
+            <img class="pl20" src="image/top/cr64f_32.png">
+            <img class="pl30 pb3" src="image/top/Contrail_g.png" height="30">
         </div>
-        <!-- Sandbox DropDownMenu start-->
-        <script type="text/javascript">
-            var menu=new menu.dd("menu");
-            menu.init("menu","menuhover");
-        </script>    <!-- Sandbox DropDownMenu end -->
+        <div id="header_SP" class="header_labelPC">
+            <div class="pb4"></div>
+            <img src="image/top/cr48f_32.png">
+            <img class="pb3" src="image/top/Contrail_g.png" height="24">
+        </div>
+
+        <div id="popup-menu" class="hidden">
+            <div class="menu-title">
+                <img src="image/top/Contrail_g.png" height="20" class="logo_image" alt="CONTRAIL">
+            </div>
+            <ul>
+                <li><a href="index.html" class="menulink">Home</a></li>
+                <li><a href="whatnew.html" class="menulink">What's New</a></li>
+                <li><a href="etc.html" class="menulink">E.T.C.</a></li>
+                <li><a href="fs01.html" class="menulink">The Scenery</a></li>
+                <li><a href="link01.html" class="menulink">Links</a></li>
+                <li><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+            </ul>
+        </div>
     </header>
 
     <div id="main960" class="lineh130"> <!-- page main: start -->
 
         <!-- title -->
         <div id="title40">
-            <h1 id="top-page-logo" >
-                <IMG src="image/fs/ScreenShotsGallery14.gif" alt="Screen Shots Gallery">
+            <h1 id="top-page-logo">
+                <img src="image/fs/ScreenShotsGallery14.gif" alt="Screen Shots Gallery">
             </h1>
-            <p id="top-page-explanation">
-                これからご覧頂くスクリーンショットは，<BR>
-                Add-on Scenery を組み込んだ Microsoft(R) Flight Simulator 実行画面から，<BR>
+            <p id="top-page-explanation_PC">
+                これからご覧頂くスクリーンショットは，<br>
+                Add-on Scenery を組み込んだ Microsoft(R) Flight Simulator 実行画面から，<br>
+                気に入ったシーンを取り込んだものです。
+            </p>
+            <p id="top-page-explanation_SP">
+                これからご覧頂くスクリーンショットは，
+                Add-on Scenery を組み込んだ Microsoft(R) Flight Simulator 実行画面から，
                 気に入ったシーンを取り込んだものです。
             </p>
         </div>
 
+        <!-- for Java Script off -->
+        <noscript>
+            <div id="attention">
+                <p>ご覧頂くにはブラウザの JavaScript をアクティブにして下さい</p>
+            </div>
+        </noscript>
+
         <!-- contents -->
 
         <!-- SWIJX -->
-        <div class="pic-left990 pb30">
-            <div class="contents-2col-left" >
-                <p class="jQ_blink change_border_color" >
-                    <a href="fs01_sc_swijx3.html">
-                        <IMG src="image/fs/swijx/source/12_Kume04_1268_512.jpg" width="256" border="0" >
-                    </a>
-                </p>
-            </div >
-            <div class="contents-2col-right990" >
-                <a name="SWIJX"></a>
-                <h2 class="contents-title-SL-top" >
+        <div class="pic-left960 pb30">
+            <div class="flex2">
+                <div id="SWIJX"></div>
+                <div class="mtb20 flx2_itemL">
                     <a href="fs01_sc_swijx3.html">
                         South West Islands
                     </a>
-                </h2>
-                <p class="left pb10 border-ccc" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
-                    <!-- <IMG src="image/common/white_block.gif" width="62" height="14" > -->
-                    <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                    <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/common/white_block.gif" width="36" height="14" border="0"> --> <!-- NWE(38), UPDATE(36) -->
+                    <!-- <img src="image/button/new_b.gif" height="14" border="0"> -->
+                    <!-- <img src="image/button/update.gif" height="14" border="0"> -->
+                </div>
+            </div>
+            <div class="contents-2col-left">
+                <p class="jQ_blink change_border_color">
+                    <a href="fs01_sc_swijx3.html">
+                        <img src="image/fs/swijx/source/12_Kume04_1268_512.jpg" width="256" border="0">
+                    </a>
                 </p>
-                <p class="left pb5 border-ccc" >
-                    南西諸島シーナリー( SWIJX )は N31 E131( northeast )から N24 E123( southwest )までの島々を再現した
-                    FSX用のadd-onシーナリーです。
-                </p>
-                <p class="left pb5 border-ccc" >
+            </div>
+            <div class="contents-2col-right960">
+                <p class="pb5 border-ccc">
                     2007年から2008年にかけて、私はこのadd-onシーナリーを作成していました。
                     シーナリーのベースはランドサットの画像と、スペースシャトルが収集した標高データです。
                     しかし、様々な事情から私はシーナリーの作成を中断しました。
@@ -129,11 +124,11 @@
                     しかし、数ヶ月前に、沖縄と西表がほぼクリアな状態のランドサット画像がアップされているのを知り、
                     中断していたシーナリーの作成を再開しました。
                 </p>
-                <p class="left pb5 border-ccc" >
-                    左の画像或いはタイトルをクリックすることでSWIJX シーナリーの<BR>
+                <p class="pb5 border-ccc">
+                    左の画像或いはタイトルをクリックすることでSWIJX シーナリーの<br>
                     詳しい解説ページにジャンプします。
                 </p>
-                <p class="left fss fwb" >
+                <p class="fss fwb">
                     <a href="fs01_scenery_get.html">
                         このシーナリーの入手方法はこちらをご覧下さい
                     </a>
@@ -143,219 +138,143 @@
 
         <!-- Tuamotu Archipelago -->
         <div class="pic-left960 pb30">
-            <div class="contents-2col-left" >
-                <p class="jQ_blink change_border_color" >
+            <div class="flex2">
+                <div id="Tuamotu"></div>
+                <div class="mtb20 flx2_itemL">
                     <a href="fs01_sc_tuamotu.html">
-                        <IMG src="image/fs/tuamotu/thumb_tuamotu_b_Anaa_SC01.jpg" width="256" border="0" >
+                        Tuamotu Archipelago
+                    </a>
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/common/white_block.gif" width="36" height="14" border="0"> --> <!-- NWE(38), UPDATE(36) -->
+                    <!-- <img src="image/button/new_b.gif" height="14" border="0"> -->
+                    <!-- <img src="image/button/update.gif" height="14" border="0"> -->
+                </div>
+            </div>
+            <div class="contents-2col-left">
+                <p class="jQ_blink change_border_color">
+                    <a href="fs01_sc_tuamotu.html">
+                        <img src="image/fs/tuamotu/thumb_tuamotu_b_Anaa_SC01.jpg" width="256" border="0">
                     </a>
                 </p>
             </div>
             <div class="contents-2col-right960">
-                <a name="Tuamotu"></a>
-                <h2 class="contents-title-SL-top" >
-                    <a href="fs01_sc_tuamotu.html">
-                        Tuamotu Archipelago
-                    </a>
-                </h2>
-                <p class="left pb10" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
-                    <IMG src="image/common/white_block.gif" width="62" height="14" >
-                    <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                    <IMG src="image/button/update.gif" width="62" height="14" >
-                </p>
-                <p class="left pb5" >
-                    既作のRangiroaを含むTuamotu諸島のシーナリーです。<BR>
-                    Tuamotuには78の島がほぼヨーロッパの面積に匹敵する広大な海域に散りばめられています。<BR>
-                    巨大なlagoonを有するRangiroaやFakaravaから<BR>
-                    お菓子のようにかわいらしい環礁まで大小さまざまです。<BR>
-                    Tuamotu諸島で最も島が密集しているのは<BR>
-                    北西の基点をRangiroa，南東の基点をMakarou/Ravahereとする<BR>
+                <p class="pb5 border-ccc">
+                    既作のRangiroaを含むTuamotu諸島のシーナリーです。
+                    Tuamotuには78の島がほぼヨーロッパの面積に匹敵する広大な海域に散りばめられています。<br>
+                    巨大なlagoonを有するRangiroaやFakaravaから
+                    お菓子のようにかわいらしい環礁まで大小さまざまです。<br>
+                    Tuamotu諸島で最も島が密集しているのは
+                    北西の基点をRangiroa，南東の基点をMakarou/Ravahereとする
                     ２連の鎖のように環礁が連なっている領域で，Chain Islands とも呼ばれています。
                 </p>
-                <p class="left pb5" >
-                    このシーナリーでは Chain Islands を中心として，<BR>
+                <p class="pb5 border-ccc">
+                    このシーナリーでは Chain Islands を中心として，
                     55の環礁をadd-on sceneryとして再現させています。
                 </p>
-                <p class="left pb5" >
-                    左の画像或いはタイトルをクリックすることでTuamotu シーナリーの<BR>
-                    詳しい解説ページにジャンプします。
-                    <span style="font-size: small; font-weight: bold; vertical-align: 1px;" >
-                        このページの解説は全て英文です
-                    </span>
-                </p>
-                <p class="left fss fwb" >
+                <p class="fss fwb">
                     <a href="fs01_scenery_get.html">
                         このシーナリーの入手方法はこちらをご覧下さい
                     </a>
                 </p>
             </div>
-        </div>
-
-        <div class="pic-left990" >
-            <p class="page-top_hidden" >
-                Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-            </p>
         </div>
 
         <!-- Butterfly Island -->
         <div class="pic-left960 pb30">
-            <div class="contents-2col-left" >
-                <p class="jQ_blink change_border_color" >
-                    <a href="fs01_sc_butterflySC.html">
-                        <IMG src="image/fs/butterfly/thumb_ButterflySC01.jpg" width="256" border="0">
-                    </a>
-                </p>
-            </div >
-            <div class="contents-2col-right960" >
-                <h2 class="contents-title-SL-top" >
-                    <a name="Butterfly"></a>
+            <div class="flex2">
+                <div id="Butterfly"></div>
+                <div class="mtb20 flx2_itemL">
                     <a href="fs01_sc_butterflySC.html">
                         Butterfly Island
                     </a>
-                </h2>
-                <p class="left pb10 border-ccc" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
-                    <IMG src="image/common/white_block.gif" width="62" height="14" >
-                    <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                    <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/common/white_block.gif" width="36" height="14" border="0"> --> <!-- NWE(38), UPDATE(36) -->
+                    <!-- <img src="image/button/new_b.gif" height="14" border="0"> -->
+                    <!-- <img src="image/button/update.gif" height="14" border="0"> -->
+                </div>
+            </div>
+            <div class="contents-2col-left">
+                <p class="jQ_blink change_border_color">
+                    <a href="fs01_sc_butterflySC.html">
+                        <img src="image/fs/butterfly/thumb_ButterflySC01.jpg" width="256" border="0">
+                    </a>
                 </p>
-                <p class="left pb5 border-ccc" >
-                    本当にこんな島があるのと疑いたくなるような形ですが，<BR>
-                    実在の島です。かつて FS2000用に，この島のシーナリーを作ったのですが，<BR>
-                    残念なことに島の正確な場所を特定することが出来ず，<BR>
-                    未完の作品となってしまいました。<BR>
+            </div>
+            <div class="contents-2col-right960">
+                <p class="pb5 border-ccc">
+                    本当にこんな島があるのと疑いたくなるような形ですが，
+                    実在の島です。かつて FS2000用に，この島のシーナリーを作ったのですが，
+                    残念なことに島の正確な場所を特定することが出来ず，
+                    未完の作品となってしまいました。<br>
                     2005年春に，ある方から頂いたメールがきっかけで
                 </p>
-                <p class="left fss fwb pb5 border-ccc" >
+                <p class="pb5 border-ccc">
                     <a href="fs01_sc_butterfly_location_map_from_sc_top.html">
                         やっと本当の位置が判りました ! !
                     </a>
                 </p>
-                <p class="left pb5 border-ccc" >
-                    Butterfly Island はニューギニアの北，Manus島の南南西に位置していました。<BR>
+                <p class="pb5 border-ccc">
+                    Butterfly Island はニューギニアの北，Manus島の南南西に位置していました。
                     FS2004 のシーナリーとして2005年夏にFlightsimにアップロードしました。
                     <!--
                     すると，しばらく後に
-                    <a href="http://www.flightsim.com/main/notams05/dolp0829.htm" target="_blank" >
+                    <a href="http://www.flightsim.com/main/notams05/dolp0829.htm" target="_blank">
                         このシーナリーを紹介する NOTAM が上がっていました。
                     </a>
-                    <BR>
-                    //-->
+                    <br>
+                    -->
                 </p>
-                <p class="left fss fwb" >
+                <p class="fss fwb">
                     <a href="fs01_scenery_get.html">
                         このシーナリーの入手方法はこちらをご覧下さい
                     </a>
                 </p>
             </div>
-        </div>
-
-        <div class="pic-left990" >
-            <p class="page-top" >
-                Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-            </p>
         </div>
 
         <!-- TBS 2k5 -->
         <div class="pic-left960 pb30">
-            <!-- left side: start -->
-            <div class="contents-2col-left" >
-                <p class="jQ_blink change_border_color" >
+            <div class="flex2">
+                <div id="TBS2k5"></div>
+                <div class="mtb20 flx2_itemL">
                     <a href="fs01_sc_tbs2k5.html">
-                    <IMG src="image/fs/aqua/TBS2k5.jpg" width="256" border="0"></a>
+                        Tokyo Bay scenery 2005
+                    </a>
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/common/white_block.gif" width="36" height="14" border="0"> --> <!-- NWE(38), UPDATE(36) -->
+                    <!-- <img src="image/button/new_b.gif" height="14" border="0"> -->
+                    <!-- <img src="image/button/update.gif" height="14" border="0"> -->
+                </div>
+            </div>
+            <div class="contents-2col-left">
+                <p class="jQ_blink change_border_color">
+                    <a href="fs01_sc_tbs2k5.html">
+                    <img src="image/fs/aqua/TBS2k5.jpg" width="256" border="0"></a>
                 </p>
             </div>
-            <!-- left side: end -->
-            <!-- right side: start -->
-            <div class="contents-2col-right960" >
-                <!-- right side upper: start -->
-                <div class="contents-2col-right960 pb15" >
-                    <!-- upper left: start -->
-                    <div class="contents-col" >
-                        <p class="jQ_blink left fs120 fwb" >
-                            <a name="TBS2k5"></a>
-                            <!--<a href="http://www.flightsim.com/vbfs/content.php?63-Contest-Results-2005" target="_blank" >-->
-                                <IMG src="image/fs/aqua/devawar2.gif" border="0">
-                            <!--</a>-->
-                        </p>
-                    </div>
-                    <!-- upper left: end -->
-                    <!-- upper right: start -->
-                    <div class="contents-2col-right">
-                        <h2 class="contents-title-SL-top" >
-                            <a href="fs01_sc_tbs2k5.html">
-                                Tokyo Bay scenery 2005
-                            </a>
-                        </h2>
-                        <p class="left pb10 border-ccc" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
-                            <IMG src="image/common/white_block.gif" width="62" height="14" >
-                            <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                            <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
-                        </p>
-                        <p class="left fss fwb border-ccc" >
-                            Tokyo Bay 2005 scenery was the winner in the scenery category <BR>
-                            in Flightsim's February Monthly Contest 2005
-                        </p>
-                    </div>
-                    <!-- upper right: end -->
+            <div class="contents-2col-right960">
+                <div class="contents-2col-left">
+                    <!--<a href="http://www.flightsim.com/vbfs/content.php?63-Contest-Results-2005" target="_blank">-->
+                        <img src="image/fs/aqua/devawar2.gif" border="0">
+                    <!--</a>-->
                 </div>
-                <!-- right side upper: end -->
-                <!-- right side lower: start -->
-                <div>
-                    <p class="left pb5" >
-                        アクアライン開通の97年から取り組み始めたシーナリーです。<BR>
-                        私の初めてのアドオンシーナリーであり，<BR>
-                        FSの進化と共にリニューアルを繰り返してきた作品です。<BR>
-                        Tokyo Bay 2005 バージョンでは，<BR>
-                        N33:45 E138:45 から N36:55 E141:05 までの詳細な海岸線，河川，湖<BR>
-                        そしてSRTMデータに基づいた標高を再現しています。<BR>
+                <div class="contents-2col-right">
+                    Tokyo Bay 2005 scenery was the winner in the scenery category <br>
+                    in Flightsim's February Monthly Contest 2005.
+                </div>
+                <p class="mt20 pb5 border-ccc">
+                        アクアライン開通の97年から取り組み始めたシーナリーです。<br>
+                        私の初めてのアドオンシーナリーであり，
+                        FSの進化と共にリニューアルを繰り返してきた作品です。<br>
+                        Tokyo Bay 2005 バージョンでは，
+                        N33:45 E138:45 から N36:55 E141:05 までの詳細な海岸線，河川，湖
+                        そしてSRTMデータに基づいた標高を再現しています。
                         また，東京湾に拡がる工業地帯を再現しました。
-                    </p>
-                    <p class="left fss fwb" >
-                        <a href="fs01_scenery_get.html">
-                            このシーナリーの入手方法はこちらをご覧下さい
-                        </a>
-                    </p>
-                </div>
-                <!-- right side lower: end -->
-            </div>
-            <!-- right side: end -->
-        </div>
-
-        <div class="pic-left990" >
-            <p class="page-top_hidden" >
-                Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-            </p>
-        </div>
-
-        <!-- Tahiti Rangiroa -->
-        <div class="pic-left960 pb40">
-            <div class="contents-2col-left" >
-                <p class="jQ_blink change_border_color" >
-                    <a href="fs01_sc_rangi.html">
-                        <IMG src="image/fs/rangiroa/thumb_Rangiroa2004_03c.jpg" width="256" border="0">
-                    </a>
                 </p>
-            </div >
-            <div class="contents-2col-right960" >
-                <h2 class="contents-title-SL-top" >
-                    <a name="Rangiroa"></a>
-                    <a href="fs01_sc_rangi.html">
-                        Tahiti Rangiroa Scenery
-                    </a>
-                </h2>
-                <p class="left pb20 border-ccc" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
-                    <IMG src="image/common/white_block.gif" width="62" height="14" >
-                    <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                    <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
-                </p>
-                <p class="left pb5 border-ccc" >
-                    タヒチ島の北東350kmに位置するRangiroaを中心としたTuamotu諸島を<BR>
-                    再現したシーナリーです。<BR>
-                    Tuamotu諸島には無数の美しい環礁が形成されています。<BR>
-                    他のタヒチの島々と異なり，環礁が連なって陸地を作り，<BR>
-                    その中に息をのむほど美しいラグーンをたたえています。<BR>
-                    それはまさに南太平洋を彩るネックレスアイランドなのです。
-                </p>
-                <p class="left fss fwb" >
+                <p class="fss fwb">
                     <a href="fs01_scenery_get.html">
                         このシーナリーの入手方法はこちらをご覧下さい
                     </a>
@@ -363,46 +282,80 @@
             </div>
         </div>
 
-        <div class="pic-left990" >
-            <p class="page-top" >
-                Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-            </p>
+
+        <!-- Tahiti Rangiroa -->
+        <div class="pic-left960 pb30">
+            <div class="flex2">
+                <div id="Rangiroa"></div>
+                <div class="mtb20 flx2_itemL">
+                    <a href="fs01_sc_rangi.html">
+                        Tahiti Rangiroa Scenery
+                    </a>
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/common/white_block.gif" width="36" height="14" border="0"> --> <!-- NWE(38), UPDATE(36) -->
+                    <!-- <img src="image/button/new_b.gif" height="14" border="0"> -->
+                    <!-- <img src="image/button/update.gif" height="14" border="0"> -->
+                </div>
+            </div>
+            <div class="contents-2col-left">
+                <p class="jQ_blink change_border_color">
+                    <a href="fs01_sc_rangi.html">
+                        <img src="image/fs/rangiroa/thumb_Rangiroa2004_03c.jpg" width="256" border="0">
+                    </a>
+                </p>
+            </div>
+            <div class="contents-2col-right960">
+                <p class="pb5 border-ccc">
+                    タヒチ島の北東350kmに位置するRangiroaを中心としたTuamotu諸島を
+                    再現したシーナリーです。<br>
+                    Tuamotu諸島には無数の美しい環礁が形成されています。
+                    他のタヒチの島々と異なり，環礁が連なって陸地を作り，
+                    その中に息をのむほど美しいラグーンをたたえています。<br>
+                    それはまさに南太平洋を彩るネックレスアイランドなのです。
+                </p>
+                <p class="fss fwb">
+                    <a href="fs01_scenery_get.html">
+                        このシーナリーの入手方法はこちらをご覧下さい
+                    </a>
+                </p>
+            </div>
         </div>
 
         <!-- terrain Scenery -->
         <!--
         <div class="pic-left960 pb30">
-            <div class="contents-2col-left" >
-                <p class="jQ_blink change_border_color" >
+            <div class="contents-2col-left">
+                <p class="jQ_blink change_border_color">
                     <a href="fs01_sc_terrain3b.html">
-                        <IMG src="image/fs/terrain3/thumb_srtm-3_GuianaHL02.jpg" width="256" border="0">
+                        <img src="image/fs/terrain3/thumb_srtm-3_GuianaHL02.jpg" width="256" border="0">
                     </a>
                 </p>
-            </div >
-            <div class="contents-2col-right960" >
-                <h2 class="contents-title-SL-top" >
+            </div>
+            <div class="contents-2col-right960">
+                <h2 class="contents-title-SL-top">
                     <a name="Terrain"></a>
                     <a href="fs01_sc_terrain3b.html">
                         terrain Scenery 3分クッキング
                     </a>
                 </h2>
-                <p class="left pb70 border-ccc" >
-                    <IMG src="image/common/white_block.gif" width="62" height="14" >
+                <p class="left pb70 border-ccc">
+                    <img src="image/common/white_block.gif" width="62" height="14">
                 </p>
-                <p class="left pb5 border-ccc" >
-                    スペースシャトルを利用した SRTM データが公開されています。<BR>
-                    このデータと，Matthew Styles氏が発表した，SRTM to BGL ツールを用いることで，<BR>
-                    あっという間に 90m メッシュの terrain シーナリーを作成することが出来ます。<BR>
+                <p class="left pb5 border-ccc">
+                    スペースシャトルを利用した SRTM データが公開されています。<br>
+                    このデータと，Matthew Styles氏が発表した，SRTM to BGL ツールを用いることで，<br>
+                    あっという間に 90m メッシュの terrain シーナリーを作成することが出来ます。<br>
                     その方法を簡単にご紹介します。
                 </p>
-                <p class="left fss fwb" >
+                <p class="left fss fwb">
                         SRTM データの欠損部分補間についての[補足]を加えました
                 </p>
             </div>
         </div>
 
-        <div class="pic-left990" >
-            <p class="page-top_hidden" >
+        <div class="pic-left990">
+            <p class="page-top_hidden">
                 Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
             </p>
         </div>
@@ -410,40 +363,43 @@
 
         <!-- Midway -->
         <div class="pic-left960 pb30">
-            <div class="contents-2col-left" >
-                <p class="jQ_blink change_border_color" >
-                    <a href="fs01_sc_midway.html">
-                        <IMG src="image/fs/midway/thumb_Midway2004.jpg" width="256" border="0">
-                    </a>
-                </p>
-            </div >
-            <div class="contents-2col-right960" >
-                <h2 class="contents-title-SL-top" >
-                    <a name="Midway"></a>
+            <div class="flex2">
+                <div id="Midway"></div>
+                <div class="mtb20 flx2_itemL">
                     <a href="fs01_sc_midway.html">
                         Midway Scenery
                     </a>
-                </h2>
-                <p class="left pb10 border-ccc" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
-                    <IMG src="image/common/white_block.gif" width="62" height="14" >
-                    <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                    <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/common/white_block.gif" width="36" height="14" border="0"> --> <!-- NWE(38), UPDATE(36) -->
+                    <!-- <img src="image/button/new_b.gif" height="14" border="0"> -->
+                    <!-- <img src="image/button/update.gif" height="14" border="0"> -->
+                </div>
+            </div>
+            <div class="contents-2col-left">
+                <p class="jQ_blink change_border_color">
+                    <a href="fs01_sc_midway.html">
+                        <img src="image/fs/midway/thumb_Midway2004.jpg" width="256" border="0">
+                    </a>
                 </p>
-                <p class="left pb5 border-ccc" >
-                    ハワイから西北西にずっとずっと進んだところに<BR>
-                    サンドアイランドはあります。<BR>
-                    私のイメージでは，ミッドウェイは絶海の孤島だったのですが，<BR>
-                    数年前にある方から航空写真を頂いてびっくり。<BR>
-                    こんな美しい島がこの世に在るのだろうかと我が目を疑いました。<BR>
-                    いつかこの島のシーナリーを作ってみたい...<BR>
-                    そう思ってから数年の歳月が流れてしまいました。<BR>
-                    このシーナリーはフォトシーナリーではないのですが，<BR>
-                    NASAの衛星画像を基にして描き込んだものです。<BR>
+            </div>
+            <div class="contents-2col-right960">
+                <p class="pb5 border-ccc">
+                    ハワイから西北西にずっとずっと進んだところに
+                    サンドアイランドはあります。
+                    私のイメージでは，ミッドウェイは絶海の孤島だったのですが，
+                    数年前にある方から航空写真を頂いてびっくり。
+                    こんな美しい島がこの世に在るのだろうかと我が目を疑いました。
+                    いつかこの島のシーナリーを作ってみたい...
+                    そう思ってから数年の歳月が流れてしまいました。
+                    このシーナリーはフォトシーナリーではないのですが，
+                    NASAの衛星画像を基にして描き込んだものです。
                 </p>
-                <p class="left pb5 border-ccc" >
-                    悲しい歴史を持つミッドウェイですが，<BR>
+                <p class="pb5 border-ccc">
+                    悲しい歴史を持つミッドウェイですが，<br>
                     現在では野生動物の保護区となり，平和な島に生まれ変わっています。
-                <p class="left fss fwb" >
+                </p>
+                <p class="fss fwb">
                     <a href="fs01_scenery_get.html">
                         このシーナリーの入手方法はこちらをご覧下さい
                     </a>
@@ -451,101 +407,96 @@
             </div>
         </div>
 
-        <div class="pic-left990" >
-            <p class="page-top" >
-                Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-            </p>
-        </div>
-
         <!-- Hotel Adriano -->
         <div class="pic-left960 pb30">
-            <div class="contents-2col-left" >
-                <p class="jQ_blink change_border_color" >
-                    <a name="HotelAdriano"></a>
-                    <a href="fs01_sc_HotelAdriano.html">
-                            <IMG src="image/fs/ss/thumb_Adriano_0.jpg" width="256" border="0">
-                    </a>
-                </p>
-            </div >
-            <div class="contents-2col-right960" >
-                <h2 class="contents-title-SL-top" >
+            <div class="flex2">
+                <div id="HotelAdriano"></div>
+                <div class="mtb20 flx2_itemL">
                     <a href="fs01_sc_HotelAdriano.html">
                         １枚の写真から
                     </a>
-                </h2>
-                <p class="left pb40 border-ccc" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
-                    <IMG src="image/common/white_block.gif" width="62" height="14" >
-                    <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                    <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/common/white_block.gif" width="36" height="14" border="0"> --> <!-- NWE(38), UPDATE(36) -->
+                    <!-- <img src="image/button/new_b.gif" height="14" border="0"> -->
+                    <!-- <img src="image/button/update.gif" height="14" border="0"> -->
+                </div>
+            </div>
+            <div class="contents-2col-left">
+                <p class="jQ_blink change_border_color">
+                    <a href="fs01_sc_HotelAdriano.html">
+                        <img src="image/fs/ss/thumb_Adriano_0.jpg" width="256" border="0">
+                    </a>
                 </p>
-                <p class="left pb5 border-ccc" >
-                    この１枚の写真が，<BR>
+            </div>
+            <div class="contents-2col-right960">
+                <p class="pb5 border-ccc">
+                    この１枚の写真が，<br>
                     私のシーナリーに対する取り組み方を大きく変えることになりました。
                 </p>
             </div>
         </div>
 
-        <div class="pic-left990" >
-            <p class="page-top_hidden" >
-                Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-            </p>
-        </div>
-
         <!-- LeeWard Islands -->
-        <div class="pic-left960 pb20">
-            <div class="contents-2col-left" >
-                <p class="jQ_blink change_border_color" >
-                    <a href="fs01_sc_lee.html">
-                        <IMG src="image/fs/leeward/thumb_2k4_LeeWard_BoraBora_SC03.jpg" width="256" height="175" border="0"></a>
-                </p>
-            </div >
-            <div class="contents-2col-right960" >
-                <h2 class="contents-title-SL-top" >
-                    <a name="LeeWard"></a>
+        <div class="pic-left960 pb30">
+            <div class="flex2">
+                <div id="LeeWard"></div>
+                <div class="mtb20 flx2_itemL">
                     <a href="fs01_sc_lee.html">
                         Tahiti LeeWard Scenery
                     </a>
-                </h2>
-                <p class="left pb10 border-ccc" > <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
-                    <IMG src="image/common/white_block.gif" width="62" height="14" >
-                    <!-- <IMG src="image/button/new_b.gif" width="62" height="14" > -->
-                    <!-- <IMG src="image/button/update.gif" width="62" height="14" > -->
+                </div>
+                <div class="flx2_itemC pb10 border-ccc"> <!-- コメントの行数に応じて，pb5 から pb100 を直接指定 -->
+                    <!-- <img src="image/common/white_block.gif" width="36" height="14" border="0"> --> <!-- NWE(38), UPDATE(36) -->
+                    <!-- <img src="image/button/new_b.gif" height="14" border="0"> -->
+                    <!-- <img src="image/button/update.gif" height="14" border="0"> -->
+                </div>
+            </div>
+            <div class="contents-2col-left">
+                <p class="jQ_blink change_border_color">
+                    <a href="fs01_sc_lee.html">
+                        <img src="image/fs/leeward/thumb_2k4_LeeWard_BoraBora_SC03.jpg" width="256" height="175" border="0"></a>
                 </p>
-                <p class="left pb5 border-ccc" >
-                    LeeWard諸島はタヒチ島の北西260kmに位置するBoraBoraをはじめ，<BR>
-                    Maupiti，Tahaa，RaiateaそしてHuahineから構成されています。<BR>
-                    LeeWard諸島の島々は，美しいラグーンの中心に険しい火山がそびえ，<BR>
-                    環礁がラグーンを取り囲んでいます。<BR>
-                    LeeWard Scenery は美しいラグーンと，ユニークな火山を<BR>
-                    Flight Simulator に何処まで再現できるか，<BR>
+                </p>
+            </div>
+            <div class="contents-2col-right960">
+                <p class="pb5 border-ccc">
+                    LeeWard諸島はタヒチ島の北西260kmに位置するBoraBoraをはじめ，
+                    Maupiti，Tahaa，RaiateaそしてHuahineから構成されています。
+                    LeeWard諸島の島々は，美しいラグーンの中心に険しい火山がそびえ，
+                    環礁がラグーンを取り囲んでいます。<br>
+                    LeeWard Scenery は美しいラグーンと，ユニークな火山を
+                    Flight Simulator に何処まで再現できるか，
                     ポリゴンベースのデザインで挑戦した作品です。
                 </p>
-                <p class="left fss fwb" >
+                <p class="fss fwb">
                     <a href="fs01_scenery_get.html">
                         このシーナリーの入手方法はこちらをご覧下さい
                     </a>
                 </p>
             </div>
         </div>
-        <a name="page_bottom"></a>
+        <div class="pb40">
+        </div>
 
     </div> <!-- page main: end -->
 
     <footer>
-
         <hr id="footer"> <!-- horizontal partition -->
 
-        <div class="jQ_change center" > <!-- select button whole: start -->
+        <p id="page-top"><a href="#">トップ</a></p>
+
+        <div class="jQ_change center"> <!-- select button whole: start -->
             <p id="footer">  <!-- select button 1: start -->
                 <a href="fs01.html">
-                    <IMG src="image/button/scenery_top_off.gif" border="0" alt="The Scenery Top" >
+                    <img src="image/button/scenery_top_off.gif" border="0" alt="The Scenery Top">
                 </a>
             </p> <!-- select button 1: end -->
         </div> <!-- select button whole: end -->
 
-        <div id="footer_label">
+        <div class="footer_labelPC">
             copyright &copy; 2003 -
-            <script type="text/javascript" language="JavaScript">
+            <script>
                 date = new Date();
                 document.write(date.getFullYear() + ' ');
             </script>
@@ -556,6 +507,5 @@
 
     </footer>
 
-</div> <!-- Pre Loading end -->
-</BODY>
-</HTML>
+</body>
+</html>

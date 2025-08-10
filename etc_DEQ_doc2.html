@@ -1,43 +1,30 @@
-<!DOCTYPE HTML >
-<html>
+<!DOCTYPE html>
+<html lang="ja">
 
-<HEAD>
-    <META charset="UTF-8">
-    <META name="description" content="自励形の2元連立微分方程式の近似解を描画するページの簡易解説です。任意の式を入力して解軌道を確認するための方法についても解説しています。">
-    <META name="keywords" content="自励形,自律形,連立,微分方程式,解曲線,解軌道,描画,ツール,任意,式,入力,可能,解説">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="自励形の2元連立微分方程式の近似解を描画するページの簡易解説です。任意の式を入力して解軌道を確認するための方法についても解説しています。">
+    <meta name="keywords" content="自励形,自律形,連立,微分方程式,解曲線,解軌道,描画,ツール,任意,式,入力,可能,解説">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Differential Equation Petit Document</title>
+    <title>微分方程式 簡易解説</title>
 
     <!-- favicon-->
-    <link rel="shortcut icon" href="image/SRTLM_img/favicon.ico">
-
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="icon" href="favicon.ico">
 
     <!-- css start -->
-
-        <!-- kko_etc start :: class指定:change_border_color, 全ファイル共通:リンク文字色, フォーカスリング -->
-        <link rel="stylesheet" href="libs/etc/css/kko_footer_style.css" type="text/css">
-        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css" type="text/css">
-        <!-- kko_etc end -->
-
+        <!-- kko_etc :: class指定:change_border_color, 全ファイル共通:リンク文字色, フォーカスリング -->
+        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
     <!-- css end -->
 
     <!-- js start -->
 
         <!-- jQuery start -->
-        <script src="libs/jQuery/js/jquery-1.6.1.min.js" type="text/javascript"></script>
-        <!-- kko_style start - img jq_blink, img jq_change -->
-        <script src="libs/jQuery/kko/js/jq_kko_style.js" type="text/javascript"></script>
-        <!-- kko_style end -->
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script src="libs/jQuery/kko/js/jq_kko_style.js"></script>
         <!-- jQuery end -->
 
-        <!-- Sandbox DropDownMenu start -->
-        <script src="libs/sandbox/js/script.js" type="text/javascript"></script>
-        <!-- Sandbox DropDownMenu end -->
-
-        <script type="text/javascript"
+        <script
             src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
         </script>
         <script type="text/x-mathjax-config">
@@ -53,52 +40,95 @@
             });
         </script>
 
+        <!-- Sandbox DropDownMenu -->
+        <script src="libs/sandbox/js/script.js"></script>
+
         <!-- deq initialize -->
-        <script src="libs/etc/js/deq00_doc2.js" type="text/javascript"></script>
+        <script src="libs/etc/js/deq00_doc2.js"></script>
 
     <!-- js end -->
-</HEAD>
+</head>
 
-<BODY id="common-k" onload="initialize()">
+<body id="common-k" onload="initialize()">
 
     <header>
-        <a name="page_top"></a>
-        <div class="center jQ_change navbox" >
-            <nav>
-                <IMG src="image/top/Contrail_g.png" height="20" class="logo_img">
-                <ul class="menu" id="menu" >
-                    <li class="pb40"><a href="index.html" class="menulink">Home</a></li>
-                    <li class="pb40"><a href="whatnew.html" class="menulink">What's New</a></li>
-                    <li class="pb40"><a href="etc.html" class="menulink">E.T.C.</a></li>
-                    <li class="pb40"><a href="fs01.html" class="menulink">The Scenery</a>
-                        <ul>
-                            <li class="pb40"><a href="fs01_sc_top.html" class="sub">Screen Shots</a></li>
-                            <li class="pb40"><a href="fs01_ls_top.html" class="sub">Snap Shots</a></li>
-                        </ul>
-                    </li>
-                    <li class="pb40"><a href="link01.html" class="menulink">Links</a></li>
-                    <li class="about"><a href="fs01_about.html" class="menulink">about Contrail</a></li>
-                </ul>
-            </nav>
-            <div class="c-both"></div>
+        <div class="prettyP_PC">
+            <a name="page_top"></a>
+            <div class="center jQ_change navbox" >
+                <nav>
+                    <img src="image/top/cr32_e.png" height="20" class="logo_img">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_img">
+                    <ul class="menu" id="menu" >
+                        <li><a href="index.html" class="menulink">Home</a></li>
+                        <li><a href="whatnew.html" class="menulink">What's New</a></li>
+                        <li><a href="etc.html" class="menulink">E.T.C.</a></li>
+                        <li><a href="fs01.html" class="menulink">The Scenery</a>
+                            <ul>
+                                <li><a href="fs01_sc_top.html" class="sub">Screen Shots</a></li>
+                                <li><a href="fs01_ls_top.html" class="sub">Snap Shots</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="link01.html" class="menulink">Links</a></li>
+                        <li class="about"><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                    </ul>
+                </nav>
+                <div class="c-both"></div>
+            </div>
+            <!-- Sandbox DropDownMenu start-->
+            <script>
+                var menu=new menu.dd("menu");
+                menu.init("menu","menuhover");
+            </script>
+            <!-- Sandbox DropDownMenu end -->
         </div>
-        <!-- Sandbox DropDownMenu start-->
-        <script type="text/javascript">
-            var menu=new menu.dd("menu");
-            menu.init("menu","menuhover");
-        </script>    <!-- Sandbox DropDownMenu end -->
+        <div class="prettyP_SP">
+            <a name="MENU"></a>
+            <p id="menu-call">
+                <a href="#">MENU</a>
+            </p>
+
+            <a name="page_top"></a>
+
+            <!-- page top icon & logo -->
+            <div id="header_SP" class="header_labelSP">
+                <div class="pb4"></div>
+                <img src="image/top/cr48f_32.png">
+                <img class="pb3" src="image/top/Contrail_g.png" height="24">
+            </div>
+
+            <div id="popup-menu" class="hidden">
+                <div class="menu-title">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_image" alt="CONTRAIL">
+                </div>
+                <ul>
+                    <li><a href="index.html" class="menulink">Home</a></li>
+                    <li><a href="whatnew.html" class="menulink">What's New</a></li>
+                    <li><a href="etc.html" class="menulink">E.T.C.</a></li>
+                    <li><a href="fs01.html" class="menulink">The Scenery</a></li>
+                    <li><a href="link01.html" class="menulink">Links</a></li>
+                    <li><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                </ul>
+            </div>
+        </div>
     </header>
 
-    <div id="main720"> <!-- ① page main: start -->
+    <div id="main720-480"> <!-- ① page main: start -->
 
         <!-- title -->
         <div id="title20">
             <h3 class="pt30 pb40">
                 微分方程式 解曲線の描画
                 &emsp;
-                ちょっと解説
+                簡易解説
             </h3>
         </div>
+
+        <!-- for Java Script off -->
+        <noscript>
+            <div id="attention">
+                <p>ご覧頂くにはブラウザの JavaScript をアクティブにして下さい</p>
+            </div>
+        </noscript>
 
         <!-- contents -->
         <div class="pic-left720 pb40">
@@ -139,7 +169,7 @@
                 </ul>
             </div>
 
-            <div class="pic-left720 fwb pb20">
+            <div class="fwb pb20">
                 <div class="contents-title-left pb20"
                     <p id="a1">
                         [01]&nbsp;2次元1次線形自励系
@@ -202,7 +232,9 @@
                         <div class="contents-right"
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=01%2601">
-                                    <img src="image/DEQ_img/deq2_0101_20.jpg" border="0">
+                                    <span class="image-container">
+                                        <img src="image/DEQ_img/deq2_0101_20.jpg" border="0">
+                                    </span>
                                 </a>
                             </p>
                         </div>
@@ -246,7 +278,9 @@
                         <div class="contents-right"
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=01%2602">
-                                    <img src="image/DEQ_img/deq2_0102_20.jpg" border="0">
+                                    <span class="image-container">
+                                        <img src="image/DEQ_img/deq2_0102_20.jpg" border="0">
+                                    </span>
                                 </a>
                             </p>
                         </div>
@@ -287,7 +321,9 @@
                         <div class="contents-right"
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=01%2603">
-                                    <img src="image/DEQ_img/deq2_0103_20.jpg" border="0">
+                                    <span class="image-container">
+                                        <img src="image/DEQ_img/deq2_0103_20.jpg" border="0">
+                                    </span>
                                 </a>
                             </p>
                         </div>
@@ -328,7 +364,9 @@
                         <div class="contents-right"
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=01%2604">
-                                    <img src="image/DEQ_img/deq2_0104_20.jpg" border="0">
+                                    <span class="image-container">
+                                        <img src="image/DEQ_img/deq2_0104_20.jpg" border="0">
+                                    </span>
                                 </a>
                             </p>
                         </div>
@@ -369,7 +407,9 @@
                         <div class="contents-right"
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=01%2605">
-                                    <img src="image/DEQ_img/deq2_0105_20.jpg" border="0">
+                                    <span class="image-container">
+                                        <img src="image/DEQ_img/deq2_0105_20.jpg" border="0">
+                                    </span>
                                 </a>
                             </p>
                         </div>
@@ -411,7 +451,9 @@
                         <div class="contents-right"
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=01%2606">
-                                    <img src="image/DEQ_img/deq2_0106_20.jpg" border="0">
+                                    <span class="image-container">
+                                        <img src="image/DEQ_img/deq2_0106_20.jpg" border="0">
+                                    </span>
                                 </a>
                             </p>
                         </div>
@@ -455,7 +497,9 @@
                         <div class="contents-right"
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=01%2607">
-                                    <img src="image/DEQ_img/deq2_0107_20.jpg" border="0">
+                                    <span class="image-container">
+                                        <img src="image/DEQ_img/deq2_0107_20.jpg" border="0">
+                                    </span>
                                 </a>
                             </p>
                         </div>
@@ -499,7 +543,9 @@
                         <div class="contents-right"
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=01%2608">
-                                    <img src="image/DEQ_img/deq2_0108_20.jpg" border="0">
+                                    <span class="image-container">
+                                        <img src="image/DEQ_img/deq2_0108_20.jpg" border="0">
+                                    </span>
                                 </a>
                             </p>
                         </div>
@@ -539,7 +585,9 @@
                         <div class="contents-right"
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=01%2609">
-                                    <img src="image/DEQ_img/deq2_0109_20.jpg" border="0">
+                                    <span class="image-container">
+                                        <img src="image/DEQ_img/deq2_0109_20.jpg" border="0">
+                                    </span>
                                 </a>
                             </p>
                         </div>
@@ -563,7 +611,7 @@
                 </ol>
             </div>
 
-            <div class="pic-left720 fwb pb20">
+            <div class="fwb pb20">
                 <div class="contents-title-left pb20"
                     <p id="a2">
                         [02]&nbsp;2次元2次線形自励系
@@ -613,7 +661,9 @@
                         <div class="contents-right"
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=02%2601">
-                                    <img src="image/DEQ_img/deq2_0201_20.jpg" border="0">
+                                    <span class="image-container">
+                                        <img src="image/DEQ_img/deq2_0201_20.jpg" border="0">
+                                    </span>
                                 </a>
                             </p>
                         </div>
@@ -657,7 +707,9 @@
                         <div class="contents-right"
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=02%2602">
-                                    <img src="image/DEQ_img/deq2_0202_20.jpg" border="0">
+                                    <span class="image-container">
+                                        <img src="image/DEQ_img/deq2_0202_20.jpg" border="0">
+                                    </span>
                                 </a>
                             </p>
                         </div>
@@ -709,7 +761,9 @@
                         <div class="contents-right"
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=02%2603">
-                                    <img src="image/DEQ_img/deq2_0203_20.jpg" border="0">
+                                    <span class="image-container">
+                                        <img src="image/DEQ_img/deq2_0203_20.jpg" border="0">
+                                    </span>
                                 </a>
                             </p>
                         </div>
@@ -752,7 +806,9 @@
                         <div class="contents-right"
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=02%2604">
-                                    <img src="image/DEQ_img/deq2_0204_20.jpg" border="0">
+                                    <span class="image-container">
+                                        <img src="image/DEQ_img/deq2_0204_20.jpg" border="0">
+                                    </span>
                                 </a>
                             </p>
                         </div>
@@ -806,7 +862,9 @@
                         <div class="contents-right"
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=02%2605">
-                                    <img src="image/DEQ_img/deq2_0205_20.jpg" border="0">
+                                    <span class="image-container">
+                                        <img src="image/DEQ_img/deq2_0205_20.jpg" border="0">
+                                    </span>
                                 </a>
                             </p>
                         </div>
@@ -850,7 +908,9 @@
                         <div class="contents-right"
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=02%2606">
-                                    <img src="image/DEQ_img/deq2_0206_20.jpg" border="0">
+                                    <span class="image-container">
+                                        <img src="image/DEQ_img/deq2_0206_20.jpg" border="0">
+                                    </span>
                                 </a>
                             </p>
                         </div>
@@ -872,7 +932,8 @@
                     </li>
                 </ol>
             </div>
-            <div class="pic-left720 fwb pb20">
+
+            <div class="fwb pb20">
                 <div class="contents-title-left pb20"
                     <p id="a3">
                         [03]&nbsp;高次の同次自励系
@@ -918,7 +979,9 @@
                         <div class="contents-right"
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=03%2601">
-                                    <img src="image/DEQ_img/deq2_0301_20.jpg" border="0">
+                                    <span class="image-container">
+                                        <img src="image/DEQ_img/deq2_0301_20.jpg" border="0">
+                                    </span>
                                 </a>
                             </p>
                         </div>
@@ -948,7 +1011,9 @@
                         <div class="contents-right"
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=03%2602">
-                                    <img src="image/DEQ_img/deq2_0302_20.jpg" border="0">
+                                    <span class="image-container">
+                                        <img src="image/DEQ_img/deq2_0302_20.jpg" border="0">
+                                    </span>
                                 </a>
                             </p>
                         </div>
@@ -981,7 +1046,9 @@
                         <div class="contents-right"
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=03%2603">
-                                    <img src="image/DEQ_img/deq2_0303_20.jpg" border="0">
+                                    <span class="image-container">
+                                        <img src="image/DEQ_img/deq2_0303_20.jpg" border="0">
+                                    </span>
                                 </a>
                             </p>
                         </div>
@@ -1016,7 +1083,9 @@
                         <div class="contents-right"
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=03%2604">
-                                    <img src="image/DEQ_img/deq2_0304_20.jpg" border="0">
+                                    <span class="image-container">
+                                        <img src="image/DEQ_img/deq2_0304_20.jpg" border="0">
+                                    </span>
                                 </a>
                             </p>
                         </div>
@@ -1029,7 +1098,7 @@
                 </ol>
             </div>
 
-            <div class="pic-left720 fwb pb20">
+            <div class="fwb pb20">
                 <div class="contents-title-left pb20"
                     <p id="a4">
                         [04]&nbsp;自励系の諸例
@@ -1084,7 +1153,9 @@
                         <div class="contents-right"
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=04%2601">
-                                    <img src="image/DEQ_img/deq2_0401_20.jpg" border="0">
+                                    <span class="image-container">
+                                        <img src="image/DEQ_img/deq2_0401_20.jpg" border="0">
+                                    </span>
                                 </a>
                             </p>
                         </div>
@@ -1148,7 +1219,9 @@
                         <div class="contents-right"
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=04%2602">
-                                    <img src="image/DEQ_img/deq2_0402_20.jpg" border="0">
+                                    <span class="image-container">
+                                        <img src="image/DEQ_img/deq2_0402_20.jpg" border="0">
+                                    </span>
                                 </a>
                             </p>
                         </div>
@@ -1187,26 +1260,31 @@
                         <div class="contents-right"
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=04%2603">
-                                    <img src="image/DEQ_img/deq2_0403_20.jpg" border="0">
+                                    <span class="image-container">
+                                        <img src="image/DEQ_img/deq2_0403_20.jpg" border="0">
+                                    </span>
                                 </a>
                             </p>
                         </div>
                         <div class="c-both"></div>
-                        <p class="pb10">
-                            この自励形は
-                            $
-                                \pmatrix{
-                                    2p\pi \cr
-                                    (2q + 1)\pi \cr
-                                }
-                                と \quad
-                                \pmatrix{
-                                    (2p + 1)\pi \cr
-                                    2q\pi \cr
-                                }
-                                に平衡点を持ちます(p, qは整数)。
-                            $
-                        </p>
+                        <!-- スマホ時横スクロール許可 -->
+                        <div class="table-container">
+                            <p class="pb10">
+                                この自励形は
+                                $
+                                    \pmatrix{
+                                        2p\pi \cr
+                                        (2q + 1)\pi \cr
+                                    }
+                                    と \quad
+                                    \pmatrix{
+                                        (2p + 1)\pi \cr
+                                        2q\pi \cr
+                                    }
+                                    に平衡点を持ちます(p, qは整数)。
+                                $
+                            </p>
+                        </div>
                         <p class="pb10">
                             4-1と同様に、平衡点の近傍で1次近似を行うと、
                             1つ目のタイプの平衡点は双楕円型になります。<br>
@@ -1239,7 +1317,9 @@
                         <div class="contents-right"
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=04%2604">
-                                    <img src="image/DEQ_img/deq2_0404_20.jpg" border="0">
+                                    <span class="image-container">
+                                        <img src="image/DEQ_img/deq2_0404_20.jpg" border="0">
+                                    </span>
                                 </a>
                             </p>
                         </div>
@@ -1318,7 +1398,9 @@
                         <div class="contents-right"
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=04%2605">
-                                    <img src="image/DEQ_img/deq2_0405_20.jpg" border="0">
+                                    <span class="image-container">
+                                        <img src="image/DEQ_img/deq2_0405_20.jpg" border="0">
+                                    </span>
                                 </a>
                             </p>
                         </div>
@@ -1357,16 +1439,20 @@
                             </p>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                \[ \frac{dx}{dt} = a * y(1 + 2x^2 + 2y^2) \]
-                                \[ \frac{dy}{dt} = b * x(1 - 2x^2 - 2y^2) + c * y(1 + 2x^2 + 2y^2)((x^2 + y^2)^2 - (x^2 - y^2)) \]
-                            </p>
+                        <div class="table-container">
+                            <div class="contents-left pb10"
+                                <p class="pb10">
+                                    \[ \frac{dx}{dt} = a * y(1 + 2x^2 + 2y^2) \]
+                                    \[ \frac{dy}{dt} = b * x(1 - 2x^2 - 2y^2) + c * y(1 + 2x^2 + 2y^2)((x^2 + y^2)^2 - (x^2 - y^2)) \]
+                                </p>
+                            </div>
                         </div>
                         <div class="contents-right"
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=04%2606">
-                                    <img src="image/DEQ_img/deq2_0406_20.jpg" border="0">
+                                    <span class="image-container">
+                                        <img src="image/DEQ_img/deq2_0406_20.jpg" border="0">
+                                    </span>
                                 </a>
                             </p>
                         </div>
@@ -1420,7 +1506,9 @@
                         <div class="contents-right"
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=04%2607">
-                                    <img src="image/DEQ_img/deq2_0407_20.jpg" border="0">
+                                    <span class="image-container">
+                                        <img src="image/DEQ_img/deq2_0407_20.jpg" border="0">
+                                    </span>
                                 </a>
                             </p>
                         </div>
@@ -1452,27 +1540,36 @@
                         <p class="pb10">
                             この軌道についての森本氏の説明を要約すると次のようになる。
                         </p>
-                        <p class="pb10">
+                        <p>
                             原点Oを中心とする半径 $r$ の円周のy切片をA, Bとする。
                             この円周上の各点で
-                            $
-                                ベクトル
-                                \pmatrix{
-                                    y \cr
-                                    -x - y^3 \cr
-                                }
-                                は \quad 円周に接するベクトル
-                                \pmatrix{
-                                    y \cr
-                                    -x \cr
-                                }
-                                と \quad 円の内側を向いているベクトル
-                                \pmatrix{
-                                    0 \cr
-                                    -y^3 \cr
-                                }
-                                の和になるので、
-                            $ <br>
+                        </p>
+                        <div class="table-container">
+                            <p>
+                                $
+                                    ベクトル
+                                    \pmatrix{
+                                        y \cr
+                                        -x - y^3 \cr
+                                    }
+                                    は \quad 円周に接するベクトル
+                                    \pmatrix{
+                                        y \cr
+                                        -x \cr
+                                    }
+                                $
+                                と
+                                $
+                                    円の内側を向いているベクトル
+                                    \pmatrix{
+                                        0 \cr
+                                        -y^3 \cr
+                                    }
+                                $
+                            </p>
+                        </div>
+                        <p>
+                            の和になるので、
                             円の内側を向いている。
                         </p>
                         <p class="pb10">
@@ -1483,7 +1580,9 @@
                             y軸上の点A'を横切る。
                         </p>
                         <p class="pb10">
-                            <img src="image/DEQ_img/deq2_0407_fig.jpg" width="50%" height="50%" border="0">
+                            <span class="image-container">
+                                <img src="image/DEQ_img/deq2_0407_fig.jpg" width="50%" height="50%" border="0">
+                            </span>
                         </p>
                         <p class="pb20">
                             こうして、Aを通る解軌道は原点の回りを螺旋状にぐるぐると回り閉じることなく
@@ -1514,18 +1613,20 @@
                         <div class="contents-left pb10"
                             <p class="pb10">
 <!--
-                            \[ \frac{dx}{dt} = -y + 5x \, e^{(-1 / \sqrt{r})} \sin(1 / r)\]
-                            \[ \frac{dy}{dt} = x + 5y \, e^{(-1 / \sqrt{r})} \sin(1 / r)\]
+                                \[ \frac{dx}{dt} = -y + 5x \, e^{(-1 / \sqrt{r})} \sin(1 / r)\]
+                                \[ \frac{dy}{dt} = x + 5y \, e^{(-1 / \sqrt{r})} \sin(1 / r)\]
 -->
-                            \[ \frac{dx}{dt} = -y + 10x \, e^{(-1 / \sqrt{r})} \sin(1 / r)\]
-                            \[ \frac{dy}{dt} = x + 10y \, e^{(-1 / \sqrt{r})} \sin(1 / r)\]
-                            $\qquad$ where $\; r = \sqrt{x^2 + y^2} $
+                                \[ \frac{dx}{dt} = -y + 10x \, e^{(-1 / \sqrt{r})} \sin(1 / r)\]
+                                \[ \frac{dy}{dt} = x + 10y \, e^{(-1 / \sqrt{r})} \sin(1 / r)\]
+                                $\qquad$ where $\; r = \sqrt{x^2 + y^2} $
                             </p>
                         </div>
                         <div class="contents-right"
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=04%2608">
-                                    <img src="image/DEQ_img/deq2_0408_20.jpg" border="0">
+                                    <span class="image-container">
+                                        <img src="image/DEQ_img/deq2_0408_20.jpg" border="0">
+                                    </span>
                                 </a>
                             </p>
                         </div>
@@ -1538,17 +1639,21 @@
                         <p class="pb10">
                             $r$ は原点からの距離である。この方程式を(4.8.a)と呼ぶことにする。
                         </p>
-                        <p class="pb10">
-                            \[ \alpha(r) = \cases{
-                                e^{(-1 / \sqrt{r})} \sin(1 / r) & ($r > 0$) \cr
-                                0 & ($r = 0$) \cr
-                            } \]
-                        </p>
+                        <div class="table-container">
+                            <p class="pb10">
+                                \[ \alpha(r) = \cases{
+                                    e^{(-1 / \sqrt{r})} \sin(1 / r) & ($r > 0$) \cr
+                                    0 & ($r = 0$) \cr
+                                } \]
+                            </p>
+                        </div>
                         <p class="pb10">
                             $\alpha(r)$ で定義される関数は原点に近づくに連れて減衰振動を繰り返す曲線である。
                         </p>
                         <p class="pb10">
-                            <img src="image/DEQ_img/deq2_0408_alpha_of_r_2.jpg" width="50%" height="50%" border="0">
+                            <span class="image-container">
+                                <img src="image/DEQ_img/deq2_0408_alpha_of_r_2.jpg" width="50%" height="50%" border="0">
+                            </span>
                         </p>
                         <p class="pb10">
                             添付の図が荒くて分かり難いが、
@@ -1603,7 +1708,9 @@
                             (8.4.c)のベクトル場を示すと以下のようになる。
                         </p>
                         <p class="pb10">
-                            <img src="image/DEQ_img/deq2_0408_alpha_of_r_vec.jpg" width="75%" height="75%" border="0">
+                            <span class="image-container">
+                                <img src="image/DEQ_img/deq2_0408_alpha_of_r_vec.jpg" width="75%" height="75%" border="0">
+                            </span>
                         </p>
                         <p class="pb10">
                             ベクトル場のグラフは各線分の向きを矢印ではなく、赤色のドットで代用している。
@@ -1654,7 +1761,9 @@
                         <div class="contents-right"
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=04%2609">
-                                    <img src="image/DEQ_img/deq2_0409_20.jpg" border="0">
+                                    <span class="image-container">
+                                        <img src="image/DEQ_img/deq2_0409_20.jpg" border="0">
+                                    </span>
                                 </a>
                             </p>
                         </div>
@@ -1686,9 +1795,11 @@
                         <p class="pb10">
                             Cassiniの燈形の解析解は以下の通りである。
                         </p>
-                        <p class="pb10">
-                            \[ F(x, y) = \frac{1}{4}(1 + x^2 + y^2)^2 - x^2 = C\]
-                        </p>
+                        <div class="table-container">
+                            <p class="pb10">
+                                \[ F(x, y) = \frac{1}{4}(1 + x^2 + y^2)^2 - x^2 = C\]
+                            </p>
+                        </div>
                         <p class="pb10">
                             平衡点は原点と、$(\pm1, 0)$の3点である。原点は鞍状点になり、$(\pm1, 0)$は渦心点となる。
                         </p>
@@ -1727,7 +1838,9 @@
                         <div class="contents-right"
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=04%2610">
-                                    <img src="image/DEQ_img/deq2_0410_20.jpg" border="0">
+                                    <span class="image-container">
+                                        <img src="image/DEQ_img/deq2_0410_20.jpg" border="0">
+                                    </span>
                                 </a>
                             </p>
                         </div>
@@ -1770,7 +1883,9 @@
                         <div class="contents-right"
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=04%2611">
-                                    <img src="image/DEQ_img/deq2_0411_20.jpg" border="0">
+                                    <span class="image-container">
+                                        <img src="image/DEQ_img/deq2_0411_20.jpg" border="0">
+                                    </span>
                                 </a>
                             </p>
                         </div>
@@ -1794,7 +1909,9 @@
                             陰関数のグラフが曲面の等高線になっていることが分かる。
                         </p>
                         <p class="pb10">
-                            <img src="image/DEQ_img/deq2_0411_kyokumen.jpg" border="0">
+                            <span class="image-container">
+                                <img src="image/DEQ_img/deq2_0411_kyokumen.jpg" border="0">
+                            </span>
                         </p>
                     </li>
                     <li class="pb40">
@@ -1821,7 +1938,9 @@
                         <div class="contents-right"
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=04%2612">
-                                    <img src="image/DEQ_img/deq2_0412_20.jpg" border="0">
+                                    <span class="image-container">
+                                        <img src="image/DEQ_img/deq2_0412_20.jpg" border="0">
+                                    </span>
                                 </a>
                             </p>
                         </div>
@@ -1846,13 +1965,15 @@
                             これ、台所で見かける何かに似ていると思いませんか？
                         </p>
                         <p class="pb10">
-                            <img src="image/DEQ_img/deq2_0412_kyokumen.jpg" border="0">
+                            <span class="image-container">
+                                <img src="image/DEQ_img/deq2_0412_kyokumen.jpg" border="0">
+                            </span>
                         </p>
                   </li>
                 </ol>
             </div>
 
-            <div class="pic-left720 fwb pb20">
+            <div class="fwb pb20">
                 <div class="contents-title-left pb20"
                     <p id="09&090"></p>
                     <p id="a99">
@@ -1865,18 +1986,21 @@
                     </p>
                 </div>
                 <div class="c-both"></div>
-
                 <p class="pb20">
                     [描画へ]をクリックすると、以下の画面が表示されます。
                     任意の方程式を入力して、その解軌道を確認することができます。
                     STARTボタンを押すと入力ボックスの下に入力した式がTeX形式で表示され、描画が開始されます。
-                    入力された式の評価には<a href="https://mathjs.org/docs/" target="_blank"> Math.js </a>を利用しています。
-                    エラーメッセージが表示された場合は、入力した式を確認して、適宜修正して下さい。<br>
+                    入力された式の評価には
+                    <a href="https://mathjs.org/docs/" target="_blank"> Math.js </a>
+                    を利用しています。
+                    エラーメッセージが表示された場合は、入力した式を確認して、適宜修正して下さい。
                     入力できる方程式は自励形に限ります(非自励形については、現在確認中)。
                 </p>
                 <p class="pb10">
                     <a href="etc_DEQ_v2.html?selectedOption=09%26090">
-                        <img src="image/DEQ_img/deq4_page_75.jpg" border="1">
+                        <span class="image-container">
+                            <img src="image/DEQ_img/deq4_page_75.jpg" border="1">
+                        </span>
                     </a>
                 </p>
                 <p class="pb30">
@@ -1887,21 +2011,25 @@
                         <p id="09&091"; class="pb10">
                             2次元1次線形自励系の例です。
                         </p>
-                        <p>
-                          <a href="etc_DEQ_v2.html?selectedOption=09%26091">
-                              <img src="image/DEQ_img/deq4_case1a.jpg">
-                          </a>
-                        </p>
+                        <div class="table-container">
+                            <p>
+                              <a href="etc_DEQ_v2.html?selectedOption=09%26091">
+                                  <img src="image/DEQ_img/deq4_case1a.jpg">
+                              </a>
+                            </p>
+                        </div>
                     </li>
                     <li class="pb40">
                         <p id="09&092"; class="pb10">
                             連立方程式にする必要がない場合の例です。$dx/dt$ を1とします。
                         </p>
-                        <p>
-                            <a href="etc_DEQ_v2.html?selectedOption=09%26092">
-                                <img src="image/DEQ_img/deq4_case2a.jpg">
-                            </a>
-                        </p>
+                        <div class="table-container">
+                            <p>
+                                <a href="etc_DEQ_v2.html?selectedOption=09%26092">
+                                    <img src="image/DEQ_img/deq4_case2a.jpg">
+                                </a>
+                            </p>
+                        </div>
                     </li>
                     <li class="pb40">
                         <p id="09&093"; class="pb10">
@@ -1912,11 +2040,13 @@
                             pow(x, 5)と入力すると、表示は$(y)^5$となります。計算自体は正しく実行されるので問題はないのですが、
                             違和感を感じられる場合は、単純にy^5と入力して下さい。
                         </p>
-                        <p>
-                            <a href="etc_DEQ_v2.html?selectedOption=09%26093">
-                                <img src="image/DEQ_img/deq4_case3a.jpg">
-                            </a>
-                        </p>
+                        <div class="table-container">
+                            <p>
+                                <a href="etc_DEQ_v2.html?selectedOption=09%26093">
+                                    <img src="image/DEQ_img/deq4_case3a.jpg">
+                                </a>
+                            </p>
+                        </div>
                     </li>
                     <li class="pb40">
                         <p id="09&094"; class="pb10">
@@ -1927,11 +2057,13 @@
                             必要ない場合は、1.～3.のように何も入力する必要はありません。
 
                         </p>
-                        <p>
-                            <a href="etc_DEQ_v2.html?selectedOption=09%26094">
-                                <img src="image/DEQ_img/deq4_case4a.jpg">
-                            </a>
-                        </p>
+                        <div class="table-container">
+                            <p>
+                                <a href="etc_DEQ_v2.html?selectedOption=09%26094">
+                                    <img src="image/DEQ_img/deq4_case4a.jpg">
+                                </a>
+                            </p>
+                        </div>
                     </li>
                     <li class="pb40">
                         <p id="09&095"; class="pb10">
@@ -1943,11 +2075,13 @@
                             exp(x)と入力した場合も、TeXの表示は$\exp(x)$になりますが、同じように評価されます。
                             指数部が複雑な場合はe^(x + 1)或いはexp(x + 1)のように括弧をつけて下さい。
                         </p>
-                        <p>
-                            <a href="etc_DEQ_v2.html?selectedOption=09%26095">
-                                <img src="image/DEQ_img/deq4_case5a.jpg">
-                            </a>
-                        </p>
+                        <div class="table-container">
+                            <p>
+                                <a href="etc_DEQ_v2.html?selectedOption=09%26095">
+                                    <img src="image/DEQ_img/deq4_case5a.jpg">
+                                </a>
+                            </p>
+                        </div>
                     </li>
                 </ol>
             </div>
@@ -1956,7 +2090,7 @@
             <div class="bd15 fwb">
                 == 注釈 ==
             </div>
-            <div class="bdr10 left fss pb10" style="width:760px">
+            <div class="bdr10 fss pb10">
                 <p id="*1">
                     [1.]
                 </p>
@@ -1969,7 +2103,9 @@
                     そこで、以下に示すように選択されたリストの位置を保持するためのチェックボックスを設置しました。
                 </p>
                 <p class="pb10">
-                    <img src="image/DEQ_img/deq4_LocalStorage00.jpg">
+                    <span class="image-container">
+                        <img src="image/DEQ_img/deq4_LocalStorage00.jpg">
+                    </span>
                 </p>
                 <p>
                     チェックを入れてから特定の項目を選択すると、
@@ -1984,18 +2120,18 @@
                 <p>
                     Local Storageに保存されるデータ ( key, vakue ) は次の2点です。
                 </p>
-                <p>
+                <!-- スマホ時横スクロール許可 -->
+                <div class="table-container">
                     <table class="pb10">
                       <tr><th>key</th><th>value</th></tr>
                       <tr><td>kzDeq_StorageFlg</td><td>"true" or "false"</td></tr>
                       <tr><td>kzDeq_SelectedType</td><td>"09&09" などの5文字の文字列</td></tr>
                     </table>
-                </p>
+                </div>
                 <p>
                     Local Storageに保存されているデータは、お使いのブラウザの設定画面から確認することができます。
                     <a href="#">戻る</a>
                 </p>
-
             </div>
 
         </div>  <!-- ② end -->
@@ -2006,18 +2142,19 @@
 
         <hr id="footer"> <!-- horizontal partition -->
 
-        <p id="page-top"><a href="#">トップへ</a></p>
-        <div class="jQ_change center" > <!-- select button whole: start -->
+        <p id="page-top"><a href="#">TOP</a></p>
+
+        <div class="jQ_change center"> <!-- select button whole: start -->
             <p id="footer"> <!-- select button: start -->
                 <a href="etc.html">
-                    <IMG src="image/button/back_off.gif" border="0" alt="Back" >
+                    <IMG src="image/button/back_off.gif" border="0" alt="Back">
                 </a>
             </p> <!-- select button: end -->
         </div> <!-- select button whole: end -->
 
-        <div id="footer_label">
+        <div class="footer_labelPC">
             copyright &copy; 2003 -
-            <script type="text/javascript" language="JavaScript">
+            <script>
                 date = new Date();
                 document.write(date.getFullYear() + ' ');
             </script>
@@ -2029,5 +2166,5 @@
     </footer>
 
 </div>
-</BODY>
+</body>
 </html>

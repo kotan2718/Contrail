@@ -1,106 +1,126 @@
-<!DOCTYPE HTML >
-<html>
+<!DOCTYPE html >
+<html lang="ja">
 
-<HEAD>
-    <META charset="UTF-8">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="'墨田の花火' という名前の紫陽花です。この花の感じ.... 夏の夜空に どぉーんと上がってぱっと咲く，大輪の花火を彷彿とさせてくれます。">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Contrail SnapShots : 四季折々 :: 墨田の花火</title>
 
     <!-- favicon-->
-    <link rel="shortcut icon" href="favicon.ico">
-
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="icon" href="favicon.ico">
 
     <!-- css start -->
+        <!-- kko_etc - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
+        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
 
-        <!-- kko_etc start - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
-        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css" type="text/css">
-        <!-- kko_etc end -->
+        <!-- Fancybox CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css">
 
-        <!-- prettyPhoto start -->
-        <link href="libs/jQuery/prettyPhoto/css/prettyPhoto315_mod.css" media="all" rel="stylesheet" type="text/css">
-        <!-- prettyPhoto end -->
-
+        <style>
+            /* Optional: Limit image size on small screens */
+            @media (max-width: 768px) {
+                .fancybox_image {
+                    max-width: 256px;
+                }
+                .fancybox_image2 {
+                    max-width: 300px;
+                }
+            }
+        </style>
     <!-- css end -->
 
     <!-- js start -->
-
         <!-- jQuery start -->
-        <script src="libs/jQuery/js/jquery-1.6.1.min.js" type="text/javascript"></script>
-
-            <!-- kko_style start - img jq_blink, img jq_change -->
-            <script src="libs/jQuery/kko/js/jq_kko_preload.js" type="text/javascript"></script>
-            <script src="libs/jQuery/kko/js/jq_kko_style.js" type="text/javascript"></script>
-            <!-- kko_style end -->
-
-            <!-- prettyPhoto start -->
-            <script src="libs/jQuery/prettyPhoto/js/jquery.prettyPhoto_315_mod.js" type="text/javascript"></script>
-            <script type="text/javascript">
-                $(document).ready(function(){
-                    $("a[rel^='prettyPhoto']").prettyPhoto();
-                });
-            </script>
-            <!-- prettyPhoto end -->
-
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <!-- kko_style - img jq_blink, img jq_change -->
+            <script src="libs/jQuery/kko/js/jq_kko_style.js"></script>
         <!-- jQuery end -->
 
-        <!-- Sandbox DropDownMenu start -->
-        <script src="libs/sandbox/js/script.js" type="text/javascript"></script>
-        <!-- Sandbox DropDownMenu end -->
+        <!-- Fancybox JS -->
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
 
-    <!-- js end -->
+        <!-- Sandbox DropDownMenu -->
+        <script src="libs/sandbox/js/script.js"></script>
+   <!-- js end -->
 
-</HEAD>
+</head>
 
-<BODY id="common-k" >
-
-<!-- Pre Loading -->
-<!-- without loading picture -->
-<div id="loader"></div>
-<div id="fade"></div>
-<div id="preload"> <!-- Pre Loading start -->
+<body id="common-k">
 
     <header>
-        <a name="page_top"></a>
-        <div class="center jQ_change navbox" >
-            <nav>
-                <IMG src="image/top/Contrail_g.png" height="20" class="logo_img">
-                <ul class="menu" id="menu" >
+        <div class="prettyP_PC">
+            <a name="page_top"></a>
+            <div class="center jQ_change navbox" >
+                <nav>
+                    <img src="image/top/cr32_e.png" height="20" class="logo_img">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_img">
+                    <ul class="menu" id="menu" >
+                        <li><a href="index.html" class="menulink">Home</a></li>
+                        <li><a href="whatnew.html" class="menulink">What's New</a></li>
+                        <li><a href="etc.html" class="menulink">E.T.C.</a></li>
+                        <li><a href="fs01.html" class="menulink">The Scenery</a>
+                            <ul>
+                                <li><a href="fs01_sc_top.html" class="sub">Screen Shots</a></li>
+                                <li><a href="fs01_ls_top.html" class="sub">Snap Shots</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="link01.html" class="menulink">Links</a></li>
+                        <li class="about"><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                    </ul>
+                </nav>
+                <div class="c-both"></div>
+            </div>
+            <!-- Sandbox DropDownMenu start-->
+            <script>
+                var menu=new menu.dd("menu");
+                menu.init("menu","menuhover");
+            </script>
+            <!-- Sandbox DropDownMenu end -->
+        </div>
+        <div class="prettyP_SP">
+            <a name="MENU"></a>
+            <p id="menu-call">
+                <a href="#">MENU</a>
+            </p>
+
+            <a name="page_top"></a>
+
+            <!-- page top icon & logo -->
+            <div id="header_SP" class="header_labelSP">
+                <div class="pb4"></div>
+                <img src="image/top/cr48f_32.png">
+                <img class="pb3" src="image/top/Contrail_g.png" height="24">
+            </div>
+
+            <div id="popup-menu" class="hidden">
+                <div class="menu-title">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_image" alt="CONTRAIL">
+                </div>
+                <ul>
                     <li><a href="index.html" class="menulink">Home</a></li>
                     <li><a href="whatnew.html" class="menulink">What's New</a></li>
                     <li><a href="etc.html" class="menulink">E.T.C.</a></li>
-                    <li><a href="fs01.html" class="menulink">The Scenery</a>
-                        <ul>
-                            <li><a href="fs01_sc_top.html" class="sub">Screen Shots</a></li>
-                            <li><a href="fs01_ls_top.html" class="sub">Snap Shots</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="fs01.html" class="menulink">The Scenery</a></li>
                     <li><a href="link01.html" class="menulink">Links</a></li>
-                    <li class="about"><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                    <li><a href="fs01_about.html" class="menulink">about Contrail</a></li>
                 </ul>
-            </nav>
-            <div class="c-both"></div>
+            </div>
         </div>
-        <!-- Sandbox DropDownMenu start-->
-        <script type="text/javascript">
-            var menu=new menu.dd("menu");
-            menu.init("menu","menuhover");
-        </script>    <!-- Sandbox DropDownMenu end -->
     </header>
 
     <div id="main880" class="lineh130"> <!-- page main: start -->
 
         <!-- title -->
         <div id="title30">
-            <p id="head10" >
-                <IMG src="image/fs/kko_logo.gif" border="0" alt="Contrail Snap Shots Special Gallery">
+            <p id="head10">
+                <img src="image/fs/kko_logo.gif" border="0" alt="Contrail Snap Shots Special Gallery">
             </p>
             <h2 id="group-4S15">
                 四季折々
             </h2>
-            <h1 id="main_fs" style="color: #26499d;" >
+            <h1 id="main_fs" style="color: #26499d;">
                 紫陽花・墨田の花火
             </h1>
             <p id="author">
@@ -108,58 +128,79 @@
             </p>
         </div>
 
+        <!-- for Java Script off -->
+        <noscript>
+            <div id="attention">
+                <p>ご覧頂くにはブラウザの JavaScript をアクティブにして下さい</p>
+            </div>
+        </noscript>
+
         <!-- contents -->
 
         <div class="pb20">
-            <p class="pb10" >
-                花の感じが夏の夜空を彩る大輪の花火を思わせる，<BR>
-                清楚ながらも華やかな紫陽花です。<BR>
-                昨年，鉢植えを購入したときは真っ白な花だったのですが，<BR>
-                その後地植にしたら，今年は青みがかった花が咲きました。<BR>
-                土壌を中性にすると，来年はまた真っ白な花が咲くかもしれません (^^;。
-            </p>
-            <p class="jQ_blink change_border_color" >
-                <a href="image/fs/kko/source/P1060016Sumida1_1024.jpg" rel="prettyPhoto"
-                    title="墨田の花火 1" target="_blank" >
-                    <IMG src="image/fs/kko/source/P1060016Sumida1_1024.jpg" width="640" >
+            <div class="prettyP_PC">
+                <p class="pb10">
+                    花の感じが夏の夜空を彩る大輪の花火を思わせる，<br>
+                    清楚ながらも華やかな紫陽花です。<br>
+                    昨年，鉢植えを購入したときは真っ白な花だったのですが，<br>
+                    その後地植にしたら，今年は青みがかった花が咲きました。<br>
+                    土壌を中性にすると，来年はまた真っ白な花が咲くかもしれません (^^;。
+                </p>
+            </div>
+            <div class="prettyP_SP">
+                <p class="left2 pb10">
+                    花の感じが夏の夜空を彩る大輪の花火を思わせる，
+                    清楚ながらも華やかな紫陽花です。
+                    昨年，鉢植えを購入したときは真っ白な花だったのですが，
+                    その後地植にしたら，今年は青みがかった花が咲きました。
+                    土壌を中性にすると，来年はまた真っ白な花が咲くかもしれません (^^;。
+                </p>
+            </div>
+            <p class="jQ_blink change_border_color">
+                <a href="image/fs/kko/source/P1060016Sumida1_1024.jpg"
+                    data-fancybox="gallery1" data-caption="墨田の花火 1">
+                    <img class="fancybox_image2" src="image/fs/kko/source/P1060016Sumida1_1024.jpg" width="640"
+                        alt="墨田の花火 1">
                 </a>
             </p>
         </div>
 
-        <div class="left pb20">
-            <p class="fss fwb pb5" >
+        <div class="left2 pb20">
+            <p class="fss fwb pb5">
                 本当の花の部分の拡大画像です
             </p>
             <p>
-                <IMG src="image/fs/kko/source/P1060021Sumida2_512.jpg" width="512" border="0"
-                alt="墨田の花火_2">
+                <img class="fancybox_image" src="image/fs/kko/source/P1060021Sumida2_512.jpg" width="512"
+                    alt="墨田の花火 2">
             </p>
         </div>
 
         <div class="pic-center720 pb30">
             <div class="right">
-                <p class="fss fwb pb5" >
+                <p class="fss fwb pb5">
                     額と花のアップ
                 </p>
                 <p>
-                    <IMG src="image/fs/kko/source/P1060028Sumida4_640.jpg" width="640" border="0"
-                    alt="墨田の花火_3">
+                    <img class="fancybox_image" src="image/fs/kko/source/P1060028Sumida4_640.jpg" width="640"
+                        alt="墨田の花火 3">
                 </p>
             </div>
+            <div class="prettyP_SP"><div class="pb20"></div></div>
         </div>
 
         <div class="center pb20">
-            <p class="fss fwb pb5" >
+            <p class="fss fwb pb5">
                 咲き始めの頃の画像です
             </p>
-            <p class="jQ_blink change_border_color" >
-                <a href="image/fs/kko/source/P1050613Sumida3_1024.jpg" rel="prettyPhoto"
-                    title="墨田の花火 4" target="_blank" >
-                    <IMG src="image/fs/kko/source/P1050613Sumida3_1024.jpg" width="512" border="0" >
+            <p class="jQ_blink change_border_color">
+                <a href="image/fs/kko/source/P1050613Sumida3_1024.jpg"
+                    data-fancybox="gallery2" data-caption="Fireworks of Sumida 4">
+                    <img class="fancybox_image" src="image/fs/kko/source/P1050613Sumida3_1024.jpg" width="512"
+                        alt="墨田の花火 4">
                 </a>
             </p>
+            <div class="prettyP_SP"><div class="pb10"></div></div>
         </div>
-        <a name="page_bottom"></a>
 
     </div> <!-- page main: end -->
 
@@ -167,17 +208,19 @@
 
         <hr id="footer"> <!-- horizontal partition -->
 
-        <div class="jQ_change center" > <!-- select button whole: start -->
+        <p id="page-top"><a href="#">TOP</a></p>
+
+        <div class="jQ_change center"> <!-- select button whole: start -->
             <p id="footer"> <!-- select button: start -->
                 <a href="fs01_ls_4seasons.html#sumida_no_hanabi">
-                    <IMG src="image/button/back_off.gif" border="0" alt="Back" >
+                    <img src="image/button/back_off.gif" border="0" alt="Back">
                 </a>
             </p> <!-- select button: end -->
         </div> <!-- select button whole: end -->
 
-        <div id="footer_label">
+        <div class="footer_labelPC">
             copyright &copy; 2003 -
-            <script type="text/javascript" language="JavaScript">
+            <script>
                 date = new Date();
                 document.write(date.getFullYear() + ' ');
             </script>
@@ -188,6 +231,5 @@
 
     </footer>
 
-</div> <!-- Pre Loading end -->
-</BODY>
+</body>
 </html>

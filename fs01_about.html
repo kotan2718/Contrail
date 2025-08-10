@@ -1,173 +1,244 @@
-<!DOCTYPE HTML >
-<html>
+<!DOCTYPE html >
+<html lang="ja">
 
-<HEAD>
-    <META charset="UTF-8">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Contrailを管理しているkotanのプロフィールです。">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Contrail : about Contrail</title>
 
     <!-- favicon-->
-    <link rel="shortcut icon" href="favicon.ico">
-
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="icon" href="favicon.ico">
 
     <!-- css start -->
-
-        <!-- kko_etc start - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
-        <link rel="stylesheet" href="libs/etc/css/kko_footer_style.css" type="text/css">
-        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css" type="text/css">
-        <!-- kko_etc end -->
-
+        <!-- kko_etc - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
+        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
+        <!-- PC用（幅769px以上に適用） -->
+        <link rel="stylesheet" href="libs/etc/css/kko_footer_style.css"  media="screen and (min-width: 769px)">
     <!-- css end -->
 
     <!-- js start -->
-
         <!-- jQuery start -->
-        <script src="libs/jQuery/js/jquery-1.6.1.min.js" type="text/javascript"></script>
-
-            <!-- 画像の先読み -->
-            <!-- IE7 以下は through -->
-            <script type="text/javascript">
-            $(function(){
-                jQuery.preloadImages = function(){
-                    for(var i = 0; i<arguments.length; i++){
-                        jQuery("<img>").attr("src", arguments[i]);
-                    }
-                };
-                $.preloadImages(
-                    "image/fs/rangiroa/source/2k2_Rangiroa.jpg"
-                );
-            });
-            </script>
-
-            <!-- kko_style start - img jq_blink, img jq_change -->
-            <script src="libs/jQuery/kko/js/jq_kko_style.js" type="text/javascript"></script>
-            <!-- kko_style end -->
-
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <!-- kko_style - img jq_blink, img jq_change -->
+            <script src="libs/jQuery/kko/js/jq_kko_style.js"></script>
         <!-- jQuery end -->
 
-        <!-- Sandbox DropDownMenu start -->
-        <script src="libs/sandbox/js/script.js" type="text/javascript"></script>
-        <!-- Sandbox DropDownMenu end -->
-
+        <!-- Sandbox DropDownMenu -->
+        <script src="libs/sandbox/js/script.js"></script>
     <!-- js end -->
 
-</HEAD>
+</head>
 
-<BODY id="common-k" >
-
-<!-- Pre Loading -->
-<!-- without loading picture -->
-<div id="loader"></div>
-<div id="fade"></div>
-<div id="preload"> <!-- Pre Loading start -->
+<body id="common-k">
 
     <header>
-        <a name="page_top"></a>
-        <div class="center jQ_change navbox" >
-            <nav>
-                <IMG src="image/top/Contrail_g.png" height="20" class="logo_img">
-                <ul class="menu" id="menu" >
+        <div class="prettyP_PC">
+            <a name="page_top"></a>
+            <div class="center jQ_change navbox" >
+                <nav>
+                    <img src="image/top/cr32_e.png" height="20" class="logo_img">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_img">
+                    <ul class="menu" id="menu" >
+                        <li><a href="index.html" class="menulink">Home</a></li>
+                        <li><a href="whatnew.html" class="menulink">What's New</a></li>
+                        <li><a href="etc.html" class="menulink">E.T.C.</a></li>
+                        <li><a href="fs01.html" class="menulink">The Scenery</a>
+                            <ul>
+                                <li><a href="fs01_sc_top.html" class="sub">Screen Shots</a></li>
+                                <li><a href="fs01_ls_top.html" class="sub">Snap Shots</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="link01.html" class="menulink">Links</a></li>
+                        <li class="about"><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                    </ul>
+                </nav>
+                <div class="c-both"></div>
+            </div>
+            <!-- Sandbox DropDownMenu start-->
+            <script>
+                var menu=new menu.dd("menu");
+                menu.init("menu","menuhover");
+            </script>
+            <!-- Sandbox DropDownMenu end -->
+        </div>
+        <div class="prettyP_SP">
+            <a name="MENU"></a>
+            <p id="menu-call">
+                <a href="#">MENU</a>
+            </p>
+
+            <a name="page_top"></a>
+
+            <!-- page top icon & logo -->
+            <div id="header_SP" class="header_labelSP">
+                <div class="pb4"></div>
+                <img src="image/top/cr48f_32.png">
+                <img class="pb3" src="image/top/Contrail_g.png" height="24">
+            </div>
+
+            <div id="popup-menu" class="hidden">
+                <div class="menu-title">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_image" alt="CONTRAIL">
+                </div>
+                <ul>
                     <li><a href="index.html" class="menulink">Home</a></li>
                     <li><a href="whatnew.html" class="menulink">What's New</a></li>
                     <li><a href="etc.html" class="menulink">E.T.C.</a></li>
-                    <li><a href="fs01.html" class="menulink">The Scenery</a>
-                        <ul>
-                            <li><a href="fs01_sc_top.html" class="sub">Screen Shots</a></li>
-                            <li><a href="fs01_ls_top.html" class="sub">Snap Shots</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="fs01.html" class="menulink">The Scenery</a></li>
                     <li><a href="link01.html" class="menulink">Links</a></li>
-                    <li class="about"><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                    <li><a href="fs01_about.html" class="menulink">about Contrail</a></li>
                 </ul>
-            </nav>
-            <div class="c-both"></div>
+            </div>
         </div>
-        <!-- Sandbox DropDownMenu start-->
-        <script type="text/javascript">
-            var menu=new menu.dd("menu");
-            menu.init("menu","menuhover");
-        </script>    <!-- Sandbox DropDownMenu end -->
     </header>
 
     <div id="main800" class="lineh140"> <!-- page main: start -->
 
         <!-- title -->
-        <div id="title20">
-            <h1 id="main_fss_E" >
-                Contrail について
-            </h1>
-            <p class="right fss fwb" >
-                English Page : <a href="e_fs01_about.html" class="menulink">Click here</a>
-            </p >
+        <div class="prettyP_PC">
+            <div id="title20">
+                <h1 id="main_fss_E">
+                    Contrail について
+                </h1>
+                <p class="right fss fwb">
+                    English Page : <a href="e_fs01_about.html" class="menulink">Click here</a>
+                </p >
+            </div>
         </div>
+        <div class="prettyP_SP">
+            <div class="pb10"></div>
+            <div id="title20">
+                <h3 id="main_fss_E" class=" pb10">
+                    Contrail について
+                </h3>
+                <p class="right fss fwb">
+                    English Page : <a href="e_fs01_about.html" class="menulink">Click here</a>
+                </p >
+            </div>
+        </div>
+
+        <!-- for Java Script off -->
+        <noscript>
+            <div id="attention">
+                <p>ご覧頂くにはブラウザの JavaScript をアクティブにして下さい</p>
+            </div>
+        </noscript>
 
         <!-- contents -->
-        <div class="left pb30" >
-            <h2 class="contents-title-about2 pb15" >
-                プロフィール
-            </h2>
-            <div class="left contents-2col-left" style="width: 508px">
-                <p class="fwb pb10" >
-                    ハンドルネーム: kotan
-                </p >
-                <p>
-                    趣味で Microsoft(R) Flight Simulator の Add-on シーナリーをデザインして来ました。
-                    フライトシミュレーションに興味を持つきっかけにして頂けたらと思い，
-                    これまでデザインした作品を紹介しています。<BR>
-                    また，カメラに撮りためた沢山のスナップショットも掲載しています。
-                    自然の見せるハッとする瞬間を捉えたい - をテーマに（大それた目標ですが...(^^; ），<br>
-                    他に、趣味にで組んできたシミュレーションプログラムを公開しています。
-
-                </p >
+        <div class="prettyP_PC">
+            <div class="left2 pb30">
+                <h2 class="contents-title-about2 pb15">
+                    プロフィール
+                </h2>
+                <div class="left2 contents-2col-left" style="width: 508px">
+                    <p class="fwb pb10">
+                        ハンドルネーム: kotan
+                    </p >
+                    <p>
+                        趣味で Microsoft(R) Flight Simulator の Add-on シーナリーをデザインして来ました。
+                        フライトシミュレーションに興味を持つきっかけにして頂けたらと思い，
+                        これまでデザインした作品を紹介しています。<br>
+                        また，カメラに撮りためた沢山のスナップショットも掲載しています。
+                        自然の見せるハッとする瞬間を捉えたい...がテーマですが、永遠の目標になりそうです (^^; ）。
+                        他に、趣味にで組んできたシミュレーションプログラムを公開しています。
+                    </p >
+                </div>
+                <div class="contents-2col-right" style="width: 256px">
+                    <p>
+                        <img src="image/fs/rangiroa/source/2k2_Rangiroa.jpg" width="256">
+                    </p>
+                    <p class="center fs70 fwb">
+                        TAHITI - RANGIROA SCENERY for FS2002
+                    </p>
+                    <p class="left fs70">
+                        古い作品ですが，ラグーンのグラデーションに透過処理を施すことに成功した，初めてのシーナリーです。
+                    </p>
+                </div>
             </div>
-            <div class="contents-2col-right" style="width: 256px">
-                <p>
-                    <IMG src="image/fs/rangiroa/source/2k2_Rangiroa.jpg" width="256" >
-                </p>
-                <p class="center fs70 fwb">
-                    TAHITI - RANGIROA SCENERY for FS2002
-                </p>
-                <p class="left fs70">
-                    古い作品ですが，ラグーンのグラデーションに透過処理を施すことに成功した，初めてのシーナリーです。
-                </p>
-            </div>
-        </div>
-            <div class="left jQ_change pb30" >
-                <p class="fwb pb10" >
+            <div class="left2 jQ_change pb30">
+                <p class="fwb pb10">
                     コンタクト
                 </p>
-                <p class="contents-title-left fsm fwm" >
+                <p class="contents-title-left fsm fwm">
                     ご質問、ご意見等ございましたらメールにてお問い合わせください。
                 </p>
-                <p class="contents-title-right pr70" >
-                    <a href="mailto:vff06643@nifty.ne.jp" >
-                    <IMG src="image/button/mail_off.gif" border="0" alt="Mail" >
+                <p class="contents-title-right pr70">
+                    <a href="mailto:vff06643@nifty.ne.jp">
+                    <img src="image/button/mail_off.gif" border="0" alt="Mail">
                     </a>
                 </p>
                 <p class="c-both"></p>
             </div >
-            <a name="page_bottom"></a>
-        </div> <!-- page main: end -->
+        </div >
+        <div class="prettyP_SP">
+            <div class="left2 pb30">
+                <h4 class="contents-title-about2 pb15">
+                    プロフィール
+                </h4>
+                <div class="left2">
+                    <p class="fs95 fwb pb10">
+                        ハンドルネーム: kotan
+                    </p >
+                    <p class="pb20">
+                        趣味で Microsoft(R) Flight Simulator の Add-on シーナリーをデザインして来ました。
+                        フライトシミュレーションに興味を持つきっかけにして頂けたらと思い，
+                        これまでデザインした作品を紹介しています。
+                        また，カメラに撮りためた沢山のスナップショットも掲載しています。
+                        自然の見せるハッとする瞬間を捉えたい...がテーマですが、永遠の目標になりそうです (^^; ）。
+                        他に、趣味にで組んできたシミュレーションプログラムを公開しています。
+                    </p >
+                </div>
+                <div class="left2">
+                    <p>
+                        <img src="image/fs/rangiroa/source/2k2_Rangiroa.jpg" width="256">
+                    </p>
+                    <p class="center fs70 fwb">
+                        TAHITI - RANGIROA SCENERY for FS2002
+                    </p>
+                    <p class="left2 fs70 pb20">
+                        古い作品ですが，ラグーンのグラデーションに透過処理を施すことに成功した，初めてのシーナリーです。
+                    </p>
+                </div>
+            </div>
 
-        <footer>
+            <div class="left2 jQ_change pb30">
+                <h4 class="contents-title-about2 pb15">
+                    コンタクト
+                </h4>
+                <p class="contents-title-left fsm fwm" style="width: 228px">
+                    ご質問、ご意見等ございましたらメールにてお問い合わせください。
+                </p>
+                <p class="contents-title-right" style="width: 96px">
+                    <a href="mailto:vff06643@nifty.ne.jp">
+                    <img src="image/button/mail_off.gif" border="0" alt="Mail">
+                    </a>
+                </p>
+                <p class="c-both"></p>
+            </div >
+        </div >
+
+    </div> <!-- page main: end -->
+
+    <footer>
+        <div class="prettyP_PC">
             <div class="wrap">
             </div>
             <div class="footer_bottom_fixed2">
                 <hr id="footer"> <!-- horizontal partition -->
 
-                <div class="jQ_change center" > <!-- select button whole: start -->
+                <div class="jQ_change center"> <!-- select button whole: start -->
                     <p id="footer"> <!-- select button: start -->
-                        <a href="index.html" >
-                            <IMG src="image/button/home_off.gif" border="0" alt="Home" >
+                        <a href="index.html">
+                            <img src="image/button/home_off.gif" border="0" alt="Home">
                         </a>
                     </p> <!-- select button: end -->
                 </div> <!-- select button whole: end -->
-                <div class="footer_bottom_fixed2_col">
+
+                <div class="footer_labelPC">
                     copyright &copy; 2003 -
-                    <script type="text/javascript" language="JavaScript">
+                    <script>
                         date = new Date();
                         document.write(date.getFullYear() + ' ');
                     </script>
@@ -176,9 +247,33 @@
                     Contrail -kotan- all rights reserved
                 </div>
             </div>
-        </footer>
+        </div>
+        <div class="prettyP_SP">
 
-    </div>
+            <hr id="footer"> <!-- horizontal partition -->
 
-</BODY>
+            <p id="page-top"><a href="#">トップ</a></p>
+
+            <div class="jQ_change center"> <!-- select button whole: start -->
+                <p id="footer"> <!-- select button: start -->
+                    <a href="index.html">
+                        <img src="image/button/home_off.gif" border="0" alt="Home">
+                    </a>
+                </p> <!-- select button: end -->
+            </div> <!-- select button whole: end -->
+
+            <div class="footer_labelPC">
+                copyright &copy; 2003 -
+                <script>
+                    date = new Date();
+                    document.write(date.getFullYear() + ' ');
+                </script>
+                <nonscript>
+                </nonscript>
+                Contrail -kotan- all rights reserved
+            </div>
+        </div>
+    </footer>
+
+</body>
 </html>

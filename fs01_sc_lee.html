@@ -1,162 +1,208 @@
-<!DOCTYPE HTML >
-<html>
+<!DOCTYPE html >
+<html lang="ja">
 
-<HEAD>
-    <META charset="UTF-8">
-    <META name="description" content="Flight Simulator(FSX)のアドオンシーナリー : TAHITI LEEWARD SCENERY を紹介するページです。">
-    <META name="keywords" content="Flight Simulator,FS,FS9,FS2004,Addon,scenery,TAHITI,LEEWARD,Maupiti,Tupai,BoraBora,Tahaa,Raiatea,Huahine">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Flight Simulator(FSX)のアドオンシーナリー : TAHITI LEEWARD SCENERY を紹介するページです。">
+    <meta name="keywords" content="Flight Simulator,FS,FS9,FS2004,Addon,scenery,TAHITI,LEEWARD,Maupiti,Tupai,BoraBora,Tahaa,Raiatea,Huahine">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Contrail Contrail_Flight Simulation_Screen_Shots_LeeWard Islands</title>
 
     <!-- favicon-->
-    <link rel="shortcut icon" href="favicon.ico">
-
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="icon" href="favicon.ico">
 
     <!-- css start -->
+        <!-- kko_etc - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
+        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
 
-        <!-- kko_etc start - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
-        <link rel="stylesheet" href="libs/etc/css/kko_preload.css" type="text/css">
-        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css" type="text/css">
-        <!-- kko_etc end -->
-
-        <!-- prettyPhoto start -->
-        <link href="libs/jQuery/prettyPhoto/css/prettyPhoto315_mod.css" media="all" rel="stylesheet" type="text/css">
-        <!-- prettyPhoto end -->
-
+        <!-- Fancybox CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css">
+        <style>
+            /* Optional: Limit image size on small screens */
+            @media (max-width: 768px) {
+                .fancybox_image {
+                    max-width: 256px;
+                }
+                .fancybox_image2 {
+                    max-width: 300px;
+                }
+            }
+        </style>
     <!-- css end -->
 
     <!-- js start -->
-
         <!-- jQuery start -->
-        <script src="libs/jQuery/js/jquery-1.6.1.min.js" type="text/javascript"></script>
-
-            <!-- kko_style start - img jq_blink, img jq_change -->
-            <script src="libs/jQuery/kko/js/jq_kko_preload.js" type="text/javascript"></script>
-            <script src="libs/jQuery/kko/js/jq_kko_style.js" type="text/javascript"></script>
-            <!-- kko_style end -->
-
-            <!-- prettyPhoto start -->
-            <script src="libs/jQuery/prettyPhoto/js/jquery.prettyPhoto_315_mod.js" type="text/javascript"></script>
-            <script type="text/javascript">
-                $(document).ready(function(){
-                    $("a[rel^='prettyPhoto']").prettyPhoto();
-                });
-            </script>
-            <!-- prettyPhoto end -->
+        <script src="libs/jQuery/js/jquery-1.6.1.min.js"></script>
+            <!-- kko_style - img jq_blink, img jq_change -->
+            <script src="libs/jQuery/kko/js/jq_kko_style.js"></script>
 
             <!-- ImageMapStar_style start - Clickable map Extension -->
             <script src="libs/jQuery/imageMAPster/js/jquery.imagemapster.min.js"></script>
-            <!-- IE 8 までは対応していないので，Clickable map Extension は使わない -->
-            <script type="text/javascript">
-            <!--
-                var kk = -1;
-                if (typeof document.documentElement.style.maxHeight != "undefined") {
-                    if (!/*@cc_on!@*/false){
-                        // other than IE
-                    }else if (document.documentMode >=9) {
-                        // after IE9
-                    }else {
-                        kk = 0; //IE7, IE8（IE7 mode)
-                    }
-                } else {
-                  kk = 0; // before IE 6.0
-                }
-                if( kk == -1) {
-                    $(document).ready(function ()
-                    {
-                        $('#flt_sim_leeward').mapster({
-                            singleSelect : true,
-                            clickNavigate : true,
-                            render_highlight : { altImage : 'image/fs/leeward/source/leeward_map_New_on.gif' },
-                            mapKey: 'key',
-                            fill : true,
-                            fillOpacity : 1
-                        });
+            <script>
+                $(document).ready(function ()
+                {
+                    $('#flt_sim_leeward').mapster({
+                        singleSelect : true,
+                        clickNavigate : true,
+                        render_highlight : { altImage : 'image/fs/leeward/source/leeward_map_New_on.gif' },
+                        mapKey: 'key',
+                        fill : true,
+                        fillOpacity : 1
                     });
-                }
-            -->
+                });
             </script>
             <!-- ImageMapStar_style end -->
-
         <!-- jQuery end -->
 
-        <!-- Sandbox DropDownMenu start -->
-        <script src="libs/sandbox/js/script.js" type="text/javascript"></script>
-        <!-- Sandbox DropDownMenu end -->
+        <!-- Fancybox JS -->
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
 
+        <!-- Sandbox DropDownMenu -->
+        <script src="libs/sandbox/js/script.js"></script>
     <!-- js end -->
 
-</HEAD>
+</head>
 
-<BODY id="common-k" >
-
-<!-- Pre Loading -->
-<!-- with loading picture -->
-<div id="loader"><IMG src="image/common/ap_loader_tp.gif" width="236" height="132" class="loading..."></div>
-<div id="fade"></div>
-<div id="preload"> <!-- Pre Loading start -->
+<body id="common-k">
 
     <header>
-        <a name="page_top"></a>
-        <div class="center jQ_change navbox" >
-            <nav>
-                <IMG src="image/top/Contrail_g.png" height="20" class="logo_img">
-                <ul class="menu" id="menu" >
+        <div class="prettyP_PC">
+            <a name="page_top"></a>
+            <div class="center jQ_change navbox" >
+                <nav>
+                    <img src="image/top/cr32_e.png" height="20" class="logo_img">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_img">
+                    <ul class="menu" id="menu" >
+                        <li><a href="index.html" class="menulink">Home</a></li>
+                        <li><a href="whatnew.html" class="menulink">What's New</a></li>
+                        <li><a href="etc.html" class="menulink">E.T.C.</a></li>
+                        <li><a href="fs01.html" class="menulink">The Scenery</a>
+                            <ul>
+                                <li><a href="fs01_sc_top.html" class="sub">Screen Shots</a></li>
+                                <li><a href="fs01_ls_top.html" class="sub">Snap Shots</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="link01.html" class="menulink">Links</a></li>
+                        <li class="about"><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                    </ul>
+                </nav>
+                <div class="c-both"></div>
+            </div>
+            <!-- Sandbox DropDownMenu start-->
+            <script>
+                var menu=new menu.dd("menu");
+                menu.init("menu","menuhover");
+            </script>
+            <!-- Sandbox DropDownMenu end -->
+        </div>
+        <div class="prettyP_SP">
+            <a name="MENU"></a>
+            <p id="menu-call">
+                <a href="#">MENU</a>
+            </p>
+
+            <a name="page_top"></a>
+
+            <!-- page top icon & logo -->
+            <div id="header_SP" class="header_labelSP">
+                <div class="pb4"></div>
+                <img src="image/top/cr48f_32.png">
+                <img class="pb3" src="image/top/Contrail_g.png" height="24">
+            </div>
+
+            <div id="popup-menu" class="hidden">
+                <div class="menu-title">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_image" alt="CONTRAIL">
+                </div>
+                <ul>
                     <li><a href="index.html" class="menulink">Home</a></li>
                     <li><a href="whatnew.html" class="menulink">What's New</a></li>
                     <li><a href="etc.html" class="menulink">E.T.C.</a></li>
-                    <li><a href="fs01.html" class="menulink">The Scenery</a>
-                        <ul>
-                            <li><a href="fs01_sc_top.html" class="sub">Screen Shots</a></li>
-                            <li><a href="fs01_ls_top.html" class="sub">Snap Shots</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="fs01.html" class="menulink">The Scenery</a></li>
                     <li><a href="link01.html" class="menulink">Links</a></li>
-                    <li class="about"><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                    <li><a href="fs01_about.html" class="menulink">about Contrail</a></li>
                 </ul>
-            </nav>
-            <div class="c-both"></div>
+            </div>
         </div>
-        <!-- Sandbox DropDownMenu start-->
-        <script type="text/javascript">
-            var menu=new menu.dd("menu");
-            menu.init("menu","menuhover");
-        </script>    <!-- Sandbox DropDownMenu end -->
     </header>
 
-    <div id="main800"> <!-- page main: start -->
+    <div id="main800-480"> <!-- page main: start -->
 
         <!-- title -->
-        <div id="title30">
-            <p id="head25" >
-                <IMG src="image/fs/kko_fssg_logo.gif" alt="Contrail Flight Simulation Special Gallery">
-            </p>
-            <h1 id="main_fss_E">
-                TAHITI LEEWARD SCENERY
-            </h1>
+        <div class="prettyP_PC">
+            <div id="title20new">
+                <p id="head20">
+                    <img src="image/fs/kko_fssg_logo.gif" alt="Contrail Flight Simulation Special Gallery">
+                </p>
+                <h1 id="main_fss_E">
+                    TAHITI LEEWARD SCENERY
+                </h1>
+            </div>
+            <div class="pb10"></div>
+        </div>
+        <div class="prettyP_SP">
+            <div id="title20new">
+                <p id="head20 pb10">
+                    <img src="image/fs/kko_fssg_logo.gif" alt="Contrail Flight Simulation Special Gallery">
+                </p>
+                <div class="pb20"></div>
+                <h3 id="main_fss_E">
+                    TAHITI LEEWARD SCENERY
+                </h3>
+                <div class="pb20"></div>
+            </div>
         </div>
 
+        <!-- for Java Script off -->
+        <noscript>
+            <div id="attention">
+                <p>ご覧頂くにはブラウザの JavaScript をアクティブにして下さい</p>
+            </div>
+        </noscript>
+
         <!-- contents -->
-        <div class="pic-center640 pb40">
-            <p class="pb10">
-                <IMG id="flt_sim_leeward" src="image/fs/leeward/source/leeward_map_New_off.gif" border="0"
-                    width="640" border="0" usemap="#flt_sim_leeward">
-            </p>
-            <map name="flt_sim_leeward">
-                <!-- 同窓でのジャンプ -->
-                <area key="Maupiti"        href="#Maupiti"        alt="Jump to Maupiti"        shape="rect" coords="58,124, 132,182" >
-                <area key="Tupai"            href="#Tupai"            alt="Jump to Tupai"            shape="rect" coords="199,78, 278,123" >
-                <area key="BoraBora"    href="#BoraBora"    alt="Jump to BoraBora"    shape="poly" coords="237,138, 237,212, 306,212, 318,197, 318,138" >
-                <area key="Tahaa"            href="#Tahaa"            alt="Jump to Tahaa"            shape="poly" coords="346,196, 302,228, 302,259, 410, 259, 410,196" >
-                <area key="Raiatea"        href="#Raiatea"        alt="Jump to Raiatea"        shape="rect" coords="307,263, 442,356" >
-                <area key="Huahine"        href="#Huahine"        alt="Jump to Huahine"        shape="rect" coords="528,227, 599,314" >
-            </map>
-            <p class="fss fwb left">
-                ご覧になりたい島をクリックして下さい
-            </p>
+        <div class="prettyP_PC">
+            <div class="pic-center640 pb40">
+                <p class="pb10">
+                    <img id="flt_sim_leeward" src="image/fs/leeward/source/leeward_map_New_off.gif" border="0"
+                        width="640" border="0" usemap="#flt_sim_leeward">
+                </p>
+                <map name="flt_sim_leeward">
+                    <!-- 同窓でのジャンプ -->
+                    <area key="Maupiti"  href="#Maupiti"  alt="Jump to Maupiti"  shape="rect" coords="58,124, 132,182">
+                    <area key="Tupai"    href="#Tupai"    alt="Jump to Tupai"    shape="rect" coords="199,78, 278,123">
+                    <area key="BoraBora" href="#BoraBora" alt="Jump to BoraBora" shape="poly" coords="237,138, 237,212, 306,212, 318,197, 318,138">
+                    <area key="Tahaa"    href="#Tahaa"    alt="Jump to Tahaa"    shape="poly" coords="346,196, 302,228, 302,259, 410, 259, 410,196">
+                    <area key="Raiatea"  href="#Raiatea"  alt="Jump to Raiatea"  shape="rect" coords="307,263, 442,356">
+                    <area key="Huahine"  href="#Huahine"  alt="Jump to Huahine"  shape="rect" coords="528,227, 599,314">
+                </map>
+                <p class="fss fwb left2">
+                    ご覧になりたい島をクリックして下さい
+                </p>
+            </div>
+        </div>
+        <div class="prettyP_SP pb30">
+            <div class="table-container">
+                <div class="pic-center640 pb10">
+                    <p class="pb10">
+                        <img id="flt_sim_leeward" src="image/fs/leeward/source/leeward_map_New_off.gif" border="0"
+                            width="640" border="0" usemap="#flt_sim_leeward">
+                    </p>
+                    <map name="flt_sim_leeward">
+                        <!-- 同窓でのジャンプ -->
+                        <area key="Maupiti"  href="#Maupiti"  alt="Jump to Maupiti"  shape="rect" coords="58,124, 132,182">
+                        <area key="Tupai"    href="#Tupai"    alt="Jump to Tupai"    shape="rect" coords="199,78, 278,123">
+                        <area key="BoraBora" href="#BoraBora" alt="Jump to BoraBora" shape="poly" coords="237,138, 237,212, 306,212, 318,197, 318,138">
+                        <area key="Tahaa"    href="#Tahaa"    alt="Jump to Tahaa"    shape="poly" coords="346,196, 302,228, 302,259, 410, 259, 410,196">
+                        <area key="Raiatea"  href="#Raiatea"  alt="Jump to Raiatea"  shape="rect" coords="307,263, 442,356">
+                        <area key="Huahine"  href="#Huahine"  alt="Jump to Huahine"  shape="rect" coords="528,227, 599,314">
+                    </map>
+                    <p class="fss fwb left2">
+                        ご覧になりたい島をクリックして下さい
+                    </p>
+                </div>
+            </div>
         </div>
 
         <!-- Maupiti start -->
@@ -164,51 +210,50 @@
         <div class="pb15">
             <div class="pb5">
                 <h2 class="contents-title-left">
-                    <a name="Maupiti"></a>
+                    <div id="Maupiti"></div>
                     <p>
                         Maupiti
                     </p>
                 </h2>
                 <div class="contents-title-right">
-                    <p class="fss fwb" >
-                        Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
+                    <p class="fss fwb">
                     </p>
                 </div>
                 <div class="c-both"></div>
             </div>
             <!-- contents -->
-            <div class="pic-left800 pb15 border-ccc" >
-                <div class="contents-2col-left" >
-                    <p class="jQ_blink change_border_color " >
-                        <a href="image/fs/leeward/source/Maupiti_New_SC01.jpg" rel="prettyPhoto[Maupiti]"
-                            title="LeeWard Islands - Maupiti" target="_blank">
-                            <IMG src="image/fs/leeward/thumb_Maupiti_New_SC01.jpg" width="256" >
+            <div class="pic-left800 pb15 border-ccc">
+                <div class="contents-2col-left">
+                    <p class="jQ_blink change_border_color ">
+                        <a href="image/fs/leeward/source/Maupiti_New_SC01.jpg"
+                            data-fancybox="gallery[Maupiti]" data-caption="LeeWard Islands - Maupiti">
+                            <img src="image/fs/leeward/thumb_Maupiti_New_SC01.jpg" width="256">
                         </a>
                     </p>
                 </div>
-                <div class="contents-2col-right800 border-ccc" >
-                    <p class="lineh140" >
-                        BoraBoraの西に位置する，小さな環礁Maupitiです。<BR>
-                        シーナリーの作成にあたってMaupitiを紹介した<BR>
-                        様々な写真を見ましたが，とにかくラグーンの美しさは，<BR>
+                <div class="contents-2col-right800 border-ccc">
+                    <p class="lineh140 pb20">
+                        BoraBoraの西に位置する，小さな環礁Maupitiです。
+                        シーナリーの作成にあたってMaupitiを紹介した
+                        様々な写真を見ましたが，とにかくラグーンの美しさは，
                         群を抜いているのではないでしょうか。
                     </p>
                 </div>
             </div>
             <div class="pic-left800 pb15">
-                <div class="contents-2col-left" >
-                    <p class="jQ_blink change_border_color " >
-                    <a href="image/fs/leeward/source/2k4_LeeWard_Maupiti_SC02.jpg"  rel="prettyPhoto[Maupiti]"
-                        title="LeeWard Islands - Maupiti whole scene" target="_blank">
-                        <IMG src="image/fs/leeward/thumb_2k4_LeeWard_Maupiti_SC02.jpg" width="256" >
-                    </a>
+                <div class="contents-2col-left">
+                    <p class="jQ_blink change_border_color ">
+                        <a href="image/fs/leeward/source/2k4_LeeWard_Maupiti_SC02.jpg"
+                            data-fancybox="gallery[Maupiti]" data-caption="LeeWard Islands - Maupiti whole scene">
+                            <img src="image/fs/leeward/thumb_2k4_LeeWard_Maupiti_SC02.jpg" width="256">
+                        </a>
                     </p>
                 </div>
-                <div class="contents-2col-right800" >
-                    <p class="lineh140" >
-                        Maupitiの全景です。<BR>
-                        リーフの形状がBoraBoraと非常によく似ています。<BR>
-                        BoraBoraもそうですが，Maupitiのリーフは<BR>
+                <div class="contents-2col-right800">
+                    <p class="lineh140 pb30">
+                        Maupitiの全景です。<br>
+                        リーフの形状がBoraBoraと非常によく似ています。
+                        BoraBoraもそうですが，Maupitiのリーフは
                         非常に複雑な構成になっています。
                     </p>
                 </div>
@@ -220,34 +265,33 @@
         <div class="pb15">
             <div class="pb5">
                 <h2 class="contents-title-left">
-                    <a name="Tupai"></a>
+                    <div id="Tupai"></div>
                     <p>
                         Tupai
                     </p>
                 </h2>
                 <div class="contents-title-right">
-                    <p class="fss fwb" >
-                        Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
+                    <p class="fss fwb">
                     </p>
                 </div>
                 <div class="c-both"></div>
             </div>
             <!-- contents -->
-            <div class="pic-left800 pb15" >
-                <div class="contents-2col-left" >
-                    <p class="jQ_blink change_border_color " >
-                        <a href="image/fs/leeward/source/Tupai_New_SC01.jpg" rel="prettyPhoto"
-                            title="LeeWard Islands - Tupai" target="_blank">
-                            <IMG src="image/fs/leeward/thumb_Tupai_New_SC01.jpg" width="256" >
+            <div class="pic-left800 pb15">
+                <div class="contents-2col-left">
+                    <p class="jQ_blink change_border_color ">
+                        <a href="image/fs/leeward/source/Tupai_New_SC01.jpg"
+                            data-fancybox="gallery[Tupai]" data-caption="LeeWard Islands - Tupai">
+                            <img src="image/fs/leeward/thumb_Tupai_New_SC01.jpg" width="256">
                         </a>
                     </p>
                 </div>
-                <div class="contents-2col-right800" >
-                    <p class="lineh140" >
-                        BoraBoraの北に位置する，非常に小さな環礁です。<BR>
-                        詳細なデータを入手することが出来ず，<BR>
-                        NASAの衛星画像の端に写っていた画像を基に作成しました。<BR>
-                        環礁全体に切れ目がないように見えましたが，<BR>
+                <div class="contents-2col-right800">
+                    <p class="lineh140 pb30">
+                        BoraBoraの北に位置する，非常に小さな環礁です。<br>
+                        詳細なデータを入手することが出来ず，
+                        NASAの衛星画像の端に写っていた画像を基に作成しました。
+                        環礁全体に切れ目がないように見えましたが，
                         東西のくびれの部分で，外海とつながっているのかもしれません。
                     </p>
                 </div>
@@ -259,66 +303,65 @@
         <div class="pb15">
             <div class="pb5">
                 <h2 class="contents-title-left">
-                    <a name="BoraBora"></a>
+                    <div id="BoraBora"></div>
                     <p>
                         BoraBora
                     </p>
                 </h2>
                 <div class="contents-title-right">
-                    <p class="fss fwb" >
-                        Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
+                    <p class="fss fwb">
                     </p>
                 </div>
                 <div class="c-both"></div>
             </div>
             <!-- contents -->
-            <div class="pic-left800 pb15" >
-                <div class="contents-2col-left" >
-                    <p class="jQ_blink change_border_color " >
-                        <a href="image/fs/leeward/source/2k4_LeeWard_BoraBora_SC.jpg" rel="prettyPhoto[BoraBora]"
-                            title="LeeWard Islands - BoraBora" target="_blank">
-                            <IMG src="image/fs/leeward/thumb_2k4_LeeWard_BoraBora_SC.jpg" width="256" >
+            <div class="pic-left800 pb15">
+                <div class="contents-2col-left">
+                    <p class="jQ_blink change_border_color ">
+                        <a href="image/fs/leeward/source/2k4_LeeWard_BoraBora_SC.jpg"
+                            data-fancybox="gallery[BoraBora]" data-caption="LeeWard Islands - BoraBora">
+                            <img src="image/fs/leeward/thumb_2k4_LeeWard_BoraBora_SC.jpg" width="256">
                         </a>
                     </p>
                 </div>
-                <div class="contents-2col-right800" >
-                    <p class="lineh140" >
-                        ボラボラ フォトリアリスティック バージョンです。<BR>
-                        Kamui氏から頂いた画像を基に作成しました。<BR>
+                <div class="contents-2col-right800">
+                    <p class="lineh140">
+                        ボラボラ フォトリアリスティック バージョンです。<br>
+                        Kamui氏から頂いた画像を基に作成しました。<br>
                         FS2004に合わせて海面の透過処理を見直しました。
                     </p>
                 </div>
             </div>
-            <div class="pic-left800 pb15" >
-                <div class="contents-2col-left" >
-                    <p class="jQ_blink change_border_color " >
-                        <a href="image/fs/leeward/source/2k4_LeeWard_BoraBora_sunrise.jpg" rel="prettyPhoto[BoraBora]"
-                            title="LeeWard Islands - BoraBora at dawn" target="_blank">
-                            <IMG src="image/fs/leeward/thumb_2k4_LeeWard_BoraBora_sunrise.jpg" width="256" border="0">
+            <div class="pic-left800 pb15">
+                <div class="contents-2col-left">
+                    <p class="jQ_blink change_border_color ">
+                        <a href="image/fs/leeward/source/2k4_LeeWard_BoraBora_sunrise.jpg"
+                            data-fancybox="gallery[BoraBora]" data-caption="LeeWard Islands - BoraBora at dawn">
+                            <img src="image/fs/leeward/thumb_2k4_LeeWard_BoraBora_sunrise.jpg" width="256" border="0">
                         </a>
                     </p>
                 </div>
-                <div class="contents-2col-right800" >
-                    <p class="lineh140" >
+                <div class="contents-2col-right800">
+                    <p class="lineh140">
                         BoraBoraの夜明けです。
                     </p>
                 </div>
             </div>
-            <div class="pic-left800 pb15" >
-                <div class="contents-2col-left" >
-                    <p class="jQ_blink change_border_color " >
-                        <a href="image/fs/leeward/source/2k4_LeeWard_BoraBora_SC03.jpg" rel="prettyPhoto[BoraBora]"
-                            title="LeeWard Islands - BoraBora from the airport side" target="_blank">
-                            <IMG src="image/fs/leeward/thumb_2k4_LeeWard_BoraBora_SC03.jpg" width="256" border="0">
+            <div class="pic-left800 pb15">
+                <div class="contents-2col-left">
+                    <p class="jQ_blink change_border_color ">
+                        <a href="image/fs/leeward/source/2k4_LeeWard_BoraBora_SC03.jpg"
+                            data-fancybox="gallery[BoraBora]" data-caption="LeeWard Islands - BoraBora from the airport side">
+                            <img src="image/fs/leeward/thumb_2k4_LeeWard_BoraBora_SC03.jpg" width="256" border="0">
                         </a>
                     </p>
                 </div>
-                <div class="contents-2col-right800" >
-                    <p class="lineh140" >
-                        空港側からのショットです。<BR>
-                        TahitiといえばBoraBoraを連想する方も多いのではないでしょうか。<BR>
-                        リーフと島の間に広がるラグーンは美しく，<BR>
-                        島の景観を印象づける山は独特の形をしています。<BR>
+                <div class="contents-2col-right800">
+                    <p class="lineh140 pb30">
+                        空港側からのショットです。<br>
+                        TahitiといえばBoraBoraを連想する方も多いのではないでしょうか。
+                        リーフと島の間に広がるラグーンは美しく，
+                        島の景観を印象づける山は独特の形をしています。
                         この島のデザインには1600以上のポリゴンを使用しています。
                     </p>
                 </div>
@@ -330,50 +373,49 @@
         <div class="pb15">
             <div class="pb5">
                 <h2 class="contents-title-left">
-                    <a name="Tahaa"></a>
+                    <div id="Tahaa"></div>
                     <p>
-                        <span class="fwb" > Tahaa </span> <span class="fss"> & </span> Raiatea1
+                        Tahaa & Raiatea1
                     </p>
                 </h2>
                 <div class="contents-title-right">
-                    <p class="fss fwb" >
-                        Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
+                    <p class="fss fwb">
                     </p>
                 </div>
                 <div class="c-both"></div>
             </div>
             <!-- contents -->
-            <div class="pic-left800 pb15" >
-                <div class="contents-2col-left" >
-                    <p class="jQ_blink change_border_color " >
-                        <a href="image/fs/leeward/source/Raia_from_Tahaa_New_SC01.jpg" rel="prettyPhoto[Tahaa Raiatea]"
-                            title="LeeWard Islands - Tahaa from BoraBora side" target="_blank">
-                            <IMG src="image/fs/leeward/thumb_Raia_from_Tahaa_New_SC01.jpg" width="256" >
+            <div class="pic-left800 pb15">
+                <div class="contents-2col-left">
+                    <p class="jQ_blink change_border_color ">
+                        <a href="image/fs/leeward/source/Raia_from_Tahaa_New_SC01.jpg"
+                            data-fancybox="gallery[Tahaa Raiatea]" data-caption="LeeWard Islands - Tahaa from BoraBora side">
+                            <img src="image/fs/leeward/thumb_Raia_from_Tahaa_New_SC01.jpg" width="256">
                         </a>
                     </p>
                 </div>
-                <div class="contents-2col-right800" >
-                    <p class="lineh140" >
-                        BoraBora側からのTahaaです。<BR>
-                        このTahaaと，Huahineは島の海岸線が非常に複雑です。<BR>
+                <div class="contents-2col-right800">
+                    <p class="lineh140">
+                        BoraBora側からのTahaaです。<br>
+                        このTahaaと，Huahineは島の海岸線が非常に複雑です。
                         <a href="fs01_sc_lee_FS_org_Tahaa.html">
                             <span class="fs85 fwb">FS2004オリジナルのシーナリー</span>
-                        </a>では，<BR>
+                        </a>では，
                         Tahaaはなんの変哲もない島として現れます。
                     </p>
                 </div>
             </div>
-            <div class="pic-left800 pb15" >
-                <div class="contents-2col-left" >
-                    <p class="jQ_blink change_border_color " >
-                    <a href="image/fs/leeward/source/LeeWard_Tahaa_SC.jpg" rel="prettyPhoto[Tahaa Raiatea]"
-                        title="LeeWard Islands - Tahaa from the north side" target="_blank">
-                        <IMG src="image/fs/leeward/thumb_LeeWard_Tahaa_SC.jpg" width="256" border="0">
-                    </a>
+            <div class="pic-left800 pb15">
+                <div class="contents-2col-left">
+                    <p class="jQ_blink change_border_color ">
+                        <a href="image/fs/leeward/source/LeeWard_Tahaa_SC.jpg"
+                            data-fancybox="gallery[Tahaa Raiatea]" data-caption="LeeWard Islands - Tahaa from the north side">
+                            <img src="image/fs/leeward/thumb_LeeWard_Tahaa_SC.jpg" width="256" border="0">
+                        </a>
                     </p>
                 </div>
-                <div class="contents-2col-right800" >
-                    <p class="lineh140" >
+                <div class="contents-2col-right800">
+                    <p class="lineh140 pb30">
                         北側から望むTahaaです。
                     </p>
                 </div>
@@ -385,36 +427,35 @@
         <div class="pb15">
             <div class="pb5">
                 <h2 class="contents-title-left">
-                    <a name="Raiatea"></a>
+                    <div id="Raiatea"></div>
                     <p>
-                        Tahaa <span class="fss" > & </span> <span class="fwb" > Raiatea2 </span>
+                        Tahaa & Raiatea2
                     </p>
                 </h2>
                 <div class="contents-title-right">
-                    <p class="fss fwb" >
-                        Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
+                    <p class="fss fwb">
                     </p>
                 </div>
                 <div class="c-both"></div>
             </div>
             <!-- contents -->
-            <div class="pic-left800 pb15" >
-                <div class="contents-2col-left" >
-                    <p class="jQ_blink change_border_color " >
-                <a href="image/fs/leeward/source/LeeWard_Raiatea_SC.jpg" rel="prettyPhoto[Tahaa Raiatea]"
-                    title="LeeWard Islands - Raiatea" target="_blank" >
-                    <IMG src="image/fs/leeward/thumb_LeeWard_Raiatea_SC.jpg" width="256" >
-                </a>
+            <div class="pic-left800 pb15">
+                <div class="contents-2col-left">
+                    <p class="jQ_blink change_border_color ">
+                        <a href="image/fs/leeward/source/LeeWard_Raiatea_SC.jpg"
+                            data-fancybox="gallery[Tahaa Raiatea]" data-caption="LeeWard Islands - Raiatea">
+                            <img src="image/fs/leeward/thumb_LeeWard_Raiatea_SC.jpg" width="256">
+                        </a>
                     </p>
                 </div>
-                <div class="contents-2col-right800" >
-                    <p class="lineh140" >
-                        LeeWard諸島最大の島，Raiateaです。<BR>
-                        対岸はTahaa島でRaiateaと対になっています。<BR>
-                        実はこのRaiateaが古代のTahiti地域の<BR>
-                        中心地であったといわれています。<BR>
+                <div class="contents-2col-right800">
+                    <p class="lineh140 pb30">
+                        LeeWard諸島最大の島，Raiateaです。<br>
+                        対岸はTahaa島でRaiateaと対になっています。
+                        実はこのRaiateaが古代のTahiti地域の
+                        中心地であったといわれています。<br>
                         <a href="fs01_sc_lee_Fat_Raiatea.html">
-                            <span class="fs85 fwb">実はシーナリーの作成中にRaiatea，Tahaaでは<BR>
+                            <span class="fs85 fwb">実はシーナリーの作成中にRaiatea，Tahaaでは
                             山のデザインで大失敗しました (^^;。</span>
                         </a>
                     </p>
@@ -427,72 +468,70 @@
         <div class="pb5">
             <div class="pb5">
                 <h2 class="contents-title-left">
-                    <a name="Huahine"></a>
+                    <div id="Huahine"></div>
                     <p>
                         Huahine
                     </p>
                 </h2>
                 <div class="contents-title-right">
-                    <p class="fss fwb" >
-                        Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
+                    <p class="fss fwb">
                     </p>
                 </div>
                 <div class="c-both"></div>
             </div>
             <!-- contents -->
-            <div class="pic-left800 pb15" >
-                <div class="contents-2col-left" >
-                    <p class="jQ_blink change_border_color " >
-                        <a href="image/fs/leeward/source/LeeWard_Huahine_SC02.jpg" rel="prettyPhoto[Huahine]"
-                            title="LeeWard Islands - Huahine" target="_blank" >
-                            <IMG src="image/fs/leeward/thumb_LeeWard_Huahine_SC02.jpg" width="256" border="0">
+            <div class="pic-left800 pb15">
+                <div class="contents-2col-left">
+                    <p class="jQ_blink change_border_color ">
+                        <a href="image/fs/leeward/source/LeeWard_Huahine_SC02.jpg"
+                            data-fancybox="gallery[Huahine]" data-caption="LeeWard Islands - Huahine">
+                            <img src="image/fs/leeward/thumb_LeeWard_Huahine_SC02.jpg" width="256" border="0">
                         </a>
                     </p>
                 </div>
-                <div class="contents-2col-right800" >
-                    <p class="lineh140" >
-                        南北に並ぶTahaaとRaiateaから東に飛ぶとHuahineが現れます。<BR>
-                        この島は，正確には北側のファヒネ・ヌイと南側のファヒネ・イチという<BR>
-                        ２つの島がくっつくようにして出来ています。<BR>
-                        画像手前側の湖はファウナ・ヌイ湖周辺には多くのマラエが<BR>
+                <div class="contents-2col-right800">
+                    <p class="lineh140 pb30">
+                        南北に並ぶTahaaとRaiateaから東に飛ぶとHuahineが現れます。<br>
+                        この島は，正確には北側のファヒネ・ヌイと南側のファヒネ・イチという
+                        ２つの島がくっつくようにして出来ています。
+                        画像手前側の湖はファウナ・ヌイ湖周辺には多くのマラエが
                         点在し，神秘的な雰囲気をたたえています。
                     </p>
                 </div>
             </div>
-            <div class="pic-left800 pb15" >
-                <div class="contents-2col-left" >
-                    <p class="jQ_blink change_border_color " >
-                        <a href="image/fs/leeward/source/Huahine_New_SC01.jpg" rel="prettyPhoto[Huahine]"
-                        title="LeeWard Islands - Huahine from the southwest side" target="_blank" >
-                            <IMG src="image/fs/leeward/thumb_Huahine_New_SC01.jpg" width="256" border="0">
+            <div class="pic-left800 pb15">
+                <div class="contents-2col-left">
+                    <p class="jQ_blink change_border_color ">
+                        <a href="image/fs/leeward/source/Huahine_New_SC01.jpg"
+                            data-fancybox="gallery[Huahine]" data-caption="LeeWard Islands - Huahine from the southwest side">
+                            <img src="image/fs/leeward/thumb_Huahine_New_SC01.jpg" width="256" border="0">
                         </a>
                     </p>
                 </div>
-                <div class="contents-2col-right800" >
-                    <p class="lineh140" >
-                        南西から写したHuahineの鳥瞰図です。<BR>
+                <div class="contents-2col-right800">
+                    <p class="lineh140 pb30">
+                        南西から写したHuahineの鳥瞰図です。<br>
                         Tahaa同様，海岸線が非常に複雑です。
                     </p>
                 </div>
             </div>
-            <div class="pic-left800 pb15" >
-                <div class="contents-2col-left" >
-                    <p class="jQ_blink change_border_color " >
-                        <a href="image/fs/leeward/source/Huahine_New_SC03.jpg" rel="prettyPhoto[Huahine]"
-                            title="LeeWard Islands - Huahine from the southeast side" target="_blank" >
-                            <IMG src="image/fs/leeward/thumb_Huahine_New_SC03.jpg" width="256" border="0">
+            <div class="pic-left800 pb15">
+                <div class="contents-2col-left">
+                    <p class="jQ_blink change_border_color ">
+                        <a href="image/fs/leeward/source/Huahine_New_SC03.jpg"
+                            data-fancybox="gallery[Huahine]" data-caption="LeeWard Islands - Huahine from the southeast side">
+                            <img src="image/fs/leeward/thumb_Huahine_New_SC03.jpg" width="256" border="0">
                         </a>
                     </p>
                 </div>
-                <div class="contents-2col-right800" >
-                    <p class="lineh140" >
-                        南東側から望むHuahineです。<BR>
+                <div class="contents-2col-right800">
+                    <p class="lineh140 pb30">
+                        南東側から望むHuahineです。<br>
                         左手後方にRaiatea島が望遠出来ます。
                     </p>
                 </div>
             </div>
         </div>
-        <a name="page_bottom"></a>
 
     </div> <!-- page main: end -->
 
@@ -500,17 +539,19 @@
 
         <hr id="footer"> <!-- horizontal partition -->
 
-        <div class="jQ_change center" > <!-- select button whole: start -->
+        <p id="page-top"><a href="#">TOP</a></p>
+
+        <div class="jQ_change center"> <!-- select button whole: start -->
             <p id="footer">  <!-- select button 1: start -->
                 <a href="fs01_sc_top.html#LeeWard">
-                    <IMG src="image/button/screen_top_off.gif" border="0" alt="Screen Shots Top" >
+                    <img src="image/button/screen_top_off.gif" border="0" alt="Screen Shots Top">
                 </a>
             </p> <!-- select button 1: end -->
         </div> <!-- select button whole: end -->
 
-        <div id="footer_label">
+        <div class="footer_labelPC">
             copyright &copy; 2003 -
-            <script type="text/javascript" language="JavaScript">
+            <script>
                 date = new Date();
                 document.write(date.getFullYear() + ' ');
             </script>
@@ -521,6 +562,5 @@
 
     </footer>
 
-</div> <!-- Pre Loading end -->
-</BODY>
+</body>
 </html>

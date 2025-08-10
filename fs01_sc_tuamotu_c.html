@@ -1,195 +1,223 @@
-<!DOCTYPE HTML >
-<html>
+<!DOCTYPE html >
+<html lang="en">
 
-<HEAD>
-    <META charset="UTF-8">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="This page introduces Flight Simulator add-on scenery: French Polynesia Tuamotu Archipelago FS9/FSX Addon Scenery. ">
+    <meta name="keywords" content="Flight Simulator,FS,FS9,FSX,Addon,scenery,Tuamotu,Archipelago,French,Polynesia">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Contrail French Polynesia Tuamotu Archipelago Group C</title>
 
     <!-- favicon-->
-    <link rel="shortcut icon" href="favicon.ico">
-
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="icon" href="favicon.ico">
 
     <!-- css start -->
+        <!-- kko_etc - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
+        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
 
-        <!-- kko_etc start - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
-        <link rel="stylesheet" href="libs/etc/css/kko_preload.css" type="text/css">
-        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css" type="text/css">
-        <!-- kko_etc end -->
+        <!-- Fancybox CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css">
 
-        <!-- prettyPhoto start -->
-        <link href="libs/jQuery/prettyPhoto/css/prettyPhoto315_mod.css" media="all" rel="stylesheet" type="text/css">
-        <!-- prettyPhoto end -->
-
+        <style>
+            /* Optional: Limit image size on small screens */
+            @media (max-width: 768px) {
+                .fancybox_image {
+                    max-width: 256px;
+                }
+                .fancybox_image2 {
+                    max-width: 300px;
+                }
+            }
+        </style>
     <!-- css end -->
 
     <!-- js start -->
-
         <!-- jQuery start -->
-        <script src="libs/jQuery/js/jquery-1.6.1.min.js" type="text/javascript"></script>
-
-            <!-- kko_style start - img jq_blink, img jq_change -->
-            <script src="libs/jQuery/kko/js/jq_kko_preload.js" type="text/javascript"></script>
-            <script src="libs/jQuery/kko/js/jq_kko_style.js" type="text/javascript"></script>
+        <script src="libs/jQuery/js/jquery-1.6.1.min.js"></script>
+            <!-- kko_style - img jq_blink, img jq_change -->
+            <script src="libs/jQuery/kko/js/jq_kko_style.js"></script>
             <!-- kko_style end -->
-
-            <!-- prettyPhoto start -->
-            <script src="libs/jQuery/prettyPhoto/js/jquery.prettyPhoto_315_mod.js" type="text/javascript"></script>
-            <script type="text/javascript">
-                $(document).ready(function(){
-                    $("a[rel^='prettyPhoto']").prettyPhoto();
-                });
-            </script>
-            <!-- prettyPhoto end -->
 
             <!-- ImageMapStar_style start - Clickable map Extension -->
             <script src="libs/jQuery/imageMAPster/js/jquery.imagemapster.min.js"></script>
-            <!-- IE 8 までは対応していないので，Clickable map Extension は使わない -->
-            <script type="text/javascript">
-            <!--
-                var kk = -1;
-                if (typeof document.documentElement.style.maxHeight != "undefined") {
-                    if (!/*@cc_on!@*/false){
-                        // other than IE
-                    }else if (document.documentMode >=9) {
-                        // after IE9
-                    }else {
-                        kk = 0; //IE7, IE8（IE7 mode)
-                    }
-                } else {
-                  kk = 0; // before IE 6.0
-                }
-                if( kk == -1) {
-                    $(document).ready(function ()
-                    {
-                        $('#flt_sim_tuamotu_C').mapster({
-                            singleSelect : true,
-                            clickNavigate : true,
-                            render_highlight : { altImage : 'image/fs/tuamotu/source/Tuamotu_map_C_on.gif' },
-                            mapKey: 'key',
-                            fill : true,
-                            fillOpacity : 1
-                        });
+            <script>
+                $(document).ready(function ()
+                {
+                    $('#flt_sim_tuamotu_C').mapster({
+                        singleSelect : true,
+                        clickNavigate : true,
+                        render_highlight : { altImage : 'image/fs/tuamotu/source/Tuamotu_map_C_on.gif' },
+                        mapKey: 'key',
+                        fill : true,
+                        fillOpacity : 1
                     });
-                }
-            -->
+                });
             </script>
             <!-- ImageMapStar_style end -->
-
         <!-- jQuery end -->
 
-        <!-- Sandbox DropDownMenu start -->
-        <script src="libs/sandbox/js/script.js" type="text/javascript"></script>
-        <!-- Sandbox DropDownMenu end -->
-
+        <!-- Fancybox JS -->
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
     <!-- js end -->
 
-</HEAD>
+</head>
 
-<BODY id="common-k" >
-
-<!-- Pre Loading -->
-<!-- with loading picture -->
-<div id="loader"><IMG src="image/common/ap_loader_tp.gif" width="236" height="132" class="loading..."></div>
-<div id="fade"></div>
-<div id="preload"> <!-- Pre Loading start -->
+<body id="common-k_Roman">
 
     <header>
-        <a name="page_top"></a>
-        <div class="center jQ_change navbox" >
-            <nav>
-                <IMG src="image/top/Contrail_g.png" height="20" class="logo_img">
-                <ul class="menu" id="menu" >
+        <div class="prettyP_PC">
+            <a name="page_top"></a>
+            <div class="center jQ_change navbox" >
+                <nav>
+                    <img src="image/top/cr32_e.png" height="20" class="logo_img">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_img">
+                    <ul class="menu" id="menu" >
+                        <li><a href="fs01_sc_tuamotu.html" class="menulink">Tuamotu Top</a></li>
+                        <li><a href="fs01_sc_tuamotu_a.html" class="menulink">Group A</a></li>
+                        <li><a href="fs01_sc_tuamotu_b.html" class="menulink">Group B</a></li>
+                        <li><a href="fs01_sc_tuamotu_c.html" class="menulink">Group C</a></li>
+                        <li><a href="fs01_sc_tuamotu_d.html" class="menulink">Group D</a></li>
+                        <li><a href="fs01_sc_tuamotu_e.html" class="menulink">Group E</a></li>
+                        <li class="about"><a href="e_fs01_about.html" class="menulink">about Contrail</a></li>
+                    </ul>
+                </nav>
+                <div class="c-both"></div>
+            </div>
+        </div>
+        <div class="prettyP_SP">
+            <a name="MENU"></a>
+            <p id="menu-call">
+                <a href="#">MENU</a>
+            </p>
+
+            <a name="page_top"></a>
+
+            <!-- page top icon & logo -->
+            <div id="header_SP" class="header_labelSP">
+                <div class="pb4"></div>
+                <img src="image/top/cr48f_32.png">
+                <img class="pb3" src="image/top/Contrail_g.png" height="24">
+            </div>
+
+            <div id="popup-menu" class="hidden">
+                <div class="menu-title">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_image" alt="CONTRAIL">
+                </div>
+                <ul>
                     <li><a href="fs01_sc_tuamotu.html" class="menulink">Tuamotu Top</a></li>
                     <li><a href="fs01_sc_tuamotu_a.html" class="menulink">Group A</a></li>
                     <li><a href="fs01_sc_tuamotu_b.html" class="menulink">Group B</a></li>
                     <li><a href="fs01_sc_tuamotu_c.html" class="menulink">Group C</a></li>
                     <li><a href="fs01_sc_tuamotu_d.html" class="menulink">Group D</a></li>
                     <li><a href="fs01_sc_tuamotu_e.html" class="menulink">Group E</a></li>
-                    <li class="about"><a href="e_fs01_about.html" class="menulink">about Contrail</a></li>
+                    <li><a href="e_fs01_about.html" class="menulink">about Contrail</a></li>
                 </ul>
-            </nav>
-            <div class="c-both"></div>
+            </div>
         </div>
-        <!-- Sandbox DropDownMenu start-->
-        <script type="text/javascript">
-            var menu=new menu.dd("menu");
-            menu.init("menu","menuhover");
-        </script>    <!-- Sandbox DropDownMenu end -->
     </header>
 
-    <div id="main960"> <!-- page main: start -->
+    <div id="main960-480new_en"> <!-- page main: start -->
 
         <!-- title -->
         <div id="title40">
             <p id="head20">
-                <IMG src="image/fs/kko_fssg_logo.gif" alt="Contrail Flight Simulation Special Gallery">
+                <img src="image/fs/kko_fssg_logo.gif" alt="Contrail Flight Simulation Special Gallery">
             </p>
-            <h1 id="main_fss_E">
-                FS9 / FSX Addon Scenery French Polynesia <BR>
-                Tuamotu Archipelago Group C
-            </h1>
+            <div class="prettyP_PC">
+                <h1 id="main_fs_E">
+                    FS9 / FSX Addon Scenery French Polynesia <br>
+                    Tuamotu Archipelago Group C
+                </h1>
+            </div>
+            <div class="prettyP_SP">
+                <h3>
+                    FS9 / FSX Addon Scenery French Polynesia <br>
+                    Tuamotu Archipelago Group C
+                </h3>
+            </div>
         </div>
 
+        <!-- for Java Script off -->
+        <noscript>
+            <div id="attention">
+                <p>Sorry, you need to activate JavaScript in your browser.</p>
+            </div>
+        </noscript>
+
         <!-- map -->
-        <div class="pic-center_Tuamotu_C pb40">
-            <p class="pb5">
-                <IMG id="flt_sim_tuamotu_C" src="image/fs/tuamotu/source/Tuamotu_map_C_off.gif" border="0"
-                    usemap="#flt_sim_tuamotu_C">
-            </p>
-            <map name="flt_sim_tuamotu_C">
-                <!-- 同窓でのジャンプ -->
-                <area key="Tepoto"    href="#Tepoto"    alt="Jump to Tepoto"    shape="rect"    coords="218,62, 304,95">
-                <area key="Napuka"    href="#Napuka"    alt="Jump to Napuka"    shape="poly"    coords="320,94, 303,114, 303,139, 385,139, 385,94">
-            </map>
-            <p class="fss fwb left">
-                Click the desired island
-            </p>
+        <div class="prettyP_PC">
+            <div class="pic-center_Tuamotu_C pb40">
+                <p class="pb5">
+                    <img id="flt_sim_tuamotu_C" src="image/fs/tuamotu/source/Tuamotu_map_C_off.gif" border="0"
+                        usemap="#flt_sim_tuamotu_C">
+                </p>
+                <map name="flt_sim_tuamotu_C">
+                    <!-- 同窓でのジャンプ -->
+                    <area key="Tepoto"    href="#Tepoto"    alt="Jump to Tepoto"    shape="rect"    coords="218,62, 304,95">
+                    <area key="Napuka"    href="#Napuka"    alt="Jump to Napuka"    shape="poly"    coords="320,94, 303,114, 303,139, 385,139, 385,94">
+                </map>
+                <p class="fss fwb left2">
+                    Click the desired island
+                </p>
+            </div>
+        </div>
+        <div class="prettyP_SP">
+            <div class="table-container pb30">
+                <div class="pic-center_Tuamotu_C">
+                    <p class="pb5">
+                        <img id="flt_sim_tuamotu_C" src="image/fs/tuamotu/source/Tuamotu_map_C_off.gif" border="0"
+                            usemap="#flt_sim_tuamotu_C">
+                    </p>
+                    <map name="flt_sim_tuamotu_C">
+                        <!-- 同窓でのジャンプ -->
+                        <area key="Tepoto"    href="#Tepoto"    alt="Jump to Tepoto"    shape="rect"    coords="218,62, 304,95">
+                        <area key="Napuka"    href="#Napuka"    alt="Jump to Napuka"    shape="poly"    coords="320,94, 303,114, 303,139, 385,139, 385,94">
+                    </map>
+                    <p class="fss fwb left2">
+                        Click the desired island
+                    </p>
+                </div>
+            </div>
         </div>
 
         <!-- Tepoto start -->
         <!-- title -->
-        <div class="left pb15">
+        <div class="left2 pt30 pb15">
             <div class="pb5">
                 <h3 class="contents-title-left">
-                    <a name="Tepoto"></a>
-                    <p class="fwb" >
-                        <a href="fs01_sc_tuamotu_c_tepoto.html">
+                    <div id="Tepoto"></div>
+                    <p class="fwb">
+                        <a href="fs01_sc_tuamotu_c_tepoto_nord.html">
                             Tepoto
                         </a>
                     </p>
                 </h3>
                 <div class="contents-title-right">
-                    <p class="page-top" >
-                        Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-                    </p>
                 </div>
                 <div class="c-both"></div>
             </div>
             <!-- contents -->
-            <div class="pb15" >
-                <div class="contents-col_256" > <!-- left side -->
-                    <p class="jQ_blink change_border_color " >
-                        <a href="image/fs/tuamotu/source/tuamotu_c_Tepoto_Nord_SC01.jpg" rel="prettyPhoto"
-                            title="Tuamotu Archipelago Group C - Tepoto_Nord" target="_blank">
-                            <IMG src="image/fs/tuamotu/tuamotu_c_thumb_Tepoto_Nord_SC01.jpg" width="256" >
+            <div class="pb15">
+                <div class="contents-col_256"> <!-- left side -->
+                    <p class="jQ_blink change_border_color ">
+                        <a href="image/fs/tuamotu/source/tuamotu_c_Tepoto_Nord_SC01.jpg" data-fancybox="gallery1"
+                            data-caption="Tuamotu Archipelago Group C - Tepoto_Nord">
+                            <img src="image/fs/tuamotu/tuamotu_c_thumb_Tepoto_Nord_SC01.jpg" width="256">
                         </a>
                     </p>
                 </div>
-                <div class="contents-col-c_416" >
+                <div class="contents-col-c_416">
                     <p>
                         Tepoto Nord is located in the Tuamotu archipalago northernmost.
                         It lies 16 km northwest of Napuka.
                         The island, measuring 2.6 km in length and 800 m across, has no lagoon.
                     </p>
                 </div>
-                <div class="contents-col_256" > <!-- right side -->
-                    <p class="jQ_blink change_border_color" >
+                <div class="contents-col_256"> <!-- right side -->
+                    <p class="jQ_blink change_border_color">
                         <a href="fs01_sc_tuamotu_c_tepoto_nord.html">
-                            <IMG src="image/fs/tuamotu/Bird_sEyeView/TepotoNordBEV256.jpg" >
+                            <img src="image/fs/tuamotu/Bird_sEyeView/TepotoNordBEV256.jpg">
                         </a>
                     </p>
                 </div>
@@ -198,35 +226,32 @@
 
         <!-- Napuka start -->
         <!-- title -->
-        <div class="left pb15">
+        <div class="left2 pb15">
             <div class="pb5">
                 <h3 id="Napuka" class="contents-title-left">
-                    <a name="Napuka"></a>
-                    <p class="fwb" >
+                    <div id="Napuka"></div>
+                    <p class="fwb">
                         <a href="fs01_sc_tuamotu_c_napuka.html">
                             Napuka
                         </a>
-                        <!--<IMG src="image/button/update.gif" width="62" height="14" >-->
+                        <!--<img src="image/button/update.gif" width="62" height="14">-->
                     </p>
                 </h3>
                 <div class="contents-title-right">
-                    <p class="page-top" >
-                        Page : <a href="#page_top">Top</a> / <a href="#page_bottom">Bottom</a>
-                    </p>
                 </div>
                 <div class="c-both"></div>
             </div>
             <!-- contents -->
-            <div class="pb15" >
-                <div class="contents-col_256" > <!-- left side -->
-                    <p class="jQ_blink change_border_color " >
-                        <a href="image/fs/tuamotu/source/tuamotu_c_Napuka_SC01.jpg" rel="prettyPhoto"
-                            title="Tuamotu Archipelago Group C - Napuka" target="_blank">
-                            <IMG src="image/fs/tuamotu/tuamotu_c_thumb_Napuka_SC01.jpg" width="256">
+            <div class="pb15">
+                <div class="contents-col_256"> <!-- left side -->
+                    <p class="jQ_blink change_border_color ">
+                        <a href="image/fs/tuamotu/source/tuamotu_c_Napuka_SC01.jpg" data-fancybox="gallery2"
+                            data-caption="Tuamotu Archipelago Group C - Napuka">
+                            <img src="image/fs/tuamotu/tuamotu_c_thumb_Napuka_SC01.jpg" width="256">
                         </a>
                     </p>
                 </div>
-                <div class="contents-col-c_416" >
+                <div class="contents-col-c_416">
                     <!-- <p> -->
                     <p class="pb5">
                         Napuka is a small atoll located in the far north east of the archipelago.
@@ -246,16 +271,15 @@
                             Dr. Angela Kay Kepler answered my description mistake about "the Disappointement islands".
                         </a>
                 </div>
-                <div class="contents-col_256" >
-                    <p class="jQ_blink change_border_color" >
+                <div class="contents-col_256">
+                    <p class="jQ_blink change_border_color">
                     <a href="fs01_sc_tuamotu_c_napuka.html">
-                         <IMG src="image/fs/tuamotu/Bird_sEyeView/NapukaBEV256.jpg">
+                         <img src="image/fs/tuamotu/Bird_sEyeView/NapukaBEV256.jpg">
                      </a>
                     </p>
                 </div>
             </div>
         </div>
-        <a name="page_bottom"></a>
 
     </div> <!-- page main: end -->
 
@@ -263,17 +287,19 @@
 
         <hr id="footer"> <!-- horizontal partition -->
 
-        <div class="jQ_change center" > <!-- select button whole: start -->
+        <p id="page-top"><a href="#">TOP</a></p>
+
+        <div class="jQ_change center"> <!-- select button whole: start -->
             <p id="footer">  <!-- select button 1: start -->
                 <a href="fs01_sc_tuamotu.html">
-                    <IMG src="image/button/back_off.gif" alt="back" border="0">
+                    <img src="image/button/back_off.gif" alt="back" border="0">
                 </a>
             </p> <!-- select button 1: end -->
         </div> <!-- select button whole: end -->
 
-        <div id="footer_label">
+        <div class="footer_labelPC">
             copyright &copy; 2003 -
-            <script type="text/javascript" language="JavaScript">
+            <script>
                 date = new Date();
                 document.write(date.getFullYear() + ' ');
             </script>
@@ -284,6 +310,5 @@
 
     </footer>
 
-</div> <!-- Pre Loading end -->
-</BODY>
+</body>
 </html>

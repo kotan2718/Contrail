@@ -1,102 +1,121 @@
-<!DOCTYPE HTML >
-<html>
+<!DOCTYPE html >
+<html lang="ja">
 
-<HEAD>
-    <META charset="UTF-8">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="ペンギンは空を飛ぶことは出来ません。しかし，彼らが水中を泳ぐ姿を下から眺めると，立派に飛んでいます。">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Contrail SnapShots : 街角の う・ふ・ふ :: ペンギン 空を飛ぶ</title>
 
     <!-- favicon-->
-    <link rel="shortcut icon" href="favicon.ico">
-
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="icon" href="favicon.ico">
 
     <!-- css start -->
+        <!-- kko_etc - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
+        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
 
-        <!-- kko_etc start - class指定:change_border_color, 全ファイル共通:リンク文字色, フォーカスリング -->
-        <link rel="stylesheet" href="libs/etc/css/kko_preload.css" type="text/css">
-        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css" type="text/css">
-        <!-- kko_etc end -->
+        <!-- Fancybox CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css">
 
-        <!-- prettyPhoto start -->
-        <link href="libs/jQuery/prettyPhoto/css/prettyPhoto315_mod.css" media="all" rel="stylesheet" type="text/css">
-        <!-- prettyPhoto end -->
-
+        <style>
+            /* Optional: Limit image size on small screens */
+            @media (max-width: 768px) {
+                .fancybox_image {
+                    max-width: 256px;
+                }
+                .fancybox_image2 {
+                    max-width: 300px;
+                }
+            }
+        </style>
     <!-- css end -->
 
     <!-- js start -->
-
         <!-- jQuery start -->
-        <script src="libs/jQuery/js/jquery-1.6.1.min.js" type="text/javascript"></script>
-
-            <!-- kko_style start - img jq_blink, img jq_change -->
-            <script src="libs/jQuery/kko/js/jq_kko_style.js" type="text/javascript"></script>
-            <!-- kko_style end -->
-
-            <!-- prettyPhoto start -->
-            <script src="libs/jQuery/prettyPhoto/js/jquery.prettyPhoto_315_mod.js" type="text/javascript"></script>
-            <script type="text/javascript">
-            $(document).ready(function(){
-                $("a[rel^='prettyPhoto']").prettyPhoto({
-                });
-            });
-            </script>
-            <!-- prettyPhoto end -->
-
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <!-- kko_style - img jq_blink, img jq_change -->
+            <script src="libs/jQuery/kko/js/jq_kko_style.js"></script>
         <!-- jQuery end -->
 
-        <!-- Sandbox DropDownMenu start -->
-        <script src="libs/sandbox/js/script.js" type="text/javascript"></script>
-        <!-- Sandbox DropDownMenu end -->
+        <!-- Fancybox JS -->
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
 
-    <!-- js end -->
+         <!-- Sandbox DropDownMenu -->
+        <script src="libs/sandbox/js/script.js"></script>
+   <!-- js end -->
 
-</HEAD>
+</head>
 
-<BODY id="common-k">
-
-<!-- Pre Loading -->
-<!-- without loading picture -->
-<div id="loader"><IMG src="image/common/ap_loader_tp.gif" width="236" height="132" class="loading..."></div>
-<div id="fade"></div>
-<div id="preload"> <!-- Pre Loading start -->
+<body id="common-k">
 
     <header>
-        <a name="page_top"></a>
-        <div class="center jQ_change navbox" >
-            <nav>
-                <IMG src="image/top/Contrail_g.png" height="20" class="logo_img">
-                <ul class="menu" id="menu" >
+        <div class="prettyP_PC">
+            <a name="page_top"></a>
+            <div class="center jQ_change navbox" >
+                <nav>
+                    <img src="image/top/cr32_e.png" height="20" class="logo_img">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_img">
+                    <ul class="menu" id="menu" >
+                        <li><a href="index.html" class="menulink">Home</a></li>
+                        <li><a href="whatnew.html" class="menulink">What's New</a></li>
+                        <li><a href="etc.html" class="menulink">E.T.C.</a></li>
+                        <li><a href="fs01.html" class="menulink">The Scenery</a>
+                            <ul>
+                                <li><a href="fs01_sc_top.html" class="sub">Screen Shots</a></li>
+                                <li><a href="fs01_ls_top.html" class="sub">Snap Shots</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="link01.html" class="menulink">Links</a></li>
+                        <li class="about"><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                    </ul>
+                </nav>
+                <div class="c-both"></div>
+            </div>
+            <!-- Sandbox DropDownMenu start-->
+            <script>
+                var menu=new menu.dd("menu");
+                menu.init("menu","menuhover");
+            </script>
+            <!-- Sandbox DropDownMenu end -->
+        </div>
+        <div class="prettyP_SP">
+            <a name="MENU"></a>
+            <p id="menu-call">
+                <a href="#">MENU</a>
+            </p>
+
+            <a name="page_top"></a>
+
+            <!-- page top icon & logo -->
+            <div id="header_SP" class="header_labelSP">
+                <div class="pb4"></div>
+                <img src="image/top/cr48f_32.png">
+                <img class="pb3" src="image/top/Contrail_g.png" height="24">
+            </div>
+
+            <div id="popup-menu" class="hidden">
+                <div class="menu-title">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_image" alt="CONTRAIL">
+                </div>
+                <ul>
                     <li><a href="index.html" class="menulink">Home</a></li>
                     <li><a href="whatnew.html" class="menulink">What's New</a></li>
                     <li><a href="etc.html" class="menulink">E.T.C.</a></li>
-                    <li><a href="fs01.html" class="menulink">The Scenery</a>
-                        <ul>
-                            <li><a href="fs01_sc_top.html" class="sub">Screen Shots</a></li>
-                            <li><a href="fs01_ls_top.html" class="sub">Snap Shots</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="fs01.html" class="menulink">The Scenery</a></li>
                     <li><a href="link01.html" class="menulink">Links</a></li>
-                    <li class="about"><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                    <li><a href="fs01_about.html" class="menulink">about Contrail</a></li>
                 </ul>
-            </nav>
-            <div class="c-both"></div>
+            </div>
         </div>
-        <!-- Sandbox DropDownMenu start-->
-        <script type="text/javascript">
-            var menu=new menu.dd("menu");
-            menu.init("menu","menuhover");
-        </script>    <!-- Sandbox DropDownMenu end -->
     </header>
 
     <div id="main880" class="lineh120"> <!-- page main: start -->
 
         <!-- title -->
         <div id="title30">
-            <p id="head10" >
-                <IMG src="image/fs/kko_logo.gif" alt="Contrail Snap Shots Special Gallery">
+            <p id="head10">
+                <img src="image/fs/kko_logo.gif" alt="Contrail Snap Shots Special Gallery">
             </p>
             <h2 id="group-UF">
                  街角の う・ふ・ふ
@@ -106,70 +125,93 @@
             </h1>
         </div>
 
+        <!-- for Java Script off -->
+        <noscript>
+            <div id="attention">
+                <p>ご覧頂くにはブラウザの JavaScript をアクティブにして下さい</p>
+            </div>
+        </noscript>
+
         <!-- contents -->
-        <div class="pic-center-640 pb40">
-            <p class="pb30">
-                ペンギンは空を飛ぶことは出来ません。
-                しかし，彼らは水中を自由に泳ぐことが出来ます。<BR>
-                彼らが泳ぐ姿を下から眺めると，立派に空を飛んでいます。
-            </p>
+        <div class="pic-center640new pb40">
+            <div class="prettyP_PC">
+                <p class="pb30">
+                    ペンギンは空を飛ぶことは出来ません。
+                    しかし，彼らは水中を自由に泳ぐことが出来ます。<br>
+                    彼らが泳ぐ姿を下から眺めると，立派に空を飛んでいます。
+                </p>
+            </div>
+            <div class="prettyP_SP">
+                <p class="left2 pb30">
+                    ペンギンは空を飛ぶことは出来ません。
+                    しかし，彼らは水中を自由に泳ぐことが出来ます。
+                    彼らが泳ぐ姿を下から眺めると，立派に空を飛んでいます。
+                </p>
+            </div>
             <p class="jQ_blink change_border_color pb5">
-                <a href="image/fs/kko/source/penguin/penguin_P1170487_cut2456_1024_comp20.jpg" rel="prettyPhoto[penguin_flying1]"
-                    title="flying - King Penguin" target="_blank" >
-                    <IMG src="image/fs/kko/source/penguin/penguin_P1170487_cut2456_512_comp20.jpg" width="512" alt="penguin-1">
+                <a href="image/fs/kko/source/penguin/penguin_P1170487_cut2456_1024_comp20.jpg"
+                    data-fancybox="gallery1" data-caption="flying - King Penguin">
+                    <img class="fancybox_image" src="image/fs/kko/source/penguin/penguin_P1170487_cut2456_512_comp20.jpg" width="512"
+                        alt="flying - King Penguin">
                 </a>
             </p>
         </div>
         <div class="pic-left640 pb40">
             <p class="jQ_blink change_border_color pb5">
-                <a href="image/fs/kko/source/penguin/penguin_P1120179_1024_comp20.jpg" rel="prettyPhoto[penguin_flying1]"
-                    title="flying - Humboldt Penguin" target="_blank" >
-                    <IMG src="image/fs/kko/source/penguin/penguin_P1120179_512_comp20.jpg" width="512" alt="penguin-2">
+                <a href="image/fs/kko/source/penguin/penguin_P1120179_1024_comp20.jpg"
+                    data-fancybox="gallery1" data-caption="flying - Humboldt Penguin">
+                    <img class="fancybox_image" src="image/fs/kko/source/penguin/penguin_P1120179_512_comp20.jpg" width="512"
+                        alt="flying - Humboldt Penguin">
                 </a>
             </p>
+            <div class="prettyP_SP"><div class="pb40"></div></div>
         </div>
 
-        <div class="pic-right640 pb30">
+        <div class="pic-right640new pb30">
             <p class="fs100 fwb pb20">
                 飛んでる?....というよりは浮いている感じでしょうか？
             </p>
-            <p class="jQ_blink change_border_color">
-                <a href="image/fs/kko/source/penguin/penguin_P1170483_1024_comp20.jpg" rel="prettyPhoto[penguin_floating]"
-                    title="floating - Humboldt Penguin 1" target="_blank" >
-                    <IMG src="image/fs/kko/source/penguin/penguin_P1170483_512_comp20.jpg" width="512" alt="BluePond-4">
+            <p class="jQ_blink change_border_color pb5">
+                <a href="image/fs/kko/source/penguin/penguin_P1170483_1024_comp20.jpg"
+                    data-fancybox="gallery2" data-caption="floating - Humboldt Penguin 1">
+                    <img class="fancybox_image" src="image/fs/kko/source/penguin/penguin_P1170483_512_comp20.jpg" width="512"
+                        alt="floating - Humboldt Penguin 1">
                 </a>
             </p>
         </div>
         <div class="pic-center640 pb30">
             <p class="jQ_blink change_border_color">
-                <a href="image/fs/kko/source/penguin/penguin_P1170470_mod_1024_comp20.jpg" rel="prettyPhoto[penguin_floating]"
-                    title="floating - Humboldt Penguin 2" target="_blank" >
-                    <IMG src="image/fs/kko/source/penguin/penguin_P1170470_mod_512_comp20.jpg" width="512" alt="BluePond-5">
+                <a href="image/fs/kko/source/penguin/penguin_P1170470_mod_1024_comp20.jpg"
+                    data-fancybox="gallery2" data-caption="floating - Humboldt Penguin 2">
+                    <img class="fancybox_image" src="image/fs/kko/source/penguin/penguin_P1170470_mod_512_comp20.jpg" width="512"
+                        alt="floating - Humboldt Penguin 2">
                 </a>
             </p>
+            <div class="prettyP_SP"><div class="pb40"></div></div>
         </div>
 
         <div class="pic-left640 pb30">
             <p class="fs100 fwb pb20">
                 飛んでる?.... しっかり飛んでいます！
             </p>
-            <p class="jQ_blink change_border_color">
-                <a href="image/fs/kko/source/penguin/penguin_P1170502_mod_1024_comp20.jpg" rel="prettyPhoto[penguin_flying2]"
-                    title="flying - King Penguin 1" target="_blank" >
-                    <IMG src="image/fs/kko/source/penguin/penguin_P1170502_mod_512_comp20.jpg" width="512" alt="BluePond-5">
+            <p class="jQ_blink change_border_color pb5">
+                <a href="image/fs/kko/source/penguin/penguin_P1170502_mod_1024_comp20.jpg"
+                    data-fancybox="gallery3" data-caption="flying - King Penguin 1">
+                    <img class="fancybox_image" src="image/fs/kko/source/penguin/penguin_P1170502_mod_512_comp20.jpg" width="512"
+                        alt="flying - King Penguin 1">
                 </a>
             </p>
         </div>
-        <div class="pic-center640 pb30">
+        <div class="pic-center640new pb30">
             <p class="jQ_blink change_border_color">
-                <a href="image/fs/kko/source/penguin/penguin_P1170503st_1024_comp20.jpg" rel="prettyPhoto[penguin_flying2]"
-                    title="flying - King Penguin 2" target="_blank" >
-                    <IMG src="image/fs/kko/source/penguin/penguin_P1170503st_512_comp20.jpg" width="512" alt="BluePond-5">
+                <a href="image/fs/kko/source/penguin/penguin_P1170503st_1024_comp20.jpg"
+                    data-fancybox="gallery3" data-caption="flying - King Penguin 2">
+                    <img class="fancybox_image" src="image/fs/kko/source/penguin/penguin_P1170503st_512_comp20.jpg" width="512"
+                        alt="flying - King Penguin 2">
                 </a>
             </p>
+            <div class="prettyP_SP"><div class="pb30"></div></div>
         </div>
-
-        <a name="page_bottom"></a>
 
     </div> <!-- page main: end -->
 
@@ -177,17 +219,19 @@
 
         <hr id="footer"> <!-- horizontal partition -->
 
-        <div class="jQ_change center" > <!-- select button whole: start -->
+        <p id="page-top"><a href="#">TOP</a></p>
+
+        <div class="jQ_change center"> <!-- select button whole: start -->
             <p id="footer">  <!-- select button 1: start -->
                 <a href="fs01_ls_Ufufu.html#PENGUIN">
-                    <IMG src="image/button/back_off.gif" border="0" alt="Back" >
+                    <img src="image/button/back_off.gif" border="0" alt="Back">
                 </a>
             </p> <!-- select button 1: end -->
         </div> <!-- select button whole: end -->
 
-        <div id="footer_label">
+        <div class="footer_labelPC">
             copyright &copy; 2003 -
-            <script type="text/javascript" language="JavaScript">
+            <script>
                 date = new Date();
                 document.write(date.getFullYear() + ' ');
             </script>
@@ -198,6 +242,5 @@
 
     </footer>
 
-</div> <!-- Pre Loading end -->
-</BODY>
+</body>
 </html>

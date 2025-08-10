@@ -1,146 +1,464 @@
+
+/* for debug */
+body {
+  outline: 2px dashed red;
+  overflow-x: auto;
+}
+
 /* 画面の余白を取り払う */
-/*
-* {margin:0; padding:0; outline:0}
-*/
-body, html {
+* {
     margin: 0;
     padding: 0;
+    outline: 0;
 }
 
 
-/*    ============ 
-        *** body *** 
-        ============ 
-*/
-
+/*================
+ *** fancybox4 ***
+================*/
+/* 背景を明るくするカスタマイズ */
+.fancybox__backdrop {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+}
+ 
+/*============
+ *** body ***
+============*/
+/* ヘッダーを常にページのトップに固定して表示するパターン */
+/* これだと、ページ内でジャンプしたとき、ジャンプ先の先頭が固定されたヘッダーに隠れてしまう */
+/*
 body#common-k {
-    background-image: url(../../../image/back/back_kko.gif); 
+    margin-top: 31px; /* navbox の高さ分ずらす *//*
+    background-image: url(../../../image/back/back_kko.gif);
     background-color:#FFFFFF;
-    color: navy; 
-    font-size:95%; font-family:-apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI","Noto Sans Japanese","ヒラギノ角ゴ ProN W3", Meiryo, sans-serif;
+    color: navy;
+    font-size:100%; 
+    font-family:-apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI","Noto Sans Japanese","ヒラギノ角ゴ ProN W3", Meiryo, sans-serif;
+}
+*/
+body#common-k {
+    background-image: url(../../../image/back/back_kko.gif);
+    background-color:#FFFFFF;
+    color: navy;
+    font-size:100%; 
+    font-family:-apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI","Noto Sans Japanese","ヒラギノ角ゴ ProN W3", Meiryo, sans-serif;
+}
+/* スクロール無しの固定ページ用 */
+body#common-k2 {
+    background-image: url(../../../image/back/back_kko.gif);
+    background-color:#FFFFFF;
+    color: navy;
+    font-size:100%; 
+    font-family:-apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI","Noto Sans Japanese","ヒラギノ角ゴ ProN W3", Meiryo, sans-serif;
+}
+/* ヘッダーを常にページのトップに固定して表示するパターン */
+/* これだと、ページ内でジャンプしたとき、ジャンプ先の先頭が固定されたヘッダーに隠れてしまう */
+/*
+body#common-k_Roman {
+    margin-top: 31px; /* navbox の高さ分ずらす *//*
+    background-image: url(../../../image/back/back_kko.gif);
+    background-color:#FFFFFF;
+    color: navy;
+    font-size:100%; 
+    font-family: "游明朝", YuMincho, "Hiragino Mincho ProN W3", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+}
+*/
+body#common-k_Roman {
+    background-image: url(../../../image/back/back_kko.gif);
+    background-color:#FFFFFF;
+    color: navy;
+    font-size:100%; 
+    font-family: "游明朝", YuMincho, "Hiragino Mincho ProN W3", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+}
+/* スクロール無しの固定ページ用 */
+body#common-k2_Roman {
+    background-image: url(../../../image/back/back_kko.gif);
+    background-color:#FFFFFF;
+    color: navy;
+    font-size:100%; 
+    font-family: "游明朝", YuMincho, "Hiragino Mincho ProN W3", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
 }
 
 body#common-k_920 {
-    background-image: url(../../../image/back/back_kko.gif); 
+    background-image: url(../../../image/back/back_kko.gif);
     background-color:#FFFFFF;
-    color: navy; 
+    color: navy;
+    font-size:100%; font-family:-apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI","Noto Sans Japanese","ヒラギノ角ゴ ProN W3", Meiryo, sans-serif;
+}
+body#common-k_960 {
+    background-image: url(../../../image/back/back_kko.gif);
+    background-color:#FFFFFF;
+    color: navy;
+    font-size:100%; font-family:-apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI","Noto Sans Japanese","ヒラギノ角ゴ ProN W3", Meiryo, sans-serif;
+}
+
+body#common-k_800 {
+    background-image: url(../../../image/back/back_kko.gif);
+    background-color:#FFFFFF;
+    color: navy;
+    font-size:100%; font-family:-apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI","Noto Sans Japanese","ヒラギノ角ゴ ProN W3", Meiryo, sans-serif;
+}
+
+body#common-k_480 {
+    background-image: url(../../../image/back/back_kko.gif);
+    background-color:#FFFFFF;
+    color: navy;
     font-size:100%; font-family:-apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI","Noto Sans Japanese","ヒラギノ角ゴ ProN W3", Meiryo, sans-serif;
 }
 body#common-k_420 {
-    background-image: url(../../../image/back/back_kko.gif); 
+    background-image: url(../../../image/back/back_kko.gif);
     background-color:#FFFFFF;
-    color: navy; 
+    color: navy;
     font-size:115%; font-family:-apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI","Noto Sans Japanese","ヒラギノ角ゴ ProN W3", Meiryo, sans-serif;
 }
 body#common-k_400 {
-    background-image: url(../../../image/back/back_kko.gif); 
+    background-image: url(../../../image/back/back_kko.gif);
     background-color:#FFFFFF;
-    color: navy; 
+    color: navy;
     font-size:115%; font-family:-apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI","Noto Sans Japanese","ヒラギノ角ゴ ProN W3", Meiryo, sans-serif;
 }
-body#common-k_g { /* green version */
-    background-image: url(../../../image/back/back_kko_g.gif); 
+body#common-k_400_Roman {
+    background-image: url(../../../image/back/back_kko.gif);
     background-color:#FFFFFF;
-    color: navy; 
+    color: navy;
+    font-size:100%; 
+    font-family: "游明朝", YuMincho, "Hiragino Mincho ProN W3", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+}
+
+body#common-k_g { /* green version */
+    background-image: url(../../../image/back/back_kko_g.gif);
+    background-color:#FFFFFF;
+    color: navy;
     font-size:95%; font-family:-apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI","Noto Sans Japanese","ヒラギノ角ゴ ProN W3", Meiryo, sans-serif;
 }
 body#common-k_lavender {/* lavender version */
-    background-image: url(../../../image/back/back_kko_lavender.gif); 
+    background-image: url(../../../image/back/back_kko_lavender.gif);
     background-color:#FFFFFF;
-    color: navy; 
+    color: navy;
     font-size:95%; font-family:-apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI","Noto Sans Japanese","ヒラギノ角ゴ ProN W3", Meiryo, sans-serif;
 }
 body#common-s {
-    background-image: url(../../../image/back/back_ss.gif); 
+    background-image: url(../../../image/back/back_ss.gif);
     background-color:#FFFFFF;
-    color: navy; 
+    color: navy;
     font-size:95%; font-family:-apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI","Noto Sans Japanese","ヒラギノ角ゴ ProN W3", Meiryo, sans-serif;
 }
 body#common-p {
-    background-image: url(../../../image/back/back_pp.gif); 
+    background-image: url(../../../image/back/back_pp.gif);
     background-color:#FFFFFF;
-    color: navy; 
+    color: navy;
     font-size:95%; font-family:-apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI","Noto Sans Japanese","ヒラギノ角ゴ ProN W3", Meiryo, sans-serif;
 }
 
-
-div#main420  { 
-    max-width: 420px;  
-    margin: auto;
-    padding-left: 10px; padding-right: 10px; 
-    text-align: center; 
-    border: 0px solid #FF9900;
-    box-sizing: border-box;
+/*--------------------
+ ** 全体サイズ指定 **
+--------------------*/
+div#main     {                margin-left: auto;  margin-right: auto; text-align: center; border: 0px solid #FF9900;}
+div#main480  { width: 480px;  margin-left: auto;  margin-right: auto; text-align: center; border: 0px solid #009900;}
+div#main720, #main720-480, #main720-480_en {
+    width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border: 0px solid #009900;
 }
-div#main400  { 
-    max-width: 400px;  
-    margin: auto;
-    padding-left: 10px; padding-right: 10px; 
-    text-align: center; 
-    border: 0px solid #FF9900;
-    box-sizing: border-box;
+div#main760  { width: 760px;  margin-left: auto;  margin-right: auto; text-align: center; border: 0px solid #FF9900;}
+div#main800, #main800-480, #main800-480_en  {
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border: 0px solid #FF9900
 }
-.c_main920  { width: 920px;  margin-left: auto;  margin-right: auto; text-align: center; border: 0px solid #FF9900;}
-.c_main420  { max-width: 100%; text-align: center; border: 0px solid #FF9900;}
-.c_main400  { max-width: 100%; text-align: center; border: 0px solid #FF9900;}
-.pic-left420   {max-width: 100%; text-align:left;                     margin-right:auto; } /* MM_Ayutthaya */
-.pic-left400   {max-width: 100%; text-align:left;                     margin-right:auto; } /* MM_Ayutthaya */
-
-/*    ============== 
-      *** header *** 
-      ============== 
-*/
-#header_label920   { 
+div#main880, #main880-480new_en  {
+     width: 880px;
+     margin-left: auto;
+     margin-right: auto;
+     text-align: center;
+     border: 0px solid #FF9900
+}
+div#main920, #main920-480, #main920-480new_en {
     width: 920px;
     margin-left: auto;
-    margin-right: auto; 
-    text-align: center; 
-    background-color: #f0f0f0; 
+    margin-right: auto;
+    text-align: center;
     border: 0px solid #FF9900;
 }
-.header_label420   { 
-    max-width: 100%; 
-    text-align: center; 
-    background-color: #f0f0f0; 
+div#main960, #main960-480new, #main960-480new_en {
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
     border: 0px solid #FF9900;
 }
-.header_label400   { 
-    max-width: 100%; 
-    text-align: center; 
-    background-color: #f0f0f0; 
+div#main990  { width: 990px;  margin-left: auto;  margin-right: auto; text-align: center; border: 0px solid #FF9900;}
+div#main1024, #main1024-480 {
+    width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border: 0px solid #FF9900;
+}
+div#main1280 { width: 1280px; margin-left: auto;  margin-right: auto; text-align: center; border: 0px solid #FF9900;}
+
+div#main480new  {
+    max-width: 480px;
+    margin: auto;
+    padding-left: 10px; padding-right: 10px;
+    text-align: center;
+    border: 0px solid #FF9900;
+    box-sizing: border-box;
+}
+div#main480new_en  {
+    max-width: 480px;
+    margin: auto;
+    padding-left: 10px; padding-right: 10px;
+    text-align: center;
+    font-size: 90%;
+    border: 0px solid #FF9900;
+    box-sizing: border-box;
+}
+div#main420  {
+    max-width: 420px;
+    margin: auto;
+    padding-left: 10px; padding-right: 10px;
+    text-align: center;
+    border: 0px solid #FF9900;
+    box-sizing: border-box;
+}
+div#main400  {
+    max-width: 400px;
+    margin: auto;
+    padding-left: 10px; padding-right: 10px;
+    text-align: center;
+    border: 0px solid #FF9900;
+/*    box-sizing: border-box;*/
+}
+.c_main920 {
+    width: 920px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border: 0px solid #FF9900;
+}
+.c_main960 {
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
     border: 0px solid #FF9900;
 }
 
-/*    ---------------- 
-      ** navigation ** 
-      ---------------- 
-*/
-/*    navbox
-*/
-div.navbox{
-    padding: 0 0  1px 0; 
-    margin:  0; 
-    background: #f0f0f0; 
+.c_main420 {
+    max-width: 420px;
+    margin: auto;
+    padding-left: 10px; padding-right: 10px;
+    text-align: center;
+    border: 0px solid #FF9900;
 }
-/*    logo 
-*/
-.logo_img{ 
-    float: left; 
+.c_main400 {
+    max-width: 400px;
+    margin: auto;
+    padding-left: 10px; padding-right: 10px;
+    text-align: center; 
+    border: 0px solid #FF9900;
+}
+
+/* horizontal partition */
+hr.main {   width: 70%; height: 2px; border:none; background-color: #aaa; margin: 0px auto  0px auto;}
+hr.main720 {width: 70%; height: 2px; border:none; background-color: #aaa; margin: 0px auto  0px auto;}
+hr.main800 {width: 70%; height: 2px; border:none; background-color: #aaa; margin: 0px auto  0px auto;}
+hr.main990 {width: 70%; height: 2px; border:none; background-color: #aaa; margin: 0px auto 20px auto;}
+
+/*    picture と その下にテキスト(自由な位置に配置したい)を含むボックスの配置 */
+.pic-center320 {width:  320px; text-align:center; margin-left:auto; margin-right:auto;         border: 0px dashed gray;
+} /* Takeoff !? ... wow */
+.pic-left480   {width:  480px; text-align:left;                     margin-right:auto; } /* MM_Ayutthaya */
+.pic-center480 {width:  480px; text-align:center; margin-left:auto; margin-right:auto; }
+.pic-right480  {width:  480px; text-align:right;  margin-left:auto;                    } /* 4S_TAKEOKA */
+.pic-left640   {width:  640px; text-align:left;                     margin-right:auto; } /* 多くのページで使用 */
+.pic-center640 {width:  640px; text-align:center; margin-left:auto; margin-right:auto; } /* 多くのページで使用 */
+.pic-right640  {width:  640px; text-align:right;  margin-left:auto;                    } /* 多くのページで使用 */
+.pic-center640new {width:  640px; text-align:center; margin-left:auto; margin-right:auto; } /* 多くのページで使用 */
+.pic-right640new  {width:  640px; text-align:right;  margin-left:auto;                    } /* 多くのページで使用 */
+.pic-left720   {width:  720px; text-align:left;                     margin-right:auto; } /* 4S Bakersfield, mokuren */
+.pic-center720 {width:  720px; text-align:center; margin-left:auto; margin-right:auto; } /* 多くのページで使用 */
+.pic-right720  {width:  720px; text-align:right;  margin-left:auto;                    } /* 4S mokuren, SC Tuamotu A Rangiroa */
+.pic-center720new {width:  720px; text-align:center; margin-left:auto; margin-right:auto; } /* 多くのページで使用 */
+.pic-right720new  {width:  720px; text-align:right;  margin-left:auto;                    } /* 4S mokuren, SC Tuamotu A Rangiroa */
+.pic-left760   {width:  760px; text-align:left;                     margin-right:auto; } /* 多くのページで使用 */
+.pic-center760 {width:  760px; text-align:center; margin-left:auto; margin-right:auto; }
+.pic-right760  {width:  760px; text-align:right;  margin-left:auto;                    }
+.pic-left800   {width:  800px; text-align:left;                     margin-right:auto; } /* 多くのページで使用 */
+.pic-center800 {width:  800px; text-align:center; margin-left:auto; margin-right:auto; } /* 多くのページで使用 */
+.pic-right800  {width:  800px; text-align:right;  margin-left:auto;                    } /* 多くのページで使用 */
+.pic-center800new {width:  800px; text-align:center; margin-left:auto; margin-right:auto; } /* 多くのページで使用 */
+.pic-right800new  {width:  800px; text-align:right;  margin-left:auto;                    } /* 多くのページで使用 */
+.pic-left840   {width:  840px; text-align:left;                     margin-right:auto; } /* 多くのページで使用 */
+.pic-center840 {width:  840px; text-align:center; margin-left:auto; margin-right:auto; } /* SC Tuamotu Top */
+.pic-right840  {width:  840px; text-align:right;  margin-left:auto;                    }
+.pic-left880   {width:  880px; text-align:left;                     margin-right:auto; } /* 多くのページで使用 */
+.pic-center880 {width:  880px; text-align:center; margin-left:auto; margin-right:auto; } /* 多くのページで使用 */
+.pic-right880  {width:  880px; text-align:right;  margin-left:auto;                    } /* SC Tuamotu E Amanu */
+.pic-center880new {width:  880px; text-align:center; margin-left:auto; margin-right:auto; } /* 多くのページで使用 */
+.pic-right880new  {width:  880px; text-align:right;  margin-left:auto;                    } /* SC Tuamotu E Amanu */
+.pic-left920   {width:  920px; text-align:left;                     margin-right:auto; } /* 多くのページで使用 */
+.pic-center920 {width:  920px; text-align:center; margin-left:auto; margin-right:auto; } /* 4S Urashima, SC Tuamotu A Arutua */
+.pic-center920new {width:  920px; text-align:center; margin-left:auto; margin-right:auto; } /* 4S Urashima, SC Tuamotu A Arutua */
+.pic-right920  {width:  920px; text-align:right;  margin-left:auto;                    }
+.pic-left960   {width:  960px; text-align:left;                     margin-right:auto; } /* 多くのページで使用 */
+
+.pic-center960 {width:  960px; text-align:center; margin-left:auto; margin-right:auto; } /* 4S Benishijimi */
+.pic-right960  {width:  960px; text-align:right;  margin-left:auto;                    }
+.pic-left990   {width:  990px; text-align:left;                     margin-right:auto; } /* 多くのページで使用 */
+.pic-center990 {width:  990px; text-align:center; margin-left:auto; margin-right:auto; } /* 4S mokuren */
+.pic-right990  {width:  990px; text-align:right;  margin-left:auto;                    }
+.pic-left1024  {width: 1024px; text-align:left;                     margin-right:auto; }
+.pic-center1024{width: 1024px; text-align:center; margin-left:auto; margin-right:auto; } /* 4S Benishijimi */
+.pic-right1024 {width: 1024px; text-align:right;  margin-left:auto;                    }
+
+
+.pic-center320new {
+    max-width: 320px;
+    text-align:center;
+    margin-right:auto;
+}
+.pic-left480new {
+    max-width: 100%;
+    text-align:left;
+    margin-right:auto;
+}
+.pic-center480new {
+    max-width: 100%;
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+}
+.pic-right480new {
+    max-width: 100%;
+    text-align:right;
+    margin-left:auto;
+    margin-right:5%;
+}
+.pic-left420 {
+    max-width: 100%;
+    text-align:left;
+    margin-right:auto;
+}
+.pic-left400 {
+    max-width: 100%;
+    text-align:left;
+    margin-right:auto;
+}
+
+/*==============
+ *** header ***
+==============*/
+
+.header_label960   {
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
     text-align: left;
-    margin:  0   0    0 0; 
-    padding: 5px 0px 5px 0px; 
+/*    background-color: #f0f0f0;*/
+    border: 0px solid #FF9900;
+}
+.header_label920   {
+    width: 920px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+/*    background-color: #f0f0f0;*/
+    border: 0px solid #FF9900;
+}
+.header_label800   {
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+/*    background-color: #f0f0f0;*/
+    border: 0px solid #FF9900;
+}
+.header_label480   {
+    max-width: 100%;
+    text-align: left;
+    background-color: #f0f0f0;
+    border: 0px solid #FF9900;
+/*    border-radius: 10px;*/
+    padding: 2px 0px 2px  10px;
+}
+.header_label420   {
+    max-width: 100%;
+    text-align: center;
+/*    background-color: #f0f0f0;*/
+    border: 0px solid #FF9900;
+    padding: 2px 0px 2px  10px;
+}
+.header_label400   {
+    max-width: 100%;
+    text-align: left;
+/*    background-color: #f0f0f0;*/
+    border: 0px solid #FF9900;
+    padding: 2px 0px 2px  10px;
 }
 
-/*    ----------------- 
-        ** sandbox css ** 
-        ----------------- 
+/*----------------
+ ** navigation **
+----------------*/
+/*    navbox    */
+/*
+div.navbox {
+    padding: 0 0 1px 0;
+    margin: 0;
+    background: #f0f0f0;
+
+    position: fixed;   /* 画面に固定 *//*
+    top: 0;            /* 画面の上端に配置 *//*
+    left: 0;           /* 左端に配置 *//*
+    width: 100%;       /* 横幅いっぱいにする *//*
+    z-index: 1000;     /* 他の要素より前面に *//*
+}
 */
+div.navbox {
+    padding: 0 0 1px 0;
+    margin: 0;
+    background: #f0f0f0;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+}
+/* スクロール無しの固定ページ用 */
+div.navbox2{
+    padding: 0 0  1px 0;
+    margin:  0;
+    background: #f0f0f0;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+}
+
+/*    logo      */
+.logo_img{
+    float: left;
+    text-align: left;
+    margin:  0   0   0   20px;
+    padding: 5px 0px 5px  0px;
+}
+
+.logo_pic{
+    text-align: left;
+    padding: 2px 0px 2px  10px;
+}
+
+/*-----------------
+ ** sandbox css **
+-----------------*/
+/*
 ul.menu {font-family: serif; font-size: 95%}
 ul.menu {list-style:none; margin:0; padding:0}
 ul.menu * {margin:0; padding:0}
 ul.menu a {display:block; color:#666; text-decoration:none}
 ul.menu li {position:relative; float:left; margin-right:2px}
 /*ul.menu li.about {position:relative; float:right; margin-right:2px}*/
+/*
 ul.menu ul {position:absolute; top:26px; left:0; background:#d1d1d1; display:none; opacity:0; list-style:none}
 ul.menu ul li {position:relative; border:1px solid #fff; border-top:none; width:108px; margin:0 0 0 -1px}
 ul.menu ul li a {display:block; padding:3px 7px 5px; background-color:#d1d1d1}
@@ -150,214 +468,183 @@ ul.menu .menulink {border:0px solid #666; padding:4px 7px 2px; font-weight:mediu
 ul.menu .menulink:hover, ul.menu .menuhover {color: #f00; background:#d0d0d0}
 ul.menu .sub {text-align: left; background:#d1d1d1; width:98px}
 ul.menu .topline {border-top:1px solid #666}
-/*
-ul.menu_en {font-family: serif; font-size: 95%}
-ul.menu_en {list-style:none; margin:0; padding:0}
-ul.menu_en * {margin:0; padding:0}
-ul.menu_en a {display:block; color:#666; text-decoration:none}
-ul.menu_en li {position:relative; float:left; margin-right:2px}
 */
-/*ul.menu_en li.about {position:relative; float:right; margin-right:2px}*/
-/*
-ul.menu_en ul {position:absolute; top:26px; left:0; background:#d1d1d1; display:none; opacity:0; list-style:none}
-ul.menu_en ul li {position:relative; border:1px solid #fff; border-top:none; width:108px; margin:0 0 0 -1px}
-ul.menu_en ul li a {display:block; padding:3px 7px 5px; background-color:#d1d1d1}
-ul.menu_en ul li a:hover {color: #f00; background-color:#c5c5c5}
-ul.menu_en ul ul {left:108px; top:-1px}
-ul.menu_en .menulink {border:0px solid #666; padding:4px 7px 2px; font-weight:medium; background:none; width:98px}
-ul.menu_en .menulink:hover, ul.menu .menuhover {color: #f00; background:#d0d0d0}
-ul.menu_en .sub {text-align: left; background:#d1d1d1; width:98px}
-ul.menu_en .topline {border-top:1px solid #666}
-*/
+/*ul.menu {font-family:12px serif;}*/
 
-/*    ============== 
-        *** footer *** 
-        ============== 
-*/
+ul.menu {font-family: serif; font-size: 95%}
+ul.menu {list-style:none; margin:0; padding:0}
+ul.menu * {margin:0; padding:0}
+ul.menu a {display:block; color:#aaa; text-decoration:none}
+ul.menu li {position:relative; float:left; margin-right:2px}
+ul.menu li.about {position:relative; float:right; margin-right:2px}
+ul.menu ul {position:absolute; top:26px; left:0; background:#d1d1d1; display:none; opacity:0; list-style:none}
+ul.menu ul li {position:relative; border:1px solid #fff; border-top:none; width:108px; margin:0 0 0 -1px}
+ul.menu ul li a {display:block; padding:3px 7px 5px; background-color:#d1d1d1}
+ul.menu ul li a:hover {color: #f00; background-color:#c5c5c5}
+ul.menu ul ul {left:108px; top:-1px}
+ul.menu .menulink {border:0px solid #aaa; padding:4px 7px 2px; font-weight:medium; background:none; width:98px}
+ul.menu .menulink:hover, ul.menu .menuhover {color: #f00; background:#d0d0d0}
+/*ul.menu .sub {text-align: left; background:#d1d1d1; width:98px}*/
+ul.menu .topline {border-top:1px solid #aaa}
+
+/*==============
+ *** footer ***
+==============*/
+.footer_labelPC {
+    font-size: small;
+    font-weight: normal;
+    color: gray;
+    background-color: #000;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 5px;
+}
+.footer_label960 {
+    width: 960px;
+    font-size: small;
+    font-weight: normal;
+    color: gray;
+    background-color: #000;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 5px;
+}
 .footer_label920 {
     width: 920px;
-    font-size: small; 
-    font-weight: normal; 
-    color: gray; 
+    font-size: small;
+    font-weight: normal;
+    color: gray;
     background-color: #000;
-    margin: 0 auto; 
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 5px;
+}
+.footer_label800 {
+    width: 800px;
+    font-size: small;
+    font-weight: normal;
+    color: gray;
+    background-color: #000;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 5px;
+}
+.footer_label480 {
+    max-width: 100%;
+    font-size: small;
+    font-weight: normal;
+    color: gray;
+    background-color: #000;
     text-align: center;
     padding-top: 5px;
 }
 .footer_label420 {
-    max-width: 100%; 
-    font-size: small; 
-    font-weight: normal; 
-    color: gray; 
+    max-width: 100%;
+    font-size: small;
+    font-weight: normal;
+    color: gray;
     background-color: #000;
     text-align: center;
     padding-top: 5px;
 }
 .footer_label400 {
-    max-width: 100%; 
-    font-size: small; 
-    font-weight: normal; 
-    color: gray; 
+    max-width: 100%;
+    font-size: small;
+    font-weight: normal;
+    color: gray;
     background-color: #000;
     text-align: center;
     padding-top: 5px;
 }
 
-/* horizontal partition 
-*/
+/* horizontal partition */
 hr#footer {
-    width: 70%; height: 2px; 
-    border:none; 
-    background-color: #aaa; 
-    margin: 0px auto; 
+    width: 70%; height: 2px;
+    border:none;
+    background-color: #aaa;
+    margin: 0px auto;
     text-align:center;
 }
 
 hr#footer2 {
-    height: 2px; 
-    border:none; 
-    background-color: #aaa; 
-    margin: 0px auto; 
+    height: 2px;
+    border:none;
+    background-color: #aaa;
+    margin: 0px auto;
     text-align:center;
 }
-/* select button 
-*/
+/* select button */
 p#footer {
-    display: inline-block; 
-    * display: inline; 
-    * zoom: 1; 
-    padding: 10px 15px 15px 15px; 
+    display: inline-block;
+    * display: inline;
+    * zoom: 1;
+    padding: 10px 15px 15px 15px;
     margin:  0;
 }
-/* footer label 
-*/
+/* footer label */
 div#footer_label {
-    font-size: small; 
-    font-weight: normal; 
-    color: gray; 
+    font-size: small;
+    font-weight: normal;
+    color: gray;
     background-color: #000;
-    margin: 0 auto; 
+    margin: 0 auto;
     text-align: center;
     padding-top: 5px;
 }
 
 
+/*=================
+ *** page main ***
+=================*/
 
-/*    ================= 
-        *** page main *** 
-        ================= 
-*/
+/*-----------
+ ** title **
+-----------*/
 
-/*    -------------------- 
-        ** 全体サイズ指定 ** 
-        -------------------- 
-*/
-div#main     {                margin-left: auto;  margin-right: auto; text-align: center; border: 0px solid #FF9900;}
-div#main480  { width: 480px;  margin-left: auto;  margin-right: auto; text-align: center; border: 0px solid #FF9900;}
-div#main720  { width: 720px;  margin-left: auto;  margin-right: auto; text-align: center; border: 0px solid #009900;}
-div#main760  { width: 760px;  margin-left: auto;  margin-right: auto; text-align: center; border: 0px solid #FF9900;}
-div#main800  { width: 800px;  margin-left: auto;  margin-right: auto; text-align: center; border: 0px solid #FF9900;}
-div#main880  { width: 880px;  margin-left: auto;  margin-right: auto; text-align: center; border: 0px solid #FF9900;}
-div#main920  { width: 920px;  margin-left: auto;  margin-right: auto; text-align: center; border: 0px solid #FF9900;}
-div#main960  { width: 960px;  margin-left: auto;  margin-right: auto; text-align: center; border: 0px solid #FF9900;}
-div#main990  { width: 990px;  margin-left: auto;  margin-right: auto; text-align: center; border: 0px solid #FF9900;}
-div#main1024 { width: 1024px; margin-left: auto;  margin-right: auto; text-align: center; border: 0px solid #FF9900;}
-div#main1280 { width: 1280px; margin-left: auto;  margin-right: auto; text-align: center; border: 0px solid #FF9900;}
+/* タイトル欄と本文との空きの指定 */
+div#title50 { margin-left:auto; margin-right:auto; margin-bottom:50px; text-align:center; }
+/*div#title40 { margin-left:auto; margin-right:auto; margin-top:40px; margin-bottom:40px; text-align:center; }*/
+div#title40 { margin-left:auto; margin-right:auto; margin-bottom:40px; text-align:center; }
+div#title30 { margin-left:auto; margin-right:auto; margin-bottom:30px; text-align:center; }
+div#title20 { margin-left:auto; margin-right:auto; margin-bottom:20px; text-align:center; }
+div#title20new { margin-left:auto; margin-right:auto; margin-top:20px; margin-bottom:20px; text-align:center; }
+div#title15 { margin-left:auto; margin-right:auto; margin-bottom:15px; text-align:center; }
+div#title10 { margin-left:auto; margin-right:auto; margin-bottom:10px; text-align:center; }
 
+/*    head logo とgroup or main-titleとの空きの指定 */
+p#head   { margin-top: 10px; margin-bottom: 0px;}
+p#head5  { margin-top: 10px; margin-bottom: 5px;}
+p#head10 { margin-top: 10px; margin-bottom: 10px;}
+p#head15 { margin-top: 10px; margin-bottom: 15px;}
+p#head20 { margin-top: 10px; margin-bottom: 20px;}
+p#head25 { margin-top: 10px; margin-bottom: 25px;}
+p#head30 { margin-top: 10px; margin-bottom: 30px;}
 
-/* horizontal partition
-*/
-hr.main {   width: 70%; height: 2px; border:none; background-color: #aaa; margin: 0px auto  0px auto;}
-hr.main720 {width: 70%; height: 2px; border:none; background-color: #aaa; margin: 0px auto  0px auto;}
-hr.main800 {width: 70%; height: 2px; border:none; background-color: #aaa; margin: 0px auto  0px auto;}
-hr.main990 {width: 70%; height: 2px; border:none; background-color: #aaa; margin: 0px auto 20px auto;}
-
-/*    picture と その下にテキスト(自由な位置に配置したい)を含むボックスの配置 
-*/
-.pic-center320 {width:  320px; text-align:center; margin-left:auto; margin-right:auto; } /* Takeoff !? ... wow */
-.pic-left480   {width:  480px; text-align:left;                     margin-right:auto; } /* MM_Ayutthaya */
-.pic-center480 {width:  480px; text-align:center; margin-left:auto; margin-right:auto; } 
-.pic-right480  {width:  480px; text-align:right;  margin-left:auto;                    } /* 4S_TAKEOKA */
-.pic-left640   {width:  640px; text-align:left;                     margin-right:auto; } /* 多くのページで使用 */
-.pic-center640 {width:  640px; text-align:center; margin-left:auto; margin-right:auto; } /* 多くのページで使用 */
-.pic-right640  {width:  640px; text-align:right;  margin-left:auto;                    } /* 多くのページで使用 */
-.pic-left720   {width:  720px; text-align:left;                     margin-right:auto; } /* 4S Bakersfield, mokuren */
-.pic-center720 {width:  720px; text-align:center; margin-left:auto; margin-right:auto; } /* 多くのページで使用 */
-.pic-right720  {width:  720px; text-align:right;  margin-left:auto;                    } /* 4S mokuren, SC Tuamotu A Rangiroa */
-.pic-left760   {width:  760px; text-align:left;                     margin-right:auto; } /* 多くのページで使用 */
-.pic-center760 {width:  760px; text-align:center; margin-left:auto; margin-right:auto; } 
-.pic-right760  {width:  760px; text-align:right;  margin-left:auto;                    } 
-.pic-left800   {width:  800px; text-align:left;                     margin-right:auto; } /* 多くのページで使用 */
-.pic-center800 {width:  800px; text-align:center; margin-left:auto; margin-right:auto; } /* 多くのページで使用 */
-.pic-right800  {width:  800px; text-align:right;  margin-left:auto;                    } /* 多くのページで使用 */
-.pic-left840   {width:  840px; text-align:left;                     margin-right:auto; } /* 多くのページで使用 */
-.pic-center840 {width:  840px; text-align:center; margin-left:auto; margin-right:auto; } /* SC Tuamotu Top */
-.pic-right840  {width:  840px; text-align:right;  margin-left:auto;                    } 
-.pic-left880   {width:  880px; text-align:left;                     margin-right:auto; } /* 多くのページで使用 */
-.pic-center880 {width:  880px; text-align:center; margin-left:auto; margin-right:auto; } /* 多くのページで使用 */
-.pic-right880  {width:  880px; text-align:right;  margin-left:auto;                    } /* SC Tuamotu E Amanu */
-.pic-left920   {width:  920px; text-align:left;                     margin-right:auto; } /* 多くのページで使用 */
-.pic-center920 {width:  920px; text-align:center; margin-left:auto; margin-right:auto; } /* 4S Urashima, SC Tuamotu A Arutua */
-.pic-right920  {width:  920px; text-align:right;  margin-left:auto;                    } 
-.pic-left960   {width:  960px; text-align:left;                     margin-right:auto; } /* 多くのページで使用 */
-.pic-center960 {width:  960px; text-align:center; margin-left:auto; margin-right:auto; } /* 4S Benishijimi */
-.pic-right960  {width:  960px; text-align:right;  margin-left:auto;                    } 
-.pic-left990   {width:  990px; text-align:left;                     margin-right:auto; } /* 多くのページで使用 */
-.pic-center990 {width:  990px; text-align:center; margin-left:auto; margin-right:auto; } /* 4S mokuren */
-.pic-right990  {width:  990px; text-align:right;  margin-left:auto;                    } 
-.pic-left1024  {width: 1024px; text-align:left;                     margin-right:auto; } 
-.pic-center1024{width: 1024px; text-align:center; margin-left:auto; margin-right:auto; } /* 4S Benishijimi */
-.pic-right1024 {width: 1024px; text-align:right;  margin-left:auto;                    } 
-
-
-/*    ----------- 
-        ** title ** 
-        ----------- 
-*/
-
-/* タイトル欄と本文との空きの指定
-*/
-div#title50 { margin-left:auto; margin-right:auto; margin-bottom:50px; text-align:center; } 
-div#title40 { margin-left:auto; margin-right:auto; margin-bottom:40px; text-align:center; } 
-div#title30 { margin-left:auto; margin-right:auto; margin-bottom:30px; text-align:center; } 
-div#title20 { margin-left:auto; margin-right:auto; margin-bottom:20px; text-align:center; } 
-div#title15 { margin-left:auto; margin-right:auto; margin-bottom:15px; text-align:center; } 
-div#title10 { margin-left:auto; margin-right:auto; margin-bottom:10px; text-align:center; } 
-
-/*    head logo とgroup or main-titleとの空きの指定
-*/
-p#head   { margin-top: 5px; margin-bottom: 0px;} 
-p#head5  { margin-top: 5px; margin-bottom: 5px;} 
-p#head10 { margin-top: 5px; margin-bottom: 10px;} 
-p#head15 { margin-top: 5px; margin-bottom: 15px;} 
-p#head20 { margin-top: 5px; margin-bottom: 20px;} 
-p#head25 { margin-top: 5px; margin-bottom: 25px;} 
-p#head30 { margin-top: 5px; margin-bottom: 30px;} 
-
-/*    group の font と main-title との空きの指定 
-*/
-h2#group-4S10  { font-size: 120%; font-weight: bold; color: #6b8e23; padding-bottom: 10px;} 
-h2#group-4S15  { font-size: 120%; font-weight: bold; color: #6b8e23; padding-bottom: 15px;} 
-h2#group-MM10j { font-size: 105%; font-weight: bold; color: #9999aa; padding-bottom: 10px;} 
-h2#group-MM15j { font-size: 105%; font-weight: bold; color: #9999aa; padding-bottom: 15px;} 
-h2#group-MM15e { font-size: 110%; font-weight: bold; color: #9999aa; padding-bottom: 15px;} 
-h2#group-SS    { font-size: 110%; font-weight: bold; color: #9999aa; padding-bottom: 10px;} 
-h2#group-UF    { font-size: 105%; font-weight: bold; color: #9999cc; padding-bottom: 10px;} 
-h2#group-UFe   { font-size: 120%; font-weight: bold; color: #ea9c00; padding-bottom: 5px;} 
+/*    group の font と main-title との空きの指定    */
+h2#group-4S10  { font-size: 120%; font-weight: bold; color: #6b8e23; padding-bottom: 10px;}
+h2#group-4S15  { font-size: 120%; font-weight: bold; color: #6b8e23; padding-bottom: 15px;}
+h2#group-4S10SP  { font-size: 110%; font-weight: bold; color: #6b8e23; padding-bottom: 10px;}
+h2#group-4S15SP  { font-size: 110%; font-weight: bold; color: #6b8e23; padding-bottom: 15px;}
+h2#group-MM10j { font-size: 105%; font-weight: bold; color: #9999aa; padding-bottom: 10px;}
+h2#group-MM15j { font-size: 105%; font-weight: bold; color: #9999aa; padding-bottom: 15px;}
+h2#group-MM15e { font-size: 110%; font-weight: bold; color: #9999aa; padding-bottom: 15px;}
+h2#group-SS    { font-size: 110%; font-weight: bold; color: #9999aa; padding-bottom: 10px;}
+h2#group-UF    { font-size: 105%; font-weight: bold; color: #9999cc; padding-bottom: 10px;}
+h2#group-UFe   { font-size: 120%; font-weight: bold; color: #ea9c00; padding-bottom: 5px;}
 h2#group-FPT   { font-size: 120%; font-weight: bold; padding-bottom: 10px;} /* French Polynesia Tuamotu */
 p#group-FPTG { font-size: medium; font-weight: bold; padding-bottom: 20px;} /* French Polynesia Tuamotu Group letter */
 h2#group-CO    { font-size: 120%; font-weight: bold;} /* Clinical Optics */
+h3#group-MM10j { font-size: 95%; font-weight: bold; color: #9999aa; padding-bottom: 10px;}
 
-/*    main-title の font と author or sub taitle との空きの指定
-*/
+/*    main-title の font と author or sub taitle との空きの指定   */
     /* IMG */
 h1#top-page-logo { padding-top: 10px; margin-bottom: 20px;} /* for ls & sc top page  head-logoなし */
-h1#main-logo   { margin-top: 0px; margin-bottom: 0px;} 
-h1#main-logo5  { margin-top: 0px; margin-bottom: 5px;} 
-h1#main-logo10 { margin-top: 0px; margin-bottom: 10px;} 
-h1#main-logo15 { margin-top: 0px; margin-bottom: 15px;} 
-h1#main-logo20 { margin-top: 0px; margin-bottom: 20px;} 
-h1#main-logo25 { margin-top: 0px; margin-bottom: 25px;} 
+h1#main-logo   { margin-top: 0px; margin-bottom: 0px;}
+h1#main-logo5  { margin-top: 0px; margin-bottom: 5px;}
+h1#main-logo10 { margin-top: 0px; margin-bottom: 10px;}
+h1#main-logo15 { margin-top: 0px; margin-bottom: 15px;}
+h1#main-logo20 { margin-top: 0px; margin-bottom: 20px;}
+h1#main-logo25 { margin-top: 0px; margin-bottom: 25px;}
     /* text */
         /* author sub-title なし */
 h1#main_E      { font-size: 225%; font-weight: bold;} /* Photo Story 3 */
@@ -366,95 +653,280 @@ h1#main_fs_E   { font-size: 180%; font-weight: bold;} /* Tuamotu Top & Each Isla
 h1#main_fss_E  { font-size: 160%; font-weight: bold;} /* What's New, Links, Scenery Get, Tuamotu Group Top, butterfly location, SC Rangiroa LeeWard */
 h1#main_fs120E { font-size: 120%; font-weight: bold;} /* Adriano, Clinical Optics */
         /* author sub-title あり */
-h1#main        { font-size: 225%; font-weight: bold; padding-bottom: 15px;} 
-h1#main_fm     { font-size: 200%; font-weight: bold; padding-bottom: 15px;} 
-h1#main_fs     { font-size: 180%; font-weight: bold; padding-bottom: 15px;} 
+h1#main        { font-size: 225%; font-weight: bold; padding-bottom: 15px;}
+h1#main_fm     { font-size: 200%; font-weight: bold; padding-bottom: 15px;}
+h1#main_fs     { font-size: 180%; font-weight: bold; padding-bottom: 15px;}
+h1#main_fs, h1#main_4S     { font-size: 180%; font-weight: bold; padding-bottom: 15px;}
 h1#main_fss    { font-size: 160%; font-weight: bold; padding-bottom: 15px;} /* Ufufu Hokuro */
 h1#main_fssSC  { font-size: 160%; font-weight: bold; padding-bottom: 25px;} /* Aqua old, fat Raiatea, original Tahaa */
 h1#main_fs120  { font-size: 120%; font-weight: bold; padding-bottom: 15px;} /* Clinical Optics */
 
-/*    sub-title の font 指定
-*/
-p#top-page-explanation { font-size: 95%; font-weight: bold;} /* for ls & sc top page */
+/*************************/
+/*    PC・SP 切り替え    */
+/*************************/
+/*    header の アイコン・ロゴ サイズ指定    */
+/* header */
+div#header_PC {
+}
+div#header_SP {
+}
+/* デフォルトでは両方非表示にしておく */
+#header_PC {
+    display: none;
+}
+#header_SP {
+    display: none;
+}
+
+/* Pretty Phot */
+div.prettyP_PC {
+}
+div.prettyP_SP {
+}
+/* デフォルトでは非表示にしておく */
+.prettyP_PC,
+.prettyP_SP {
+    display: none;
+}
+
+.header_labelPC {
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #f0f0f0;
+/*    background: linear-gradient(#f0f0f0, #ffffff, #f0f0f0);*/
+/*    border: 0px solid #FF9900;*/
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+    text-align: left;
+    padding: 2px 0px 2px  0px;
+}
+.header_labelSP {
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #f0f0f0;
+    border: 0px solid #FF9900;
+/*    border: 1px solid #cccccc;*/
+/*    border-radius: 6px;*/
+    text-align: left;
+    padding: 2px 0px 2px  0px;
+}
+
+/*    sub-title の font 指定    */
+/* sub-title */
+p#top-page-explanation_PC {  /* for ls & sc top page */
+    font-size: 95%;
+    font-weight: bold;
+}
+p#top-page-explanation_SP {  /* for ls & sc top page */
+    font-size: 95%;
+    font-weight: bold;
+    text-align: left;
+}
+
+/* デフォルトでは両方非表示にしておく */
+#top-page-explanation_PC,
+#top-page-explanation_SP {
+    display: none;
+}
+
+/* PC向け（幅が770px以上の画面）ではPC用説明を表示 */
+@media screen and (min-width: 769px) {
+    #header_PC {
+        display: block;
+    }
+    #top-page-explanation_PC {
+        display: block;
+   }
+    .prettyP_PC {
+        display: block;
+    }
+}
+
+/* スマホ向け（幅が770px未満の画面）ではSP用説明を表示 */
+@media screen and (max-width: 768px) {
+    #header_SP {
+        display: block;
+    }
+    #top-page-explanation_SP {
+        display: block;
+   }
+    .prettyP_SP {
+        display: block;
+    }
+}
+
 h2#sub-SC { font-size: 90%; font-weight: bold;} /* e_Aqua old, e_fat Raiatea, e_original Tahaa */
 h2#sub-SC2 { font-size: 100%; font-weight: bold;} /* j_Aqua old, j_fat Raiatea, j_original Tahaa */
 h2#sub-SC3 { font-size: medium; font-weight: bold;} /* e_terrain */
 
-/*    author の font 指定
-*/
-p#author { font-size: 105%; font-weight: bold; color: #9999aa;} 
+/*    author の font 指定    */
+p#author { font-size: 105%; font-weight: bold; color: #9999aa;}
 
-/*    ------------------------------ 
-        ** main layout each content ** 
-        ------------------------------ 
-*/
-/*    水平方向のサイズ
-*/
+/*------------------------------
+ ** main layout each content **
+------------------------------*/
+/*    水平方向のサイズ    */
 .w100 {width: 100px;}
 .w512 {width: 512px;}
 
 
-/* independent columns for suiboku 4S-urashima mokuren 
-*/
+/* independent columns for suiboku 4S-urashima mokuren */
 .contents-col {display: inline-block; * display: inline; * zoom: 1; vertical-align: middle;}
 
-/* 3 columns for What's New 
-*/
-.contents-col_top_l {width: 100px; display: inline-block; * display: inline; * zoom: 1; vertical-align: top;}
-.contents-col_top_c {              display: inline-block; * display: inline; * zoom: 1; vertical-align: middle; 
+
+.flex{
+    display: flex;
+}
+.flx_itemL{
+    width:80px;
+}
+.flx_itemC{
+    width:20px;
+}
+.flx_itemR960{
+    width:840px;
+}
+.flx_itemR480{
+    width:280px;
+}
+
+
+.flex2{
+    display: flex;
+}
+.flx2_itemL{
+    width:310px;
+    font-size:140%;
+    font-weight:bold;
+    margin-left:5px;
+}
+.flx2_itemL2{
+    width:310px;
+    font-size:120%;
+    font-weight:bold;
+    margin-left:5px;
+}
+.flx2_itemC{
+    width:100px;
+    padding-top:25px;
+}
+.flx2_itemR960{
+    width:840px;
+}
+.flx2_itemR480{
+    width:280px;
+}
+
+
+/* 3 columns for What's New */
+.contents-col_top_l {width: 100px; display: inline-block; * display: inline; * zoom: 1;  vertical-align: top;}
+.contents-col_top_c {              display: inline-block; * display: inline; * zoom: 1;  vertical-align: middle;
     font-size: small;
     font-weight: bold;
     padding-right: 8px;
 }
 .contents-col_top_r {width: 780px; display: inline-block; * display: inline; * zoom: 1; vertical-align: top;}
 
-/* 3 columns for sc_Tuamotu Group Top, Each Island
-*/
+.contents-col_top_l960 {width: 100px; display: inline-block; vertical-align: top;}
+.contents-col_top_c960 {width:  25px; display: inline-block;  vertical-align: middle;
+    font-size: small;
+    font-weight: bold;
+    padding-right: 8px;
+}
+.contents-col_top_r960 {width: 780px; display: inline-block; vertical-align: top;}
+
+.contents-col_top_l480 {width: 100px; display: inline-block;}
+.contents-col_top_c480 {width:  25px; display: inline-block;
+    font-size: small;
+    font-weight: bold;
+    padding-right: 8px;
+}
+.contents-col_top_r480 {width: 100%; display: inline-block;}
+
+/* 3 columns for sc_Tuamotu Group Top, Each Island */
     /* left, right side == common Group Top, Each Island == */
 .contents-col_256   {width: 256px; display: inline-block; * display: inline; * zoom: 1; vertical-align: middle;}
 
     /* center only Group Top */
-.contents-col-c_398 {width: 398px; display: inline-block; * display: inline; * zoom: 1; vertical-align: middle; 
+.contents-col-c_398 {width: 398px; display: inline-block; * display: inline; * zoom: 1; vertical-align: middle;
     margin-left: 10px;     /* exception - Group E - marokau Ravahere */
 }
-.contents-col-c_416 {width: 416px; display: inline-block; * display: inline; * zoom: 1; vertical-align: middle; 
+.contents-col-c_416 {
+    max-width: 416px;
+    display: inline-block;
+    * display: inline;
+    * zoom: 1;
+    vertical-align: middle;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.contents-col-c_416_SP {
+    max-width: 100%;
+    display: inline-block;
+    * display: inline; 
+    * zoom: 1; 
+    vertical-align: middle;
     margin-left: 10px;
     margin-right: 10px;
 }
     /* center only Each Island */
-.contents-col-c_178 {width: 178px; display: inline-block; * display: inline; * zoom: 1; vertical-align: middle; 
+.contents-col-c_178 {width: 178px; display: inline-block; * display: inline; * zoom: 1; vertical-align: middle;
     margin-left: 10px;
     margin-right: 10px;
 }
+.contents-col-c_178_SP {
+    max-width: 100%;
+    display: inline-block;
+    * display: inline;
+    * zoom: 1;
+    vertical-align: middle;
+    margin-left: 10px;
+    margin-right: 10px
+}
 
-    /** Contents 2 column **/
+ /*** Contents 2 column ***/
 
-    /** contents-2col-left **/
-.contents-2col-left {                   display: inline-block; * display: inline; * zoom: 1; vertical-align: middle; 
+/** contents-2col-left **/
+.contents-2col-left {                   display: inline-block; * display: inline; * zoom: 1; vertical-align: middle;
     padding-right: 20px;
 }
-    /** contents-2col-left Link **/
-.contents-2col-left_link {width: 256px; display: inline-block; * display: inline; * zoom: 1; vertical-align: middle; 
+.contents-2col-left920 {                display: inline-block; * display: inline; * zoom: 1; vertical-align: middle;
+    padding-right: 20px;
+}
+.contents-2col-left960 {                display: inline-block; * display: inline; * zoom: 1; vertical-align: middle;
+    padding-right: 20px;
+}
+.contents-2col-left480 {                display: inline-block; * display: inline; * zoom: 1; vertical-align: middle;
+    padding-right: 20px;
+}
+.contents-2col-left400 {                display: inline-block; * display: inline; * zoom: 1; vertical-align: middle;
+    padding-right: 20px;
+}
+.contents-2col-left_SS {width: 150px;   display: inline-block; * display: inline; * zoom: 1; vertical-align: middle;
+    padding-right: auto;
+}
+/** contents-2col-left Link **/
+.contents-2col-left_link {width: 256px; display: inline-block; * display: inline; * zoom: 1; vertical-align: middle;
     padding: 10px;
     border: 0px solid #cccc00;
     background-color: #fff;
 }
 
-    /** contents-2col-left_524 **/
-.contents-2col-left_518 {width: 518px; display: inline-block; * display: inline; * zoom: 1; vertical-align: middle; 
+/** contents-2col-left_524 **/
+.contents-2col-left_518 {width: 518px; display: inline-block; * display: inline; * zoom: 1; vertical-align: middle;
     margin-right: 20px;
     border: 0px solid #cccc00;
 }
 
-    /** contents-2col-right **/
+/** contents-2col-right **/
 .contents-2col-right {                  display: inline-block; * display: inline; * zoom: 1; vertical-align: middle;}
     /** contents-2col-right_top Tuamotu Niau**/
 .contents-2col-right_top {              display: inline-block; * display: inline; * zoom: 1; vertical-align: top;}
     /** Sea World top 4 column 2nd, 4th text **/
 .contents-2col-right_SW { width: 170px; display: inline-block; * display: inline; * zoom: 1; vertical-align: bottom;}
     /** SS Shafter2003 Edwards 4 column 2nd, 4th text **/
-.contents-2col-right_SS { width: 170px; display: inline-block; * display: inline; * zoom: 1; vertical-align: top; 
-    margin-top: 40px;
+.contents-2col-right_SS { width: 170px; display: inline-block; * display: inline; * zoom: 1; vertical-align: middle;
+    /*margin-top: 40px;*/
 }
     /** SC TBS 2k5 **/
 .contents-2col-right_TBS {width: 414px; display: inline-block; * display: inline; * zoom: 1; vertical-align: middle;}
@@ -471,11 +943,60 @@ p#author { font-size: 105%; font-weight: bold; color: #9999aa;}
 .contents-2col-right960 { width: 668px; display: inline-block; * display: inline; * zoom: 1; vertical-align: middle;}
 .contents-2col-right990 { width: 700px; display: inline-block; * display: inline; * zoom: 1; vertical-align: middle;}
 
-.page-top {        margin-left: auto; text-align: right; font-size: small; font-weight: bold; 
+.contents-2col-right400 {               display: inline-block; * display: inline; * zoom: 1; vertical-align: middle;}
+.contents-2col-right480 {               display: inline-block; * display: inline; * zoom: 1; vertical-align: middle;}
+
+
+.contents-2col-right480 {
+    width: 100%;
+    display: block;
+}
+
+/*** contents-3col ***/
+
+.contents-3col-left960 {
+    width: 270px;
+    display: inline-block;
+    vertical-align: top;
+}
+.contents-3col-middle960 {
+    width: 150px;
+    display: inline-block;
+    padding-top: 50px;
+}
+.contents-3col-right960 {
+    width: 530px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.contents-3col-left480 {
+    width: 60%;
+    height: 150px;
+    display: inline-block;
+    vertical-align: top;
+    padding-right: 0px;
+}
+.contents-3col-left480 img {
+    width: 90%;
+}
+
+.contents-3col-middle480 {
+    width: 72px;
+    display: inline-block;
+    padding-top: 30px;
+}
+.contents-3col-right480 {
+    width: 100%;
+    display: block;
+}
+
+
+.page-top {        margin-left: auto; text-align: right; font-size: small; font-weight: bold;
     color: #888;
 }
-.page-top_hidden { margin-left: auto; text-align: right; font-size: small; font-weight: bold; 
-    visibility: hidden; 
+.page-top_hidden { margin-left: auto; text-align: right; font-size: small; font-weight: bold;
+    visibility: hidden;
 }
     /*** Each Content Title ***/
 
@@ -491,18 +1012,18 @@ p#author { font-size: 105%; font-weight: bold; color: #9999aa;}
         /* LS Suiboku */
 h2.contents-title-left-suiboku {float: left; font-size: 100%;   font-weight: bold; margin-bottom: 10px;}
         /* DEQ */
-.contents-left {float: left; margin-bottom: 0px;}
+.contents-left  {float: left; margin-bottom: 0px;}
 .contents-right {float: right;}
 
     /* no use float */
 
     /* center */
     /* SC Hotel Adriano */
-.contents-title-sc-Adriano {font-size: 105%; font-weight: bold; 
+.contents-title-sc-Adriano {font-size: 105%; font-weight: bold;
     margin-bottom: 15px;
 }
     /* 4S Bakersfield */
-h4.contents-title-4S-BF {   font-size: 120%; font-weight: bold; 
+h4.contents-title-4S-BF {   font-size: 120%; font-weight: bold;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -546,12 +1067,10 @@ h2.contents-title-about2 {      font-size: 115%; font-weight: bold; margin-right
 h3.contents-title-about3 {      font-size: 100%; font-weight: bold; margin-right: auto; text-align:left;}
 
 
-/*    ================ 
-        *** noscript *** 
-        ================ 
-*/
-/* you tube, D51, Voice of Fukurou
-*/
+/*================
+ *** noscript ***
+================*/
+/* you tube, D51, Voice of Fukurou */
 div#attention {
     background-color: #fffeb8;
     border-bottom: 0px solid;
@@ -572,232 +1091,231 @@ div#attention p{
 }
 
 
-/*    ==================== 
-        *** table design *** 
-        ==================== 
-*/
+/*====================
+ *** table design ***
+====================*/
 /* table design */
 
 /** link **/
-.table-link_left_hp {vertical-align: middle; text-align: left; 
-    font-size:x-large; 
-    padding: 5px 10px 0px 10px; 
+.table-link_left_hp {vertical-align: middle; text-align: left;
+    font-size:x-large;
+    padding: 5px 10px 0px 10px;
     margin: 4px;
 }
-.table-link_left {   vertical-align: middle; text-align: center; 
-    font-size:x-large; 
-    padding: 10px; 
+.table-link_left {   vertical-align: middle; text-align: center;
+    font-size:x-large;
+    padding: 10px;
     margin:   4px;
 }
-.table-link_right {  vertical-align: middle; text-align: left; 
+.table-link_right {  vertical-align: middle; text-align: left;
     line-height: 125%;
     color: olive;
-    padding: 10px; 
-    margin:   4px; 
+    padding: 10px;
+    margin:   4px;
 }
 
 /** SS Shafter 2003 **/
-.table-ss { 
+.table-ss {
     border-collapse: sparate;
     border-spacing: 10px 0px;
     border: 0px solid #c00;
 }
-.table-ss td { 
+.table-ss td {
     vertical-align: middle;
     text-align: left;
     border: 0px solid #c00;
 }
 /** Sea World **/
-.table-sw { 
+.table-sw {
     border-collapse: sparate;
     border-spacing: 20px;
     border: 0px solid #c00;
 }
-.table-sw td { 
+.table-sw td {
     vertical-align: middle;
     border: 0px solid #c00;
 }
 
 /** FUTTSU SUNSET **/
-.table-sunset { 
+.table-sunset {
     margin-left:auto; margin-right:auto;
     border-collapse: sparate;
     border-spacing: 20px 5px;
     border: 0px solid #c00;
 }
-.table-sunset td { 
+.table-sunset td {
     vertical-align: middle;
     text-align: left;
     border: 0px solid #c00;
 }
 
 /** SWIJX **/
-.table-swijx { 
+.table-swijx {
     margin-left:auto; margin-right:auto;
     border-collapse: separate;
     border-spacing: 20px 5px;
     border: 0px solid #c00;
 }
-.table-swijx td { 
+.table-swijx td {
     vertical-align: bottom;
     text-align: left;
     border: 0px solid #c00;
 }
 
 /** pers **/
-.table-pers { 
+.table-pers {
     margin-right:auto;
     border-collapse: separate;
     border-spacing: 20px 2px;
     border: 0px solid #c00;
 }
 
-/*    ============================= 
-        *** 汎用設定 2013.08.18～ *** 
-        ============================= 
-*/
+/*=============================
+ *** 汎用設定 2013.08.18～ ***
+=============================*/
 
 /*    画像にカーソルが乗ったときボーダー色を変化させる
-        jQueryのjQ_blinkとペアで使用
-*/
+      jQueryのjQ_blinkとペアで使用                       */
     .change_border_color a img {border:2px solid #f0f0f0; }
     .change_border_color a:hover img {border:2px solid #c8c8c8; }
 
-/*    リンクの下線を非表示にする
-*/
+/*    リンクの下線を非表示にする    */
 .tdn {
     text-decoration:none;
 }
 
-/*    カーソルが重なったときのリンク文字色の変更
-*/
+/*    カーソルが重なったときのリンク文字色の変更    */
     /* 重なっていないとき */
     /* a {color:#0170af;} */
-    a {color:#666;} 
+    a {color:#666;}
     /* 重なったとき */
     a:hover{color:#000099;}
 
-/*    フォーカスリングの非表示
-*/
+/*    フォーカスリングの非表示    */
     a:focus {outline:none; }
 
-/*    センターリング
-*/
+/*    センターリング    */
 .center{
     margin-left:auto;
     margin-right:auto;
-    text-align:center; 
+    text-align:center;
     border: 0px solid #FF9900;
 }
-.left { 
+.left {
     margin-right:auto;
-    text-align:left; 
+    text-align:left;
     border: 0px solid #FF9900;
-} 
-.right { 
+    height: 200px;
+}
+.left2 {
+    margin-right:auto;
+    text-align:left;
+    border: 0px solid #FF9900;
+}
+.right {
     margin-left:auto;
-    text-align:right; 
+    text-align:right;
     border: 0px solid #FF9900;
-} 
+}
 
-/*    width 
-*/
+/*    width    */
 .w180 {width: 180px;} /* Shafter 2003 */
-.w192 {width: 192px;} 
-.w256 {width: 256px;} 
+.w192 {width: 192px;}
+.w256 {width: 256px;}
 
-/*    上下中央揃え
-*/
+/*    上下中央揃え    */
 .vat {vertical-align: top;}        /* 未使用 */
 
-/*    Tuamotu Group Top ImageMapStar は左寄せになるための配慮
-*/
+/*    Tuamotu Group Top ImageMapStar は左寄せになるための配慮     */
 .pic-center_Tuamotu_A {margin-left:auto; margin-right:auto; text-align:center; width: 821px;} /* Group A */
 .pic-center_Tuamotu_B {margin-left:auto; margin-right:auto; text-align:center; width: 696px;} /* Group B */
 .pic-center_Tuamotu_C {margin-left:auto; margin-right:auto; text-align:center; width: 615px;} /* Group C */
 .pic-center_Tuamotu_D {margin-left:auto; margin-right:auto; text-align:center; width: 606px;} /* Group D */
 .pic-center_Tuamotu_E {margin-left:auto; margin-right:auto; text-align:center; width: 761px;} /* Group E */
 
-/*    行間隔
-*/
+/*    行間隔    */
 .lineh120 { line-height: 1.20; }
 .lineh130 { line-height: 1.30; }
 .lineh140 { line-height: 1.40; }
 
-/*    左右の間
-*/
-.pl0  { padding-left: 0px; } 
-.pl5  { padding-left: 5px; } 
-.pl10 { padding-left: 10px; } 
-.pl15 { padding-left: 15px; } 
-.pl20 { padding-left: 20px; } 
-.pl25 { padding-left: 25px; } 
-.pl30 { padding-left: 30px; } 
-.pl40 { padding-left: 40px; } 
-.pl50 { padding-left: 50px; } 
-.pl60 { padding-left: 60px; } 
-.pl70 { padding-left: 70px; } 
-.pl80 { padding-left: 80px; } 
-.pl90 { padding-left: 90px; } 
-.pl99 { padding-left: 99px; } 
-.pl100 { padding-left: 100px; } 
-.pl150 { padding-left: 150px; } 
-.pl200 { padding-left: 200px; } 
-.pl235 { padding-left: 235px; } 
-.pl250 { padding-left: 250px; } 
-.pl400 { padding-left: 400px; } 
-.pl500 { padding-left: 500px; } 
-.pl_auto { margin: 0 0 0 auto; } 
-.pc_auto { text-align:center; display:block; } 
+/*    左右の間    */
+.pl0  { padding-left: 0px; }
+.pl5  { padding-left: 5px; }
+.pl10 { padding-left: 10px; }
+.pl15 { padding-left: 15px; }
+.pl20 { padding-left: 20px; }
+.pl25 { padding-left: 25px; }
+.pl30 { padding-left: 30px; }
+.pl40 { padding-left: 40px; }
+.pl50 { padding-left: 50px; }
+.pl60 { padding-left: 60px; }
+.pl70 { padding-left: 70px; }
+.pl80 { padding-left: 80px; }
+.pl90 { padding-left: 90px; }
+.pl99 { padding-left: 99px; }
+.pl100 { padding-left: 100px; }
+.pl150 { padding-left: 150px; }
+.pl200 { padding-left: 200px; }
+.pl235 { padding-left: 235px; }
+.pl250 { padding-left: 250px; }
+.pl400 { padding-left: 400px; }
+.pl500 { padding-left: 500px; }
+.pl_auto { margin: 0 0 0 auto; }
+.pc_auto { text-align:center; display:block; }
 
 .plm10 { margin-left: 10px}
 
-.pr0  { padding-right: 0px; } 
-.pr5  { padding-right: 5px; } 
-.pr10 { padding-right: 10px; } 
-.pr15 { padding-right: 15px; } 
-.pr20 { padding-right: 20px; } 
-.pr25 { padding-right: 25px; } 
-.pr30 { padding-right: 30px; } 
-.pr40 { padding-right: 40px; } 
-.pr50 { padding-right: 50px; } 
-.pr60 { padding-right: 60px; } 
-.pr70 { padding-right: 70px; } 
-.pr80 { padding-right: 80px; } 
-.pr90 { padding-right: 90px; } 
-.pr100 { padding-right: 100px; } 
-.pr150 { padding-right: 150px; } 
-.pr200 { padding-right: 200px; } 
-.pr250 { padding-right: 250px; } 
+.pr0  { padding-right: 0px; }
+.pr5  { padding-right: 5px; }
+.pr10 { padding-right: 10px; }
+.pr15 { padding-right: 15px; }
+.pr20 { padding-right: 20px; }
+.pr25 { padding-right: 25px; }
+.pr30 { padding-right: 30px; }
+.pr40 { padding-right: 40px; }
+.pr50 { padding-right: 50px; }
+.pr60 { padding-right: 60px; }
+.pr70 { padding-right: 70px; }
+.pr80 { padding-right: 80px; }
+.pr90 { padding-right: 90px; }
+.pr100 { padding-right: 100px; }
+.pr150 { padding-right: 150px; }
+.pr200 { padding-right: 200px; }
+.pr250 { padding-right: 250px; }
 
-/*    下の空き
-*/
-.pb-15  { padding-bottom: -15px; } 
-.pb-10  { padding-bottom: -10px; } 
-.pb0  { padding-bottom: 0px; } 
-.pb5  { padding-bottom: 5px; } 
-.pb10 { padding-bottom: 10px; } 
-.pb15 { padding-bottom: 15px; } 
-.pb20 { padding-bottom: 20px; } 
-.pb25 { padding-bottom: 25px; } 
-.pb30 { padding-bottom: 30px; } 
-.pb40 { padding-bottom: 40px; } 
-.pb50 { padding-bottom: 50px; } 
-.pb60 { padding-bottom: 60px; } 
-.pb70 { padding-bottom: 70px; } 
-.pb80 { padding-bottom: 80px; } 
-.pb90 { padding-bottom: 90px; } 
-.pb100 { padding-bottom: 100px; } 
+/*    下の空き    */
+.pb-15  { padding-bottom: -15px; }
+.pb-10  { padding-bottom: -10px; }
+.pb0  { padding-bottom: 0px; }
+.pb1 { padding-bottom: 1px; }
+.pb2  { padding-bottom: 2px; }
+.pb3  { padding-bottom: 3px; }
+.pb4  { padding-bottom: 4px; }
+.pb5  { padding-bottom: 5px; }
+.pb10 { padding-bottom: 10px; }
+.pb15 { padding-bottom: 15px; }
+.pb20 { padding-bottom: 20px; }
+.pb25 { padding-bottom: 25px; }
+.pb30 { padding-bottom: 30px; }
+.pb40 { padding-bottom: 40px; }
+.pb50 { padding-bottom: 50px; }
+.pb60 { padding-bottom: 60px; }
+.pb70 { padding-bottom: 70px; }
+.pb80 { padding-bottom: 80px; }
+.pb90 { padding-bottom: 90px; }
+.pb100 { padding-bottom: 100px; }
 
-/*    フォントウェイト
-*/
+/*    上の空き    */    /* これはナンセンスだよなぁ */
+.pt15  { padding-top: 15px; }
+.pt10  { padding-top: 10px; }
+
+/*    フォントウェイト    */
 .fwm {font-weight:normal;}
 .fwb {font-weight:bold;}
 .fss {font-size: small;}
 .fsm {font-size: medium;}
 
-/*    フォントサイズ
-*/
+/*    フォントサイズ    */
 .fs60 {font-size: 60%;}
 .fs70 {font-size: 70%;}
 .fs80 {font-size: 80%;}
@@ -814,33 +1332,37 @@ div#attention p{
 .fs180 {font-size: 180%;}
 .fs225 {font-size: 225%;}
 
-/*    上の空き
-*/
-.pt30 { padding-top: 30px; } 
+/*    上の空き    */
+.pt30 { padding-top: 30px; }
 
-/*    フォントカラー
-*/
+/*    margin指定    */
+.mtb10 {margin-top: 10px; margin-bottom: 10px;}
+.mtb20 {margin-top: 20px; margin-bottom: 20px;}
+.mt10 {margin-top: 10px;}
+.mt15 {margin-top: 15px;}
+.mt20 {margin-top: 20px;}
+.mt25 {margin-top: 25px;}
+.mt30 {margin-top: 30px;}
+.mt35 {margin-top: 35px;}
+
+/*    フォントカラー    */
 .color-4s {color:#6b8e23;}        /* 未使用 */
-.color-kotan {color:#9999aa;}    /* 未使用 */
+.color-kotan {color:#9999aa;}     /* 未使用 */
 
 
-/*    チェック用ボーダーライン
-*/
+/*    チェック用ボーダーライン    */
 .border-ccc { border: 0px solid #ccc;}
 .border-c00 { border: 0px solid #c00;}
-/*    ボーダーラインなし
-*/
+/*    ボーダーラインなし    */
 .bdn { border: 0px;}
 
-/*    テキスト背景色
-*/
+/*    テキスト背景色    */
 /* .orange {background-color:#ffcc99;} */
 .back_gray {background-color:#cdd;}
 .back_burlywood {background-color:#deb887;}
 
-/*    border-radius
-*/
-.bdr10 { 
+/*    border-radius    */
+.bdr10 {
     border: 2px solid #999;
     background-color: #eee;
     border-radius: 10px;
@@ -849,7 +1371,7 @@ div#attention p{
     padding: 10px;
 }
 
-.bdr10b { 
+.bdr10b {
     border: 2px solid #999;
     border-radius: 10px;
     margin-top: 10px;
@@ -861,16 +1383,14 @@ div#attention p{
     font-family: arial, sans-serif;
 }
 
-/*    リストスタイル
-*/
+/*    リストスタイル    */
 .list_ur {list-style-type:upper-roman;}
 .list_lr {list-style-type:lower-roman;}
 .list_ua {list-style-type:upper-alpha;}
 .list_la {list-style-type:lower-alpha;}
 
 
-/*    微分方程式スタートボタン
-*/
+/*    微分方程式スタートボタン    */
 .btn-radius-solid {
     margin: auto;
     padding: 8px 16px;
@@ -961,6 +1481,27 @@ input[type="checkbox"]:checked:before {
   content: '';
 }
 
+/*--------------------------------------------------------------*/
+/* スマホ用 SC系の Special Thanks, Auther, Peleased Libraries などの2列構成で使用 */
+.info-block {
+    display: grid;
+    grid-template-columns: 150px 1fr;  /* 左列150px、右列は残り */
+    gap: 8px 12px;                     /* 行・列間の余白 */
+    max-width: 480px;
+    font-size: 90%;
+}
+
+.label {
+    font-weight: bold;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.content {
+    text-align: left;
+}
+/*--------------------------------------------------------------*/
+
 
 .grid3 {
   display: grid;
@@ -988,7 +1529,7 @@ input[type="checkbox"]:checked:before {
   grid-template-rows: 25px;
   justify-content: space-around;
   text-align: left;
-  border-color:red; 
+  border-color:red;
 }
 
 .grid2b {
@@ -1072,13 +1613,15 @@ input[type="checkbox"]:checked:before {
     font-weight:bold;
 }
 
+/* "TOP"ボタン本体のスタイル */
 #page-top {
   position: fixed;
   bottom: 20px;
-  right: 20px;
   font-size: 14px;
   line-height: 1;
   z-index: 99;
+    font-family:-apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI","Noto Sans Japanese","ヒラギノ角ゴ ProN W3", Meiryo, sans-serif;
+/*    font-family: "游明朝", YuMincho, "Hiragino Mincho ProN W3", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;*/
 }
 #page-top a {
   background: #929292;
@@ -1093,6 +1636,81 @@ input[type="checkbox"]:checked:before {
 #page-top a:hover {
   text-decoration: none;
   opacity: .5;
+}
+
+/* "MENU"ボタン本体のスタイル */
+#menu-call {
+    position: fixed;
+/*    top: 30px;  */
+/*    right: 20px;*/
+    font-size: 14px;
+    line-height: 1;
+    z-index: 99;
+    font-family:-apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI","Noto Sans Japanese","ヒラギノ角ゴ ProN W3", Meiryo, sans-serif;
+/*    font-family: "游明朝", YuMincho, "Hiragino Mincho ProN W3", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;*/
+}
+#menu-call a {
+    background: #929292;
+    text-decoration: none;
+    color: #fff;
+    width: 60px;
+    padding: 8px 5px;
+    text-align: center;
+    display: block;
+    border-radius: 4px;
+}
+#menu-call a:hover {
+    text-decoration: none;
+    font-weight: bold;
+    color: #f00;
+    opacity: .7;
+}
+
+/* 新たに追加 */
+#popup-menu {
+    position: fixed;
+    top: 80px; /* MENUボタンのすぐ下 */
+    right: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    z-index: 98;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    width: 200px;
+    font-family: "游明朝", YuMincho, "Hiragino Mincho ProN W3", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+}
+
+/* 非表示にするためのクラス */
+.hidden {
+    display: none;
+}
+
+/* メニュー項目のスタイル */
+#popup-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+#popup-menu li a {
+    display: block;
+    padding: 10px;
+    text-align: left;
+    text-decoration: none;
+    color: #333;
+    background-color: #eee;
+}
+#popup-menu li a:hover {
+    color: #f00;
+    background-color: #ccc;
+}
+
+.menu-title {
+    text-align: center;
+    padding: 8px 0 4px;
+    border-bottom: 1px solid #ccc;
+}
+.menu-title img.logo_image {
+    vertical-align: middle;
 }
 
 /* DEQ_v3 slider bar */
@@ -1182,12 +1800,49 @@ input[type="checkbox"]:checked:before {
 }
 
 
-/* --- 画像ポップアップ用のスタイル 20250312 --- */
+/* DEQ 画像サイズ切り替え ← 全く機能していない 再考察が必要！ 
+   現在は、jsでサイズを切り替えている
+.deq_pic_size {
+    style.width: 20px;
+    style.height: 20px;
+}
+.deq_pic_size480 {
+    max-width: 40%;
+    display: inline-block;
+}
+*/
+
+/* --- テーブルのスマホ用スタイル 20250331 --- */
+/*=============================================*/
+/* 横スクロール型(テーブルのみ横スクロール) */
+
+.table-container {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 0.5em;
+    background: #f9f9f9;
+}
+
+/* テーブルの最低横幅、必要に応じて調整 */
+
+.table-container table {
+    width: 100%;
+    min-width: 600px;
+    border-collapse: collapse;
+}
+
+/*=============================================*/
+
 /* 画像コンテナ */
 .image-container {
     max-width: 100%;
     display: inline-block;
 }
+
 /* ポップアップ画像 */
 .popup-image {
     display: none;
@@ -1199,6 +1854,22 @@ input[type="checkbox"]:checked:before {
     height: auto;      /* 元のサイズを表示 */
     max-width: none;    /* サイズ制限を解除 */
     max-height: none;   /* サイズ制限を解除 */
+    z-index: 1000;
+    border: 2px solid #ccc;
+    background: white;
+    padding: 5px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+.popup-image400 {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;       /* 元のサイズを表示 */
+    height: auto;      /* 元のサイズを表示 */
+    max-width: 0;      /* サイズ制限を解除 */
+    max-height: 0;     /* サイズ制限を解除 */
     z-index: 1000;
     border: 2px solid #ccc;
     background: white;
@@ -1218,10 +1889,21 @@ input[type="checkbox"]:checked:before {
 }
 
 /* ● などの大きさを前後の文字列に合わせる 20250318 */
-.big-circle {
+.big-circle920 {
     font-size: 1.5em;
     line-height: 1;
 }
+.big-circle400 {
+    font-size: 0.6em;
+    line-height: 1;
+}
 
+/* リストの点を消す */
+.list_none {
+    list-style: none;
+}
 
-
+/* img にボーダーカラーを指定する */
+.border_col_l_gray {
+    border:1px solid rgba(230, 230, 230, 1.0);
+}

@@ -3,6 +3,31 @@
 * {margin:0; padding:0; outline:0}
 */
 
+/* Pretty Phot */
+div.prettyP_PC {
+}
+div.prettyP_SP {
+}
+/* デフォルトでは非表示にしておく */
+.prettyP_PC,
+.prettyP_SP {
+    display: none;
+}
+
+/* PC向け（幅が770px以上の画面）ではPC用説明を表示 */
+@media screen and (min-width: 769px) {
+    .prettyP_PC {
+        display: block;
+    }
+}
+
+/* スマホ向け（幅が800px以下の画面）ではSP用説明を表示 */
+@media screen and (max-width: 768px) {
+    .prettyP_SP {
+        display: block;
+    }
+}
+
 /* index page layout */
 
 /** table whole **/

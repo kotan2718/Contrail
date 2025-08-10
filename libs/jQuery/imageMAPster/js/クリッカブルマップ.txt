@@ -1,0 +1,406 @@
+htmlで使われるクリッカブルマップについての質問です。
+
+元々PC向けに作られたhtmlソースをスマホにも対応させようと考えています。
+PCで表示させたいソースは
+<div class="prettyP_PC">
+<>/div
+内に収め、
+スマホで表示させたい部分は
+<div class="prettyP_SC">
+<>/div
+に収めています。
+
+以下のソースはクリッカブルマップを使用している部分を抜粋したものです。
+問題は、クリックで反応してほしいエリアについてです。
+PCでは、矩形内でクリックすると問題なく反応するのですが、
+スマホでは反応する位置がずれてしまいます。
+PSでは画像を800pxで表示させていますが、スマホでは480pxで表示させます。
+一旦、800px用のエリアを480px用のエリアにはに指定を修正したのですが、
+意図したような反応が得られませんでした。
+jquery.rwdImageMaps.jsが公開されていることを知り、
+導入してみましたが、思ったような反応にならず、反応エリアはずれたままです。
+使用方法に誤りがあるのでしょうか？
+
+
+== html ==
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contrail ScreenShots : Butterfly Island 2005 :: Location Map - from butterfly SC</title>
+
+    <!-- favicon-->
+    <link rel="icon" href="favicon.ico">
+
+    <!-- css start -->
+
+        <!-- kko_etc start - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
+        <link rel="stylesheet" href="libs/etc/css/kko_preload.css">
+        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
+        <!-- kko_etc end -->
+
+    <!-- css end -->
+
+    <!-- js start -->
+
+        <!-- jQuery start -->
+        <script src="libs/jQuery/js/jquery-1.6.1.min.js"></script>
+
+            <!-- kko_style start - img jq_blink, img jq_change -->
+            <script src="libs/jQuery/kko/js/jq_kko_preload.js"></script>
+            <script src="libs/jQuery/kko/js/jq_kko_style.js"></script>
+            <!-- kko_style end -->
+
+            <!-- ImageMapStar_style start - Clickable map Extension -->
+            <script src="libs/jQuery/imageMAPster/js/jquery.imagemapster.min.js"></script>
+            <script src="libs/jQuery/imageMAPster/js/jquery.rwdImageMaps.js"></script>
+            <script>
+                    $(document).ready(function ()
+                    {
+                        $('img[usemap]').rwdImageMaps();
+                        $('#magnification1').mapster({
+                            singleSelect : true,
+                            clickNavigate : true,
+                            render_highlight : { altImage : 'image/fs/butterfly/Butterfly_Island_Location_Map01_on.gif' },
+                            mapKey: 'key',
+                            fill : true,
+                            fillOpacity : 1
+                        });
+                        $('#magnification2').mapster({
+                            singleSelect : true,
+                            clickNavigate : true,
+                            render_highlight : { altImage : 'image/fs/butterfly/Butterfly_Island_Location_Map02_on_comp20.jpg' },
+                            mapKey: 'key',
+                            fill : true,
+                            fillOpacity : 1
+                        });
+                        $('#magnification3').mapster({
+                            singleSelect : true,
+                            clickNavigate : true,
+                            render_highlight : { altImage : 'image/fs/butterfly/Butterfly_Island_Location_Map03_on_comp50.jpg' },
+                            mapKey: 'key',
+                            fill : true,
+                            fillOpacity : 1
+                        });
+                    });
+            </script>
+            <!-- ImageMapStar_style end -->
+        <!-- jQuery end -->
+    <!-- js end -->
+
+</head>
+
+    <div id="main800-480"> <!-- page main: start -->
+
+        <!-- contents -->
+        <div class="pb60">
+            <h3 class="fs150 fwb pb10">
+                広域地図
+            </h3>
+            <div class="prettyP_PC">
+                <p class="fsm fwm pb10">
+                    この地図の中にバタフライアイランドが位置しています。<br>
+                    しかし，リーフも含めて１辺 2km の矩形に収まってしまうような<br>
+                    小さな島です。もっと拡大しないと見えてきません。<br>
+                    地図の中の矩形をクリックすると，拡大画像にジャンプします。
+                </p>
+                <p>
+                    <img id="magnification1" src="image/fs/butterfly/Butterfly_Island_Location_Map01_off.gif"
+                        width="800" border="0" usemap="#magnification1">
+                    <map name="magnification1">
+                        <!-- 同窓で中域地図へのジャンプ -->
+                        <area key="kakudai_s_to_m" shape="rect" coords="225,93,422,295" href="#kakudai_s_to_m">
+                    </map>
+                </p>
+            </div>
+            <div class="prettyP_SP">
+                <p class="left2 fsm fwm pb10">
+                    この地図の中にバタフライアイランドが位置しています。<br>
+                    しかし，リーフも含めて１辺 2km の矩形に収まってしまうような<br>
+                    小さな島です。もっと拡大しないと見えてきません。<br>
+                    地図の中の矩形をクリックすると，拡大画像にジャンプします。
+                </p>
+                <div class="table-container">
+                    <p>
+                        <img id="magnification1" src="image/fs/butterfly/Butterfly_Island_Location_Map01_off.gif"
+                            width="480" border="0" usemap="#magnification1">
+                        <map name="magnification1">
+                            <!-- 同窓で中域地図へのジャンプ -->
+                            <area key="kakudai_s_to_m" shape="rect" coords="225,93,422,295" href="#kakudai_s_to_m">
+                        </map>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+スマホでクリックエリアがずれてしまう問題について、詳細な状況説明ありがとうございます。
+ご指摘のように、PCとスマホで画像サイズが異なるため、<area>のクリック領域（coords）が画像の表示サイズに対応していないのが主な原因です。
+
+jquery.rwdImageMaps.js は、画像サイズに合わせて <area> の coords をスケーリングしてくれるライブラリです。導入は正しい方向ですが、今回のケースでは以下のいずれか、または複合的な要因で正しく動作していない可能性があります：
+
+✅ 確認すべき点と対応方法
+1. HTML内に同一の id を持つ要素が複数ある
+あなたのコードには次のような記述があります：
+
+html
+コピーする
+編集する
+<img id="magnification1" ...>  <!-- PC側 -->
+...
+<img id="magnification1" ...>  <!-- スマホ側 -->
+これは HTMLの仕様違反（idは一意でなければならない）であり、
+jQuery のセレクター $('#magnification1') は最初の一つしか取得しません。
+
+👉 解決策：
+
+画像IDは PC用とSP用で異なるIDを指定してください。例：
+
+html
+コピーする
+編集する
+<img id="magnification1_PC" ...>
+<img id="magnification1_SP" ...>
+jQuery 側もそれに応じて修正：
+
+js
+コピーする
+編集する
+$('#magnification1_PC').mapster({...});
+$('#magnification1_SP').mapster({...});
+2. 画像のwidthを属性でなくCSSで指定してみる
+rwdImageMaps.js は画像の自然サイズと表示サイズを使って coords をスケーリングします。
+<img width="480"> のようなHTML属性でのリサイズは、ライブラリが正確に処理できないことがあります。
+
+👉 解決策：
+
+HTML内から width="480" を削除し、CSSで指定してください：
+
+html
+コピーする
+編集する
+<img id="magnification1_SP" src="..." usemap="#magnification1_SP">
+css
+コピーする
+編集する
+.prettyP_SP img {
+    width: 100%;   /* または480px固定でもOK */
+    max-width: 480px;
+    height: auto;
+}
+3. rwdImageMaps()の呼び出しタイミング
+$(document).ready() の中で rwdImageMaps() を呼び出すのは正しいですが、画像が完全に読み込まれる前に実行されていると、サイズ取得が誤ることがあります。
+
+👉 解決策：
+window.load イベントで rwdImageMaps() を呼ぶように変更：
+
+js
+コピーする
+編集する
+$(window).on('load', function() {
+    $('img[usemap]').rwdImageMaps();
+});
+これで画像の読み込み後に確実にスケーリングが適用されます。
+
+4. <map>と <area> に名前・キーの重複がないか確認
+スマホ・PC両方で <map name="magnification1"> を使っていますが、これは <map> 名の重複です。
+
+👉 解決策：
+
+PCとSPで異なる map 名を使ってください：
+
+html
+コピーする
+編集する
+<map name="magnification1_PC">...</map>
+<map name="magnification1_SP">...</map>
+対応する usemap 属性も変更：
+
+html
+コピーする
+編集する
+<img id="magnification1_PC" usemap="#magnification1_PC">
+<img id="magnification1_SP" usemap="#magnification1_SP">
+🔚 まとめ：修正ポイント一覧
+修正対象	修正内容
+id 属性	PC/SPで一意に分ける（例：magnification1_PC, magnification1_SP）
+<map> の name	同上で一意に分ける
+width 指定	HTML属性ではなく CSS で指定する
+rwdImageMaps のタイミング	$(window).on('load', ...) で実行
+jQueryコード	複数画像に対応するよう明示的に記述
+
+ご希望でしたら、スマホとPCに対応した修正済みの最小サンプルコードを提示することも可能です。必要であればお知らせください。
+
+
+
+
+
+
+
+
+
+ChatGPT に質問する
+あなた:
+ありがとうございます。修正済みの最小サンプルコードを希望します。
+
+
+ChatGPT:
+以下に、PC／スマホ両対応のクリッカブルマップ最小サンプルコードを提示します。
+基本的な表示切り替えには CSS のメディアクエリを使い、画像の幅に応じてクリック領域が自動調整されるようにしています。
+
+✅ 最小構成のHTML＋CSS＋JSサンプル
+html
+コピーする
+編集する
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Responsive Clickable Map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- rwdImageMaps -->
+    <script src="https://rawcdn.githack.com/stowball/jQuery-rwdImageMaps/master/jquery.rwdImageMaps.min.js"></script>
+
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+        }
+
+        .map-wrapper {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .map-wrapper img {
+            width: 100%;  /* Responsive scaling */
+            height: auto;
+            display: block;
+        }
+
+        /* スマホ用の切り替え（参考: .sp-only/.pc-onlyを切り替える例） */
+        .sp-only {
+            display: none;
+        }
+
+        @media screen and (max-width: 600px) {
+            .pc-only {
+                display: none;
+            }
+            .sp-only {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="map-wrapper">
+
+        <!-- PC用 -->
+        <div class="pc-only">
+            <p>PC用のマップ（800px）</p>
+            <img id="map_pc" src="your-image.jpg" usemap="#map_pc_map">
+            <map name="map_pc_map">
+                <area shape="rect" coords="100,100,300,300" href="https://example.com/pc" alt="PC Link">
+            </map>
+        </div>
+
+        <!-- スマホ用 -->
+        <div class="sp-only">
+            <p>スマホ用のマップ（480px）</p>
+            <img id="map_sp" src="your-image.jpg" usemap="#map_sp_map">
+            <map name="map_sp_map">
+                <area shape="rect" coords="100,100,300,300" href="https://example.com/sp" alt="SP Link">
+            </map>
+        </div>
+
+    </div>
+
+    <script>
+        $(window).on('load', function () {
+            $('img[usemap]').rwdImageMaps();
+        });
+    </script>
+</body>
+</html>
+🔧 補足ポイント
+項目	説明
+your-image.jpg	実際の地図画像に差し替えてください（同じ画像でもOK）
+coords	元画像の実寸に基づく座標を指定してください（rwdImageMaps が自動調整します）
+.pc-only / .sp-only	PCとスマホで出し分けをしています（必要に応じてクラス名変更可）
+@media	幅600px以下でスマホ表示に切り替えます（適宜変更可能）
+
+✅ 確認すべき画像の前提
+画像ファイル自体のサイズは 800px幅前提 で coords を設定します。
+
+例えば PCで width=800 の画像中の 100,100,300,300 という矩形は、
+SP表示で width=480 になったときに 自動的にスケーリングされて反映されます。
+
+ご希望に応じて、このサンプルをより複雑な構成（複数領域・ハイライト画像対応など）にも拡張できます。
+さらに調整が必要であればお知らせください。
+
+
+
+
+
+
+
+
+確認できました。ありがとうございます。
+
+自分が組んでいるhtml, css, js ではすぐに対応するのは難しいなぁと思いました。
+
+最初に示したコードで、スマホの画像幅をPC同様に"800px"にすると特に問題なく、クリックするエリアが反映されます。
+
+以下のコードはスマホ用にエリア指定を変更したときのものです。
+
+    <div id="main800-480"> <!-- page main: start -->
+
+        <!-- contents -->
+        <div class="pb60">
+            <h3 class="fs150 fwb pb10">
+                広域地図
+            </h3>
+            <div class="prettyP_PC">
+                <p class="fsm fwm pb10">
+                    この地図の中にバタフライアイランドが位置しています。<br>
+                    しかし，リーフも含めて１辺 2km の矩形に収まってしまうような<br>
+                    小さな島です。もっと拡大しないと見えてきません。<br>
+                    地図の中の矩形をクリックすると，拡大画像にジャンプします。
+                </p>
+                <p>
+                    <img id="magnification1" src="image/fs/butterfly/Butterfly_Island_Location_Map01_off.gif"
+                        width="800" border="0" usemap="#magnification1">
+                    <map name="magnification1">
+                        <!-- 同窓で中域地図へのジャンプ -->
+                        <area key="kakudai_s_to_m" shape="rect" coords="225,93,422,295" href="#kakudai_s_to_m">
+                    </map>
+                </p>
+            </div>
+            <div class="prettyP_SP">
+                <p class="left2 fsm fwm pb10">
+                    この地図の中にバタフライアイランドが位置しています。<br>
+                    しかし，リーフも含めて１辺 2km の矩形に収まってしまうような<br>
+                    小さな島です。もっと拡大しないと見えてきません。<br>
+                    地図の中の矩形をクリックすると，拡大画像にジャンプします。
+                </p>
+                <div class="table-container">
+                    <p>
+                        <img id="magnification1" src="image/fs/butterfly/Butterfly_Island_Location_Map01_off.gif"
+                            width="480" border="0" usemap="#magnification1">
+                        <map name="magnification1">
+                            <!-- 同窓で中域地図へのジャンプ -->
+                            <area key="kakudai_s_to_m" shape="rect" coords="135,56,253,177" href="#kakudai_s_to_m">
+                        </map>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+スマホの "coords" は480px用に変更されていますが、
+実際のクリックにh反映されていません。
+やはり、コーディングに違反があるのでしょうか？
+

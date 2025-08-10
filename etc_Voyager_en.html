@@ -1,89 +1,112 @@
-<!DOCTYPE HTML >
+<!DOCTYPE html >
 <html lang="en">
 
-<HEAD>
-    <META charset="UTF-8">
-    <META name="description" content="Voyagers of 38,000 years ago - - Pursuing the mystery of the voyagers who transported obsidian to the mainland by boat from Izu Kozu island 38,000 years ago">
-    <META name="keywords" content="38,000 years ago, Kōzu-shima, Obsidian, Voyage">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Voyagers of 38,000 years ago - - Pursuing the mystery of the voyagers who transported obsidian to the mainland by boat from Izu Kozu island 38,000 years ago">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Voyagers of 38,000 years ago</title>
 
     <!-- favicon-->
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="icon" href="favicon.ico">
 
     <!-- css start -->
-
-        <!-- kko_etc start :: class指定:change_border_color, 全ファイル共通:リンク文字色, フォーカスリング -->
+        <!-- kko_etc - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
         <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
-        <!-- kko_etc end -->
-
     <!-- css end -->
 
     <!-- js start -->
-
         <!-- jQuery start -->
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <!-- kko_style start - img jq_blink, img jq_change -->
-        <script src="libs/jQuery/kko/js/jq_kko_style.js"></script>
-        <!-- kko_style end -->
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <!-- kko_style - img jq_blink, img jq_change -->
+            <script src="libs/jQuery/kko/js/jq_kko_style.js"></script>
         <!-- jQuery end -->
 
-        <!-- Sandbox DropDownMenu start -->
-        <!--<script src="libs/sandbox/js/script.js"></script>-->
-        <!-- Sandbox DropDownMenu end -->
-
-        <script type="text/javascript"
-            src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-        </script>
-        <script type="text/x-mathjax-config">
-            MathJax.Hub.Config({
-                TeX: { equationNumbers: { autoNumber: "AMS" }},
-                tex2jax: {
-                    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-                    processEscapes: true
-                },
-                "HTML-CSS": { matchFontHeight: false },
-                displayAlign: "left",
-                displayIndent: "2em"
-            });
-        </script>
-
-        <!-- pers_doc initialize -->
-        <!--<script src="libs/etc/js/pers00_doc1.js"></script>-->
-
+        <!-- Sandbox DropDownMenu -->
+        <script src="libs/sandbox/js/script.js"></script>
     <!-- js end -->
-</HEAD>
 
-<BODY id="common-k_920">
-    <div id="main920" style="line-height:180%"><!--</div>-->
+</head>
+
+<body id="common-k">
 
     <header>
-        <a name="page_top"></a>
-        <div class="header_label920">
-            <nav>
-                <IMG src="image/top/Contrail_g.png" alt ="Contrail logo" height="20" class="logo_img">
-                <ul class="menu" >
-                    <li class="pb40"><a href="index.html" class="menulink">Home</a></li>
-                    <li class="pb40"><a href="whatnew.html" class="menulink">What's New</a></li>
-                    <li class="pb40"><a href="etc.html" class="menulink">E.T.C.</a></li>
-                    <li class="pb40"><a href="fs01.html" class="menulink">The Scenery</a></li>
-                    <li class="pb40"><a href="link01.html" class="menulink">Links</a></li>
-                    <li class="pb40"><a href="fs01_about.html" class="menulink">about Contrail</a></li>
-                </ul>
-            </nav>
-            <div class="c-both"></div>
+        <div class="prettyP_PC">
+            <a name="page_top"></a>
+            <div class="center jQ_change navbox" >
+                <nav>
+                    <img src="image/top/cr32_e.png" height="20" class="logo_img">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_img">
+                    <ul class="menu" id="menu" >
+                        <li><a href="index.html" class="menulink">Home</a></li>
+                        <li><a href="e_whatnew.html" class="menulink">What's New</a></li>
+                        <li><a href="en_etc.html" class="menulink">E.T.C.</a></li>
+                        <li><a href="e_fs01.html" class="menulink">The Scenery</a>
+                            <ul>
+                                <li><a href="e_fs01_sc_top.html" class="sub">Screen Shots</a></li>
+                                <li><a href="e_fs01_ls_top.html" class="sub">Snap Shots</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="e_link01.html" class="menulink">Links</a></li>
+                        <li class="about"><a href="e_fs01_about.html" class="menulink">about Contrail</a></li>
+                    </ul>
+                </nav>
+                <div class="c-both"></div>
+            </div>
+            <!-- Sandbox DropDownMenu start-->
+            <script>
+                var menu=new menu.dd("menu");
+                menu.init("menu","menuhover");
+            </script>
+            <!-- Sandbox DropDownMenu end -->
         </div>
+        <div class="prettyP_SP">
+            <a name="MENU"></a>
+            <p id="menu-call">
+                <a href="#">MENU</a>
+            </p>
+
+            <a name="page_top"></a>
+
+            <!-- page top icon & logo -->
+            <div id="header_SP" class="header_labelSP">
+                <div class="pb4"></div>
+                <img src="image/top/cr48f_32.png">
+                <img class="pb3" src="image/top/Contrail_g.png" height="24">
+            </div>
+
+            <div id="popup-menu" class="hidden">
+                <div class="menu-title">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_image" alt="CONTRAIL">
+                </div>
+                <ul>
+                <li><a href="index.html" class="menulink">Home</a></li>
+                <li><a href="e_whatnew.html" class="menulink">What's New</a></li>
+                <li><a href="en_etc.html" class="menulink">E.T.C.</a></li>
+                <li><a href="e_fs01.html" class="menulink">The Scenery</a>
+                <li><a href="e_link01.html" class="menulink">Links</a></li>
+                <li><a href="e_fs01_about.html" class="menulink">about Contrail</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
 
     <div class="c_main920"> <!-- ① page main: start -->
 
         <!-- title -->
-        <div id="title20">
-            <p class="pb10"></p>
+        <div id="title40">
             <h2 class="pt30 pb20">
                 Voyagers of 38,000 years ago
             </h2>
         </div>
+
+        <!-- for Java Script off -->
+        <noscript>
+            <div id="attention">
+                <p>Sorry, you need to activate JavaScript in your browser.</p>
+            </div>
+        </noscript>
 
         <!-- contents -->
         <div class="pic-left920 pb40">
@@ -125,7 +148,7 @@
                     <span id="c3" class="hover-comment"
                         comment-popup="
                             The Izu Islands are a group of volcanic islands that spread southeast from the Izu Peninsula in Japan's main island of Honshu.
-                        " >
+                        ">
                         Izu Islands
                     </span>
                      to the
@@ -174,7 +197,7 @@
             </div>
 
             <div class="fwb pb30">
-                <ol class="list_none pb40, pl40">
+                <ol class="pb40, pl40">
                     <li class="pb10"><a href="#s1">The era is 38,000 years ago</a></li>
                     <li class="pb10"><a href="#s2">The obsidian was transported by boat</a></li>
                     <li class="pb10"><a href="#s3">20,000 years ago, avobe sea level was 120 meters lower than it is now</a></li>
@@ -280,7 +303,7 @@
                 </p>
                 <p class="pb5">
                     <span class="image-container">
-	                    <img src="image/Voyager/sea-level_from_42000_3.png"
+                        <img src="image/Voyager/sea-level_from_42000_3.png"
                         alt="Fig.2-1 : Above sea level from 42,000 years ago to the present" width="700px" border="0">
                     </span>
                 </p>
@@ -312,8 +335,8 @@
                 </p>
                 <p class="pb5">
                     <span class="image-container">
-	                    <img src="image/Voyager/shortest_route_from_Kōzu-shima_to_Izu Peninsula4_en.jpg"
-	                        alt="Fig.2-2 : The area including the Izu Peninsula, Kōzu-shima Island, and Boso Peninsula 38,000 years ago" width="700px" border="0">
+                        <img src="image/Voyager/shortest_route_from_Kōzu-shima_to_Izu Peninsula4_en.jpg"
+                            alt="Fig.2-2 : The area including the Izu Peninsula, Kōzu-shima Island, and Boso Peninsula 38,000 years ago" width="700px" border="0">
                     </span>
                 </p>
                 <p class="fws pb20">
@@ -380,11 +403,11 @@
                 </p>
                 <div class="fwb pb30">
                     <ul style="list-style: none;" class="fwm pb40, pl40">
-                        <li class="pb10"><a href="#ss1">① Chishima (Kuril) Islands</a></li>
-                        <li class="pb10"><a href="#ss2">② Soya (La Pérouse) Channel</a></li>
-                        <li class="pb10"><a href="#ss3">③ Tsugaru Channel</a></li>
-                        <li class="pb10"><a href="#ss4">④ Korea - Tsushima Island - Kyushu</a></li>
-                        <li class="pb10"><a href="#ss5">⑤ Taiwan - Ryukyu Islands - Kyushu</a></li>
+                        <li class="pb10"><!--<a href="#ss1">-->① Chishima (Kuril) Islands        <!--</a>--></li>
+                        <li class="pb10"><!--<a href="#ss2">-->② Soya (La Pérouse) Channel       <!--</a>--></li>
+                        <li class="pb10"><!--<a href="#ss3">-->③ Tsugaru Channel                 <!--</a>--></li>
+                        <li class="pb10"><!--<a href="#ss4">-->④ Korea - Tsushima Island - Kyushu<!--</a>--></li>
+                        <li class="pb10"><!--<a href="#ss5">-->⑤ Taiwan - Ryukyu Islands - Kyushu<!--</a>--></li>
                     </ol>
                 </div>
                 <p class="pb10">
@@ -406,9 +429,9 @@
                 </p>
                 <div class="fwb pb30">
                     <ul style="list-style: none;" class="list_none fwm pb40, pl40">
-                        <li class="pb10"><a href="#ss1">③ Tsugaru Channel</a></li>
-                        <li class="pb10"><a href="#ss2">④ Korea - Tsushima Island - Kyushu</a></li>
-                        <li class="pb10"><a href="#ss3">⑤ Taiwan - Ryukyu Islands - Kyushu</a></li>
+                        <li class="pb10"><!--<a href="#ss3">-->③ Tsugaru Channel                 <!--</a>-->
+                        <li class="pb10"><!--<a href="#ss4">-->④ Korea - Tsushima Island - Kyushu<!--</a>-->
+                        <li class="pb10"><!--<a href="#ss5">-->⑤ Taiwan - Ryukyu Islands - Kyushu<!--</a>-->
                     </ul>
                 </div>
                 <p class="pb10">
@@ -422,8 +445,8 @@
                 </p>
                 <p class="pb5">
                     <span class="image-container">
-	                    <img src="image/Voyager/shortest_route_Tugaru_Channel4.jpg"
-	                        alt="Fig.2-4 : Route across the Tsugaru Channel" width="700px" border="0">
+                        <img src="image/Voyager/shortest_route_Tugaru_Channel4.jpg"
+                            alt="Fig.2-4 : Route across the Tsugaru Channel" width="700px" border="0">
                     </span>
                 </p>
                 <p class="fws pb20">
@@ -439,8 +462,8 @@
                 </p>
                 <p class="pb5">
                     <span class="image-container">
-	                    <img src="image/Voyager/shortest_route_Korea_Kyusyu5.jpg"
-	                        alt="Fig.2-5 : [Korea - Tsushima - Kyushu] route" width="700px" border="0">
+                        <img src="image/Voyager/shortest_route_Korea_Kyusyu5.jpg"
+                            alt="Fig.2-5 : [Korea - Tsushima - Kyushu] route" width="700px" border="0">
                     </span>
                 </p>
                 <p class="fws pb20">
@@ -457,8 +480,8 @@
                 </p>
                 <p class="pb5">
                     <span class="image-container">
-	                    <img src="image/Voyager/shortest_route_Taiwan_Ryukyu5.jpg"
-	                        alt="Fig.2-6 : [Taiwan - Ryukyu Islands] route" width="700px" border="0">
+                        <img src="image/Voyager/shortest_route_Taiwan_Ryukyu5.jpg"
+                            alt="Fig.2-6 : [Taiwan - Ryukyu Islands] route" width="700px" border="0">
                     </span>
                 </p>
                 <p class="fws pb20">
@@ -484,9 +507,9 @@
                 </p>
                 <p class="pb5">
                     <span class="image-container">
-	                    <img src="https://www.u-tokyo.ac.jp/content/400247590.jpg"
-	                        alt="Fig.2-7 : Quoted from "A thorough recreation of the great voyage to the Japanese archipelago 30,000 years ago,
-	                        using materials and tools from that time"" width="700px" border="0">
+                        <img src="https://www.u-tokyo.ac.jp/content/400247590.jpg"
+                            alt="Fig.2-7 : Quoted from "A thorough recreation of the great voyage to the Japanese archipelago 30,000 years ago,
+                            using materials and tools from that time"" width="700px" border="0">
                     </span>
                 </p>
                 <p class="pb10">
@@ -965,7 +988,7 @@
                 </p>
             </div>
             <!--<div class="bdr10 left fwm" style="width:760px">-->
-            <div class="bdr10 left fwm">
+            <div class="bdr10 left2 fwm">
                 <div class="pb10">
                     <p id="t1" class="bd10">
                         [1.]
@@ -1080,6 +1103,7 @@
                     </p>
                 </div>
             </div>
+            <div class="prettyP_SP"><div class="pb40"></div></div>
 
         </div>  <!-- ② end -->
 
@@ -1090,17 +1114,18 @@
         <hr id="footer"> <!-- horizontal partition -->
 
         <p id="page-top"><a href="#">TOP</a></p>
-        <div class="jQ_change center" > <!-- select button whole: start -->
+
+        <div class="jQ_change center"> <!-- select button whole: start -->
             <p id="footer"> <!-- select button: start -->
                 <a href="etc.html">
-                    <IMG src="image/button/back_off.gif" alt="" border="0" alt="Back" >
+                    <img src="image/button/back_off.gif" alt="" border="0" alt="Back">
                 </a>
             </p> <!-- select button: end -->
         </div> <!-- select button whole: end -->
 
-        <div class="footer_label920">
+        <div class="footer_labelPC">
             copyright &copy; 2003 -
-            <script type="text/javascript" language="JavaScript">
+            <script>
                 date = new Date();
                 document.write(date.getFullYear() + ' ');
             </script>
@@ -1111,12 +1136,10 @@
 
     </footer>
 
-</div>
-
 <div id="popup">
     <p id="popup-text"></p>
     <a id="popup-link" href="#" target="_blank">View details</a>
 </div>
 
-</BODY>
+</body>
 </html>

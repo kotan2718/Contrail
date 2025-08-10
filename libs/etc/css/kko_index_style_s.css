@@ -6,6 +6,31 @@ body, html {
     padding: 0;
 }
 
+/* Pretty Phot */
+div.prettyP_PC {
+}
+div.prettyP_SP {
+}
+/* デフォルトでは非表示にしておく */
+.prettyP_PC,
+.prettyP_SP {
+    display: none;
+}
+
+/* PC向け（幅が770px以上の画面）ではPC用説明を表示 */
+@media screen and (min-width: 769px) {
+    .prettyP_PC {
+        display: block;
+    }
+}
+
+/* スマホ向け（幅が800px以下の画面）ではSP用説明を表示 */
+@media screen and (max-width: 768px) {
+    .prettyP_SP {
+        display: block;
+    }
+}
+
 #main420  { 
     max-width: 420px;  
     margin: auto;
@@ -16,13 +41,14 @@ body, html {
 /* main title */
 p#main_title{ 
     margin: 0; 
-    padding: auto; 
+    padding-top: 15px; 
     text-align: center; 
 } 
 
 /* index title */
-p#index_title{ 
-    width: 230px; 
+/*
+div#index_title{ 
+    width: 120px; 
     margin:  0; 
     padding: 20px 0px 0px 10px; 
     text-align: left; 
@@ -31,6 +57,8 @@ p#index_title{
     font-size: 140%; 
     font-weight: bold;
 } 
+*/
+
 /* Japanese English title */
 p.index_je{ 
     text-align: left; 
@@ -244,6 +272,14 @@ p#h_line{
 .border-ccc{
     border: solid 0px #ccc; 
 }
+/*
+.grid1 {
+  display: grid;
+  grid-template-columns:  256px 1fr;
+  grid-template-rows: 30px;
+  text-align: left;
+}
+*/
 
 .grid2 {
   display: grid;

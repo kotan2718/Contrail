@@ -1,93 +1,105 @@
-<!DOCTYPE HTML >
-<html>
+<!DOCTYPE html >
+<html lang="ja">
 
-<HEAD>
-    <META charset="UTF-8">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Kamui氏から美しい写真をいただきました。晩夏の桜島と晩秋の平泉です。">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Contrail SnapShots : 四季折々 :: 往く夏と往く秋と</title>
 
     <!-- favicon-->
-    <link rel="shortcut icon" href="favicon.ico">
-
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="icon" href="favicon.ico">
 
     <!-- css start -->
-
-        <!-- kko_etc start - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
-        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css" type="text/css">
-        <!-- kko_etc end -->
-
+        <!-- kko_etc - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
+        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
     <!-- css end -->
 
     <!-- js start -->
-
         <!-- jQuery start -->
-        <script src="libs/jQuery/js/jquery-1.6.1.min.js" type="text/javascript"></script>
-
-            <!-- kko_style start - img jq_blink, img jq_change -->
-            <script src="libs/jQuery/kko/js/jq_kko_preload.js" type="text/javascript"></script>
-            <script src="libs/jQuery/kko/js/jq_kko_style.js" type="text/javascript"></script>
-            <!-- kko_style end -->
-
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <!-- kko_style - img jq_blink, img jq_change -->
+            <script src="libs/jQuery/kko/js/jq_kko_style.js"></script>
         <!-- jQuery end -->
-
-        <!-- Sandbox DropDownMenu start -->
-        <script src="libs/sandbox/js/script.js" type="text/javascript"></script>
-        <!-- Sandbox DropDownMenu end -->
-
     <!-- js end -->
 
-</HEAD>
+</head>
 
-<BODY id="common-s" >
-
-<!-- Pre Loading -->
-<!-- without loading picture -->
-<div id="loader"></div>
-<div id="fade"></div>
-<div id="preload"> <!-- Pre Loading start -->
+<body id="common-k">
 
     <header>
-        <a name="page_top"></a>
-        <div class="center jQ_change navbox" >
-            <nav>
-                <IMG src="image/top/Contrail_g.png" height="20" class="logo_img">
-                <ul class="menu" id="menu" >
+        <div class="prettyP_PC">
+            <a name="page_top"></a>
+            <div class="center jQ_change navbox" >
+                <nav>
+                    <img src="image/top/cr32_e.png" height="20" class="logo_img">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_img">
+                    <ul class="menu" id="menu" >
+                        <li><a href="index.html" class="menulink">Home</a></li>
+                        <li><a href="whatnew.html" class="menulink">What's New</a></li>
+                        <li><a href="etc.html" class="menulink">E.T.C.</a></li>
+                        <li><a href="fs01.html" class="menulink">The Scenery</a>
+                            <ul>
+                                <li><a href="fs01_sc_top.html" class="sub">Screen Shots</a></li>
+                                <li><a href="fs01_ls_top.html" class="sub">Snap Shots</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="link01.html" class="menulink">Links</a></li>
+                        <li class="about"><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                    </ul>
+                </nav>
+                <div class="c-both"></div>
+            </div>
+            <!-- Sandbox DropDownMenu start-->
+            <script>
+                var menu=new menu.dd("menu");
+                menu.init("menu","menuhover");
+            </script>
+            <!-- Sandbox DropDownMenu end -->
+        </div>
+        <div class="prettyP_SP">
+            <a name="MENU"></a>
+            <p id="menu-call">
+                <a href="#">MENU</a>
+            </p>
+
+            <a name="page_top"></a>
+
+            <!-- page top icon & logo -->
+            <div id="header_SP" class="header_labelSP">
+                <div class="pb4"></div>
+                <img src="image/top/cr48f_32.png">
+                <img class="pb3" src="image/top/Contrail_g.png" height="24">
+            </div>
+
+            <div id="popup-menu" class="hidden">
+                <div class="menu-title">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_image" alt="CONTRAIL">
+                </div>
+                <ul>
                     <li><a href="index.html" class="menulink">Home</a></li>
                     <li><a href="whatnew.html" class="menulink">What's New</a></li>
                     <li><a href="etc.html" class="menulink">E.T.C.</a></li>
-                    <li><a href="fs01.html" class="menulink">The Scenery</a>
-                        <ul>
-                            <li><a href="fs01_sc_top.html" class="sub">Screen Shots</a></li>
-                            <li><a href="fs01_ls_top.html" class="sub">Snap Shots</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="fs01.html" class="menulink">The Scenery</a></li>
                     <li><a href="link01.html" class="menulink">Links</a></li>
-                    <li class="about"><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                    <li><a href="fs01_about.html" class="menulink">about Contrail</a></li>
                 </ul>
-            </nav>
-            <div class="c-both"></div>
+            </div>
         </div>
-        <!-- Sandbox DropDownMenu start-->
-        <script type="text/javascript">
-            var menu=new menu.dd("menu");
-            menu.init("menu","menuhover");
-        </script>    <!-- Sandbox DropDownMenu end -->
     </header>
 
     <div id="main960"> <!-- page main: start -->
 
         <!-- title -->
         <div id="title30">
-            <p id="head10" >
-                <IMG src="image/fs/kko_logo.gif" border="0" alt="Contrail Snap Shots Special Gallery">
+            <p id="head10">
+                <img src="image/fs/kko_logo.gif" border="0" alt="Contrail Snap Shots Special Gallery">
             </p>
             <h2 id="group-4S15">
                 四季折々
             </h2>
-            <h1 id="main_fs" style="color: #777788;" >
+            <h1 id="main_fs" style="color: #777788;">
                 往く夏と 往く秋と
             </h1>
             <p id="author">
@@ -95,36 +107,86 @@
             </p>
         </div>
 
+        <!-- for Java Script off -->
+        <noscript>
+            <div id="attention">
+                <p>ご覧頂くにはブラウザの JavaScript をアクティブにして下さい</p>
+            </div>
+        </noscript>
+
         <!-- contents -->
-        <div class="pic-left800 pb30" >
-            <p class="pb10" >
-                隼人港にぽっかり浮かぶ桜島です。<BR>
-                晩夏とは思えない，明るくのんびりした気分にさせてくれる画像です。
-            </p>
-            <p>
-                <IMG src="image/fs/ss/source/sakurajima1.jpg" width="800" alt="sakurajima1">
-            </p>
+        <div class="pic-left800 pb30">
+            <div class="prettyP_PC">
+                <p class="pb10">
+                    隼人港にぽっかり浮かぶ桜島です。<br>
+                    晩夏とは思えない，明るくのんびりした気分にさせてくれる画像です。
+                </p>
+                <p>
+                    <img src="image/fs/ss/source/sakurajima1.jpg" width="800" alt="sakurajima1">
+                </p>
+            </div>
+            <div class="prettyP_SP">
+                <p class="pb10">
+                    隼人港にぽっかり浮かぶ桜島です。
+                    晩夏とは思えない，明るくのんびりした気分にさせてくれる画像です。
+                </p>
+                <p>
+                    <span class="image-container">
+                        <img src="image/fs/ss/source/sakurajima1.jpg" height="172" alt="sakurajima1">
+                    </span>
+                </p>
+                <div class="pb30"></div>
+            </div>
         </div>
 
-        <div class="pic-center800 pb50" >
-            <p class="pb10" >
-                画像右下の和弓のようなオブジェが気になるのですが，<BR>
-                弓ではないそうです。<BR>
-                それにしても穏やかな波の煌めきが，何とも心地よくさせてくれる画像です。
-            </p>
-            <p>
-                <IMG src="image/fs/ss/source/sakurajima2.jpg" width="800" alt="sakurajima2">
-            </p>
+        <div class="pic-center800 pb50">
+            <div class="prettyP_PC">
+                <p class="pb10">
+                    画像右下の和弓のようなオブジェが気になるのですが，<br>
+                    弓ではないそうです。<br>
+                    それにしても穏やかな波の煌めきが，何とも心地よくさせてくれる画像です。
+                </p>
+                <p>
+                    <img src="image/fs/ss/source/sakurajima2.jpg" width="800" alt="sakurajima2">
+                </p>
+            </div>
+            <div class="prettyP_SP">
+                <p class="left2 pb10">
+                    画像右下の和弓のようなオブジェが気になるのですが，
+                    弓ではないそうです。
+                    それにしても穏やかな波の煌めきが，何とも心地よくさせてくれる画像です。
+                </p>
+                <p>
+                    <span class="image-container">
+                        <img src="image/fs/ss/source/sakurajima2.jpg" alt="sakurajima2">
+                    </span>
+                </p>
+                <div class="pb40"></div>
+            </div>
         </div>
 
-        <div class="pic-right800 pb30" >
-            <p class="center pb10" >
-                こちらは，駆け足で冬に向かう平泉。<BR>
+        <div class="pic-right800 pb30">
+            <div class="prettyP_PC">
+                <p class="center pb5">
+                こちらは，駆け足で冬に向かう平泉。<br>
                 こういう姿を見せてくれるのは，１年のうち，何日くらいなのでしょう。
-            </p>
-            <p>
-                <IMG src="image/fs/ss/source/kemariji1.jpg" width="800" alt="kemariji 1">
-            </p>
+                </p>
+                <p>
+                    <img src="image/fs/ss/source/kemariji1.jpg" width="800" alt="kemariji 1">
+                </p>
+            </div>
+            <div class="prettyP_SP">
+                <p class="left2 pb5">
+                こちらは，駆け足で冬に向かう平泉。
+                こういう姿を見せてくれるのは，１年のうち，何日くらいなのでしょう。
+                </p>
+                <p>
+                    <span class="image-container">
+                        <img src="image/fs/ss/source/kemariji1.jpg" alt="kemariji 1">
+                    </span>
+                </p>
+                <div class="pb20"></div>
+            </div>
         </div>
             <a name="page_bottom"></a>
 
@@ -134,17 +196,19 @@
 
         <hr id="footer"> <!-- horizontal partition -->
 
-        <div class="jQ_change center" > <!-- select button whole: start -->
+        <p id="page-top"><a href="#">TOP</a></p>
+
+        <div class="jQ_change center"> <!-- select button whole: start -->
             <p id="footer"> <!-- select button: start -->
                 <a href="fs01_ls_4seasons.html#late_summer_late_autumn">
-                    <IMG src="image/button/back_off.gif" border="0" alt="Back" >
+                    <img src="image/button/back_off.gif" border="0" alt="Back">
                 </a>
             </p> <!-- select button: end -->
         </div> <!-- select button whole: end -->
 
-        <div id="footer_label">
+        <div class="footer_labelPC">
             copyright &copy; 2003 -
-            <script type="text/javascript" language="JavaScript">
+            <script>
                 date = new Date();
                 document.write(date.getFullYear() + ' ');
             </script>
@@ -155,6 +219,5 @@
 
     </footer>
 
-</div> <!-- Pre Loading end -->
-</BODY>
+</body>
 </html>

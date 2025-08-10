@@ -1,164 +1,234 @@
-<!DOCTYPE HTML >
-<html>
-<HEAD>
-    <META charset="UTF-8">
+<!DOCTYPE html >
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="冬になると野生のアザラシが鴨川の海岸に現れるようになって数年が経ちます。'カモちゃん'の愛称で親しまれています。">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Contrail SnapShots : 四季折々 :: カモちゃん</title>
 
     <!-- favicon-->
-    <link rel="shortcut icon" href="favicon.ico">
-
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="icon" href="favicon.ico">
 
     <!-- css start -->
+        <!-- kko_etc - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
+        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
 
-        <!-- kko_etc start - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
-        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css" type="text/css">
-        <!-- kko_etc end -->
+        <!-- Fancybox CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css">
 
-        <!-- prettyPhoto start -->
-        <link href="libs/jQuery/prettyPhoto/css/prettyPhoto315_mod.css" media="all" rel="stylesheet" type="text/css">
-        <!-- prettyPhoto end -->
-
+        <style>
+            /* Optional: Limit image size on small screens */
+            @media (max-width: 768px) {
+                .fancybox_image {
+                    max-width: 256px;
+                }
+                .fancybox_image2 {
+                    max-width: 300px;
+                }
+            }
+        </style>
     <!-- css end -->
 
     <!-- js start -->
-
         <!-- jQuery start -->
-        <script src="libs/jQuery/js/jquery-1.6.1.min.js" type="text/javascript"></script>
-
-            <!-- kko_style start - img jq_blink, img jq_change -->
-            <script src="libs/jQuery/kko/js/jq_kko_preload.js" type="text/javascript"></script>
-            <script src="libs/jQuery/kko/js/jq_kko_style.js" type="text/javascript"></script>
-            <!-- kko_style end -->
-
-            <!-- prettyPhoto start -->
-            <script src="libs/jQuery/prettyPhoto/js/jquery.prettyPhoto_315_mod.js" type="text/javascript"></script>
-            <script type="text/javascript">
-                $(document).ready(function(){
-                    $("a[rel^='prettyPhoto']").prettyPhoto();
-                });
-            </script>
-            <!-- prettyPhoto end -->
-
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <!-- kko_style - img jq_blink, img jq_change -->
+            <script src="libs/jQuery/kko/js/jq_kko_style.js"></script>
         <!-- jQuery end -->
 
-        <!-- Sandbox DropDownMenu start -->
-        <script src="libs/sandbox/js/script.js" type="text/javascript"></script>
-        <!-- Sandbox DropDownMenu end -->
+        <!-- Fancybox JS -->
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
 
-    <!-- js end -->
+        <!-- Sandbox DropDownMenu -->
+        <script src="libs/sandbox/js/script.js"></script>
+   <!-- js end -->
 
-</HEAD>
+</head>
 
-<BODY id="common-k" >
-
-<!-- Pre Loading -->
-<!-- without loading picture -->
-<div id="loader"></div>
-<div id="fade"></div>
-<div id="preload"> <!-- Pre Loading start -->
+<body id="common-k">
 
     <header>
-        <a name="page_top"></a>
-        <div class="center jQ_change navbox" >
-            <nav>
-                <IMG src="image/top/Contrail_g.png" height="20" class="logo_img">
-                <ul class="menu" id="menu" >
+        <div class="prettyP_PC">
+            <a name="page_top"></a>
+            <div class="center jQ_change navbox" >
+                <nav>
+                    <img src="image/top/cr32_e.png" height="20" class="logo_img">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_img">
+                    <ul class="menu" id="menu" >
+                        <li><a href="index.html" class="menulink">Home</a></li>
+                        <li><a href="whatnew.html" class="menulink">What's New</a></li>
+                        <li><a href="etc.html" class="menulink">E.T.C.</a></li>
+                        <li><a href="fs01.html" class="menulink">The Scenery</a>
+                            <ul>
+                                <li><a href="fs01_sc_top.html" class="sub">Screen Shots</a></li>
+                                <li><a href="fs01_ls_top.html" class="sub">Snap Shots</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="link01.html" class="menulink">Links</a></li>
+                        <li class="about"><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                    </ul>
+                </nav>
+                <div class="c-both"></div>
+            </div>
+            <!-- Sandbox DropDownMenu start-->
+            <script>
+                var menu=new menu.dd("menu");
+                menu.init("menu","menuhover");
+            </script>
+            <!-- Sandbox DropDownMenu end -->
+        </div>
+        <div class="prettyP_SP">
+            <a name="MENU"></a>
+            <p id="menu-call">
+                <a href="#">MENU</a>
+            </p>
+
+            <a name="page_top"></a>
+
+            <!-- page top icon & logo -->
+            <div id="header_SP" class="header_labelSP">
+                <div class="pb4"></div>
+                <img src="image/top/cr48f_32.png">
+                <img class="pb3" src="image/top/Contrail_g.png" height="24">
+            </div>
+
+            <div id="popup-menu" class="hidden">
+                <div class="menu-title">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_image" alt="CONTRAIL">
+                </div>
+                <ul>
                     <li><a href="index.html" class="menulink">Home</a></li>
                     <li><a href="whatnew.html" class="menulink">What's New</a></li>
                     <li><a href="etc.html" class="menulink">E.T.C.</a></li>
-                    <li><a href="fs01.html" class="menulink">The Scenery</a>
-                        <ul>
-                            <li><a href="fs01_sc_top.html" class="sub">Screen Shots</a></li>
-                            <li><a href="fs01_ls_top.html" class="sub">Snap Shots</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="fs01.html" class="menulink">The Scenery</a></li>
                     <li><a href="link01.html" class="menulink">Links</a></li>
-                    <li class="about"><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                    <li><a href="fs01_about.html" class="menulink">about Contrail</a></li>
                 </ul>
-            </nav>
-            <div class="c-both"></div>
+            </div>
         </div>
-        <!-- Sandbox DropDownMenu start-->
-        <script type="text/javascript">
-            var menu=new menu.dd("menu");
-            menu.init("menu","menuhover");
-        </script>    <!-- Sandbox DropDownMenu end -->
     </header>
 
     <div id="main920" class="lineh130"> <!-- page main: start -->
 
-            <!-- title -->
-            <div id="title30">
-                <p id="head10" >
-                    <IMG src="image/fs/kko_logo.gif" border="0" alt="Contrail Snap Shots Special Gallery">
-                </p>
-                <h2 id="group-4S15">
-                    四季折々
-                </h2>
-                <h1 id="main_fs" style="color: #887777;" >
+        <!-- title -->
+        <div id="title30">
+            <p id="head10">
+                <img src="image/fs/kko_logo.gif" border="0" alt="Contrail Snap Shots Special Gallery">
+            </p>
+            <h2 id="group-4S15">
+                四季折々
+            </h2>
+            <div class="prettyP_PC">
+                <h1 id="main" style="color: #887777;">
                     カモちゃん
                 </h1>
                 <p id="author">
                     photo kotan
                 </p>
             </div>
+            <div class="prettyP_SP">
+                <h2 id="main" style="color: #887777;">
+                    カモちゃん
+                </h2>
+                <div class="pb20"></div>
+                <p id="author">
+                    photo kotan
+                </p>
+            </div>
+        </div>
+
+        <!-- for Java Script off -->
+        <noscript>
+            <div id="attention">
+                <p>ご覧頂くにはブラウザの JavaScript をアクティブにして下さい</p>
+            </div>
+        </noscript>
 
         <!-- contents -->
-        <div class="pic-center800 pb30" >
-            <p class="pb10" >
-                冬になると野生のアザラシが鴨川の海岸に現れるようになって<BR>
-                数年が経ちます。多摩川などに現れたアザラシは<BR>
-                その後，姿を消してしまいましたが，<BR>
-                カモちゃんはよっぽどこの海岸が気に入ったのか，<BR>
-                今年も現れたと新聞で報じられました。
-            </p>
+        <div class="pic-center800new pb30">
+            <div class="prettyP_PC">
+                <p class="pb10">
+                    冬になると野生のアザラシが鴨川の海岸に現れるようになって<br>
+                    数年が経ちます。多摩川などに現れたアザラシは<br>
+                    その後，姿を消してしまいましたが，<br>
+                    カモちゃんはよっぽどこの海岸が気に入ったのか，<br>
+                    今年も現れたと新聞で報じられました。
+                </p>
+            </div>
+            <div class="prettyP_SP">
+                <p class="left2 pb10">
+                    冬になると野生のアザラシが鴨川の海岸に現れるようになって
+                    数年が経ちます。多摩川などに現れたアザラシは
+                    その後，姿を消してしまいましたが，
+                    カモちゃんはよっぽどこの海岸が気に入ったのか，
+                    今年も現れたと新聞で報じられました。
+                </p>
+            </div>
             <p class="jQ_blink change_border_color">
-                 <a href="image/fs/kko/source/kamochan_P1010550_1024.jpg" rel="prettyPhoto"
-                     title="カモちゃん 1" target="_blank" >
-                    <IMG src="image/fs/kko/source/kamochan_P1010550_1024.jpg" width="800" >
+                 <a href="image/fs/kko/source/kamochan_P1010550_1024.jpg"
+                    data-fancybox="gallery1" data-caption="カモちゃん 1">
+                    <img class="fancybox_image2" src="image/fs/kko/source/kamochan_P1010550_1024.jpg" width="800"
+                        alt="KAMO-chan 1">
                 </a>
             </p>
             <p>
-                最初に現れたときのカモちゃんです。<BR>
+                最初に現れたときのカモちゃんです。<br>
                 撮影: 04/03/31
             </p>
+            <div class="prettyP_SP"><div class="pb30"></div></div>
         </div>
 
-        <div class="pic-right800 pb10" >
-            <p class="jQ_blink change_border_color" >
-                 <a href="image/fs/kko/source/kamochan_P1020772_1024.jpg" rel="prettyPhoto"
-                     title="カモちゃん 2" target="_blank" >
-                    <IMG src="image/fs/kko/source/kamochan_P1020772_1024.jpg" width="800"border="0" >
+        <div class="pic-right800new pb10">
+            <p class="jQ_blink change_border_color">
+                 <a href="image/fs/kko/source/kamochan_P1020772_1024.jpg"
+                    data-fancybox="gallery1" data-caption="カモちゃん 2">
+                    <img class="fancybox_image" src="image/fs/kko/source/kamochan_P1020772_1024.jpg" width="800"
+                        alt="KAMO-chan 2">
                 </a>
             </p>
             <p>
-                ２回目に現れたカモちゃんです。<BR>
+                ２回目に現れたカモちゃんです。<br>
                 撮影: 05/03/30
             </p>
+            <div class="prettyP_SP"><div class="pb20"></div></div>
         </div>
 
-        <div class="pic-left800 pb20" >
-            <p class="pb10">
-                下の画像は 05/12/28 の撮影です。<BR>
-                ちょっと自信がないのですが，<BR>
-                海岸から150m ほどのところを泳いでいました。<BR>
-                左はカモメで，右にアザラシの胴体の一部が写っています。<BR>
-                写真には撮れませんでしたが，顔を覗かせた瞬間もありました。<BR>
-                <BR>
-                更に，泳いでいたアザラシですが，１頭ではなく２頭なのです。<BR>
-                残念ながら写真を撮ることは出来ませんでしたが，<BR>
-                ２頭が同時に背中を見せたり，息継ぎをしたりしていました。<BR>
-                ひょっとすると，今回はお嫁さんを連れて来たのでしょうか (^^)。
-            </p>
+        <div class="pic-left800 pb20">
+            <div class="prettyP_PC">
+                <p class="pb10">
+                    下の画像は 05/12/28 の撮影です。<br>
+                    海岸から150m ほどのところを泳いでいました。<br>
+                    左はカモメで，右にアザラシの胴体の一部が写っています。<br>
+                    写真には撮れませんでしたが，顔を覗かせた瞬間もありました。<br>
+                    <br>
+                    更に，泳いでいたアザラシですが，１頭ではなく２頭なのです。<br>
+                    残念ながら写真を撮ることは出来ませんでしたが，<br>
+                    ２頭が同時に背中を見せたり，息継ぎをしたりしていました。<br>
+                    ひょっとすると，今回はお嫁さんを連れて来たのでしょうか (^^)。
+                </p>
+            </div>
+            <div class="prettyP_SP">
+                <p class="pb10">
+                    下の画像は 05/12/28 の撮影です。
+                    海岸から150m ほどのところを泳いでいました。
+                    左はカモメで，右にアザラシの胴体の一部が写っています。
+                    写真には撮れませんでしたが，顔を覗かせた瞬間もありました。
+                </p>
+                <p class="pb10">
+                    更に，泳いでいたアザラシですが，１頭ではなく２頭なのです。
+                    残念ながら写真を撮ることは出来ませんでしたが，
+                    ２頭が同時に背中を見せたり，息継ぎをしたりしていました。
+                    ひょっとすると，今回はお嫁さんを連れて来たのでしょうか (^^)。
+                </p>
+            </div>
             <p>
-                <IMG src="image/fs/kko/source/kamochan_P1050078_c1024.jpg" width="800" alt="カモちゃん... ???"  >
+                <img class="fancybox_image" src="image/fs/kko/source/kamochan_P1050078_c1024.jpg" width="800"
+                    alt="カモちゃん... ???">
             </p>
+            <div class="prettyP_SP"><div class="pb30"></div></div>
         </div>
-        <a name="page_bottom"></a>
 
     </div> <!-- page main: end -->
 
@@ -166,17 +236,19 @@
 
         <hr id="footer"> <!-- horizontal partition -->
 
-        <div class="jQ_change center" > <!-- select button whole: start -->
+        <p id="page-top"><a href="#">TOP</a></p>
+
+        <div class="jQ_change center"> <!-- select button whole: start -->
             <p id="footer"> <!-- select button: start -->
                 <a href="fs01_ls_4seasons.html#kamo-chan">
-                    <IMG src="image/button/back_off.gif" border="0" alt="Back" >
+                    <img src="image/button/back_off.gif" border="0" alt="Back">
                 </a>
             </p> <!-- select button: end -->
         </div> <!-- select button whole: end -->
 
-        <div id="footer_label">
+        <div class="footer_labelPC">
             copyright &copy; 2003 -
-            <script type="text/javascript" language="JavaScript">
+            <script>
                 date = new Date();
                 document.write(date.getFullYear() + ' ');
             </script>
@@ -187,6 +259,5 @@
 
     </footer>
 
-</div> <!-- Pre Loading end -->
-</BODY>
+</body>
 </html>

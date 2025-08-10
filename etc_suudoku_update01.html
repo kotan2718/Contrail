@@ -1,15 +1,15 @@
-<!DOCTYPE HTML >
+<!DOCTYPE html >
 <html>
 
-<HEAD>
-    <META charset="UTF-8">
-    <META name="description" content="数独(ナンプレ)の問題を作成するツールをアップデート: 作成した問題を保存する機能を追加しました。オープンさせるマス目の数を指定することで、問題が作成されます。最小数は偶数が24個、奇数が23個です。">
-    <META name="keywords" content="数独,ナンプレ,問題,作成,ツール,保存">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="数独(ナンプレ)の問題を作成するツールをアップデート: 作成した問題を保存する機能を追加しました。オープンさせるマス目の数を指定することで、問題が作成されます。最小数は偶数が24個、奇数が23個です。">
+    <meta name="keywords" content="数独,ナンプレ,問題,作成,ツール,保存">
 
     <title>Suudoku Update01</title>
 
     <!-- favicon-->
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="icon" href="favicon.ico">
 
     <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -18,8 +18,8 @@
     <!-- css start -->
 
         <!-- kko_etc start - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
-        <link rel="stylesheet" href="libs/etc/css/kko_footer_style.css" type="text/css">
-        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css" type="text/css">
+        <link rel="stylesheet" href="libs/etc/css/kko_footer_style.css">
+        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
         <!-- kko_etc end -->
 
     <!-- css end -->
@@ -27,30 +27,30 @@
     <!-- js start -->
 
         <!-- jQuery start -->
-        <script src="libs/jQuery/js/jquery-1.6.1.min.js" type="text/javascript"></script>
+        <script src="libs/jQuery/js/jquery-1.6.1.min.js"></script>
 
             <!-- kko_style start - img jq_blink, img jq_change -->
-            <script src="libs/jQuery/kko/js/jq_kko_style.js" type="text/javascript"></script>
+            <script src="libs/jQuery/kko/js/jq_kko_style.js"></script>
             <!-- kko_style end -->
 
         <!-- jQuery end -->
 
         <!-- Sandbox DropDownMenu start -->
-        <script src="libs/sandbox/js/script.js" type="text/javascript"></script>
+        <script src="libs/sandbox/js/script.js"></script>
         <!-- Sandbox DropDownMenu end -->
 
     <!-- js end -->
 
-</HEAD>
+</head>
 
-<BODY id="common-k" >
+<body id="common-k">
 
     <header>
         <a name="page_top"></a>
-        <div class="center jQ_change navbox" >
+        <div class="center jQ_change navbox">
             <nav>
-                <IMG src="image/top/Contrail_g.png" height="20" class="logo_img">
-                <ul class="menu" id="menu" >
+                <img src="image/top/Contrail_g.png" height="20" class="logo_img">
+                <ul class="menu" id="menu">
                     <li><a href="index.html" class="menulink">Home</a></li>
                     <li><a href="whatnew.html" class="menulink">What's New</a></li>
                     <li><a href="etc.html" class="menulink">E.T.C.</a></li>
@@ -67,7 +67,7 @@
             <div class="c-both"></div>
         </div>
         <!-- Sandbox DropDownMenu start-->
-        <script type="text/javascript">
+        <script>
             var menu=new menu.dd("menu");
             menu.init("menu","menuhover");
         </script>    <!-- Sandbox DropDownMenu end -->
@@ -80,6 +80,13 @@
                 ｢数独問題作成ツール｣ アップデート
             </h2>
         </div>
+
+        <!-- for Java Script off -->
+        <noscript>
+            <div id="attention">
+                <p>ご覧頂くにはブラウザの JavaScript をアクティブにして下さい</p>
+            </div>
+        </noscript>
 
         <!-- contents -->
         <div class="pic-left1024 pb40">
@@ -119,7 +126,7 @@
                             </li>
                         </ol>
                         <p class="pb10 contents-2col-left">
-                            <IMG src="image/Suudoku_img/update01/update01_01_check_box2.jpg" width="80%" border="1">
+                            <img src="image/Suudoku_img/update01/update01_01_check_box2.jpg" width="80%" border="1">
                         </p>
                     </li>
                     <li>
@@ -144,14 +151,14 @@
                         エクスプローラーから｢z.suudoku_03.xlsm｣を開きます。<br>
                         [Make]シートの右下の｢作成したデータをシート"Stock"にコピーする｣にチェックが入っていることを確認します。
                         <p class="pb10 contents-2col-left">
-                            <IMG src="image/Suudoku_img/update01/update01_01_check_box.jpg" width="80%" border="1">
+                            <img src="image/Suudoku_img/update01/update01_01_check_box.jpg" width="80%" border="1">
                         </p>
                     </li>
                     <li class="plm10 pb10">
                         ｢Start｣ボタンを押します。<br>
                         しばらくすると、｢Congratulations!｣というメッセージボックが表示されます。問題の作成に成功しました！
                         <p class="pb10 contents-2col-left">
-                            <IMG src="image/Suudoku_img/update01/update01_02_Congratulations.jpg" width="80%" border="1">
+                            <img src="image/Suudoku_img/update01/update01_02_Congratulations.jpg" width="80%" border="1">
                         </p>
                     </li>
                     <li class="plm10 pb10">
@@ -159,7 +166,7 @@
                             ｢Stock｣シートタブをクリックします。
                         </p>
                         <p class="pb10 contents-2col-left">
-                            <IMG src="image/Suudoku_img/update01/update01_03_sheet_stock.jpg" border="1">
+                            <img src="image/Suudoku_img/update01/update01_03_sheet_stock.jpg" border="1">
                         </p>
                         <p class="pb10">
                             作成されたデータが表示されています。
@@ -169,7 +176,7 @@
                         (私見ですが、残すデータは繰返し回数(loopの下の数です)の少ないデータにするのが吉です)<br>
                         ｢Select｣ボタンを押すと○印のついたデータだけが残ります。<br>
                         <p class="pb10 contents-2col-left">
-                            <IMG src="image/Suudoku_img/update01/update01_04_select.jpg" width="110%" border="1">
+                            <img src="image/Suudoku_img/update01/update01_04_select.jpg" width="110%" border="1">
                         </p>
                     </li>
                     <li class="plm10 pb10">
@@ -178,28 +185,28 @@
                             しばらくすると、データが消えてしまいます。でも、大丈夫です。
                         </p>
                         <p class="pb10 contents-2col-left">
-                            <IMG src="image/Suudoku_img/update01/update01_05_stock_after.jpg" width="80%" border="1">
+                            <img src="image/Suudoku_img/update01/update01_05_stock_after.jpg" width="80%" border="1">
                         </p>
                         <p class="pb10">
                             ディスプレイの下に表示されているタスクバーのエクセルのアイコンにカーソルを合わせると(①)、<br>
                             ｢suudoku_dat.xlxm｣のポップアップが出て来るのでクリックします(②)。
                         </p>
                         <p class="pb10 contents-2col-left">
-                            <IMG src="image/Suudoku_img/update01/update01_05_stock_after2.jpg" width="105%" border="1">
+                            <img src="image/Suudoku_img/update01/update01_05_stock_after2.jpg" width="105%" border="1">
                         </p>
                         <p class="pb10">
                             最初に[log]シートが表示されますが、
                             先ほど○印をつけたデータのヘッダー情報がリンク付きで、格納した日付の後に並んでいます。
                         </p>
                         <p class="pb10 contents-2col-left">
-                            <IMG src="image/Suudoku_img/update01/update01_06_dat_log.jpg" border="1">
+                            <img src="image/Suudoku_img/update01/update01_06_dat_log.jpg" border="1">
                         </p>
                         <p class="pb10">
                             リンクをクリックすると、データが格納されているシートの当該データが表示されます。<br>
                             このように作成した問題は、｢オープン数｣と｢解くための繰返し回数｣で名前付けられたシートに蓄えられて行きます。
                         </p>
                         <p class="pb10 contents-2col-left">
-                            <IMG src="image/Suudoku_img/update01/update01_07_dat_28-4_mod.jpg" border="1">
+                            <img src="image/Suudoku_img/update01/update01_07_dat_28-4_mod.jpg" border="1">
                         </p>
                     </li>
                     <li class="plm10 pb10">
@@ -209,14 +216,14 @@
                         (元々時系列で表示されているオリジナルデータは変更はありません)<br><br>
                     ※パターンは1.の右上に表示されている3x3の真ん中のブロックで、予めナンバーがオープンされるマス目のパターンです。
                         <p class="pb10 contents-2col-left">
-                            <IMG src="image/Suudoku_img/update01/update01_08_dat_sort.jpg" width="110%" border="1">
+                            <img src="image/Suudoku_img/update01/update01_08_dat_sort.jpg" width="110%" border="1">
                         </p>
                     </li>
                 </ol>
             </div>
         </div>
 
-        <div class="left pb40" >
+        <div class="left pb40">
 
             <h3>ダウンロード </h3>
             <div class="pl30 pb30">
@@ -237,7 +244,7 @@
                     z.suudoku_03.zip をクリックして、ダウンロードして下さい。
                 </p>
                 <p class="fwb pb25">
-                    <a href="etc/z.suudoku_03.zip" target="_blank" >z.suudoku_03.zip</a>
+                    <a href="etc/z.suudoku_03.zip" target="_blank">z.suudoku_03.zip</a>
                 </p>
             </div>
         </div>
@@ -247,17 +254,17 @@
 
         <hr id="footer"> <!-- horizontal partition -->
 
-        <div class="jQ_change center" > <!-- select button whole: start -->
+        <div class="jQ_change center"> <!-- select button whole: start -->
             <p id="footer"> <!-- select button: start -->
                 <a href="etc.html">
-                    <IMG src="image/button/back_off.gif" border="0" alt="Back" >
+                    <img src="image/button/back_off.gif" border="0" alt="Back">
                 </a>
             </p> <!-- select button: end -->
         </div> <!-- select button whole: end -->
 
         <div id="footer_label">
             copyright &copy; 2003 -
-            <script type="text/javascript" language="JavaScript">
+            <script>
                 date = new Date();
                 document.write(date.getFullYear() + ' ');
             </script>
@@ -268,5 +275,5 @@
 
     </footer>
 
-</BODY>
+</body>
 </html>
