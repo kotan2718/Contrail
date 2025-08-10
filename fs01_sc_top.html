@@ -32,36 +32,63 @@
 <body id="common-k">
 
     <header>
-        <a name="MENU"></a>
-        <p id="menu-call">
-            <a href="#">MENU</a>
-        </p>
-
-        <a name="page_top"></a>
-
-        <!-- page top icon & logo -->
-        <div id="header_PC" class="header_labelPC">
-            <img class="pl20" src="image/top/cr64f_32.png">
-            <img class="pl30 pb3" src="image/top/Contrail_g.png" height="30">
-        </div>
-        <div id="header_SP" class="header_labelPC">
-            <div class="pb4"></div>
-            <img src="image/top/cr48f_32.png">
-            <img class="pb3" src="image/top/Contrail_g.png" height="24">
-        </div>
-
-        <div id="popup-menu" class="hidden">
-            <div class="menu-title">
-                <img src="image/top/Contrail_g.png" height="20" class="logo_image" alt="CONTRAIL">
+        <div class="prettyP_PC">
+            <a name="page_top"></a>
+            <div class="center jQ_change navbox" >
+                <nav>
+                    <img src="image/top/cr32_e.png" height="20" class="logo_img">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_img">
+                    <ul class="menu" id="menu" >
+                        <li><a href="index.html" class="menulink">Home</a></li>
+                        <li><a href="whatnew.html" class="menulink">What's New</a></li>
+                        <li><a href="etc.html" class="menulink">E.T.C.</a></li>
+                        <li><a href="fs01.html" class="menulink">The Scenery</a>
+                            <ul>
+                                <li><a href="fs01_sc_top.html" class="sub">Screen Shots</a></li>
+                                <li><a href="fs01_ls_top.html" class="sub">Snap Shots</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="link01.html" class="menulink">Links</a></li>
+                        <li class="about"><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                    </ul>
+                </nav>
+                <div class="c-both"></div>
             </div>
-            <ul>
-                <li><a href="index.html" class="menulink">Home</a></li>
-                <li><a href="whatnew.html" class="menulink">What's New</a></li>
-                <li><a href="etc.html" class="menulink">E.T.C.</a></li>
-                <li><a href="fs01.html" class="menulink">The Scenery</a></li>
-                <li><a href="link01.html" class="menulink">Links</a></li>
-                <li><a href="fs01_about.html" class="menulink">about Contrail</a></li>
-            </ul>
+            <!-- Sandbox DropDownMenu start-->
+            <script>
+                var menu=new menu.dd("menu");
+                menu.init("menu","menuhover");
+            </script>
+            <!-- Sandbox DropDownMenu end -->
+        </div>
+        <div class="prettyP_SP">
+            <a name="MENU"></a>
+            <p id="menu-call">
+                <a href="#">MENU</a>
+            </p>
+
+            <a name="page_top"></a>
+
+            <!-- page top icon & logo -->
+            <div id="header_SP" class="header_labelSP">
+                <div class="pb4"></div>
+                <img src="image/top/cr48f_32.png">
+                <img class="pb3" src="image/top/Contrail_g.png" height="24">
+            </div>
+
+            <div id="popup-menu" class="hidden">
+                <div class="menu-title">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_image" alt="CONTRAIL">
+                </div>
+                <ul>
+                    <li><a href="index.html" class="menulink">Home</a></li>
+                    <li><a href="whatnew.html" class="menulink">What's New</a></li>
+                    <li><a href="etc.html" class="menulink">E.T.C.</a></li>
+                    <li><a href="fs01.html" class="menulink">The Scenery</a></li>
+                    <li><a href="link01.html" class="menulink">Links</a></li>
+                    <li><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                </ul>
+            </div>
         </div>
     </header>
 
