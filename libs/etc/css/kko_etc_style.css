@@ -625,6 +625,9 @@ h2#group-4S10  { font-size: 120%; font-weight: bold; color: #6b8e23; padding-bot
 h2#group-4S15  { font-size: 120%; font-weight: bold; color: #6b8e23; padding-bottom: 15px;}
 h2#group-4S10SP  { font-size: 110%; font-weight: bold; color: #6b8e23; padding-bottom: 10px;}
 h2#group-4S15SP  { font-size: 110%; font-weight: bold; color: #6b8e23; padding-bottom: 15px;}
+h2#group-4S10SP2  { font-size: 105%; font-weight: bold; color: #6b8e23; padding-bottom: 10px;}
+h2#group-4S15SP2  { font-size: 105%; font-weight: bold; color: #6b8e23; padding-bottom: 15px;}
+h2#group-MM140_10 { font-size: 140%; font-weight: bold; color: #9999aa; padding-bottom: 10px;}
 h2#group-MM10j { font-size: 105%; font-weight: bold; color: #9999aa; padding-bottom: 10px;}
 h2#group-MM15j { font-size: 105%; font-weight: bold; color: #9999aa; padding-bottom: 15px;}
 h2#group-MM15e { font-size: 110%; font-weight: bold; color: #9999aa; padding-bottom: 15px;}
@@ -656,7 +659,10 @@ h1#main_fs120E { font-size: 120%; font-weight: bold;} /* Adriano, Clinical Optic
 h1#main        { font-size: 225%; font-weight: bold; padding-bottom: 15px;}
 h1#main_fm     { font-size: 200%; font-weight: bold; padding-bottom: 15px;}
 h1#main_fs     { font-size: 180%; font-weight: bold; padding-bottom: 15px;}
-h1#main_fs, h1#main_4S     { font-size: 180%; font-weight: bold; padding-bottom: 15px;}
+h1#main_4S     { font-size: 180%; font-weight: bold; padding-bottom: 15px;}
+h1#main_4S160     { font-size: 160%; font-weight: bold; padding-bottom: 15px;}
+h1#main_4S140     { font-size: 140%; font-weight: bold; padding-bottom: 15px;}
+h1#main_4S120     { font-size: 120%; font-weight: bold; padding-bottom: 15px;}
 h1#main_fss    { font-size: 160%; font-weight: bold; padding-bottom: 15px;} /* Ufufu Hokuro */
 h1#main_fssSC  { font-size: 160%; font-weight: bold; padding-bottom: 25px;} /* Aqua old, fat Raiatea, original Tahaa */
 h1#main_fs120  { font-size: 120%; font-weight: bold; padding-bottom: 15px;} /* Clinical Optics */
@@ -761,6 +767,7 @@ h2#sub-SC3 { font-size: medium; font-weight: bold;} /* e_terrain */
 
 /*    author の font 指定    */
 p#author { font-size: 105%; font-weight: bold; color: #9999aa;}
+p#authorSP { font-size: 95%; font-weight: bold; color: #9999aa;}
 
 /*------------------------------
  ** main layout each content **
