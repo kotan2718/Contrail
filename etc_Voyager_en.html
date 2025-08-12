@@ -14,6 +14,24 @@
     <!-- css start -->
         <!-- kko_etc - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
         <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
+
+        <!-- Fancybox CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css">
+
+        <style>
+            /* Optional: Limit image size on small screens */
+            @media (max-width: 768px) {
+                .fancybox_image {
+                    max-width: 256px;
+                }
+                .fancybox_image2 {
+                    max-width: 300px;
+                }
+                .fancybox_imageMax {
+                    max-width: 100%;
+                }
+            }
+        </style>
     <!-- css end -->
 
     <!-- js start -->
@@ -22,6 +40,9 @@
             <!-- kko_style - img jq_blink, img jq_change -->
             <script src="libs/jQuery/kko/js/jq_kko_style.js"></script>
         <!-- jQuery end -->
+
+        <!-- Fancybox JS -->
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
 
         <!-- Sandbox DropDownMenu -->
         <script src="libs/sandbox/js/script.js"></script>
@@ -71,9 +92,9 @@
 
             <!-- page top icon & logo -->
             <div id="header_SP" class="header_labelSP">
-                <div class="pb4"></div>
+                <div id="titleUS_SP"></div>
                 <img src="image/top/cr48f_32.png">
-                <img class="pb3" src="image/top/Contrail_g.png" height="24">
+                <img class="titleLogoSP" src="image/top/Contrail_g.png">
             </div>
 
             <div id="popup-menu" class="hidden">
@@ -301,12 +322,21 @@
                 <p id="f21" class="pb20">
                     The chart below plots above sea level from 42,000 years ago to the present based on Miller's data.
                 </p>
-                <p class="pb5">
-                    <span class="image-container">
+                <div class="prettyP_PC">
+                    <p class="pb5">
                         <img src="image/Voyager/sea-level_from_42000_3.png"
-                        alt="Fig.2-1 : Above sea level from 42,000 years ago to the present" width="700px" border="0">
-                    </span>
-                </p>
+                            alt="Fig.2-1 : Above sea level from 42,000 years ago to the present" width="700px">
+                    </p>
+                </div>
+                <div class="prettyP_SP">
+                    <p class="jQ_blink change_border_color pb5">
+                         <a href="image/Voyager/sea-level_from_42000_3.png"
+                            data-fancybox="gallery1" data-caption="Fig.2-1 : Above sea level from 42,000 years ago to the present">
+                            <img class="fancybox_imageMax" src="image/Voyager/sea-level_from_42000_3.png"
+                                alt="Fig.2-1 : Above sea level from 42,000 years ago to the present">
+                        </a>
+                    </p>
+                </div>
                 <p class="fws pb20">
                     Fig.2-1 : Above sea level from 42,000 years ago to the present
                 </p>
@@ -333,12 +363,24 @@
                     The white contour lines around the land indicate that this was land at that time.
                     We can see that the land area was larger 38,000 years ago than it is today <a class="f-note" href="#t4"><span>[Note 4]</span></a>.
                 </p>
-                <p class="pb5">
-                    <span class="image-container">
-                        <img src="image/Voyager/shortest_route_from_Kōzu-shima_to_Izu Peninsula4_en.jpg"
-                            alt="Fig.2-2 : The area including the Izu Peninsula, Kōzu-shima Island, and Boso Peninsula 38,000 years ago" width="700px" border="0">
-                    </span>
-                </p>
+                <div class="prettyP_PC">
+                    <p class="pb5">
+                        <span class="image-container">
+                            <img src="image/Voyager/shortest_route_from_Kozushima_to_Izu Peninsula4_en.jpg"
+                                alt="Fig.2-2 : The area including the Izu Peninsula, Kōzu-shima Island, and Boso Peninsula 38,000 years ago" width="700px" border="0">
+                        </span>
+                    </p>
+                </div>
+                <div class="prettyP_SP">
+                    <p class="jQ_blink change_border_color pb5">
+                         <a href="image/Voyager/shortest_route_from_Kozushima_to_Izu Peninsula4_en.jpg"
+                            data-fancybox="gallery2"
+                            data-caption="Fig.2-2 : The area including the Izu Peninsula, Kōzu-shima Island, and Boso Peninsula 38,000 years ago">
+                            <img class="fancybox_imageMax" src="image/Voyager/shortest_route_from_Kozushima_to_Izu Peninsula4_en.jpg"
+                                alt="Fig.2-2 : The area including the Izu Peninsula, Kōzu-shima Island, and Boso Peninsula 38,000 years ago">
+                        </a>
+                    </p>
+                </div>
                 <p class="fws pb20">
                     Fig.2-2 : The area including the Izu Peninsula, Kōzu-shima Island, and Boso Peninsula 38,000 years ago
                 </p>
@@ -387,13 +429,25 @@
                 <p id="f23" class="pb10">
                     Here I would like to show you a map of Japan and its surrounding areas from 38,000 years ago.
                 </p>
-                <p class="pb5">
-                    <span class="image-container">
-                        <img src="image/Voyager/Japanese_Archipelago_38,000_years_ago5.jpg"
-                            alt="Fig.2-3: Map of Japan and its surrounding areas 38,000 years ago" width="700px" border="0">
-                        <img src="image/Voyager/Japanese_Archipelago_38,000_years_ago5.jpg" alt="" class="popup-image">
-                    </span>
-                </p>
+                <div class="prettyP_PC">
+                    <p class="pb5">
+                        <span class="image-container">
+                            <img src="image/Voyager/Japanese_Archipelago_38,000_years_ago5.jpg"
+                                alt="Fig.2-3: Map of Japan and its surrounding areas 38,000 years ago" width="700px" border="0">
+                            <img src="image/Voyager/Japanese_Archipelago_38,000_years_ago5.jpg" alt="" class="popup-image">
+                        </span>
+                    </p>
+                </div>
+                <div class="prettyP_SP">
+                    <p class="jQ_blink change_border_color pb5">
+                         <a href="image/Voyager/Japanese_Archipelago_38,000_years_ago5.jpg"
+                            data-fancybox="gallery3"
+                            data-caption="Fig.2-3: Map of Japan and its surrounding areas 38,000 years ago">
+                            <img class="fancybox_imageMax" src="image/Voyager/Japanese_Archipelago_38,000_years_ago5.jpg"
+                                width="700px" alt="Fig.2-3: Map of Japan and its surrounding areas 38,000 years ago">
+                        </a>
+                    </p>
+                </div>
                 <p class="fws pb20">
                     Fig.2-3: Map of Japan and its surrounding areas 38,000 years ago
                 </p>
@@ -443,12 +497,21 @@
                 <p id="f24" class="pb10">
                     Fig.2-4 shows two routes across the Tsugaru Channel. Each route is about 11 to 13 km long.
                 </p>
-                <p class="pb5">
-                    <span class="image-container">
+                <div class="prettyP_PC">
+                    <p class="pb5">
                         <img src="image/Voyager/shortest_route_Tugaru_Channel4.jpg"
                             alt="Fig.2-4 : Route across the Tsugaru Channel" width="700px" border="0">
-                    </span>
-                </p>
+                    </p>
+                </div>
+                <div class="prettyP_SP">
+                    <p class="jQ_blink change_border_color pb5">
+                         <a href="image/Voyager/shortest_route_Tugaru_Channel4.jpg"
+                            data-fancybox="gallery4" data-caption="Fig.2-4 : Route across the Tsugaru Channel">
+                            <img class="fancybox_imageMax" src="image/Voyager/shortest_route_Tugaru_Channel4.jpg"
+                                alt="Fig.2-4 : Route across the Tsugaru Channel">
+                        </a>
+                    </p>
+                </div>
                 <p class="fws pb20">
                     Fig.2-4 : Route across the Tsugaru Channel
                 </p>
@@ -460,12 +523,21 @@
                     but since the distance between Kōzu-shima and the Izu Peninsula is about 40km,
                     it may not have been a problem for the navigators who made the round trip voyage.
                 </p>
-                <p class="pb5">
-                    <span class="image-container">
+                <div class="prettyP_PC">
+                    <p class="pb5">
                         <img src="image/Voyager/shortest_route_Korea_Kyusyu5.jpg"
                             alt="Fig.2-5 : [Korea - Tsushima - Kyushu] route" width="700px" border="0">
-                    </span>
-                </p>
+                    </p>
+                </div>
+                <div class="prettyP_SP">
+                    <p class="jQ_blink change_border_color pb5">
+                         <a href="image/Voyager/shortest_route_Korea_Kyusyu5.jpg"
+                            data-fancybox="gallery5" data-caption="Fig.2-5 : [Korea - Tsushima - Kyushu] route">
+                            <img class="fancybox_imageMax" src="image/Voyager/shortest_route_Korea_Kyusyu5.jpg"
+                                alt="Fig.2-5 : [Korea - Tsushima - Kyushu] route">
+                        </a>
+                    </p>
+                </div>
                 <p class="fws pb20">
                     Fig.2-5 : [Korea - Tsushima - Kyushu] route
                 </p>
@@ -478,12 +550,21 @@
                     I've omitted the distances between the islands because they are too great,
                     but it's over 200km from Miyako Island to the main island of Okinawa.
                 </p>
-                <p class="pb5">
-                    <span class="image-container">
+                <div class="prettyP_PC">
+                    <p class="pb5">
                         <img src="image/Voyager/shortest_route_Taiwan_Ryukyu5.jpg"
                             alt="Fig.2-6 : [Taiwan - Ryukyu Islands] route" width="700px" border="0">
-                    </span>
-                </p>
+                    </p>
+                </div>
+                <div class="prettyP_SP">
+                    <p class="jQ_blink change_border_color pb5">
+                         <a href="image/Voyager/shortest_route_Taiwan_Ryukyu5.jpg"
+                            data-fancybox="gallery6" data-caption="Fig.2-6 : [Taiwan - Ryukyu Islands] route">
+                            <img class="fancybox_imageMax" src="image/Voyager/shortest_route_Taiwan_Ryukyu5.jpg"
+                                alt="Fig.2-6 : [Taiwan - Ryukyu Islands] route">
+                        </a>
+                    </p>
+                </div>
                 <p class="fws pb20">
                     Fig.2-6 : [Taiwan - Ryukyu Islands] route
                 </p>
@@ -620,14 +701,25 @@
                     Fig.3-1 is a map of all of Japan and its surrounding areas
                     when above sea level was 120m lower than it is now.
                 </p>
-                <p class="pb5">
-                    <span class="image-container">
-                        <img src="image/Voyager/Japanese_Archipelago_20,000_years_ago5.jpg"
-                            alt="Fig.3-1 : A map of Japan and its surrounding areas 20,000 years ago,
-                            the above sea level was 120m lower than now" width="700px" border="0">
-                        <img src="image/Voyager/Japanese_Archipelago_20,000_years_ago5.jpg" alt="" class="popup-image">
-                    </span>
-                </p>
+                <div class="prettyP_PC">
+                    <p class="pb5">
+                        <span class="image-container">
+                            <img src="image/Voyager/Japanese_Archipelago_20,000_years_ago5.jpg"
+                                alt="Fig.3-1 : A map of Japan and its surrounding areas 20,000 years ago, the above sea level was 120m lower than now" width="700px" border="0">
+                            <img src="image/Voyager/Japanese_Archipelago_20,000_years_ago5.jpg" alt="" class="popup-image">
+                        </span>
+                    </p>
+                </div>
+                <div class="prettyP_SP">
+                    <p class="jQ_blink change_border_color pb5">
+                         <a href="image/Voyager/Japanese_Archipelago_20,000_years_ago5.jpg"
+                            data-fancybox="gallery7"
+                            data-caption="Fig.3-1 : A map of Japan and its surrounding areas 20,000 years ago, the above sea level was 120m lower than now">
+                            <img class="fancybox_imageMax" src="image/Voyager/Japanese_Archipelago_20,000_years_ago5.jpg"
+                                alt="Fig.3-1 : A map of Japan and its surrounding areas 20,000 years ago, the above sea level was 120m lower than now">
+                        </a>
+                    </p>
+                </div>
                 <p class="pb10">
                    Fig.3-1 : A map of Japan and its surrounding areas 20,000 years ago,
                    the above sea level was 120m lower than now
@@ -636,14 +728,25 @@
                     Fig.3-2 is a map of Japan and its surrounding areas when above sea level was 140m lower than it is now.
                     It is included here for comparison with when the above sea level was 120m lower.
                 </p>
-                <p class="pb5">
-                    <span class="image-container">
-                        <img src="image/Voyager/Japanese_Archipelago_20,000_years_ago5_140.jpg"
-                            alt="Fig.3-2 : A map of Japan and its surrounding areas 20,000 years ago,
-                            the above sea level was 140m lower than now" width="700px" border="0">
-                        <img src="image/Voyager/Japanese_Archipelago_20,000_years_ago5_140.jpg" alt="" class="popup-image">
-                    </span>
-                </p>
+                <div class="prettyP_PC">
+                    <p class="pb5">
+                        <span class="image-container">
+                            <img src="image/Voyager/Japanese_Archipelago_20,000_years_ago5_140.jpg"
+                                alt="Fig.3-2 : A map of Japan and its surrounding areas 20,000 years ago, the above sea level was 140m lower than now" width="700px" border="0">
+                            <img src="image/Voyager/Japanese_Archipelago_20,000_years_ago5_140.jpg" alt="" class="popup-image">
+                        </span>
+                    </p>
+                </div>
+                <div class="prettyP_SP">
+                    <p class="jQ_blink change_border_color pb5">
+                         <a href="image/Voyager/Japanese_Archipelago_20,000_years_ago5_140.jpg"
+                            data-fancybox="gallery7"
+                            data-caption="Fig.3-2 : A map of Japan and its surrounding areas 20,000 years ago, the above sea level was 140m lower than now">
+                            <img class="fancybox_imageMax" src="image/Voyager/Japanese_Archipelago_20,000_years_ago5_140.jpg"
+                                alt="Fig.3-2 : A map of Japan and its surrounding areas 20,000 years ago, the above sea level was 140m lower than now">
+                        </a>
+                    </p>
+                </div>
                 <p class="pb20">
                     Fig.3-2 : A map of Japan and its surrounding areas 20,000 years ago,
                     the above sea level was 140m lower than now
@@ -777,10 +880,10 @@
                     ...it dates back about 38,000 years.
                     This roughly coincides with the time when modern humans arrived in the archipelago
                     and the start of the Late Paleolithic period. </q>
-                    He considers the voyagers to be modern humans without specifying their species.
+                    He considers the voyagers to be modern humans(<strong>Homo sapiens</strong>). 
                 </p>
                 <p>
-                    Meanwhile, Kaifu In
+                    Similarly, Kaifu In
                     <a class="f-note" href="#p5">"Humans are mysterious beings -
                     Why a human evolutionist takes on the - voyage 30,000 years ago -"<span>[5]</span></a>,
                     he states the following.
@@ -797,7 +900,7 @@
                     So what abilities did they have that enabled them to cross the ocean?
                     To find out, we need to actually build a boat
                     using as much of the technology of the time as possible and try to cross it. </q>
-                    He considers that the first humans to cross the Japanese archipelago were <strong>Homo sapiens</strong>.
+                    He also considers that the first humans to cross the Japanese archipelago were <strong>Homo sapiens</strong>.
                 </p>
                 <p class="pb10">
                     While researching the humans who came to the Japanese archipelago,
@@ -821,18 +924,29 @@
                     showing the route of spread of Homo sapiens to Europe and Asia,
                     which is believed to have begun 70,000 years ago<a class="f-note" href="#t5"><span>[Note 5]</span></a> .
                 </p>
-                <p class="pb5">
-                    <span class="image-container">
-                        <img src="image/Voyager/human_trandition_map_en.jpg"
-                            alt="Fig. 4-1 : Spread of Homo sapiens to Europe and Asia" width="700px" border="0">
-                        <img src="image/Voyager/human_trandition_map_en.jpg" alt="" class="popup-image">
-                    </span>
-                </p>
+                <div class="prettyP_PC">
+                    <p class="pb5">
+                        <span class="image-container">
+                            <img src="image/Voyager/human_trandition_map_en.jpg"
+                                alt="Fig. 4-1 : Spread of Homo sapiens to Europe and Asia" width="700px" border="0">
+                            <img src="image/Voyager/human_trandition_map_en.jpg" alt="" class="popup-image">
+                        </span>
+                    </p>
+                </div>
+                <div class="prettyP_SP">
+                    <p class="jQ_blink change_border_color pb5">
+                         <a href="image/Voyager/human_trandition_map_en.jpg"
+                            data-fancybox="gallery8" data-caption="Fig. 4-1 : Spread of Homo sapiens to Europe and Asia">
+                            <img class="fancybox_imageMax" src="image/Voyager/human_trandition_map_en.jpg"
+                                alt="Fig. 4-1 : Spread of Homo sapiens to Europe and Asia">
+                        </a>
+                    </p>
+                </div>
                 <p class="pb20">
                    Fig.4-1 : Spread of Homo sapiens to Europe and Asia
                 </p>
                 <p class="pb10">
-                    The "<span class="big-circle">●</span>" mark in the figure indicates the location where bone fragments of humans different from
+                    The "<span class="big-circle920">●</span>" mark in the figure indicates the location where bone fragments of humans different from
                     Homo sapiens were discovered.
                 </p>
                 <p class="pb20">
@@ -864,7 +978,7 @@
                     This human species is called "Denisovans" because it was found in the Denisova Cave.
                 </p>
                 <p class="pb10">
-                    The "<span class="big-circle">●</span>" in Figure 4-1 shows the "Baishigai Karst Cave" and "Cobra Cave."
+                    The "<span class="big-circle920">●</span>" in Figure 4-1 shows the "Baishigai Karst Cave" and "Cobra Cave."
                     The "Baishigai Karst Cave" is located in Tibet, and the "Cobra Cave" is in the mountains of Laos.
                     Bone fragments excavated from these caves have also been identified as Denisovan.
                 </p>
@@ -1124,14 +1238,14 @@
         </div> <!-- select button whole: end -->
 
         <div class="footer_labelPC">
-            copyright &copy; 2003 -
+            &copy; 2003 -
             <script>
                 date = new Date();
                 document.write(date.getFullYear() + ' ');
             </script>
             <nonscript>
             </nonscript>
-            Contrail -kotan- all rights reserved
+            Contrail - kotan - 
         </div>
 
     </footer>

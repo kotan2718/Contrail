@@ -13,6 +13,24 @@
     <!-- css start -->
         <!-- kko_etc - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
         <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
+
+        <!-- Fancybox CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css">
+
+        <style>
+            /* Optional: Limit image size on small screens */
+            @media (max-width: 768px) {
+                .fancybox_image {
+                    max-width: 256px;
+                }
+                .fancybox_image2 {
+                    max-width: 300px;
+                }
+                .fancybox_imageMax {
+                    max-width: 100%;
+                }
+            }
+        </style>
     <!-- css end -->
 
     <!-- js start -->
@@ -21,6 +39,9 @@
             <!-- kko_style - img jq_blink, img jq_change -->
             <script src="libs/jQuery/kko/js/jq_kko_style.js"></script>
         <!-- jQuery end -->
+
+        <!-- Fancybox JS -->
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
 
         <!-- Sandbox DropDownMenu -->
         <script src="libs/sandbox/js/script.js"></script>
@@ -70,9 +91,9 @@
 
             <!-- page top icon & logo -->
             <div id="header_SP" class="header_labelSP">
-                <div class="pb4"></div>
+                <div id="titleUS_SP"></div>
                 <img src="image/top/cr48f_32.png">
-                <img class="pb3" src="image/top/Contrail_g.png" height="24">
+                <img class="titleLogoSP" src="image/top/Contrail_g.png">
             </div>
 
             <div id="popup-menu" class="hidden">
@@ -251,11 +272,20 @@
                 <p id="f21" class="pb20">
                     以下の図はMillerのデータに基づいて42000年前から現在までの海抜をプロットしたものです。
                 </p>
-                <p class="pb5">
-                    <span class="image-container">
-                        <img src="image/Voyager/sea-level_from_42000_3.png" alt="図2-1 : 42000年前から現在までの海抜" width="700px" border="0">
-                    </span>
-                </p>
+                <div class="prettyP_PC">
+                    <p class="pb5">
+                        <img src="image/Voyager/sea-level_from_42000_3.png" alt="図2-1 : 42000年前から現在までの海抜" width="700px">
+                    </p>
+                </div>
+                <div class="prettyP_SP">
+                    <p class="jQ_blink change_border_color pb5">
+                         <a href="image/Voyager/sea-level_from_42000_3.png"
+                            data-fancybox="gallery1" data-caption="図2-1 : 42000年前から現在までの海抜">
+                            <img class="fancybox_imageMax" src="image/Voyager/sea-level_from_42000_3.png"
+                                alt="図2-1 : 42000年前から現在までの海抜">
+                        </a>
+                    </p>
+                </div>
                 <p class="fws pb20">
                     図2-1 : 42000年前から現在までの海抜
                 </p>
@@ -283,12 +313,21 @@
                     陸地の周りの白い等深線が、当時は陸地だったことを意味します。
                     38,000年前は、現在より陸地の範囲が広かったことが分かります <a class="f-note" href="#t3"><span>註3</span></a>。
                 </p>
-                <p class="pb5">
-                    <span class="image-container">
+                <div class="prettyP_PC">
+                    <p class="pb5">
                         <img src="image/Voyager/shortest_route_from_Kozushima_to_Izu Peninsula4.jpg"
-                        alt="図2-2 : 38,000年前の伊豆半島、神津島、房総半島を含む範囲" width="700px" border="0">
-                    </span>
-                </p>
+                            alt="図2-2 : 38,000年前の伊豆半島、神津島、房総半島を含む範囲" width="700px">
+                    </p>
+                </div>
+                <div class="prettyP_SP">
+                    <p class="jQ_blink change_border_color pb5">
+                         <a href="image/Voyager/shortest_route_from_Kozushima_to_Izu Peninsula4.jpg"
+                            data-fancybox="gallery2" data-caption="図2-2 : 38,000年前の伊豆半島、神津島、房総半島を含む範囲">
+                            <img class="fancybox_imageMax" src="image/Voyager/shortest_route_from_Kozushima_to_Izu Peninsula4.jpg"
+                                alt="図2-2 : 38,000年前の伊豆半島、神津島、房総半島を含む範囲">
+                        </a>
+                    </p>
+                </div>
                 <p class="fws pb20">
                     図2-2 : 38,000年前の伊豆半島、神津島、房総半島を含む範囲
                 </p>
@@ -332,13 +371,23 @@
                 <p id="f23" class="pb10">
                     ここで、38,000前の日本全土と周辺の地図を示したいと思います。
                 </p>
-                <p class="pb5">
-                <p class="pb5">
-                    <span class="image-container">
-                        <img src="image/Voyager/Japanese_Archipelago_38,000_years_ago5.jpg" alt="図2-3 : 38,000年前の日本全土と周辺の地図" width="700px" border="0">
-                        <img src="image/Voyager/Japanese_Archipelago_38,000_years_ago5.jpg" alt="" class="popup-image">
-                    </span>
-                </p>
+                <div class="prettyP_PC">
+                    <p class="pb5">
+                        <span class="image-container">
+                            <img src="image/Voyager/Japanese_Archipelago_38,000_years_ago5.jpg" alt="図2-3 : 38,000年前の日本全土と周辺の地図" width="700px" border="0">
+                            <img src="image/Voyager/Japanese_Archipelago_38,000_years_ago5.jpg" alt="" class="popup-image">
+                        </span>
+                    </p>
+                </div>
+                <div class="prettyP_SP">
+                    <p class="jQ_blink change_border_color pb5">
+                         <a href="image/Voyager/Japanese_Archipelago_38,000_years_ago5.jpg"
+                            data-fancybox="gallery3" data-caption="図2-3 : 38,000年前の日本全土と周辺の地図">
+                            <img class="fancybox_imageMax" src="image/Voyager/Japanese_Archipelago_38,000_years_ago5.jpg"
+                                width="700px" alt="図2-3 : 38,000年前の日本全土と周辺の地図">
+                        </a>
+                    </p>
+                </div>
                 <p class="fws pb20">
                     図2-3 : 38,000年前の日本全土と周辺の地図
                 </p>
@@ -383,11 +432,20 @@
                 <p id="f24" class="pb10">
                     図2-4 は津軽海峡超えのルートを2つ示しています。距離にすると11～13kmほどになります。
                 </p>
-                <p class="pb5">
-                    <span class="image-container">
+                <div class="prettyP_PC">
+                    <p class="pb5">
                         <img src="image/Voyager/shortest_route_Tugaru_Channel4.jpg" alt="図2-4 : 津軽海峡超えのルート" width="700px" border="0">
-                    </span>
-                </p>
+                    </p>
+                </div>
+                <div class="prettyP_SP">
+                    <p class="jQ_blink change_border_color pb5">
+                         <a href="image/Voyager/shortest_route_Tugaru_Channel4.jpg"
+                            data-fancybox="gallery4" data-caption="図2-4 : 津軽海峡超えのルート">
+                            <img class="fancybox_imageMax" src="image/Voyager/shortest_route_Tugaru_Channel4.jpg"
+                                alt="図2-4 : 津軽海峡超えのルート">
+                        </a>
+                    </p>
+                </div>
                 <p class="fws pb20">
                     図2-4 : 津軽海峡超えのルート
                 </p>
@@ -398,11 +456,20 @@
                     最初の40kmは相当な距離ですが、神津島と伊豆半島の距離が約40kmなので、
                     往復航海を行ったと考えられる航海民にとっては。特に問題はなかったのかもしれません。
                 </p>
-                <p class="pb5">
-                    <span class="image-container">
+                <div class="prettyP_PC">
+                    <p class="pb5">
                         <img src="image/Voyager/shortest_route_Korea_Kyusyu5.jpg" alt="図2-5 : 韓国 - 対馬 - 九州 ルート" width="700px" border="0">
-                    </span>
-                </p>
+                    </p>
+                </div>
+                <div class="prettyP_SP">
+                    <p class="jQ_blink change_border_color pb5">
+                         <a href="image/Voyager/shortest_route_Korea_Kyusyu5.jpg"
+                            data-fancybox="gallery5" data-caption="図2-5 : 韓国 - 対馬 - 九州 ルート">
+                            <img class="fancybox_imageMax" src="image/Voyager/shortest_route_Korea_Kyusyu5.jpg"
+                                alt="図2-5 : 韓国 - 対馬 - 九州 ルート">
+                        </a>
+                    </p>
+                </div>
                 <p class="fws pb20">
                     図2-5 : 韓国 - 対馬 - 九州 ルート
                 </p>
@@ -414,11 +481,20 @@
                     図は[台湾 - 琉球列島] ルートを示したものです。
                     島から島への距離は、割愛していますが、宮古島から沖縄本島までは200kmを超えています。
                 </p>
-                <p class="pb5">
-                    <span class="image-container">
+                <div class="prettyP_PC">
+                    <p class="pb5">
                         <img src="image/Voyager/shortest_route_Taiwan_Ryukyu5.jpg" alt="図2-6 : 台湾 - 琉球列島 ルート" width="700px" border="0">
-                    </span>
-                </p>
+                    </p>
+                </div>
+                <div class="prettyP_SP">
+                    <p class="jQ_blink change_border_color pb5">
+                         <a href="image/Voyager/shortest_route_Taiwan_Ryukyu5.jpg"
+                            data-fancybox="gallery6" data-caption="図2-5 : 韓国 - 対馬 - 九州 ルート">
+                            <img class="fancybox_imageMax" src="image/Voyager/shortest_route_Taiwan_Ryukyu5.jpg"
+                                alt="図2-6 : 台湾 - 琉球列島 ルート">
+                        </a>
+                    </p>
+                </div>
                 <p class="fws pb20">
                     図2-6 : 台湾 - 琉球列島 ルート
                 </p>
@@ -533,13 +609,24 @@
                 <p id="f31" class="pb20">
                     図3-1 は海抜が現在より120m低かったときの日本全土と周辺の地図です。
                 </p>
-                <p class="pb5">
-                    <span class="image-container">
-                        <img src="image/Voyager/Japanese_Archipelago_20,000_years_ago5.jpg"
-                            alt="図3-1 : 20000年前の日本全土と周辺の地図 海抜が現在より120m低かった場合" width="700px" border="0">
-                        <img src="image/Voyager/Japanese_Archipelago_20,000_years_ago5.jpg" alt="" class="popup-image">
-                    </span>
-                </p>
+                <div class="prettyP_PC">
+                    <p class="pb5">
+                        <span class="image-container">
+                            <img src="image/Voyager/Japanese_Archipelago_20,000_years_ago5.jpg"
+                                alt="図3-1 : 20000年前の日本全土と周辺の地図 海抜が現在より120m低かった場合" width="700px" border="0">
+                            <img src="image/Voyager/Japanese_Archipelago_20,000_years_ago5.jpg" alt="" class="popup-image">
+                        </span>
+                    </p>
+                </div>
+                <div class="prettyP_SP">
+                    <p class="jQ_blink change_border_color pb5">
+                         <a href="image/Voyager/Japanese_Archipelago_20,000_years_ago5.jpg"
+                            data-fancybox="gallery7" data-caption="図3-1 : 20000年前の日本全土と周辺の地図 海抜が現在より120m低かった場合">
+                            <img class="fancybox_imageMax" src="image/Voyager/Japanese_Archipelago_20,000_years_ago5.jpg"
+                                alt="図3-1 : 20000年前の日本全土と周辺の地図 海抜が現在より120m低かった場合">
+                        </a>
+                    </p>
+                </div>
                 <p class="pb10">
                    図3-1 : 20000年前の日本全土と周辺の地図 海抜が現在より120m低かった場合
                 </p>
@@ -547,13 +634,24 @@
                     図3-2 は海抜が現在より140m低かったときの日本全土と周辺の地図です。
                     海抜が120m低かったときと比較するために掲載します。
                 </p>
-                <p class="pb5">
-                    <span class="image-container">
-                        <img src="image/Voyager/Japanese_Archipelago_20,000_years_ago5_140.jpg"
-                            alt="図3-2 : 20000年前の日本全土と周辺の地図 海抜が現在より140m低かった場合" width="700px" border="0">
-                        <img src="image/Voyager/Japanese_Archipelago_20,000_years_ago5_140.jpg" alt="" class="popup-image">
-                    </span>
-                </p>
+                <div class="prettyP_PC">
+                    <p class="pb5">
+                        <span class="image-container">
+                            <img src="image/Voyager/Japanese_Archipelago_20,000_years_ago5_140.jpg"
+                                alt="図3-2 : 20000年前の日本全土と周辺の地図 海抜が現在より140m低かった場合" width="700px" border="0">
+                            <img src="image/Voyager/Japanese_Archipelago_20,000_years_ago5_140.jpg" alt="" class="popup-image">
+                        </span>
+                    </p>
+                </div>
+                <div class="prettyP_SP">
+                    <p class="jQ_blink change_border_color pb5">
+                         <a href="image/Voyager/Japanese_Archipelago_20,000_years_ago5_140.jpg"
+                            data-fancybox="gallery7" data-caption="図3-2 : 20000年前の日本全土と周辺の地図 海抜が現在より140m低かった場合">
+                            <img class="fancybox_imageMax" src="image/Voyager/Japanese_Archipelago_20,000_years_ago5_140.jpg"
+                                alt="図3-2 : 20000年前の日本全土と周辺の地図 海抜が現在より140m低かった場合">
+                        </a>
+                    </p>
+                </div>
                 <p class="pb20">
                    図3-2 : 20000年前の日本全土と周辺の地図 海抜が現在より140m低かった場合
                 </p>
@@ -664,10 +762,10 @@
                     <q cite=https://researchmap.jp/ikenokame/published_papers/31009741/attachment_file.pdf>
                     ...約3万8000年前に遡るものであった。列島に現生人類が到達し,
                     後期旧石器時代が開始された時期にほぼ重なる。</q>
-                    と述べられており、航海民を種を特定せずに現生人類としています。
+                    と述べられており、航海民を現生人類(ホモ・サピエンス)としています。
                 </p>
                 <p>
-                    一方、海部氏は
+                    同様に、海部氏は
                     <a class="f-note" href="#p5">"「人類は謎の存在なんです」――人類進化学者が「3万年前の航海」に挑む理由"<span>[5]</span></a>
                     の中で次のように述べられています。
                 </p>
@@ -681,7 +779,7 @@
                     本格的な海洋進出を果たしたのはホモ・サピエンスだけ。
                     では彼らにどんな能力があったから、海を渡れたのか。
                     それを知るためには、実際に当時の技術をできるだけ再現して舟を作って、渡ってみることです</q>
-                    と述べられています。氏は最初に日本列島に渡ってきた人類を<strong>ホモ・サピエンス</strong>としています。
+                    と述べられています。氏も最初に日本列島に渡ってきた人類を<strong>ホモ・サピエンス</strong>としています。
                 </p>
                 <p class="pb10">
                     日本列島に渡ってきた人類を調べている最中に、National Geographicの
@@ -702,18 +800,29 @@
                     以下は記事の中で使用されている図を参考にしてアレンジしたもので、
                     70000年前から始まったとされるホモ・サピエンスのヨーロッパ、アジアへの伝播の経路を示しています <a class="f-note" href="#t4"><span>註4</span></a>。
                 </p>
-                <p class="pb5">
-                    <span class="image-container">
-                        <img src="image/Voyager/human_trandition_map.jpg"
-                            alt="図4-1 : ホモ・サピエンスのヨーロッパ、アジアへの伝播" width="700px" border="0">
-                        <img src="image/Voyager/human_trandition_map.jpg" alt="" class="popup-image">
-                    </span>
-                </p>
+                <div class="prettyP_PC">
+                    <p class="pb5">
+                        <span class="image-container">
+                            <img src="image/Voyager/human_trandition_map.jpg"
+                                alt="図4-1 : ホモ・サピエンスのヨーロッパ、アジアへの伝播" width="700px" border="0">
+                            <img src="image/Voyager/human_trandition_map.jpg" alt="" class="popup-image">
+                        </span>
+                    </p>
+                </div>
+                <div class="prettyP_SP">
+                    <p class="jQ_blink change_border_color pb5">
+                         <a href="image/Voyager/human_trandition_map.jpg"
+                            data-fancybox="gallery8" data-caption="図4-1 : ホモ・サピエンスのヨーロッパ、アジアへの伝播">
+                            <img class="fancybox_imageMax" src="image/Voyager/human_trandition_map.jpg"
+                                alt="図4-1 : ホモ・サピエンスのヨーロッパ、アジアへの伝播">
+                        </a>
+                    </p>
+                </div>
                 <p class="pb20">
                    図4-1 : ホモ・サピエンスのヨーロッパ、アジアへの伝播
                 </p>
                 <p class="pb10">
-                    図の中の "<span class="big-circle">●</span>" がホモ・サピエンスとは異なる人類の遺骨などが見つかった地点を示しています。
+                    図の中の "<span class="big-circle920">●</span>" がホモ・サピエンスとは異なる人類の遺骨などが見つかった地点を示しています。
                 </p>
                 <p class="pb20">
                     記事では発見された骨片にはDNAの分析が可能なものも含まれ、ホモ・サピエンスが他の人類と交わりながら、
@@ -741,7 +850,7 @@
                     この人類はデニソワ洞窟で見つかったので、「デニソワ人」と呼ばれています。
                 </p>
                 <p class="pb10">
-                    図4-1の "<span class="big-circle">●</span>" に「白石崖カルスト洞窟」と「コブラ洞窟」がありますが、
+                    図4-1の "<span class="big-circle920">●</span>" に「白石崖カルスト洞窟」と「コブラ洞窟」がありますが、
                     「白石崖カルスト洞窟」の場所はチベット、「コブラ洞窟」の場所はラオスの山中です。
                     これらの洞窟から発掘された骨片もデニソワ人と特定されています。
                 </p>
@@ -959,14 +1068,14 @@
         </div> <!-- select button whole: end -->
 
         <div class="footer_labelPC">
-            copyright &copy; 2003 -
+            &copy; 2003 -
             <script>
                 date = new Date();
                 document.write(date.getFullYear() + ' ');
             </script>
             <nonscript>
             </nonscript>
-            Contrail -kotan- all rights reserved
+            Contrail - kotan - 
         </div>
     </footer>
 

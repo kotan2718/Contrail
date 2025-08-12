@@ -14,6 +14,36 @@
     <!-- css start -->
         <!-- kko_etc :: class指定:change_border_color, 全ファイル共通:リンク文字色, フォーカスリング -->
         <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
+
+        <!-- Fancybox CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css">
+
+        <style>
+            /* Optional: Indent the list on small / large screens */
+            @media (max-width: 768px) {
+                .fancybox_image {
+                    max-width: 256px;
+                }
+                .fancybox_imageMax {
+                    max-width: 100%;
+                }
+
+                .listInd40 {
+                    padding-left: 5px;
+                }
+                .fsize90 {
+                    font-size: 90%;
+                }
+            }
+            @media (min-width: 769px) {
+                .listInd40 {
+                    padding-left: 40px;
+                }
+                .fsize90 {
+                    font-size: 100%;
+                }
+            }
+        </style>
     <!-- css end -->
 
     <!-- js start -->
@@ -38,6 +68,9 @@
                 displayIndent: "2em"
             });
         </script>
+
+        <!-- Fancybox JS -->
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
 
         <!-- Sandbox DropDownMenu -->
         <script src="libs/sandbox/js/script.js"></script>
@@ -90,9 +123,9 @@
 
             <!-- page top icon & logo -->
             <div id="header_SP" class="header_labelSP">
-                <div class="pb4"></div>
+                <div id="titleUS_SP"></div>
                 <img src="image/top/cr48f_32.png">
-                <img class="pb3" src="image/top/Contrail_g.png" height="24">
+                <img class="titleLogoSP" src="image/top/Contrail_g.png">
             </div>
 
             <div id="popup-menu" class="hidden">
@@ -156,7 +189,7 @@
             </div>
 
             <h3 class="fwb pb30">
-                <ul  style="list-style: none;" class="fwm pb40, pl40">
+                <ul  style="list-style: none;" class="fwm pb40, listInd40">
                     <li class="pb10"><a href="#t1">[Ⅰ] 画面について</a></li>
                     <li class="pb10"><a href="#t2">[Ⅱ] セレクトボックスで選択できる曲面について</a></li>
                 </ul>
@@ -169,28 +202,35 @@
             </h3>
 
             <div class="fwb pb10">
-                <p>
-                    <span class="image-container">
+                <div class="prettyP_PC">
+                    <p>
                         <img src="image/pers/Pers_v1_over_view_a_75.png" border="0">
-                    </span>
-                </p>
+                    </p>
+                </div>
+                <div class="prettyP_SP">
+                    <p class="jQ_blink change_border_color">
+                         <a href="image/pers/Pers_v1_over_view_a_75.png"
+                            data-fancybox="gallery1" data-caption="Pers over view">
+                            <img class="fancybox_imageMax" src="image/pers/Pers_v1_over_view_a_75.png"
+                                alt="Pers over view">
+                        </a>
+                    </p>
+                </div>
             </div>
 
             <div class="fwb pb30">
-                <ol class="list_none fwm pb40, pl40">
+                <ol class="list_none fwm pb40, listInd40">
                     <li class="pb10"><a href="#s1">関数の選択</a></li>
                     <li class="pb10"><a href="#s2">"Mesh"の設定</a></li>
                     <li class="pb10"><a href="#s3">"Range"の設定</a></li>
                     <li class="pb10"><a href="#s4">"Angle"の設定</a></li>
+                    <li class="pb10"><a href="#s5">[Reset]ボタン</a></li>
                 </ol>
-                <p class="fwm pl30">&nbsp;
-                    <a href="#s5"><font size="2">[Reset]ボタン</font></a>
-                </p>
             </div>
 
             <div class="pl20">
                 <div class="pic-left720 fwb pb20">
-                    <div class="contents-title-left pb20"
+                    <div class="contents-title-left pb20">
                         <p id="s1">
                             [1] 関数の選択
                         </p>
@@ -210,7 +250,7 @@
                 </div>
 
                 <div class="pic-left720 fwb pb20">
-                    <div class="contents-title-left pb20"
+                    <div class="contents-title-left pb20">
                         <p id="s2">
                             [2] "Mesh"の設定
                         </p>
@@ -243,7 +283,7 @@
                 </div>
 
                 <div class="pic-left720 fwb pb20">
-                    <div class="contents-title-left pb20"
+                    <div class="contents-title-left pb20">
                         <p id="s3">
                             [3] "Range"の設定
                         </p>
@@ -274,7 +314,7 @@
                 </div>
 
                 <div class="pic-left720 fwb pb20">
-                    <div class="contents-title-left pb20"
+                    <div class="contents-title-left pb20">
                         <p id="s4">
                             [4] "Angle"の設定
                         </p>
@@ -299,7 +339,7 @@
                 </div>
 
                 <div class="pic-left720 fwb pb20">
-                    <div class="contents-title-left pb20"
+                    <div class="contents-title-left pb20">
                         <p id="s5">
                             [Reset] ボタン
                         </p>
@@ -329,7 +369,7 @@
             </h3>
             <div class="pl20">
                 <div class="fwb pb30">
-                    <ul style="list-style: none;" class="fwm pb40, pl40">
+                    <ul style="list-style: none;" class="fwm pb40, listInd40">
                         <li class="pb10"><a href="#a1">[01] 関数諸例</a></li>
                         <li class="pb10"><a href="#a2">[02] 複素関数(絶対値)</a></li>
                         <li class="pb10"><a href="#a3">[03] 微分方程式 解曲線の描画 で取り上げた関数</a></li>
@@ -338,7 +378,7 @@
                 </div>
 
                 <div class="pic-left720 fwb pb20">
-                    <div class="contents-title-left pb20"
+                    <div class="contents-title-left pb20">
                         <p id="a1">
                             [01]&nbsp;関数諸例
                         </p>
@@ -380,7 +420,7 @@
                           </table>
 
                 <div class="pic-left720 fwb pb20">
-                    <div class="contents-title-left pb20"
+                    <div class="contents-title-left pb20">
                         <p id="a2">
                             [02]&nbsp;複素関数(絶対値)
                         </p>
@@ -392,19 +432,19 @@
                     </div>
                     <div class="c-both"></div>
                     <div class="fwb pb30">
-                        <ol class="pb40, pl40">
+                        <ol class="pb40, listInd40">
                             <li class="pb10"><a href="#02&01">$ \quad f(x, y) = |\sin(ω)|, \quad ω = x + iy $ </a></li>
                             <li class="pb10"><a href="#02&02">$ \quad f(x, y) = |\cos(ω)|, \quad ω = x + iy $ </a></li>
                             <li><a href="#02&03">$ \quad f(x, y) = |\Gamma(ω)|, \quad\,\,\, ω = x + iy $ </a></li>
                         </ol>
                     </div>
 
-                    <ol class="fwm pb40, pl40">
+                    <ol class="fwm pb40, listInd40">
                         <li class="pb40">
                             <p id="02&01"; class="pb10 fwb">
                                 $ f(x, y) = |\sin(\omega)|, &ensp; \omega = x + iy $
                             </p>
-                            <div class="contents-left pb10"
+                            <div class="contents-left pb10">
                                 <p class="pb10">
                                     &emsp;
                                 </p>
@@ -415,20 +455,18 @@
                                 </p>
                             </div>
                             <div class="c-both"></div>
-                            <div class="table-container">
-                                <div class="contents-left pb10"
-                                    <p class="pb10">
-                                        $ \omega = x + iy $ とすると
-                                    </p>
-                                    <p class="pb10">
-                                       $ \sin(\omega) = \sin x \cosh y + i \cos x \sinh y $ より
-                                    </p>
-                                    <p class="pb10">
-                                       $ |\sin(\omega)| = \sqrt{\sin^2 x \cosh^2 y + \cos^2 x \sinh^2 y} $
-                                    </p>
-                                </div>
+                            <div class="contents-left fsize90 pb10">
+                                <p class="pb10">
+                                    $ \omega = x + iy $ とすると
+                                </p>
+                                <p class="pb10">
+                                   $ \sin(\omega) = \sin x \cosh y + i \cos x \sinh y $ より
+                                </p>
+                                <p class="pb10">
+                                   $ |\sin(\omega)| = \sqrt{\sin^2 x \cosh^2 y + \cos^2 x \sinh^2 y} $
+                                </p>
                             </div>
-                            <div class="contents-right"
+                            <div class="contents-right">
                                 <p>
                                     <a href="etc_Pers_v1.html?selectedOption=02%2601">
                                         <span class="image-container">
@@ -451,7 +489,7 @@
                             <p id="02&02"; class="pb10 fwb">
                                 $ f(x, y) = |\cos(\omega)|, &ensp; \omega = x + iy $
                             </p>
-                            <div class="contents-left pb10"
+                            <div class="contents-left pb10">
                                 <p class="pb10">
                                     &emsp;
                                 </p>
@@ -462,7 +500,7 @@
                                 </p>
                             </div>
                             <div class="c-both"></div>
-                            <div class="table-container">
+                            <div class="contents-left fsize90 pb10">
                                 <p class="pb10">
                                     $ \omega = x + iy $ とすると
                                 </p>
@@ -473,7 +511,7 @@
                                    $ |\cos(\omega)| = \sqrt{\cos^2 x \cosh^2 y + \sin^2 x \sinh^2 y} $
                                 </p>
                             </div>
-                            <div class="contents-right"
+                            <div class="contents-right">
                                 <p>
                                 </p>
                             </div>
@@ -487,7 +525,7 @@
                             <p id="02&03"; class="pb10 fwb">
                                 $ f(x, y) = |Γ(\omega)|, &ensp; \omega = x + iy $
                             </p>
-                            <div class="contents-left pb10"
+                            <div class="contents-left pb10">
                                 <p class="pb10">
                                     &emsp;
                                 </p>
@@ -498,8 +536,8 @@
                                 </p>
                             </div>
                             <div class="c-both"></div>
-                            <div class="table-container">
-                                <div class="contents-left pb10"
+                            <div class="prettyP_PC">
+                                <div class="contents-left pb10">
                                     <p class="pb10">
                                         gamma関数です。
                                     </p>
@@ -508,7 +546,19 @@
                                     </p>
                                 </div>
                             </div>
-                            <div class="contents-right"
+                            <div class="prettyP_SP">
+                                <div class="table-container"
+                                    <div class="contents-left pb10">
+                                        <p class="pb10">
+                                            gamma関数です。
+                                        </p>
+                                        <p class="pb10">
+                                            $ |\Gamma(x + iy)| = |\Gamma(x)| / \prod \sqrt{1 + (y / (n + x))^2}, \quad n:0～∞ $
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contents-right">
                                 <p>
                                     <a href="etc_Pers_v1.html?selectedOption=02%2603">
                                         <span class="image-container">
@@ -531,7 +581,7 @@
                 </div>
 
                 <div class="pic-left720 fwb pb20">
-                    <div class="contents-title-left pb20"
+                    <div class="contents-title-left pb20">
                         <p id="a3">
                             [03]&nbsp;<a href="etc_DEQ_doc2.html" target="_blank"> 微分方程式 解曲線の描画 </a> で取り上げた関数
                         </p>
@@ -544,7 +594,7 @@
                     <div class="c-both"></div>
 
                     <div class="fwb pb30">
-                        <ol class="pb40, pl40">
+                        <ol class="pb40, listInd40">
                             <li class="pb10"><a href="#03&01"> Cassini(カシニ)の燈形</a></li>
                             <!--<li class="pb10"><a href="#03&02"> Descartes(デカルト)の葉線の派生形</a></li>-->
                             <li class="pb10"><a href="#03&03"> 三角関数の周期性が反映される例</a></li>
@@ -587,12 +637,12 @@
                         </p>
                     </div>
 
-                    <ol class="fwm pb40, pl40">
+                    <ol class="fwm pb40, listInd40">
                         <li class="pb40">
                             <p id="03&01"; class="pb10 fwb">
                                 Cassini(カシニ)の燈形
                             </p>
-                            <div class="contents-left pb10"
+                            <div class="contents-left pb10">
                                 <p class="pb10">
                                     &emsp;
                                 </p>
@@ -603,17 +653,15 @@
                                 </p>
                             </div>
                             <div class="c-both"></div>
-                            <div class="table-container">
-                                <div class="contents-left pb10"
-                                    <p class="pb10">
-                                        $ f(x, y) = (x^2 + y^2 + a^2)^2 - 4a^2x^2 - b^4 $ <br><br>
-                                    </p>
-                                    <p class="pb10">
-                                        パラメータ&thinsp; (デフォルト) : $ a = 0.6, &thinsp; b =0.4 $
-                                    </p>
-                                </div>
+                            <div class="contents-left fsize90 pb10">>
+                                <p class="pb10">
+                                    $ f(x, y) = (x^2 + y^2 + a^2)^2 - 4a^2x^2 - b^4 $ <br><br>
+                                </p>
+                                <p class="pb10">
+                                    パラメータ&thinsp; (デフォルト) : $ a = 0.6, &thinsp; b =0.4 $
+                                </p>
                             </div>
-                            <div class="contents-right"
+                            <div class="contents-right">
                                 <p>
                                     <a href="etc_Pers_v1.html?selectedOption=03%2601">
                                         <span class="image-container">
@@ -677,7 +725,7 @@
                             <p id="02&02"; class="pb10 fwb fss">
                                 f(x, y) = (x^2 + y^2 + a^2)^2 - 4a^2x^2 - b^4
                             </p>
-                            <div class="contents-left pb10"
+                            <div class="contents-left pb10">
                                 <p class="pb10">
                                     &emsp;
                                 </p>
@@ -688,7 +736,7 @@
                                 </p>
                             </div>
                             <div class="c-both"></div>
-                            <div class="contents-left pb10"
+                            <div class="contents-left pb10">
                                 <p class="pb10">
                                     $ \omega = x + iy $ とすると
                                 </p>
@@ -699,7 +747,7 @@
                                    $ |\cos(\omega)| = \sqrt{\cos^2 x \cosh^2 y + \sin^2 x \sinh^2 y} $
                                 </p>
                             </div>
-                                <div class="contents-right"
+                                <div class="contents-right">
                                     <p>
                                         <a href="etc_Pers_v1.html?selectedOption=04%2603">
                                             <span class="image-container">
@@ -719,7 +767,7 @@
                             <p id="03&03"; class="pb10 fwb">
                                 三角関数の周期性が反映された曲面の例
                             </p>
-                            <div class="contents-left pb10"
+                            <div class="contents-left pb10">
                                 <p class="pb10">
                                     &emsp;
                                 </p>
@@ -730,12 +778,12 @@
                                 </p>
                             </div>
                             <div class="c-both"></div>
-                            <div class="contents-left pb10"
+                            <div class="contents-left pb10">
                                 <p class="pb10">
                                     $ f(x,y) = \cos(y) - \cos(x) $
                                 </p>
                             </div>
-                            <div class="contents-right"
+                            <div class="contents-right">
                                 <p>
                                     <a href="etc_Pers_v1.html?selectedOption=03%2603">
                                         <span class="image-container">
@@ -766,7 +814,7 @@
                 </div>
 
                 <div class="pic-left720 fwb pb20">
-                    <div class="contents-title-left pb20"
+                    <div class="contents-title-left pb20">
                         <p id="09&01"></p>
                         <p id="a99">
                             [99]&nbsp;ユーザー定義
@@ -801,7 +849,7 @@
                             </span>
                         </a>
                     </p>
-                    <div class="contents-left pb10"
+                    <div class="contents-left pb10">
                         <p class="pb10">
                             &emsp;
                         </p>
@@ -815,12 +863,19 @@
                     <p class="pb30">
                         以下に、入力例を示します。
                     </p>
-                    <div class="fwm pb40, pl40">
+                    <div class="fwm pb40, listInd40">
                         <div class="pb40">
-                            <div class="table-container">
+                            <div class="prettyP_PC">
                                 <p class="pb20">
                                     $ f(x, y) = x^3 -3xy + y^3 \quad (  z = 0 のときの等高線はデカルトの葉線) $
                                 </p>
+                            </div>
+                            <div class="prettyP_SP">
+                                <div class="table-container">
+                                    <p class="pb20">
+                                        $ f(x, y) = x^3 -3xy + y^3 \quad (  z = 0 のときの等高線はデカルトの葉線) $
+                                    </p>
+                                </div>
                             </div>
                             <p class="pb10">
                                 <span class="image-container">
@@ -841,7 +896,7 @@
                             </p>
                             <p class="pb10">
                                 式の書き方には幾つかのルールがあるので、ここで簡単にまとめておきます。
-                                <ol class="fwm pb40, pl40">
+                                <ol class="fwm pb40, listInd40">
                                     <li class="pb40">
                                         <p>
                                             加減乗除
@@ -930,7 +985,7 @@
                     <p class="pb30">
                         以下に、入力のサンプルを示します。
                     </p>
-                    <ol class="fwm pb40, pl40">
+                    <ol class="fwm pb40, listInd40">
                         <li class="pb40">
                             <p id="09&02"; class="pb10 fwb">
                                 入力例で示した関数
@@ -938,7 +993,7 @@
                             <p class="pb10 fwm">
                                 $ x^3 - 3*x*y + y^3 $
                             </p>
-                            <div class="contents-left pb10"
+                            <div class="contents-left pb10">
                                 <p class="pb10">
                                     &emsp;
                                 </p>
@@ -954,12 +1009,18 @@
                             <p id="09&03"; class="pb10 fwb">
                                 長い式の入力例で示した関数
                             </p>
-                            <div class="table-container">
+                            <div class="prettyP_PC">
                                 <p class="pb10 fwm">
                                     $ x * (1 - 2 * r) - y * (1 + 2 * r) * (r^2 - (x^2 - y^2)) \quad $ where, $ \;  r= x^2 + y^2 $
                                 </p>
                             </div>
-                            <div class="contents-left pb10"
+                            <div class="prettyP_SP">
+                                <div class="table-container">
+                                <p class="pb10 fwm">
+                                    $ x * (1 - 2 * r) - y * (1 + 2 * r) * (r^2 - (x^2 - y^2)) \quad $ where, $ \;  r= x^2 + y^2 $
+                                </p>
+                            </div>
+                            <div class="contents-left pb10">
                                 <p class="pb10">
                                     &emsp;
                                 </p>
@@ -990,26 +1051,44 @@
                     <p class="pb10">
                         陰線処理の有無で2Dに投影された曲面の見え方の違い
                     </p>
-                    <ol class="fss fwb pb10 pl40">
+                    <ol class="fss fwb pb10 listInd40">
                         <li>
                             <p class="pb10">
                                 隠線処理有りの場合
                             </p>
-                            <p>
-                                <span class="image-container">
+                            <div class="prettyP_PC">
+                                <p>
                                     <img src="image/pers/pers_v1_with_hidden_line_50.png">
-                                </span>
-                            </p>
+                                </p>
+                            </div>
+                            <div class="prettyP_SP">
+                                <p class="jQ_blink change_border_color">
+                                     <a href="image/pers/pers_v1_with_hidden_line_50.png"
+                                        data-fancybox="gallery2" data-caption="Case with hidden line processing">
+                                        <img class="fancybox_imageMax" src="image/pers/pers_v1_with_hidden_line_50.png"
+                                            alt="Case with hidden line processing">
+                                    </a>
+                                </p>
+                            </div>
                         </li>
                         <li>
                             <p class="pb10">
                                 隠線処理無しの場合
                             </p>
-                            <p>
-                                <span class="image-container">
+                            <div class="prettyP_PC">
+                                <p>
                                     <img src="image/pers/pers_v1_without_hidden_line_50.png">
-                                </span>
-                            </p>
+                                </p>
+                            </div>
+                            <div class="prettyP_SP">
+                                <p class="jQ_blink change_border_color">
+                                     <a href="image/pers/pers_v1_without_hidden_line_50.png"
+                                        data-fancybox="gallery2" data-caption="Case without hidden line processing">
+                                        <img class="fancybox_imageMax" src="image/pers/pers_v1_without_hidden_line_50.png"
+                                            alt="Case without hidden line processing">
+                                    </a>
+                                </p>
+                            </div>
 <!--                            <p class="pl500">
                                 <a href="#">戻る</a>
                             </p>-->
@@ -1023,7 +1102,7 @@
                     <p class="pb10">
                         このページでは、Local Storageを利用して以下の2点についてデータを保持する機能を持ちます。
                     </p>
-                    <ol class="fss fwb pb10 pl40">
+                    <ol class="fss fwb pb10 listInd40">
                         <li>
                             <p>
                                 セレクトボックスで選択されたリストの位置
@@ -1041,11 +1120,18 @@
                     いちいち先頭のリストから目的のリストまで辿るのは大変です。
                     そこで、以下に示すように選択されたリストの位置を保持するためのチェックボックスを設置しました。
                 </p>
-                <p class="pb10">
-                    <span class="image-container">
+                <div class="prettyP_PC">
+                    <p class="pb10">
                         <img src="image/pers/pers_v1_local_storage01.jpg">
-                    </span>
-                </p>
+                    </p>
+                </div>
+                <div class="prettyP_SP">
+                    <div class="table-container">
+                        <p class="pb10">
+                            <img src="image/pers/pers_v1_local_storage01.jpg">
+                        </p>
+                    </div>
+                </div>
                 <p>
                     チェックを入れてから特定の項目を選択すると、
                     Local StorageにチェックボックスのONと選択されたリストの番号が保存されます。
@@ -1112,7 +1198,6 @@
                 </p>
                 <p>
                     Local Storageに保存されているデータは、ブラウザの設定画面から確認することができます。
-                    <a href="#">戻る</a>
                 </p>
 
             </div>
@@ -1136,18 +1221,17 @@
         </div> <!-- select button whole: end -->
 
         <div class="footer_labelPC">
-            copyright &copy; 2003 -
+            &copy; 2003 -
             <script>
                 date = new Date();
                 document.write(date.getFullYear() + ' ');
             </script>
             <nonscript>
             </nonscript>
-            Contrail -kotan- all rights reserved
+            Contrail - kotan - 
         </div>
 
     </footer>
 
-</div>
 </body>
 </html>
