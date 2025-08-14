@@ -600,6 +600,11 @@ div#footer_label {
 /*-----------
  ** title **
 -----------*/
+/* スマホモードの指定(PCでも必要な場合は別途追加指定すること) */
+/* アイコン・ロゴ・メニュー帯の上のスペース */
+div#titleUS_SP { padding-bottom: 4px; }    /* title_upper_space */
+/* ロゴの高さとベースラインからの位置 */
+.titleLogoSP { height: 24px; padding-bottom: 3px; padding-left: 5px; }
 
 /* タイトル欄と本文との空きの指定 */
 div#title50 { margin-left:auto; margin-right:auto; margin-bottom:50px; text-align:center; }
@@ -1648,8 +1653,8 @@ input[type="checkbox"]:checked:before {
 /* "MENU"ボタン本体のスタイル */
 #menu-call {
     position: fixed;
-/*    top: 30px;  */
-/*    right: 20px;*/
+/*    top: 30px;   ← jq_kko_style.js で指定 */
+/*    right: 20px; ← jq_kko_style.js で指定 */
     font-size: 14px;
     line-height: 1;
     z-index: 99;
@@ -1901,7 +1906,7 @@ input[type="checkbox"]:checked:before {
     line-height: 1;
 }
 .big-circle400 {
-    font-size: 0.6em;
+    font-size: 1.3em;
     line-height: 1;
 }
 
