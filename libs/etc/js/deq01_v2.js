@@ -43,8 +43,25 @@ let mode = 2;
 
 let width0 = 8;
 let height0 = 8;
-const canvas = document.getElementById('graphCanvas');
-const ctx = canvas.getContext('2d');
+
+let canvas;
+let ctx;
+function isMobile() {
+  return window.innerWidth / window.devicePixelRatio < 481;
+}
+
+if (isMobile()) { 
+    canvas = document.getElementById('graphCanvasSP');
+} else {
+    canvas = document.getElementById('graphCanvasPC');
+}
+// null でないことを確認してから処理
+if (canvas) {
+    ctx = canvas.getContext('2d');
+    // ここに描画処理
+} else {
+    console.error('canvas が見つかりません');
+}
 
 // 描画領域をリセット
 ctx.fillStyle = 'rgb( 0, 0, 0)';
@@ -707,7 +724,12 @@ function goBack() {
 */
 
 function changeType() {
-    const type = String(document.getElementById('type').value);
+    let type;
+    if (isMobile()) { 
+        type = String(document.getElementById('typeSP').value);
+    } else {
+        type = String(document.getElementById('typePC').value);
+    }
 
     // ここでチェックボックスの状態を確認し、ストレージフラグを更新
     kzDeq_StorageFlg = document.getElementById('cb_storage').checked;

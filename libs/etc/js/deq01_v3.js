@@ -61,8 +61,24 @@ let height0 = 100;
 let mag;
 const magStd = 80;
 
-const canvas = document.getElementById('graphCanvas');
-const ctx = canvas.getContext('2d');
+let canvas;
+let ctx;
+function isMobile() {
+  return window.innerWidth / window.devicePixelRatio < 481;
+}
+
+if (isMobile()) { 
+    canvas = document.getElementById('graphCanvasSP');
+} else {
+    canvas = document.getElementById('graphCanvasPC');
+}
+// null でないことを確認してから処理
+if (canvas) {
+    ctx = canvas.getContext('2d');
+    // ここに描画処理
+} else {
+    console.error('canvas が見つかりません');
+}
 
 // 描画領域をリセット
 ctx.fillStyle = 'rgb( 0, 0, 0)';

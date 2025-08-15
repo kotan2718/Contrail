@@ -1,31 +1,38 @@
 <!DOCTYPE HTML >
 <html>
 
-<HEAD>
-    <META charset="UTF-8">
-    <META name="description" content="自励形の連立微分方程式の近似解を3Dで描画するページです。ローレンツ・アトラクターを初めとするカオス的な振る舞いを見せる方程式の初期値鋭敏性などを描画の動きを通して確認することができます。">
-    <META name="keywords" content="3D,連立,微分方程式,解曲線,解軌道,描画,カオス,アトラクター,Lorenz,ローレンツ,初期値,鋭敏性">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="follow, noindex">
+    <meta name="description" content="自励形の連立微分方程式の近似解を3Dで描画するページです。ローレンツ・アトラクターを初めとするカオス的な振る舞いを見せる方程式の初期値鋭敏性などを描画の動きを通して確認することができます。">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Differential Equations 3D</title>
 
     <!-- favicon-->
     <link rel="icon" href="favicon.ico">
 
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
     <!-- css start -->
-
         <!-- kko_etc start :: class指定:change_border_color, 全ファイル共通:リンク文字色, フォーカスリング -->
-        <link rel="stylesheet" href="libs/etc/css/kko_footer_style.css">
         <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
+        <link rel="stylesheet" href="libs/etc/css/kko_footer_style.css" media="screen and (min-width: 768px)">
         <!-- kko_etc end -->
-
+        <style>
+            @media screen and (min-width: 769px) {
+            }
+            @media screen and (max-width: 768px) {
+                #horizontal-slider-container, #horizontal-slider {
+                    max-width: 300px;
+                }
+                #vertical-slider-container, #vertical-slider {
+                    max-height: 300px;
+                    top: -2px;
+                }
+            }
+        </style>
     <!-- css end -->
 
     <!-- js start -->
-
         <!-- jQuery start -->
         <!--<script src="libs/jQuery/js/jquery-1.6.1.min.js"></script>-->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -64,18 +71,18 @@
 
     <!-- js end -->
 
-</HEAD>
+</head>
 
 <BODY id="common-k"  onload="initialize()">
 
-    <div id="container">
-
-        <header>
+    <header>
+        <div class="prettyP_PC">
             <a name="page_top"></a>
-            <div class="center jQ_change navbox">
+            <div class="center jQ_change navbox" >
                 <nav>
-                    <IMG src="image/top/Contrail_g.png" height="20" class="logo_img">
-                    <ul class="menu" id="menu">
+                    <img src="image/top/cr32_e.png" height="20" class="logo_img">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_img">
+                    <ul class="menu" id="menu" >
                         <li><a href="index.html" class="menulink">Home</a></li>
                         <li><a href="whatnew.html" class="menulink">What's New</a></li>
                         <li><a href="etc.html" class="menulink">E.T.C.</a></li>
@@ -95,32 +102,71 @@
             <script>
                 var menu=new menu.dd("menu");
                 menu.init("menu","menuhover");
-            </script>   <!-- Sandbox DropDownMenu end -->
-        </header>
+            </script>
+            <!-- Sandbox DropDownMenu end -->
+        </div>
+        <div class="prettyP_SP">
+            <a name="MENU"></a>
+            <p id="menu-call">
+                <a href="#">MENU</a>
+            </p>
 
-        <div id="main960"> <!-- page main: start -->
+            <a name="page_top"></a>
 
-            <!-- title -->
-            <div id="title20">
-                <h3 class="pt30 pb40">
-                    微分方程式 解軌道の描画 3D
-                </h3>
+            <!-- page top icon & logo -->
+            <div id="header_SP" class="header_labelSP">
+                <div id="titleUS_SP"></div>
+                <img src="image/top/cr48f_32.png">
+                <img class="titleLogoSP" src="image/top/Contrail_g.png">
             </div>
 
-            <!-- for Java Script off -->
-            <noscript>
-                <div id="attention">
-                    <p>ご覧頂くにはブラウザの JavaScript をアクティブにして下さい</p>
+            <div id="popup-menu" class="hidden">
+                <div class="menu-title">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_image" alt="CONTRAIL">
                 </div>
-            </noscript>
+                <ul>
+                    <li><a href="index.html" class="menulink">Home</a></li>
+                    <li><a href="whatnew.html" class="menulink">What's New</a></li>
+                    <li><a href="etc.html" class="menulink">E.T.C.</a></li>
+                    <li><a href="fs01.html" class="menulink">The Scenery</a></li>
+                    <li><a href="link01.html" class="menulink">Links</a></li>
+                    <li><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
 
-            <!-- contents -->
-            <div class="pic-left990 pb30">
-                <div id="contents-2col-left_deq">
+    <div id="main1024"> <!-- page main: start -->
+
+        <!-- title -->
+        <div id="title20">
+            <h3 class="pt30 pb40">
+                微分方程式 解軌道の描画 3D
+            </h3>
+        </div>
+
+        <!-- for Java Script off -->
+        <noscript>
+            <div id="attention">
+                <p>ご覧頂くにはブラウザの JavaScript をアクティブにして下さい</p>
+            </div>
+        </noscript>
+
+        <!-- contents -->
+        <div class="pic-left1024 pb30">
+
+            <div id="contents-2col-left_deq">
                     <div id="contents-2col-left_deq">
-                        <p class="pb10">
-                            <canvas id="graphCanvas" width="580" height="580"></canvas>
-                        </p>
+                        <div class="prettyP_PC">
+                            <p class="pb10">
+                                <canvas id="graphCanvasPC" width="580" height="580"></canvas>
+                            </p>
+                        </div>
+                        <div class="prettyP_SP">
+                            <p class="pb0">
+                                <canvas id="graphCanvasSP" width="300" height="300"></canvas>
+                            </p>
+                        </div>
                     </div>
                     <div id="contents-2col-right_deq">
                         <div id="vertical-slider-container">
@@ -131,258 +177,282 @@
                     <div id="horizontal-slider-container">
                         <div id="horizontal-slider"></div>
                     </div>
-                    <p class="cLink" align="right">
-                        <!-- 戻るリンク(動的に生成) -->
-                    </p>
+                <p class="cLink" align="right">
+                    <!-- 戻るリンク(動的に生成) -->
+                </p>
+            </div>
+
+            <div id="contents-2col-right_deq">
+                <p class="pb10">
+                    <select id="type" style="width: 220px;" onchange="changeType()">
+                        <option value="01">&nbsp; 1. Lorenz system</option>
+                        <option value="02">&nbsp; 2. Thomas system</option>
+                        <option value="03">&nbsp; 3. Four-Wing system</option>
+                        <option value="04">&nbsp; 4. Halvorsen system</option>
+                        <option value="05">&nbsp; 5. Rössler system</option>
+                        <option value="06">&nbsp; 6. Sprott system</option>
+                        <option value="07">&nbsp; 7. Rabinovich-Fabrikant system</option>
+                        <option value="08">&nbsp; 8. Chen system</option>
+                        <option value="09">&nbsp; 9. Chen2 system</option>
+                        <option value="10">10. Chua_14_4 system</option>
+                        <option value="11">11. Lorenz2 system</option>
+                        <option value="12">12. Langford system</option>
+                    </select>
+                </p>
+                <p class="pb5">
+                    <label for="dx"><span id="dx"></span></label>
+                </p>
+                <p class="pb5">
+                    <label for="dy"><span id="dy"></span></label>
+                </p>
+                <p class="pb5">
+                    <label for="dz"><span id="dz"></span></label>
+                </p>
+                <p class="pb10">
+                    <label for="where"><span id="where"></span></label>
+                </p>
+                <p class="pb5">
+                    係数
+                </p>
+                <p class="pb20">
+                    <label for="ma" style="width: 20px; display: inline-block"> $a:$ </label>
+                    <input type="number" id="ma" value="" style="width:80px; text-align:right;">
+                    &emsp;
+                    <label for="me" style="width: 20px; display: inline-block"> $e:$ </label>
+                    <input type="number" id="me" value="" style="width:80px; text-align:right;"><br>
+
+                    <label for="mb" style="width: 20px; display: inline-block"> $b:$ </label>
+                    <input type="number" id="mb" value="" style="width:80px; text-align:right;">
+                    &emsp;
+                    <label for="mf" style="width: 20px; display: inline-block"> $f:$ </label>
+                    <input type="number" id="mf" value="" style="width:80px; text-align:right;"><br>
+
+                    <label for="mc" style="width: 20px; display: inline-block"> $c:$ </label>
+                    <input type="number" id="mc" value="" style="width:80px; text-align:right;">
+                    &emsp;
+                    <label for="mg" style="width: 20px; display: inline-block"> $g:$ </label>
+                    <input type="number" id="mg" value="" style="width:80px; text-align:right;"><br>
+
+                    <label for="md" style="width: 20px; display: inline-block"> $d:$ </label>
+                    <input type="number" id="md" value="" style="width:80px; text-align:right;">
+                    &emsp;
+                    <label for="mh" style="width: 20px; display: inline-block"> $h:$ </label>
+                    <input type="number" id="mh" value="" style="width:80px; text-align:right;"><br>
+                </p>
+
+                <!-- 描画範囲 -->
+                <div class="grid2a">
+                    <div class="grid-item">
+                        <p>
+                            描画範囲
+                        </p>
+                    </div>
+                    <div class="grid-item">
+                        <p>
+                            <input type="text" id="width0" value="100" onchange="updateRange()" style="width:50px; text-align:right;">
+                            &emsp;
+                            <label for="min"><span id="wmin"></span></label> $ < x, y, z < $ <label for="max"><span id="wmax"></span></label>
+                        </p>
+                    </div>
                 </div>
 
-                <div id="contents-2col-right_deq">
-                    <p class="pb10">
-                        <select id="type" style="width: 220px;" onchange="changeType()">
-                            <option value="01">&nbsp; 1. Lorenz system</option>
-                            <option value="02">&nbsp; 2. Thomas system</option>
-                            <option value="03">&nbsp; 3. Four-Wing system</option>
-                            <option value="04">&nbsp; 4. Halvorsen system</option>
-                            <option value="05">&nbsp; 5. Rössler system</option>
-                            <option value="06">&nbsp; 6. Sprott system</option>
-                            <option value="07">&nbsp; 7. Rabinovich-Fabrikant system</option>
-<!--                        <option value="08">&nbsp; 8. Chen system</option>
-                            <option value="09">&nbsp; 9. Chen2 system</option>
-                            <option value="10">10. Chua_14_4 system</option>
-                            <option value="11">11. Lorenz2 system</option>
-                            <option value="12">12. Langford system</option>-->
-                        </select>
-                    </p>
-                    <p class="pb5">
-                        <label for="dx"><span id="dx"></span></label>
-                    </p>
-                    <p class="pb5">
-                        <label for="dy"><span id="dy"></span></label>
-                    </p>
-                    <p class="pb5">
-                        <label for="dz"><span id="dz"></span></label>
-                    </p>
-                    <p class="pb10">
-                        <label for="where"><span id="where"></span></label>
-                    </p>
-                    <p class="pb5">
-                        係数
-                    </p>
-                    <p class="pb20">
-                        <label for="ma" style="width: 20px; display: inline-block"> $a:$ </label>
-                        <input type="number" id="ma" value="" style="width:80px; text-align:right;">
-                        &emsp;
-                        <label for="me" style="width: 20px; display: inline-block"> $e:$ </label>
-                        <input type="number" id="me" value="" style="width:80px; text-align:right;"><br>
-
-                        <label for="mb" style="width: 20px; display: inline-block"> $b:$ </label>
-                        <input type="number" id="mb" value="" style="width:80px; text-align:right;">
-                        &emsp;
-                        <label for="mf" style="width: 20px; display: inline-block"> $f:$ </label>
-                        <input type="number" id="mf" value="" style="width:80px; text-align:right;"><br>
-
-                        <label for="mc" style="width: 20px; display: inline-block"> $c:$ </label>
-                        <input type="number" id="mc" value="" style="width:80px; text-align:right;">
-                        &emsp;
-                        <label for="mg" style="width: 20px; display: inline-block"> $g:$ </label>
-                        <input type="number" id="mg" value="" style="width:80px; text-align:right;"><br>
-
-                        <label for="md" style="width: 20px; display: inline-block"> $d:$ </label>
-                        <input type="number" id="md" value="" style="width:80px; text-align:right;">
-                        &emsp;
-                        <label for="mh" style="width: 20px; display: inline-block"> $h:$ </label>
-                        <input type="number" id="mh" value="" style="width:80px; text-align:right;"><br>
-                    </p>
-
-                    <!-- 描画範囲 -->
-                    <div class="grid2a">
-                        <div class="grid-item">
-                            <p>
-                                描画範囲
-                            </p>
-                        </div>
-                        <div class="grid-item">
-                            <p>
-                                <input type="text" id="width0" value="100" onchange="updateRange()" style="width:50px; text-align:right;">
-                                &emsp;
-                                <label for="min"><span id="wmin"></span></label> $ < x, y, z < $ <label for="max"><span id="wmax"></span></label>
-                            </p>
-                        </div>
+                <!-- 描画速度 -->
+                <div class="grid2a">
+                    <div class="grid-item">
+                        <p>
+                            描画速度
+                        </p>
                     </div>
-
-                    <!-- 描画速度 -->
-                    <div class="grid2a">
-                        <div class="grid-item">
-                            <p>
-                                描画速度
-                            </p>
-                        </div>
-                        <div class="grid-item">
-                            <p>
-                                <select id="spd" style="width: 55px; text-align:right;" onchange="changeSpeed()">
-                                    <option value="1">&nbsp; 1</option>
-                                    <option value="2">&nbsp; 2</option>
-                                    <option value="4">&nbsp; 4</option>
-                                    <option value="8">&nbsp; 8</option>
-                                    <option value="20">20</option>
-                                </select>
-                            </p>
-                        </div>
+                    <div class="grid-item">
+                        <p>
+                            <select id="spd" style="width: 55px; text-align:right;" onchange="changeSpeed()">
+                                <option value="1">&nbsp; 1</option>
+                                <option value="2">&nbsp; 2</option>
+                                <option value="4">&nbsp; 4</option>
+                                <option value="8">&nbsp; 8</option>
+                                <option value="20">20</option>
+                            </select>
+                        </p>
                     </div>
-
-                    <!-- 刻み幅 -->
-                    <div class="grid2a">
-                        <div class="grid-item">
-                            <p>
-                                刻み幅
-                            </p>
-                        </div>
-                        <div class="grid-item">
-                            <p>
-                                <input type="text" id="dh" value="0.01" style="width:50px; text-align:right;">
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- 繰返し回数 -->
-                    <div class="grid2a pb10">
-                        <div class="grid-item">
-                            <p>
-                                繰返し
-                            </p>
-                        </div>
-                        <div class="grid-item">
-                            <p>
-                                <input type="text" id="cnt_dp" value="3200" style="width:50px; text-align:right;">
-                                &emsp;
-                                <label style="width: 40px; display: inline-block">Count</label>
-                                <label id="keika" style="width: 40px; font-size: 90%; text-align:right; display: inline-block">
-                                    <span id="keika"></span>
-                                </label>
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="grid2">
-                        <!-- 初期値(見出し2) -->
-                        <div class="grid-item">
-                            <p>
-                                初期値
-                                &emsp;
-                                <label style="width: 20px; display: inline-block">1</label>
-                                &emsp;&emsp;
-                                <label style="width: 20px; display: inline-block">2</label>
-                            </p>
-                        </div>
-                        <!-- 描画角度(見出し) -->
-                        <div class="grid-item">
-                            <p>
-                                Angle
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="grid2">
-                        <!-- 初期値 1,2 x -->
-                        <div class="grid-item">
-                            <p>
-                                <label style="width: 20px; display: inline-block"> $x$ </label>
-                                <input type="text" id="init1_x" value="0" style="width:50px; text-align:right;">
-                                <input type="text" id="init2_x" value="0" style="width:50px; text-align:right;">
-                            </p>
-                        </div>
-                        <!-- 描画角度 alpha -->
-                        <div class="grid-item">
-                            <p>
-                                <label style="width: 8px; display: inline-block"> $ \alpha $ </label> :
-                                <input type="text" id="angleAlpha" style="font-size: 100%; width:50px; text-align:right;" min="-180" max="180" onchange="changeAngle()" value="">
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="grid2">
-                        <!-- 初期値 1,2 y -->
-                        <div class="grid-item">
-                            <p>
-                                <label style="width: 20px; display: inline-block"> $y$ </label>
-                                <input type="text" id="init1_y" value="1" style="width:50px; text-align:right;">
-                                <input type="text" id="init2_y" value="1" style="width:50px; text-align:right;">
-                            </p>
-                        </div>
-                        <!-- 描画角度 gamma -->
-                        <div class="grid-item">
-                            <p>
-                                <label style="width: 8px; display: inline-block"> $ \gamma $ </label> :
-                                <input type="text" id="angleGamma" style="font-size: 100%; width:50px; text-align:right;" min="-90" max="90" onchange="changeAngle()" value="">
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="grid2">
-                        <!-- 初期値 1,2 z -->
-                        <div class="grid-item">
-                            <p>
-                                <label style="width: 20px; display: inline-block"> $z$ </label>
-                                <input type="text" id="init1_z" value="2" style="width:50px; text-align:right;">
-                                <input type="text" id="init2_z" value="2.01" style="width:50px; text-align:right;">
-                            </p>
-                        </div>
-                        <div class="grid-item">
-                            <!-- 垂直軸(見出し) -->
-                            <p>
-                                Vertical Axis
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- 垂直軸(選択) -->
-                    <div class="grid2 pb40">
-                        <div class="grid-item">
-                            <p>
-                            </p>
-                        </div>
-                        <div class="grid-item">
-                            <p>
-                                $x$ <input type="radio" id="axX" name="vAxis" onchange="changeAxis()" value="axisX" /> &nbsp;
-                                $y$ <input type="radio" id="axY" name="vAxis" onchange="changeAxis()" value="axisY" /> &nbsp;
-                                $z$ <input type="radio" id="axZ" name="vAxis" onchange="changeAxis()" value="axisZ" checked />
-                            </p>
-                        </div>
-                    </div>
-
-                    <p class="pb20">
-                        <button class="btn-radius-solid" id="start" onclick="startAnimation()">Start</button>
-                        &emsp;&emsp;&nbsp;&nbsp;
-                        <button class="btn-radius-solid" id="stop" onclick="stopAnimation()">Stop</button>
-                        &emsp;&emsp;&nbsp;&nbsp;
-                        <button class="btn-radius-solid" id="reset" onclick="resetAnimation()">Reset</button>
-                    </p>
-
-                <!-- deq javascript呼び出し -->
-                <script src="libs/etc/js/deq01_v3.js"></script>
-
                 </div>
-                <div class="c-both"></div>
+
+                <!-- 刻み幅 -->
+                <div class="grid2a">
+                    <div class="grid-item">
+                        <p>
+                            刻み幅
+                        </p>
+                    </div>
+                    <div class="grid-item">
+                        <p>
+                            <input type="text" id="dh" value="0.01" style="width:50px; text-align:right;">
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 繰返し回数 -->
+                <div class="grid2a pb10">
+                    <div class="grid-item">
+                        <p>
+                            繰返し
+                        </p>
+                    </div>
+                    <div class="grid-item">
+                        <p>
+                            <input type="text" id="cnt_dp" value="3200" style="width:50px; text-align:right;">
+                            &emsp;
+                            <label style="width: 40px; display: inline-block">Count</label>
+                            <label id="keika" style="width: 40px; font-size: 90%; text-align:right; display: inline-block">
+                                <span id="keika"></span>
+                            </label>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid2">
+                    <!-- 初期値(見出し2) -->
+                    <div class="grid-item">
+                        <p>
+                            初期値
+                            &emsp;
+                            <label style="width: 20px; display: inline-block">1</label>
+                            &emsp;&emsp;
+                            <label style="width: 20px; display: inline-block">2</label>
+                        </p>
+                    </div>
+                    <!-- 描画角度(見出し) -->
+                    <div class="grid-item">
+                        <p>
+                            Angle
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid2">
+                    <!-- 初期値 1,2 x -->
+                    <div class="grid-item">
+                        <p>
+                            <label style="width: 20px; display: inline-block"> $x$ </label>
+                            <input type="text" id="init1_x" value="0" style="width:50px; text-align:right;">
+                            <input type="text" id="init2_x" value="0" style="width:50px; text-align:right;">
+                        </p>
+                    </div>
+                    <!-- 描画角度 alpha -->
+                    <div class="grid-item">
+                        <p>
+                            <label style="width: 8px; display: inline-block"> $ \alpha $ </label> :
+                            <input type="text" id="angleAlpha" style="font-size: 100%; width:50px; text-align:right;" min="-180" max="180" onchange="changeAngle()" value="">
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid2">
+                    <!-- 初期値 1,2 y -->
+                    <div class="grid-item">
+                        <p>
+                            <label style="width: 20px; display: inline-block"> $y$ </label>
+                            <input type="text" id="init1_y" value="1" style="width:50px; text-align:right;">
+                            <input type="text" id="init2_y" value="1" style="width:50px; text-align:right;">
+                        </p>
+                    </div>
+                    <!-- 描画角度 gamma -->
+                    <div class="grid-item">
+                        <p>
+                            <label style="width: 8px; display: inline-block"> $ \gamma $ </label> :
+                            <input type="text" id="angleGamma" style="font-size: 100%; width:50px; text-align:right;" min="-90" max="90" onchange="changeAngle()" value="">
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid2">
+                    <!-- 初期値 1,2 z -->
+                    <div class="grid-item">
+                        <p>
+                            <label style="width: 20px; display: inline-block"> $z$ </label>
+                            <input type="text" id="init1_z" value="2" style="width:50px; text-align:right;">
+                            <input type="text" id="init2_z" value="2.01" style="width:50px; text-align:right;">
+                        </p>
+                    </div>
+                    <div class="grid-item">
+                        <!-- 垂直軸(見出し) -->
+                        <p>
+                            Vertical Axis
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 垂直軸(選択) -->
+                <div class="grid2 pb40">
+                    <div class="grid-item">
+                        <p>
+                        </p>
+                    </div>
+                    <div class="grid-item">
+                        <p>
+                            $x$ <input type="radio" id="axX" name="vAxis" onchange="changeAxis()" value="axisX" /> &nbsp;
+                            $y$ <input type="radio" id="axY" name="vAxis" onchange="changeAxis()" value="axisY" /> &nbsp;
+                            $z$ <input type="radio" id="axZ" name="vAxis" onchange="changeAxis()" value="axisZ" checked />
+                        </p>
+                    </div>
+                </div>
+
+                <p class="pb20">
+                    <button class="btn-radius-solid" id="start" onclick="startAnimation()">Start</button>
+                    &emsp;&emsp;&nbsp;&nbsp;
+                    <button class="btn-radius-solid" id="stop" onclick="stopAnimation()">Stop</button>
+                    &emsp;&emsp;&nbsp;&nbsp;
+                    <button class="btn-radius-solid" id="reset" onclick="resetAnimation()">Reset</button>
+                </p>
+
+            </div>
+            <div class="c-both"></div>
+        </div>
+    </div>
+
+    <!-- deq javascript呼び出し -->
+    <script src="libs/etc/js/deq01_v3.js"></script>
+
+    <footer>
+        <div class="prettyP_PC">
+            <div class="wrap">
+            </div>
+            <div class="footer_bottom_fixed2">
+                <hr id="footer"> <!-- horizontal partition -->
+
+                <div class="jQ_change center"> <!-- select button whole: start -->
+                    <p id="footer"> <!-- select button: start -->
+                        <a href="etc.html">
+                            <img src="image/button/back_off.gif" border="0" alt="Back">
+                        </a>
+                    </p> <!-- select button: end -->
+                </div> <!-- select button whole: end -->
+
+                <div class="footer_labelPC">
+                    &copy; 2003 -
+                    <script>
+                        date = new Date();
+                        document.write(date.getFullYear() + ' ');
+                    </script>
+                    <nonscript>
+                    </nonscript>
+                    Contrail - kotan -
+                </div>
             </div>
         </div>
-
-<!--    <script src="libs/etc/js/deq01.js"></script> -->
-
-        <footer>
-
+        <div class="prettyP_SP">
             <hr id="footer"> <!-- horizontal partition -->
+
+            <p id="page-top"><a href="#">TOP</a></p>
 
             <div class="jQ_change center"> <!-- select button whole: start -->
                 <p id="footer"> <!-- select button: start -->
                     <a href="etc.html">
-                        <IMG src="image/button/back_off.gif" border="0" alt="Back">
+                        <img src="image/button/back_off.gif" border="0" alt="Back">
                     </a>
-                </p> <!-- select button: end -->
+                <p> <!-- select button: end -->
             </div> <!-- select button whole: end -->
 
-            <div class="wrap">
-            </div>
-            <div class="footer_bottom_fixed">
+            <div class="footer_labelPC">
                 &copy; 2003 -
                 <script>
                     date = new Date();
@@ -390,14 +460,10 @@
                 </script>
                 <nonscript>
                 </nonscript>
-                Contrail - kotan - 
+                Contrail - kotan -
             </div>
-
-        </footer>
-
-    </div>
+        </div>
+    </footer>
 
 </BODY>
-
-
 </html>

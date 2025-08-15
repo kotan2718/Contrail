@@ -1,31 +1,38 @@
 <!DOCTYPE HTML >
 <html>
 
-<HEAD>
-    <META charset="UTF-8">
-    <META name="description" content="This page draws approximate solutions of autonomous systems of simultaneous differential equations in 3D. You can confirm the sensitive dependence on initial conditions of equations that show chaotic behavior like the Lorenz attractor through the movement of the orbit. ">
-    <META name="keywords" content="autonomous,system,three-dimensional,simultaneous,differential,equations,dependence,initial,conditionsfree,Lorenz,chaos,attractor">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="follow, noindex">
+    <meta name="description" content="This page draws approximate solutions of autonomous systems of simultaneous differential equations in 3D. You can confirm the sensitive dependence on initial conditions of equations that show chaotic behavior like the Lorenz attractor through the movement of the orbit. ">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Differential Equations 3D</title>
 
     <!-- favicon-->
     <link rel="icon" href="favicon.ico">
 
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
     <!-- css start -->
-
         <!-- kko_etc start :: class指定:change_border_color, 全ファイル共通:リンク文字色, フォーカスリング -->
-        <link rel="stylesheet" href="libs/etc/css/kko_footer_style.css">
         <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
+        <link rel="stylesheet" href="libs/etc/css/kko_footer_style.css" media="screen and (min-width: 768px)">
         <!-- kko_etc end -->
-
+        <style>
+            @media screen and (min-width: 769px) {
+            }
+            @media screen and (max-width: 768px) {
+                #horizontal-slider-container, #horizontal-slider {
+                    max-width: 300px;
+                }
+                #vertical-slider-container, #vertical-slider {
+                    max-height: 300px;
+                    top: -2px;
+                }
+            }
+        </style>
     <!-- css end -->
 
     <!-- js start -->
-
         <!-- jQuery start -->
         <!--<script src="libs/jQuery/js/jquery-1.6.1.min.js"></script>-->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -64,29 +71,31 @@
 
     <!-- js end -->
 
-</HEAD>
+</head>
 
 <BODY id="common-k"  onload="initialize()">
 
     <div id="container">
 
-        <header>
+    <header>
+        <div class="prettyP_PC">
             <a name="page_top"></a>
-            <div class="center jQ_change navbox">
+            <div class="center jQ_change navbox" >
                 <nav>
-                    <IMG src="image/top/Contrail_g.png" height="20" class="logo_img">
-                    <ul class="menu" id="menu">
+                    <img src="image/top/cr32_e.png" height="20" class="logo_img">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_img">
+                    <ul class="menu" id="menu" >
                         <li><a href="index.html" class="menulink">Home</a></li>
-                        <li><a href="whatnew.html" class="menulink">What's New</a></li>
-                        <li><a href="etc.html" class="menulink">E.T.C.</a></li>
-                        <li><a href="fs01.html" class="menulink">The Scenery</a>
+                        <li><a href="e_whatnew.html" class="menulink">What's New</a></li>
+                        <li><a href="en_etc.html" class="menulink">E.T.C.</a></li>
+                        <li><a href="e_fs01.html" class="menulink">The Scenery</a>
                             <ul>
-                                <li><a href="fs01_sc_top.html" class="sub">Screen Shots</a></li>
-                                <li><a href="fs01_ls_top.html" class="sub">Snap Shots</a></li>
+                                <li><a href="e_fs01_sc_top.html" class="sub">Screen Shots</a></li>
+                                <li><a href="e_fs01_ls_top.html" class="sub">Snap Shots</a></li>
                             </ul>
                         </li>
-                        <li><a href="link01.html" class="menulink">Links</a></li>
-                        <li class="about"><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                        <li><a href="e_link01.html" class="menulink">Links</a></li>
+                        <li class="about"><a href="e_fs01_about.html" class="menulink">about Contrail</a></li>
                     </ul>
                 </nav>
                 <div class="c-both"></div>
@@ -95,10 +104,41 @@
             <script>
                 var menu=new menu.dd("menu");
                 menu.init("menu","menuhover");
-            </script>   <!-- Sandbox DropDownMenu end -->
-        </header>
+            </script>
+            <!-- Sandbox DropDownMenu end -->
+        </div>
+        <div class="prettyP_SP">
+            <a name="MENU"></a>
+            <p id="menu-call">
+                <a href="#">MENU</a>
+            </p>
 
-        <div id="main960"> <!-- page main: start -->
+            <a name="page_top"></a>
+
+            <!-- page top icon & logo -->
+            <div id="header_SP" class="header_labelSP">
+                <div id="titleUS_SP"></div>
+                <img src="image/top/cr48f_32.png">
+                <img class="titleLogoSP" src="image/top/Contrail_g.png">
+            </div>
+
+            <div id="popup-menu" class="hidden">
+                <div class="menu-title">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_image" alt="CONTRAIL">
+                </div>
+                <ul>
+                <li><a href="index.html" class="menulink">Home</a></li>
+                <li><a href="e_whatnew.html" class="menulink">What's New</a></li>
+                <li><a href="en_etc.html" class="menulink">E.T.C.</a></li>
+                <li><a href="e_fs01.html" class="menulink">The Scenery</a>
+                <li><a href="e_link01.html" class="menulink">Links</a></li>
+                <li><a href="e_fs01_about.html" class="menulink">about Contrail</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+        <div id="main1024"> <!-- page main: start -->
 
             <!-- title -->
             <div id="title20">
@@ -115,12 +155,19 @@
             </noscript>
 
             <!-- contents -->
-            <div class="pic-left990 pb30">
+            <div class="pic-left1024 pb30">
                 <div id="contents-2col-left_deq">
                     <div id="contents-2col-left_deq">
-                        <p class="pb10">
-                            <canvas id="graphCanvas" width="580" height="580"></canvas>
-                        </p>
+                        <div class="prettyP_PC">
+                            <p class="pb10">
+                                <canvas id="graphCanvasPC" width="580" height="580"></canvas>
+                            </p>
+                        </div>
+                        <div class="prettyP_SP">
+                            <p class="pb0">
+                                <canvas id="graphCanvasSP" width="300" height="300"></canvas>
+                            </p>
+                        </div>
                     </div>
                     <div id="contents-2col-right_deq">
                         <div id="vertical-slider-container">
@@ -134,6 +181,7 @@
                     <p class="cLink" align="right">
                         <!-- 戻るリンク(動的に生成) -->
                     </p>
+                    <div class="prettyP_SP"><div class="pb20"></div></div>
                 </div>
 
                 <div class="contents-2col-right">
@@ -146,11 +194,11 @@
                             <option value="05">&nbsp; 5. Rössler system</option>
                             <option value="06">&nbsp; 6. Sprott system</option>
                             <option value="07">&nbsp; 7. Rabinovich-Fabrikant system</option>
-<!--                        <option value="08">&nbsp; 8. Chen system</option>
+                            <option value="08">&nbsp; 8. Chen system</option>
                             <option value="09">&nbsp; 9. Chen2 system</option>
                             <option value="10">10. Chua_14_4 system</option>
                             <option value="11">11. Lorenz2 system</option>
-                            <option value="12">12. Langford system</option>-->
+                            <option value="12">12. Langford system</option>
                         </select>
                     </p>
                     <p class="pb5">
@@ -366,23 +414,50 @@
             </div>
         </div>
 
-<!--    <script src="libs/etc/js/deq01.js"></script> -->
+    <!-- deq javascript呼び出し -->
+    <script src="libs/etc/js/deq01_v3.js"></script>
 
-        <footer>
+    <footer>
+        <div class="prettyP_PC">
+            <div class="wrap">
+            </div>
+            <div class="footer_bottom_fixed2">
+                <hr id="footer"> <!-- horizontal partition -->
 
+                <div class="jQ_change center"> <!-- select button whole: start -->
+                    <p id="footer"> <!-- select button: start -->
+                        <a href="en_etc.html">
+                            <img src="image/button/back_off.gif" border="0" alt="Back">
+                        </a>
+                    </p> <!-- select button: end -->
+                </div> <!-- select button whole: end -->
+
+                <div class="footer_labelPC">
+                    &copy; 2003 -
+                    <script>
+                        date = new Date();
+                        document.write(date.getFullYear() + ' ');
+                    </script>
+                    <nonscript>
+                    </nonscript>
+                    Contrail - kotan -
+                </div>
+            </div>
+        </div>
+        <div class="prettyP_SP">
             <hr id="footer"> <!-- horizontal partition -->
+
+            <p id="page-top"><a href="#">TOP</a></p>
 
             <div class="jQ_change center"> <!-- select button whole: start -->
                 <p id="footer"> <!-- select button: start -->
                     <a href="en_etc.html">
-                        <IMG src="image/button/back_off.gif" border="0" alt="Back">
+                        <img src="image/button/back_off.gif" border="0" alt="Back">
                     </a>
-                </p> <!-- select button: end -->
+                <p> <!-- select button: end -->
             </div> <!-- select button whole: end -->
 
-            <div class="wrap">
-            </div>
-            <div class="footer_bottom_fixed">
+            <div class="footer_labelPC">
                 &copy; 2003 -
                 <script>
                     date = new Date();
@@ -390,14 +465,10 @@
                 </script>
                 <nonscript>
                 </nonscript>
-                Contrail - kotan - 
+                Contrail - kotan -
             </div>
-
-        </footer>
-
-    </div>
+        </div>
+    </footer>
 
 </BODY>
-
-
 </html>
