@@ -27,6 +27,10 @@
                 #l_dxdt, #l_dydt {
                     width: 80px;
                 }
+                .grid2b {
+                  display: grid;
+                  grid-template-columns: 110px 220px;
+                }
             }
         </style>
     <!-- css end -->
@@ -148,111 +152,56 @@
         <!-- contents -->
         <div class="pic-left1024 pb30">
             <div class="contents-2col-left">
-                <div class="prettyP_PC">
-                    <div class="grid2b pb5">
-                        <p class="fss" align="left">
-                            <input type="checkbox" id="cb_storage" onclick="handleCheckboxStorage(this.checked)">&nbsp; keep list pos.
-                        </p>
-                        <p  align="right">
-                            <select id="typePC" onchange=changeType()>
-                                <option disabled selected>[01] 2次元1次線形自励系</option>
-                                <option value="01&01">&emsp;&emsp;1. 固有値の1つが0の場合</option>
-                                <option value="01&02">&emsp;&emsp;2. 固有値が2つで正負が異なる場合</option>
-                                <option value="01&03">&emsp;&emsp;3. 固有値が2つでどちらも正の場合 1</option>
-                                <option value="01&04">&emsp;&emsp;4. 固有値が2つでどちらも正の場合 2</option>
-                                <option value="01&05">&emsp;&emsp;5. 固有値が2つでどちらも負の場合</option>
-                                <option value="01&06">&emsp;&emsp;6. 重根で行列Aが対角化可能な場合</option>
-                                <option value="01&07">&emsp;&emsp;7. 重根で行列Aが対角化不可能な場合</option>
-                                <option value="01&08">&emsp;&emsp;8. 固有値が純虚数の場合</option>
-                                <option value="01&09">&emsp;&emsp;9. 固有値が実部と虚部を持つ場合</option>
-                                <option disabled selected>[02] 2次線形自励系</option>
-                                <option value="02&01">&emsp;&emsp;1. 結節峠点型</option>
-                                <option value="02&02">&emsp;&emsp;2. 退化結節峠点型</option>
-                                <option value="02&03">&emsp;&emsp;3. 双楕円型</option>
-                                <option value="02&04">&emsp;&emsp;4. 3峠型</option>
-                                <option value="02&05">&emsp;&emsp;5. 結節点型 2</option>
-                                <option value="02&06">&emsp;&emsp;6. 放物型</option>
-                                <option disabled selected>[03] 高次の自励系</option>
-                                <option value="03&01">&emsp;&emsp;1. 周期解を持つ同次自励形</option>
-                                <option value="03&02">&emsp;&emsp;2. 8つの放物型角領域を持つ同次自励形</option>
-                                <option value="03&03">&emsp;&emsp;3. 複合的な角領域を持つ同次自励形</option>
-                                <option value="03&04">&emsp;&emsp;4. Vinograd(ヴィノグラード)の自励形</option>
-                                <option disabled selected>[04] 自励系の諸例</option>
-                                <option value="04&01">&emsp;&emsp;1. x軸上に周期的に平衡点を持つ自励形</option>
-                                <option value="04&02">&emsp;&emsp;2. 円周上に8つの平衡点を持つ自励形</option>
-                                <option value="04&03">&emsp;&emsp;3. 平面上に周期的な平衡点を持つ自励形</option>
-                                <option value="04&04">&emsp;&emsp;4. 極限軌道 1</option>
-                                <option value="04&05">&emsp;&emsp;5. 極限軌道 2 von del Pol(ファン・デル・ポル)の自励形</option>
-                                <option value="04&06">&emsp;&emsp;6. 極限軌道 3 Lemniscate(レムニスケート)</option>
-                                <option value="04&07">&emsp;&emsp;7. 極限軌道 4 純虚固有値の場合 1</option>
-                                <option value="04&08">&emsp;&emsp;8. 極限軌道 5 純虚固有値の場合 2</option>
-                                <option value="04&09">&emsp;&emsp;9. Hamilton型 1 Cassini(カシニ)の燈形</option>
-                                <option value="04&10">&emsp;&emsp;10. Hamilton型 2 Descartes(デカルト)の葉線</option>
-                                <option value="04&11">&emsp;&emsp;11. Hamilton型 3 </option>
-                                <option value="04&12">&emsp;&emsp;12. Hamilton型 4 三角関数の場合</option>
-                                <option disabled selected>[99] ユーザー定義</option>
-                                <option value="09&090">&emsp;&emsp;0. ユーザー定義</option>
-                                <option value="09&091">&emsp;&emsp;1. 入力例 1</option>
-                                <option value="09&092">&emsp;&emsp;2. 入力例 2</option>
-                                <option value="09&093">&emsp;&emsp;3. 入力例 3</option>
-                                <option value="09&094">&emsp;&emsp;4. 入力例 4</option>
-                                <option value="09&095">&emsp;&emsp;5. 入力例 5</option>
-                            </select>
-                        </p>
-                    </div>
-                </div>
-                <div class="prettyP_SP">
-                    <div class="pb5">
-                        <p class="fss" align="left">
-                            <input type="checkbox" id="cb_storage" onclick="handleCheckboxStorage(this.checked)">&nbsp; keep list pos.
-                        </p>
-                        <p  align="left">
-                            <select id="typeSP" style="width: 100%;" onchange=changeType()>
-                                <option disabled selected>[01] 2次元1次線形自励系</option>
-                                <option value="01&01">&emsp;&emsp;1. 固有値の1つが0の場合</option>
-                                <option value="01&02">&emsp;&emsp;2. 固有値が2つで正負が異なる場合</option>
-                                <option value="01&03">&emsp;&emsp;3. 固有値が2つでどちらも正の場合 1</option>
-                                <option value="01&04">&emsp;&emsp;4. 固有値が2つでどちらも正の場合 2</option>
-                                <option value="01&05">&emsp;&emsp;5. 固有値が2つでどちらも負の場合</option>
-                                <option value="01&06">&emsp;&emsp;6. 重根で行列Aが対角化可能な場合</option>
-                                <option value="01&07">&emsp;&emsp;7. 重根で行列Aが対角化不可能な場合</option>
-                                <option value="01&08">&emsp;&emsp;8. 固有値が純虚数の場合</option>
-                                <option value="01&09">&emsp;&emsp;9. 固有値が実部と虚部を持つ場合</option>
-                                <option disabled selected>[02] 2次線形自励系</option>
-                                <option value="02&01">&emsp;&emsp;1. 結節峠点型</option>
-                                <option value="02&02">&emsp;&emsp;2. 退化結節峠点型</option>
-                                <option value="02&03">&emsp;&emsp;3. 双楕円型</option>
-                                <option value="02&04">&emsp;&emsp;4. 3峠型</option>
-                                <option value="02&05">&emsp;&emsp;5. 結節点型 2</option>
-                                <option value="02&06">&emsp;&emsp;6. 放物型</option>
-                                <option disabled selected>[03] 高次の自励系</option>
-                                <option value="03&01">&emsp;&emsp;1. 周期解を持つ同次自励形</option>
-                                <option value="03&02">&emsp;&emsp;2. 8つの放物型角領域を持つ同次自励形</option>
-                                <option value="03&03">&emsp;&emsp;3. 複合的な角領域を持つ同次自励形</option>
-                                <option value="03&04">&emsp;&emsp;4. Vinograd(ヴィノグラード)の自励形</option>
-                                <option disabled selected>[04] 自励系の諸例</option>
-                                <option value="04&01">&emsp;&emsp;1. x軸上に周期的に平衡点を持つ自励形</option>
-                                <option value="04&02">&emsp;&emsp;2. 円周上に8つの平衡点を持つ自励形</option>
-                                <option value="04&03">&emsp;&emsp;3. 平面上に周期的な平衡点を持つ自励形</option>
-                                <option value="04&04">&emsp;&emsp;4. 極限軌道 1</option>
-                                <option value="04&05">&emsp;&emsp;5. 極限軌道 2 von del Pol(ファン・デル・ポル)の自励形</option>
-                                <option value="04&06">&emsp;&emsp;6. 極限軌道 3 Lemniscate(レムニスケート)</option>
-                                <option value="04&07">&emsp;&emsp;7. 極限軌道 4 純虚固有値の場合 1</option>
-                                <option value="04&08">&emsp;&emsp;8. 極限軌道 5 純虚固有値の場合 2</option>
-                                <option value="04&09">&emsp;&emsp;9. Hamilton型 1 Cassini(カシニ)の燈形</option>
-                                <option value="04&10">&emsp;&emsp;10. Hamilton型 2 Descartes(デカルト)の葉線</option>
-                                <option value="04&11">&emsp;&emsp;11. Hamilton型 3 </option>
-                                <option value="04&12">&emsp;&emsp;12. Hamilton型 4 三角関数の場合</option>
-                                <option disabled selected>[99] ユーザー定義</option>
-                                <option value="09&090">&emsp;&emsp;0. ユーザー定義</option>
-                                <option value="09&091">&emsp;&emsp;1. 入力例 1</option>
-                                <option value="09&092">&emsp;&emsp;2. 入力例 2</option>
-                                <option value="09&093">&emsp;&emsp;3. 入力例 3</option>
-                                <option value="09&094">&emsp;&emsp;4. 入力例 4</option>
-                                <option value="09&095">&emsp;&emsp;5. 入力例 5</option>
-                            </select>
-                        </p>
-                    </div>
+                <div class="grid2b pb5">
+                    <p class="fss" align="left">
+                        <input type="checkbox" id="cb_storage" onclick="handleCheckboxStorage(this.checked)">&nbsp; keep list pos.
+                    </p>
+                    <p  align="right">
+                        <select id="type" style="width: 200px;" onchange=changeType()>
+                            <option disabled selected>[01] 2次元1次線形自励系</option>
+                            <option value="01&01">&emsp;&emsp;1. 固有値の1つが0の場合</option>
+                            <option value="01&02">&emsp;&emsp;2. 固有値が2つで正負が異なる場合</option>
+                            <option value="01&03">&emsp;&emsp;3. 固有値が2つでどちらも正の場合 1</option>
+                            <option value="01&04">&emsp;&emsp;4. 固有値が2つでどちらも正の場合 2</option>
+                            <option value="01&05">&emsp;&emsp;5. 固有値が2つでどちらも負の場合</option>
+                            <option value="01&06">&emsp;&emsp;6. 重根で行列Aが対角化可能な場合</option>
+                            <option value="01&07">&emsp;&emsp;7. 重根で行列Aが対角化不可能な場合</option>
+                            <option value="01&08">&emsp;&emsp;8. 固有値が純虚数の場合</option>
+                            <option value="01&09">&emsp;&emsp;9. 固有値が実部と虚部を持つ場合</option>
+                            <option disabled selected>[02] 2次線形自励系</option>
+                            <option value="02&01">&emsp;&emsp;1. 結節峠点型</option>
+                            <option value="02&02">&emsp;&emsp;2. 退化結節峠点型</option>
+                            <option value="02&03">&emsp;&emsp;3. 双楕円型</option>
+                            <option value="02&04">&emsp;&emsp;4. 3峠型</option>
+                            <option value="02&05">&emsp;&emsp;5. 結節点型 2</option>
+                            <option value="02&06">&emsp;&emsp;6. 放物型</option>
+                            <option disabled selected>[03] 高次の自励系</option>
+                            <option value="03&01">&emsp;&emsp;1. 周期解を持つ同次自励形</option>
+                            <option value="03&02">&emsp;&emsp;2. 8つの放物型角領域を持つ同次自励形</option>
+                            <option value="03&03">&emsp;&emsp;3. 複合的な角領域を持つ同次自励形</option>
+                            <option value="03&04">&emsp;&emsp;4. Vinograd(ヴィノグラード)の自励形</option>
+                            <option disabled selected>[04] 自励系の諸例</option>
+                            <option value="04&01">&emsp;&emsp;1. x軸上に周期的に平衡点を持つ自励形</option>
+                            <option value="04&02">&emsp;&emsp;2. 円周上に8つの平衡点を持つ自励形</option>
+                            <option value="04&03">&emsp;&emsp;3. 平面上に周期的な平衡点を持つ自励形</option>
+                            <option value="04&04">&emsp;&emsp;4. 極限軌道 1</option>
+                            <option value="04&05">&emsp;&emsp;5. 極限軌道 2 von del Pol(ファン・デル・ポル)の自励形</option>
+                            <option value="04&06">&emsp;&emsp;6. 極限軌道 3 Lemniscate(レムニスケート)</option>
+                            <option value="04&07">&emsp;&emsp;7. 極限軌道 4 純虚固有値の場合 1</option>
+                            <option value="04&08">&emsp;&emsp;8. 極限軌道 5 純虚固有値の場合 2</option>
+                            <option value="04&09">&emsp;&emsp;9. Hamilton型 1 Cassini(カシニ)の燈形</option>
+                            <option value="04&10">&emsp;&emsp;10. Hamilton型 2 Descartes(デカルト)の葉線</option>
+                            <option value="04&11">&emsp;&emsp;11. Hamilton型 3 </option>
+                            <option value="04&12">&emsp;&emsp;12. Hamilton型 4 三角関数の場合</option>
+                            <option disabled selected>[99] ユーザー定義</option>
+                            <option value="09&090">&emsp;&emsp;0. ユーザー定義</option>
+                            <option value="09&091">&emsp;&emsp;1. 入力例 1</option>
+                            <option value="09&092">&emsp;&emsp;2. 入力例 2</option>
+                            <option value="09&093">&emsp;&emsp;3. 入力例 3</option>
+                            <option value="09&094">&emsp;&emsp;4. 入力例 4</option>
+                            <option value="09&095">&emsp;&emsp;5. 入力例 5</option>
+                        </select>
+                    </p>
                 </div>
                 <div class="prettyP_PC">
                     <p class="pb10">
@@ -379,18 +328,9 @@
                         <input type="checkbox" id="cb_reset" onclick="handleCheckbox(this.checked)" checked>
                     </p>
                 </div>
-                <div class="grid2a">
-                    <div class="grid-item">
-                        <p>
-                        </p>
-                    </div>
-                    <div class="grid-item">
-                        <p class="cLink">
-                            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                            <!-- 戻るリンク -->
-                        </p>
-                    </div>
-                </div>
+                <p class="cLink pt10 pb20">
+                    <!-- 戻るリンク -->
+                </p>
 
             </div>
         </div>

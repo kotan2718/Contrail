@@ -724,12 +724,8 @@ function goBack() {
 */
 
 function changeType() {
-    let type;
-    if (isMobile()) { 
-        type = String(document.getElementById('typeSP').value);
-    } else {
-        type = String(document.getElementById('typePC').value);
-    }
+
+    const type = String(document.getElementById('type').value);
 
     // ここでチェックボックスの状態を確認し、ストレージフラグを更新
     kzDeq_StorageFlg = document.getElementById('cb_storage').checked;

@@ -1549,10 +1549,6 @@ input[type="checkbox"]:checked:before {
   display: grid;
   grid-template-columns: 110px 470px;
 }
-.grid2bSP {
-  display: grid;
-  grid-template-columns: 110px 220px;
-}
 
 .grid3b {
   display: grid;
