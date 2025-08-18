@@ -139,9 +139,17 @@
 
         <!-- title -->
         <div id="title20">
-            <h3 class="pt30 pb40">
-                Differential Equations: Plotting Trajectory of Solutions
-            </h3>
+            <div class="prettyP_PC">
+                <h3 class="pt30 pb30">
+                    Differential Equations: Plotting Trajectory of Solutions
+                </h3>
+            </div>
+            <div class="prettyP_SP">
+                <h4 class="pl10 pt10">
+                    Differential Equations:<br>
+                    Plotting Trajectory of Solutions
+                </h4>
+            </div>
         </div>
 
         <!-- for Java Script off -->
@@ -205,19 +213,18 @@
                         </select><br>
                     </p>
                 </div>
-
                 <div class="prettyP_PC">
                     <p class="pb10">
                         <canvas id="graphCanvasPC" width="580" height="580" style="border: 1px solid #000;"></canvas>
                     </p>
                 </div>
                 <div class="prettyP_SP">
-                    <p class="pb10">
+                    <p class="pb10" style="padding-left: 8px">
                         <canvas id="graphCanvasSP" width="320" height="320" style="border: 1px solid #000;"></canvas>
                     </p>
                 </div>
-                <p class="pb10" align="right">
-                    Approximation method
+                <p class="fss fwb pb10" align="right">
+                    approx. method &nbsp;
                     <select id="mode" onchange="changeMode()">
                         <option value="1">Euler's method</option>
                         <option value="2">Modified Euler's method</option>
@@ -225,26 +232,38 @@
                     </select>
                 </p>
             </div>
-            <!-- deq javascript呼び出し -->
-<!--                <script src="libs/etc/js/deq01_v2.js"></script>-->
+
+            <div class="prettyP_SP">
+                <p class="pt15">
+                    <button class="btn-radius-solid" id="start" onclick="startAnimation()">Start</button>
+                    &emsp;&emsp;&nbsp;&nbsp;
+                    <button class="btn-radius-solid" id="stop" onclick="stopAnimation()">Stop</button>
+                    &emsp;&emsp;&emsp;
+                    reset&nbsp;
+                    <input type="checkbox" id="cb_reset" onclick="handleCheckbox(this.checked)" checked>
+                </p>
+                <p class="cLink fss fwb pt10 pb20">
+                    <!-- 戻るリンク -->
+                </p>
+            </div>
 
             <div class="contents-2col-right">
                 <div>
-                    <p id="equation_input" class="pb10">
+                    <p id="equation_input" class="fss fwb pb10">
                         Equations
                     </p>
                 </div>
                 <div>
                     <!-- 入力ボックス -->
-                    <p class="pb10 input-container">
+                    <p class="fss fwb pb10 input-container">
                         <label id="l_dxdt">$dx / dt = $</label>
                         <textarea id="dxdt" cols="30" rows="2"></textarea>
                     </p>
-                    <p class="pb10 input-container">
+                    <p class="fss fwb pb10 input-container">
                         <label id="l_dydt">$dy / dt = $</label>
                         <textarea id="dydt" cols="30" rows="2"></textarea>
                     </p>
-                    <p class="pb10 input-container2">
+                    <p class="fss fwb pb10 input-container2">
                         <label id="l_where">$\quad$ where, $\quad r = $</label>
                         <textarea id="dxdy_where" cols="30" rows="1"></textarea>
                     </p>
@@ -252,10 +271,10 @@
 
                 <div>
                     <!-- 方程式の表示(TeX) -->
-                    <p id="equation_default" class="pb10">
+                    <p id="equation_default" class="fss fwb pb10">
                         Equations
                     </p>
-                    <p class="pb10">
+                    <p class="fss fwb pb10">
                         <label><span id="dx"></span></label>
                         <label><span id="dy"></span></label>
                         <label><span id="where"></span></label>
@@ -265,7 +284,7 @@
 
                 <div>
                     <p class="pb10">
-                        <label id="l_coef" style="width: 60px; display: inline-block">係数</label>
+                        <label id="l_coef" class="fss fwb" style="width: 60px; display: inline-block">Coefficient</label>
                     </p>
                     <p class="pb20">
                         <label id="l_ma" style="width: 20px; display: inline-block">a:</label>
@@ -295,7 +314,7 @@
                 </div>
                 <div id="targetDiv" style="margin-top: 0px">
                     <!-- 固有値の表示(必要な場合のみ) -->
-                    <p class="pb30">
+                    <p class="fss fwb pb30">
                         <label for="koyuchi"><span id="koyu"></span></label>
                         &emsp;
                         <label for="lambda" id="lambda">\( \lambda_1, \lambda_2 = \)</label>
@@ -303,7 +322,7 @@
                         <label for="pm" id="pm">\( \pm \)</label>
                         <label for="KAI2"><span id="KAI2"></span></label>
                     </p>
-                    <p class="pb20 fwb fss">
+                    <p class="fss fwb pb20">
                         Drawing Range
                         &emsp;
                         <input type="text" id="width0" value="8" onchange="updateRange()" style="width:50px; text-align:right;">
@@ -321,7 +340,7 @@
                         <input type="text" id="cnt_dp" value="320" style="width:50px; text-align:right;">
                     </p>
                 </div>
-                <div>
+                <div class="prettyP_PC">
                     <p class="pb60">
                         <button class="btn-radius-solid" id="start" onclick="startAnimation()">Start</button>
                         &emsp;&emsp;&nbsp;&nbsp;
@@ -330,10 +349,10 @@
                         reset&nbsp;
                         <input type="checkbox" id="cb_reset" onclick="handleCheckbox(this.checked)" checked>
                     </p>
+                    <p class="cLink pb20">
+                        <!-- 戻るリンク -->
+                    </p>
                 </div>
-                <p class="cLink pb20">
-                    <!-- 戻るリンク -->
-                </p>
 
             </div>
         </div>

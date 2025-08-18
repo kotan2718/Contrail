@@ -1,31 +1,103 @@
 <!DOCTYPE HTML >
 <html>
 
-<HEAD>
-    <META charset="UTF-8">
-    <META name="description" content="z = f(x, y)で定義される曲面を隠線処理が施されたメッシュで描画するページです。曲面は様々なアングルから観察することができます。ユーザーが任意の曲面を入力して描画することもできます。">
-    <META name="keywords" content="3D,曲面,描画,Rendering,隠線,陰線,メッシュ,回転,アングル,ユーザー,任意,入力">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="follow, noindex">
+    <meta name="description" content="z = f(x, y)で定義される曲面を隠線処理が施されたメッシュで描画するページです。曲面は様々なアングルから観察することができます。ユーザーが任意の曲面を入力して描画することもできます。">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>隠線処理が施されたメッシュによる曲面の描画</title>
 
     <!-- favicon-->
     <link rel="icon" href="favicon.ico">
 
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
     <!-- css start -->
-
         <!-- kko_etc start :: class指定:change_border_color, 全ファイル共通:リンク文字色, フォーカスリング -->
-        <link rel="stylesheet" href="libs/etc/css/kko_footer_style.css">
         <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
+        <link rel="stylesheet" href="libs/etc/css/kko_footer_style.css" media="screen and (min-width: 768px)">
         <!-- kko_etc end -->
+        <style>
+            @media screen and (min-width: 769px) {
+                .grid2PersP {
+                    display: grid;
+                    grid-template-columns: 220px 360px;
+                }
+                .grid2PersC {
+                    display: grid;
+                    grid-template-columns: 110px 110px;
+                }
+                #graphCanvasPC {
+                    border: 1px solid #000;
+                }
+                #horizontal-slider-container {
+                    position: relative;
+                    top: -0px;
+                    width: 580px;
+                    background-color: #CCC;
+                }
+                #vertical-slider-container {
+                    height: 580px;
+                    position: relative;
+                    top: -8px;
+                    left: 10px;
+                    background-color: #CCC;
+                }
+                #vertical-slider {
+                    height: 580px;
+                }
+                #horizontal-slider {
+                    width: 580px;
+                }
+            }
+            @media screen and (max-width: 768px) {
+                .grid2PersP {
+                }
+                .grid2PersC {
+                    display: grid;
+                    grid-template-columns: 110px 110px;
+                }
+                #graphCanvasSP {
+                    position: relative;
+                    border: 1px solid #000;
+                    left: 10px;
+                }
 
+                #horizontal-slider-container {
+                    position: relative;
+                    top: 10px;
+                    left: 10px;
+                    width: 300px;
+                    background-color: #CCC;
+                }
+                #vertical-slider-container {
+                    height: 300px;
+                    position: relative;
+                    top: -0px;
+                    left: 20px;
+                    background-color: #CCC;
+                }
+                #vertical-slider {
+                    height: 300px;
+                }
+                #horizontal-slider {
+                    width: 300px;
+                }
+
+                #i_fxy, #i_where {
+                    max-width: 200px;
+                }
+                #l_fxy {
+                    width: 80px;
+                }
+                #l_where {
+                    width: 100px;
+                }
+            }
+        </style>
     <!-- css end -->
 
     <!-- js start -->
-
         <!-- jQuery start -->
         <!--<script src="libs/jQuery/js/jquery-1.6.1.min.js"></script>-->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -36,6 +108,8 @@
 
         <!-- jQuery ui start -->
         <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+        <!--<script src="https://rawgit.com/furf/jquery-ui-touch-punch/master/jquery.ui.touch-punch.min.js"></script>-->
+        <script src="libs/jQuery/js/jquery.ui.touch-punch.min.js"></script>
         <link rel="stylesheet" href="libs/jQuery/css/jquery-ui.css">
         <!-- jQuery ui end -->
 
@@ -59,19 +133,14 @@
             });
         </script>
 
-        <!-- Sandbox DropDownMenu -->
-        <script src="libs/sandbox/js/script.js"></script>
-
         <!-- pers initialize -->
         <script src="libs/etc/js/pers00_v1.js?v=1.0"></script>
 
     <!-- js end -->
 
-</HEAD>
+</head>
 
 <BODY id="common-k"  onload="initialize()">
-
-    <div id="container">
 
     <header>
         <div class="prettyP_PC">
@@ -134,290 +203,343 @@
         </div>
     </header>
 
-        <div id="main990"> <!-- page main: start -->
+    <div id="main1024"> <!-- page main: start -->
 
-            <!-- title -->
-            <div id="title20">
+        <!-- title -->
+        <div id="title20">
+            <div class="prettyP_PC">
                 <h3 class="pt30 pb30">
                     曲面の描画
                 </h3>
             </div>
+            <div class="prettyP_SP">
+                <h4 class="pt10">
+                    曲面の描画
+                </h4>
+            </div>
+        </div>
 
-            <!-- for Java Script off -->
-            <noscript>
-                <div id="attention">
-                    <p>ご覧頂くにはブラウザの JavaScript をアクティブにして下さい</p>
-                </div>
-            </noscript>
+        <!-- for Java Script off -->
+        <noscript>
+            <div id="attention">
+                <p>ご覧頂くにはブラウザの JavaScript をアクティブにして下さい</p>
+            </div>
+        </noscript>
 
-            <!-- contents -->
-            <div class="pic-left990 pb25">
-                <div id="contents-2col-left_deq">
-                    <div class="grid3b pb5">
+        <!-- contents -->
+        <div class="pic-left1024 pb25">
+            <div id="contents-2col-left_deq">
+                <div class="grid2PersP pb5">
+                    <div class="grid2PersC">
                         <p class="fss" align="left">
                             <input type="checkbox" id="cb_bk_color" onclick="handleCheckboxBackColor(this.checked)">&nbsp; change back
                         </p>
                         <p class="fss" align="left">
                             <input type="checkbox" id="pers_storage" onclick="handleCheckboxStorage(this.checked)">&nbsp; keep list pos.
                         </p>
-                        <p align="right">
-                            <select id="type" style="width: 360px;" onchange="changeType(0)">
-                                <option disabled selected">[01] 関数諸例</option>
-                                <option value="01&01">&nbsp; 1. f(x,y) = x^4 + xy - y^4</option>
-                                <option value="01&15">&nbsp;15. f(x,y) = x^3 - 3xy + y^3</option>
-                                <option value="01&18">&nbsp;18. f(x,y) = x^3 + 3xy + y^3</option>
-                                <option value="01&02">&nbsp; 2. f(x,y) = (y - x^2)^2 + x^5</option>
-                                <option value="01&03">&nbsp; 3. f(x,y) = x^2y^2 / (x^2 + y^2), f(0,0) = 0.0</option>
-                                <option value="01&04">&nbsp; 4. f(x,y) = (x - y) / (x + y)</option>
-                                <option value="01&05">&nbsp; 5. f(x,y) = |x|^y, f(0,y) = 0.0</option>
-                                <option value="01&06">&nbsp; 6. f(x,y) = xy*log(x^2 + y^2), f(0,0) = 0.0</option>
-                                <option value="01&07">&nbsp; 7. f(x,y) = exp(-|x + y|*(x^2 + y^2))</option>
-                                <option value="01&08">&nbsp; 8. f(x,y) = sqrt(|xy|)</option>
-                                <option value="01&09">&nbsp; 9. f(x,y) = sqrt(x^2 + y^2)</option>
-                                <option value="01&10">&nbsp;10. f(x,y) = xy / sqrt(x^2 + y^2), f(0,0) = 0.0</option>
-                                <option value="01&11">&nbsp;11. f(x,y) = xy * sin( 1 / sqrt(x^2 + y^2)), f(0,0) = 0.0</option>
-                                <option value="01&12">&nbsp;12. f(x,y) = x^y * y^x</option>
-                                <option value="01&13">&nbsp;13. f(x,y) = e^(-abs(x + y)/(x^2 + y^2)), f(0,0) = 0.0</option>
-                                <option value="01&14">&nbsp;14. f(x,y) = log(x^2 + y^2), f(0, y) = - infty</option>
-                                <option value="01&16">&nbsp;16. f(x,y) = exp(-(x^2 + y^2) * sin(x + y))</option>
-                                <option value="01&17">&nbsp;17. f(x,y) = x^4 + 2*x^2*y^2 - 6*x^2*y + y^2</option>
-                                <option value="01&19">&nbsp;19. f(x,y) = x^2 + xy + y^2 - 4x - 2y</option>
-                                <option value="01&20">&nbsp;20. f(x,y) = x*sin(y / x), f(0,y) = 0.0</option>
-                                <option value="01&21">&nbsp;21. f(x,y) = exp(-(x^3 + y^3) * sin(x + y))</option>
-                                <option value="01&22">&nbsp;22. f(x,y) = x^4 + y^4 - 2(x^2 + y^2)</option>
-                                <option value="01&23">&nbsp;23. f(x,y) = sqrt((x^2 - y^2 - 1)^2 + 4 * x^2 * y^2)</option>
-                                <option disabled selected">[02] 複素関数(絶対値)</option>
-                                <option value="02&01">&nbsp;01. f(x,y) = |sin(ω)|, ω = x + iy</option>
-                                <option value="02&02">&nbsp;02. f(x,y) = |cos(ω)|, ω = x + iy</option>
-                                <option value="02&03">&nbsp;03. f(x,y) = |Γ(ω)|, ω = x + iy</option>
-                                <option disabled selected">[03] 微分方程式 解曲線の描画 で取り上げた関数</option>
-                                <option value="03&01">&nbsp;01. f(x,y) = (x^2 + y^2 + a^2)^2 - 4a^2x^2 - b^4, a = 0.6, b=0.4 Cassini Ovals</option>
-                                <!--<option value="03&02">&nbsp;02. f(x,y) = x^a - 2x^b*y + y^a, a = 5.0, b=2.0</option>-->
-                                <option value="03&03">&nbsp;03. f(x,y) = cos(y) - cos(x)</option>
-                                <option disabled selected">[09] ユーザー定義</option>
-                                <option value="09&01">&nbsp;01. ユーザー定義</option>
-                                <option value="09&02">&nbsp;01. サンプル 1 入力例で示した関数</option>
-                                <option value="09&03">&nbsp;01. サンプル 2 長い式の入力で示した関数</option>
-                            </select>
-                        </p>
                     </div>
-                    <div id="contents-2col-left_deq">
+                    <p align="right">
+                        <select id="type" style="width: 340px;" onchange="changeType(0)">
+                            <option disabled selected">[01] 関数諸例</option>
+                            <option value="01&01">&nbsp; 1. f(x,y) = x^4 + xy - y^4</option>
+                            <option value="01&15">&nbsp;15. f(x,y) = x^3 - 3xy + y^3</option>
+                            <option value="01&18">&nbsp;18. f(x,y) = x^3 + 3xy + y^3</option>
+                            <option value="01&02">&nbsp; 2. f(x,y) = (y - x^2)^2 + x^5</option>
+                            <option value="01&03">&nbsp; 3. f(x,y) = x^2y^2 / (x^2 + y^2), f(0,0) = 0.0</option>
+                            <option value="01&04">&nbsp; 4. f(x,y) = (x - y) / (x + y)</option>
+                            <option value="01&05">&nbsp; 5. f(x,y) = |x|^y, f(0,y) = 0.0</option>
+                            <option value="01&06">&nbsp; 6. f(x,y) = xy*log(x^2 + y^2), f(0,0) = 0.0</option>
+                            <option value="01&07">&nbsp; 7. f(x,y) = exp(-|x + y|*(x^2 + y^2))</option>
+                            <option value="01&08">&nbsp; 8. f(x,y) = sqrt(|xy|)</option>
+                            <option value="01&09">&nbsp; 9. f(x,y) = sqrt(x^2 + y^2)</option>
+                            <option value="01&10">&nbsp;10. f(x,y) = xy / sqrt(x^2 + y^2), f(0,0) = 0.0</option>
+                            <option value="01&11">&nbsp;11. f(x,y) = xy * sin( 1 / sqrt(x^2 + y^2)), f(0,0) = 0.0</option>
+                            <option value="01&12">&nbsp;12. f(x,y) = x^y * y^x</option>
+                            <option value="01&13">&nbsp;13. f(x,y) = e^(-abs(x + y)/(x^2 + y^2)), f(0,0) = 0.0</option>
+                            <option value="01&14">&nbsp;14. f(x,y) = log(x^2 + y^2), f(0, y) = - infty</option>
+                            <option value="01&16">&nbsp;16. f(x,y) = exp(-(x^2 + y^2) * sin(x + y))</option>
+                            <option value="01&17">&nbsp;17. f(x,y) = x^4 + 2*x^2*y^2 - 6*x^2*y + y^2</option>
+                            <option value="01&19">&nbsp;19. f(x,y) = x^2 + xy + y^2 - 4x - 2y</option>
+                            <option value="01&20">&nbsp;20. f(x,y) = x*sin(y / x), f(0,y) = 0.0</option>
+                            <option value="01&21">&nbsp;21. f(x,y) = exp(-(x^3 + y^3) * sin(x + y))</option>
+                            <option value="01&22">&nbsp;22. f(x,y) = x^4 + y^4 - 2(x^2 + y^2)</option>
+                            <option value="01&23">&nbsp;23. f(x,y) = sqrt((x^2 - y^2 - 1)^2 + 4 * x^2 * y^2)</option>
+                            <option disabled selected">[02] 複素関数(絶対値)</option>
+                            <option value="02&01">&nbsp;01. f(x,y) = |sin(ω)|, ω = x + iy</option>
+                            <option value="02&02">&nbsp;02. f(x,y) = |cos(ω)|, ω = x + iy</option>
+                            <option value="02&03">&nbsp;03. f(x,y) = |Γ(ω)|, ω = x + iy</option>
+                            <option disabled selected">[03] 微分方程式 解曲線の描画 で取り上げた関数</option>
+                            <option value="03&01">&nbsp;01. f(x,y) = (x^2 + y^2 + a^2)^2 - 4a^2x^2 - b^4, a = 0.6, b=0.4 Cassini Ovals</option>
+                            <!--<option value="03&02">&nbsp;02. f(x,y) = x^a - 2x^b*y + y^a, a = 5.0, b=2.0</option>-->
+                            <option value="03&03">&nbsp;03. f(x,y) = cos(y) - cos(x)</option>
+                            <option disabled selected">[09] ユーザー定義</option>
+                            <option value="09&01">&nbsp;01. ユーザー定義</option>
+                            <option value="09&02">&nbsp;01. サンプル 1 入力例で示した関数</option>
+                            <option value="09&03">&nbsp;01. サンプル 2 長い式の入力で示した関数</option>
+                        </select>
+                    </p>
+                </div>
+                <div id="contents-2col-left_deqC">
+                    <div class="prettyP_PC">
                         <p class="pb10">
-                            <canvas id="graphCanvas" width="580" height="580"></canvas>
+                            <canvas id="graphCanvasPC" width="580" height="580"></canvas>
                         </p>
                     </div>
-                    <div id="contents-2col-right_deq">
-                        <div id="vertical-slider-container">
-                            <div id="vertical-slider"></div>
+                    <div class="prettyP_SP">
+                        <p class="pt10">
+                            <canvas id="graphCanvasSP" width="300" height="300"></canvas>
+                        </p>
+                    </div>
+                </div>
+                <div id="contents-2col-right_deqC">
+                    <div id="vertical-slider-container">
+                        <div id="vertical-slider"></div>
+                    </div>
+                </div>
+                <div class="c-both"></div>
+                <div id="horizontal-slider-container">
+                    <div id="horizontal-slider"></div>
+                </div>
+                <div class="pb5">
+                </div>
+            </div>
+
+            <div class="prettyP_SP">
+                <p class="pt30 pb20">
+                    <button class="btn-radius-solid" id="start" onclick="startDraw()">Start</button>
+                    &emsp;&emsp;&nbsp;&nbsp;
+                    <button class="btn-radius-solid" id="reset" onclick="resetDraw()">Reset</button>
+                </p>
+
+                <p class="cLink fss fwb">
+                    &emsp;&emsp;&emsp;&emsp;
+                    <!-- 戻るリンク(動的に生成) -->
+                </p>
+            </div>
+
+            <div id="contents-2col-right_deq">
+                <!-- 入力ボックス -->
+                <p class="fss fwb pb10 pb10 input-container3">
+                    <label id="l_fxy">$f(x, y) = $</label>
+                    <textarea id="i_fxy" cols="30" rows="2" onchange="changeUserInput()"></textarea>
+                </p>
+                <p class="fss fwb pb20 input-container4">
+                    <label id="l_where">$\quad$ where, $\quad r = $</label>
+                    <textarea id="i_where" cols="30" rows="1" onchange="changeUserInput()"></textarea>
+                </p>
+                <!-- 方程式の表示(TeX) -->
+                <div>
+                    <p class="fss fwb pb10 pb5">
+                        <label><span id="fxy"></span></label>
+                    </p>
+                    <p class="fss fwb pb10 pb10">
+                        <label><span id="where"></span></label>
+                    </p>
+                    <p class="fss fwb pb10 err-effect" id="errorMessages"></p>  <!-- 入力された式が無効だった場合に表示 -->
+                </div>
+                <div>
+                    <p class="pb5">
+                        <label id="l_coef" style="width: 80px; display: inline-block">Coefficient</label>
+                    </p>
+                    <p class="pb20">
+                        <label id="l_ma" style="width: 20px; display: inline-block"> $a:$ </label>
+                        <input type="number" id="ma" value="" style="width:80px; text-align:right;" step="0.1" onchange="changeCoef()">
+                        &emsp;
+                        <label id="l_md" style="width: 20px; display: inline-block"> $d:$ </label>
+                        <input type="number" id="md" value="" style="width:80px; text-align:right;" step="0.1" onchange="changeCoef()"><br>
+
+                        <label id="l_mb" style="width: 20px; display: inline-block"> $b:$ </label>
+                        <input type="number" id="mb" value="" style="width:80px; text-align:right;" step="0.1" onchange="changeCoef()">
+                        &emsp;
+                        <label id="l_me" style="width: 20px; display: inline-block"> $e:$ </label>
+                        <input type="number" id="me" value="" style="width:80px; text-align:right;" step="0.1" onchange="changeCoef()"><br>
+
+                        <label id="l_mc" style="width: 20px; display: inline-block"> $c:$ </label>
+                        <input type="number" id="mc" value="" style="width:80px; text-align:right;" step="0.1" onchange="changeCoef()">
+                        &emsp;
+                        <label id="l_mf" style="width: 20px; display: inline-block"> $f:$ </label>
+                        <input type="number" id="mf" value="" style="width:80px; text-align:right;" step="0.1" onchange="changeCoef()">
+                    </p>
+                </div>
+
+                <!-- メッシュ設定 (計算用のライン数と描画用のライン数の設定) -->
+                <div id="targetDiv" style="margin-top: 0px">
+                    <div class="fss fwb pb5">
+                        Mesh
+                    </div>
+                    <div class="grid3 pb80">
+                        <div class="grid-item">
+                            <p class="fss fwb">
+                                Settings
+                            </p>
+                            <p>
+                                <span class="fss fwb" style="width: 35px; display: inline-block">Calc.</span>
+                                &emsp;
+                                <select id="m_nx" style="width: 50px; text-align:right;" onchange="changeMesh()">
+                                    <option value="20">20</option>
+                                    <!--<option value="30">30</option>-->
+                                    <option value="40">40</option>
+                                    <!--<option value="50">50</option>-->
+                                    <option value="60">60</option>
+                                    <!--<option value="70">70</option>-->
+                                    <option value="80">80</option>
+                                    <!--<option value="90">90</option>-->
+                                    <option value="100">100</option>
+                                    <!--<option value="110">110</option>-->
+                                    <!--<option value="120">120</option>-->
+                                </select>
+                            </p>
+                            <p class="pb20">
+                                <span class="fss fwb" style="width: 35px; display: inline-block">Drawing</span>
+                                &emsp;
+                                <select id="m_mx"  style="width: 50px; text-align:right;" onchange="changeMeshDraw()" disabled>
+                                </select>
+                            </p>
                         </div>
-                    </div>
-                    <div class="c-both"></div>
-                    <div id="horizontal-slider-container">
-                        <div id="horizontal-slider"></div>
-                    </div>
-                    <div class="pb5">
+                        <div class="grid-item">
+                            <p class="fss fwb">
+                                <span style="width: 35px; display: inline-block">Spacing</span>
+                            </p>
+                            <p>
+                                <span class="fss fwb" style="width: 25px; display: inline-block">HX</span>
+                                <input type="text" id="m_hx" value="0.2"  style="width:40px; text-align:right;" disabled>
+                            </p>
+                            <p>
+                                <span class="fss fwb" style="width: 25px; display: inline-block">HY</span>
+                                <input type="text" id="m_hy" value="0.2"  style="width:40px; text-align:right;" disabled>
+                            </p>
+                        </div>
+                        <div class="grid-item">
+                            <p>
+                                <span class="fss fwb" style="width: 35px; display: inline-block">Scaling</span>
+                            </p>
+                            <p>
+                                <span class="fss fwb" style="width: 25px; display: inline-block">x</span>
+                                <input type="text" id="m_magX" value="3.00"  style="width:40px; text-align:right;" disabled>
+                            </p>
+                            <p>
+                                <span class="fss fwb" style="width: 25px; display: inline-block">y</span>
+                                <input type="text" id="m_magY" value="3.00"  style="width:40px; text-align:right;" disabled>
+                            </p>
+                            <p>
+                                <span class="fss fwb" style="width: 25px; display: inline-block">z</span>
+                                <input type="text" id="m_magZ" value="1.50"  style="width:40px; text-align:right;" disabled>
+                            </p>
+                        </div>
                     </div>
                 </div>
 
-                <div id="contents-2col-right_deq">
-                    <div>
-                        <!-- 入力ボックス -->
-                        <p class="pb10 input-container3">
-                            <label id="l_fxy">$f(x, y) = $</label>
-                            <textarea id="i_fxy" cols="30" rows="2" onchange="changeUserInput()"></textarea>
-                        </p>
-                        <p class="pb10 input-container4">
-                            <label id="l_where">$\quad$ where, $\quad r = $</label>
-                            <textarea id="i_where" cols="30" rows="1" onchange="changeUserInput()"></textarea>
-                        </p>
-                    </div>
-                    <!-- 方程式の表示(TeX) -->
-                    <div>
-                        <p class="pb5">
-                            <label><span id="fxy"></span></label>
-                        </p>
-                        <p class="pb10">
-                            <label><span id="where"></span></label>
-                        </p>
-                        <p class="err-effect" id="errorMessages"></p>  <!-- 入力された式が無効だった場合に表示 -->
-                    </div>
-                    <div>
-                        <p class="pb5">
-                            <label id="l_coef" style="width: 80px; display: inline-block">Coefficient</label>
-                        </p>
-                        <p class="pb20">
-                            <label id="l_ma" style="width: 20px; display: inline-block"> $a:$ </label>
-                            <input type="number" id="ma" value="" style="width:80px; text-align:right;" step="0.1" onchange="changeCoef()">
-                            &emsp;
-                            <label id="l_md" style="width: 20px; display: inline-block"> $d:$ </label>
-                            <input type="number" id="md" value="" style="width:80px; text-align:right;" step="0.1" onchange="changeCoef()"><br>
-
-                            <label id="l_mb" style="width: 20px; display: inline-block"> $b:$ </label>
-                            <input type="number" id="mb" value="" style="width:80px; text-align:right;" step="0.1" onchange="changeCoef()">
-                            &emsp;
-                            <label id="l_me" style="width: 20px; display: inline-block"> $e:$ </label>
-                            <input type="number" id="me" value="" style="width:80px; text-align:right;" step="0.1" onchange="changeCoef()"><br>
-
-                            <label id="l_mc" style="width: 20px; display: inline-block"> $c:$ </label>
-                            <input type="number" id="mc" value="" style="width:80px; text-align:right;" step="0.1" onchange="changeCoef()">
-                            &emsp;
-                            <label id="l_mf" style="width: 20px; display: inline-block"> $f:$ </label>
-                            <input type="number" id="mf" value="" style="width:80px; text-align:right;" step="0.1" onchange="changeCoef()">
-                        </p>
-                    </div>
-
-                    <!-- メッシュ設定 (計算用のライン数と描画用のライン数の設定) -->
-                    <div id="targetDiv" style="margin-top: 0px">
-                        <div class="pb5">
-                            Mesh
-                        </div>
-                        <div class="grid3 pb80">
-                            <div class="grid-item">
-                                <p>
-                                    Settings
-                                </p>
-                                <p>
-                                    <span style="width: 35px; display: inline-block">Calc.</span>
-                                    &emsp;
-                                    <select id="m_nx" style="width: 50px; text-align:right;" onchange="changeMesh()">
-                                        <option value="20">20</option>
-                                        <!--<option value="30">30</option>-->
-                                        <option value="40">40</option>
-                                        <!--<option value="50">50</option>-->
-                                        <option value="60">60</option>
-                                        <!--<option value="70">70</option>-->
-                                        <option value="80">80</option>
-                                        <!--<option value="90">90</option>-->
-                                        <option value="100">100</option>
-                                        <!--<option value="110">110</option>-->
-                                        <!--<option value="120">120</option>-->
-                                    </select>
-                                </p>
-                                <p class="pb20">
-                                    <span style="width: 35px; display: inline-block">Drawing</span>
-                                    &emsp;
-                                    <select id="m_mx"  style="width: 50px; text-align:right;" onchange="changeMeshDraw()" disabled>
-                                    </select>
-                                </p>
-                            </div>
-                            <div class="grid-item">
-                                <p>
-                                    <span style="width: 35px; display: inline-block">Spacing</span>
-                                </p>
-                                <p>
-                                    <span style="width: 25px; display: inline-block">HX</span>
-                                    <input type="text" id="m_hx" value="0.2"  style="width:40px; text-align:right;" disabled>
-                                </p>
-                                <p>
-                                    <span style="width: 25px; display: inline-block">HY</span>
-                                    <input type="text" id="m_hy" value="0.2"  style="width:40px; text-align:right;" disabled>
-                                </p>
-                            </div>
-                            <div class="grid-item">
-                                <p>
-                                    <span style="width: 35px; display: inline-block">Scaling</span>
-                                </p>
-                                <p>
-                                    <span style="width: 25px; display: inline-block">x</span>
-                                    <input type="text" id="m_magX" value="3.00"  style="width:40px; text-align:right;" disabled>
-                                </p>
-                                <p>
-                                    <span style="width: 25px; display: inline-block">y</span>
-                                    <input type="text" id="m_magY" value="3.00"  style="width:40px; text-align:right;" disabled>
-                                </p>
-                                <p>
-                                    <span style="width: 25px; display: inline-block">z</span>
-                                    <input type="text" id="m_magZ" value="1.50"  style="width:40px; text-align:right;" disabled>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 描画範囲 -->
-                    <p class="pb5">
-                        Range
+                <!-- 描画範囲 -->
+                <p class="fss fwb pb5">
+                    Range
+                </p>
+                <div class="pb10">
+                    <p>
+                        <input type="text" id="m_xMin" value="-2" onchange="updateRange()" style="width:50px; text-align:right;">
+                        &emsp;
+                        $ < x < $
+                        &emsp;
+                        <input type="text" id="m_xMax" value="2" onchange="updateRange()" style="width:50px; text-align:right;">
                     </p>
-                    <div class="pb10">
-                        <p>
-                            <input type="text" id="m_xMin" value="-2" onchange="updateRange()" style="width:50px; text-align:right;">
-                            &emsp;
-                            $ < x < $
-                            &emsp;
-                            <input type="text" id="m_xMax" value="2" onchange="updateRange()" style="width:50px; text-align:right;">
-                        </p>
-                        <p>
-                            <input type="text" id="m_yMin" value="-2" onchange="updateRange()" style="width:50px; text-align:right;">
-                            &emsp;
-                            $ < y < $
-                            &emsp;
-                            <input type="text" id="m_yMax" value="2" onchange="updateRange()" style="width:50px; text-align:right;">
-                        </p>
-                        <p>
-                            <input type="text" id="m_zMin" value="-2" onchange="updateRange()" style="width:50px; text-align:right;">
-                            &emsp;
-                            $ < z < $
-                            &emsp;
-                            <input type="text" id="m_zMax" value="2" onchange="updateRange()" style="width:50px; text-align:right;">
-                        </p>
-                    </div>
+                    <p>
+                        <input type="text" id="m_yMin" value="-2" onchange="updateRange()" style="width:50px; text-align:right;">
+                        &emsp;
+                        $ < y < $
+                        &emsp;
+                        <input type="text" id="m_yMax" value="2" onchange="updateRange()" style="width:50px; text-align:right;">
+                    </p>
+                    <p>
+                        <input type="text" id="m_zMin" value="-2" onchange="updateRange()" style="width:50px; text-align:right;">
+                        &emsp;
+                        $ < z < $
+                        &emsp;
+                        <input type="text" id="m_zMax" value="2" onchange="updateRange()" style="width:50px; text-align:right;">
+                    </p>
+                </div>
 
-                    <!-- 描画角度(見出し) -->
-                    <div class="pb5">
-                        <p>
-                            View Angle
-                        </p>
-                    </div>
+                <!-- 描画角度(見出し) -->
+                <div class="fss fwb pb5">
+                    <p>
+                        View Angle
+                    </p>
+                </div>
 
-                    <!-- 描画角度 alpha -->
-                    <div class="pb10">
-                        <p>
-                            <label style="width: 8px; display: inline-block"> $ \alpha $ </label> :
-                            <input type="text" id="angleAlpha" style="font-size: 100%; width:50px; text-align:right;" min="-180" max="180" onchange="changeAngle()" value="">
-                        </p>
-                    </div>
+                <!-- 描画角度 alpha -->
+                <div class="pb10">
+                    <p>
+                        <label style="width: 8px; display: inline-block"> $ \alpha $ </label> :
+                        <input type="text" id="angleAlpha" style="font-size: 100%; width:50px; text-align:right;" min="-180" max="180" onchange="changeAngle()" value="">
+                    </p>
+                </div>
 
-                    <!-- 描画角度 gamma -->
-                    <div class="pb30">
-                        <p>
-                            <label style="width: 8px; display: inline-block"> $ \gamma $ </label> :
-                            <input type="text" id="angleGamma" style="font-size: 100%; width:50px; text-align:right;" min="-90" max="90" onchange="changeAngle()" value="">
-                        </p>
-                    </div>
+                <!-- 描画角度 gamma -->
+                <div class="pb30">
+                    <p>
+                        <label style="width: 8px; display: inline-block"> $ \gamma $ </label> :
+                        <input type="text" id="angleGamma" style="font-size: 100%; width:50px; text-align:right;" min="-90" max="90" onchange="changeAngle()" value="">
+                    </p>
+                </div>
+                <div class="prettyP_PC">
                     <p class="pb20">
                         <button class="btn-radius-solid" id="start" onclick="startDraw()">Start</button>
                         &emsp;&emsp;&nbsp;&nbsp;
                         <button class="btn-radius-solid" id="reset" onclick="resetDraw()">Reset</button>
                     </p>
 
-                <!-- pers javascript呼び出し -->
-                <script src="libs/etc/js/pers01_v1.js"></script>
-
                     <p class="cLink">
                         &emsp;&emsp;&emsp;&emsp;
-                        <!-- 戻るリンク -->
+                        <!-- 戻るリンク(動的に生成) -->
                     </p>
                 </div>
-                <div class="c-both"></div>
+            </div>
+            <div class="c-both"></div>
+        </div>
+    </div>
+
+    <!-- pers javascript呼び出し -->
+    <script src="libs/etc/js/pers01_v1.js"></script>
+
+    <footer>
+        <div class="prettyP_PC">
+            <div class="wrap">
+            </div>
+            <div class="footer_bottom_fixed2">
+                <hr id="footer"> <!-- horizontal partition -->
+
+                <div class="jQ_change center"> <!-- select button whole: start -->
+                    <p id="footer"> <!-- select button: start -->
+                        <a href="etc.html">
+                            <img src="image/button/back_off.gif" border="0" alt="Back">
+                        </a>
+                    </p> <!-- select button: end -->
+                </div> <!-- select button whole: end -->
+
+                <div class="footer_labelPC">
+                    &copy; 2003 -
+                    <script>
+                        date = new Date();
+                        document.write(date.getFullYear() + ' ');
+                    </script>
+                    <nonscript>
+                    </nonscript>
+                    Contrail - kotan -
+                </div>
             </div>
         </div>
-
-<!--    <script src="libs/etc/js/deq01.js"></script> -->
-
-        <footer>
-
+        <div class="prettyP_SP">
             <hr id="footer"> <!-- horizontal partition -->
+
+            <p id="page-top"><a href="#">TOP</a></p>
 
             <div class="jQ_change center"> <!-- select button whole: start -->
                 <p id="footer"> <!-- select button: start -->
                     <a href="etc.html">
-                        <IMG src="image/button/back_off.gif" border="0" alt="Back">
+                        <img src="image/button/back_off.gif" border="0" alt="Back">
                     </a>
-                </p> <!-- select button: end -->
+                <p> <!-- select button: end -->
             </div> <!-- select button whole: end -->
 
-            <div class="wrap">
-            </div>
-            <div class="footer_bottom_fixed">
+            <div class="footer_labelPC">
                 &copy; 2003 -
                 <script>
                     date = new Date();
@@ -425,14 +547,10 @@
                 </script>
                 <nonscript>
                 </nonscript>
-                Contrail - kotan - 
+                Contrail - kotan -
             </div>
-
-        </footer>
-
-    </div>
+        </div>
+    </footer>
 
 </BODY>
-
-
 </html>

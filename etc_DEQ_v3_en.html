@@ -19,14 +19,54 @@
         <!-- kko_etc end -->
         <style>
             @media screen and (min-width: 769px) {
+                #graphCanvasPC {
+                    border: 1px solid #000;
+                }
+                #horizontal-slider-container {
+                    position: relative;
+                    top: -0px;
+                    width: 580px;
+                    background-color: #CCC;
+                }
+                #vertical-slider-container {
+                    height: 580px;
+                    position: relative;
+                    top: -8px;
+                    left: 10px;
+                    background-color: #CCC;
+                }
+                #vertical-slider {
+                    height: 580px;
+                }
+                #horizontal-slider {
+                    width: 580px;
+                }
             }
             @media screen and (max-width: 768px) {
-                #horizontal-slider-container, #horizontal-slider {
-                    max-width: 300px;
+                #graphCanvasSP {
+                    position: relative;
+                    border: 1px solid #000;
+                    left: 10px;
                 }
-                #vertical-slider-container, #vertical-slider {
-                    max-height: 300px;
-                    top: -2px;
+                #horizontal-slider-container {
+                    position: relative;
+                    top: 10px;
+                    left: 10px;
+                    width: 300px;
+                    background-color: #CCC;
+                }
+                #vertical-slider-container {
+                    height: 300px;
+                    position: relative;
+                    top: -6px;
+                    left: 20px;
+                    background-color: #CCC;
+                }
+                #vertical-slider {
+                    height: 300px;
+                }
+                #horizontal-slider {
+                    width: 300px;
                 }
             }
         </style>
@@ -43,6 +83,8 @@
 
         <!-- jQuery ui start -->
         <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+        <!--<script src="https://rawgit.com/furf/jquery-ui-touch-punch/master/jquery.ui.touch-punch.min.js"></script>-->
+        <script src="libs/jQuery/js/jquery.ui.touch-punch.min.js"></script>
         <link rel="stylesheet" href="libs/jQuery/css/jquery-ui.css">
         <!-- jQuery ui end -->
 
@@ -74,8 +116,6 @@
 </head>
 
 <BODY id="common-k"  onload="initialize()">
-
-    <div id="container">
 
     <header>
         <div class="prettyP_PC">
@@ -138,266 +178,292 @@
         </div>
     </header>
 
-        <div id="main1024"> <!-- page main: start -->
+    <div id="main1024"> <!-- page main: start -->
 
-            <!-- title -->
-            <div id="title20">
-                <h3 class="pt30 pb40">
+        <!-- title -->
+        <div id="title20">
+            <div class="prettyP_PC">
+                <h3 class="pt30 pb30">
                     Differential Equations: Plotting Trajectory of Solutions with 3D
                 </h3>
             </div>
+            <div class="prettyP_SP">
+                <h4 class="pt10">
+                    Differential Equations:<br>
+                    Plotting Trajectory of Solutions with 3D
+                </h4>
+            </div>
+        </div>
 
-            <!-- for Java Script off -->
-            <noscript>
-                <div id="attention">
-                    <p>Sorry, you need to activate JavaScript in your browser.</p>
+        <!-- for Java Script off -->
+        <noscript>
+            <div id="attention">
+                <p>Sorry, you need to activate JavaScript in your browser.</p>
+            </div>
+        </noscript>
+
+        <!-- contents -->
+        <div class="pic-left1024 pb30">
+            <div id="contents-2col-left_deq">
+                <div id="contents-2col-left_deqC">
+                    <div class="prettyP_PC">
+                        <p class="pb10">
+                            <canvas id="graphCanvasPC" width="580" height="580"></canvas>
+                        </p>
+                    </div>
+                    <div class="prettyP_SP">
+                        <p class="pb0">
+                            <canvas id="graphCanvasSP" width="300" height="300"></canvas>
+                        </p>
+                    </div>
                 </div>
-            </noscript>
-
-            <!-- contents -->
-            <div class="pic-left1024 pb30">
-                <div id="contents-2col-left_deq">
-                    <div id="contents-2col-left_deq">
-                        <div class="prettyP_PC">
-                            <p class="pb10">
-                                <canvas id="graphCanvasPC" width="580" height="580"></canvas>
-                            </p>
-                        </div>
-                        <div class="prettyP_SP">
-                            <p class="pb0">
-                                <canvas id="graphCanvasSP" width="300" height="300"></canvas>
-                            </p>
-                        </div>
+                <div id="contents-2col-right_deqC">
+                    <div id="vertical-slider-container">
+                        <div id="vertical-slider"></div>
                     </div>
-                    <div id="contents-2col-right_deq">
-                        <div id="vertical-slider-container">
-                            <div id="vertical-slider"></div>
-                        </div>
-                    </div>
-                    <div class="c-both"></div>
-                    <div id="horizontal-slider-container">
-                        <div id="horizontal-slider"></div>
-                    </div>
+                </div>
+                <div class="c-both"></div>
+                <div id="horizontal-slider-container">
+                    <div id="horizontal-slider"></div>
+                </div>
+                <div class="prettyP_SP"><div class="pb10"></div></div>
+                <p class="cLink" align="right">
+                    <!-- 戻るリンク(動的に生成) -->
+                </p>
+                <div class="prettyP_SP">
+                    <p class="pt30 pb20">
+                        <button class="btn-radius-solid" id="start" onclick="startAnimation()">Start</button>
+                        &emsp;&emsp;&nbsp;&nbsp;
+                        <button class="btn-radius-solid" id="stop" onclick="stopAnimation()">Stop</button>
+                        &emsp;&emsp;&nbsp;&nbsp;
+                        <button class="btn-radius-solid" id="reset" onclick="resetAnimation()">Reset</button>
+                    </p>
+                    <p class="cLink fss fwb" align="right">
+                    <!-- 戻るリンク(動的に生成) -->
+                    </p>
+                </div>
+                <div class="prettyP_PC">
                     <p class="cLink" align="right">
-                        <!-- 戻るリンク(動的に生成) -->
+                    <!-- 戻るリンク(動的に生成) -->
                     </p>
-                    <div class="prettyP_SP"><div class="pb20"></div></div>
+                </div>
+            </div>
+
+            <div id="contents-2col-right_deq">
+                <p class="pb10">
+                    <select id="type" style="width: 220px;" onchange="changeType()">
+                        <option value="01">&nbsp; 1. Lorenz system</option>
+                        <option value="02">&nbsp; 2. Thomas system</option>
+                        <option value="03">&nbsp; 3. Four-Wing system</option>
+                        <option value="04">&nbsp; 4. Halvorsen system</option>
+                        <option value="05">&nbsp; 5. Rössler system</option>
+                        <option value="06">&nbsp; 6. Sprott system</option>
+                        <option value="07">&nbsp; 7. Rabinovich-Fabrikant system</option>
+                        <option value="08">&nbsp; 8. Chen system</option>
+                        <option value="09">&nbsp; 9. Chen2 system</option>
+                        <option value="10">10. Chua_14_4 system</option>
+                        <option value="11">11. Lorenz2 system</option>
+                        <option value="12">12. Langford system</option>
+                    </select>
+                </p>
+                <p class="pb5">
+                    <label for="dx"><span id="dx"></span></label>
+                </p>
+                <p class="pb5">
+                    <label for="dy"><span id="dy"></span></label>
+                </p>
+                <p class="pb5">
+                    <label for="dz"><span id="dz"></span></label>
+                </p>
+                <p class="pb10">
+                    <label for="where"><span id="where"></span></label>
+                </p>
+                <p class="fss fwb pb5">
+                    Coefficient
+                </p>
+                <p class="pb20">
+                    <label for="ma" style="width: 20px; display: inline-block"> $a:$ </label>
+                    <input type="number" id="ma" value="" style="width:80px; text-align:right;">
+                    &emsp;
+                    <label for="me" style="width: 20px; display: inline-block"> $e:$ </label>
+                    <input type="number" id="me" value="" style="width:80px; text-align:right;"><br>
+
+                    <label for="mb" style="width: 20px; display: inline-block"> $b:$ </label>
+                    <input type="number" id="mb" value="" style="width:80px; text-align:right;">
+                    &emsp;
+                    <label for="mf" style="width: 20px; display: inline-block"> $f:$ </label>
+                    <input type="number" id="mf" value="" style="width:80px; text-align:right;"><br>
+
+                    <label for="mc" style="width: 20px; display: inline-block"> $c:$ </label>
+                    <input type="number" id="mc" value="" style="width:80px; text-align:right;">
+                    &emsp;
+                    <label for="mg" style="width: 20px; display: inline-block"> $g:$ </label>
+                    <input type="number" id="mg" value="" style="width:80px; text-align:right;"><br>
+
+                    <label for="md" style="width: 20px; display: inline-block"> $d:$ </label>
+                    <input type="number" id="md" value="" style="width:80px; text-align:right;">
+                    &emsp;
+                    <label for="mh" style="width: 20px; display: inline-block"> $h:$ </label>
+                    <input type="number" id="mh" value="" style="width:80px; text-align:right;"><br>
+                </p>
+
+                <!-- 描画範囲 -->
+                <div class="grid2a fss fwb">
+                    <div class="grid-item">
+                        <p>
+                            Range
+                        </p>
+                    </div>
+                    <div class="grid-item">
+                        <p>
+                            <input type="text" id="width0" value="100" onchange="updateRange()" style="width:50px; text-align:right;">
+                            &emsp;
+                            <label for="min"><span id="wmin"></span></label> $ < x, y, z < $ <label for="max"><span id="wmax"></span></label>
+                        </p>
+                    </div>
                 </div>
 
-                <div class="contents-2col-right">
-                    <p class="pb10">
-                        <select id="type" style="width: 220px;" onchange="changeType()">
-                            <option value="01">&nbsp; 1. Lorenz system</option>
-                            <option value="02">&nbsp; 2. Thomas system</option>
-                            <option value="03">&nbsp; 3. Four-Wing system</option>
-                            <option value="04">&nbsp; 4. Halvorsen system</option>
-                            <option value="05">&nbsp; 5. Rössler system</option>
-                            <option value="06">&nbsp; 6. Sprott system</option>
-                            <option value="07">&nbsp; 7. Rabinovich-Fabrikant system</option>
-                            <option value="08">&nbsp; 8. Chen system</option>
-                            <option value="09">&nbsp; 9. Chen2 system</option>
-                            <option value="10">10. Chua_14_4 system</option>
-                            <option value="11">11. Lorenz2 system</option>
-                            <option value="12">12. Langford system</option>
-                        </select>
-                    </p>
-                    <p class="pb5">
-                        <label for="dx"><span id="dx"></span></label>
-                    </p>
-                    <p class="pb5">
-                        <label for="dy"><span id="dy"></span></label>
-                    </p>
-                    <p class="pb5">
-                        <label for="dz"><span id="dz"></span></label>
-                    </p>
-                    <p class="pb10">
-                        <label for="where"><span id="where"></span></label>
-                    </p>
-                    <p class="pb5">
-                        Coefficient
-                    </p>
-                    <p class="pb20">
-                        <label for="ma" style="width: 20px; display: inline-block"> $a:$ </label>
-                        <input type="number" id="ma" value="" style="width:80px; text-align:right;">
-                        &emsp;
-                        <label for="me" style="width: 20px; display: inline-block"> $e:$ </label>
-                        <input type="number" id="me" value="" style="width:80px; text-align:right;"><br>
-
-                        <label for="mb" style="width: 20px; display: inline-block"> $b:$ </label>
-                        <input type="number" id="mb" value="" style="width:80px; text-align:right;">
-                        &emsp;
-                        <label for="mf" style="width: 20px; display: inline-block"> $f:$ </label>
-                        <input type="number" id="mf" value="" style="width:80px; text-align:right;"><br>
-
-                        <label for="mc" style="width: 20px; display: inline-block"> $c:$ </label>
-                        <input type="number" id="mc" value="" style="width:80px; text-align:right;">
-                        &emsp;
-                        <label for="mg" style="width: 20px; display: inline-block"> $g:$ </label>
-                        <input type="number" id="mg" value="" style="width:80px; text-align:right;"><br>
-
-                        <label for="md" style="width: 20px; display: inline-block"> $d:$ </label>
-                        <input type="number" id="md" value="" style="width:80px; text-align:right;">
-                        &emsp;
-                        <label for="mh" style="width: 20px; display: inline-block"> $h:$ </label>
-                        <input type="number" id="mh" value="" style="width:80px; text-align:right;"><br>
-                    </p>
-
-                    <!-- 描画範囲 -->
-                    <div class="grid2a">
-                        <div class="grid-item">
-                            <p>
-                                Range
-                            </p>
-                        </div>
-                        <div class="grid-item">
-                            <p>
-                                <input type="text" id="width0" value="100" onchange="updateRange()" style="width:50px; text-align:right;">
-                                &emsp;
-                                <label for="min"><span id="wmin"></span></label> $ < x, y, z < $ <label for="max"><span id="wmax"></span></label>
-                            </p>
-                        </div>
+                <!-- 描画速度 -->
+                <div class="grid2a fss fwb">
+                    <div class="grid-item">
+                        <p>
+                            Speed
+                        </p>
                     </div>
-
-                    <!-- 描画速度 -->
-                    <div class="grid2a">
-                        <div class="grid-item">
-                            <p>
-                                Speed
-                            </p>
-                        </div>
-                        <div class="grid-item">
-                            <p>
-                                <select id="spd" style="width: 55px; text-align:right;" onchange="changeSpeed()">
-                                    <option value="1">&nbsp; 1</option>
-                                    <option value="2">&nbsp; 2</option>
-                                    <option value="4">&nbsp; 4</option>
-                                    <option value="8">&nbsp; 8</option>
-                                    <option value="20">20</option>
-                                </select>
-                            </p>
-                        </div>
+                    <div class="grid-item">
+                        <p>
+                            <select id="spd" style="width: 55px; text-align:right;" onchange="changeSpeed()">
+                                <option value="1">&nbsp; 1</option>
+                                <option value="2">&nbsp; 2</option>
+                                <option value="4">&nbsp; 4</option>
+                                <option value="8">&nbsp; 8</option>
+                                <option value="20">20</option>
+                            </select>
+                        </p>
                     </div>
+                </div>
 
-                    <!-- 刻み幅 -->
-                    <div class="grid2a">
-                        <div class="grid-item">
-                            <p>
-                                Step
-                            </p>
-                        </div>
-                        <div class="grid-item">
-                            <p>
-                                <input type="text" id="dh" value="0.01" style="width:50px; text-align:right;">
-                            </p>
-                        </div>
+                <!-- 刻み幅 -->
+                <div class="grid2a fss fwb">
+                    <div class="grid-item">
+                        <p>
+                            Step
+                        </p>
                     </div>
-
-                    <!-- 繰返し回数 -->
-                    <div class="grid2a pb10">
-                        <div class="grid-item">
-                            <p>
-                                Loop
-                            </p>
-                        </div>
-                        <div class="grid-item">
-                            <p>
-                                <input type="text" id="cnt_dp" value="3200" style="width:50px; text-align:right;">
-                                &emsp;
-                                <label style="width: 40px; display: inline-block">Count</label>
-                                <label id="keika" style="width: 40px; font-size: 90%; text-align:right; display: inline-block">
-                                    <span id="keika"></span>
-                                </label>
-                            </p>
-                        </div>
+                    <div class="grid-item">
+                        <p>
+                            <input type="text" id="dh" value="0.01" style="width:50px; text-align:right;">
+                        </p>
                     </div>
+                </div>
 
-                    <div class="grid2">
-                        <!-- 初期値(見出し2) -->
-                        <div class="grid-item">
-                            <p>
-                                Init val
-                                &emsp;
-                                <label style="width: 20px; display: inline-block">1</label>
-                                &emsp;&emsp;
-                                <label style="width: 20px; display: inline-block">2</label>
-                            </p>
-                        </div>
-                        <!-- 描画角度(見出し) -->
-                        <div class="grid-item">
-                            <p>
-                                Angle
-                            </p>
-                        </div>
+                <!-- 繰返し回数 -->
+                <div class="grid2a fss fwb pb10">
+                    <div class="grid-item">
+                        <p>
+                            Loop
+                        </p>
                     </div>
-
-                    <div class="grid2">
-                        <!-- 初期値 1,2 x -->
-                        <div class="grid-item">
-                            <p>
-                                <label style="width: 20px; display: inline-block"> $x$ </label>
-                                <input type="text" id="init1_x" value="0" style="width:50px; text-align:right;">
-                                <input type="text" id="init2_x" value="0" style="width:50px; text-align:right;">
-                            </p>
-                        </div>
-                        <!-- 描画角度 alpha -->
-                        <div class="grid-item">
-                            <p>
-                                <label style="width: 8px; display: inline-block"> $ \alpha $ </label> :
-                                <input type="text" id="angleAlpha" style="font-size: 100%; width:50px; text-align:right;" min="-180" max="180" onchange="changeAngle()" value="">
-                            </p>
-                        </div>
+                    <div class="grid-item">
+                        <p>
+                            <input type="text" id="cnt_dp" value="3200" style="width:50px; text-align:right;">
+                            &emsp;
+                            <label style="width: 40px; display: inline-block">Count</label>
+                            <label id="keika" style="width: 40px; font-size: 90%; text-align:right; display: inline-block">
+                                <span id="keika"></span>
+                            </label>
+                        </p>
                     </div>
+                </div>
 
-                    <div class="grid2">
-                        <!-- 初期値 1,2 y -->
-                        <div class="grid-item">
-                            <p>
-                                <label style="width: 20px; display: inline-block"> $y$ </label>
-                                <input type="text" id="init1_y" value="1" style="width:50px; text-align:right;">
-                                <input type="text" id="init2_y" value="1" style="width:50px; text-align:right;">
-                            </p>
-                        </div>
-                        <!-- 描画角度 gamma -->
-                        <div class="grid-item">
-                            <p>
-                                <label style="width: 8px; display: inline-block"> $ \gamma $ </label> :
-                                <input type="text" id="angleGamma" style="font-size: 100%; width:50px; text-align:right;" min="-90" max="90" onchange="changeAngle()" value="">
-                            </p>
-                        </div>
+                <div class="grid2 fss fwb">
+                    <!-- 初期値(見出し2) -->
+                    <div class="grid-item">
+                        <p>
+                            Init val
+                            &emsp;
+                            <label style="width: 20px; display: inline-block">1</label>
+                            &emsp;&emsp;
+                            <label style="width: 20px; display: inline-block">2</label>
+                        </p>
                     </div>
-
-                    <div class="grid2">
-                        <!-- 初期値 1,2 z -->
-                        <div class="grid-item">
-                            <p>
-                                <label style="width: 20px; display: inline-block"> $z$ </label>
-                                <input type="text" id="init1_z" value="2" style="width:50px; text-align:right;">
-                                <input type="text" id="init2_z" value="2.01" style="width:50px; text-align:right;">
-                            </p>
-                        </div>
-                        <div class="grid-item">
-                            <!-- 垂直軸(見出し) -->
-                            <p>
-                                Vertical Axis
-                            </p>
-                        </div>
+                    <!-- 描画角度(見出し) -->
+                    <div class="grid-item">
+                        <p>
+                            Angle
+                        </p>
                     </div>
+                </div>
 
-                    <!-- 垂直軸(選択) -->
-                    <div class="grid2 pb40">
-                        <div class="grid-item">
-                            <p>
-                            </p>
-                        </div>
-                        <div class="grid-item">
-                            <p>
-                                $x$ <input type="radio" id="axX" name="vAxis" onchange="changeAxis()" value="axisX" /> &nbsp;
-                                $y$ <input type="radio" id="axY" name="vAxis" onchange="changeAxis()" value="axisY" /> &nbsp;
-                                $z$ <input type="radio" id="axZ" name="vAxis" onchange="changeAxis()" value="axisZ" checked />
-                            </p>
-                        </div>
+                <div class="grid2 fss fwb">
+                    <!-- 初期値 1,2 x -->
+                    <div class="grid-item">
+                        <p>
+                            <label style="width: 20px; display: inline-block"> $x$ </label>
+                            <input type="text" id="init1_x" value="0" style="width:50px; text-align:right;">
+                            <input type="text" id="init2_x" value="0" style="width:50px; text-align:right;">
+                        </p>
                     </div>
+                    <!-- 描画角度 alpha -->
+                    <div class="grid-item">
+                        <p>
+                            <label style="width: 8px; display: inline-block"> $ \alpha $ </label> :
+                            <input type="text" id="angleAlpha" style="font-size: 100%; width:50px; text-align:right;" min="-180" max="180" onchange="changeAngle()" value="">
+                        </p>
+                    </div>
+                </div>
 
+                <div class="grid2 fss fwb">
+                    <!-- 初期値 1,2 y -->
+                    <div class="grid-item">
+                        <p>
+                            <label style="width: 20px; display: inline-block"> $y$ </label>
+                            <input type="text" id="init1_y" value="1" style="width:50px; text-align:right;">
+                            <input type="text" id="init2_y" value="1" style="width:50px; text-align:right;">
+                        </p>
+                    </div>
+                    <!-- 描画角度 gamma -->
+                    <div class="grid-item">
+                        <p>
+                            <label style="width: 8px; display: inline-block"> $ \gamma $ </label> :
+                            <input type="text" id="angleGamma" style="font-size: 100%; width:50px; text-align:right;" min="-90" max="90" onchange="changeAngle()" value="">
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid2 fss fwb">
+                    <!-- 初期値 1,2 z -->
+                    <div class="grid-item">
+                        <p>
+                            <label style="width: 20px; display: inline-block"> $z$ </label>
+                            <input type="text" id="init1_z" value="2" style="width:50px; text-align:right;">
+                            <input type="text" id="init2_z" value="2.01" style="width:50px; text-align:right;">
+                        </p>
+                    </div>
+                    <div class="grid-item">
+                        <!-- 垂直軸(見出し) -->
+                        <p>
+                            Vertical Axis
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 垂直軸(選択) -->
+                <div class="grid2 fss fwb pb40">
+                    <div class="grid-item">
+                        <p>
+                        </p>
+                    </div>
+                    <div class="grid-item">
+                        <p>
+                            $x$ <input type="radio" id="axX" name="vAxis" onchange="changeAxis()" value="axisX" /> &nbsp;
+                            $y$ <input type="radio" id="axY" name="vAxis" onchange="changeAxis()" value="axisY" /> &nbsp;
+                            $z$ <input type="radio" id="axZ" name="vAxis" onchange="changeAxis()" value="axisZ" checked />
+                        </p>
+                    </div>
+                </div>
+
+                <div class="prettyP_PC">
                     <p class="pb20">
                         <button class="btn-radius-solid" id="start" onclick="startAnimation()">Start</button>
                         &emsp;&emsp;&nbsp;&nbsp;
@@ -405,14 +471,15 @@
                         &emsp;&emsp;&nbsp;&nbsp;
                         <button class="btn-radius-solid" id="reset" onclick="resetAnimation()">Reset</button>
                     </p>
-
-                <!-- deq javascript呼び出し -->
-                <script src="libs/etc/js/deq01_v3.js"></script>
-
                 </div>
-                <div class="c-both"></div>
+
+            <!-- deq javascript呼び出し -->
+            <script src="libs/etc/js/deq01_v3.js"></script>
+
             </div>
+            <div class="c-both"></div>
         </div>
+    </div>
 
     <!-- deq javascript呼び出し -->
     <script src="libs/etc/js/deq01_v3.js"></script>

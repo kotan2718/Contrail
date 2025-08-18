@@ -547,6 +547,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (pageTop) {
                     pageTop.style.right = 20 + "px";
                 }
+
+                if (DeqPicSizeElements) {
+                    DeqPicSizeElements.forEach(image => {
+                        image.style.width = "20%";
+                        image.style.height = "20%";
+                    });
+                }
                 /* nothing */
                 //console.log('PCの画面です。IDを main920 に変更しました。');
             }

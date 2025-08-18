@@ -730,8 +730,8 @@ button.ui-button::-moz-focus-inner {
 .ui-slider .ui-slider-handle {
 	position: absolute;
 	z-index: 2;
-	width: 1.2em;
-	height: 1.2em;
+	width: 0.9em;
+	height: 0.9em;
 	cursor: pointer;
 	-ms-touch-action: none;
 	touch-action: none;
@@ -752,7 +752,7 @@ button.ui-button::-moz-focus-inner {
 }
 
 .ui-slider-horizontal {
-	height: .6em;
+	height: .3em;
 }
 .ui-slider-horizontal .ui-slider-handle {
 	top: -.3em;
@@ -770,7 +770,7 @@ button.ui-button::-moz-focus-inner {
 }
 
 .ui-slider-vertical {
-	width: .6em;
+	width: .3em;
 	height: 100px;
 }
 .ui-slider-vertical .ui-slider-handle {
