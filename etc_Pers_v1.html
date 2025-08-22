@@ -19,6 +19,10 @@
         <!-- kko_etc end -->
         <style>
             @media screen and (min-width: 769px) {
+                .pSP {
+                    padding-top: 10px;
+                    padding-right: 12px;
+                }
                 .grid2PersP {
                     display: grid;
                     grid-template-columns: 220px 360px;
@@ -32,7 +36,8 @@
                 }
                 #horizontal-slider-container {
                     position: relative;
-                    top: -0px;
+                    top: 0px;
+                    left: 0px;
                     width: 580px;
                     background-color: #CCC;
                 }
@@ -51,6 +56,10 @@
                 }
             }
             @media screen and (max-width: 768px) {
+                .pSP {
+                    padding-top: 20px;
+                    padding-right: 28px;
+                }
                 .grid2PersP {
                 }
                 .grid2PersC {
@@ -208,7 +217,7 @@
         <!-- title -->
         <div id="title20">
             <div class="prettyP_PC">
-                <h3 class="pt30 pb30">
+                <h3 class="pt30 pb10">
                     曲面の描画
                 </h3>
             </div>
@@ -300,8 +309,9 @@
                 <div id="horizontal-slider-container">
                     <div id="horizontal-slider"></div>
                 </div>
-                <div class="pb5">
-                </div>
+                <p class="cLink fss fwb pSP" align="right">
+                <!-- 戻るリンク(動的に生成) -->
+                </p>
             </div>
 
             <div class="prettyP_SP">
@@ -309,11 +319,6 @@
                     <button class="btn-radius-solid" id="start" onclick="startDraw()">Start</button>
                     &emsp;&emsp;&nbsp;&nbsp;
                     <button class="btn-radius-solid" id="reset" onclick="resetDraw()">Reset</button>
-                </p>
-
-                <p class="cLink fss fwb">
-                    &emsp;&emsp;&emsp;&emsp;
-                    <!-- 戻るリンク(動的に生成) -->
                 </p>
             </div>
 
@@ -329,13 +334,13 @@
                 </p>
                 <!-- 方程式の表示(TeX) -->
                 <div>
-                    <p class="fss fwb pb10 pb5">
+                    <p class="pb10 pb5">
                         <label><span id="fxy"></span></label>
                     </p>
-                    <p class="fss fwb pb10 pb10">
+                    <p class="pb10 pb10">
                         <label><span id="where"></span></label>
                     </p>
-                    <p class="fss fwb pb10 err-effect" id="errorMessages"></p>  <!-- 入力された式が無効だった場合に表示 -->
+                    <p class="pb10 err-effect" id="errorMessages"></p>  <!-- 入力された式が無効だった場合に表示 -->
                 </div>
                 <div>
                     <p class="pb5">
@@ -484,11 +489,6 @@
                         <button class="btn-radius-solid" id="start" onclick="startDraw()">Start</button>
                         &emsp;&emsp;&nbsp;&nbsp;
                         <button class="btn-radius-solid" id="reset" onclick="resetDraw()">Reset</button>
-                    </p>
-
-                    <p class="cLink">
-                        &emsp;&emsp;&emsp;&emsp;
-                        <!-- 戻るリンク(動的に生成) -->
                     </p>
                 </div>
             </div>

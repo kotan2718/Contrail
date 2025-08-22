@@ -19,6 +19,9 @@
         <!-- kko_etc end -->
         <style>
             @media screen and (min-width: 769px) {
+                .pSP {
+                    padding-top: 10px;
+                }
                 #graphCanvasPC {
                     border: 1px solid #000;
                 }
@@ -43,6 +46,9 @@
                 }
             }
             @media screen and (max-width: 768px) {
+                .pSP {
+                    padding-top: 20px;
+                }
                 #graphCanvasSP {
                     position: relative;
                     border: 1px solid #000;
@@ -227,8 +233,8 @@
                     <div id="horizontal-slider"></div>
                 </div>
                 <div class="prettyP_SP"><div class="pb10"></div></div>
-                <p class="cLink" align="right">
-                    <!-- 戻るリンク(動的に生成) -->
+                <p class="cLink fss fwb pSP" align="right">
+                <!-- 戻るリンク(動的に生成) -->
                 </p>
                 <div class="prettyP_SP">
                     <p class="pt30 pb20">
@@ -237,9 +243,6 @@
                         <button class="btn-radius-solid" id="stop" onclick="stopAnimation()">Stop</button>
                         &emsp;&emsp;&nbsp;&nbsp;
                         <button class="btn-radius-solid" id="reset" onclick="resetAnimation()">Reset</button>
-                    </p>
-                    <p class="cLink fss fwb" align="right">
-                    <!-- 戻るリンク(動的に生成) -->
                     </p>
                 </div>
                 <div class="prettyP_PC">

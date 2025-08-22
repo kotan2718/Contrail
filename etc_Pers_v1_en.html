@@ -20,6 +20,10 @@
         <!-- kko_etc end -->
         <style>
             @media screen and (min-width: 769px) {
+                .pSP {
+                    padding-top: 10px;
+                    padding-right: 12px;
+                }
                 .grid2PersP {
                     display: grid;
                     grid-template-columns: 220px 360px;
@@ -28,20 +32,76 @@
                     display: grid;
                     grid-template-columns: 110px 110px;
                 }
+                #graphCanvasPC {
+                    border: 1px solid #000;
+                }
+                #horizontal-slider-container {
+                    position: relative;
+                    top: 0px;
+                    left: 0px;
+                    width: 580px;
+                    background-color: #CCC;
+                }
+                #vertical-slider-container {
+                    height: 580px;
+                    position: relative;
+                    top: -8px;
+                    left: 10px;
+                    background-color: #CCC;
+                }
+                #vertical-slider {
+                    height: 580px;
+                }
+                #horizontal-slider {
+                    width: 580px;
+                }
             }
             @media screen and (max-width: 768px) {
-                #horizontal-slider-container, #horizontal-slider {
-                    max-width: 300px;
-                }
-                #vertical-slider-container, #vertical-slider {
-                    max-height: 300px;
-                    top: 0px;
+                .pSP {
+                    padding-top: 25px;
+                    padding-right: 28px;
                 }
                 .grid2PersP {
                 }
                 .grid2PersC {
                     display: grid;
                     grid-template-columns: 110px 110px;
+                }
+                #graphCanvasSP {
+                    position: relative;
+                    border: 1px solid #000;
+                    left: 10px;
+                }
+
+                #horizontal-slider-container {
+                    position: relative;
+                    top: 10px;
+                    left: 10px;
+                    width: 300px;
+                    background-color: #CCC;
+                }
+                #vertical-slider-container {
+                    height: 300px;
+                    position: relative;
+                    top: -0px;
+                    left: 20px;
+                    background-color: #CCC;
+                }
+                #vertical-slider {
+                    height: 300px;
+                }
+                #horizontal-slider {
+                    width: 300px;
+                }
+
+                #i_fxy, #i_where {
+                    max-width: 200px;
+                }
+                #l_fxy {
+                    width: 80px;
+                }
+                #l_where {
+                    width: 100px;
                 }
             }
         </style>
@@ -164,7 +224,7 @@
         <!-- title -->
         <div id="title20">
             <div class="prettyP_PC">
-                <h3 class="pt30 pb30">
+                <h3 class="pt30 pb10">
                     Rendering Surfaces with Hidden Line Meshes
                 </h3>
             </div>
@@ -236,7 +296,7 @@
                         </select>
                     </p>
                 </div>
-                <div id="contents-2col-left_deq">
+                <div id="contents-2col-left_deqC">
                     <div class="prettyP_PC">
                         <p class="pb10">
                             <canvas id="graphCanvasPC" width="580" height="580"></canvas>
@@ -248,7 +308,7 @@
                         </p>
                     </div>
                 </div>
-                <div id="contents-2col-right_deq">
+                <div id="contents-2col-right_deqC">
                     <div id="vertical-slider-container">
                         <div id="vertical-slider"></div>
                     </div>
@@ -257,18 +317,27 @@
                 <div id="horizontal-slider-container">
                     <div id="horizontal-slider"></div>
                 </div>
-                <div class="pb5">
-                </div>
+                <p class="cLink fss fwb pSP" align="right">
+                <!-- 戻るリンク(動的に生成) -->
+                </p>
+            </div>
+
+            <div class="prettyP_SP">
+                <p class="pt30 pb20">
+                    <button class="btn-radius-solid" id="start" onclick="startDraw()">Start</button>
+                    &emsp;&emsp;&nbsp;&nbsp;
+                    <button class="btn-radius-solid" id="reset" onclick="resetDraw()">Reset</button>
+                </p>
             </div>
 
             <div id="contents-2col-right_deq">
                 <div>
                     <!-- 入力ボックス -->
-                    <p class="pb10 input-container3">
+                    <p class="fss fwb pb10 input-container3">
                         <label id="l_fxy">$f(x, y) = $</label>
                         <textarea id="i_fxy" cols="30" rows="2" onchange="changeUserInput()"></textarea>
                     </p>
-                    <p class="pb10 input-container4">
+                    <p class="fss fwb pb10 input-container4">
                         <label id="l_where">$\quad$ where, $\quad r = $</label>
                         <textarea id="i_where" cols="30" rows="1" onchange="changeUserInput()"></textarea>
                     </p>
@@ -310,12 +379,12 @@
 
                 <!-- メッシュ設定 (計算用のライン数と描画用のライン数の設定) -->
                 <div id="targetDiv" style="margin-top: 0px">
-                    <div class="pb5">
+                    <div class="fss fwb pb5">
                         Mesh
                     </div>
                     <div class="grid3 pb80">
                         <div class="grid-item">
-                            <p>
+                            <p class="fss fwb">
                                 Settings
                             </p>
                             <p>
@@ -336,39 +405,39 @@
                                 </select>
                             </p>
                             <p class="pb20">
-                                <span style="width: 35px; display: inline-block">Drawing</span>
+                                <span class="fss fwb" style="width: 35px; display: inline-block">Drawing</span>
                                 &emsp;
                                 <select id="m_mx"  style="width: 50px; text-align:right;" onchange="changeMeshDraw()" disabled>
                                 </select>
                             </p>
                         </div>
                         <div class="grid-item">
-                            <p>
+                            <p class="fss fwb">
                                 <span style="width: 35px; display: inline-block">Spacing</span>
                             </p>
                             <p>
-                                <span style="width: 25px; display: inline-block">HX</span>
+                                <span class="fss fwb" style="width: 25px; display: inline-block">HX</span>
                                 <input type="text" id="m_hx" value="0.2"  style="width:40px; text-align:right;" disabled>
                             </p>
                             <p>
-                                <span style="width: 25px; display: inline-block">HY</span>
+                                <span class="fss fwb" style="width: 25px; display: inline-block">HY</span>
                                 <input type="text" id="m_hy" value="0.2"  style="width:40px; text-align:right;" disabled>
                             </p>
                         </div>
                         <div class="grid-item">
                             <p>
-                                <span style="width: 35px; display: inline-block">Scaling</span>
+                                <span class="fss fwb" style="width: 35px; display: inline-block">Scaling</span>
                             </p>
                             <p>
-                                <span style="width: 25px; display: inline-block">x</span>
+                                <span class="fss fwb" style="width: 25px; display: inline-block">x</span>
                                 <input type="text" id="m_magX" value="3.00"  style="width:40px; text-align:right;" disabled>
                             </p>
                             <p>
-                                <span style="width: 25px; display: inline-block">y</span>
+                                <span class="fss fwb" style="width: 25px; display: inline-block">y</span>
                                 <input type="text" id="m_magY" value="3.00"  style="width:40px; text-align:right;" disabled>
                             </p>
                             <p>
-                                <span style="width: 25px; display: inline-block">z</span>
+                                <span class="fss fwb" style="width: 25px; display: inline-block">z</span>
                                 <input type="text" id="m_magZ" value="1.50"  style="width:40px; text-align:right;" disabled>
                             </p>
                         </div>
@@ -376,7 +445,7 @@
                 </div>
 
                 <!-- 描画範囲 -->
-                <p class="pb5">
+                <p class="fss fwb pb5">
                     Range
                 </p>
                 <div class="pb10">
@@ -404,7 +473,7 @@
                 </div>
 
                 <!-- 描画角度(見出し) -->
-                <div class="pb5">
+                <div class="fss fwb pb5">
                     <p>
                         View Angle
                     </p>
@@ -425,23 +494,20 @@
                         <input type="text" id="angleGamma" style="font-size: 100%; width:50px; text-align:right;" min="-90" max="90" onchange="changeAngle()" value="">
                     </p>
                 </div>
-                <p class="pb20">
-                    <button class="btn-radius-solid" id="start" onclick="startDraw()">Start</button>
-                    &emsp;&emsp;&nbsp;&nbsp;
-                    <button class="btn-radius-solid" id="reset" onclick="resetDraw()">Reset</button>
-                </p>
-
-            <!-- pers javascript呼び出し -->
-            <script src="libs/etc/js/pers01_v1.js"></script>
-
-                <p class="cLink">
-                    &emsp;&emsp;&emsp;&emsp;
-                    <!-- 戻るリンク -->
-                </p>
+                <div class="prettyP_PC">
+                    <p class="pb20">
+                        <button class="btn-radius-solid" id="start" onclick="startDraw()">Start</button>
+                        &emsp;&emsp;&nbsp;&nbsp;
+                        <button class="btn-radius-solid" id="reset" onclick="resetDraw()">Reset</button>
+                    </p>
+                </div>
             </div>
             <div class="c-both"></div>
         </div>
     </div>
+
+    <!-- pers javascript呼び出し -->
+    <script src="libs/etc/js/pers01_v1.js"></script>
 
     <footer>
         <div class="prettyP_PC">

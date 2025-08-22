@@ -19,6 +19,10 @@
         <!-- kko_etc end -->
         <style>
             @media screen and (min-width: 769px) {
+                .grid2c {
+                  display: grid;
+                  grid-template-columns: 360px 220px;
+                }
             }
             @media screen and (max-width: 768px) {
                 #dxdt, #dydt, #dxdy_where {
@@ -27,9 +31,16 @@
                 #l_dxdt, #l_dydt {
                     width: 80px;
                 }
+                .pSP {
+                    padding-left: 8px;
+                }
                 .grid2b {
                   display: grid;
                   grid-template-columns: 110px 220px;
+                }
+                .grid2c {
+                  display: grid;
+                  grid-template-columns: 210px 120px;
                 }
             }
         </style>
@@ -160,7 +171,7 @@
         <div class="pic-left1024 pb30">
             <div class="contents-2col-left">
                 <div class="grid2b pb5">
-                    <p class="fss" align="left">
+                    <p class="fss pSP pt5" align="left">
                         <input type="checkbox" id="cb_storage" onclick="handleCheckboxStorage(this.checked)">&nbsp; keep list pos.
                     </p>
                     <p  align="right">
@@ -220,14 +231,19 @@
                         <canvas id="graphCanvasSP" width="320" height="320" style="border: 1px solid #000;"></canvas>
                     </p>
                 </div>
-                <p class="fss fwb pb10" align="right">
-                    近似方法
-                    <select id="mode" onchange="changeMode()">
-                        <option value="1">&emsp;&emsp;Euler法</option>
-                        <option value="2">&emsp;&emsp;修正Euler法</option>
-                        <option value="3">&emsp;&emsp;Runge-Kutta法</option>
-                    </select>
-                </p>
+                <div class="grid2c">
+                    <p class="fss fwb pSP pb10" align="left">
+                        近似方法
+                        <select id="mode" onchange="changeMode()">
+                            <option value="1">&emsp;&emsp;Euler法</option>
+                            <option value="2">&emsp;&emsp;修正Euler法</option>
+                            <option value="3">&emsp;&emsp;Runge-Kutta法</option>
+                        </select>
+                    </p>
+                    <p class="cLink fss fwb" align="right">
+                        <!-- 戻るリンク -->
+                    </p>
+                </div>
             </div>
 
             <div class="prettyP_SP">
@@ -238,9 +254,6 @@
                     &emsp;&emsp;&emsp;
                     reset&nbsp;
                     <input type="checkbox" id="cb_reset" onclick="handleCheckbox(this.checked)" checked>
-                </p>
-                <p class="cLink fss fwb pt10 pb20">
-                    <!-- 戻るリンク -->
                 </p>
             </div>
 
@@ -346,11 +359,7 @@
                         reset&nbsp;
                         <input type="checkbox" id="cb_reset" onclick="handleCheckbox(this.checked)" checked>
                     </p>
-                    <p class="cLink pt10 pb20">
-                        <!-- 戻るリンク -->
-                    </p>
                 </div>
-
             </div>
         </div>
     </div>
