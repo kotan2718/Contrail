@@ -15,18 +15,18 @@
         <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
 
         <!-- Fancybox CSS -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css">
+        <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css">-->
 
         <style>
             /* Optional: Limit image size on small screens */
             @media (max-width: 768px) {
-                .fancybox_image {
+                .fbox_image {
                     max-width: 256px;
                 }
-                .fancybox_image2 {
+                .fbox_image2 {
                     max-width: 300px;
                 }
-                .fancybox_imageMax {
+                .fbox_imageMax {
                     max-width: 100%;
                 }
             }
@@ -41,7 +41,7 @@
         <!-- jQuery end -->
 
         <!-- Fancybox JS -->
-        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+        <!--<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>-->
 
         <!-- Sandbox DropDownMenu -->
         <script src="libs/sandbox/js/script.js"></script>
@@ -274,17 +274,15 @@
                 </p>
                 <div class="prettyP_PC">
                     <p class="pb5">
-                        <img src="image/Voyager/sea-level_from_42000_3.png" alt="図2-1 : 42000年前から現在までの海抜" width="700px">
+                        <img src="image/Voyager/sea-level_from_42000_3.png" width="700px"
+                            alt="図2-1 : 42000年前から現在までの海抜">
                     </p>
                 </div>
                 <div class="prettyP_SP">
-                    <p class="jQ_blink change_border_color pb5">
-                         <a href="image/Voyager/sea-level_from_42000_3.png"
-                            data-fancybox="gallery1" data-caption="図2-1 : 42000年前から現在までの海抜">
-                            <img class="fancybox_imageMax" src="image/Voyager/sea-level_from_42000_3.png"
-                                alt="図2-1 : 42000年前から現在までの海抜">
-                        </a>
-                    </p>
+                    <div class="table-container">
+                        <img src="image/Voyager/sea-level_from_42000_3.png" width="540px"
+                            alt="図2-1 : 42000年前から現在までの海抜">
+                    </div>
                 </div>
                 <p class="fws pb20">
                     図2-1 : 42000年前から現在までの海抜
@@ -315,18 +313,15 @@
                 </p>
                 <div class="prettyP_PC">
                     <p class="pb5">
-                        <img src="image/Voyager/shortest_route_from_Kozushima_to_Izu Peninsula4.jpg"
-                            alt="図2-2 : 38,000年前の伊豆半島、神津島、房総半島を含む範囲" width="700px">
+                        <img src="image/Voyager/shortest_route_from_Kozushima_to_Izu Peninsula4.jpg" width="700px"
+                            alt="図2-2 : 38,000年前の伊豆半島、神津島、房総半島を含む範囲">
                     </p>
                 </div>
                 <div class="prettyP_SP">
-                    <p class="jQ_blink change_border_color pb5">
-                         <a href="image/Voyager/shortest_route_from_Kozushima_to_Izu Peninsula4.jpg"
-                            data-fancybox="gallery2" data-caption="図2-2 : 38,000年前の伊豆半島、神津島、房総半島を含む範囲">
-                            <img class="fancybox_imageMax" src="image/Voyager/shortest_route_from_Kozushima_to_Izu Peninsula4.jpg"
-                                alt="図2-2 : 38,000年前の伊豆半島、神津島、房総半島を含む範囲">
-                        </a>
-                    </p>
+                    <div class="table-container">
+                        <img src="image/Voyager/shortest_route_from_Kozushima_to_Izu Peninsula4.jpg" width="640px"
+                            alt="図2-2 : 38,000年前の伊豆半島、神津島、房総半島を含む範囲">
+                    </div>
                 </div>
                 <p class="fws pb20">
                     図2-2 : 38,000年前の伊豆半島、神津島、房総半島を含む範囲
@@ -374,19 +369,18 @@
                 <div class="prettyP_PC">
                     <p class="pb5">
                         <span class="image-container">
-                            <img src="image/Voyager/Japanese_Archipelago_38,000_years_ago5.jpg" alt="図2-3 : 38,000年前の日本全土と周辺の地図" width="700px" border="0">
-                            <img src="image/Voyager/Japanese_Archipelago_38,000_years_ago5.jpg" alt="" class="popup-image">
+                            <img src="image/Voyager/Japanese_Archipelago_38,000_years_ago5.jpg" width="700px"
+                                alt="図2-3 : 38,000年前の日本全土と周辺の地図">
+                            <img src="image/Voyager/Japanese_Archipelago_38,000_years_ago5.jpg"
+                                alt="" class="popup-image">
                         </span>
                     </p>
                 </div>
                 <div class="prettyP_SP">
-                    <p class="jQ_blink change_border_color pb5">
-                         <a href="image/Voyager/Japanese_Archipelago_38,000_years_ago5.jpg"
-                            data-fancybox="gallery3" data-caption="図2-3 : 38,000年前の日本全土と周辺の地図">
-                            <img class="fancybox_imageMax" src="image/Voyager/Japanese_Archipelago_38,000_years_ago5.jpg"
-                                width="700px" alt="図2-3 : 38,000年前の日本全土と周辺の地図">
-                        </a>
-                    </p>
+                    <div class="table-container pb5">
+                        <img src="image/Voyager/Japanese_Archipelago_38,000_years_ago5.jpg" width="640px"
+                            alt="図2-3 : 38,000年前の日本全土と周辺の地図">
+                    </div>
                 </div>
                 <p class="fws pb20">
                     図2-3 : 38,000年前の日本全土と周辺の地図
@@ -434,17 +428,15 @@
                 </p>
                 <div class="prettyP_PC">
                     <p class="pb5">
-                        <img src="image/Voyager/shortest_route_Tugaru_Channel4.jpg" alt="図2-4 : 津軽海峡超えのルート" width="700px" border="0">
+                        <img src="image/Voyager/shortest_route_Tugaru_Channel4.jpg" width="700px"
+                        alt="図2-4 : 津軽海峡超えのルート">
                     </p>
                 </div>
                 <div class="prettyP_SP">
-                    <p class="jQ_blink change_border_color pb5">
-                         <a href="image/Voyager/shortest_route_Tugaru_Channel4.jpg"
-                            data-fancybox="gallery4" data-caption="図2-4 : 津軽海峡超えのルート">
-                            <img class="fancybox_imageMax" src="image/Voyager/shortest_route_Tugaru_Channel4.jpg"
-                                alt="図2-4 : 津軽海峡超えのルート">
-                        </a>
-                    </p>
+                    <div class="table-container">
+                        <img src="image/Voyager/shortest_route_Tugaru_Channel4.jpg" width="640px"
+                            alt="図2-4 : 津軽海峡超えのルート">
+                    </div>
                 </div>
                 <p class="fws pb20">
                     図2-4 : 津軽海峡超えのルート
@@ -458,17 +450,15 @@
                 </p>
                 <div class="prettyP_PC">
                     <p class="pb5">
-                        <img src="image/Voyager/shortest_route_Korea_Kyusyu5.jpg" alt="図2-5 : 韓国 - 対馬 - 九州 ルート" width="700px" border="0">
+                        <img src="image/Voyager/shortest_route_Korea_Kyusyu5.jpg" width="700px"
+                            alt="図2-5 : 韓国 - 対馬 - 九州 ルート">
                     </p>
                 </div>
                 <div class="prettyP_SP">
-                    <p class="jQ_blink change_border_color pb5">
-                         <a href="image/Voyager/shortest_route_Korea_Kyusyu5.jpg"
-                            data-fancybox="gallery5" data-caption="図2-5 : 韓国 - 対馬 - 九州 ルート">
-                            <img class="fancybox_imageMax" src="image/Voyager/shortest_route_Korea_Kyusyu5.jpg"
-                                alt="図2-5 : 韓国 - 対馬 - 九州 ルート">
-                        </a>
-                    </p>
+                    <div class="table-container">
+                        <img src="image/Voyager/shortest_route_Korea_Kyusyu5.jpg" width="640px"
+                            alt="図2-5 : 韓国 - 対馬 - 九州 ルート">
+                    </div>
                 </div>
                 <p class="fws pb20">
                     図2-5 : 韓国 - 対馬 - 九州 ルート
@@ -483,17 +473,15 @@
                 </p>
                 <div class="prettyP_PC">
                     <p class="pb5">
-                        <img src="image/Voyager/shortest_route_Taiwan_Ryukyu5.jpg" alt="図2-6 : 台湾 - 琉球列島 ルート" width="700px" border="0">
+                        <img src="image/Voyager/shortest_route_Taiwan_Ryukyu5.jpg" width="700px"
+                            alt="図2-6 : 台湾 - 琉球列島 ルート">
                     </p>
                 </div>
                 <div class="prettyP_SP">
-                    <p class="jQ_blink change_border_color pb5">
-                         <a href="image/Voyager/shortest_route_Taiwan_Ryukyu5.jpg"
-                            data-fancybox="gallery6" data-caption="図2-5 : 韓国 - 対馬 - 九州 ルート">
-                            <img class="fancybox_imageMax" src="image/Voyager/shortest_route_Taiwan_Ryukyu5.jpg"
-                                alt="図2-6 : 台湾 - 琉球列島 ルート">
-                        </a>
-                    </p>
+                    <div class="table-container">
+                        <img src="image/Voyager/shortest_route_Taiwan_Ryukyu5.jpg" width="640px"
+                            alt="図2-6 : 台湾 - 琉球列島 ルート">
+                    </div>
                 </div>
                 <p class="fws pb20">
                     図2-6 : 台湾 - 琉球列島 ルート
@@ -612,20 +600,18 @@
                 <div class="prettyP_PC">
                     <p class="pb5">
                         <span class="image-container">
+                            <img src="image/Voyager/Japanese_Archipelago_20,000_years_ago5.jpg" width="700px"
+                                alt="図3-1 : 20000年前の日本全土と周辺の地図 海抜が現在より120m低かった場合">
                             <img src="image/Voyager/Japanese_Archipelago_20,000_years_ago5.jpg"
-                                alt="図3-1 : 20000年前の日本全土と周辺の地図 海抜が現在より120m低かった場合" width="700px" border="0">
-                            <img src="image/Voyager/Japanese_Archipelago_20,000_years_ago5.jpg" alt="" class="popup-image">
+                                alt="" class="popup-image">
                         </span>
                     </p>
                 </div>
                 <div class="prettyP_SP">
-                    <p class="jQ_blink change_border_color pb5">
-                         <a href="image/Voyager/Japanese_Archipelago_20,000_years_ago5.jpg"
-                            data-fancybox="gallery7" data-caption="図3-1 : 20000年前の日本全土と周辺の地図 海抜が現在より120m低かった場合">
-                            <img class="fancybox_imageMax" src="image/Voyager/Japanese_Archipelago_20,000_years_ago5.jpg"
-                                alt="図3-1 : 20000年前の日本全土と周辺の地図 海抜が現在より120m低かった場合">
-                        </a>
-                    </p>
+                    <div class="table-container">
+                        <img src="image/Voyager/Japanese_Archipelago_20,000_years_ago5.jpg" width="640px"
+                            alt="図3-1 : 20000年前の日本全土と周辺の地図 海抜が現在より120m低かった場合">
+                    </div>
                 </div>
                 <p class="pb10">
                    図3-1 : 20000年前の日本全土と周辺の地図 海抜が現在より120m低かった場合
@@ -637,20 +623,18 @@
                 <div class="prettyP_PC">
                     <p class="pb5">
                         <span class="image-container">
+                            <img src="image/Voyager/Japanese_Archipelago_20,000_years_ago5_140.jpg" width="700px"
+                                alt="図3-2 : 20000年前の日本全土と周辺の地図 海抜が現在より140m低かった場合">
                             <img src="image/Voyager/Japanese_Archipelago_20,000_years_ago5_140.jpg"
-                                alt="図3-2 : 20000年前の日本全土と周辺の地図 海抜が現在より140m低かった場合" width="700px" border="0">
-                            <img src="image/Voyager/Japanese_Archipelago_20,000_years_ago5_140.jpg" alt="" class="popup-image">
+                                alt="" class="popup-image">
                         </span>
                     </p>
                 </div>
                 <div class="prettyP_SP">
-                    <p class="jQ_blink change_border_color pb5">
-                         <a href="image/Voyager/Japanese_Archipelago_20,000_years_ago5_140.jpg"
-                            data-fancybox="gallery7" data-caption="図3-2 : 20000年前の日本全土と周辺の地図 海抜が現在より140m低かった場合">
-                            <img class="fancybox_imageMax" src="image/Voyager/Japanese_Archipelago_20,000_years_ago5_140.jpg"
-                                alt="図3-2 : 20000年前の日本全土と周辺の地図 海抜が現在より140m低かった場合">
-                        </a>
-                    </p>
+                    <div class="table-container">
+                        <img src="image/Voyager/Japanese_Archipelago_20,000_years_ago5_140.jpg" width="640px"
+                            alt="図3-2 : 20000年前の日本全土と周辺の地図 海抜が現在より140m低かった場合">
+                    </div>
                 </div>
                 <p class="pb20">
                    図3-2 : 20000年前の日本全土と周辺の地図 海抜が現在より140m低かった場合
@@ -804,19 +788,16 @@
                     <p class="pb5">
                         <span class="image-container">
                             <img src="image/Voyager/human_trandition_map.jpg"
-                                alt="図4-1 : ホモ・サピエンスのヨーロッパ、アジアへの伝播" width="700px" border="0">
+                                alt="図4-1 : ホモ・サピエンスのヨーロッパ、アジアへの伝播" width="700px">
                             <img src="image/Voyager/human_trandition_map.jpg" alt="" class="popup-image">
                         </span>
                     </p>
                 </div>
                 <div class="prettyP_SP">
-                    <p class="jQ_blink change_border_color pb5">
-                         <a href="image/Voyager/human_trandition_map.jpg"
-                            data-fancybox="gallery8" data-caption="図4-1 : ホモ・サピエンスのヨーロッパ、アジアへの伝播">
-                            <img class="fancybox_imageMax" src="image/Voyager/human_trandition_map.jpg"
-                                alt="図4-1 : ホモ・サピエンスのヨーロッパ、アジアへの伝播">
-                        </a>
-                    </p>
+                    <div class="table-container">
+                        <img src="image/Voyager/human_trandition_map.jpg" width="640px"
+                            alt="図4-1 : ホモ・サピエンスのヨーロッパ、アジアへの伝播">
+                    </div>
                 </div>
                 <p class="pb20">
                    図4-1 : ホモ・サピエンスのヨーロッパ、アジアへの伝播
@@ -1075,7 +1056,7 @@
             </script>
             <nonscript>
             </nonscript>
-            Contrail - kotan - 
+            Contrail - kotan -
         </div>
     </footer>
 
