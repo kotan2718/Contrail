@@ -14,6 +14,36 @@
     <!-- css start -->
         <!-- kko_etc :: class指定:change_border_color, 全ファイル共通:リンク文字色, フォーカスリング -->
         <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
+        <style>
+            @media screen and (min-width: 769px) {
+                .pSP50 {
+                    padding-left: 50px;
+                }
+                .pSP40 {
+                    padding-left: 40px;
+                }
+                .pSP20 {
+                    padding-left: 20px;
+                }
+            }
+            /* Optional: Limit image size on small screens */
+            @media (max-width: 768px) {
+                .fSP {                      /* font */
+                    font-size: 90%;
+                }
+                .pSP50, .pSP40, pSP20 {
+                    padding-left: 10px;
+                }
+                .listBox {
+                    text-indent: -2.2em;
+                    padding-left: 2.2em;
+                }
+                ul.ulSpace li {
+                    padding-top: 10px;
+                    paddhing-bottom: 10px;
+                }
+            }
+        </style>
     <!-- css end -->
 
     <!-- js start -->
@@ -35,7 +65,7 @@
                 },
                 "HTML-CSS": { matchFontHeight: false },
                 displayAlign: "left",
-                displayIndent: "0em"
+                displayIndent: "2em"
             });
         </script>
 
@@ -52,7 +82,7 @@
 
     <header>
         <div class="prettyP_PC">
-            <a name="page_top"></a>
+            <a name="top-call"></a>
             <div class="center jQ_change navbox" >
                 <nav>
                     <img src="image/top/cr32_e.png" height="20" class="logo_img">
@@ -86,7 +116,7 @@
                 <a href="#">MENU</a>
             </p>
 
-            <a name="page_top"></a>
+            <a name="top-call"></a>
 
             <!-- page top icon & logo -->
             <div id="header_SP" class="header_labelSP">
@@ -115,7 +145,7 @@
 
         <!-- title -->
         <div id="title20">
-            <h3 class="pt30 pb40">
+            <h3 class="pt30">
                 Differential Equations : Plotting Trajectory of Solutions<br>
                 Brief Explanation
             </h3>
@@ -162,22 +192,22 @@
             </div>
 
             <div class="fwb pb30">
-                <ul class="list_none pb40, pl40">
-                    <li class="pb10"><a href="#a1">[01] 2-Dimensional Linear Autonomous System of 1 Order</a></li>
-                    <li class="pb10"><a href="#a2">[02] 2-Dimensional Linear Autonomous System of 2 Order</a></li>
-                    <li class="pb10"><a href="#a3">[03] 2-Dimensional Linear Simultaneous Autonomous System of High-order</a></li>
-                    <li class="pb10"><a href="#a4">[04] 2-Dimensional Autonomous System Examples</a></li>
-                    <li class="pb10"><a href="#a99">[99] User difined Equations</a></li>
+                <ul class="list_none pb40, pSP40">
+                    <li class="pb10"><a href="#a1">[01] 2-D 1st-Order Autonomous Systems</a></li>
+                    <li class="pb10"><a href="#a2">[02] 2-D 2nd-Order Autonomous Systems</a></li>
+                    <li class="pb10"><a href="#a3">[03] Higher-Order Autonomous Systems</a></li>
+                    <li class="pb10"><a href="#a4">[04] Examples of Autonomous Systems</a></li>
+                    <li class="pb10"><a href="#a99">[99] User-Defined</a></li>
                 </ul>
             </div>
 
-            <div class="pic-left720 fwb pb20">
+            <div class="fwb pb20">
                 <div class="contents-title-left pb20"
                     <p id="a1">
-                        [01]&nbsp;2-Dimensional Linear Autonomous System of 1 Order
+                        [01]&nbsp;2-D 1st-Order Autonomous Systems
                     </p>
                 </div>
-                <div class="contents-title-right"
+                <div class="contents-title-right">
                     <p>
                         <!--<a href="#title20">to Top</a>-->
                     </p>
@@ -209,20 +239,16 @@
                     the term "line corresponding to the eigenvalue" refers to the eigenspaces of each eigenvalue.
                     For a 2x2 square matrix, eigenspaces generally correspond to lines passing through the origin.
                 </p>
-                <ol class="fwm pb40, pl40">
+                <ol class="fwm pb40, pSP40">
                     <li>
-                        <p id="01&01"; class="pb10 fwb fss">
+                        <p id="01&01"; class="pb10 fwb fs90">
                             When one of the eigenvalues is 0:
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                e.g.
-                            </p>
+                        <div class="contents-left fwb fs90">
+                            e.g.
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2_en.html?selectedOption=01%2601">to Plot</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs90">
+                            <a href="etc_DEQ_v2_en.html?selectedOption=01%2601">to Plot</a>
                         </div>
                         <div class="c-both"></div>
                         <div class="contents-left pb10"
@@ -257,18 +283,14 @@
                         </p>
                     </li>
                     <li>
-                        <p id="01&02"; class="pb10 fwb fss">
+                        <p id="01&02"; class="pb10 fwb fs90">
                             When the eigenvalues are $\lambda_1 < 0 < \lambda_2$ (saddle point):
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                e.g.
-                            </p>
+                        <div class="contents-left fwb fs90">
+                            e.g.
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2_en.html?selectedOption=01%2602">to Plot</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs90">
+                            <a href="etc_DEQ_v2_en.html?selectedOption=01%2602">to Plot</a>
                         </div>
                         <div class="c-both"></div>
                         <div class="contents-left pb10"
@@ -302,18 +324,14 @@
                         </p>
                     </li>
                     <li>
-                        <p id="01&03"; class="pb10 fwb fss">
+                        <p id="01&03"; class="pb10 fwb fs90">
                             When $0 < \lambda_1 < \lambda_2$ (unstable node or source):
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                e.g.
-                            </p>
+                        <div class="contents-left fwb fs90">
+                            e.g.
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2_en.html?selectedOption=01%2603">to Plot</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs90">
+                            <a href="etc_DEQ_v2_en.html?selectedOption=01%2603">to Plot</a>
                         </div>
                         <div class="c-both"></div>
                         <div class="contents-left pb10"
@@ -345,18 +363,14 @@
                         </p>
                     </li>
                     <li>
-                        <p id="01&04"; class="pb10 fwb fss">
+                        <p id="01&04"; class="pb10 fwb fs90">
                             When $0 < \lambda_1 < \lambda_2$ (unstable node or source) 2:
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                e.g.
-                            </p>
+                        <div class="contents-left fwb fs90">
+                            e.g.
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2_en.html?selectedOption=01%2604">to Plot</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs90">
+                            <a href="etc_DEQ_v2_en.html?selectedOption=01%2604">to Plot</a>
                         </div>
                         <div class="c-both"></div>
                         <div class="contents-left pb10"
@@ -388,18 +402,14 @@
                         </p>
                     </li>
                     <li>
-                        <p id="01&05"; class="pb10 fwb fss">
+                        <p id="01&05"; class="pb10 fwb fs90">
                             When $ \lambda_1 < \lambda_2 < 0$ (stable node or sink):
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                e.g.
-                            </p>
+                        <div class="contents-left fwb fs90">
+                            e.g.
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2_en.html?selectedOption=01%2605">to Plot</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs90">
+                            <a href="etc_DEQ_v2_en.html?selectedOption=01%2605">to Plot</a>
                         </div>
                         <div class="c-both"></div>
                         <div class="contents-left pb10"
@@ -431,19 +441,15 @@
                         </p>
                     </li>
                     <li>
-                        <p id="01&06"; class="pb10 fwb fss">
+                        <p id="01&06"; class="pb10 fwb fs90">
                             When the eigenvalue $\lambda$ is repeated, and matrix $A$ is diagonalizable: <br>
                             If $\lambda > 0$, it becomes an unstable degenerate node or degenerate source.
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                e.g.
-                            </p>
+                        <div class="contents-left fwb fs90">
+                            e.g.
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2_en.html?selectedOption=01%2606">to Plot</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs90">
+                            <a href="etc_DEQ_v2_en.html?selectedOption=01%2606">to Plot</a>
                         </div>
                         <div class="c-both"></div>
                         <div class="contents-left pb10"
@@ -478,28 +484,24 @@
                         </p>
                     </li>
                     <li>
-                        <p id="01&07"; class="pb10 fwb fss">
+                        <p id="01&07"; class="pb10 fwb fs90">
                             When the eigenvalue $\lambda$ is repeated,  and matrix $A$ is not diagonalizable: <br>
                             If $\lambda > 0$, it becomes an unstable degenerate node or degenerate source.
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                e.g.
-                            </p>
+                        <div class="contents-left fwb fs90">
+                            e.g.
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2_en.html?selectedOption=01%2607">to Plot</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs90">
+                            <a href="etc_DEQ_v2_en.html?selectedOption=01%2607">to Plot</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                                 \[ \frac{dx}{dt} = 2x + y \]
                                 \[ \frac{dy}{dt} = 2y \]
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2_en.html?selectedOption=01%2607">
                                     <span class="image-container">
@@ -530,27 +532,23 @@
                         </p>
                     </li>
                     <li>
-                        <p id="01&08"; class="pb10 fwb fss">
+                        <p id="01&08"; class="pb10 fwb fs90">
                             When the eigenvalues are purely imaginary (center):
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                e.g.
-                            </p>
+                        <div class="contents-left fwb fs90">
+                            e.g.
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2_en.html?selectedOption=01%2608">to Plot</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs90">
+                            <a href="etc_DEQ_v2_en.html?selectedOption=01%2608">to Plot</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                                 \[ \frac{dx}{dt} = x + 2y \]
                                 \[ \frac{dy}{dt} = -x - y \]
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2_en.html?selectedOption=01%2608">
                                     <span class="image-container">
@@ -572,27 +570,23 @@
                         </p>
                     </li>
                     <li>
-                        <p id="01&09"; class="pb10 fwb fss">
+                        <p id="01&09"; class="pb10 fwb fs90">
                             When the eigenvalues have both real and imaginary parts (spiral point):
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                e.g.
-                            </p>
+                        <div class="contents-left fwb fs90">
+                            e.g.
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2_en.html?selectedOption=01%2609">to Plot</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs90">
+                            <a href="etc_DEQ_v2_en.html?selectedOption=01%2609">to Plot</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                                 \[ \frac{dx}{dt} = -x - y \]
                                 \[ \frac{dy}{dt} = 2x - y \]
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2_en.html?selectedOption=01%2609">
                                     <span class="image-container">
@@ -624,12 +618,12 @@
             </div>
 
             <div class="fwb pb20">
-                <div class="contents-title-left pb20"
+                <div class="contents-title-left pb20">
                     <p id="a2">
-                        [02]&nbsp;2-Dimensional Linear Autonomous System of 2 Order
+                        [02]&nbsp;2-D 2nd-Order Autonomous Systems
                     </p>
                 </div>
-                <div class="contents-title-right"
+                <div class="contents-title-right">
                     <p>
                         <!--<a href="#title20">to Top</a>-->
                     </p>
@@ -649,29 +643,25 @@
                     and the properties of solution curves are explained in detail.
                     However, please note that the explanations provided here are considerably condensed.
                 </p>
-                <ol class="fwm pb40, pl40">
+                <ol class="fwm pb40, pSP40">
                     <li class="pb40">
-                        <p id="02&01"; class="pb10 fwb fss">
+                        <p id="02&01"; class="pb10 fwb fs90">
                             Node-Saddle Point Type:
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                e.g.
-                            </p>
+                        <div class="contents-left fwb fs90">
+                            e.g.
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2_en.html?selectedOption=02%2601">to Plot</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs90">
+                            <a href="etc_DEQ_v2_en.html?selectedOption=02%2601">to Plot</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                                 \[ \frac{dx}{dt} = x^2 \]
                                 \[ \frac{dy}{dt} = 2(x - y)^2 \]
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2_en.html?selectedOption=02%2601">
                                     <span class="image-container">
@@ -702,24 +692,20 @@
                         <p id="02&02"; class="pb10 fwb fss">
                             Degenerate Node-Saddle Point Type:
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                e.g.
-                            </p>
+                        <div class="contents-left fwb fs90">
+                            e.g.
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2_en.html?selectedOption=02%2602">to Plot</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs90">
+                            <a href="etc_DEQ_v2_en.html?selectedOption=02%2602">to Plot</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                                 \[ \frac{dx}{dt} = 4x^2 \]
                                 \[ \frac{dy}{dt} = x^2 + 4y^2 \]
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2_en.html?selectedOption=02%2602">
                                     <span class="image-container">
@@ -746,26 +732,14 @@
                         </p>
                     </li>
                     <li class="pb40">
-                        <p id="02&03"; class="pb10 fwb fss">
+                        <p id="02&03"; class="pb10 fwb fs90">
                             Double Elliptic Type:
                         </p>
-                        <div class="contents-left">
+                        <div class="contents-left fwb fs90">
+                            e.g.
                         </div>
-                        <div class="contents-title-right fss">
-                            <p>
-                                <a href="#a2">to Section Top</a>
-                            </p>
-                        </div>
-                        <div class="c-both pb10"></div>
-                        <div class="contents-left pb10">
-                            <p class="pb10">
-                                e.g.
-                            </p>
-                        </div>
-                        <div class="contents-right">
-                            <p>
-                                <a href="etc_DEQ_v2_en.html?selectedOption=02%2603">to Plot</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs90">
+                            <a href="etc_DEQ_v2_en.html?selectedOption=02%2603">to Plot</a>
                         </div>
                         <div class="c-both"></div>
                         <div class="contents-left pb10">
@@ -800,18 +774,14 @@
                         </p>
                     </li>
                     <li class="pb40">
-                        <p id="02&04"; class="pb10 fwb fss">
+                        <p id="02&04"; class="pb10 fwb fs90">
                             Triple Crossing Type:
                         </p>
-                        <div class="contents-left pb10">
-                            <p class="pb10">
-                                e.g.
-                            </p>
+                        <div class="contents-left fwb fs90">
+                            e.g.
                         </div>
-                        <div class="contents-right">
-                            <p>
-                                <a href="etc_DEQ_v2_en.html?selectedOption=02%2604">to Plot</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs90">
+                            <a href="etc_DEQ_v2_en.html?selectedOption=02%2604">to Plot</a>
                         </div>
                         <div class="c-both"></div>
                         <div class="contents-left pb10">
@@ -849,21 +819,17 @@
                         </p>
                     </li>
                     <li class="pb40">
-                        <p id="02&05"; class="pb10 fwb fss">
+                        <p id="02&05"; class="pb10 fwb fs90">
                             Node Type 2:
                         </p>
-                        <div class="contents-left pb10">
-                            <p class="pb10">
-                                e.g.
-                            </p>
+                        <div class="contents-left fwb fs90">
+                            e.g.
                         </div>
-                        <div class="contents-right">
-                            <p>
-                                <a href="etc_DEQ_v2_en.html?selectedOption=02%2605">to Plot</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs90">
+                            <a href="etc_DEQ_v2_en.html?selectedOption=02%2605">to Plot</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                                 \[ \frac{dx}{dt} = -x^2 \]
                                 \[ \frac{dy}{dt} = y^2 \]
@@ -897,21 +863,17 @@
                         </p>
                     </li>
                     <li class="pb40">
-                        <p id="02&06"; class="pb10 fwb fss">
+                        <p id="02&06"; class="pb10 fwb fs90">
                             Parabolic Type:
                         </p>
-                        <div class="contents-left pb10">
-                            <p class="pb10">
-                                e.g.
-                            </p>
+                        <div class="contents-left fwb fs90">
+                            e.g.
                         </div>
-                        <div class="contents-right">
-                            <p>
-                                <a href="etc_DEQ_v2_en.html?selectedOption=02%2606">to Plot</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs90">
+                            <a href="etc_DEQ_v2_en.html?selectedOption=02%2606">to Plot</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                         <p class="pb10">
                             \[ \frac{dx}{dt} = -x^2 \]
                             \[ \frac{dy}{dt} = y^2 \]
@@ -945,12 +907,12 @@
                 </ol>
             </div>
             <div class="fwb pb20">
-                <div class="contents-title-left pb20"
+                <div class="contents-title-left pb20">
                     <p id="a3">
-                        [03]&nbsp;High-order Simultaneous Autonomous System:
+                        [03]&nbsp;Higher-Order Autonomous Systems:
                     </p>
                 </div>
-                <div class="contents-title-right"
+                <div class="contents-title-right">
                     <p>
                         <!--<a href="#title20">to Top</a>-->
                     </p>
@@ -963,29 +925,25 @@
                     plot their solution curves on the web, but it seems to be a distant plan for now. <br>
                     For the time being, I would like to introduce equations mentioned in Mr. Morimoto's book.
                 </p>
-                <ol class="fwm pb40, pl40">
+                <ol class="fwm pb40, pSP40">
                     <li>
-                        <p id="03&01"; class="pb10 fwb fss">
+                        <p id="03&01"; class="pb10 fwb fs90">
                             Homogeneous autonomous system with periodic solution:
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                e.g.
-                            </p>
+                        <div class="contents-left fwb fs90">
+                            e.g.
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2_en.html?selectedOption=03%2601">to Plot</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs90">
+                            <a href="etc_DEQ_v2_en.html?selectedOption=03%2601">to Plot</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                                 \[ \frac{dx}{dt} = -y^3 \]
                                 \[ \frac{dy}{dt} = x^3 \]
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2_en.html?selectedOption=03%2601">
                                     <span class="image-container">
@@ -997,27 +955,23 @@
                         <div class="c-both"></div>
                     </li>
                     <li>
-                        <p id="03&02"; class="pb10 fwb fss">
+                        <p id="03&02"; class="pb10 fwb fs90">
                             Homogeneous Autonomous System with Eight Parabolic Sectors:
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                e.g.
-                            </p>
+                        <div class="contents-left fwb fs90">
+                            e.g.
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2_en.html?selectedOption=03%2602">to Plot</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs90">
+                            <a href="etc_DEQ_v2_en.html?selectedOption=03%2602">to Plot</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                                 \[ \frac{dx}{dt} = x^3 \]
                                 \[ \frac{dy}{dt} = y^3 \]
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2_en.html?selectedOption=03%2602">
                                     <span class="image-container">
@@ -1032,27 +986,23 @@
                         </p>
                     </li>
                     <li>
-                        <p id="03&03"; class="pb10 fwb fss">
+                        <p id="03&03"; class="pb10 fwb fs90">
                             Homogeneous Autonomous System with Compound Sectors:
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                e.g.
-                            </p>
+                        <div class="contents-left fwb fs90">
+                            e.g.
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2_en.html?selectedOption=03%2603">to Plot</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs90">
+                            <a href="etc_DEQ_v2_en.html?selectedOption=03%2603">to Plot</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                                 \[ \frac{dx}{dt} = x^2(y - x) \]
                                 \[ \frac{dy}{dt} = y^2(y - 2x) \]
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2_en.html?selectedOption=03%2603">
                                     <span class="image-container">
@@ -1068,27 +1018,23 @@
                         </p>
                     </li>
                     <li>
-                        <p id="03&04"; class="pb10 fwb fss">
+                        <p id="03&04"; class="pb10 fwb fs90">
                             Vinograd's Autonomous System:
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                e.g.
-                            </p>
+                        <div class="contents-left fwb fs90">
+                            e.g.
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2_en.html?selectedOption=03%2604">to Plot</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs90">
+                            <a href="etc_DEQ_v2_en.html?selectedOption=03%2604">to Plot</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                                 \[ \frac{dx}{dt} = x^2(y - x) + y^5 \]
                                 \[ \frac{dy}{dt} = y^2(y - 2x) \]
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2_en.html?selectedOption=03%2604">
                                     <span class="image-container">
@@ -1109,58 +1055,54 @@
             </div>
 
             <div class="fwb pb20">
-                <div class="contents-title-left pb20"
+                <div class="contents-title-left pb20">
                     <p id="a4">
-                        [04]&nbsp;Autonomous System Examples
+                        [04]&nbsp;Examples of Autonomous Systems
                     </p>
                 </div>
-                <div class="contents-title-right"
+                <div class="contents-title-right">
                     <p>
                         <!--<a href="#title20">to Top</a>-->
                     </p>
                 </div>
                 <div class="c-both"></div>
 
-                <div class="fwb pb30">
-                    <ul class="list_none pb40, pl40">
+                <div class="listBox fwb pb30" style="font-size: 85%">
+                    <ul class="list_none ulSpace pb40, pSP40">
                         <li><a href="#04&01">[01] Autonomous system with periodic equilibrium points on x-axis</a></li>
                         <li><a href="#04&02">[02] Autonomous system with 8 equilibrium points on the circumference</a></li>
                         <li><a href="#04&03">[03] Autonomous system with periodic equilibrium points on a plane</a></li>
-                        <li><a href="#04&04">[04] Limit Cycle 1 &emsp; Case of the solution orbit is a limit circle </a></li>
-                        <li><a href="#04&05">[05] Limit Cycle 2 &emsp; von del Pol's Autonomous System</a></li>
-                        <li><a href="#04&06">[06] Limit Cycle 3 &emsp; Lemniscate</a></li>
-                        <li><a href="#04&07">[07] Limit Cycle 4 &emsp; Linear approximation with purely imaginary numbers - 1</a></li>
-                        <li><a href="#04&08">[08] Limit Cycle 5 &emsp; Linear approximation with purely imaginary numbers - 2</a></li>
-                        <li><a href="#04&09">[09] Hamilton system 1 &emsp; Cassini oval</a></li>
-                        <li><a href="#04&10">[10] Hamilton system 2 &emsp; folium of Descartes</a></li>
-                        <li><a href="#04&11">[11] Hamilton system 3 &emsp; derivatives of "folium of Descartes"</a></li>
-                        <li><a href="#04&12">[12] Hamilton system 4 &emsp; Case of the periodicity of trigonometric functions is reflected</a></li>
+                        <li><a href="#04&04">[04] Limit Cycle 1: Case of the solution orbit is a limit circle </a></li>
+                        <li><a href="#04&05">[05] Limit Cycle 2: von del Pol's Autonomous System</a></li>
+                        <li><a href="#04&06">[06] Limit Cycle 3: Lemniscate</a></li>
+                        <li><a href="#04&07">[07] Limit Cycle 4: Linear approximation with purely imaginary numbers - 1</a></li>
+                        <li><a href="#04&08">[08] Limit Cycle 5: Linear approximation with purely imaginary numbers - 2</a></li>
+                        <li><a href="#04&09">[09] Hamilton system 1: Cassini oval</a></li>
+                        <li><a href="#04&10">[10] Hamilton system 2: folium of Descartes</a></li>
+                        <li><a href="#04&11">[11] Hamilton system 3: derivatives of "folium of Descartes"</a></li>
+                        <li><a href="#04&12">[12] Hamilton system 4: Case of the periodicity of trigonometric functions is reflected</a></li>
                     </ul>
                 </div>
 
-                <ol class="fwm pb40,  pl40">
+                <ol class="fwm pb40,  pSP40">
                     <li>
-                        <p id="04&01"; class="pb10 fwb fss">
+                        <p id="04&01"; class="pb10 fwb fs90">
                             Autonomous system with periodic equilibrium points on x-axis:
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                e.g.
-                            </p>
+                        <div class="contents-left fwb fs90">
+                            e.g.
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2_en.html?selectedOption=04%2601">to Plot</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs90">
+                            <a href="etc_DEQ_v2_en.html?selectedOption=04%2601">to Plot</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                                 \[ \frac{dx}{dt} = y \]
                                 \[ \frac{dy}{dt} = \sin x + y^2 \]
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2_en.html?selectedOption=04%2601">
                                     <span class="image-container">
@@ -1211,27 +1153,23 @@
                         </p>
                     </li>
                     <li>
-                        <p id="04&02"; class="pb10 fwb fss">
+                        <p id="04&02"; class="pb10 fwb fs90">
                             Autonomous system with 8 equilibrium points on the circumference:
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                e.g.
-                            </p>
+                        <div class="contents-left fwb fs90">
+                            e.g.
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2_en.html?selectedOption=04%2602">to Plot</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs90">
+                            <a href="etc_DEQ_v2_en.html?selectedOption=04%2602">to Plot</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                                 \[ \frac{dx}{dt} = x^2y^2 - 1 \]
                                 \[ \frac{dy}{dt} = x^2 + y^2 - a \]
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2_en.html?selectedOption=04%2602">
                                     <span class="image-container">
@@ -1254,27 +1192,23 @@
                         </p>
                     </li>
                     <li>
-                        <p id="04&03"; class="pb10 fwb fss">
+                        <p id="04&03"; class="pb10 fwb fs90">
                             Autonomous system with periodic equilibrium points on a plane:
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                e.g.
-                            </p>
+                        <div class="contents-left fwb fs90">
+                            e.g.
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2_en.html?selectedOption=04%2603">to Plot</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs90">
+                            <a href="etc_DEQ_v2_en.html?selectedOption=04%2603">to Plot</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                                 \[ \frac{dx}{dt} = \cos x + \cos y \]
                                 \[ \frac{dy}{dt} = \sin x \sin y \]
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2_en.html?selectedOption=04%2603">
                                     <span class="image-container">
@@ -1309,28 +1243,24 @@
                         </p>
                     </li>
                     <li class="pb40">
-                        <p id="04&04"; class="pb10 fwb fss">
+                        <p id="04&04"; class="pb10 fwb fs90">
                             Limit Cycle: example 1 <br>
                             Case of the solution orbit is a limit circle
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                e.g.
-                            </p>
+                        <div class="contents-left fwb fs90">
+                            e.g.
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2_en.html?selectedOption=04%2604">to Plot</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs90">
+                            <a href="etc_DEQ_v2_en.html?selectedOption=04%2604">to Plot</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                                 \[ \frac{dx}{dt} = ay + ax(1 - x^2 - y^2) \]
                                 \[ \frac{dy}{dt} = cx + dy(1 - x^2 - y^2) \]
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2_en.html?selectedOption=04%2604">
                                     <span class="image-container">
@@ -1394,27 +1324,23 @@
                         </p>
                     </li>
                     <li class="pb40">
-                        <p id="04&05"; class="pb10 fwb fss">
+                        <p id="04&05"; class="pb10 fwb fs90">
                             Limit Cycle: example 2 &emsp; von del Pol's Autonomous System
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                e.g.
-                            </p>
+                        <div class="contents-left fwb fs90">
+                            e.g.
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2_en.html?selectedOption=04%2605">to Plot</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs90">
+                            <a href="etc_DEQ_v2_en.html?selectedOption=04%2605">to Plot</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                                 \[ \frac{dx}{dt} = y \]
                                 \[ \frac{dy}{dt} = -x + ay(1 - x^2) \]
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2_en.html?selectedOption=04%2605">
                                     <span class="image-container">
@@ -1446,30 +1372,36 @@
                         </p>
                     </li>
                     <li class="pb40">
-                        <p id="04&06"; class="pb10 fwb fss">
+                        <p id="04&06"; class="pb10 fwb fs90">
                             Limit Cycle: example 3 &emsp; Lemniscate
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                e.g.
-                            </p>
+                        <div class="contents-left fwb fs90">
+                            e.g.
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2_en.html?selectedOption=04%2606">to Plot</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs90">
+                            <a href="etc_DEQ_v2_en.html?selectedOption=04%2606">to Plot</a>
                         </div>
                         <div class="c-both"></div>
                         <!-- スマホ時横スクロール許可 -->
-                        <div class="table-container">
-                            <div class="contents-left pb10"
+                        <div class="prettyP_PC">
+                            <div class="contents-left pb10">
                                 <p class="pb10">
                                     \[ \frac{dx}{dt} = a * y(1 + 2x^2 + 2y^2) \]
                                     \[ \frac{dy}{dt} = b * x(1 - 2x^2 - 2y^2) + c * y(1 + 2x^2 + 2y^2)((x^2 + y^2)^2 - (x^2 - y^2)) \]
                                 </p>
                             </div>
                         </div>
-                        <div class="contents-right"
+                        <div class="prettyP_SP">
+                            <div class="table-container">
+                                <div class="contents-left pb10">
+                                    <p class="pb10">
+                                        \[ \frac{dx}{dt} = a * y(1 + 2x^2 + 2y^2) \]
+                                        \[ \frac{dy}{dt} = b * x(1 - 2x^2 - 2y^2) + c * y(1 + 2x^2 + 2y^2)((x^2 + y^2)^2 - (x^2 - y^2)) \]
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2_en.html?selectedOption=04%2606">
                                     <span class="image-container">
@@ -1510,28 +1442,24 @@
                         </p>
                     </li>
                     <li class="pb40">
-                        <p id="04&07"; class="pb10 fwb fss">
+                        <p id="04&07"; class="pb10 fwb fs90">
                             Limit Cycle: example 4 &emsp; Linear approximation with purely imaginary numbers - 1 <br>
                             Case of no limit circle exists
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                e.g.
-                            </p>
+                        <div class="contents-left fwb fs90">
+                            e.g.
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2_en.html?selectedOption=04%2607">to Plot</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs90">
+                            <a href="etc_DEQ_v2_en.html?selectedOption=04%2607">to Plot</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                                 \[ \frac{dx}{dt} = y \]
                                 \[ \frac{dy}{dt} = -x - y^3 \]
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2_en.html?selectedOption=04%2607">
                                     <span class="image-container">
@@ -1605,7 +1533,7 @@
                         </p>
                         <p class="pb10">
                             <span class="image-container">
-                                <img src="image/DEQ_img/deq2_0407_fig.jpg" width="50%" height="50%" border="0">
+                                <img src="image/DEQ_img/deq2_0407_fig.jpg" width="75%" height="75%" border="0">
                             </span>
                         </p>
                         <p class="pb20">
@@ -1619,22 +1547,18 @@
                         </p>
                     </li>
                     <li class="pb40">
-                        <p id="04&08"; class="pb10 fwb fss">
+                        <p id="04&08"; class="pb10 fwb fs90">
                             Limit Cycle: example 5 &emsp; Linear approximation with purely imaginary numbers - 2<br>
                             case : an infinite number of limit circles appear
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                e.g.
-                            </p>
+                        <div class="contents-left fwb fs90">
+                            e.g.
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2_en.html?selectedOption=04%2608">to Plot</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs90">
+                            <a href="etc_DEQ_v2_en.html?selectedOption=04%2608">to Plot</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
 <!--
                             \[ \frac{dx}{dt} = -y + 5x \, e^{(-1 / \sqrt{r})} \sin(1 / r)\]
@@ -1645,7 +1569,7 @@
                             $\qquad$ where $\; r = \sqrt{x^2 + y^2} $
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2_en.html?selectedOption=04%2608">
                                     <span class="image-container">
@@ -1674,7 +1598,7 @@
                         </p>
                         <p class="pb10">
                             <span class="image-container">
-                                <img src="image/DEQ_img/deq2_0408_alpha_of_r_2.jpg" width="50%" height="50%" border="0">
+                                <img src="image/DEQ_img/deq2_0408_alpha_of_r_2.jpg" width="75%" height="75%" border="0">
                             </span>
                         </p>
                         <p class="pb10">
@@ -1778,27 +1702,23 @@
                         </p>
                     </li>
                     <li class="pb40">
-                        <p id="04&09"; class="pb10 fwb fss">
+                        <p id="04&09"; class="pb10 fwb fs90">
                             Hamilton system 1 &emsp; Cassini oval
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                e.g.
-                            </p>
+                        <div class="contents-left fwb fs90">
+                            e.g.
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2_en.html?selectedOption=04%2609">to Plot</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs90">
+                            <a href="etc_DEQ_v2_en.html?selectedOption=04%2609">to Plot</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                             \[ \frac{dx}{dt} = y(1 + x^2 + y^2)\]
                             \[ \frac{dy}{dt} = x(1 - x^2 - y^2)\]
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2_en.html?selectedOption=04%2609">
                                     <span class="image-container">
@@ -1859,27 +1779,23 @@
                         </p>
                     </li>
                     <li class="pb40">
-                        <p id="04&10"; class="pb10 fwb fss">
+                        <p id="04&10"; class="pb10 fwb fs90">
                             Hamilton system 2 &emsp; folium of Descartes
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                e.g.
-                            </p>
+                        <div class="contents-left fwb fs90">
+                            e.g.
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2_en.html?selectedOption=04%2610">to Plot</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs90">
+                            <a href="etc_DEQ_v2_en.html?selectedOption=04%2610">to Plot</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                             \[ \frac{dx}{dt} = 2x - 3y^2\]
                             \[ \frac{dy}{dt} = -2y + 3x^2\]
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2_en.html?selectedOption=04%2610">
                                     <span class="image-container">
@@ -1910,27 +1826,23 @@
                         </p>
                     </li>
                     <li class="pb40">
-                        <p id="04&11"; class="pb10 fwb fss">
+                        <p id="04&11"; class="pb10 fwb fs90">
                             Hamilton system 3 &emsp; derivatives of "folium of Descartes"
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                e.g.
-                            </p>
+                        <div class="contents-left fwb fs90">
+                            e.g.
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2_en.html?selectedOption=04%2611">to Plot</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs90">
+                            <a href="etc_DEQ_v2_en.html?selectedOption=04%2611">to Plot</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                                 \[ \frac{dx}{dt} = 2x - 3y^2\]
                                 \[ \frac{dy}{dt} = -2y + 3x^2\]
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2_en.html?selectedOption=04%2611">
                                     <span class="image-container">
@@ -1967,27 +1879,23 @@
                         </p>
                     </li>
                     <li class="pb40">
-                        <p id="04&12"; class="pb10 fwb fss">
+                        <p id="04&12"; class="pb10 fwb fs90">
                             Hamilton system 4 &emsp; Case of the periodicity of trigonometric functions is reflected
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                e.g.
-                            </p>
+                        <div class="contents-left fwb fs90">
+                            e.g.
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2_en.html?selectedOption=04%2612">to Plot</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs90">
+                            <a href="etc_DEQ_v2_en.html?selectedOption=04%2612">to Plot</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                                 \[ \frac{dx}{dt} = \sin(y)\]
                                 \[ \frac{dy}{dt} = \sin(x)\]
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2_en.html?selectedOption=04%2612">
                                     <span class="image-container">
@@ -2026,20 +1934,20 @@
             </div>
 
             <div class="fwb pb20">
-                <div class="contents-title-left pb20"
+                <div class="contents-title-left pb20">
                     <p id="09&090"></p>
                     <p id="a99">
-                        [99]&nbsp;User defined Equations
+                        [99]&nbsp;User-Defined
                     </p>
                 </div>
-                <div class="contents-title-right"
+                <div class="contents-title-right">
                     <p>
                         <!--<a href="#title20">to Top</a>-->
                     </p>
                 </div>
                 <div class="c-both"></div>
 <!--
-                <div class="pic-left720 contents-left pb20"
+                <div class="pic-left720 contents-left pb20">
                 </div>
                 <div class="pb10 contents-right fwm">
                     <p>
@@ -2068,7 +1976,7 @@
                     <p class="pb30">
                         Below are some input examples.
                     </p>
-                    <ol class="fwm pb40, pl40">
+                    <ol class="fwm pb40, pSP40">
                         <li class="pb40">
                             <p id="09&091"; class="pb10">
                                 Example of a 2-dimensional first-order linear autonomous system.
@@ -2206,6 +2114,19 @@
         <hr id="footer"> <!-- horizontal partition -->
 
         <p id="page-top"><a href="#">TOP</a></p>
+
+        <p id="top-call"><a href="">TOP</a></p>
+
+        <div id="popup-menu2" class="hidden">
+            <ul>
+                <li><a href="#" class="menulink">Page Top</a></li>
+                <li><a href="#a1" class="menulink">[01] 2-D 1st-Order Autonomous Systems</a></li>
+                <li><a href="#a2" class="menulink">[02] 2-D 2nd-Order Autonomous Systems</a></li>
+                <li><a href="#a3" class="menulink">[03] Higher-Order Autonomous Systems</a></li>
+                <li><a href="#a4" class="menulink">[04] Examples of Autonomous Systems</a></li>
+                <li><a href="#a99" class="menulink">[99] User-Defined</a></li>
+            </ul>
+        </div>
 
         <div class="jQ_change center"> <!-- select button whole: start -->
             <p id="footer"> <!-- select button: start -->

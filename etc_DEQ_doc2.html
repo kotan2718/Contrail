@@ -15,6 +15,36 @@
     <!-- css start -->
         <!-- kko_etc :: class指定:change_border_color, 全ファイル共通:リンク文字色, フォーカスリング -->
         <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
+        <style>
+            @media screen and (min-width: 769px) {
+                .pSP50 {
+                    padding-left: 50px;
+                }
+                .pSP40 {
+                    padding-left: 40px;
+                }
+                .pSP20 {
+                    padding-left: 20px;
+                }
+            }
+            /* Optional: Limit image size on small screens */
+            @media (max-width: 768px) {
+                .fSP {                      /* font */
+                    font-size: 90%;
+                }
+                .pSP50, .pSP40, pSP20 {
+                    padding-left: 10px;
+                }
+                .listBox {
+                    text-indent: -2.2em;
+                    padding-left: 2.2em;
+                }
+                ul.ulSpace li {
+                    padding-top: 10px;
+                    paddhing-bottom: 10px;
+                }
+            }
+        </style>
     <!-- css end -->
 
     <!-- js start -->
@@ -53,7 +83,7 @@
 
     <header>
         <div class="prettyP_PC">
-            <a name="page_top"></a>
+            <a name="top-call"></a>
             <div class="center jQ_change navbox" >
                 <nav>
                     <img src="image/top/cr32_e.png" height="20" class="logo_img">
@@ -87,7 +117,7 @@
                 <a href="#">MENU</a>
             </p>
 
-            <a name="page_top"></a>
+            <a name="top-call"></a>
 
             <!-- page top icon & logo -->
             <div id="header_SP" class="header_labelSP">
@@ -116,11 +146,19 @@
 
         <!-- title -->
         <div id="title20">
-            <h3 class="pt30 pb40">
-                微分方程式 解曲線の描画
-                &emsp;
-                簡易解説
-            </h3>
+            <div class="prettyP_PC">
+                <h3 class="pt30 pb40">
+                    微分方程式 解曲線の描画
+                    &emsp;
+                    簡易解説
+                </h3>
+            </div>
+            <div class="prettyP_SP">
+                <h3 class="pt30">
+                    微分方程式 解曲線の描画<br>
+                    簡易解説
+                </h3>
+            </div>
         </div>
 
         <!-- for Java Script off -->
@@ -160,7 +198,7 @@
             </div>
 
             <div class="fwb pb30">
-                <ul class="list_none fwm pb40, pl40">
+                <ul class="list_none fwm pb40, pSP40">
                     <li class="pb10"><a href="#a1">[01] 2次元1次線形自励系</a></li>
                     <li class="pb10"><a href="#a2">[02] 2次元2次線形自励系</a></li>
                     <li class="pb10"><a href="#a3">[03] 高次同時自励系</a></li>
@@ -170,12 +208,12 @@
             </div>
 
             <div class="fwb pb20">
-                <div class="contents-title-left pb20"
+                <div class="contents-title-left pb20">
                     <p id="a1">
                         [01]&nbsp;2次元1次線形自励系
                     </p>
                 </div>
-                <div class="contents-title-right"
+                <div class="contents-title-right">
                     <p>
                         <!--<a href="#title20">トップへ</a>-->
                     </p>
@@ -207,29 +245,25 @@
                     これは各固有値の固有空間を意味しています。2行2列の正方行列の場合、
                     固有空間は一般に原点を通る直線になります。
                 </p>
-                <ol class="fwm pb40, pl40">
+                <ol class="fwm pb40, pSP40">
                     <li class="pb40">
-                        <p id="01&01"; class="pb10 fwb fss">
+                        <p id="01&01"; class="pb10 fwb fs80">
                             固有値の1つが0の場合
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                例)
-                            </p>
+                        <div class="contents-left fs80">
+                            例)
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2.html?selectedOption=01%2601">描画へ</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs80">
+                            <a href="etc_DEQ_v2.html?selectedOption=01%2601">描画へ</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                                 \[ \frac{dx}{dt} = x + y \]
                                 \[ \frac{dy}{dt} = 2x + 2y \]
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=01%2601">
                                     <span class="image-container">
@@ -255,27 +289,23 @@
                         </p>
                     </li>
                     <li class="pb40">
-                        <p id="01&02"; class="pb10 fwb fss">
+                        <p id="01&02"; class="pb10 fwb fs80">
                             固有値が $\lambda_1 < 0 < \lambda_2$ の場合 (鞍状点)
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                例)
-                            </p>
+                        <div class="contents-left fs80">
+                            例)
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2.html?selectedOption=01%2602">描画へ</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs80">
+                            <a href="etc_DEQ_v2.html?selectedOption=01%2602">描画へ</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                             \[ \frac{dx}{dt} = -2x + 2y \]
                             \[ \frac{dy}{dt} = -2x + 3y \]
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=01%2602">
                                     <span class="image-container">
@@ -298,27 +328,23 @@
                         </p>
                     </li>
                     <li class="pb40">
-                        <p id="01&03"; class="pb10 fwb fss">
+                        <p id="01&03"; class="pb10 fwb fs80">
                             $ 0 < \lambda_1 < \lambda_2$ の場合1 (不安定結節点 または 湧点)
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                例)
-                            </p>
+                        <div class="contents-left fs80">
+                            例)
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2.html?selectedOption=01%2603">描画へ</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs80">
+                            <a href="etc_DEQ_v2.html?selectedOption=01%2603">描画へ</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                                 \[ \frac{dx}{dt} = x \]
                                 \[ \frac{dy}{dt} = 2y \]
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=01%2603">
                                     <span class="image-container">
@@ -341,27 +367,23 @@
                         </p>
                     </li>
                     <li class="pb40">
-                        <p id="01&04"; class="pb10 fwb fss">
+                        <p id="01&04"; class="pb10 fwb fs80">
                             $ 0 < \lambda_1 < \lambda_2$ の場合2 (不安定結節点 または 湧点)
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                例)
-                            </p>
+                        <div class="contents-left fs80">
+                            例)
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2.html?selectedOption=01%2604">描画へ</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs80">
+                            <a href="etc_DEQ_v2.html?selectedOption=01%2604">描画へ</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                                 \[ \frac{dx}{dt} = x \]
                                 \[ \frac{dy}{dt} = 3x + 2y \]
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=01%2604">
                                     <span class="image-container">
@@ -384,27 +406,23 @@
                         </p>
                     </li>
                     <li class="pb40">
-                        <p id="01&05"; class="pb10 fwb fss">
+                        <p id="01&05"; class="pb10 fwb fs80">
                             $ \lambda_1 < \lambda_2 < 0$ の場合 (安定結節点 または 沈点)
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                例)
-                            </p>
+                        <div class="contents-left fs80">
+                            例)
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2.html?selectedOption=01%2605">描画へ</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs80">
+                            <a href="etc_DEQ_v2.html?selectedOption=01%2605">描画へ</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                                 \[ \frac{dx}{dt} = -4x - 3y \]
                                 \[ \frac{dy}{dt} = 2x -11y \]
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=01%2605">
                                     <span class="image-container">
@@ -427,28 +445,24 @@
                         </p>
                     </li>
                     <li class="pb40">
-                        <p id="01&06"; class="pb10 fwb fss">
+                        <p id="01&06"; class="pb10 fwb fs80">
                             固有値 $ \lambda $ が重根で、行列Aが対角化可能な場合<br>
                             $ \lambda > 0$ のときは (不安定退化結節点 または 退化湧点)となる
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                例)
-                            </p>
+                        <div class="contents-left fs80">
+                            例)
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2.html?selectedOption=01%2606">描画へ</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs80">
+                            <a href="etc_DEQ_v2.html?selectedOption=01%2606">描画へ</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                                 \[ \frac{dx}{dt} = 2x \]
                                 \[ \frac{dy}{dt} = 2y \]
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=01%2606">
                                     <span class="image-container">
@@ -473,28 +487,24 @@
                         </p>
                     </li>
                     <li class="pb40">
-                        <p id="01&07"; class="pb10 fwb fss">
+                        <p id="01&07"; class="pb10 fwb fs80">
                             固有値 $ \lambda $ が重根で、行列Aが対角化不可能な場合<br>
                             $ \lambda > 0$ のときは (不安定退化結節点 または 退化湧点)となる
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                例)
-                            </p>
+                        <div class="contents-left fs80">
+                            例)
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2.html?selectedOption=01%2607">描画へ</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs80">
+                            <a href="etc_DEQ_v2.html?selectedOption=01%2607">描画へ</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                                 \[ \frac{dx}{dt} = 2x + y \]
                                 \[ \frac{dy}{dt} = 2y \]
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=01%2607">
                                     <span class="image-container">
@@ -520,27 +530,23 @@
                         </p>
                     </li>
                     <li class="pb40">
-                        <p id="01&08"; class="pb10 fwb fss">
+                        <p id="01&08"; class="pb10 fwb fs80">
                             固有値が純虚数の場合 (渦心点)<br>
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                例)
-                            </p>
+                        <div class="contents-left fs80">
+                            例)
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2.html?selectedOption=01%2608">描画へ</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs80">
+                            <a href="etc_DEQ_v2.html?selectedOption=01%2608">描画へ</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                                 \[ \frac{dx}{dt} = x + 2y \]
                                 \[ \frac{dy}{dt} = -x - y \]
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=01%2608">
                                     <span class="image-container">
@@ -562,27 +568,23 @@
                         </p>
                     </li>
                     <li class="pb40">
-                        <p id="01&09"; class="pb10 fwb fss">
+                        <p id="01&09"; class="pb10 fwb fs80">
                             固有値が実部と虚部を持つ場合 (渦状点)<br>
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                例)
-                            </p>
+                        <div class="contents-left fs80">
+                            例)
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2.html?selectedOption=01%2609">描画へ</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs80">
+                            <a href="etc_DEQ_v2.html?selectedOption=01%2609">描画へ</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                                 \[ \frac{dx}{dt} = -x - y \]
                                 \[ \frac{dy}{dt} = 2x - y \]
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=01%2609">
                                     <span class="image-container">
@@ -612,12 +614,12 @@
             </div>
 
             <div class="fwb pb20">
-                <div class="contents-title-left pb20"
+                <div class="contents-title-left pb20">
                     <p id="a2">
                         [02]&nbsp;2次元2次線形自励系
                     </p>
                 </div>
-                <div class="contents-title-right"
+                <div class="contents-title-right">
                     <p>
                         <!--<a href="#title20">トップへ</a>-->
                     </p>
@@ -636,29 +638,25 @@
                     森本氏の著書では、解析解を示され、解曲線の性質を詳しく解説されていますが、
                     ここでは、かなり端折った説明になっていることをご留意願います。
                 </p>
-                <ol class="fwm pb40, pl40">
+                <ol class="fwm pb40, pSP40">
                     <li class="pb40">
-                        <p id="02&01"; class="pb10 fwb fss">
+                        <p id="02&01"; class="pb10 fwb fs80">
                             結節峠点型<br>
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                例)
-                            </p>
+                        <div class="contents-left fs80">
+                            例)
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2.html?selectedOption=02%2601">描画へ</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs80">
+                            <a href="etc_DEQ_v2.html?selectedOption=02%2601">描画へ</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                                 \[ \frac{dx}{dt} = x^2 \]
                                 \[ \frac{dy}{dt} = 2(x - y)^2 \]
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=02%2601">
                                     <span class="image-container">
@@ -684,27 +682,23 @@
                         </p>
                     </li>
                     <li class="pb40">
-                        <p id="02&02"; class="pb10 fwb fss">
+                        <p id="02&02"; class="pb10 fwb fs80">
                             退化結節峠点型<br>
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                例)
-                            </p>
+                        <div class="contents-left fs80">
+                            例)
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2.html?selectedOption=02%2602">描画へ</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs80">
+                            <a href="etc_DEQ_v2.html?selectedOption=02%2602">描画へ</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                                 \[ \frac{dx}{dt} = 4x^2 \]
                                 \[ \frac{dy}{dt} = x^2 + 4y^2 \]
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=02%2602">
                                     <span class="image-container">
@@ -730,35 +724,23 @@
                         </p>
                     </li>
                     <li class="pb40">
-                        <p id="02&03"; class="fwb fss">
+                        <p id="02&03"; class="fwb fs80">
                             双楕円型
                         </p>
-                        <div class="contents-left">
+                        <div class="contents-left fs80">
+                            例)
                         </div>
-                        <div class="contents-title-right fss"
-                            <p>
-                                <a href="#a2">セクショントップへ</a>
-                            </p>
-                        </div>
-                        <div class="c-both pb10"></div>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                例)
-                            </p>
-                        </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2.html?selectedOption=02%2603">描画へ</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs80">
+                            <a href="etc_DEQ_v2.html?selectedOption=02%2603">描画へ</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                                 \[ \frac{dx}{dt} = -x^2 + y^2 \]
                                 \[ \frac{dy}{dt} = -2xy \]
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=02%2603">
                                     <span class="image-container">
@@ -783,27 +765,23 @@
                         </p>
                     </li>
                     <li class="pb40">
-                        <p id="02&04"; class="pb10 fwb fss">
+                        <p id="02&04"; class="pb10 fwb fs80">
                             三峠型<br>
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                例)
-                            </p>
+                        <div class="contents-left fs80">
+                            例)
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2.html?selectedOption=02%2604">描画へ</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs80">
+                            <a href="etc_DEQ_v2.html?selectedOption=02%2604">描画へ</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                                 \[ \frac{dx}{dt} = x^2 - y^2 \]
                                 \[ \frac{dy}{dt} = -2xy \]
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=02%2604">
                                     <span class="image-container">
@@ -831,35 +809,23 @@
                         </p>
                     </li>
                     <li class="pb40">
-                        <p id="02&05"; class="pb10 fwb fss">
+                        <p id="02&05"; class="pb10 fwb fs80">
                             結節点型 2<br>
                         </p>
-                        <div class="contents-left">
+                        <div class="contents-left fs80">
+                            例)
                         </div>
-                        <div class="contents-title-right fss"
-                            <p>
-                                <a href="#a2">セクショントップへ</a>
-                            </p>
-                        </div>
-                        <div class="c-both pb10"></div>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                例)
-                            </p>
-                        </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2.html?selectedOption=02%2605">描画へ</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs80">
+                            <a href="etc_DEQ_v2.html?selectedOption=02%2605">描画へ</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                                 \[ \frac{dx}{dt} = -x^2 \]
                                 \[ \frac{dy}{dt} = y^2 \]
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=02%2605">
                                     <span class="image-container">
@@ -885,27 +851,23 @@
                         </p>
                     </li>
                     <li class="pb40">
-                        <p id="02&06"; class="pb10 fwb fss">
+                        <p id="02&06"; class="pb10 fwb fs80">
                             放物型<br>
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                例)
-                            </p>
+                        <div class="contents-left fs80">
+                            例)
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2.html?selectedOption=02%2606">描画へ</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs80">
+                            <a href="etc_DEQ_v2.html?selectedOption=02%2606">描画へ</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                                 \[ \frac{dx}{dt} = -x^2 \]
                                 \[ \frac{dy}{dt} = y^2 \]
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=02%2606">
                                     <span class="image-container">
@@ -934,12 +896,12 @@
             </div>
 
             <div class="fwb pb20">
-                <div class="contents-title-left pb20"
+                <div class="contents-title-left pb20">
                     <p id="a3">
                         [03]&nbsp;高次の同次自励系
                     </p>
                 </div>
-                <div class="contents-title-right"
+                <div class="contents-title-right">
                     <p>
                         <!--<a href="#title20">トップへ</a>-->
                     </p>
@@ -954,29 +916,25 @@
                     まだ先の話になりそうです。<br>
                     今のところは森本氏の著書に紹介されている方程式を紹介したいと思います。
                 </p>
-                <ol class="fwm pb40, pl40">
+                <ol class="fwm pb40, pSP40">
                     <li class="pb40">
-                        <p id="03&01"; class="pb10 fwb fss">
+                        <p id="03&01"; class="pb10 fwb fs80">
                             周期解を持つ同次自励形<br>
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                例)
-                            </p>
+                        <div class="contents-left fs80">
+                            例)
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2.html?selectedOption=03%2601">描画へ</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs80">
+                            <a href="etc_DEQ_v2.html?selectedOption=03%2601">描画へ</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                                 \[ \frac{dx}{dt} = -y^3 \]
                                 \[ \frac{dy}{dt} = x^3 \]
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=03%2601">
                                     <span class="image-container">
@@ -988,27 +946,23 @@
                         <div class="c-both"></div>
                     </li>
                     <li class="pb40">
-                        <p id="03&02"; class="pb10 fwb fss">
+                        <p id="03&02"; class="pb10 fwb fs80">
                             8つの放物型角領域を持つ同次自励形
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                例)
-                            </p>
+                        <div class="contents-left fs80">
+                            例)
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2.html?selectedOption=03%2602">描画へ</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs80">
+                            <a href="etc_DEQ_v2.html?selectedOption=03%2602">描画へ</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                                 \[ \frac{dx}{dt} = x^3 \]
                                 \[ \frac{dy}{dt} = y^3 \]
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=03%2602">
                                     <span class="image-container">
@@ -1023,27 +977,23 @@
                         </p>
                     </li>
                     <li class="pb40">
-                        <p id="03&03"; class="pb10 fwb fss">
+                        <p id="03&03"; class="pb10 fwb fs80">
                             複合角領域を持つ同次自励形
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                例)
-                            </p>
+                        <div class="contents-left fs80">
+                            例)
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2.html?selectedOption=03%2603">描画へ</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs80">
+                            <a href="etc_DEQ_v2.html?selectedOption=03%2603">描画へ</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                                 \[ \frac{dx}{dt} = x^2(y - x) \]
                                 \[ \frac{dy}{dt} = y^2(y - 2x) \]
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=03%2603">
                                     <span class="image-container">
@@ -1060,27 +1010,23 @@
                         </p>
                     </li>
                     <li class="pb40">
-                        <p id="03&04"; class="pb10 fwb fss">
+                        <p id="03&04"; class="pb10 fwb fs80">
                             Vinograd(ヴィノグラード)の自励形
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                例)
-                            </p>
+                        <div class="contents-left fs80">
+                            例)
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2.html?selectedOption=03%2604">描画へ</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs80">
+                            <a href="etc_DEQ_v2.html?selectedOption=03%2604">描画へ</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                                 \[ \frac{dx}{dt} = x^2(y - x) + y^5 \]
                                 \[ \frac{dy}{dt} = y^2(y - 2x) \]
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=03%2604">
                                     <span class="image-container">
@@ -1099,58 +1045,54 @@
             </div>
 
             <div class="fwb pb20">
-                <div class="contents-title-left pb20"
+                <div class="contents-title-left pb20">
                     <p id="a4">
                         [04]&nbsp;自励系の諸例
                     </p>
                 </div>
-                <div class="contents-title-right"
+                <div class="contents-title-right">
                     <p>
                         <!--<a href="#title20">トップへ</a>-->
                     </p>
                 </div>
                 <div class="c-both"></div>
 
-                <div class="fwb pb30">
-                    <ul class="list_none pb40, pl40">
+                <div class="listBox fwb pb30" style="font-size: 85%">
+                    <ul class="list_none ulSpace pb40, pSP40">
                         <li><a href="#04&01">[01] x軸上に周期的に鞍状点と渦心点を持つ自励形</a></li>
                         <li><a href="#04&02">[02] 円周上に8つの平衡点を持つ自励形</a></li>
                         <li><a href="#04&03">[03] 平面上に周期的な平衡点を持つ自励形</a></li>
-                        <li><a href="#04&04">[04] 極限軌道 1 &emsp; 解軌道が極限円になる場合</a></li>
-                        <li><a href="#04&05">[05] 極限軌道 2 &emsp; von del Pol(ファン・デル・ポル)の自励形</a></li>
-                        <li><a href="#04&06">[06] 極限軌道 3 &emsp; レムニスケート</a></li>
-                        <li><a href="#04&07">[07] 極限軌道 4 &emsp; 線形近似が純虚数の場合 1</a></li>
-                        <li><a href="#04&08">[08] 極限軌道 5 &emsp; 線形近似が純虚数の場合 2</a></li>
-                        <li><a href="#04&09">[09] Hamilton型 1 &emsp; Cassini(カシニ)の燈形</a></li>
-                        <li><a href="#04&10">[10] Hamilton型 2 &emsp; Descartes(デカルト)の葉線</a></li>
-                        <li><a href="#04&11">[11] Hamilton型 3 &emsp; Descartes(デカルト)の葉線の派生形</a></li>
-                        <li><a href="#04&12">[12] Hamilton型 4 &emsp; 三角関数の周期性が反映される例</a></li>
+                        <li><a href="#04&04">[04] 極限軌道 1 解軌道が極限円になる場合</a></li>
+                        <li><a href="#04&05">[05] 極限軌道 2 von del Pol(ファン・デル・ポル)の自励形</a></li>
+                        <li><a href="#04&06">[06] 極限軌道 3 レムニスケート</a></li>
+                        <li><a href="#04&07">[07] 極限軌道 4 線形近似が純虚数の場合 1</a></li>
+                        <li><a href="#04&08">[08] 極限軌道 5 線形近似が純虚数の場合 2</a></li>
+                        <li><a href="#04&09">[09] Hamilton型 1 Cassini(カシニ)の燈形</a></li>
+                        <li><a href="#04&10">[10] Hamilton型 2 Descartes(デカルト)の葉線</a></li>
+                        <li><a href="#04&11">[11] Hamilton型 3 Descartes(デカルト)の葉線の派生形</a></li>
+                        <li><a href="#04&12">[12] Hamilton型 4 三角関数の周期性が反映される例</a></li>
                     </ul>
                 </div>
 
-                <ol class="fwm pb40, pl40">
+                <ol class="fwm pb40, pSP40">
                     <li class="pb40">
-                        <p id="04&01"; class="pb10 fwb fss">
+                        <p id="04&01"; class="pb10 fwb fs80">
                             x軸上に周期的に鞍状点と渦心点を持つ自励形<br>
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                例)
-                            </p>
+                        <div class="contents-left fs80">
+                            例)
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2.html?selectedOption=04%2601">描画へ</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs80">
+                            <a href="etc_DEQ_v2.html?selectedOption=04%2601">描画へ</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                                 \[ \frac{dx}{dt} = y \]
                                 \[ \frac{dy}{dt} = \sin x + y^2 \]
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=04%2601">
                                     <span class="image-container">
@@ -1196,27 +1138,23 @@
                         </p>
                     </li>
                     <li class="pb40">
-                        <p id="04&02"; class="pb10 fwb fss">
-                            円周上に8つの平衡点を持つ自励形<br>
+                        <p id="04&02"; class="pb10 fwb fs80">
+                            円周上に8つの平衡点を持つ自励形
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                例)
-                            </p>
+                        <div class="contents-left fs80">
+                            例)
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2.html?selectedOption=04%2602">描画へ</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs80">
+                            <a href="etc_DEQ_v2.html?selectedOption=04%2602">描画へ</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                                 \[ \frac{dx}{dt} = x^2y^2 - 1 \]
                                 \[ \frac{dy}{dt} = x^2 + y^2 - a \]
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=04%2602">
                                     <span class="image-container">
@@ -1237,27 +1175,23 @@
                         </p>
                     </li>
                     <li class="pb40">
-                        <p id="04&03"; class="pb10 fwb fss">
-                            平面上に周期的な平衡点を持つ自励形<br>
+                        <p id="04&03"; class="pb10 fwb fs80">
+                            平面上に周期的な平衡点を持つ自励形
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                例)
-                            </p>
+                        <div class="contents-left fs80">
+                            例)
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2.html?selectedOption=04%2603">描画へ</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs80">
+                            <a href="etc_DEQ_v2.html?selectedOption=04%2603">描画へ</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                                 \[ \frac{dx}{dt} = \cos x + \cos y \]
                                 \[ \frac{dy}{dt} = \sin x \sin y \]
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=04%2603">
                                     <span class="image-container">
@@ -1293,28 +1227,24 @@
                         </p>
                     </li>
                     <li class="pb40">
-                        <p id="04&04"; class="pb10 fwb fss">
+                        <p id="04&04"; class="pb10 fwb fs80">
                             極限軌道の例 1<br>
                             解軌道が極限円になる場合
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                例)
-                            </p>
+                        <div class="contents-left fs80">
+                            例)
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2.html?selectedOption=04%2604">描画へ</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs80">
+                            <a href="etc_DEQ_v2.html?selectedOption=04%2604">描画へ</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                                 \[ \frac{dx}{dt} = ay + ax(1 - x^2 - y^2) \]
                                 \[ \frac{dy}{dt} = cx + dy(1 - x^2 - y^2) \]
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=04%2604">
                                     <span class="image-container">
@@ -1375,27 +1305,23 @@
                         </p>
                     </li>
                     <li class="pb40">
-                        <p id="04&05"; class="pb10 fwb fss">
+                        <p id="04&05"; class="pb10 fwb fs80">
                             極限軌道の例 2 von del Pol(ファン・デル・ポル)の自励形<br>
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                例)
-                            </p>
+                        <div class="contents-left fs80">
+                            例)
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2.html?selectedOption=04%2605">描画へ</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs80">
+                            <a href="etc_DEQ_v2.html?selectedOption=04%2605">描画へ</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                                 \[ \frac{dx}{dt} = y \]
                                 \[ \frac{dy}{dt} = -x + ay(1 - x^2) \]
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=04%2605">
                                     <span class="image-container">
@@ -1425,29 +1351,25 @@
                         </p>
                     </li>
                     <li class="pb40">
-                        <p id="04&06"; class="pb10 fwb fss">
+                        <p id="04&06"; class="pb10 fwb fs80">
                             極限軌道の例 3 Lemniscate(レムニスケート)<br>
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                例)
-                            </p>
+                        <div class="contents-left fs80">
+                            例)
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2.html?selectedOption=04%2606">描画へ</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs80">
+                            <a href="etc_DEQ_v2.html?selectedOption=04%2606">描画へ</a>
                         </div>
                         <div class="c-both"></div>
                         <div class="table-container">
-                            <div class="contents-left pb10"
+                            <div class="contents-left pb10">
                                 <p class="pb10">
                                     \[ \frac{dx}{dt} = a * y(1 + 2x^2 + 2y^2) \]
                                     \[ \frac{dy}{dt} = b * x(1 - 2x^2 - 2y^2) + c * y(1 + 2x^2 + 2y^2)((x^2 + y^2)^2 - (x^2 - y^2)) \]
                                 </p>
                             </div>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=04%2606">
                                     <span class="image-container">
@@ -1482,28 +1404,24 @@
                         </p>
                     </li>
                     <li class="pb40">
-                        <p id="04&07"; class="pb10 fwb fss">
+                        <p id="04&07"; class="pb10 fwb fs80">
                             極限軌道の例 4 線形近似が純虚数の場合 1<br>
                             極限円が存在しない場合
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                例)
-                            </p>
+                        <div class="contents-left fs80">
+                            例)
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2.html?selectedOption=04%2607">描画へ</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs80">
+                            <a href="etc_DEQ_v2.html?selectedOption=04%2607">描画へ</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                                 \[ \frac{dx}{dt} = y \]
                                 \[ \frac{dy}{dt} = -x - y^3 \]
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=04%2607">
                                     <span class="image-container">
@@ -1581,7 +1499,7 @@
                         </p>
                         <p class="pb10">
                             <span class="image-container">
-                                <img src="image/DEQ_img/deq2_0407_fig.jpg" width="50%" height="50%" border="0">
+                                <img src="image/DEQ_img/deq2_0407_fig.jpg" width="75%" height="75%" border="0">
                             </span>
                         </p>
                         <p class="pb20">
@@ -1595,22 +1513,18 @@
                         </p>
                     </li>
                     <li class="pb40">
-                        <p id="04&08"; class="pb10 fwb fss">
+                        <p id="04&08"; class="pb10 fwb fs80">
                             極限軌道の例 4 線形近似が純虚数の場合 2<br>
                             極限円が無限個現れる例
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                例)
-                            </p>
+                        <div class="contents-left fs80">
+                            例)
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2.html?selectedOption=04%2608">描画へ</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs80">
+                            <a href="etc_DEQ_v2.html?selectedOption=04%2608">描画へ</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
 <!--
                                 \[ \frac{dx}{dt} = -y + 5x \, e^{(-1 / \sqrt{r})} \sin(1 / r)\]
@@ -1621,7 +1535,7 @@
                                 $\qquad$ where $\; r = \sqrt{x^2 + y^2} $
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=04%2608">
                                     <span class="image-container">
@@ -1652,7 +1566,7 @@
                         </p>
                         <p class="pb10">
                             <span class="image-container">
-                                <img src="image/DEQ_img/deq2_0408_alpha_of_r_2.jpg" width="50%" height="50%" border="0">
+                                <img src="image/DEQ_img/deq2_0408_alpha_of_r_2.jpg" width="75%" height="75%" border="0">
                             </span>
                         </p>
                         <p class="pb10">
@@ -1738,27 +1652,23 @@
                     </li>
 
                     <li class="pb40">
-                        <p id="04&09"; class="pb10 fwb fss">
+                        <p id="04&09"; class="pb10 fwb fs80">
                             Hamilton型の例 1&emsp; Cassini(カシニ)の燈形
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                例)
-                            </p>
+                        <div class="contents-left fs80">
+                            例)
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2.html?selectedOption=04%2609">描画へ</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs80">
+                            <a href="etc_DEQ_v2.html?selectedOption=04%2609">描画へ</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                             \[ \frac{dx}{dt} = y(1 + x^2 + y^2)\]
                             \[ \frac{dy}{dt} = x(1 - x^2 - y^2)\]
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=04%2609">
                                     <span class="image-container">
@@ -1815,27 +1725,23 @@
                         </p>
                     </li>
                     <li class="pb40">
-                        <p id="04&10"; class="pb10 fwb fss">
+                        <p id="04&10"; class="pb10 fwb fs80">
                             Hamilton型の例 2&emsp; Descartes(デカルト)の葉線
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                例)
-                            </p>
+                        <div class="contents-left fs80">
+                            例)
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2.html?selectedOption=04%2610">描画へ</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs80">
+                            <a href="etc_DEQ_v2.html?selectedOption=04%2610">描画へ</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                             \[ \frac{dx}{dt} = 2x - 3y^2\]
                             \[ \frac{dy}{dt} = -2y + 3x^2\]
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=04%2610">
                                     <span class="image-container">
@@ -1860,27 +1766,23 @@
                         </p>
                     </li>
                     <li class="pb40">
-                        <p id="04&11"; class="pb10 fwb fss">
+                        <p id="04&11"; class="pb10 fwb fs80">
                             Hamilton型の例 3&emsp; Descartes(デカルト)の葉線の派生形
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                例)
-                            </p>
+                        <div class="contents-left fs80">
+                            例)
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2.html?selectedOption=04%2611">描画へ</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs80">
+                            <a href="etc_DEQ_v2.html?selectedOption=04%2611">描画へ</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                             \[ \frac{dx}{dt} = 2x^2 - 5y^4\]
                             \[ \frac{dy}{dt} = -4xy + 5x^4\]
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=04%2611">
                                     <span class="image-container">
@@ -1915,27 +1817,23 @@
                         </p>
                     </li>
                     <li class="pb40">
-                        <p id="04&12"; class="pb10 fwb fss">
+                        <p id="04&12"; class="pb10 fwb fs80">
                             Hamilton型の例 4&emsp; 三角関数の周期性が反映される例
                         </p>
-                        <div class="contents-left pb10"
-                            <p class="pb10">
-                                例)
-                            </p>
+                        <div class="contents-left fs80">
+                            例)
                         </div>
-                        <div class="contents-right"
-                            <p>
-                                <a href="etc_DEQ_v2.html?selectedOption=04%2612">描画へ</a>
-                            </p>
+                        <div class="contents-right pb10 fwb fs80">
+                            <a href="etc_DEQ_v2.html?selectedOption=04%2612">描画へ</a>
                         </div>
                         <div class="c-both"></div>
-                        <div class="contents-left pb10"
+                        <div class="contents-left pb10">
                             <p class="pb10">
                                 \[ \frac{dx}{dt} = \sin(y)\]
                                 \[ \frac{dy}{dt} = \sin(x)\]
                             </p>
                         </div>
-                        <div class="contents-right"
+                        <div class="contents-right">
                             <p>
                                 <a href="etc_DEQ_v2.html?selectedOption=04%2612">
                                     <span class="image-container">
@@ -1974,13 +1872,13 @@
             </div>
 
             <div class="fwb pb20">
-                <div class="contents-title-left pb20"
+                <div class="contents-title-left pb20">
                     <p id="09&090"></p>
                     <p id="a99">
                         [99]&nbsp;ユーザー定義
                     </p>
                 </div>
-                <div class="contents-title-right"
+                <div class="contents-title-right">
                     <p>
                         <!--<a href="#title20">トップへ</a>-->
                     </p>
@@ -2006,7 +1904,7 @@
                 <p class="pb30">
                     以下に、入力例を示します。
                 </p>
-                <ol class="fwm pb40, pl40">
+                <ol class="fwm pb40, pSP40">
                     <li class="pb40">
                         <p id="09&091"; class="pb10">
                             2次元1次線形自励系の例です。
@@ -2142,7 +2040,18 @@
 
         <hr id="footer"> <!-- horizontal partition -->
 
-        <p id="page-top"><a href="#">TOP</a></p>
+        <p id="top-call"><a href="">TOP</a></p>
+
+        <div id="popup-menu2" class="hidden">
+            <ul>
+                <li><a href="#" class="menulink">ページトップ</a></li>
+                <li><a href="#a1" class="menulink">[01] 2次元1次線形自励系</a></li>
+                <li><a href="#a2" class="menulink">[02] 2次元2次線形自励系</a></li>
+                <li><a href="#a3" class="menulink">[03] 高次同時自励系</a></li>
+                <li><a href="#a4" class="menulink">[04] 自励系の諸例</a></li>
+                <li><a href="#a99" class="menulink">[99] ユーザー定義</a></li>
+            </ul>
+        </div>
 
         <div class="jQ_change center"> <!-- select button whole: start -->
             <p id="footer"> <!-- select button: start -->
@@ -2160,7 +2069,7 @@
             </script>
             <nonscript>
             </nonscript>
-            Contrail - kotan - 
+            Contrail - kotan -
         </div>
 
     </footer>
