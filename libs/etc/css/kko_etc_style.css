@@ -791,6 +791,8 @@ p#authorSP { font-size: 95%; font-weight: bold; color: #9999aa;}
 }
 .flx_itemL{
     width:80px;
+    font-size:90%;
+    font-weight:bold;
 }
 .flx_itemC{
     width:20px;
@@ -1654,6 +1656,30 @@ input[type="checkbox"]:checked:before {
   opacity: .5;
 }
 
+#top-call {
+  position: fixed;
+  bottom: 20px;
+  font-size: 14px;
+  line-height: 1;
+  z-index: 99;
+    font-family:-apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI","Noto Sans Japanese","ヒラギノ角ゴ ProN W3", Meiryo, sans-serif;
+/*    font-family: "游明朝", YuMincho, "Hiragino Mincho ProN W3", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;*/
+}
+#top-call a {
+  background: #929292;
+  text-decoration: none;
+  color: #fff;
+  width: 60px;
+  padding: 8px 5px;
+  text-align: center;
+  display: block;
+  border-radius: 4px;
+}
+#top-call a:hover {
+  text-decoration: none;
+  opacity: .5;
+}
+
 /* "MENU"ボタン本体のスタイル */
 #menu-call {
     position: fixed;
@@ -1696,6 +1722,19 @@ input[type="checkbox"]:checked:before {
     font-family: "游明朝", YuMincho, "Hiragino Mincho ProN W3", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
 }
 
+#popup-menu2 {
+    position: fixed;
+    bottom: 60px; /* MENUボタンのすぐ下 */
+    right: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    z-index: 98;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    width: 200px;
+    font-family: "游明朝", YuMincho, "Hiragino Mincho ProN W3", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+}
+
 /* 非表示にするためのクラス */
 .hidden {
     display: none;
@@ -1716,6 +1755,24 @@ input[type="checkbox"]:checked:before {
     background-color: #eee;
 }
 #popup-menu li a:hover {
+    color: #f00;
+    background-color: #ccc;
+}
+
+#popup-menu2 ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+#popup-menu2 li a {
+    display: block;
+    padding: 10px;
+    text-align: left;
+    text-decoration: none;
+    color: #333;
+    background-color: #eee;
+}
+#popup-menu2 li a:hover {
     color: #f00;
     background-color: #ccc;
 }

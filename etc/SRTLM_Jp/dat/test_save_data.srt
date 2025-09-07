@@ -1,0 +1,27 @@
+// 
+// =================================================================================
+//  SRTLM_Dat < Skew Ray Trace Lens Meter Version > Ver. 2.18.1.1 by Kazuo Kawamura
+// =================================================================================
+// 
+ [number of surfaces : m_iKY2] 
+m_iKY2 = 11 
+
+// [radius of curvature : r] 
+Pre_m_dC[5] = -103.922235062198 
+Pre_m_dC[6] = -120.000000000000 
+
+// [ distance between interfaces :  m_dD ] 
+m_dD[5] = 1.500000000000 
+
+// [ refractive index : m_dN ] 
+m_dN[6] = 1.600000000000 
+
+// [ toric face flag : m_nTORIC ] 
+m_nTORIC[5] = 1 
+
+// [ toric surface Max curvature :  r_syu]  
+Pre_m_dCylCV2[5] = -140.398567361558 
+
+// [ principal longitudinal direction of toric plane :  m_dCylTheta ] 
+m_dCylTheta[5] = -30.000000 
+

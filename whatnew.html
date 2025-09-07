@@ -14,6 +14,22 @@
     <!-- css start -->
         <!-- kko_etc - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
         <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
+        <style>
+            /* タイトル（右カラムの最初のdiv）は横並び */
+            .flx_itemR960 > div:first-child {
+                display: block;
+                margin-bottom: 0.5em;
+            }
+            .flx_itemR480 > div:first-child {
+                display: block;
+                margin-bottom: 0.5em;
+            }
+            /* スマホの場合のみ 説明文（2行目以降）を日付の下に寄せる */
+            .flx_itemR480 > div:not(:first-child) {
+                margin-left: -100px;  /* 日付幅ぶん戻す */
+                padding-left: 20px;  /* 少しインデント */
+            }
+        </style>
     <!-- css end -->
 
     <!-- js start -->
@@ -275,23 +291,25 @@
                 <div class="pb10">
                     微分方程式(2次元)の解軌道を描画するページに以下の方程式を追加しました。
                 </div>
-                <div>
+                <div class="pb10">
                     [04] 自励形の諸例
                 </div>
-                <ul class="fwm">
-                    <li>
-                      Hamilton型 1 &emsp; Cassini(カシニ)の燈形
-                    </li>
-                    <li>
-                      Hamilton型 2 &emsp; Descartes(デカルト)の葉線
-                    </li>
-                    <li>
-                      Hamilton型 3 &emsp; Descartes(デカルト)の葉線の派生形
-                    </li>
-                    <li>
-                      Hamilton型 4 &emsp; 三角関数の周期性が反映される例
-                    </li>
-                </ul>
+                <div class="pb10">
+                    <ul class="fwm pl30" style="font-size: 85%;">
+                        <li>
+                          Hamilton型 1 : Cassini(カシニ)の燈形
+                        </li>
+                        <li>
+                          Hamilton型 2 : Descartes(デカルト)の葉線
+                        </li>
+                        <li>
+                          Hamilton型 3 : Descartes(デカルト)の葉線の派生形
+                        </li>
+                        <li>
+                          Hamilton型 4 : 三角関数の周期性が反映される例
+                        </li>
+                    </ul>
+                </div>
                 <div class="pb15">
                      [E.T.C.] - <a href="etc_DEQ_doc2.html">微分方程式 解曲線の描画 簡易解説</a>
                 </div>
@@ -337,19 +355,21 @@
                 <div class="pb10">
                     微分方程式(2次元)の解軌道を描画するページに以下の方程式を追加しました。
                 </div>
-                <div>
+                <div class="pb10">
                     [04] 自励形の諸例
                 </div>
-                <ul class="fwm">
-                    <li>
-                      極限軌道の例 4 線形近似が純虚数の場合 1<br>
-                      極限円が存在しない場合
-                    </li>
-                    <li>
-                      極限軌道の例 4 線形近似が純虚数の場合 2<br>
-                      極限円が無限個現れる例
-                    </li>
-                </ul>
+                <div class="pb10">
+                    <ul class="fwm pl30" style="font-size: 85%;">
+                        <li>
+                          極限軌道の例 4 線形近似が純虚数の場合 1<br>
+                          極限円が存在しない場合
+                        </li>
+                        <li>
+                          極限軌道の例 4 線形近似が純虚数の場合 2<br>
+                          極限円が無限個現れる例
+                        </li>
+                    </ul>
+                </div>
                 <div class="pb15">
                      [E.T.C.] - <a href="etc_DEQ_doc2.html">微分方程式 解曲線の描画 簡易解説</a>
                 </div>
@@ -388,17 +408,19 @@
                 <div>
                     [04] 自励形の諸例
                 </div>
-                <ul class="fwm pl40">
-                    <li>
-                      極限軌道の例 1
-                    </li>
-                    <li>
-                      極限軌道の例 2 von del Pol(ファン・デル・ポル)の自励形
-                    </li>
-                    <li>
-                      極限軌道の例 3 Lemniscate(レムニスケート)
-                    </li>
-                </ul>
+                <div class="pb10">
+                    <ul class="fwm pl30" style="font-size: 85%;">
+                        <li>
+                            極限軌道の例 1
+                        </li>
+                        <li>
+                            極限軌道の例 2 von del Pol(ファン・デル・ポル)の自励形
+                        </li>
+                        <li>
+                            極限軌道の例 3 Lemniscate(レムニスケート)
+                        </li>
+                    </ul>
+                </div>
                 <div class="pb15">
                      [E.T.C.] - <a href="etc_DEQ_doc2.html">微分方程式 解曲線の描画 簡易解説</a>
                 </div>
@@ -437,17 +459,19 @@
                 <div>
                     [04] 自励形の諸例
                 </div>
-                <ul class="fwm">
-                    <li>
-                      x軸上に周期的に鞍状点と渦心点を持つ自励形
-                    </li>
-                    <li>
-                      円周上に8つの平衡点を持つ自励形
-                    </li>
-                    <li>
-                      平面上に周期的な平衡点を持つ自励形
-                    </li>
-                </ul>
+                <div class="pb10">
+                    <ul class="fwm pl30" style="font-size: 85%;">
+                        <li>
+                            x軸上に周期的に鞍状点と渦心点を持つ自励形
+                        </li>
+                        <li>
+                            円周上に8つの平衡点を持つ自励形
+                        </li>
+                        <li>
+                            平面上に周期的な平衡点を持つ自励形
+                        </li>
+                    </ul>
+                </div>
                 <div class="pb15">
                      [E.T.C.] - <a href="etc_DEQ_doc2.html">微分方程式 解曲線の描画 簡易解説</a>
                 </div>
@@ -481,7 +505,9 @@
             </div>
             <div class="flx_itemR960">
                 <div class="pb10">
-                    微分方程式(2次元)の解軌道を描画するページを公開しました。<br>
+                    微分方程式(2次元)の解軌道を描画するページを公開しました。
+                </div>
+                <div class="pb10">
                     ページ内で方程式を選択すると、動的に解軌道を描画します。<br>
                     元々はc#で描画ツールを組んでいたのですが、webで直接描画できるようにしたいと思って、
                     javascriptで組み直しました。ただ、私は10年位前にほんの少しjavascriptに触れただけで、
@@ -505,13 +531,27 @@
                     セレクトボックスから方程式を選択して、[Start]ボタンをクリックすることで解曲線の描画が始まります。<br>
                      [E.T.C.] - <a href="etc_DEQ_v2.html">微分方程式 解曲線の描画</a>
                 </div>
-                <div>
-                    描画ページでは、以下の設定ができます。<br>
-                    1. 係数(変更できるパラメーターはそれぞれの方程式によって異なります)<br>
-                    2. 描画範囲<br>
-                    3. 刻み幅(経過時間の幅)<br>
-                    4. 繰返し回数(刻み幅の実行回数)<br>
-                    5. 近似方法(Euler法、修正Euler法、4次runge-kutta法)<br>
+                <div class="fwb fss pb10">
+                    描画ページでは、以下の設定ができます。
+                </div>
+                <div class="pb10">
+                    <ol class="fwm pl30" style="font-size: 85%;">
+                        <li>
+                            係数(変更できるパラメーターはそれぞれの方程式によって異なります)
+                        </li>
+                        <li>
+                            描画範囲
+                        </li>
+                        <li>
+                            刻み幅(経過時間の幅)
+                        </li>
+                        <li>
+                            繰返し回数(刻み幅の実行回数)
+                        </li>
+                        <li>
+                            近似方法(Euler法、修正Euler法、4次runge-kutta法)
+                        </li>
+                    </ol>
                 </div>
             </div>
         </div>
@@ -526,7 +566,9 @@
             </div>
             <div class="flx_itemR960">
                 <div class="pb10">
-                    微分方程式(3次元)の解軌道を描画するページを公開しました。<br>
+                    微分方程式(3次元)の解軌道を描画するページを公開しました。
+                </div>
+                <div class="pb10">
                     ページ内で方程式を選択すると、動的に解軌道を描画します。<br>
                     微分方程式(2次元)版と同様の箇所で、チャットGTPを利用したことを明記しておきます。
                 </div>
@@ -547,15 +589,33 @@
                     描画終了後は、Angle、Vertical Axisを変更することで、いろいろな角度から解軌道を観察することができます。<br>
                      [E.T.C.] - <a href="etc_DEQ_v3.html">微分方程式 3D 解軌道の描画</a>
                 </div>
-                <div>
-                    描画ページでは、以下の設定ができます。<br>
-                    1. 係数(変更できるパラメーターはそれぞれの方程式によって異なります)<br>
-                    2. 描画範囲<br>
-                    3. 刻み幅(経過時間の幅)<br>
-                    4. 繰返し回数(刻み幅の実行回数)<br>
-                    5. 初期値(2点指定できます)<br>
-                    6. Angle(左右、上下)<br>
-                    7. Vertical Axis(デフォルトはz軸ですが、x軸とy軸も選べます)
+                <div class="fwb fss pb15">
+                    描画ページでは、以下の設定ができます。
+                </div>
+                <div class="pb10">
+                    <ol class="fwm pl30" style="font-size: 85%;">
+                        <li>
+                            係数(変更できるパラメーターはそれぞれの方程式によって異なります)
+                        </li>
+                        <li>
+                            描画範囲
+                        </li>
+                        <li>
+                            刻み幅(経過時間の幅)
+                        </li>
+                        <li>
+                            繰返し回数(刻み幅の実行回数)
+                        </li>
+                        <li>
+                            初期値(2点指定できます)
+                        </li>
+                        <li>
+                            Angle(左右、上下)
+                        </li>
+                        <li>
+                            Vertical Axis(デフォルトはz軸ですが、x軸とy軸も選べます)
+                        </li>
+                    </ol>
                 </div>
             </div>
         </div>
@@ -574,8 +634,10 @@
                 <img src="image/common/b-tri.gif" alt="label">
             </div>
             <div class="flx_itemR960">
-                <div class="pb10">
-                    レンズメーターシミュレーションツール｢SRTLM｣を公開しました。<br>
+                <div class="pb5">
+                    レンズメーターシミュレーションツール｢SRTLM｣を公開しました。
+                </div>
+                <div class="fwb fss pb10">
                     フリーウェアとしてダウンロードできます。
                 </div>
                 <div>
@@ -598,8 +660,10 @@
                 <img src="image/common/b-tri.gif" alt="label">
             </div>
             <div class="flx_itemR960">
-                <div class="pb10">
-                    ｢数独問題作成ツール 別解法｣を公開しました。<br>
+                <div class="pb5">
+                    ｢数独問題作成ツール 別解法｣を公開しました。
+                </div>
+                <div class="fwb fss pb10">
                     フリーウェアとしてダウンロードできます。
                 </div>
                 <div>
@@ -622,8 +686,10 @@
                 <img src="image/common/b-tri.gif" alt="label">
             </div>
             <div class="flx_itemR960">
-                <div class="pb10">
-                    ｢数独問題作成ツール｣をアップデートしました。<br>
+                <div class="pb5">
+                    ｢数独問題作成ツール｣をアップデートしました。
+                </div>
+                <div class="fwb fss pb10">
                     フリーウェアとしてダウンロードできます。
                 </div>
                 <div>
@@ -646,8 +712,10 @@
                 <img src="image/common/b-tri.gif" alt="label">
             </div>
             <div class="flx_itemR960">
-                <div class="pb10">
-                    ｢数独問題作成ツール｣をエクセルのマクロで組みました。<br>
+                <div class="pb5">
+                    ｢数独問題作成ツール｣をエクセルのマクロで組みました。
+                </div>
+                <div class="fwb fss pb10">
                     フリーウェアとしてダウンロードできます。
                 </div>
                 <div>
@@ -671,7 +739,9 @@
             </div>
             <div class="flx_itemR960">
                 <div class="pb10">
-                    万年カレンダーを｢作りました。<br>
+                    万年カレンダーを｢作りました。
+                </div>
+                <div class="pb5">
                     万年カレンダーは至る所にあります。
                     例えば、Windowsならばタスクバーの時刻をクリックすれば現れます。<br>
                     私がほしかったのは、祝祭日のついたカレンダーです。<br>
@@ -696,7 +766,9 @@
             </div>
             <div class="flx_itemR960">
                 <div class="pb10">
-                    斜交円柱によって生じる残余乱視を計算する Excel用のシートです。<br>
+                    斜交円柱によって生じる残余乱視を計算する Excel用のシートです。
+                </div>
+                <div class="pb10">
                     sheet1 では，2枚の円柱レンズの度数と軸方向の角度を指定すると，<br>
                     残余乱視を計算し，結果と経線毎の屈折力を示すグラフが描画されます。<br>
                     sheet2 では，屈折補正値と装用値が一致しない場合の誤差を計算します。
@@ -715,9 +787,11 @@
             <div class="flx_itemC">
                 <img src="image/common/b-tri.gif" alt="label">
             </div>
-            <div class="contents-col_top_r960">
+            <div class="flx_itemR960">
                 <div class="pb10">
-                    Tuamotu Artipelago シーナリを作成していたとき疑問に思っていたことが幾つかありました。<br>
+                    Tuamotu Artipelago シーナリを作成していたとき疑問に思っていたことが幾つかありました。
+                </div>
+                <div class="pb10">
                     中でもNiau環礁は他の環礁と異なり、小さな島の中に外海と接続のないラグーンが存在します。<br>
                     何故このラグーンは干上がらずに存在しているのか？<br>
                     私の疑問に
@@ -726,6 +800,8 @@
                     </a>
                     が的確に回答して下さいました。<br>
                     彼女は数々の地域を実地に調査した著名な鳥類学者です。<br>
+                </div>
+                <div class="pb10">
                     彼女の親切な回答にに感謝します。Dr. Angela、ありがとうございます。
                 </div>
                 <div>
@@ -762,7 +838,9 @@
             </div>
             <div class="contents-col_top_r960">
                 <div class="pb10">
-                    Tuamotu Artipelago シーナリを作成していたとき疑問に思っていたことが幾つかありました。<br>
+                    Tuamotu Artipelago シーナリを作成していたとき疑問に思っていたことが幾つかありました。
+                </div>
+                <div class="pb10">
                     私の疑問に
                     <a href="https://en.wikipedia.org/wiki/Angela_Kepler" target="_blank">
                         Dr. Angela Kay Kepler
@@ -770,7 +848,9 @@
                     が的確に答えて下さいました。<br>
                     彼女は数々の地域を実地に調査した著名な鳥類学者です。<br>
                     そして、彼女は私の記述ミスについてもアドバイスして下さいました。<br>
-                    彼女の親切なコメントに感謝します。Dr. Kepler、ありがとうございます。
+                </div>
+                <div class="pb10">
+                    彼女の親切なコメントに感謝します。Dr. Angela、ありがとうございます。
                 </div>
                 <div>
                      [Screen-Shots] - [Tuamotu Artipelago] - [Tuamotu Group D] - <a href="fs01_sc_tuamotu_d.html#Tehuata">Tehuata</a>
@@ -789,7 +869,7 @@
             <div class="flx_itemC">
                 <img src="image/common/b-tri.gif" alt="label">
             </div>
-            <div class="contents-col_top_r960">
+            <div class="flx_itemR960">
                 <div class="pb10">
                      何とも不思議な青い色の池です。
                 </div>
@@ -944,6 +1024,8 @@
                 <div class="pb10">
                     インターネット環境をFlet's ADSL( asahi-net ) から CATV( J:COM )へ移行したことを機会に、
                     各ページのソースコードの統一を図っています(現在進行中)。
+                </div>
+                <div class="pb10">
                     また、多くのページでJAVA APPLETを利用したスライドショーを掲載していましたが、
                     スライドショーは全て
                     <a href="http://www.microsoft.com/en-us/download/details.aspx?id=11132"target="_blank">PhotoStoy3</a>
@@ -956,7 +1038,7 @@
                     そこで、高画質の状態でPhotoStoy3動画を作成し、YouTubeにアップロードすることにしました。
                     当ホームページでは、YouTubeにアップしたデータにリンクを貼り、視聴出来るようにしました。<br>
                     今までスライドショーで使っていた画像を整理した結果、
-                    100M近かったHPデータを60Mまで減少させることが出来ました。
+                    100Mバイト近かったHPデータを60Mバイトまで減少させることが出来ました。
                     ある意味で、分散というかクラウドです (^^;。
                 </div>
                 <div class="pb10">
@@ -992,7 +1074,7 @@
                 </div>
                 <div>
                         現在は、下記のデータのみ、JAVAを利用しています。<br>
-                        [スクリーンショット] - [ButterFly Island 2005] - <a href="fs01_sc_butterfly.html">[ButterFly Island]</a> <br>
+                        [スクリーンショット] - [ButterFly Island 2005] - <a href="fs01_sc_butterflySC.html#video">[ButterFly Island]</a> <br>
                         このページの一番下の画像をクリックすると、島と蝶のモーフィングが始まりますが、
                         このモーフィングでJAVAが使われています。<br>
                         いずれ、このデータもJAVA不使用にしたいと思っています。

@@ -1,0 +1,516 @@
+<!DOCTYPE html >
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="A tool for generating Sudoku puzzles using an Excel macro. Specifying the number of cells to open creates the puzzle. The minimum numbers currently confirmed are 24 for even numbers and 23 for odd numbers.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>z.suudoku_02 user's manual</title>
+
+    <!-- favicon-->
+    <link rel="icon" href="favicon.ico">
+
+    <!-- css start -->
+        <!-- kko_etc :: class指定:change_border_color, 全ファイル共通:リンク文字色, フォーカスリング -->
+        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
+    <!-- css end -->
+
+    <!-- js start -->
+        <!-- jQuery start -->
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <!-- kko_style - img jq_blink, img jq_change -->
+            <script src="libs/jQuery/kko/js/jq_kko_style.js"></script>
+        <!-- jQuery end -->
+
+        <!-- Sandbox DropDownMenu start -->
+        <script src="libs/sandbox/js/script.js"></script>
+        <!-- Sandbox DropDownMenu end -->
+    <!-- js end -->
+
+</head>
+
+<body id="common-k">
+
+    <header>
+        <div class="prettyP_PC">
+            <a name="page_top"></a>
+            <div class="center jQ_change navbox" >
+                <nav>
+                    <img src="image/top/cr32_e.png" height="20" class="logo_img">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_img">
+                    <ul class="menu" id="menu" >
+                        <li><a href="index.html" class="menulink">Home</a></li>
+                        <li><a href="e_whatnew.html" class="menulink">What's New</a></li>
+                        <li><a href="en_etc.html" class="menulink">E.T.C.</a></li>
+                        <li><a href="e_fs01.html" class="menulink">The Scenery</a>
+                            <ul>
+                                <li><a href="e_fs01_sc_top.html" class="sub">Screen Shots</a></li>
+                                <li><a href="e_fs01_ls_top.html" class="sub">Snap Shots</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="e_link01.html" class="menulink">Links</a></li>
+                        <li class="about"><a href="e_fs01_about.html" class="menulink">about Contrail</a></li>
+                    </ul>
+                </nav>
+                <div class="c-both"></div>
+            </div>
+            <!-- Sandbox DropDownMenu start-->
+            <script>
+                var menu=new menu.dd("menu");
+                menu.init("menu","menuhover");
+            </script>
+            <!-- Sandbox DropDownMenu end -->
+        </div>
+        <div class="prettyP_SP">
+            <a name="MENU"></a>
+            <p id="menu-call">
+                <a href="#">MENU</a>
+            </p>
+
+            <a name="page_top"></a>
+
+            <!-- page top icon & logo -->
+            <div id="header_SP" class="header_labelSP">
+                <div id="titleUS_SP"></div>
+                <img src="image/top/cr48f_32.png">
+                <img class="titleLogoSP" src="image/top/Contrail_g.png">
+            </div>
+
+            <div id="popup-menu" class="hidden">
+                <div class="menu-title">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_image" alt="CONTRAIL">
+                </div>
+                <ul>
+                <li><a href="index.html" class="menulink">Home</a></li>
+                <li><a href="e_whatnew.html" class="menulink">What's New</a></li>
+                <li><a href="en_etc.html" class="menulink">E.T.C.</a></li>
+                <li><a href="e_fs01.html" class="menulink">The Scenery</a>
+                <li><a href="e_link01.html" class="menulink">Links</a></li>
+                <li><a href="e_fs01_about.html" class="menulink">about Contrail</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div id="main1024"> <!-- page main: start -->
+
+        <!-- title -->
+        <div id="title20">
+            <h2 class="pt30 pb40">
+                Sudoku Puzzle Generator
+            </h2>
+        </div>
+
+        <!-- for Java Script off -->
+        <noscript>
+            <div id="attention">
+                <p>Sorry, you need to activate JavaScript in your browser.</p>
+            </div>
+        </noscript>
+
+        <!-- contents -->
+        <div class="pic-left1024 pb40">
+            <div class="fwb pb40">
+                <p class="pb10">
+                    I created a tool for generating Sudoku puzzles using an Excel macro.
+                    (You can download it at the bottom of this page.)
+                </p>
+                <div class="prettyP_PC">
+                    <div>
+                        <img src="image/Suudoku_img/org/suudoku_whole_en.jpg" width="800" border="1">
+                    </div>
+                </div>
+                <div class="prettyP_SP">
+                    <div class="table-container">
+                        <img src="image/Suudoku_img/org/suudoku_whole_en.jpg" width="800" border="1">
+                    </div>
+                </div>
+                <p class="fss pb5">
+                    Fig. 1
+                </p>
+            </div>
+            <div class="pic-left1024 fwb pb20">
+                <h3 class="pb20">
+                    Preparation for puzzle generation
+                </h3>
+                <ol class="fwb pl10 pb40">
+                    <li class="pb10">
+                        <p class="fwb pb10">
+                            In "Pattern Selection," you explicitly specify which cells in the center block will be opened.
+                        </p>
+                        <p class="pb10 contents-2col-left">
+                            <img src="image/Suudoku_img/org/suudoku_pattern_select_en.jpg" border="1">
+                        </p>
+                        <div class="pb10 contents-2col-right">
+                            <p class="fwm pb5">
+                                Please enter the numbers directly. Since no upper/lower limit check is implemented, enter values between 1 and 12.
+                                If left blank, puzzle generation will start with 1.
+                            </p>
+                            <p class="fwm">
+                                If the number of open cells is even, please specify an even number for the next "Number of Opens."<br>
+                                If it is odd, please specify an odd number.
+                            </p>
+                        </div>
+                    </li>
+                    <li class="pb10">
+                        <p class="fwb pb10">
+                            In "Number of Opens," specify how many cells will initially be opened.
+                        </p>
+                        <p class="pb10 contents-2col-left">
+                            <img src="image/Suudoku_img/org/suudoku_opensuu_en.jpg" border="1">
+                        </p>
+                        <p class="fwm pb10 contents-2col-right">
+                            Please enter the numbers directly. Since no upper/lower limit check is implemented,
+                            enter a value you consider reasonable.
+                            As this is a Sudoku puzzle, around 30 is appropriate.
+                            If left blank, puzzle generation will start with 26.
+                            The minimum number of "opens" this tool has successfully generated is as follows:<br>
+                            If "Pattern Selection" is odd: 23<br>
+                            If "Pattern Selection" is even: 24
+                        </p>
+                    </li>
+                    <li class="pb10">
+                        <p class="fwb pb10">
+                            In "Number of Trials," specify how many attempts will be made.
+                        </p>
+                        <p class="pb10 contents-2col-left">
+                            <img src="image/Suudoku_img/org/suudoku_kurikaeshi_en.jpg" border="1">
+                        </p>
+                        <p class="fwm pb10 contents-2col-right">
+                            Please enter the numbers directly.
+                            Since no upper/lower limit check is implemented, enter a value you consider reasonable.
+                            Depending on the "Number of Opens," values such as 99, 199, or 299 are appropriate.
+                            If left blank, puzzle generation will start with 299.
+                        </p>
+                    </li>
+                    <li class="pb10">
+                        <p class="fwb pb10">
+                            If you check "Show the completed solution,"
+                            the full solution will be displayed once the puzzle has been generated.
+                        </p>
+                        <p class="pb10 contents-2col-left">
+                            <span class="image-container">
+                                <img src="image/Suudoku_img/org/suudoku_kanseikei_check_flg_en.jpg" border="1">
+                            </span>
+                        </p>
+                    </li>
+                    <li>
+                        Once you have entered values into the text boxes above, preparation is complete.
+                        Press the "START" button to begin generating the puzzle.
+                    </li>
+                </ol>
+            </div>
+
+            <div class="pic-left1024 fwb pb20">
+                <h4 class="pb20">
+                    From here the content becomes a bit more detailed.
+                    If you simply want to try it out, please proceed to "Download."
+                </h4>
+            </div>
+            <div class="pic-left1024 fwb">
+                <h3 class="pb20">
+                    Puzzle generation algorithm
+                </h3>
+                <ol class="fwb pl10">
+                    <li class="pb20">
+                        <p class="pb10">
+                            Puzzle Creation Rules
+                        </p>
+                        <div class="pb20">
+                            <p class="pb15">
+                                This follows the rules used by
+                                <a href="https://www.nikoli.co.jp/ja/iphone/sd_by_nikoli/
+                                " target=_"blank">Nikoli</a>,
+                                whose Sudoku puzzles are published in the Asahi Shimbun morning edition (Tue–Fri). The rules are:
+                            </p>
+                            <ul class="plm10 fwm">
+                                <li>When the puzzle is solved, the solution must be unique.</li>
+                                <li>The initially opened cells must be rotationally symmetric.</li>
+                            </ul>
+                        </div>
+                        <div class="prettyP_PC">
+                            <div>
+                                <img src="image/Suudoku_img/org/suudoku_rule_en.jpg" border="1">
+                            </div>
+                        </div>
+                        <div class="prettyP_SP">
+                            <div class="table-container">
+                                <img src="image/Suudoku_img/org/suudoku_rule_en.jpg" border="1">
+                            </div>
+                        </div>
+                        <p class="fss pb15">
+                            Fig. 2
+                        </p>
+                    </li>
+                    <li class="pb20">
+                        <p class="pb10">
+                            Steps of puzzle creation (Nikoli's method)
+                        </p>
+                        <p class="fwm pb15">
+                            Nikoli's website provides a video showing how to create puzzles.
+                            According to the explanation, you first decide which cells to open,
+                            then choose numbers to place so that a complete solution can be formed.
+                        </p>
+                        <div class="prettyP_PC">
+                            <div>
+                                <img src="image/Suudoku_img/org/suudoku_nikori_en.jpg" border="1">
+                            </div>
+                        </div>
+                        <div class="prettyP_SP">
+                            <div class="table-container">
+                                <img src="image/Suudoku_img/org/suudoku_nikori_en.jpg" border="1">
+                            </div>
+                        </div>
+                        <p class="fss pb15">
+                            Fig. 3
+                        </p>
+                        <p class="fwm pb10">
+                            The key step in the above figure is ②.
+                            You place numbers into the orange cells,
+                            and as you proceed you fill in numbers in other cells that can be logically determined.
+                            The video spends more than 30 minutes explaining this.
+                            The explanation is clear, and after watching it I thought,
+                            "I might be able to make puzzles this way."
+                            I actually tried, but always failed near the end, when no more numbers could be placed.
+                            Nikoli refers to this situation as being "stuck."
+                        </p>
+                    </li>
+                    <li class="pb20">
+                        <p class="pb10">
+                            Steps of puzzle creation (this tool's method)
+                        </p>
+                        <p class="fwm pb10">
+                            I created a tool that generates puzzles using the opposite approach to Nikoli's method.
+                        </p>
+                        <p class="fwm pb10">
+                            I also considered making an interactive tool that follows Nikoli's method,
+                            but I abandoned the idea because I anticipated the logic would become quite complex.
+                        </p>
+                        <p class="fwm pb10">
+                            In this tool, the process starts by creating a completely filled grid.
+                            A completed Sudoku grid is defined as follows:
+                        </p>
+                        <p class="fws pb10">
+                            Each row (9), each column (9),
+                            and each 3×3 block (9) must contain the numbers 1 through 9 exactly once.
+                        </p>
+                        <ol>
+                            <li class="plm10 fwm pb10">
+                                Based on this definition,
+                                I designed an algorithm to fill the entire grid using random numbers (The figure above step ①).
+                                For the recursive logic in generating the solution, I referred to
+                                <a href="http://www.net.c.dendai.ac.jp/~ynakajima/" target=_"blank">
+                                    Sudoku Example Generation
+                                </a>.
+                                Many thanks for this reference.
+                            </li>
+                            <li class="plm10 fwm">
+                                <p class="fwm pb5">
+                                    The following explanation is based on Fig. 4.
+                                    Numbers such as ① and ② refer to "step 1" and "step 2."
+                                </p>
+                                <p class="fwm pb5">
+                                    Except for the center block specified in "Pattern Selection,"
+                                    the tool randomly chooses pairs of symmetric cells to blank out. See step ③.
+                                </p>
+                                <p class="pb5">
+                                    Each time new blanks are added,
+                                    the tool checks whether the original solution ① can still be reproduced.
+                                    If the puzzle becomes unsolvable at some point,
+                                    the last blanks are undone, and other cells are blanked instead (feedback).
+                                </p>
+                                <p class="pb5">
+                                    For example, if the target number of opens is set to 26:
+                                </p>
+                                <p class="pb5">
+                                    If blanking fails when narrowing down to 30,
+                                    the filled grid ① is discarded and a new one is generated,
+                                    then the process continues from ②. See step ⑤.
+                                </p>
+                                <p class="pb10">
+                                    If narrowing down succeeds to 28 but fails at 26,
+                                    the grid ① is kept and the process continues. See step ⑥.
+                                </p>
+                                <p class="bdr10 left2 fss pb10">
+                                    The creation of the solution (a fully filled 9×9 set of cells)
+                                    is based on random numbers.
+                                    While checking the narrowing process for making blanks,
+                                    I began to feel that some solutions are easier to narrow down than others.
+                                    When the target is 26 and narrowing reaches 28,
+                                    I thought that by continuing to use that solution, it should eventually yield 26.
+                                    Since applying this logic, I have been able to generate puzzles with 23 and 24 open cells,
+                                    so I don't think this reasoning is entirely wrong.
+                                </p>
+                                <p class="fwm pb15">
+                                    The count for “Number of Repeats” begins during trials after the final form is fixed.
+                                    If a puzzle cannot be created even after exceeding the number of repeats,
+                                    a message box will appear,
+                                    displaying the minimum number that could be created. See step ⑧.
+                                </p>
+                            </li>
+                            <div class="prettyP_PC">
+                                <div>
+                                    <img src="image/Suudoku_img/org/suudoku_my_method_1_en.jpg" border="1"><br>
+                                    <img src="image/Suudoku_img/org/suudoku_my_method_2_en.jpg" border="1">
+                                </div>
+                            </div>
+                            <div class="prettyP_SP pb5">
+                                <div class="table-container">
+                                    <img src="image/Suudoku_img/org/suudoku_my_method_1_en.jpg" border="1">
+                                </div>
+                                <div class="table-container">
+                                    <img src="image/Suudoku_img/org/suudoku_my_method_2_en.jpg" border="1">
+                                </div>
+                            </div>
+                            <p class="fss pb15">
+                                Fig. 4
+                            </p>
+                        </ol>
+                    </li>
+                </ol>
+            </div>
+            <div class="pic-left1024 fwb pb20">
+                <h3 class="pb10">
+                    NOTE
+                </h3>
+                <ol class="pl10 fwb">
+                    <li class="pb20">
+                        <p class="pb10">
+                            About "stat"
+                        </p>
+                        <p class="fwm pb10">
+                            "number of opens," "rank," and "number of rank n" display data
+                            required to solve the generated puzzles.
+                            You don't really need to pay attention to them, but the more lines appear,
+                            the longer it takes to solve.
+                            In a sense, this can be considered an indicator of difficulty.
+                        </p>
+                        <p class="fwm pb10">
+                            When generating puzzles, it's tempting to set the target number of opens as small as possible.
+                            But the fewer opens, the harder it becomes to solve.
+                            I recommend considering the "stat" line count and aiming for a manageable puzzle.
+                        </p>
+                        <div class="prettyP_PC">
+                            <div>
+                                <img src="image/Suudoku_img/org/suudoku_stat_en.jpg" border="1">
+                            </div>
+                        </div>
+                        <div class="prettyP_SP pb5">
+                            <div class="table-container">
+                                <img src="image/Suudoku_img/org/suudoku_stat_en.jpg" border="1">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="pb20">
+                        <p class="pb10">
+                            About the number of trials
+                        </p>
+                        <p class="fwm pb10">
+                            If the target number of opens is 25 or more, puzzles are usually generated fairly easily.
+                            With 24, setting the trial count to 299 should usually succeed
+                            before the limit is reached (though it's probability-based, so it may still fail).
+                        </p>
+                        <p class="fwm">
+                            The probrem is when the target is 23. With a limit of 299, puzzle generation often fails.
+                            Even with 999 trials, it doesn't always succeed.
+                            Trying multiple times with 299 is usually faster.
+                            If it still fails, trying again after a few days may suddenly succeed.
+                            This is because random numbers (pseudo-random, actually) are used in grid generation.
+                            It is merely my own imagination,
+                            but there may be times when random numbers that can reduce the open number continue,
+                            or times when the opposite happens.
+                        </p>
+                  </li>
+                  <li>
+                        <p class="pb10">
+                            In case you create an interesting puzzle during the generating process
+                        </p>
+                        <p class="fwm pb10">
+                            Since random numbers are used, you cannot directly control which cells are opened.
+                            However, when the target number of opens is 24,
+                            each time a puzzle with 26 opens is generated,
+                            the positions of the opened cells displayed in “make” change.
+                            If you come across an interesting puzzle, press [Ctrl]+[Break],
+                            copy rows 6 through 32, and paste them into another sheet.
+                            This way you can build your own collection of Sudoku puzzles.
+                        </p>
+                  </li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="left2 pb20">
+        <div class="prettyP_SP pb30"></div>
+
+            <h3 class="pb15">DOWNLOAD</h3>
+            <div class="pl30 pb30">
+                <p class="fwb pb10">
+                    Notes on using this tool
+                </p>
+                <ol>
+                    <li class="plm10 pb10">
+                        Unauthorized redistribution of this tool is strictly prohibited.
+                    </li>
+                    <li class="plm10 pb10">
+                        If you are considering improving or modifying the logic,
+                        please contact me and I will send you the source code.<br>
+                        If you succeed in achieving 22 or 21 opens through modifications,
+                        I'd be very happy to hear from you—hopefully you can also share the modified logic.
+                    </li>
+                </ol>
+                <p class="fwb pb210">
+                    Click "z.suudoku_03.zip" to download.
+                </p>
+                <p class="fwm bdr10 pb10">
+                    The current latest version is “z.suudoku_03.zip”.
+                    You can also download “z.suudoku_02.zip”,
+                    but I recommend downloading “z.suudoku_03.zip”.
+                    The latest version functions identically to the operations described on this page,
+                    except that it includes a built-in feature to save created data.
+                </p>
+                <p class="pt10 pb5">
+                   The previous version
+                </p>
+                <p class="pb25">
+                    <a href="etc/z.suudoku_02.zip" target="_blank">z.suudoku_02.zip</a>
+                </p>
+                <p class="fwb pb5">
+                   The latest version
+                </p>
+                <p class="fwb pb25">
+                    <a href="etc/z.suudoku_03.zip" target="_blank">z.suudoku_03.zip</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+
+        <hr id="footer"> <!-- horizontal partition -->
+
+        <p id="page-top"><a href="#">TOP</a></p>
+
+        <div class="jQ_change center"> <!-- select button whole: start -->
+            <p id="footer"> <!-- select button: start -->
+                <a href="en_etc.html">
+                    <img src="image/button/back_off.gif" border="0" alt="Back">
+                </a>
+            </p> <!-- select button: end -->
+        </div> <!-- select button whole: end -->
+
+        <div class="footer_labelPC">
+            &copy; 2003 -
+            <script>
+                date = new Date();
+                document.write(date.getFullYear() + ' ');
+            </script>
+            <nonscript>
+            </nonscript>
+            Contrail - kotan -
+        </div>
+
+    </footer>
+
+</body>
+</html>

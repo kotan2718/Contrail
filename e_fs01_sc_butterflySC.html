@@ -31,6 +31,9 @@
                 .fancybox_image2 {
                     max-width: 320px;
                 }
+                .fancybox_imageMax {
+                    max-width: 100%;
+                }
             }
         </style>
     <!-- css end -->
@@ -243,9 +246,13 @@
 
         <div class="pic-center920 pb30">
             <div class="contents-2col-left">
-                <video class="fancybox_image2" src="image/fs/butterfly/Butterfly_morphing.mkv"
-                    controls poster="image/fs/butterfly/Butterfly_morphing00.jpg"
-                    width="384px"></video>
+                <a name="video"></a>
+                <video class="fancybox_imageMax" controls
+                                                 controlsList="nofullscreen"
+                                                 disablepictureinpicture
+                                                 width="384px">
+                  <source src="image/fs/butterfly/Butterfly_morphing.mkv" />
+                </video>
             </div>
             <div class="prettyP_SP"><div class="pb15"></div></div>
             <div class="contents-2col-right720">
@@ -278,7 +285,7 @@
         </div>
 -->
 
-        <div class="pic-center640 pb10">
+        <div class="pic-center720-480 pb10">
             <p class="left2 pb10">
                 There is a formal English name in the Butterfly Island. <br>
                 However, when the name is written here,

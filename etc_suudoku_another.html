@@ -1,56 +1,67 @@
-<!DOCTYPE html >
-<html>
+<!DOCTYPE html>
+<html lang="ja">
 
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="数独(ナンプレ)の問題を作成するツールの別バージョンをエクセルのマクロで組みました。こちらはオープンさせるマス目の位置を指定させることで問題を作成することができます。">
-    <meta name="keywords" content="数独,another,ナンプレ,問題,作成,ツール,">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Suudoku Another</title>
 
     <!-- favicon-->
     <link rel="icon" href="favicon.ico">
 
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
     <!-- css start -->
-
-        <!-- kko_etc start - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
+        <!-- kko_etc - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
         <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
-        <!-- kko_etc end -->
-
+        <style>
+            @media screen and (min-width: 769px) {
+                .pSP50 {
+                    padding-left: 50px;
+                }
+                .pSP40 {
+                    padding-left: 40px;
+                }
+                .pSP20 {
+                    padding-left: 20px;
+                }
+            }
+            /* Optional: Limit image size on small screens */
+            @media (max-width: 768px) {
+                .fSP {                      /* font */
+                    font-size: 90%;
+                }
+                .pSP50, .pSP40, pSP20 {
+                    padding-left: 10px;
+                }
+            }
+        </style>
     <!-- css end -->
+
     <!-- js start -->
-
         <!-- jQuery start -->
-        <script src="libs/jQuery/js/jquery-1.6.1.min.js"></script>
-
-            <!-- kko_style start - img jq_blink, img jq_change -->
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <!-- kko_style - img jq_blink, img jq_change -->
             <script src="libs/jQuery/kko/js/jq_kko_style.js"></script>
-            <!-- kko_style end -->
-
         <!-- jQuery end -->
 
         <!-- Sandbox DropDownMenu start -->
         <script src="libs/sandbox/js/script.js"></script>
         <!-- Sandbox DropDownMenu end -->
-
     <!-- js end -->
 
 </head>
 
 <body id="common-k">
 
-    <div id="main1024"> <!-- page main: start -->
-
-        <header>
+    <header>
+        <div class="prettyP_PC">
             <a name="page_top"></a>
-            <div class="center jQ_change navbox">
+            <div class="center jQ_change navbox" >
                 <nav>
+                    <img src="image/top/cr32_e.png" height="20" class="logo_img">
                     <img src="image/top/Contrail_g.png" height="20" class="logo_img">
-                    <ul class="menu" id="menu">
+                    <ul class="menu" id="menu" >
                         <li><a href="index.html" class="menulink">Home</a></li>
                         <li><a href="whatnew.html" class="menulink">What's New</a></li>
                         <li><a href="etc.html" class="menulink">E.T.C.</a></li>
@@ -70,12 +81,44 @@
             <script>
                 var menu=new menu.dd("menu");
                 menu.init("menu","menuhover");
-            </script>    <!-- Sandbox DropDownMenu end -->
-        </header>
+            </script>
+            <!-- Sandbox DropDownMenu end -->
+        </div>
+        <div class="prettyP_SP">
+            <a name="MENU"></a>
+            <p id="menu-call">
+                <a href="#">MENU</a>
+            </p>
 
+            <a name="page_top"></a>
+
+            <!-- page top icon & logo -->
+            <div id="header_SP" class="header_labelSP">
+                <div id="titleUS_SP"></div>
+                <img src="image/top/cr48f_32.png">
+                <img class="titleLogoSP" src="image/top/Contrail_g.png">
+            </div>
+
+            <div id="popup-menu" class="hidden">
+                <div class="menu-title">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_image" alt="CONTRAIL">
+                </div>
+                <ul>
+                    <li><a href="index.html" class="menulink">Home</a></li>
+                    <li><a href="whatnew.html" class="menulink">What's New</a></li>
+                    <li><a href="etc.html" class="menulink">E.T.C.</a></li>
+                    <li><a href="fs01.html" class="menulink">The Scenery</a></li>
+                    <li><a href="link01.html" class="menulink">Links</a></li>
+                    <li><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div id="main1024"> <!-- page main: start -->
         <!-- title -->
         <div id="title20">
-            <h2 class="pt30 pb40">
+            <h2 class="pt30 pb20">
                 数独問題作成ツール 別解法
             </h2>
         </div>
@@ -88,7 +131,7 @@
         </noscript>
 
         <!-- contents -->
-        <div class="pic-left1024 pb40">
+        <div class="pic-left1024">
             <div class="fwb pb40">
                 <p class="pb10">
                     これまで公開してきた｢数独問題作成ツール｣ (以下、｢数独ツール｣と略記します)は、最初に9x9の全てのマス目を埋めた完成形を作成し、<br>
@@ -97,20 +140,28 @@
                     <a href="etc_suudoku.html" target=_"blank">suudoku_doc</a>
                     をご一読下さい。[※1]
                 </p>
-                <p class="pb10">
+                <p class="pb20">
                     この方法では最初にオープンするナンバーのマス目の数(以下オープン数と略記)が23以上の問題を作ることができます。<br>
                     しかし、オープンするマス目のパターンはランダムに選ばれるため、
                     自分が思い描いたパターンの問題を作ることはできませんでした。<br>
                 </p>
-                <p class="pb10 contents-2col-left">
-                    <img src="image/Suudoku_img/another/another01.jpg" border="1">
-                </p>
-                <div class="bdr10 left2 fss pb10">
+                <div class="prettyP_PC">
+                    <div>
+                        <img src="image/Suudoku_img/another/another01.jpg" border="1">
+                    </div>
+                </div>
+                <div class="prettyP_SP">
+                    <div class="table-container">
+                        <img src="image/Suudoku_img/another/another01.jpg" border="1">
+                    </div>
+                </div>
+                <p class="pb20"></p>
+                <div class="bdr10 left2 pb10">
                     <p>
                         [※1]
                     </p>
                     <p class="pb10">
-                        併せて｢数独数独問題作成ツール アップデート｣(以下、｢数独アップデート｣と略記します)もご覧下さい。<br>
+                        併せて｢数独数独問題作成ツール アップデート｣もご覧下さい。<br>
                         リンク：
                         <a href="etc_suudoku_update01.html" target=_"blank">suudoku_update01</a>
                     </p>
@@ -122,83 +173,143 @@
             </div>
 
             <div class="pic-left1024 fwb pb20">
-                <p class="pb10">
+                <p class="pb30">
                     問題作成方法を順に説明します。
                 </p>
-                <ol class="fwm pb40, pl40">
-                  <li>
+                <ol class="fwm pb40, pSP40">
+                    <li class="pb20">
                         <p class="pb10">
                                 エクスプローラーから｢z.suudoku_04.xlsm｣を開きます。
                         </p>
-                        <p class="pb10 contents-2col-left">
-                            <img src="image/Suudoku_img/another/another02.jpg" width="100%" border="1">
-                        </p>
-                  </li>
-                    <li>
+                        <div class="pb15 prettyP_PC">
+                            <div>
+                                <img src="image/Suudoku_img/another/another02.jpg" width="100%" border="1">
+                            </div>
+                        </div>
+                        <div class="pb15 prettyP_SP">
+                            <div class="table-container">
+                                <img src="image/Suudoku_img/another/another02.jpg" width="800" border="1">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="pb20">
                         <p class="pb10">
-                                パターンの作り方から問題作成までを説明します。
+                            パターンの作り方から問題作成までを説明します。
                         </p>
-                        <ol class="list-lr pl40 pb10">
-                            <li>
-                                <p class="pb10">
+                        <ol class="list-lr pSP40 pb10">
+                            <li class="pb30">
+                                <p class="pb15">
                                     ｢make｣と表示されている枠内でオープンするマス目をオレンジ色で埋めて行きます。<br>
                                     枠内の適当なセルをクリックすると、そのセルと対角のセルがオレンジ色に変わります。
                                 </p>
-                                <p class="pb10 contents-2col-left">
-                                    <img src="image/Suudoku_img/another/another03.jpg" width="90%" border="1">
-                                </p>
+                                <div class="prettyP_PC">
+                                    <div>
+                                        <img src="image/Suudoku_img/another/another03.jpg" width="586" border="1">
+                                    </div>
+                                </div>
+                                <div class="prettyP_SP">
+                                    <div class="table-container">
+                                        <img src="image/Suudoku_img/another/another03.jpg" width="586" border="1">
+                                    </div>
+                                </div>
                             </li>
-                            <li>
-                                <p class="pb10">
+                            <li class="pb30">
+                                <p class="pb15">
                                     思い描いたパターンを作って行きます。<br>
                                   消したい場合は、対角のセルをクリックするとオレンジ色が消えます。
                                 </p>
-                                <p class="pb10 contents-2col-left">
-                                    <img src="image/Suudoku_img/another/another04.jpg" width="90%" border="1">
-                                </p>
+                                <div class="prettyP_PC">
+                                    <div>
+                                        <img src="image/Suudoku_img/another/another04.jpg" width="700" border="1">
+                                    </div>
+                                </div>
+                                <div class="prettyP_SP">
+                                    <div class="table-container">
+                                        <img src="image/Suudoku_img/another/another04.jpg" width="700" border="1">
+                                    </div>
+                                </div>
                             </li>
-                            <li>
-                                <p class="pb10">
+                            <li class="pb30">
+                                <p class="pb15">
                                     作成したパターンの例を以下に示しました。
                                 </p>
-                                <p class="pb10 contents-2col-left">
-                                    <img src="image/Suudoku_img/another/another05.jpg" width="100%" border="1">
-                                </p>
+                                <div class="prettyP_PC">
+                                    <div>
+                                        <img src="image/Suudoku_img/another/another05.jpg" width="100%" border="1">
+                                    </div>
+                                </div>
+                                <div class="prettyP_SP">
+                                    <div class="table-container">
+                                        <img src="image/Suudoku_img/another/another05.jpg" width="800" border="1">
+                                    </div>
+                                </div>
+                                <p class="pb20"></p>
                                 <p class="pb10">
                                     ｢START｣ボタンを押すと問題作成が開始されます。
                                 </p>
                             </li>
-                            <li>
+                            <li class="pb30">
                                 <p class="pb10">
                                     問題の作成の成功すると、以下のような画面になります。
                                 </p>
-                                <p class="pb10 contents-2col-left">
-                                    <img src="image/Suudoku_img/another/another06.jpg" width="100%" border="1">
-                                </p>
+                                <div class="prettyP_PC">
+                                    <div>
+                                        <img src="image/Suudoku_img/another/another06.jpg" width="100%" border="1">
+                                    </div>
+                                </div>
+                                <div class="prettyP_SP">
+                                    <div class="table-container">
+                                        <img src="image/Suudoku_img/another/another06.jpg" width="800" border="1">
+                                    </div>
+                                </div>
+                                <p class="pb15"></p>
                                 <p class="pb10">
                                     オレンジ色のセルにオープンするナンバーが書き込まれていることが分かります。<br>
                                     画面右下のチェックボックスがチェックされている場合は、<br>
                                     完成形が表示され、シート｢Stock｣に作成された問題がコピーされます。
                                 </p>
                             </li>
+                            <li>
+                                <p class="pb10">
+                                    「CLEAR」ボタンを押すと、起動時の画面に戻ります。
+                                </p>
+                                <div class="pb15 prettyP_PC">
+                                    <div>
+                                        <img src="image/Suudoku_img/another/another07.jpg" width="100%" border="1">
+                                    </div>
+                                </div>
+                                <div class="pb15 prettyP_SP">
+                                    <div class="table-container">
+                                        <img src="image/Suudoku_img/another/another07_1.jpg" width="800" border="1"><br>
+                                    </div>
+                                    <div class="table-container">
+                                        <img src="image/Suudoku_img/another/another07_2.jpg" width="800" border="1"><br>
+                                    </div>
+                                    <div class="table-container">
+                                        <img src="image/Suudoku_img/another/another07_3.jpg" width="800" border="1"><br>
+                                    </div>
+                                </div>
+                            </li>
                         </ol>
                     </li>
+                </ol>
             </div>
 
             <div class="pic-left1024 fwb pb20">
                 <p class="fwb pb10">
                     オープンするマス目の数について
                 </p>
-                <p class="fwm pb10">
+                <p class="fwm pb20">
                         28～32くらいが面白いパターンが作れますし、実際に解くときも無理なく解くことができると思います。<br>
                         私がデバッグ中に調べた限りでは、25以上で問題が作成できることを確認しています。
                 </p>
             </div>
         </div>
 
-        <div class="left2 pb40">
+        <div class="left2">
 
             <h3>ダウンロード </h3>
+            <p class=" pb20"></p>
             <div class="pl30 pb30">
                 <p class="fwb pb10">
                     このツールを使用するにあたって
@@ -225,6 +336,8 @@
 
         <hr id="footer"> <!-- horizontal partition -->
 
+        <p id="page-top"><a href="#">TOP</a></p>
+
         <div class="jQ_change center"> <!-- select button whole: start -->
             <p id="footer"> <!-- select button: start -->
                 <a href="etc.html">
@@ -241,7 +354,7 @@
             </script>
             <nonscript>
             </nonscript>
-            Contrail - kotan - 
+            Contrail - kotan -
         </div>
 
     </footer>

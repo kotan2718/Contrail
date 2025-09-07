@@ -1,0 +1,2488 @@
+<!DOCTYPE HTML >
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="This tool plots surfaces with hidden line processed meshes  when you input an arbitrary function z = f(x,y).">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--<title>Plotting surfaces with hidden line processed meshes when you input an arbitrary function z = f(x,y)</title>-->
+    <title>Function input/drawing tool</title>
+
+    <!-- favicon-->
+    <link rel="icon" href="favicon.ico">
+
+    <!-- css start -->
+        <!-- kko_etc :: class指定:change_border_color, 全ファイル共通:リンク文字色, フォーカスリング -->
+        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
+
+        <style>
+            @media screen and (min-width: 769px) {
+                /* PC用（通常表示）*/
+                h1 { font-size: 1.6em; }
+                h2 { font-size: 1.4em; }
+                h3 { font-size: 1.2em; }
+                h4 { font-size: 1.0em; }
+                h5 { font-size: 0.8em; }
+                h6 { font-size: 0.6em; }
+
+                .pSP50 {
+                    padding-left: 50px;
+                }
+                .pSP40 {
+                    padding-left: 40px;
+                }
+                .pSP20 {
+                    padding-left: 20px;
+                }
+                /* 全体のコンテナ */
+                .cntnts-wrapper {
+                    max-width: 800px; /* コンテナ全体の最大幅 */
+                    margin: 0 auto;   /* コンテナを中央揃え */
+                }
+
+              /* 左のテキスト + 右の画像レイアウト */
+                .cntnts-flex {
+                    display: flex;
+                    gap: 10px; /* テキストと画像の間の余白 */
+                    flex-wrap: wrap; /* 行が足りない場合、次の行に回り込む */
+                }
+
+              /* 左側のテキストエリア */
+                .cntnts-text {
+                    flex: 1; /* 可変幅 */
+                    min-width: 0px; /* 最小幅を設定 */
+                }
+
+              /* 右側の画像エリア */
+                .cntnts-image {
+                    flex: 0 0 auto; /* 固定幅 */
+                    max-width: 800px; /* 画像エリアの最大幅 */
+                    text-align: right;
+                }
+
+              /* 画像の調整 */
+                .cntnts-image img {
+                    max-width: 100%; /* 親要素の幅に収める */
+                    height: auto; /* アスペクト比を維持 */
+                }
+
+              /* テキストタイトル */
+                .cntnts-title {
+                    font-size: medium;
+                    font-weight: bold;
+                    margin-bottom: 10px;
+                }
+
+              /* テキスト説明 */
+                .cntnts-description {
+                    margin-top: 10px;
+                    line-height: 1.6;
+                }
+            }
+
+            /* Optional: Limit image size on small screens */
+            @media (max-width: 768px) {
+                /* スマホ用（1段階スライドダウン） */
+                h1 { font-size: 1.4em; } /* h2相当 */
+                h2 { font-size: 1.2em; } /* h3相当 */
+                h3 { font-size: 1.0em; } /* h4相当 */
+                h4 { font-size: 0.8em; } /* h5相当 */
+                h5 { font-size: 0.6em; } /* h6相当 */
+                h6 { font-size: 0.5em; } /* 少し小さめに */
+
+                .pSP50 .pSP40, pSP20 {
+                    padding-left: 10px;
+                }
+                .fbox_image {
+                    max-width: 256px;
+                }
+                .fbox_image2 {
+                    max-width: 300px;
+                }
+                .fbox_imageMax {
+                    max-width: 100%;
+                }
+
+                .cntnts-title {
+                    font-size: medium;
+                    font-weight: bold;
+                    margin-bottom: 10px;
+                }
+            }
+        </style>
+
+        <!-- Fancybox CSS -->
+        <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="screen and (max-width: 768px)">-->
+    <!-- css end -->
+
+    <!-- js start -->
+        <!-- jQuery start -->
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script src="libs/jQuery/kko/js/jq_kko_style.js"></script>
+        <!-- jQuery end -->
+
+        <!-- Sandbox DropDownMenu -->
+        <script src="libs/sandbox/js/script.js"></script>
+
+        <script type="text/javascript"
+            src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        </script>
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                TeX: { equationNumbers: { autoNumber: "AMS" }},
+                tex2jax: {
+                    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                    processEscapes: true
+                },
+                "HTML-CSS": { matchFontHeight: false },
+                displayAlign: "left",
+                displayIndent: "2em"
+            });
+        </script>
+
+        <!-- Fancybox JS -->
+        <!--<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js" media="screen and (max-width: 768px)"></script>-->
+    <!-- js end -->
+
+</head>
+
+<body id="common-k">
+
+    <header>
+        <div class="prettyP_PC">
+            <a name="top-call"></a>
+            <div class="center jQ_change navbox" >
+                <nav>
+                    <img src="image/top/cr32_e.png" height="20" class="logo_img">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_img">
+                    <ul class="menu" id="menu" >
+                        <li><a href="index.html" class="menulink">Home</a></li>
+                        <li><a href="e_whatnew.html" class="menulink">What's New</a></li>
+                        <li><a href="en_etc.html" class="menulink">E.T.C.</a></li>
+                        <li><a href="e_fs01.html" class="menulink">The Scenery</a>
+                            <ul>
+                                <li><a href="e_fs01_sc_top.html" class="sub">Screen Shots</a></li>
+                                <li><a href="e_fs01_ls_top.html" class="sub">Snap Shots</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="e_link01.html" class="menulink">Links</a></li>
+                        <li class="about"><a href="e_fs01_about.html" class="menulink">about Contrail</a></li>
+                    </ul>
+                </nav>
+                <div class="c-both"></div>
+            </div>
+            <!-- Sandbox DropDownMenu start-->
+            <script>
+                var menu=new menu.dd("menu");
+                menu.init("menu","menuhover");
+            </script>
+            <!-- Sandbox DropDownMenu end -->
+        </div>
+        <div class="prettyP_SP">
+            <a name="MENU"></a>
+            <p id="menu-call">
+                <a href="#">MENU</a>
+            </p>
+
+            <a name="top-call"></a>
+
+            <!-- page top icon & logo -->
+            <div id="header_SP" class="header_labelSP">
+                <div id="titleUS_SP"></div>
+                <img src="image/top/cr48f_32.png">
+                <img class="titleLogoSP" src="image/top/Contrail_g.png">
+            </div>
+
+            <div id="popup-menu" class="hidden">
+                <div class="menu-title">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_image" alt="CONTRAIL">
+                </div>
+                <ul>
+                <li><a href="index.html" class="menulink">Home</a></li>
+                <li><a href="e_whatnew.html" class="menulink">What's New</a></li>
+                <li><a href="en_etc.html" class="menulink">E.T.C.</a></li>
+                <li><a href="e_fs01.html" class="menulink">The Scenery</a>
+                <li><a href="e_link01.html" class="menulink">Links</a></li>
+                <li><a href="e_fs01_about.html" class="menulink">about Contrail</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div id="main1024"> <!-- ① page main: start -->
+
+
+        <!-- title -->
+        <div id="title20">
+            <div class="prettyP_PC">
+                <h3 class="pt30 pb40">
+                Plotting Surfaces Tool
+                &emsp;
+                User's Manual
+                </h3>
+            </div>
+            <div class="prettyP_SP">
+                <h3 class="pt30 pb20">
+                Plotting Surfaces Tool<br>
+                User's Manual
+                </h3>
+            </div>
+        </div>
+
+        <!-- contents -->
+        <div class="pic-left800 pb40">
+            <div class="fwb pb10" style="line-height:160%">
+                <p class="pb10 fSP">
+                    This tool (hereafter referred to as "Pers") visualizes the graph (surface) of a function defined by z = f(x, y)
+                    using hidden lines processed meshes (red lines : z $\ge$ 0, blue lines : z $<$ 0).
+                    I have released
+                    <a href="http://kotan2718.github.io/etc_pers_doc1_en.html" target="_blank">a similar tool as a web version</a>.
+                    The main feature of the web version is to select a function prepared in advance from the list and plot the surface.
+                    It also has the abilities to plot user-defined functions,
+                    but it has not been possible to save or load defined functions.
+                    On the other hand, Pers enhances the features that allow users to define their own functions,
+                    and provides the ability to save and load defined functions.
+                </p>
+            </div>
+
+            <h3 class="fwb pb30">
+                <ul  style="list-style: none;" class="fwm pb40, pSP40">
+                    <li class="pb10"><a href="#t1">[Ⅰ] About the Pers dialog</a></li>
+                    <li class="pb10"><a href="#t2">[Ⅱ] About user defined function</a></li>
+                    <li class="pb10"><a href="#t3">[Ⅲ] Note</a></li>
+                </ul>
+            </h3>
+
+            <h3 class="pb30 fwb">
+                <p id="t1">
+                   [Ⅰ] &emsp; About the Pers dialog
+                </p>
+            </h3>
+
+            <div class="fwb pb10">
+                <div class="prettyP_PC">
+                    <div>
+                        <img src="image/cpp_pers/cpp_pers_0101.png" border="0">
+                    </div>
+                </div>
+                <div class="prettyP_SP">
+                    <div class="table-container">
+                        <img src="image/cpp_pers/cpp_pers_0101.png" width="640" border="0">
+                    </div>
+                </div>
+                <p class="fss pb10">
+                    Fig. 1-1
+                </p>
+            </div>
+
+            <div class="fwb pb30">
+                <ol class="list_none fwm pSP40" type="a">
+                     <div class="prettyP_PC">
+                       <div class="contents-left pb10">
+                            <li class="pb10"><a href="#s1">[b] Data File Selection</a></li>
+                            <li class="pb10"><a href="#s2">[a] Function Selection</a></li>
+                            <li class="pb10"><a href="#s3">[c] Parameter Settings</a></li>
+                            <li class="pb10"><a href="#s4">[d] User defined Function Settings</a></li>
+                            <li class="pb10"><a href="#s5">[e] Plotting Range Settings</a></li>
+                            <li class="pb10"><a href="#s6">[f] Mesh Settings</a></li>
+                            <li class="pb10"><a href="#s7">[g] Plotting Angle Settings</a></li>
+                            <li class="pb10"><a href="#s8">[h] Log Output ON/OFF</a></li>
+                        </div>
+                        <div class="contents-right">
+                            <li class="pb10"><a href="#s9">[i] Discontinuity Points Replacement ON/OFF</a></li>
+                            <li class="pb10"><a href="#s10">[j] Coordinate Axis Display ON/OFF</a></li>
+                            <li class="pb10"><a href="#s11">[k] Update</a></li>
+                            <li class="pb10"><a href="#s12">[l] Reset</a></li>
+                            <li class="pb10"><a href="#s13">[m] Plotting Angle Setting (Slider bar)</a></li>
+                            <li class="pb10"><a href="#s14">[n] Finishing the Tool</a></li>
+                            <li class="pb10"><a href="#s15">[o] Editing Features</a></li>
+                            <li class="pb10"><a href="#s16">[p] Perspective Settings</a></li>
+                        </div>
+                        <div class="c-both"></div>
+                    </div>
+                     <div class="prettyP_SP">
+                        <li class="pb10"><a href="#s1">[b] Data File Selection</a></li>
+                        <li class="pb10"><a href="#s2">[a] Function Selection</a></li>
+                        <li class="pb10"><a href="#s3">[c] Parameter Settings</a></li>
+                        <li class="pb10"><a href="#s4">[d] User defined Function Settings</a></li>
+                        <li class="pb10"><a href="#s5">[e] Plotting Range Settings</a></li>
+                        <li class="pb10"><a href="#s6">[f] Mesh Settings</a></li>
+                        <li class="pb10"><a href="#s7">[g] Plotting Angle Settings</a></li>
+                        <li class="pb10"><a href="#s8">[h] Log Output ON/OFF</a></li>
+                        <li class="pb10"><a href="#s9">[i] Discontinuity Points Replacement ON/OFF</a></li>
+                        <li class="pb10"><a href="#s10">[j] Coordinate Axis Display ON/OFF</a></li>
+                        <li class="pb10"><a href="#s11">[k] Update</a></li>
+                        <li class="pb10"><a href="#s12">[l] Reset</a></li>
+                        <li class="pb10"><a href="#s13">[m] Plotting Angle Setting (Slider bar)</a></li>
+                        <li class="pb10"><a href="#s14">[n] Finishing the Tool</a></li>
+                        <li class="pb10"><a href="#s15">[o] Editing Features</a></li>
+                        <li class="pb10"><a href="#s16">[p] Perspective Settings</a></li>
+                        <div class="c-both"></div>
+                    </div>
+                </ol>
+            </div>
+
+            <div class="cntnts-wrapper pb50">
+                <!-- タイトルと説明 + 画像 -->
+                <div class="cntnts-flex">
+                    <!-- 左側のテキストエリア -->
+                    <div class="cntnts-text">
+                        <!-- タイトル -->
+                        <p id="s1" class="cntnts-title">
+                            [a] Data File Selection
+                        </p>
+                        <!-- 説明 ==右図の高さが小さいときは使わない== -->
+                        <div class="cntnts-description">
+                            <p></p>
+                        </div>
+                    </div>
+                    <!-- 右側の画像エリア -->
+                    <div class="cntnts-image">
+                        <img class="fbox_image2" src="image/cpp_pers/cpp_pers_0101_a.jpg">
+                    </div>
+                </div>
+                <!-- 説明が長い場合 -->
+                <div class="cntnts-description pb30">
+                    <p class="pl0 pb10 fwm">
+                        Clicking the [LOAD] button opens a dialog box for selecting the data files.
+                        By default, you should see a folder named "log" and two files,
+                        "PersData_01.pers_dat" and "PersData_sample.pers_dat".
+                        The "log" folder will be explained in <a href="#s8">[h] Log Output ON/OFF</a>.
+                    </p>
+                    <div class="prettyP_PC">
+                        <div>
+                            <img src="image/cpp_pers/cpp_pers_0102_en.jpg" border="0">
+                        </div>
+                    </div>
+                    <div class="prettyP_SP">
+                        <div class="table-container">
+                            <img src="image/cpp_pers/cpp_pers_0102_en.jpg" width="615" border="0">
+                        </div>
+                    </div>
+                    <p class="fss fwb pb10">
+                        Fig. 1-2
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        Data files use the extension ".pers_dat".
+                        Although they are plain text files, a unique extension is used
+                        so that they cannot be mistaken for any other files.
+                        If the extension is not displayed, the "log" folder
+                        and the two data files "PersData_01" and "PersData_sample" are displayed.
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        By default, the data in "PersData_sample.pers_dat" is set to be used at startup.
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        Try selecting "PersData_01.pers_dat".
+                    </p>
+                    <div class="prettyP_PC">
+                        <div>
+                            <img src="image/cpp_pers/cpp_pers_0103.png" width="768">
+                        </div>
+                    </div>
+                    <div class="prettyP_SP">
+                        <div class="table-container">
+                            <img src="image/cpp_pers/cpp_pers_0103.png" width="640">
+                        </div>
+                    </div>
+                    <p class="fss fwb pb10">
+                        Fig. 1-3
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        In fact, there are no data of function formulas registered in "PersData_01.pers_dat",
+                        so "User Defined" is suddenly selected.
+                        You cannot proceed further in this case, so press the [LOAD] button again
+                        and select "PersData_sample.pers_dat".
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        You should see the same screen as when you first started Pers (refer to "<a href="#t1">Fig.1-1</a>").
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        From here on, the explanation will assume that the sample data "PersData_sample.pers_dat" is used.
+                    </p>
+                </div>
+
+                <!-- タイトルと説明 + 画像 -->
+                <div class="cntnts-flex">
+                    <!-- 左側のテキストエリア -->
+                    <div class="cntnts-text">
+                        <!-- タイトル -->
+                        <p id="s2" class="cntnts-title">
+                            [b] Function Selection
+                        </p>
+                        <!-- 説明 ==右図の高さが小さいときは使わない== -->
+                        <div class="cntnts-description">
+                            <p class="pl0 pb10 fwm">
+                                When you press the menu button of the combo box, the registered function formulas will be displayed.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- 右側の画像エリア -->
+                    <div class="cntnts-image">
+                        <p class="pb5">
+                            <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0101_b.jpg">
+                        </p>
+                    </div>
+                </div>
+                <!-- 説明が長い場合 -->
+                <div class="cntnts-description pb30">
+                    <p class="pl0">
+                        <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0104.jpg">
+                    </p>
+                    <p class="fss fwb pb15">
+                        Fig. 1-4
+                    </p>
+                    <p  id ="ref3" class="pl0 pb10 fwm">
+                        For example, clicking on "01" will display the following screen.
+                    </p>
+                    <div class="prettyP_PC">
+                        <div>
+                            <img src="image/cpp_pers/cpp_pers_0105.png" width="768">
+                        </div>
+                    </div>
+                    <div class="prettyP_SP">
+                        <div class="table-container">
+                            <img src="image/cpp_pers/cpp_pers_0105.png" width="640">
+                        </div>
+                    </div>
+                    <p class="fss fwb pb10">
+                        Fig. 1-5
+                    </p>
+                </div>
+
+                <!-- タイトルと説明 + 画像 -->
+                <div class="cntnts-flex">
+                    <!-- 左側のテキストエリア -->
+                    <div class="cntnts-text">
+                        <!-- タイトル -->
+                        <p id="s3" class="cntnts-title">
+                            [c] Parameter Settings
+                        </p>
+                        <!-- 説明 ==右図の高さが小さいときは使わない== -->
+                        <div class="cntnts-description">
+                            <p class="pl0 pb10 fwm">
+                                The parameter settings are explained in the following sections of Chapter 2(<a href="#t2">[Ⅱ] About user defined functions</a>): <br>
+                                <a href="#a3">[03] A function formula with parameters</a>
+                            </p>
+                        </div>
+                    </div>
+                    <!-- 右側の画像エリア -->
+                    <div class="cntnts-image">
+                        <p class="pb5">
+                            <img class="fbox_image2" src="image/cpp_pers/cpp_pers_0101_c.jpg">
+                        </p>
+                    </div>
+                </div>
+                <!-- 説明が長い場合 -->
+                <div class="cntnts-description pb30">
+                </div>
+
+                <!-- タイトルと説明 + 画像 -->
+                <div class="cntnts-flex">
+                    <!-- 左側のテキストエリア -->
+                    <div class="cntnts-text">
+                        <!-- タイトル -->
+                        <p id="s4" class="cntnts-title">
+                            [d] User defined function Settings
+                        </p>
+                        <!-- 説明 ==右図の高さが小さいときは使わない== -->
+                        <div class="cntnts-description">
+                    <p class="pl0 fwm">
+                        The formula and comment for the currently selected function are displayed.
+                        If no comment has been entered, this will be blank as shown here.
+                        In <a href="#ref3">Fig.1-5</a>, the comment that has been entered is displayed.
+                    </p>
+                        </div>
+                    </div>
+                    <!-- 右側の画像エリア -->
+                    <div class="cntnts-image">
+                        <p class="pb5">
+                            <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0101_d.jpg">
+                        </p>
+                    </div>
+                </div>
+                <!-- 説明が長い場合 -->
+                <div class="cntnts-description pb30">
+                    <p class="pl0 pb10 fwm">
+                        Details will be explained in Chapter 2 (<a href="#t2">[Ⅱ] About user defined functions</a>).
+                    </p>
+                </div>
+
+                <!-- タイトルと説明 + 画像 -->
+                <div class="cntnts-flex">
+                    <!-- 左側のテキストエリア -->
+                    <div class="cntnts-text">
+                        <!-- タイトル -->
+                        <p id="s5" class="cntnts-title">
+                            [e] Plotting Range Settings
+                        </p>
+                        <!-- 説明 ==右図の高さが小さいときは使わない== -->
+                        <div class="cntnts-description">
+                            <p class="pl0 pb10 fwm">
+                                Set the plotting range for x, y, and z.
+                            </p>
+                            <p class="pl0 pb10 fwm">
+                                The default range is -2.0000 to 2.0000 for x, y, and z. <a href="#p1">*note</a>
+                            </p>
+                            <p class="pl0 pb10 fwm">
+                                After changes, press the [Start] button to replot the surface.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- 右側の画像エリア -->
+                    <div class="cntnts-image">
+                        <p class="pb5">
+                            <img class="fbox_image2" src="image/cpp_pers/cpp_pers_0101_e.jpg">
+                        </p>
+                    </div>
+                </div>
+                <!-- 説明が長い場合 -->
+                <div class="cntnts-description pb30">
+                    <p class="pl0 pb10 fwm">
+                        For the z-axis, if the function's values exceed the range,
+                        a plane parallel to the x-y plane will be drawn.
+                        To make the boundaries clearer, contour lines are drawn at three points: z : max, 0, min.
+                        When the gamma angle (the vertical viewpoint position) will be explained in
+                        <a href="#s7">[g] Plotting Angle Settings</a> is set to 90 or -90 degrees,
+                        a graph of the implicit function will be plotted.
+                    </p>
+                     <div class="prettyP_PC">
+                        <div>
+                            <img src="image/cpp_pers/cpp_pers_0106_en.png" width="872">
+                        </div>
+                    </div>
+                    <div class="prettyP_SP">
+                        <div class="table-container">
+                            <img src="image/cpp_pers/cpp_pers_0106_en.png" width="640">
+                        </div>
+                    </div>
+                    <p class="fss fwb pb10">
+                        Fig. 1-6
+                    </p>
+                </div>
+
+                <!-- タイトルと説明 + 画像 -->
+                <div class="cntnts-flex">
+                    <!-- 左側のテキストエリア -->
+                    <div class="cntnts-text">
+                        <!-- タイトル -->
+                        <p id="s6" class="cntnts-title">
+                            [f] Mesh Settings
+                        </p>
+                        <!-- 説明 ==右図の高さが小さいときは使わない== -->
+                        <div class="cntnts-description">
+                            <p class="pl0 pb10 fwm">
+                                Set the number of lines used for drawing.
+                                "calculation" refers to the number of lines used for calculation.
+                                "drawing" refers to the number of lines actually drawn.
+                            </p>
+                            <p class="pl0 fwm">
+                                Increasing the number of lines makes the mesh denser and the surface smoother,
+                                but it also increases the computational load,
+                                which may cause choppy movements when rotating the rendered surface.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- 右側の画像エリア -->
+                    <div class="cntnts-image">
+                        <p class="pb5">
+                            <img class="fbox_image2" src="image/cpp_pers/cpp_pers_0101_f.jpg">
+                        </p>
+                    </div>
+                </div>
+                <!-- 説明が長い場合 -->
+                <div class="cntnts-description pb30">
+                    <p class="pl0 pb10 fwm">
+                        The setting range is "1 to 120". In practice, "20" or "40" is probably appropriate.
+                        If the setting value for "calculation" is changed, it will be automatically copied to "drawing".
+                        The initial value for both "calculation" and "drawing" is 20.  <a href="#p1">*note</a>
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        The "calculation" setting is copied to "drawing", so there is usually no need to change it.
+                        However, if you would like to intentionally reduce the number of lines to be drawn,
+                        set it to 1/2 or 1/4 and so on of the value set in "calculation".
+                   </p>
+                    <p class="pl0 pb10 fwm">
+                        After changes, press the [Start] button to redraw the surface.
+                    </p>
+                </div>
+
+                <!-- タイトルと説明 + 画像 -->
+                <div class="cntnts-flex">
+                    <!-- 左側のテキストエリア -->
+                    <div class="cntnts-text">
+                        <!-- タイトル -->
+                        <p id="s7" class="cntnts-title">
+                            [g] Plotting Angle Settings
+                        </p>
+                        <!-- 説明 ==右図の高さが小さいときは使わない== -->
+                        <div class="cntnts-description">
+                            <p class="pl0 pb10 fwm">
+                                "alpha" sets the horizontal angle (around the z-axis) of the viewpoint.
+                                "gamma" sets the vertical angle (downward [-] / upward [+]) of the viewpoint.
+                            </p>
+                            <p class="pl0fwm">
+                                Although you can directly enter numerical values in the text boxes,
+                            </p>
+                        </div>
+                    </div>
+                    <!-- 右側の画像エリア -->
+                    <div class="cntnts-image">
+                        <p class="pb5">
+                            <img class="fbox_image2" src="image/cpp_pers/cpp_pers_0101_g.jpg">
+                        </p>
+                    </div>
+                </div>
+                <!-- 説明が長い場合 -->
+                <div class="cntnts-description pb30">
+                    <p class="pl0 pb10 fwm">
+                        Although you can directly enter numerical values in the text boxes,
+                        the right slider of the drawing window links to "alpha" and
+                        the bottom slider links to "gamma", so moving the sliders will display the respective angles.
+                        The default is "alpha" : 30 degrees and "gamma" : -30 degrees. <a href="#p1">*note</a>, (refer to <a href="#s13">[m] Plotting Angle Setting (Slider bar)</a>).
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        After changes, press the [Start] button to redraw the surface.
+                    </p>
+                </div>
+
+                <!-- タイトルと説明 + 画像 -->
+                <div class="cntnts-flex">
+                    <!-- 左側のテキストエリア -->
+                    <div class="cntnts-text">
+                        <!-- タイトル -->
+                        <p id="s8" class="cntnts-title">
+                            [h] Log Output ON/OFF
+                        </p>
+                        <!-- 説明 ==右図の高さが小さいときは使わない== -->
+                        <div class="cntnts-description">
+                            <p class="pl0 pb10 fwm">
+                                If you check [log output],
+                                the (x, y, z) data specified by the mesh and plotting range will be output to the [log] folder.
+                            </p>
+                            <p class="pl0 pb10 fwm">
+                                After checking the box, press the [Start] button will output the log.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- 右側の画像エリア -->
+                    <div class="cntnts-image">
+                        <p class="pb5">
+                            <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0101_h.jpg">
+                        </p>
+                    </div>
+                </div>
+                <!-- 説明が長い場合 -->
+                <div class="cntnts-description pb30">
+                    <p>
+                        <img class="fbox_image" src="image/cpp_pers/cpp_pers_0107.jpg">
+                    </p>
+                    <p class="fss fwb pb10">
+                        Fig. 1-7
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        When drawing a function that contains discontinuous points within the drawing range,
+                        this can be useful for analyzing what values​are being output at the discontinuous points.
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        The name of the file to be created in the [log] folder is fixed as "debug.log".
+                        Since the data will be added in append mode, uncheck this box if you do not need it.
+                        If you select another function in the function selection combo box, the check will disappear.
+                        Also, it is not checked when "Pers" is started (refer to "<a href="#t1">Fig.1-1</a>").
+                    </p>
+                </div>
+
+                <!-- タイトルと説明 + 画像 -->
+                <div class="cntnts-flex">
+                    <!-- 左側のテキストエリア -->
+                    <div class="cntnts-text">
+                        <!-- タイトル -->
+                        <p id="s9" class="cntnts-title">
+                            [i] Discontinuity Points Replacement ON/OFF
+                        </p>
+                        <!-- 説明 ==右図の高さが小さいときは使わない== -->
+                        <div class="cntnts-description">
+                            <p class="pl0 fwm">
+                                When calculating z-values along a mesh, the denominator might become zero,
+                                or both the numerator and denominator could become zero.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- 右側の画像エリア -->
+                    <div class="cntnts-image">
+                        <p class="pb5">
+                            <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0101_i.jpg">
+                        </p>
+                    </div>
+                </div>
+                <!-- 説明が長い場合 -->
+                <div class="cntnts-description pb30">
+                    <p class="pl0 pb10 fwm">
+                        In such cases, the result of the calculation will be a non-number such as "inf", "-inf", "nan", or "-nan(ind)".
+                        When the graph is drawn, those parts will be missing, as nothing is drawn.
+                    </p>
+                     <div class="prettyP_PC">
+                        <div>
+                            <img src="image/cpp_pers/cpp_pers_0108.png" width="768">
+                        </div>
+                    </div>
+                    <div class="prettyP_SP">
+                        <div class="table-container">
+                            <img src="image/cpp_pers/cpp_pers_0108.png" width="640">
+                        </div>
+                    </div>
+                    <p class="fss fwb pb10">
+                        Fig. 1-8
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        In these cases,, if you check [discontinuity points replacement],
+                        the discontinuity points (lines) will be replaced as follows:
+                    </p>
+                    <p>
+                        <table class="fss fwb" width="300" height="40" border="1">
+                           <tr>
+                             <th>Calculation results</th>
+                             <th>Replacement</th>
+                           </tr>
+                           <tr>
+                             <td>inf<br>greater than 9999.0</td>
+                             <td>9999.0</td>
+                           </tr>
+                           <tr>
+                             <td>-inf<br>less than -9999.0</td>
+                             <td>-9999.0</td>
+                           </tr>
+                           <tr>
+                             <td>-nan(ind)</td>
+                             <td>result of calculation of one previous coordinate</td>
+                           </tr>
+                           <tr>
+                             <td>nan</td>
+                             <td>result of calculation of one previous coordinate</td>
+                           </tr>
+                         </table>
+                    </p>
+                    <p class="pl0 pb10 fwm"></p>
+                    <p class="pl0 pb10 fwm">
+                        When the the [START] button pressed , a message will appear showing the discontinuities point (line)
+                        and the replacement contents.
+                        However, since there can be a large number of replacements,
+                        it can be annoying to see the message displayed every time, so the message is only displayed once.
+                        Also if there are multiple causes of discontinuity, they will all be only displayed once.
+                        For more detailed information, refer to <a href="#s8">[h] Log Output ON/OFF</a>.
+                    </p>
+                    <p>
+                        <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0109_en.jpg">
+                    </p>
+                    <p class="fss fwb pb10">
+                        Fig. 1-9
+                    </p>
+                    <div class="prettyP_PC">
+                        <div>
+                            <img src="image/cpp_pers/cpp_pers_0110.png" width="768">
+                        </div>
+                    </div>
+                    <div class="prettyP_SP">
+                        <div class="table-container">
+                            <img src="image/cpp_pers/cpp_pers_0110.png" width="640">
+                        </div>
+                    </div>
+                    <p class="fss fwb pb10">
+                        Fig. 1-10
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        This replacement is not perfect,
+                        and there may be cases where discontinuity occurs due to causes that I have not yet noticed.
+                        If you encounter such functions, please let me know. If I can deal with it, I will improve it.
+                    </p>
+                </div>
+
+                <!-- タイトルと説明 + 画像 -->
+                <div class="cntnts-flex">
+                    <!-- 左側のテキストエリア -->
+                    <div class="cntnts-text">
+                        <!-- タイトル -->
+                        <p id="s10" class="cntnts-title">
+                            [j] Coordinate Axis Display ON/OFF
+                        </p>
+                        <!-- 説明 ==右図の高さが小さいときは使わない== -->
+                        <div class="cntnts-description">
+                            <p class="pl0 pb10 fwm">
+                                Check [axis] to display the coordinate axes.
+                                In Pers, the z-axis is always vertical, so only the x-axis and y-axis are displayed.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- 右側の画像エリア -->
+                    <div class="cntnts-image">
+                        <p class="pb5">
+                            <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0101_j.jpg">
+                        </p>
+                    </div>
+                </div>
+                <!-- 説明が長い場合 -->
+                <div class="cntnts-description pb30">
+                    <div class="prettyP_PC">
+                        <div>
+                            <img src="image/cpp_pers/cpp_pers_0111.png" width="768">
+                        </div>
+                    </div>
+                    <div class="prettyP_SP">
+                        <div class="table-container">
+                            <img src="image/cpp_pers/cpp_pers_0111.png" width="640">
+                        </div>
+                    </div>
+                    <p class="fss fwb pb10">
+                        Fig. 1-11
+                    </p>
+                </div>
+
+                <!-- タイトルと説明 + 画像 -->
+                <div class="cntnts-flex">
+                    <!-- 左側のテキストエリア -->
+                    <div class="cntnts-text">
+                        <!-- タイトル -->
+                        <p id="s11" class="cntnts-title">
+                            [k] Update
+                        </p>
+                        <!-- 説明 ==右図の高さが小さいときは使わない== -->
+                        <div class="cntnts-description">
+                            <p class="pl0 pb10 fwm">
+                                If you have changed the drawing area or mesh, or turned on a check box,
+                                press the [START] button. The drawing window will be updated.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- 右側の画像エリア -->
+                    <div class="cntnts-image">
+                        <p class="pb5">
+                            <img class="fbox_image2" src="image/cpp_pers/cpp_pers_0101_k.jpg">
+                        </p>
+                    </div>
+                </div>
+                <!-- 説明が長い場合 -->
+                <div class="cntnts-description pb30">
+                    <p></p>
+                </div>
+
+                <!-- タイトルと説明 + 画像 -->
+                <div class="cntnts-flex">
+                    <!-- 左側のテキストエリア -->
+                    <div class="cntnts-text">
+                        <!-- タイトル -->
+                        <p id="s12" class="cntnts-title">
+                            [l] Reset
+                        </p>
+                        <!-- 説明 ==右図の高さが小さいときは使わない== -->
+                        <div class="cntnts-description">
+                            <p class="pl0 fwm">
+                                If you would like to reset the drawing angle to the default value of the registered function,
+                                press the [RESET] button. The drawing window will be reset.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- 右側の画像エリア -->
+                    <div class="cntnts-image">
+                        <p class="pb5">
+                            <img class="fbox_image2" src="image/cpp_pers/cpp_pers_0101_l.jpg">
+                        </p>
+                    </div>
+                </div>
+                <!-- 説明が長い場合 -->
+                <div class="cntnts-description pb30">
+                    <p class="pl0 pb10 fwm">
+                        However, the drawing mesh and range change, and checkboxes turned ON/OFF will be retained.
+                    </p>
+                </div>
+
+                <!-- タイトルと説明 + 画像 -->
+                <div class="cntnts-flex">
+                    <!-- 左側のテキストエリア -->
+                    <div class="cntnts-text">
+                        <!-- タイトル -->
+                        <p id="s13" class="cntnts-title">
+                            [m] Plotting Angle Setting (Slider bar)
+                        </p>
+                        <!-- 説明 ==右図の高さが小さいときは使わない== -->
+                        <div class="cntnts-description">
+                            <p class="pl0 fwm">
+                                The drawing angle is updated in real time
+                                by moving the sliders at the right and bottom of the drawing window.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- 右側の画像エリア -->
+                    <div class="cntnts-image">
+                        <p class="pb5">
+                            <img class="fbox_image2" src="image/cpp_pers/cpp_pers_0101_m_en.jpg">
+                        </p>
+                    </div>
+                </div>
+                <!-- 説明が長い場合 -->
+                <div class="cntnts-description pb30">
+                    <p class="pl0 pb10 fwm">
+                        These values are reflected in the "alpha" and "gamma" of the "draw parameters" (refer to <a href="#s7">[g] Plotting Angle Settings</a>).
+                    </p>
+                </div>
+
+                <!-- タイトルと説明 + 画像 -->
+                <div class="cntnts-flex">
+                    <!-- 左側のテキストエリア -->
+                    <div class="cntnts-text">
+                        <!-- タイトル -->
+                        <p id="s14" class="cntnts-title">
+                            [n] Finishing the Tool
+                        </p>
+                        <!-- 説明 ==右図の高さが小さいときは使わない== -->
+                        <div class="cntnts-description">
+                            <p class="pl0 pb10 fwm">
+                                Press the button to exit Pers.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- 右側の画像エリア -->
+                    <div class="cntnts-image">
+                        <p class="pb5">
+                            <img class="fbox_image2" src="image/cpp_pers/cpp_pers_0101_n.jpg">
+                        </p>
+                    </div>
+                </div>
+                <!-- 説明が長い場合 -->
+                <div class="cntnts-description pb30">
+                    <p></p>
+                </div>
+
+                <!-- タイトルと説明 + 画像 -->
+                <div class="cntnts-flex">
+                    <!-- 左側のテキストエリア -->
+                    <div class="cntnts-text">
+                        <!-- タイトル -->
+                        <p id="s15" class="cntnts-title">
+                            [o] Editing Features
+                        </p>
+                        <!-- 説明 ==右図の高さが小さいときは使わない== -->
+                        <div class="cntnts-description">
+                            <p class="pl0 pb10 fwm">
+                                The editing features are explained in the following sections of Chapter 2 (<a href="#t2">[Ⅱ] About user <br>defined functions</a>).<br>
+                                <a href="#a5">[05] About processing when changing function settings</a><br>
+                                <a href="#a6">[06] About the deletion of a registered function</a>
+                            </p>
+                        </div>
+                    </div>
+                    <!-- 右側の画像エリア -->
+                    <div class="cntnts-image">
+                        <p class="pb5">
+                            <img class="fbox_image2" src="image/cpp_pers/cpp_pers_0101_o.jpg">
+                        </p>
+                    </div>
+                </div>
+                <!-- 説明が長い場合 -->
+                <div class="cntnts-description pb30">
+                    <p></p>
+                </div>
+
+                <!-- タイトルと説明 + 画像 -->
+                <div class="cntnts-flex">
+                    <!-- 左側のテキストエリア -->
+                    <div class="cntnts-text">
+                        <!-- タイトル -->
+                        <p id="s16" class="cntnts-title">
+                            [p] Perspective Settings (draw parameters: L, D)
+                        </p>
+                        <!-- 説明 ==右図の高さが小さいときは使わない== -->
+                        <div class="cntnts-description">
+                            <p class="pl0 pb10 fwm">
+                                In general, as one moves the viewpoint closer to an object,
+                                the area closer to the viewpoint becomes larger and the area farther away becomes smaller,
+                                creating a sense of perspective.
+                            </p>
+                            <p class="pl0 pb10 fwm">
+                                Conversely, if your viewpoint is far enough away from the object,
+                                there will be little perspective.
+                            </p>
+                            <p class="pl0 pb10 fwm">
+                                D is the distance from the drawing window to the object (surface),
+                                and is fixed at "10" as a specification.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- 右側の画像エリア -->
+                    <div class="cntnts-image">
+                        <p class="pb5">
+                            <img class="fbox_image2" src="image/cpp_pers/cpp_pers_0101_p.jpg">
+                        </p>
+                    </div>
+                </div>
+                <!-- 説明が長い場合 -->
+                <div class="cntnts-description pb30">
+                    <p class="pl0 pb10 fwm">
+                        L is the distance from the viewpoint to the drawing window, and is set to "1000" by default.
+                        In this case, there is almost no perspective effect
+                        and the surface is drawn with oblique projection.
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        Since Pers is intended to be drawn with oblique projection,
+                        the fixed values of L=1000, D=10 are fine.
+                        But perspective effects are taken into account in the design of Pers,
+                        so the value of L can be changed.
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        The range that can be set is from 1000 to 10.
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        Once you have made your settings, press the [START] button.
+                        The settings will be reflected in the surface rendering.
+                        If you set L to between 20 and 10, you can immediately see the perspective effect.
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        However, since the perspective effect is not the purpose of Pers,
+                        it is usually not necessary to change L.
+                    </p>
+                    <div class="prettyP_PC">
+                        <div>
+                            <img src="image/cpp_pers/cpp_pers_0112.png" width="820">
+                        </div>
+                    </div>
+                    <div class="prettyP_SP">
+                        <div class="table-container">
+                            <img src="image/cpp_pers/cpp_pers_0112.png" width="640">
+                        </div>
+                    </div>
+                    <p class="fss fwb pb10">
+                        Fig. 1-12
+                    </p>
+                </div>
+                <div class="fss fwb bdr10 pb50">
+                    <p id="p1">
+                        *note: Depending on the selected formula, different values may be set.
+                    </p>
+                </div>
+            </div>
+
+            <h3 class="pb30 fwb">
+                <p id="t2">
+                    [Ⅱ] About user defined functions
+                </p>
+            </h3>
+            <div class="pSP20">
+                <div class="fwb pb30">
+                    <ul style="list-style: none;" class="fwm pb40, pSP40">
+                        <li class="pb10"><a href="#a1">[01] Defining and registering a function</a></li>
+                        <li class="pb10"><a href="#a2">[02] About the comments section</a></li>
+                        <li class="pb10"><a href="#a3">[03] A function formula with parameters</a></li>
+                        <li class="pb10"><a href="#a4">[04] Regarding input mistakes</a></li>
+                        <li class="pb10"><a href="#a5">[05] Processing when changing function settings</a></li>
+                        <li class="pb10"><a href="#a6">[06] The deletion or restore of a registered function</a></li>
+                    </ul>
+                </div>
+
+                <div class="fwb pb20">
+                    <div class="contents-title-left pb10"
+                        <p id="a1">
+                            [01]&nbsp;Defining and registering a function
+                        </p>
+                    </div>
+                    <div class="contents-title-right">
+                        <p>
+                            <!--<a href="#title20">トップへ</a>-->
+                        </p>
+                    </div>
+                    <div class="c-both"></div>
+                    <div class="pb10">
+                        <p class="fss bdr10">
+                            note:
+                            The maximum number of user defined functions that can be registered is 98.
+                        </p>
+                    </div>
+                    <p class="pb10"></p>
+                    <p class="pl0 pb10 fwm">
+                        If you select "99 User Defined" in the combo box for selecting a function formula,
+                        two text boxes appear where you can enter the formula and comment.
+                    </p>
+                    <p>
+                        <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0201.png">
+                    </p>
+                    <div class="prettyP_PC">
+                        <div>
+                            <img src="image/cpp_pers/cpp_pers_02021_1.png" width="768">
+                        </div>
+                    </div>
+                    <div class="prettyP_SP">
+                        <div class="table-container">
+                            <img src="image/cpp_pers/cpp_pers_0201_1.png" width="640">
+                        </div>
+                    </div>
+                    <p class="fss fwb pb30">
+                        Fig. 2-01
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        This screen is the same as "<a href="#ref1">Fig.1.3</a>".
+                        The screen shown in "Fig.1.3" appeared suddenly
+                        when you selected "PersData_01.pers_dat" in the data file selection.
+                        "PersData_01.pers_dat" is originally an empty file prepared for adding user defined functions.
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        Since this is a good opportunity, let's add user defined functions to this file.
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        Press the [LOAD] button and select "PersData_01.pers_dat" from the dialog box.
+                        The same screen as "Fig.2-01" will be displayed.
+                    </p>
+                    <p>
+                        <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0201_1.jpg">
+                    </p>
+                    <p class="fss fwb pb30">
+                        Fig. 2-01-1
+                    </p>
+                    <p class="fss pb10">
+                        formula:
+                    </p>
+                    <p class="fwm pb10">
+                        Enter a function formula with two variables x and y (required).
+                    </p>
+                    <p class="fss pb10">
+                        comment:
+                    </p>
+                    <p class="fwm pb20">
+                        Enter a comment, but it is not required.
+                        For more information, refer to <a href="#a2">[02] About the Comments Section</a>.
+                    </p>
+                    <p class="fss fwb pb10">
+                        example of a function formula:
+                    </p>
+                    <p class="fwm pb10">
+                        If f(x, y) = x^2 + y^2 or z = x^2 + y^2, enter only "x^2 + y^2" on the right hand side.
+                    </p>
+                    <p>
+                        <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0202.jpg">
+                    </p>
+                    <p class="fss fwb pb30">
+                        Fig. 2-02
+                    </p>
+                    <p class="fwm pb10">
+                        User defined function formula is evaluated using
+                        <a href="https://github.com/codeplea/tinyexpr" target="_blank">TinyExpr</a>.
+                        Formulas that can be expressed as text, such as (x^2 + y^2), will work without issues.
+                        The following operators and mathematical functions can be used when defining a function formula.
+                    </p>
+                    <div class="pSP20">
+                        <p class="fss pb5">
+                            Operators
+                        </p>
+                        <p class="fwm pb10">
+                            You can use the four arithmetic operations "+, -, *, /" and power "^".
+                            However, for square roots "√" and absolute value symbols "|…|", use sqrt() and abs(), respectively.
+                        </p>
+                        <p class="fss pb5">
+                            Mathematical functions
+                        </p>
+                        <p class="fwm pb30">
+                            Usual functions such as sin, cos, exp, log, and pow can be used.
+                            The following functions can be used (functions that are not related to drawing surfaces have been omitted): <br>
+                            abs, acos, asin, atan, atan2, cos, cosh, e, exp, gamma, ln, log, log10, pow, sin, sinh, sqrt, tan, tanh
+                        </p>
+                        <p class="fwm pb30">
+                            For the correspondence with the C and C++ standard function "math.h" library,
+                            refer to <a href="#a4">[04] About input errors</a>.
+                        </p>
+                    </div>
+                    <p class="fwm pb10">
+                        When you press the [CHECK] button, the formula will be evaluated,
+                        and if the formula is valid, the surface of the entered function will be drawn
+                        and the [SAVE] button will appear.
+                    </p>
+                    <div class="prettyP_PC">
+                        <div>
+                            <img src="image/cpp_pers/cpp_pers_0203.png" width="768">
+                        </div>
+                    </div>
+                    <div class="prettyP_SP">
+                        <div class="table-container">
+                            <img src="image/cpp_pers/cpp_pers_0203.png" width="640">
+                        </div>
+                    </div>
+                    <p class="fss fwb pb30">
+                        Fig. 2-03
+                    </p>
+                    <p class="fwm pb10">
+                        If there are errors in the evaluation of the entered formula,
+                        a message will be displayed, but the function used may be undefined,
+                        so check it (refer to <a href="#a4">[04] About input errors</a>).
+                    </p>
+                    <p>
+                        <img class="fbox_image2" src="image/cpp_pers/cpp_pers_0204.jpg">
+                    </p>
+                    <p class="fss fwb pb30">
+                        Fig. 2-04
+                    </p>
+                    <p class="fwm pb30">
+                        Once you have corrected any errors in the formula, press the [CHECK] button again.
+                        If the corrections have been made successfully, the screen shown in "Fig. 2-03" will appear.
+                        If you find that undefined mathematical functions (eg., asinh, acosh) are being used,
+                        since it is not possible to register formulas, press the [CANCEL] button to exit user-defined mode.
+                        Pressing the [CANCEL] button clears the entered data and returns the screen to its initial state.
+                    </p>
+                    <p class="fwm pb10">
+                        Before pressing the [SAVE] button,
+                        here is an overview of the settings that will be written to the file.                    </p>
+                    <p class="fwb pSP20 pb5">
+                        range
+                    </p>
+                    <p class="fwm pSP20 pb10">
+                        Set the drawing range for x, y, and z.
+                        By default, x, y, and z are all between -2.00000 and +2.00000,
+                        but they can be set individually.
+                        For details, refer to <a href="#s5">[e] Plotting Range Settings</a>
+                        in Chapter 1 (<a href="#t1">[Ⅰ] About the screen</a>).
+                    </p>
+                    <p class="fwb pSP20 pb5">
+                        draw parameters
+                    </p>
+                    <p class="fwm pSP20 pb10">
+                        You can set the alpha angle (rotation around the z-axis)
+                        and gamma angle (looking down or up to the x-y plane) from the viewpoint.
+                        For details, refer to <a href="#s7">[g] Plotting Angle Settings</a>
+                        in Chapter 1 (<a href="#t1">[Ⅰ] About the screen</a>).
+                    </p>
+                    <p class="fwm pSP40 pb10">
+                        alpha angle : -180 to 180 deg.<br>
+                        gamma angle : -90 to 90 deg.
+                    </p>
+                    <p class="fwb pSP20 pb5">
+                        line number
+                    </p>
+                    <p class="fwm pSP20 pb10">
+                        Sets the number of lines that make up the mesh to be plotted.
+                        For details, refer to <a href="#s6">[f] Mesh Settings</a>
+                        in Chapter 1 (<a href="#t1">[Ⅰ] About the screen</a>).
+                    </p>
+                    <p class="fwm pSP20 pb30">
+                        calcration : Specifies the number of lines to calculate.<br>
+                        drawing : Specifies the number of lines to plot.
+                        Normally, the number set by "calcration" is set, so there is no need to change it.
+                    </p>
+                    <p class="fwm pb10">
+                        If you change any of the settings, press the [CHECK] button to check the plotting. <br>
+                        You can press <strong>the [CHECK] button any number of times</strong>.
+                    </p>
+                    <p class="fwm pb10">
+                        If you would like to exit the user-defined mode without registering a function, press the [CANCEL] button.
+                        Any data you have entered will be cleared and you will return to the initial screen. <br>
+                        If you click the [CANCEL] button this time, since no functions have been registered in the file yet,
+                        the initial screen shown in "Fig. 2-01" will be displayed.
+                        You can press <strong>the [CANCEL] button at any time</strong> before pressing the [SAVE] button.
+                    </p>
+                    <!--
+                    <p>
+                        <img class="fbox_image2" src="image/cpp_pers/cpp_pers_0205.png" width="768">
+                    </p>
+                    <p class="fss pb10">
+                        Fig. 2-05
+                    </p>
+                    -->
+                    <p class="fwm pb10">
+                        When you click the [SAVE] button, the entered function formula is written to the data file
+                        and is also added to the combo box for selecting a function formula.
+                    </p>
+                    <div class="prettyP_PC">
+                        <div>
+                            <img src="image/cpp_pers/cpp_pers_0206.png" width="768">
+                        </div>
+                    </div>
+                    <div class="prettyP_SP">
+                        <div class="table-container">
+                            <img src="image/cpp_pers/cpp_pers_0206.png" width="640">
+                        </div>
+                    </div>
+                    <p>
+                        <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0206_1.png">
+                    </p>
+                    <p class="fss fwb pb10">
+                        Fig. 2-06
+                    </p>
+                </div>
+
+                <div class="fwb pb20">
+                    <div class="contents-title-left pb20"
+                        <p id="a2">
+                            [02]&nbsp;About the comments section
+                        </p>
+                    </div>
+                    <div class="contents-title-right">
+                        <p>
+                            <!--<a href="#t2">[Ⅱ] About user defined functions to TOP</a>-->
+                        </p>
+                    </div>
+                    <div class="c-both"></div>
+                    <p class="fwm pb40">
+                        There are three ways to use the comments section:
+                    </p>
+
+                    <ol class="fwm pSP40">
+                        <li class="pb40">
+                            <p class="pb10 fwm">
+                                If you do not need a comment, you can leave it blank.
+                            </p>
+                            <p>
+                                <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0207.jpg">
+                            </p>
+                            <p class="fss fwb pb30">
+                                Fig. 2-07
+                            </p>
+                            <p class="pb5 fwb">
+                                example:
+                            </p>
+                            <p class="pb10 fwm">
+                                When you save the data,
+                                the following list will be added to the combo box for selecting a function formula.
+                            </p>
+                             <div class="prettyP_PC">
+                                <div>
+                                    <img src="image/cpp_pers/cpp_pers_0208.png" width="768">
+                                </div>
+                            </div>
+                            <div class="prettyP_SP">
+                                <div class="table-container">
+                                    <img src="image/cpp_pers/cpp_pers_0208.png" width="640">
+                                </div>
+                            </div>
+                            <p class="fss fwb pb10">
+                                Fig. 2-08
+                            </p>
+                        </li>
+                        <li class="pb40">
+                            <p class="pb10 fwm">
+                                If the function formula has a unique name or you would like to keep a note, enter it here.
+                            </p>
+                            <div class="pb30">
+                                <p class="bdr10 fwm">
+                                    note:
+                                    I will continue the explanation assuming
+                                    that the entered formula has been evaluated as valid
+                                    and the [SAVE] button has been displayed.
+                                </p>
+                            </div>
+                            <p class="pb5 fwb">
+                                example:
+                            </p>
+                            <p class="pb10 fwm">
+                                formula: x^3 - 3*x*y + y^3
+                            </p>
+                            <p class="pb10 fwm">
+                                comment: Folium of Descartes
+                            </p>
+                            <p>
+                                <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0209.jpg">
+                            </p>
+                            <p class="fss fwb pb10">
+                                Fig. 2-09
+                            </p>
+                            <p class="pb10 fwm">
+                                When you save the data,
+                                the following list will be added to the combo box for selecting a function formula.
+                            </p>
+                             <div class="prettyP_PC">
+                                <div>
+                                    <img src="image/cpp_pers/cpp_pers_0210.png" width="768">
+                                </div>
+                            </div>
+                            <div class="prettyP_SP">
+                                <div class="table-container">
+                                    <img src="image/cpp_pers/cpp_pers_0210.png" width="640">
+                                </div>
+                            </div>
+                            <p class="fss fwb pb10">
+                                Fig. 2-10
+                            </p>
+                        </li>
+                        <li id="ref2" class="pb20">
+                            <p class="pb10 fwm">
+                                If the function formula is too long, you can enter an alternative formula.
+                            </p>
+                            <div class="pb30">
+                                <p class="bdr10 fwm">
+                                    note: To enter an alternative formula, start it with an apostrophe "'".
+                                </p>
+                            </div>
+                            <p class="pb5 fwb">
+                                example:
+                            </p>
+                            <p>
+                                <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0211.jpg">
+                            </p>
+                            <p class="fss fwb pb10">
+                                Fig. 2-11
+                            </p>
+                            <p class="pb10 fwm">
+                                When you save the data,
+                                the following list will be added to the combo box for selecting a function formula.
+                            </p>
+                             <div class="prettyP_PC">
+                                <div>
+                                    <img src="image/cpp_pers/cpp_pers_0212.png" width="768">
+                                </div>
+                            </div>
+                            <div class="prettyP_SP">
+                                <div class="table-container">
+                                    <img src="image/cpp_pers/cpp_pers_0212.png" width="640">
+                                </div>
+                            </div>
+                            <p class="fss fwb pb10">
+                                Fig. 2-12
+                            </p>
+                            <div class="bdr10">
+                                <p class="pb5 fwm">
+                                    note:<br>
+                                    Directly entering "abs(sin(x + i*y))" as a function formula
+                                    will result in an error during evaluation,
+                                    because the imaginary unit "i" is not defined.
+                                </p>
+                                <p class="pb5 fwm">
+                                    Formulas must always be defined with two variables, "x" and "y".
+                                </p>
+                                <p class="fwm">
+                                    Thus, for "|sin(ω)| : ω = x + iy",
+                                    you need to expand it using "x" and "y" and enter the expanded formula:
+                                    "sqrt(sin(x)*sin(x)*cosh(y)*cosh(y) + cos(x)*cos(x)*sinh(y)*sinh(y))".
+                                </p>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="fwb pb20">
+                    <div class="contents-title-left pb20"
+                        <p id="a3">
+                            [03]&nbsp;A function formula with parameters
+                        </p>
+                    </div>
+                    <div class="contents-title-right">
+                        <p>
+                            <!--<a href="#t2">[Ⅱ] About user defined functions to TOP</a>-->
+                        </p>
+                    </div>
+                    <div class="c-both"></div>
+                    <p class="fwm pb10">
+                        The function you define may include parameters "a" through "d".
+                    </p>
+                    <p class="fwm pb30">
+                        If the formula includes the letters "a" through "d",
+                        pressing the [Tab] key or clicking in the comment field
+                        after entering the formula will enable the "parameters" input boxes corresponding to those letters.
+                   </p>
+                    <p class="pb5s fwb">
+                        example:
+                    </p>
+                    <p class="fwm pb10">
+                        formula: (x^2 + y^2 + a^2)^2 - 4*a^2*x^2 - b^4
+                   </p>
+                    <p class="fwm pb10">
+                        comment: Cassini oval
+                   </p>
+                    <p class="fwm pb10">
+                        This function can draw surfaces of various shapes
+                        by assigning different values to parameters "a" and "b".
+                        The contour line at z = 0 is called a "Cassini oval".
+                   </p>
+                    <p>
+                        <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0213_en.jpg">
+                    </p>
+                    <p class="fss fwb pb10">
+                        Fig. 2-13
+                    </p>
+                    <p class="fwm pb10">
+                        Input suitable values for a and b, then press the [CHECK] button
+                        to draw the surface based on these parameters. Adjust the values of "a" and "b" as needed,
+                        and press the [SAVE] button when you are satisfied with the shape.
+                   </p>
+                    <div class="prettyP_PC">
+                        <div>
+                            <img src="image/cpp_pers/cpp_pers_0214.png" width="768">
+                        </div>
+                    </div>
+                    <div class="prettyP_SP">
+                        <div class="table-container">
+                            <img src="image/cpp_pers/cpp_pers_0214.png" width="640">
+                        </div>
+                    </div>
+                    <p class="fss fwb pb10">
+                        Fig. 2-14
+                    </p>
+                    <p class="fwm pb10">
+                        Pressing the [SAVE] button will add the formula
+                        "(x^2 + y^2 + a^2)^2 - 4a^2x^2 - b^4 : Cassini oval" to the function list in the combo box.
+                        The values of "a" and "b" at the time of saving will be displayed in the parameter input boxes.
+                        To experiment with different shapes by adjusting "a" and "b" again, press the [START] button.
+                   </p>
+                    <div class="prettyP_PC">
+                        <div>
+                            <img src="image/cpp_pers/cpp_pers_0215.png" width="768">
+                        </div>
+                    </div>
+                    <div class="prettyP_SP">
+                        <div class="table-container">
+                            <img src="image/cpp_pers/cpp_pers_0215.png" width="640">
+                        </div>
+                    </div>
+                    <p class="fss fwb pb10">
+                        Fig. 2-15
+                    </p>
+                    <p class="fwm pb10">
+                        By the way, when a = +1.0, b = +1.2, the "Cassini oval" becomes the oval below.
+                   </p>
+                    <p>
+                        <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0216_en.png" width="385">
+                    </p>
+                    <p class="fss fwb pb10">
+                        Fig. 2-16
+                    </p>
+                </div>
+
+                <div class="fwb pb20">
+                    <div class="contents-title-left pb20"
+                        <p id="a4">
+                            [04]&nbsp;Regarding input mistakes
+                        </p>
+                    </div>
+                    <div class="contents-title-right">
+                        <p>
+                            <!--<a href="#t2">[Ⅱ] About user defined functions to TOP</a>-->
+                        </p>
+                    </div>
+                    <div class="c-both"></div>
+                    <p class="fwm pb10">
+                        When defining a function formula,
+                        it's easy to mistakenly write "x^3 - 3xy + y^3" instead of "x^3 - 3*x*y + y^3".
+                        If this happens, pressing the [CHECK] button will display an error message during evaluation."
+                   </p>
+                    <div class="prettyP_PC">
+                        <div>
+                            <img src="image/cpp_pers/cpp_pers_0217.jpg">
+                        </div>
+                    </div>
+                    <div class="prettyP_SP">
+                        <div class="table-container">
+                            <img src="image/cpp_pers/cpp_pers_0217.jpg" width="688">
+                        </div>
+                    </div>
+                    <p class="fss fwb pb10">
+                        Fig. 2-17
+                    </p>
+                    <p class="fwm pb10">
+                        Error messages usually occur due to a missing "*", such as in "2x".
+                        Other common errors include forgetting to close parentheses or using undefined functions.
+                        Check these points if an error occurs.
+                   </p>
+                    <p class="fwm pb10">
+                        Below is a list of mathematical functions supported by <strong>TinyExpr</strong>
+                        (excluding those unrelated to drawing surfaces).
+                        The functions are based on the c, c++ standard "math.h" library (I think).
+                   </p>
+                    <p>
+                        <table class="fwm" width="300" height="40" border="1">
+                            <tr>
+                                <th>TinyExpr</th>
+                                <th>math.h</th>
+                            </tr>
+                            <tr>
+                                <td>abs</td>
+                                <td>fabs</td>
+                            </tr>
+                            <tr>
+                                <td>acos</td>
+                                <td>acos</td>
+                            </tr>
+                            <tr>
+                                <td>asin</td>
+                                <td>asin</td>
+                            </tr>
+                            <tr>
+                                <td>atan</td>
+                                <td>atan</td>
+                            </tr>
+                            <tr>
+                                <td>atan2</td>
+                                <td>atan2</td>
+                            </tr>
+                            <tr>
+                                <td>cos</td>
+                                <td>cos</td>
+                            </tr>
+                            <tr>
+                                <td>cosh</td>
+                                <td>cosh</td>
+                            </tr>
+                            <tr>
+                                <td>e</td>
+                                <td>e</td>
+                            </tr>
+                            <tr>
+                                <td>exp</td>
+                                <td>exp</td>
+                            </tr>
+                            <tr>
+                                <td>gamma</td>
+                                <td>tgamma</td>
+                            </tr>
+                            <tr>
+                                <td>ln</td>
+                                <td>log</td>
+                            </tr>
+                            <tr>
+                                <td>log</td>
+                                <td>log</td>
+                            </tr>
+                            <tr>
+                                <td>log10</td>
+                                <td>log10</td>
+                            </tr>
+                            <tr>
+                                <td>pow</td>
+                                <td>pow</td>
+                            </tr>
+                            <tr>
+                                <td>sin</td>
+                                <td>sin</td>
+                            </tr>
+                            <tr>
+                                <td>sinh</td>
+                                <td>sinh</td>
+                            </tr>
+                            <tr>
+                                <td>sqrt</td>
+                                <td>sqrt</td>
+                            </tr>
+                            <tr>
+                                <td>tan</td>
+                                <td>tan</td>
+                            </tr>
+                            <tr>
+                                <td>tanh</td>
+                                <td>tanh</td>
+                            </tr>
+                         </table>
+                    </p>
+                    <p class="pl0 pb10 fwm"></p>
+                </div>
+
+                <div class="fwb pb40">
+                    <div class="contents-title-left pb20"
+                        <p id="a5">
+                            [05]&nbsp;Processing when changing function settings
+                        </p>
+                    </div>
+                    <div class="contents-title-right">
+                        <p>
+                            <!--<a href="#t2">[Ⅱ] About user defined functions to TOP</a>-->
+                        </p>
+                    </div>
+                    <div class="c-both"></div>
+                    <p class="fwm pb10">
+                        When viewing a registered function,
+                        adjusting the mesh, drawing range, or angle can highlight the function's characteristics.
+                        Alternatively, there may be a case where you would like to add a comment
+                        or modify the content of the comment.
+                        In such cases, you can save these adjustments as a new dataset.
+                    </p>
+                    <p class="fwm bdr10">
+                        note: A maximum of 9 datasets with modified settings can be saved for each function.
+                    </p>
+                    <p class="fwm pb10">
+                        Below are two specific examples.
+                    </p>
+                    <p class="fwm pb10">
+                        <1>
+                    </p>
+                    <p class="fwm pb10">
+                        Currently, "|sin(ω)| : ω = x + iy" should be registered as the fourth function
+                        in the combo box list.
+                        When we registered this function,
+                        the drawing range was left at the default value
+                        (refer to <a href="#ref2">Comment field explanation: If the formula is too long</a>).
+                    </p>
+                    <div class="prettyP_PC">
+                        <div>
+                            <img src="image/cpp_pers/cpp_pers_0212.png" width="768">
+                        </div>
+                    </div>
+                    <div class="prettyP_SP">
+                        <div class="table-container">
+                            <img src="image/cpp_pers/cpp_pers_0212.png" width="640">
+                        </div>
+                    </div>
+                    <p class="fss fwb pb10">
+                        Fig. 2-18
+                    </p>
+                    <p class="fwm pb10">
+                        Changing the drawing range for this function can make its characteristics more apparent.
+                    </p>
+                    <p class="fwm pb10">
+                        Select "04: 0: |sin(ω)| : ω = x + iy " from the combo box list.
+                    </p>
+                    <p class="fwm pb10">
+                        Change "range" and "line number" as follows:
+                    </p>
+                    <p>
+                        <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0219.jpg">
+                    </p>
+                    <p class="fss fwb pb10">
+                        Fig. 2-19
+                    </p>
+                    <p class="fwm pb10">
+                        When you press the [START] button,
+                        the drawing window will be updated and the [mod save] button will appear
+                        at the bottom center of the screen.
+                    </p>
+                    <p class="fwm pb10">
+                        If you change the "range" or "line number" and press the [START] button,
+                        the [mod save] button will be displayed.
+                    </p>
+                    <div class="prettyP_PC">
+                        <div>
+                            <img src="image/cpp_pers/cpp_pers_0220.png" width="768">
+                        </div>
+                    </div>
+                    <div class="prettyP_SP">
+                        <div class="table-container">
+                            <img src="image/cpp_pers/cpp_pers_0220.png" width="640">
+                        </div>
+                    </div>
+                    <p class="fss fwb pb10">
+                        Fig. 2-20
+                    </p>
+                    <p class="fwm pb10">
+                        When the [mod save] button is pressed,
+                        the data reflecting the modifications will be added to the list.
+                    </p>
+                    <div class="prettyP_PC">
+                        <div>
+                            <img src="image/cpp_pers/cpp_pers_0221.png" width="768">
+                        </div>
+                    </div>
+                    <div class="prettyP_SP">
+                        <div class="table-container">
+                            <img src="image/cpp_pers/cpp_pers_0221.png" width="640">
+                        </div>
+                    </div>
+                    <p>
+                        <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0221_1.png" >
+                    </p>
+                    <p class="fss fwb pb10">
+                        Fig. 2-21
+                    </p>
+                    <p class="fwm pb10">
+                        <2>
+                    </p>
+                    <p class="fwm pb10">
+                        I would like to change the parameters of "Cassini Oval",
+                        that I explained it in the function with parameters.
+                        When the function was defined, the parameters a and b were set to "1.0" and "1.2".
+                    <div class="prettyP_PC">
+                        <div>
+                            <img src="image/cpp_pers/cpp_pers_0222.png" width="768">
+                        </div>
+                    </div>
+                    <div class="prettyP_SP">
+                        <div class="table-container">
+                            <img src="image/cpp_pers/cpp_pers_0222.png" width="640">
+                        </div>
+                    </div>
+                    <p class="fss fwb pb10">
+                        Fig. 2-22
+                    </p>
+                    <p class="fwm pb10">
+                        Set both "a" and "b" to "0.6",
+                        then press the [START] button to observe the following change in the graph.
+                        As with <1>, the [mod save] button will appear.
+                    </p>
+                    <div class="prettyP_PC">
+                        <div>
+                            <img src="image/cpp_pers/cpp_pers_0223.png" width="768">
+                        </div>
+                    </div>
+                    <div class="prettyP_SP">
+                        <div class="table-container">
+                            <img src="image/cpp_pers/cpp_pers_0223.png" width="640">
+                        </div>
+                    </div>
+                    <p class="fss fwb pb10">
+                        Fig. 2-23
+                    </p>
+                    <p class="fwm pb10">
+                        This might not be clear, but changing the angle reveals interesting contour lines.
+                    </p>
+                    <div class="prettyP_PC">
+                        <div>
+                            <img src="image/cpp_pers/cpp_pers_0224.png" width="768">
+                        </div>
+                    </div>
+                    <div class="prettyP_SP">
+                        <div class="table-container">
+                            <img src="image/cpp_pers/cpp_pers_0224.png" width="640">
+                        </div>
+                    </div>
+                    <p class="fss fwb pb10">
+                        Fig. 2-24
+                    </p>
+                    <p class="fwm pb10">
+                        The contour line of "z = 0" forms a figure eight.
+                        This is the curve known as Bernoulli's lemniscate.
+                    </p>
+                    <p class="fwm pb10">
+                        Let's save this state.
+                        When you press the [mod save] button, the data reflecting the modifications will be added to the list.
+                    </p>
+                    <div class="prettyP_PC">
+                        <div>
+                            <img src="image/cpp_pers/cpp_pers_0225.png" width="768">
+                        </div>
+                    </div>
+                    <div class="prettyP_SP">
+                        <div class="table-container">
+                            <img src="image/cpp_pers/cpp_pers_0225.png" width="640">
+                        </div>
+                    </div>
+                    <p>
+                        <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0225_1_en.png">
+                    </p>
+                    <p class="fss fwb pb10">
+                        Fig. 2-25
+                    </p>
+                    <div class="bdr10">
+                        <p class="fwm pb10">
+                            note: The timing of the [mod save] button appearance
+                        </p>
+                        <p class="fwm pb10">
+                        </p>
+                        <p class="fwm pb10">
+                            If you select a function formula from the combo box,
+                            change either "comment," "range," or "line number," and press the [START] button,
+                            the [mod save] button will be displayed.
+                        </p>
+                        <p class="fwm pb10">
+                            For angles, when moving the scroll bar, the [mod save] button will be displayed.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="fwb pb20">
+                    <div class="contents-title-left pb20"
+                        <p id="a6">
+                            [06]&nbsp;The deletion or restore of a registered function
+                        </p>
+                    </div>
+                    <div class="contents-title-right">
+                        <p>
+                            <!--<a href="#t2">[Ⅱ] About user defined functions to TOP</a>-->
+                        </p>
+                    </div>
+                    <div class="c-both"></div>
+                    <p class="fwm pb10">
+                        I was unsure whether to allow the deletion of data registered in a file,
+                        but decided to implement the following features:
+                   </p>
+                    <div class="pSP50">
+                        <div class="fwb pb30">
+                            <ul style="list-style: none;" class="fwm pb40, pSP40">
+                                <li class="pb10"><a href="#u1"><01> Deletion of registered data</a></li>
+                                <li class="pb10"><a href="#u2"><02> Restoring deleted data</a></li>
+                                <li class="pb10"><a href="#u3"><03> Permanent deletion of deleted data</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="fwb pb20">
+                            <div class="contents-title-left pb20"
+                                <p id="u1">
+                                    <01>&nbsp;Deletion of registered data
+                                </p>
+                            </div>
+                            <div class="contents-title-right">
+                                <p>
+                                    <!--<a href="#title20">to TOP</a>-->
+                                </p>
+                            </div>
+                            <div class="c-both"></div>
+                            <div>
+                                <p class="pl0 pb10 fwm">
+                                    Assuming you have followed this explanation,
+                                    the following functions are currently registered:
+                                    You can delete any function from "01: 0:" through "05: 1:"
+                                </p>
+                                <p>
+                                    <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0228.jpg">
+                                </p>
+                                <p class="fss fwb pb10">
+                                    Fig. 2-28
+                                </p>
+                                <p class="pl0 pb10 fwm">
+                                    As an example, I would like to delete "02: 0: z = x + y".
+                                </p>
+                                 <p>
+                                    <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0229.jpg">
+                                </p>
+                                <p class="fss fwb pb10">
+                                    Fig. 2-29
+                                </p>
+                                <p class="pl0 pb10 fwm">
+                                    If you select "02: 0: z = x + y", the following screen will be displayed.
+                                </p>
+                                <div class="prettyP_PC">
+                                    <div>
+                                        <img src="image/cpp_pers/cpp_pers_0230.png" width="768">
+                                    </div>
+                                </div>
+                                <div class="prettyP_SP">
+                                    <div class="table-container">
+                                        <img src="image/cpp_pers/cpp_pers_0230.png" width="640">
+                                    </div>
+                                </div>
+                                <p class="fss fwb pb10">
+                                    Fig. 2-30
+                                </p>
+                                <p class="pl0 pb10 fwm">
+                                    Pay attention to "<strong>□ delete</strong>" surrounded by a red frame.
+                                    If you check it, the [delete] button will be displayed.
+                                </p>
+                                <p>
+                                    <img class="fbox_image2" src="image/cpp_pers/cpp_pers_0231.jpg">
+                                </p>
+                                <p class="fss fwb pb10">
+                                    Fig. 2-31
+                                </p>
+                                <p class="pl0 pb10 fwm">
+                                    When you press the [delete] button,
+                                    a message will appear asking you to confirm the deletion.
+                                    If you press [Yes], "02: 0: z = x + y" will be deleted from the combo box list
+                                    and also from the data file.
+                                </p>
+                                <p class="pl0 pb10 fwm">
+                                    If you actually press the [delete] button, the following screen will be displayed.
+                                    You can see that "<strong>02: 0: z = x + y</strong>" has been deleted from the list.
+                                </p>
+                                <div class="prettyP_PC">
+                                    <div>
+                                        <img src="image/cpp_pers/cpp_pers_0232.png" width="768">
+                                    </div>
+                                </div>
+                                <div class="prettyP_SP">
+                                    <div class="table-container">
+                                        <img src="image/cpp_pers/cpp_pers_0232.png" width="640">
+                                    </div>
+                                </div>
+                                <p>
+                                    <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0232_1.png">
+                                </p>
+                                <p class="fss fwb pb10">
+                                    Fig. 2-32
+                                </p>
+                                <p class="pl0 pb10 fwm">
+                                </p>
+                                <p class="pl0 pb10 fwm">
+                                    In the process of restoring deleted data,
+                                    I would like to delete one more piece of data to make it easier to explain.
+                                </p>
+                                <p>
+                                    <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0233.jpg">
+                                </p>
+                                <p class="fss fwb pb10">
+                                    Fig. 2-33
+                                </p>
+                                <p class="fwm">
+                                    Delete "04: 1: |sin(ω)| : ω = x + iy" using the same procedure.
+                                </p>
+                                <p class="pl0 pb10 fwm">
+                                    I have just modified the drawing range of this data
+                                    earlier to make the characteristics of the function easier to see.
+                                    However, I will delete it anyway (assuming it was deleted by mistake).
+                                    As a result, there are now five registered functions.
+                                </p>
+                                 <p>
+                                    <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0234.jpg">
+                                </p>
+                                <p class="fss fwb pb30">
+                                    Fig. 2-34
+                                </p>
+                            </div>
+                        </div>
+                        <div class="contents-title-left">
+                        </div>
+                        <div class="contents-title-right pb30">
+                            <p class="fss">
+                                <a href="#a6">[06] The deletion or restore of a registered function to TOP</a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+
+                        <div class="fwb pb20">
+                            <div class="contents-title-left pb20">
+                                <p id="u2">
+                                    <02>&nbsp;Restoring deleted data
+                                </p>
+                            </div>
+                            <div class="contents-title-right">
+                            </div>
+                            <div class="c-both"></div>
+                            <div>
+                                <p class="fwm">
+                                    I believe that data deletion will be done carefully.
+                                    However, sometimes you may accidentally delete data you need.
+                                </p>
+                                <p class="pl0 pb10 fwm">
+                                    In case of such an event, the deleted data is backed up in a specific file.
+                                </p>
+                                <p class="pl0 pb10 fwm">
+                                    I will explain how to open the backup file.
+                                </p>
+                                <p>
+                                    <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0235.jpg">
+                                </p>
+                                <p class="fss fwb pb10">
+                                    Fig. 2-35
+                                </p>
+                                <p class="pl0 pb10 fwm">
+                                    Press the [LOAD] button to open the data file selection dialog.
+                                    Select the second of the two rows that appear
+                                    when you click the red frame at the bottom right.
+                                </p>
+                                <div class="prettyP_PC">
+                                    <div>
+                                        <img src="image/cpp_pers/cpp_pers_0236_en.jpg">
+                                    </div>
+                                </div>
+                                <div class="prettyP_SP">
+                                    <div class="table-container">
+                                        <img src="image/cpp_pers/cpp_pers_0236_en.jpg" width="640">
+                                    </div>
+                                </div>
+                                <p class="fss fwb pb10">
+                                    Fig. 2-36
+                                </p>
+                                <p class="pl0 pb10 fwm">
+                                    "pers_dat.back_up" will be displayed, so select it.
+                                </p>
+                                <div class="prettyP_PC">
+                                    <div>
+                                        <img src="image/cpp_pers/cpp_pers_0237.jpg">
+                                    </div>
+                                </div>
+                                <div class="prettyP_SP">
+                                    <div class="table-container">
+                                        <img src="image/cpp_pers/cpp_pers_0237.jpg" width="640">
+                                    </div>
+                                </div>
+                                <p class="fss fwb pb10">
+                                    Fig. 2-37
+                                </p>
+                                <p class="pl0 pb10 fwm">
+                                    Then, the functions deleted in the explanation of <a href="#u1">[01] Deleting registered data</a> will be displayed.
+                                </p>
+                                <div class="prettyP_PC">
+                                    <div>
+                                        <img src="image/cpp_pers/cpp_pers_0238.png" width="768">
+                                    </div>
+                                </div>
+                                <div class="prettyP_SP">
+                                    <div class="table-container">
+                                        <img src="image/cpp_pers/cpp_pers_0238.png" width="640">
+                                    </div>
+                                </div>
+                                <p class="fss fwb pb10">
+                                    Fig. 2-38
+                                </p>
+                                <p class="bdr10 left2 fss pb10">
+                                    Note that a [restore] button appears on the restore screen.
+                                </p>
+                                <p class="pl0 pb10 fwm">
+                                    From the function selection combo box,
+                                    select "04: 1: |sin(ω)| : ω = x + iy" which accidentally deleted earlier.
+                                </p>
+                                <p class="pb10">
+                                    <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0239.jpg">
+                                </p>
+                                <div class="prettyP_PC">
+                                    <div>
+                                        <img src="image/cpp_pers/cpp_pers_0240.png" width="768">
+                                    </div>
+                                </div>
+                                <div class="prettyP_SP">
+                                    <div class="table-container">
+                                        <img src="image/cpp_pers/cpp_pers_0240.png" width="640">
+                                    </div>
+                                </div>
+                                <p class="fss fwb pb10">
+                                    Fig. 2-39, 40
+                                </p>
+                                <p class="pl0 pb10 fwm">
+                                    When you press the [restore] button in the red frame,
+                                    the data displayed on the screen will be restored.
+                                    Then the following message will be displayed.
+                                </p>
+                                <p>
+                                    <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0241_en.jpg">
+                                </p>
+                                <p class="fss fwb pb10">
+                                    Fig. 2-41
+                                </p>
+                                <p class="pl0 pb10 fwm">
+                                    If you select "Yes", you will be able to continue restoring the deleted data.
+                                </p>
+                                <p class="pl0 pb10 fwm">
+                                    Selecting "No" will open the file containing the recovered data.
+                                    The screen displays the restored data.
+                                    At first glance, nothing seems to have changed, but if you open the combo box,
+                                    you can confirm that the list now shows the restored file instead of the backup file.
+                                    Additionally, the restored data has been returned to its original location before deletion.
+                                </p>
+                                <div class="prettyP_PC">
+                                    <div>
+                                        <img src="image/cpp_pers/cpp_pers_0242.png" width="768">
+                                    </div>
+                                </div>
+                                <div class="prettyP_SP">
+                                    <div class="table-container">
+                                        <img src="image/cpp_pers/cpp_pers_0242.png" width="640">
+                                    </div>
+                                </div>
+                                <p class="fss fwb pb10">
+                                    Fig. 2-42
+                                </p>
+                                <p class="pl0 pb10 fwm">
+                                    If all data has been restored,
+                                    the file containing the last restored data will open
+                                    and the restored data will be displayed on the screen.
+                                </p>
+                                <p>
+                                    <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0243_en.jpg">
+                                </p>
+                                <p class="fss fwb pb10">
+                                    Fig. 2-43
+                                </p>
+                            </div>
+                        </div>
+                        <div class="contents-title-left">
+                        </div>
+                        <div class="contents-title-right pb30">
+                            <p class="fss">
+                                <a href="#a6">[06] The deletion or restore of a registered function to TOP</a>
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+
+                        <div class="fwb pb20">
+                            <div class="contents-title-left pb20">
+                                <p id="u3">
+                                    <03>&nbsp;Permanent deletion of deleted data
+                                </p>
+                            </div>
+                            <div class="contents-title-right" style="width: 820px">
+                            </div>
+                            <div class="c-both"></div>
+                            <div>
+                                <p class="pb10 fwm">
+                                    When deleting data, it will be backed up automatically.
+                                    Backup files may contain data that you do not need to keep.
+                                    This section explains how to delete data from backup files.
+                                </p>
+                                <p class="pl0 pb10 fwm">
+                                    Load the backup file in the same way as <a href="#u2">[02] Restoring deleted data</a>.
+                                </p>
+                                <p class="pl0 pb10 fwm">
+                                    Assume that there is currently only one piece of data
+                                    remaining in the backup file: "PersData01: 02: 0: z = x + y".
+                                </p>
+                                <div class="prettyP_PC">
+                                    <div>
+                                        <img src="image/cpp_pers/cpp_pers_0244.png" width="768">
+                                    </div>
+                                </div>
+                                <div class="prettyP_SP">
+                                    <div class="table-container">
+                                        <img src="image/cpp_pers/cpp_pers_0244.png" width="640">
+                                    </div>
+                                </div>
+                                <p class="fss fwb pb10">
+                                    Fig. 2-44
+                                </p>
+                                <p class="pl0 pb10 fwm">
+                                    If you check "□ delete" in the red frame on the screen,
+                                    the [delete] button will be displayed.
+                                </p>
+                                <p>
+                                    <img class="fbox_image2" src="image/cpp_pers/cpp_pers_0245.jpg">
+                                </p>
+                                <p class="fss fwb pb10">
+                                    Fig. 2-45
+                                </p>
+                                <p class="pl0 pb10 fwm">
+                                    Pressing the [delete] button will delete the data displayed on the screen.
+                                    This will actually erase the data, so a confirmation message will be displayed.
+                                    If you would like to delete, press [Yes].
+                                </p>
+                                <p>
+                                    <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0246_en.jpg">
+                                </p>
+                                <p class="fss fwb pb10">
+                                    Fig. 2-46
+                                </p>
+                                <p class="pl0 pb10 fwm">
+                                    When multiple data are displayed in the combo box,
+                                    you can delete them one after another.
+                                    If the last data will be deleted, as in this case,
+                                    the following message is displayed and the data file selection dialogue appears.
+                                </p>
+                                <p>
+                                    <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0247_en.jpg">
+                                </p>
+                                <p class="fss fwb pb10">
+                                    Fig. 2-47
+                                </p>
+                                <p class="pl0 pb10 fwm">
+                                    When the data selection dialog appears, select the desired data file.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <h3 class="pb30 fwb">
+                <p id="t3">
+                    [Ⅲ] Others
+                </p>
+            </h3>
+            <div class="pSP20">
+                <div class="fwb pb30">
+                    <ul style="list-style: none;" class="fwm pb40, pSP40">
+                        <li class="pb10"><a href="#d1">[01] The plotting window color settings</a></li>
+                        <li class="pb10"><a href="#d2">[02] About known issues</a></li>
+                    </ul>
+                </div>
+
+                <div class="fwb pb20">
+                    <div class="contents-title-left pb20"
+                        <p id="d1">
+                            [01] The plotting window color settings
+                        </p>
+                    </div>
+                    <div class="contents-title-right">
+                        <p>
+                            <!--<a href="#title20">トップへ</a>-->
+                        </p>
+                    </div>
+                    <div class="c-both"></div>
+                    <p class="pl0 pb10 fwm">
+                        For the drawing window, you can set the color of the background, mesh lines, and x, y axes.
+                        However, the settings are not made from the screen, but by editing the initial file.
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        Open the [Pers] folder in Explorer.
+                        Inside is the [dat] folder. When you open the [dat] folder,
+                        you will find a file called "Pers_color.ini". Edit this with a text editor.
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        The contents of "Pers_color.ini" are as follows:
+                    </p>
+                    <p>
+                        <img class="fbox_image2" src="image/cpp_pers/cpp_pers_0301.jpg">
+                    </p>
+                    <p class="fss fwb pb30">
+                        Fig. 3-01
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        Empty lines and lines beginning with "//" are ignored.
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        The following five lines are valid as data:
+                    </p>
+                    <div class="table-container">
+                        <table class="fss" width="500" height="40" border="1">
+                           <tr>
+                             <th>block</th>
+                             <th>title</th>
+                             <th>data</th>
+                           </tr>
+                           <tr>
+                             <td>window back color</td>
+                             <td>window_back</td>
+                             <td>(0,0,0)</td>
+                           </tr>
+                           <tr>
+                             <td>line color z value plus domain</td>
+                             <td>line_plusk</td>
+                             <td>(255,0,0)</td>
+                           </tr>
+                           <tr>
+                             <td>line color z value minus domain</td>
+                             <td>line_minus</td>
+                             <td>(0,0,255)</td>
+                           </tr>
+                           <tr>
+                             <td>axis x color</td>
+                             <td>axis_x</td>
+                             <td>(255,255,0)</td>
+                           </tr>
+                           <tr>
+                             <td>axis y color</td>
+                             <td>axis_y</td>
+                             <td>(0,255,255)</td>
+                           </tr>
+                         </table>
+                    </div>
+                    <p class="pb20"></p>
+                    <p class="pl0 pb10 fwm">
+                        The five lines of valid data are the colors that have been used in the previous explanations.
+                        They are also the colors that will be used as defaults
+                        if the data in the ini file is not loaded correctly.
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        In each block, the lines beginning with "//" are included as samples.
+                        If you remove the "//", the color of that data will be loaded.
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        Of course, you can freely set the data in RGB format.
+                        However, do not change the format of the data line.
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        format：<strong>title=(</strong>0-255<strong>,</strong>0-255<strong>,</strong>0-255<strong>)</strong>
+                        &emsp; ==> i.g. <strong>window_back=(</strong>185<strong>,</strong>185<strong>,</strong>185<strong>)</strong>
+                    </p>
+                </div>
+
+                <div class="fwb pb20">
+                    <div class="contents-title-left pb20"
+                        <p id="d2">
+                            [02] About known issues
+                        </p>
+                    </div>
+                    <div class="contents-title-right">
+                        <p>
+                            <!--<a href="#t3">[Ⅲ] Others to TOP</a>-->
+                        </p>
+                    </div>
+                    <div class="c-both"></div>
+
+                    <div class="fwb pb30">
+                        <ul style="list-style: none;" class="fwm pb40, pSP40">
+                            <li class="pb10"><a href="#e1"><01> About the disorder of hidden line processing</a></li>
+                            <li class="pb10"><a href="#e2"><02> Problem with the power symbol "^" when entering a formula</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="fwb pb20">
+                        <div class="contents-title-left pb20"
+                            <p id="e1">
+                                <01>&nbsp;About the disorder of hidden line processing
+                            </p>
+                        </div>
+                        <div class="contents-title-right">
+                            <p>
+                                <!--<a href="#title20">トップへ</a>-->
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <div>
+                            <p class="pl0 pb10 fwm">
+                                Pers was designed with a strong focus on hidden line processing
+                                in order to plot curved surfaces with meshes,
+                                but in some cases, lines that should not be visible are plotted.
+                                In the first figure shown in this user's manual (<a href="#t1">Fig. 1-1</a>),
+                                there are some disorders on the left side.
+                            </p>
+                            <p>
+                                <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0302_en.png">
+                            </p>
+                            <p class="fss fwb pb10">
+                                Fig. 3-02
+                            </p>
+                            <p class="pl0 pb10 fwm">
+                                I would like to consider this issue as a task for the future.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="fwb pb20">
+                        <div class="contents-title-left pb20"
+                            <p id="e2">
+                                <02>&nbsp;Problem with the power symbol "^" when entering a formula
+                            </p>
+                        </div>
+                        <div class="contents-title-right">
+                            <p>
+                                <!--<a href="#d2">[02] About known issues to TOP</a>-->
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <div>
+                            <p class="pl0 pb10 fwm">
+                                Pers evaluates the entered formula using
+                                <a href="https://github.com/codeplea/tinyexpr" target="_blank">TinyExpr</a>.
+                            </p>
+                            <p class="pl0 pb10 fwm">
+                                However, if the expression contains "-x^2" or "-y^2," the evaluation will be incorrect. <br>
+                                These terms carry <strong>a negative sign</strong>, involve <strong>a power symbol</strong>,
+                                and their exponent is <strong>an even number</strong> such as 2 or 4.
+                            </p>
+                            <p class="pl0 pb10 fwm">
+                                For example, when x=2, TinyExpr outputs "4" as the evaluation result of "-x^2".
+                            </p>
+                            <p class="pl0 pb10 fwm">
+                                If the input contains "<strong>-x^2</strong>", etc.,
+                                replace it with "<strong>-(x^2)</strong>"or"<strong>-x*x</strong>".
+                            </p>
+                            <p class="pl0 pb10 fwm">
+                                Currently, this is the only evaluation error I am aware of.
+                                There is a possibility that evaluation errors may occur in other patterns.
+                                If so, please let me know.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>  <!-- ② end -->
+
+    </div>  <!-- ① page main:   end -->
+
+    <footer>
+
+        <hr id="footer"> <!-- horizontal partition -->
+
+        <p id="top-call"><a href="">TOP</a></p>
+
+        <div id="popup-menu2" class="hidden">
+            <ul>
+                <li><a href="#" class="menulink">Page Top</a></li>
+                <li><a href="#t1" class="menulink">[Ⅰ] About the Pers dialog</a></li>
+                <li><a href="#t2" class="menulink">[Ⅱ] About user defined function</a></li>
+                <li><a href="#t3" class="menulink">[Ⅲ] Note</a></li>
+            </ul>
+        </div>
+
+        <div class="jQ_change center"> <!-- select button whole: start -->
+            <p id="footer"> <!-- select button: start -->
+                <a href="etc.html">
+                    <IMG src="image/button/back_off.gif" border="0" alt="Back">
+                </a>
+            </p> <!-- select button: end -->
+        </div> <!-- select button whole: end -->
+
+        <div class="footer_labelPC">
+            &copy; 2003 -
+            <script>
+                date = new Date();
+                document.write(date.getFullYear() + ' ');
+            </script>
+            <nonscript>
+            </nonscript>
+            Contrail - kotan -
+        </div>
+
+    </footer>
+
+</div>
+</body>
+</html>

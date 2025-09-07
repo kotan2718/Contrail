@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="I've created an another version of the Sudoku puzzle generator tool using an Excel macro. This version allows you to create puzzles by specifying the positions of the cells to be left blank.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Suudoku Another</title>
+
+    <!-- favicon-->
+    <link rel="icon" href="favicon.ico">
+
+    <!-- css start -->
+        <!-- kko_etc - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
+        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
+        <style>
+            @media screen and (min-width: 769px) {
+                .pSP50 {
+                    padding-left: 50px;
+                }
+                .pSP40 {
+                    padding-left: 40px;
+                }
+                .pSP20 {
+                    padding-left: 20px;
+                }
+            }
+            /* Optional: Limit image size on small screens */
+            @media (max-width: 768px) {
+                .fSP {                      /* font */
+                    font-size: 90%;
+                }
+                .pSP50, .pSP40, pSP20 {
+                    padding-left: 10px;
+                }
+            }
+        </style>
+    <!-- css end -->
+
+    <!-- js start -->
+        <!-- jQuery start -->
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <!-- kko_style - img jq_blink, img jq_change -->
+            <script src="libs/jQuery/kko/js/jq_kko_style.js"></script>
+        <!-- jQuery end -->
+
+        <!-- Sandbox DropDownMenu start -->
+        <script src="libs/sandbox/js/script.js"></script>
+        <!-- Sandbox DropDownMenu end -->
+    <!-- js end -->
+
+</head>
+
+<body id="common-k">
+
+    <header>
+        <div class="prettyP_PC">
+            <a name="page_top"></a>
+            <div class="center jQ_change navbox" >
+                <nav>
+                    <img src="image/top/cr32_e.png" height="20" class="logo_img">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_img">
+                    <ul class="menu" id="menu" >
+                        <li><a href="index.html" class="menulink">Home</a></li>
+                        <li><a href="e_whatnew.html" class="menulink">What's New</a></li>
+                        <li><a href="en_etc.html" class="menulink">E.T.C.</a></li>
+                        <li><a href="e_fs01.html" class="menulink">The Scenery</a>
+                            <ul>
+                                <li><a href="e_fs01_sc_top.html" class="sub">Screen Shots</a></li>
+                                <li><a href="e_fs01_ls_top.html" class="sub">Snap Shots</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="e_link01.html" class="menulink">Links</a></li>
+                        <li class="about"><a href="e_fs01_about.html" class="menulink">about Contrail</a></li>
+                    </ul>
+                </nav>
+                <div class="c-both"></div>
+            </div>
+            <!-- Sandbox DropDownMenu start-->
+            <script>
+                var menu=new menu.dd("menu");
+                menu.init("menu","menuhover");
+            </script>
+            <!-- Sandbox DropDownMenu end -->
+        </div>
+        <div class="prettyP_SP">
+            <a name="MENU"></a>
+            <p id="menu-call">
+                <a href="#">MENU</a>
+            </p>
+
+            <a name="page_top"></a>
+
+            <!-- page top icon & logo -->
+            <div id="header_SP" class="header_labelSP">
+                <div id="titleUS_SP"></div>
+                <img src="image/top/cr48f_32.png">
+                <img class="titleLogoSP" src="image/top/Contrail_g.png">
+            </div>
+
+            <div id="popup-menu" class="hidden">
+                <div class="menu-title">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_image" alt="CONTRAIL">
+                </div>
+                <ul>
+                <li><a href="index.html" class="menulink">Home</a></li>
+                <li><a href="e_whatnew.html" class="menulink">What's New</a></li>
+                <li><a href="en_etc.html" class="menulink">E.T.C.</a></li>
+                <li><a href="e_fs01.html" class="menulink">The Scenery</a>
+                <li><a href="e_link01.html" class="menulink">Links</a></li>
+                <li><a href="e_fs01_about.html" class="menulink">about Contrail</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div id="main1024"> <!-- page main: start -->
+        <!-- title -->
+        <div id="title20">
+            <h2 class="pt30 pb20">
+                "Sudoku Puzzle Generator Tool" Another Method
+            </h2>
+        </div>
+
+        <!-- for Java Script off -->
+        <noscript>
+            <div id="attention">
+                <p>Sorry, you need to activate JavaScript in your browser.</p>
+            </div>
+        </noscript>
+
+        <!-- contents -->
+        <div class="pic-left1024">
+            <div class="fwb pb40">
+                <p class="pb10">
+                    The previously released "Sudoku Puzzle Generator" (hereafter abbreviated as Sudoku Tool) created puzzles
+                    by first generating a completed solution (all 9×9 cells filled), then making as many blanks as possible.
+                    For details, please see
+                    <a href="etc_suudoku_en.html" target=_"blank">suudoku_doc</a>. [Note1]
+                </p>
+                <p class="pb20">
+                    Using this method, puzzles with 23 or more open cells could be generated.
+                    However, since the open-cell patterns were chosen randomly,
+                    it was not possible to create puzzles with a user-wished  pattern.
+                </p>
+                <div class="prettyP_PC">
+                    <div>
+                        <img src="image/Suudoku_img/another/another01_en.jpg" border="1">
+                    </div>
+                </div>
+                <div class="prettyP_SP">
+                    <div class="table-container">
+                        <img src="image/Suudoku_img/another/another01_en.jpg" border="1">
+                    </div>
+                </div>
+                <p class="pb20"></p>
+                <div class="bdr10 left2 fss pb10">
+                    <p>
+                        [Note1]
+                    </p>
+                    <p class="pb10">
+                        Please also refer to "Sudoku Puzzle Generator Update" (hereafter abbreviated as Sudoku Update).<br>
+                        Link:
+                        <a href="etc_suudoku_update01_en.html" target=_"blank">suudoku_update01</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="pb30">
+                <h2>This another method allows you to create puzzles with freely defined patterns.</h2>
+            </div>
+
+            <div class="pic-left1024 fwb pb20">
+                <p class="pb10">
+                    The following explains the steps for puzzle creation:
+                </p>
+                <ol class="fwm pb40, pSP40">
+                    <li class="pb20">
+                        <p class="pb10">
+                            Open "z.suudoku_04.xlsm" from Explorer.
+                        </p>
+                        <div class="pb15 prettyP_PC">
+                            <div>
+                                <img src="image/Suudoku_img/another/another02_en.jpg" width="100%" border="1">
+                            </div>
+                        </div>
+                        <div class="pb15 prettyP_SP">
+                            <div class="table-container">
+                                <img src="image/Suudoku_img/another/another02_en.jpg" width="800" border="1">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="pb20">
+                        <p class="pb10">
+                            The procedure from creating a pattern to generating a puzzle is explained below.
+                        </p>
+                        <ol class="list-lr pSP40 pb10">
+                            <li class="pb30">
+                                <p class="pb30">
+                                    In the [make] area, fill in the open cells by coloring them orange.
+                                    Clicking a cell will turn that cell and its diagonal counterpart orange.
+                                </p>
+                                <div class="prettyP_PC">
+                                    <div>
+                                        <img src="image/Suudoku_img/another/another03_en.jpg" width="586" border="1">
+                                    </div>
+                                </div>
+                                <div class="prettyP_SP">
+                                    <div class="table-container">
+                                        <img src="image/Suudoku_img/another/another03_en.jpg" width="586" border="1">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="pb30">
+                                <p class="pb15">
+                                    Continue creating the pattern you have in mind.<br>
+                                    If you want to remove a cell,
+                                    click its diagonal counterpart and the orange color will be cleared.
+                                </p>
+                                <div class="prettyP_PC">
+                                    <div>
+                                        <img src="image/Suudoku_img/another/another04_en.jpg" width="700" border="1">
+                                    </div>
+                                </div>
+                                <div class="prettyP_SP">
+                                    <div class="table-container">
+                                        <img src="image/Suudoku_img/another/another04_en.jpg" width="700" border="1">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="pb30">
+                                <p class="pb15">
+                                    An example of a created pattern is shown below.
+                                </p>
+                                <div class="prettyP_PC">
+                                    <div>
+                                        <img src="image/Suudoku_img/another/another05_en.jpg" width="100%" border="1">
+                                    </div>
+                                </div>
+                                <div class="prettyP_SP">
+                                    <div class="table-container">
+                                        <img src="image/Suudoku_img/another/another05_en.jpg" width="800" border="1">
+                                    </div>
+                                </div>
+                                <p class="pb20"></p>
+                                <p class="pb10">
+                                    Press the START button to begin puzzle generation.
+                                </p>
+                            </li>
+                            <li class="pb30">
+                                <p class="pb10">
+                                    When puzzle generation succeeds, the following screen will appear:
+                                </p>
+                                <div class="prettyP_PC">
+                                    <div>
+                                        <img src="image/Suudoku_img/another/another06_en.jpg" width="100%" border="1">
+                                    </div>
+                                </div>
+                                <div class="prettyP_SP">
+                                    <div class="table-container">
+                                        <img src="image/Suudoku_img/another/another06_en.jpg" width="800" border="1">
+                                    </div>
+                                </div>
+                                <p class="pb15"></p>
+                                <p class="pb10">
+                                    You will see that the numbers to be opened have been filled in the orange cells.
+                                    If the two checkboxes in the lower-right corner of the screen is checked,
+                                    the solution will be displayed,
+                                    and the generated puzzle will be copied to the [Stock] sheet.
+                                </p>
+                            </li>
+                            <li>
+                                <p class="pb10">
+                                    Press the [CLEAR] button to return to the initial display screen.
+                                </p>
+                                <div class="prettyP_PC">
+                                    <div>
+                                        <img src="image/Suudoku_img/another/another07_en.jpg" width="100%" border="1">
+                                    </div>
+                                </div>
+                                <div class="prettyP_SP">
+                                    <div class="table-container">
+                                        <img src="image/Suudoku_img/another/another07_1_en.jpg" width="800" border="1"><br>
+                                    </div>
+                                    <div class="table-container">
+                                        <img src="image/Suudoku_img/another/another07_2_en.jpg" width="800" border="1"><br>
+                                    </div>
+                                    <div class="table-container">
+                                        <img src="image/Suudoku_img/another/another07_3_en.jpg" width="800" border="1"><br>
+                                    </div>
+                                </div>
+                            </li>
+                        </ol>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="pic-left1024 fwb pb20">
+                <p class="fwb pb10">
+                    About the number of open cells:
+                </p>
+                <p class="fwm pb20">
+                    Interesting patterns can be generated with around 28–32 open cells,
+                    and such puzzles can also be solved without undue difficulty.
+                    From my debugging tests,
+                    I have confirmed that puzzles can be generated with 25 or more open cells.
+                </p>
+            </div>
+        </div>
+
+        <div class="left2">
+
+            <h3>DOWNLOAD</h3>
+            <p class=" pb20"></p>
+            <div class="pl30 pb30">
+                <p class="fwb pb10">
+                    Notes on using this tool
+                </p>
+                <ol>
+                    <li class="plm10 pb10">
+                        Unauthorized redistribution of this tool is strictly prohibited.
+                    </li>
+                    <li class="plm10 pb10">
+                        If you wish to improve or enhance the logic, please contact me and I will provide the source code.
+                    </li>
+                </ol>
+                <p class="fwb pb10">
+                    Click "z.suudoku_04.zip" to download.
+                </p>
+                <p class="fwb pb25">
+                    <a href="etc/z.suudoku_04.zip" target="_blank">z.suudoku_04.zip</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+
+        <hr id="footer"> <!-- horizontal partition -->
+
+        <p id="page-top"><a href="#">TOP</a></p>
+
+        <div class="jQ_change center"> <!-- select button whole: start -->
+            <p id="footer"> <!-- select button: start -->
+                <a href="etc.html">
+                    <img src="image/button/back_off.gif" border="0" alt="Back">
+                </a>
+            </p> <!-- select button: end -->
+        </div> <!-- select button whole: end -->
+
+        <div class="footer_labelPC">
+            &copy; 2003 -
+            <script>
+                date = new Date();
+                document.write(date.getFullYear() + ' ');
+            </script>
+            <nonscript>
+            </nonscript>
+            Contrail - kotan -
+        </div>
+
+    </footer>
+
+</body>
+</html>

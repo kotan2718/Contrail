@@ -14,6 +14,22 @@
     <!-- css start -->
         <!-- kko_etc - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
         <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
+        <style>
+            /* タイトル（右カラムの最初のdiv）は横並び */
+            .flx_itemR960 > div:first-child {
+                display: block;
+                margin-bottom: 0.5em;
+            }
+            .flx_itemR480 > div:first-child {
+                display: block;
+                margin-bottom: 0.5em;
+            }
+            /* スマホの場合のみ 説明文（2行目以降）を日付の下に寄せる */
+            .flx_itemR480 > div:not(:first-child) {
+                margin-left: -100px;  /* 日付幅ぶん戻す */
+                padding-left: 20px;  /* 少しインデント */
+            }
+        </style>
     <!-- css end -->
 
     <!-- js start -->
@@ -164,6 +180,8 @@
                 <div class="pb10">
                     I have released a page that plots graphs (surfaces) of functions of two variables
                     using a mesh with hidden line.
+                </div>
+                <div class="pb10">
                     Select a function on the select box to plot the surface.
                 </div>
                 <div class="pb10">
@@ -235,6 +253,9 @@
             </div>
             <div class="flx_itemR960">
                 <div class="pb10">
+                    The following features have been added to the page for drawing solution trajectories of differential equations (2-dimensional).
+                </div>
+                <div class="pb10">
                     Previously, the drawing page only allowed you to draw solution orbits for pre-set equations,
                     but by selecting "User Input", you can freely set equations.
                     You can quickly investigate the solution orbits, equilibrium points, etc.
@@ -273,23 +294,25 @@
                 <div class="pb10">
                     The following equation has been added to the page for drawing solution trajectories of differential equations (2-dimensional).
                 </div>
-                <div>
+                <div class="pb10">
                     [04] 2-Dimensional Autonomous System Examples
                 </div>
-                <ul class="fwm">
-                    <li>
-                      Hamilton system 1 &emsp; Cassini oval
-                    </li>
-                    <li>
-                      Hamilton system 2 &emsp; folium of Descartes
-                    </li>
-                    <li>
-                      Hamilton system 3 &emsp; derivatives of "folium of Descartes"
-                    </li>
-                    <li>
-                      Hamilton system 4 &emsp; Case of the periodicity of trigonometric functions is reflected
-                    </li>
-                </ul>
+                <div class="pb10">
+                    <ul class="fwm pl30" style="font-size: 85%;">
+                        <li>
+                            Hamilton system 1 : Cassini oval
+                        </li>
+                        <li>
+                            Hamilton system 2 : folium of Descartes
+                        </li>
+                        <li>
+                            Hamilton system 3 : derivatives of "folium of Descartes"
+                        </li>
+                        <li>
+                            Hamilton system 4 : Case of the periodicity of trigonometric functions is reflected
+                        </li>
+                    </ul>
+                </div>
                 <div class="pb15">
                     [E.T.C.] - <a href="etc_DEQ_doc2_en.html">Differential Equations &nbsp; Plotting Trajectory of Solutions: Simplified Explanation</a>
                 </div>
@@ -338,16 +361,18 @@
                 <div>
                     [04] 2-Dimensional Autonomous System Examples
                 </div>
-                <ul class="fwm">
-                    <li>
-                    Limit Cycle: example 4 &emsp; Linear approximation with purely imaginary numbers - 1 <br>
-                    Case of no limit circle exists
-                    </li>
-                    <li>
-                    Limit Cycle: example 5 &emsp; Linear approximation with purely imaginary numbers - 2<br>
-                    case : an infinite number of limit circles appear
-                    </li>
-                </ul>
+                <div class="pb10">
+                    <ul class="fwm pl30" style="font-size: 85%;">
+                        <li>
+                            Limit Cycle: example 4 &emsp; Linear approximation with purely imaginary numbers - 1 <br>
+                            Case of no limit circle exists
+                        </li>
+                        <li>
+                            Limit Cycle: example 5 &emsp; Linear approximation with purely imaginary numbers - 2<br>
+                            case : an infinite number of limit circles appear
+                        </li>
+                    </ul>
+                </div>
                 <div class="pb15">
                     [E.T.C.] - <a href="etc_DEQ_doc2_en.html">Differential Equations &nbsp; Plotting Trajectory of Solutions: Simplified Explanation</a>
                 </div>
@@ -386,17 +411,19 @@
                 <div>
                     [04] 2-Dimensional Autonomous System Examples
                 </div>
-                <ul class="fwm pl40">
-                  <li>
-                      Limit Cycle Example 1
-                  </li>
-                  <li>
-                      Limit Cycle Example 2: von del Pol
-                  </li>
-                  <li>
-                      Limit Cycle Example 3: Lemniscate
-                  </li>
-                </ul>
+                <div class="pb10">
+                    <ul class="fwm pl30" style="font-size: 85%;">
+                        <li>
+                            Limit Cycle Example 1
+                        </li>
+                        <li>
+                            Limit Cycle Example 2: von del Pol
+                        </li>
+                        <li>
+                            Limit Cycle Example 3: Lemniscate
+                        </li>
+                    </ul>
+                </div>
                 <div class="pb15">
                     [E.T.C.] - <a href="etc_DEQ_doc2_en.html">Differential Equations &nbsp; Plotting Trajectory of Solutions: Simplified Explanation</a>
                 </div>
@@ -440,17 +467,19 @@
                 <div>
                     [04] 2-Dimensional Autonomous System Examples
                 </div>
-                <ul class="fwm pl40">
-                  <li>
-                      Autonomous system with periodic equilibrium points on x-axis
-                  </li>
-                  <li>
-                      Autonomous system with 8 equilibrium points on the circumference
-                  </li>
-                  <li>
-                      Autonomous system with 8 equilibrium points on a plane
-                  </li>
-                </ul>
+                <div class="pb10">
+                    <ul class="fwm pl30" style="font-size: 85%;">
+                        <li>
+                            Autonomous system with periodic equilibrium points on x-axis
+                        </li>
+                        <li>
+                            Autonomous system with 8 equilibrium points on the circumference
+                        </li>
+                        <li>
+                            Autonomous system with 8 equilibrium points on a plane
+                        </li>
+                    </ul>
+                </div>
                 <div class="pb15">
                     [E.T.C.] - <a href="etc_DEQ_doc2_en.html">Differential Equations &nbsp; Plotting Trajectory of Solutions: Simplified Explanation</a>
                 </div>
@@ -490,6 +519,8 @@
             <div class="flx_itemR960">
                 <div class="pb10">
                     I have published a page for drawing solution trajectories of (2-dimensional) differential equations.
+                </div>
+                <div class="pb10">
                     When you select an equation on the page, it dynamically plots the solution trajectory. <br>
                     Originally, I had built a drawing tool in C#, but I wanted to directly draw on the web,
                     so I rewrote it in JavaScript.
@@ -519,15 +550,27 @@
                 <div class="pb10">
                      [E.T.C.] - <a href="etc_DEQ_v2_en.html">Differential Equations &nbsp; Plotting Trajectory of Solutions</a>
                 </div>
-                <div class="fwb fss">
+                <div class="fwb fss pb15">
                     On the drawing page, you can configure the following settings:
                 </div>
-                <div>
-                    1. Coefficients (modifiable parameters vary for each equation)<br>
-                    2. Plotting range<br>
-                    3. Increment width (width of elapsed time)<br>
-                    4. Iteration count (number of executions of the increment width)<br>
-                    5. Approximation method (Euler's method, Modified Euler's method, 4th Order Runge-Kutta method)
+                <div class="pb10">
+                    <ol class="fwm pl30" style="font-size: 85%;">
+                        <li>
+                            Coefficients (modifiable parameters vary for each equation)
+                        </li>
+                        <li>
+                            Plotting range
+                        </li>
+                        <li>
+                            Increment width (width of elapsed time)
+                        </li>
+                        <li>
+                            Iteration count (number of executions of the increment width)
+                        </li>
+                        <li>
+                            Approximation method (Euler's method, Modified Euler's method, 4th Order Runge-Kutta method)
+                        </li>
+                    </ol>
                 </div>
             </div>
         </div>
@@ -548,6 +591,8 @@
             <div class="flx_itemR960">
                 <div class="pb10">
                     I have also published a page for plotting solution trajectories of differential equations with 3D.
+                </div>
+                <div class="pb10">
                     It operates similarly to the 2D version of the differential equation page,
                     and I would like to note that I utilized ChatGPT in the same manner.
                 </div>
@@ -562,7 +607,7 @@
                     Clicking the [START] button begins plotting the solution curves.
                     After drawing, you can observe the solution trajectories from various angles by changing the Angle and Vertical Axis.
                 </div>
-                <div class="pb15 fwb fss">
+                <div class="pb15">
                     [E.T.C.] - <a href="etc_DEQ_doc3_en.html">Differential Equations &nbsp; Plotting Trajectory of Solutions with 3D: Simplified Explanation</a>
                 </div>
                 <div class="pb10">
@@ -571,20 +616,36 @@
                     After drawing,
                     you can observe the solution trajectories from various angles by changing the "Angle" and "Vertical Axis".
                 </div>
-                <div class="pb15 fwb fss">
+                <div class="pb15">
                     [E.T.C.] - <a href="etc_DEQ_v3_en.html">Differential Equations &nbsp; Plotting Trajectory of Solutions with 3D</a>
                 </div>
-                <div class="fwb fss">
+                <div class="fwb fss pb15">
                     On the drawing page, you can configure the following settings:
                 </div>
-                <div>
-                    1. Coefficients (modifiable parameters vary for each equation)<br>
-                    2. Plotting range<br>
-                    3. Increment width (width of elapsed time)<br>
-                    4. Iteration count (number of executions of the increment width)<br>
-                    5. Initial values (can specify 2 points)<br>
-                    6. Angle (left-right, up-down)<br>
-                    7. Vertical Axis (default is z-axis, but you can also choose x-axis and y-axis)
+                <div class="pb10">
+                    <ol class="fwm pl30" style="font-size: 85%;">
+                        <li>
+                            Coefficients (modifiable parameters vary for each equation)
+                        </li>
+                        <li>
+                            Plotting range
+                        </li>
+                        <li>
+                            Increment width (width of elapsed time)
+                        </li>
+                        <li>
+                            Iteration count (number of executions of the increment width)
+                        </li>
+                        <li>
+                            Initial values (can specify 2 points)
+                        </li>
+                        <li>
+                            Angle (left-right, up-down)
+                        </li>
+                        <li>
+                            Vertical Axis (default is z-axis, but you can also choose x-axis and y-axis)
+                        </li>
+                    </ol>
                 </div>
             </div>
         </div>
@@ -604,7 +665,9 @@
             </div>
             <div class="flx_itemR960">
                 <div class="pb10">
-                    Lens meter simulation tool "SRTLM" has been released. <br>
+                    Lens meter simulation tool "SRTLM" has been released. 
+                </div>
+                <div class="pb10">
                     This tool can be downloaded as freeware.
                 </div>
                 <div>

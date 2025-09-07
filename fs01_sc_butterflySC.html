@@ -31,6 +31,9 @@
                 .fancybox_image2 {
                     max-width: 320px;
                 }
+                .fancybox_imageMax {
+                    max-width: 100%;
+                }
             }
         </style>
     <!-- css end -->
@@ -220,9 +223,14 @@
 
         <div class="pic-center920 pb30">
             <div class="contents-2col-left">
-                <video class="fancybox_image2" src="image/fs/butterfly/Butterfly_morphing.mkv"
-                    controls poster="image/fs/butterfly/Butterfly_morphing00.jpg"
-                    width="384px"></video>
+                <a name="video"></a>
+                <video class="fancybox_imageMax" controls
+                                                 controlsList="nofullscreen"
+                                                 disablepictureinpicture
+                                                 width="384px">
+                  <source src="image/fs/butterfly/Butterfly_morphing.mkv" />
+                </video>
+            </div>
             </div>
             <div class="contents-2col-right720">
                 <p class="left2 pb30">

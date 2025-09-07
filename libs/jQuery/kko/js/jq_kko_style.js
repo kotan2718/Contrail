@@ -14,19 +14,31 @@ $(function(){
 });
 
 // ポップアップメニューの制御
+
 document.addEventListener('DOMContentLoaded', function () {
     const menuCall = document.querySelector('#menu-call a');
     const popupMenu = document.getElementById('popup-menu');
+    const topCall = document.querySelector('#top-call a');
+    const popupMenu2 = document.getElementById('popup-menu2');
 
     menuCall.addEventListener('click', function (e) {
         e.preventDefault(); // リンクの動作を止める
         popupMenu.classList.toggle('hidden'); // 表示・非表示を切り替え
     });
+    if (topCall) {
+        topCall.addEventListener('click', function (e) {
+            e.preventDefault(); // リンクの動作を止める
+            popupMenu2.classList.toggle('hidden'); // 表示・非表示を切り替え
+        });
+    }
 
     // メニューの外をクリックしたら閉じる（任意）
     document.addEventListener('click', function (e) {
         if (!popupMenu.contains(e.target) && !menuCall.contains(e.target)) {
             popupMenu.classList.add('hidden');
+        }
+        if (!popupMenu2.contains(e.target) && !topCall.contains(e.target)) {
+            popupMenu2.classList.add('hidden');
         }
     });
 });
@@ -108,6 +120,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const main7248enElement = document.getElementById("main720-480_en");
         const menuCall = document.getElementById("menu-call");
         const pageTop = document.getElementById("page-top");
+        const topCall = document.getElementById("top-call");
 
         const headerElement = document.querySelector(".header_labelPC");
         const footerElement = document.querySelector(".footer_labelPC");
@@ -252,6 +265,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
                 if (pageTop) {
                     pageTop.style.right = 20 + "px";
+                }
+                if (topCall) {
+                    topCall.style.right = 20 + "px";
                 }
 
                 if (width920Elements) {                                // widthElements
@@ -546,6 +562,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
                 if (pageTop) {
                     pageTop.style.right = 20 + "px";
+                }
+                if (topCall) {
+                    topCall.style.right = 20 + "px";
                 }
 
                 if (DeqPicSizeElements) {

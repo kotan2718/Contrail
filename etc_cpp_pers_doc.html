@@ -1,0 +1,2439 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="任意の関数 z = f(x,y) を入力すると隠線処理されたメッシュで曲面を描画するツールです">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--<title>任意の関数 z = f(x,y) を入力すると、隠線処理されたメッシュで曲面を描画します</title>-->
+    <title>Pers : 関数入力・描画ツール</title>
+
+    <!-- favicon-->
+    <link rel="icon" href="favicon.ico">
+
+    <!-- css start -->
+        <!-- kko_etc :: class指定:change_border_color, 全ファイル共通:リンク文字色, フォーカスリング -->
+        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
+
+        <style>
+            @media screen and (min-width: 769px) {
+                /* PC用（通常表示）*/
+                h1 { font-size: 1.6em; }
+                h2 { font-size: 1.4em; }
+                h3 { font-size: 1.2em; }
+                h4 { font-size: 1.0em; }
+                h5 { font-size: 0.8em; }
+                h6 { font-size: 0.6em; }
+
+                .pSP50 {
+                    padding-left: 50px;
+                }
+                .pSP40 {
+                    padding-left: 40px;
+                }
+                .pSP20 {
+                    padding-left: 20px;
+                }
+                /* 全体のコンテナ */
+                .cntnts-wrapper {
+                    max-width: 800px; /* コンテナ全体の最大幅 */
+                    margin: 0 auto;   /* コンテナを中央揃え */
+                }
+
+              /* 左のテキスト + 右の画像レイアウト */
+                .cntnts-flex {
+                    display: flex;
+                    gap: 10px; /* テキストと画像の間の余白 */
+                    flex-wrap: wrap; /* 行が足りない場合、次の行に回り込む */
+                }
+
+              /* 左側のテキストエリア */
+                .cntnts-text {
+                    flex: 1; /* 可変幅 */
+                    min-width: 0px; /* 最小幅を設定 */
+                }
+
+              /* 右側の画像エリア */
+                .cntnts-image {
+                    flex: 0 0 auto; /* 固定幅 */
+                    max-width: 800px; /* 画像エリアの最大幅 */
+                    text-align: right;
+                }
+
+              /* 画像の調整 */
+                .cntnts-image img {
+                    max-width: 100%; /* 親要素の幅に収める */
+                    height: auto; /* アスペクト比を維持 */
+                }
+
+              /* テキストタイトル */
+                .cntnts-title {
+                    font-size: medium;
+                    font-weight: bold;
+                    margin-bottom: 10px;
+                }
+
+              /* テキスト説明 */
+                .cntnts-description {
+                    margin-top: 10px;
+                    line-height: 1.6;
+                }
+            }
+
+            /* Optional: Limit image size on small screens */
+            @media (max-width: 768px) {
+                /* スマホ用（1段階スライドダウン） */
+                h1 { font-size: 1.4em; } /* h2相当 */
+                h2 { font-size: 1.2em; } /* h3相当 */
+                h3 { font-size: 1.0em; } /* h4相当 */
+                h4 { font-size: 0.8em; } /* h5相当 */
+                h5 { font-size: 0.6em; } /* h6相当 */
+                h6 { font-size: 0.5em; } /* 少し小さめに */
+
+                .fSP {                      /* font */
+                    font-size: 90%;
+                }
+                .pSP50, .pSP40, pSP20 {
+                    padding-left: 10px;
+                }
+                .fbox_image {
+                    max-width: 256px;
+                }
+                .fbox_image2 {
+                    max-width: 300px;
+                }
+                .fbox_imageMax {
+                    max-width: 100%;
+                }
+
+                .cntnts-title {
+                    font-size: medium;
+                    font-weight: bold;
+                    margin-bottom: 10px;
+                }
+            }
+        </style>
+
+        <!-- Fancybox CSS -->
+        <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="screen and (max-width: 768px)">-->
+    <!-- css end -->
+
+    <!-- js start -->
+        <!-- jQuery start -->
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script src="libs/jQuery/kko/js/jq_kko_style.js"></script>
+        <!-- jQuery end -->
+
+        <!-- Sandbox DropDownMenu -->
+        <script src="libs/sandbox/js/script.js"></script>
+
+        <script type="text/javascript"
+            src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        </script>
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                TeX: { equationNumbers: { autoNumber: "AMS" }},
+                tex2jax: {
+                    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                    processEscapes: true
+                },
+                "HTML-CSS": { matchFontHeight: false },
+                displayAlign: "left",
+                displayIndent: "2em"
+            });
+        </script>
+
+        <!-- Fancybox JS -->
+        <!--<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js" media="screen and (max-width: 768px)"></script>-->
+    <!-- js end -->
+
+</head>
+
+<body id="common-k">
+
+    <header>
+        <div class="prettyP_PC">
+            <a name="top-call"></a>
+            <div class="center jQ_change navbox">
+                <nav>
+                    <img src="image/top/cr32_e.png" height="20" class="logo_img">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_img">
+                    <ul class="menu" id="menu" >
+                        <li><a href="index.html" class="menulink">Home</a></li>
+                        <li><a href="whatnew.html" class="menulink">What's New</a></li>
+                        <li><a href="etc.html" class="menulink">E.T.C.</a></li>
+                        <li><a href="fs01.html" class="menulink">The Scenery</a>
+                            <ul>
+                                <li><a href="fs01_sc_top.html" class="sub">Screen Shots</a></li>
+                                <li><a href="fs01_ls_top.html" class="sub">Snap Shots</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="link01.html" class="menulink">Links</a></li>
+                        <li class="about"><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                    </ul>
+                </nav>
+                <div class="c-both"></div>
+            </div>
+            <!-- Sandbox DropDownMenu start-->
+            <script>
+                var menu=new menu.dd("menu");
+                menu.init("menu","menuhover");
+            </script>
+            <!-- Sandbox DropDownMenu end -->
+        </div>
+        <div class="prettyP_SP">
+            <a name="MENU"></a>
+            <p id="menu-call">
+                <a href="#">MENU</a>
+            </p>
+
+            <a name="top-call"></a>
+
+            <!-- page top icon & logo -->
+            <div id="header_SP" class="header_labelSP">
+                <div id="titleUS_SP"></div>
+                <img src="image/top/cr48f_32.png">
+                <img class="titleLogoSP" src="image/top/Contrail_g.png">
+            </div>
+
+            <div id="popup-menu" class="hidden">
+                <div class="menu-title">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_image" alt="CONTRAIL">
+                </div>
+                <ul>
+                    <li><a href="index.html" class="menulink">Home</a></li>
+                    <li><a href="whatnew.html" class="menulink">What's New</a></li>
+                    <li><a href="etc.html" class="menulink">E.T.C.</a></li>
+                    <li><a href="fs01.html" class="menulink">The Scenery</a></li>
+                    <li><a href="link01.html" class="menulink">Links</a></li>
+                    <li><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div id="main1024"> <!-- ① page main: start -->
+
+
+        <!-- title -->
+        <div id="title20">
+            <div class="prettyP_PC">
+                <h3 class="pt30 pb40">
+                    曲面描画ツール
+                    &emsp;
+                    ユーザーズマニュアル
+                </h3>
+            </div>
+            <div class="prettyP_SP">
+                <h3 class="pt30 pb20">
+                    曲面描画ツール<br>
+                    ユーザーズマニュアル
+                </h3>
+            </div>
+        </div>
+
+        <!-- contents -->
+        <div class="pic-left800 pb40">
+            <div class="fwb pb10" style="line-height:160%">
+                <p class="pb10 fSP">
+                    この描画ツール (以下 Persと呼びます) は z = f(x, y) で定義される関数のグラフ(曲面)を
+                    隠線処理が施されたメッシュ (赤い線は z ≧ 0、青い線は z ＜ 0)で描画します。<br>
+                    web版でも
+                    <a href="http://kotan2718.github.io/etc_pers_doc1.html" target="_blank">同様のツールを公開しています</a>。
+                    web版では、予め用意された関数をリストから選択して、曲面を描画する機能が主です。
+                    ユーザーが定義した関数を描画する機能も備えていますが、定義された関数の保存や読み込みはできませんでした。
+                    一方、Persはユーザーが独自に関数を定義する機能を強化し、定義された関数の保存、読み込み機能を提供します。
+                </p>
+            </div>
+
+            <h3 class="fwb pb30">
+                <ul  style="list-style: none;" class="fwm pb40, pSP40">
+                    <li class="pb10"><a href="#t1">[Ⅰ] 画面について</a></li>
+                    <li class="pb10"><a href="#t2">[Ⅱ] ユーザー定義関数について</a></li>
+                    <li class="pb10"><a href="#t3">[Ⅲ] その他</a></li>
+                </ul>
+            </h3>
+
+            <h3 class="pb30 fwb">
+                <p id="t1">
+                   [Ⅰ] &emsp; "画面について" 簡単にまとめます。
+                </p>
+            </h3>
+
+            <div class="fwb pb10">
+                <div class="prettyP_PC">
+                    <div>
+                        <img src="image/cpp_pers/cpp_pers_0101.png" border="0">
+                    </div>
+                </div>
+                <div class="prettyP_SP">
+                    <div class="table-container">
+                        <img src="image/cpp_pers/cpp_pers_0101.png" width="640" border="0">
+                    </div>
+                </div>
+                <p class="fss pb10">
+                    Fig. 1-1
+                </p>
+            </div>
+
+            <h3 class="fwb pb30">
+                <ol class="list_none fwm pSP40" type="a">
+                    <div class="prettyP_PC">
+                        <div class="contents-left pb10">
+                            <li class="pb10"><a href="#s1">[b] データファイル選択</a></li>
+                            <li class="pb10"><a href="#s2">[a] 関数選択</a></li>
+                            <li class="pb10"><a href="#s3">[c] パラメーター設定</a></li>
+                            <li class="pb10"><a href="#s4">[d] ユーザー定義関数設定</a></li>
+                            <li class="pb10"><a href="#s5">[e] 描画範囲設定</a></li>
+                            <li class="pb10"><a href="#s6">[f] メッシュ設定</a></li>
+                            <li class="pb10"><a href="#s7">[g] 描画アングル設定</a></li>
+                            <li class="pb10"><a href="#s8">[h] ログ出力有無</a></li>
+                        </div>
+                        <div class="contents-right">
+                            <li class="pb10"><a href="#s9">[i] 不連続点の置換有無</a></li>
+                            <li class="pb10"><a href="#s10">[j] 座標軸表示有無</a></li>
+                            <li class="pb10"><a href="#s11">[k] 描画更新</a></li>
+                            <li class="pb10"><a href="#s12">[l] 描画リセット</a></li>
+                            <li class="pb10"><a href="#s13">[m] 描画アングル設定(スライダーバー)</a></li>
+                            <li class="pb10"><a href="#s14">[n] ツールの終了</a></li>
+                            <li class="pb10"><a href="#s15">[o] 編集機能</a></li>
+                            <li class="pb10"><a href="#s16">[p] 遠近表現の設定</a></li>
+                        </div>
+                        <div class="c-both"></div>
+                    </div>
+                    <div class="prettyP_SP pb30">
+                        <li class="pb10"><a href="#s1">[b] データファイル選択</a></li>
+                        <li class="pb10"><a href="#s2">[a] 関数選択</a></li>
+                        <li class="pb10"><a href="#s3">[c] パラメーター設定</a></li>
+                        <li class="pb10"><a href="#s4">[d] ユーザー定義関数設定</a></li>
+                        <li class="pb10"><a href="#s5">[e] 描画範囲設定</a></li>
+                        <li class="pb10"><a href="#s6">[f] メッシュ設定</a></li>
+                        <li class="pb10"><a href="#s7">[g] 描画アングル設定</a></li>
+                        <li class="pb10"><a href="#s8">[h] ログ出力有無</a></li>
+                        <li class="pb10"><a href="#s9">[i] 不連続点の置換有無</a></li>
+                        <li class="pb10"><a href="#s10">[j] 座標軸表示有無</a></li>
+                        <li class="pb10"><a href="#s11">[k] 描画更新</a></li>
+                        <li class="pb10"><a href="#s12">[l] 描画リセット</a></li>
+                        <li class="pb10"><a href="#s13">[m] 描画アングル設定(スライダーバー)</a></li>
+                        <li class="pb10"><a href="#s14">[n] ツールの終了</a></li>
+                        <li class="pb10"><a href="#s15">[o] 編集機能</a></li>
+                        <li class="pb10"><a href="#s16">[p] 遠近表現の設定</a></li>
+                    </div>
+                </ol>
+            </h3>
+
+            <div class="cntnts-wrapper pb50">
+                <!-- タイトルと説明 + 画像 -->
+                <div class="cntnts-flex">
+                    <!-- 左側のテキストエリア -->
+                    <div class="cntnts-text">
+                        <!-- タイトル -->
+                        <p id="s1" class="cntnts-title">
+                            [a] データファイル選択
+                        </p>
+                        <!-- 説明 ==右図の高さが小さいときは使わない== -->
+                        <div class="cntnts-description">
+                            <p></p>
+                        </div>
+                    </div>
+                    <!-- 右側の画像エリア -->
+                    <div class="cntnts-image">
+                        <img class="fbox_image2" src="image/cpp_pers/cpp_pers_0101_a.jpg">
+                    </div>
+                </div>
+                <!-- 説明が長い場合 -->
+                <div class="cntnts-description pb30">
+                    <p class="pl0 pb10 fwm">
+                        クリックするとデータファイルを選択するダイアログボックスが開きます。
+                        デフォルトでは "log" というフォルダーと、
+                        "PersData_01.pers_dat" と "PersData_sample.pers_dat" という2つのデータファイルが表示されます。
+                        "log"フォルダーについては <a href="#s8">[h] ログ出力有無</a> で説明します。
+                    </p>
+                    <div class="prettyP_PC">
+                        <div>
+                            <img src="image/cpp_pers/cpp_pers_0102.jpg" border="0">
+                        </div>
+                    </div>
+                    <div class="prettyP_SP">
+                        <div class="table-container">
+                            <img src="image/cpp_pers/cpp_pers_0102.jpg" width="615" border="0">
+                        </div>
+                    </div>
+                    <p class="fss fwb pb10">
+                        Fig. 1-2
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        データファイルは拡張子が "pers_dat"となっています。
+                        単なるテキストファイルですが、他のファイルと間違えることがないように、ユニークな拡張子にしています｡
+                        拡張子が表示されない場合でも、pers_datファイルしか表示されないので、安心してください。
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        デフォルトでは、起動時に "PersData_sample.pers_dat" のデータが使用されるように設定されています。
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        試しに "PersData_01.pers_dat" を選択してみてください。
+                    </p>
+                    <div class="prettyP_PC">
+                        <div>
+                            <img src="image/cpp_pers/cpp_pers_0103.png" width="768">
+                        </div>
+                    </div>
+                    <div class="prettyP_SP">
+                        <div class="table-container">
+                            <img src="image/cpp_pers/cpp_pers_0103.png" width="640">
+                        </div>
+                    </div>
+                    <p class="fss fwb pb10">
+                        Fig. 1-3
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        実は "PersData_01.pers_dat" には関数式のデータが1つも登録されていないので、いきなり "User Defined"(ユーザー定義)が選択された状態になります。
+                        これでは先に進めませんので、もう一度、[LOAD]ボタンを押して "PersData_sample.pers_dat" を選択してください。
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        Persを初めて起動したときと同じ画面になるはずです("<a href="#t1">Fig.1-1</a>" 参照)。
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        これからはサンプルデータ "PersData_sample.pers_dat" が使用される前提で、説明を行います。
+                    </p>
+                </div>
+
+                <!-- タイトルと説明 + 画像 -->
+                <div class="cntnts-flex">
+                    <!-- 左側のテキストエリア -->
+                    <div class="cntnts-text">
+                        <!-- タイトル -->
+                        <p id="s2" class="cntnts-title">
+                            [b] 関数選択
+                        </p>
+                        <!-- 説明 ==右図の高さが小さいときは使わない== -->
+                       <div class="cntnts-description">
+                            <p class="pl0 pb10 fwm">
+                                コンボボックスのメニューボタンを押すと、登録されている関数式が表示されます。
+                            </p>
+                        </div>
+                    </div>
+                    <!-- 右側の画像エリア -->
+                    <div class="cntnts-image">
+                        <p class="pb10">
+                            <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0101_b.jpg">
+                        </p>
+                    </div>
+                </div>
+                <!-- 説明が長い場合 -->
+                <div class="cntnts-description pb30">
+                    <p class="pl0">
+                            <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0104.jpg">
+                    </p>
+                    <p class="fss fwb pb15">
+                        Fig. 1-4
+                    </p>
+                    <p  id ="ref3" class="pl0 pb10 fwm">
+                        例えば、"01" をクリックすると、以下の画面が表示されます。
+                    </p>
+                    <div class="prettyP_PC">
+                        <div>
+                            <img src="image/cpp_pers/cpp_pers_0105.png" width="768">
+                        </div>
+                    </div>
+                    <div class="prettyP_SP">
+                        <div class="table-container">
+                            <img src="image/cpp_pers/cpp_pers_0105.png" width="640">
+                        </div>
+                    </div>
+                    <p class="fss fwb pb10">
+                        Fig. 1-5
+                    </p>
+                </div>
+
+                <!-- タイトルと説明 + 画像 -->
+                <div class="cntnts-flex">
+                    <!-- 左側のテキストエリア -->
+                    <div class="cntnts-text">
+                        <!-- タイトル -->
+                        <p id="s3" class="cntnts-title">
+                            [c] パラメーター設定
+                        </p>
+                        <!-- 説明 ==右図の高さが小さいときは使わない== -->
+                        <div class="cntnts-description">
+                            <p class="pl0 pb10 fwm">
+                                パラメーター設定については、
+                                2章 (<a href="#t2">[Ⅱ] ユーザー定義関数について</a>) の以下のセクションで説明します。<br>
+                                <a href="#a3">[03] パラメーター付きの関数式</a>
+                            </p>
+                        </div>
+                    </div>
+                    <!-- 右側の画像エリア -->
+                    <div class="cntnts-image">
+                        <p class="pb5">
+                            <img class="fbox_image2" src="image/cpp_pers/cpp_pers_0101_c.jpg">
+                        </p>
+                    </div>
+                </div>
+                <!-- 説明が長い場合 -->
+                <div class="cntnts-description pb30">
+                </div>
+
+                <!-- タイトルと説明 + 画像 -->
+                <div class="cntnts-flex">
+                    <!-- 左側のテキストエリア -->
+                    <div class="cntnts-text">
+                        <!-- タイトル -->
+                        <p id="s4" class="cntnts-title">
+                            [d] ユーザー定義関数設定
+                        </p>
+                        <!-- 説明 ==右図の高さが小さいときは使わない== -->
+                        <div class="cntnts-description">
+                            <p class="pl0 pb10 fwm">
+                                現在選択されている関数の式とコメントが表示されます。
+                                コメントが入力されていない場合は、ここに示されているように空欄になります。
+                                <a href="#ref3">Fig.1-5</a>では、入力されたコメントが表示されています。
+                            </p>
+                        </div>
+                    </div>
+                    <!-- 右側の画像エリア -->
+                    <div class="cntnts-image">
+                        <p class="pb5">
+                            <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0101_d.jpg">
+                        </p>
+                    </div>
+                </div>
+                <!-- 説明が長い場合 -->
+                <div class="cntnts-description pb30">
+                    <p class="pl0 pb10 fwm">
+                        詳しくは2章(<a href="#t2">[Ⅱ] ユーザー定義関数について</a>)で説明します。
+                    </p>
+                </div>
+
+                <!-- タイトルと説明 + 画像 -->
+                <div class="cntnts-flex">
+                    <!-- 左側のテキストエリア -->
+                    <div class="cntnts-text">
+                        <!-- タイトル -->
+                        <p id="s5" class="cntnts-title">
+                            [e] 描画範囲設定
+                        </p>
+                        <!-- 説明 ==右図の高さが小さいときは使わない== -->
+                        <div class="cntnts-description">
+                            <p class="pl0 pb10 fwm">
+                                x, y, zごとの描画範囲を設定します。
+                            </p>
+                            <p class="pl0 pb10 fwm">
+                                デフォルトはx, y, zとも -2.0～2.0 です。<a href="#p1">※註</a>
+                            </p>
+                            <p class="pl0 pb10 fwm">
+                                変更後は[Start] ボタンを押すことで、再描画されます。
+                            </p>
+                        </div>
+                    </div>
+                    <!-- 右側の画像エリア -->
+                    <div class="cntnts-image">
+                        <p class="pb5">
+                            <img class="fbox_image2" src="image/cpp_pers/cpp_pers_0101_e.jpg">
+                        </p>
+                    </div>
+                </div>
+                <!-- 説明が長い場合 -->
+                <div class="cntnts-description pb30">
+                    <p class="pl0 pb10 fwm">
+                        zについては関数の値がレンジを超えた場合は、x-y面と平行な平面が描かれます。
+                        これだと境界が分かりづらいのでz : max, 0, minの3ヶ所で等高線を描くことで、
+                        境界を明確にしています。
+                        <a href="#s7">[g] 描画アングル設定</a>で説明するgamma角(上下の視点位置)を90度、或いは-90度にセットすると
+                        陰関数のグラフが描画されます。
+                    </p>
+                     <div class="prettyP_PC">
+                        <div>
+                            <img src="image/cpp_pers/cpp_pers_0106.png" width="872">
+                        </div>
+                    </div>
+                    <div class="prettyP_SP">
+                        <div class="table-container">
+                            <img src="image/cpp_pers/cpp_pers_0106.png" width="640">
+                        </div>
+                    </div>
+                    <p class="fss fwb pb10">
+                        Fig. 1-6
+                    </p>
+                </div>
+
+                <!-- タイトルと説明 + 画像 -->
+                <div class="cntnts-flex">
+                    <!-- 左側のテキストエリア -->
+                    <div class="cntnts-text">
+                        <!-- タイトル -->
+                        <p id="s6" class="cntnts-title">
+                            [f] メッシュ設定
+                        </p>
+                        <!-- 説明 ==右図の高さが小さいときは使わない== -->
+                        <div class="cntnts-description">
+                            <p class="pl0 pb10 fwm">
+                                描画に使用するラインの数を設定します。
+                                "calculation" は計算で使用するライン数です。
+                                "drawing" は実際に描画するライン数です。
+                            </p>
+                            <p class="pl0 fwm">
+                                ライン数を大きくするとメッシュが密になり曲面がなめらかに表示されますが、
+                                計算量が増えるので、描画された曲面を回転させるときの動きがギクシャクすることがあります。
+                            </p>
+                        </div>
+                    </div>
+                    <!-- 右側の画像エリア -->
+                    <div class="cntnts-image">
+                        <p class="pb5">
+                            <img class="fbox_image2" src="image/cpp_pers/cpp_pers_0101_f.jpg">
+                        </p>
+                    </div>
+                </div>
+                <!-- 説明が長い場合 -->
+                <div class="cntnts-description pb30">
+                    <p class="pl0 pb10 fwm">
+                        設定範囲は "1～120" です。実際には "20" 或いは "40" 位が妥当ではないかと思います。
+                        "calculation" の設定値が変更された場合は "drawing" に自動でコピーされます。
+                        デフォルトは"calculation", "drawing"とも 20 です。<a href="#p1">※註</a>
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        "drawing" には "calculation" の設定値がコピーされるので、通常は変更する必要はありません。
+                        しかし、意図的に描画するラインの本数を減らしたいときなどは、
+                        "calculation" で設定された値の1/2, 1/4などを指定してください。
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        変更後は[Start] ボタンを押すことで、再描画されます。
+                    </p>
+                </div>
+
+                <!-- タイトルと説明 + 画像 -->
+                <div class="cntnts-flex">
+                    <!-- 左側のテキストエリア -->
+                    <div class="cntnts-text">
+                        <!-- タイトル -->
+                        <p id="s7" class="cntnts-title">
+                            [g] 描画アングル設定
+                        </p>
+                        <!-- 説明 ==右図の高さが小さいときは使わない== -->
+                        <div class="cntnts-description">
+                            <p class="pl0 pb10 fwm">
+                                "alpha" は視点位置の水平方向(z軸廻り)の角度を設定します。
+                                "gamma" は視点位置の上下方向の角度(俯角[-]/仰角[+])を設定します。
+                            </p>
+                            <p>
+                                角度を正確に指定したいときはテキストボックスに角度を入力してください。
+                            </p>
+                        </div>
+                    </div>
+                    <!-- 右側の画像エリア -->
+                    <div class="cntnts-image">
+                        <p class="pb5">
+                            <img class="fbox_image2" src="image/cpp_pers/cpp_pers_0101_g.jpg">
+                        </p>
+                    </div>
+                </div>
+                <!-- 説明が長い場合 -->
+                <div class="cntnts-description pb30">
+                    <p class="pl0 pb10 fwm">
+                        ただし、描画ウインドウ右側のスライダーが "alpha" に、下部のスライダーが "gamma" に連動しているので、
+                        通常はスライダーを動かすとそのときの角度が表示されます。
+                        デフォルトは"alpha" : 30度、"gamma" ：-30度です。<a href="#p1">※註</a>， (<a href="#s13">[m] 描画アングル設定(スライダーバー)</a> 参照)
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        変更後は[Start] ボタンを押すことで、再描画されます。
+                    </p>
+                </div>
+
+                <!-- タイトルと説明 + 画像 -->
+                <div class="cntnts-flex">
+                    <!-- 左側のテキストエリア -->
+                    <div class="cntnts-text">
+                        <!-- タイトル -->
+                        <p id="s8" class="cntnts-title">
+                            [h] ログ出力有無
+                        </p>
+                        <!-- 説明 ==右図の高さが小さいときは使わない== -->
+                        <div class="cntnts-description">
+                            <p class="pl0 fwm">
+                                [log output] にチェックを入れると、
+                                [log]フォルダーにメッシュと描画範囲で指定された(x, y, z)のデータを出力します。
+                            </p>
+                        </div>
+                    </div>
+                    <!-- 右側の画像エリア -->
+                    <div class="cntnts-image">
+                        <p class="pb5">
+                            <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0101_h.jpg">
+                        </p>
+                    </div>
+                </div>
+                <!-- 説明が長い場合 -->
+                <div class="cntnts-description pb30">
+                    <p class="pl0 pb10 fwm">
+                        チェックを入れた後で、[Start] ボタンを押すことでログが出力されます。
+                    </p>
+                    <p>
+                        <img class="fbox_image" src="image/cpp_pers/cpp_pers_0107.jpg">
+                    </p>
+                    <p class="fss fwb pb10">
+                        Fig. 1-7
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        描画範囲内で不連続点を含む関数を描画するとき、不連続点にどのような値が出力されているのかなどの
+                        解析に役立ててください。
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        [log]フォルダー内にできるファイル名は "debug.log" 固定です。
+                        追記モードで書き加えていくので、確認の必要がなければ、チェックを外してください。
+                        関数選択コンボボックスで別の関数を選択すると、チェックが消えます。
+                        また、Persを起動したときはチェックは入っていません("<a href="#t1">Fig.1-1</a>" 参照)。
+                    </p>
+                </div>
+
+                <!-- タイトルと説明 + 画像 -->
+                <div class="cntnts-flex">
+                    <!-- 左側のテキストエリア -->
+                    <div class="cntnts-text">
+                        <!-- タイトル -->
+                        <p id="s9" class="cntnts-title">
+                            [i] 不連続点の置換有無
+                        </p>
+                        <!-- 説明 ==右図の高さが小さいときは使わない== -->
+                        <div class="cntnts-description">
+                            <p class="pl0 fwm">
+                                メッシュに沿ってz値を求めるとき、分母が0になったり、分子・分母とも0になることがあります。
+                            </p>
+                        </div>
+                    </div>
+                    <!-- 右側の画像エリア -->
+                    <div class="cntnts-image">
+                        <p class="pb5">
+                            <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0101_i.jpg">
+                        </p>
+                    </div>
+                </div>
+                <!-- 説明が長い場合 -->
+                <div class="cntnts-description pb30">
+                    <p class="pl0 pb10 fwm">
+                        このような場合、計算結果は"inf", "-inf", "nan", "-nan(ind)"などの非数になります。
+                        グラフを描画させると、それらの部分が何も描かれず、欠損した状態になります。
+                    </p>
+                     <div class="prettyP_PC">
+                        <div>
+                            <img src="image/cpp_pers/cpp_pers_0108.png" width="768">
+                        </div>
+                    </div>
+                    <div class="prettyP_SP">
+                        <div class="table-container">
+                            <img src="image/cpp_pers/cpp_pers_0108.png" width="640">
+                        </div>
+                    </div>
+                    <p class="fss fwb pb10">
+                        Fig. 1-8
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        このように欠損が生じた場合、[discontinuity points replacement]をチェックすると、
+                        不連続点(線)が以下のように置換されます。
+                    </p>
+                    <p>
+                        <table class="fss fwb" width="300" height="40" border="1">
+                           <tr>
+                             <th>計算結果</th>
+                             <th>置換</th>
+                           </tr>
+                           <tr>
+                             <td>inf<br>9999.0より大</td>
+                             <td>9999.0</td>
+                           </tr>
+                           <tr>
+                             <td>-inf<br>-9999.0より小</td>
+                             <td>-9999.0</td>
+                           </tr>
+                           <tr>
+                             <td>-nan(ind)</td>
+                             <td>1つ手前の座標の計算結果</td>
+                           </tr>
+                           <tr>
+                             <td>nan</td>
+                             <td>1つ手前の座標の計算結果</td>
+                           </tr>
+                         </table>
+                    </p>
+                    <p class="pl0 pb10 fwm"></p>
+                    <p class="pl0 pb10 fwm">
+                        [START]ボタンを押すと、置換とともに描画時に不連続点(線)と置換内容を示すメッセージが表示されます。
+                        ただし、置換する数が大量になることもあるため、毎回メッセージが表示されると鬱陶しいので、メッセージは1度だけ表示されます。
+                        不連続の原因が複数ある場合も、まとめて1度だけ表示されます。
+                        詳しく調べたい場合は、<a href="#s8">[h] ログ出力有無</a> を参照してください。
+                    </p>
+                    <p>
+                        <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0109.jpg">
+                    </p>
+                    <p class="fss fwb pb10">
+                        Fig. 1-9
+                    </p>
+                    <div class="prettyP_PC">
+                        <div>
+                            <img src="image/cpp_pers/cpp_pers_0110.png" width="768">
+                        </div>
+                    </div>
+                    <div class="prettyP_SP">
+                        <div class="table-container">
+                            <img src="image/cpp_pers/cpp_pers_0110.png" width="640">
+                        </div>
+                    </div>
+                    <p class="fss fwb pb10">
+                        Fig. 1-10
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        この置換は、完全ではなく、まだ私が気づいていない原因で不連続になるケースも出てくる可能性があります。
+                        そのような関数式が出てきた場合は、是非、私にお知らせ下さい。対処できるようでしたら、改善します。
+                    </p>
+                </div>
+
+                <!-- タイトルと説明 + 画像 -->
+                <div class="cntnts-flex">
+                    <!-- 左側のテキストエリア -->
+                    <div class="cntnts-text">
+                        <!-- タイトル -->
+                        <p id="s10" class="cntnts-title">
+                            [j] 座標軸表示有無
+                        </p>
+                        <!-- 説明 ==右図の高さが小さいときは使わない== -->
+                        <div class="cntnts-description">
+                            <p class="pl0 fwm">
+                                [axis] にチェックを入れると、座標軸が表示されます。
+                                Persの場合、z軸は常に垂直になるので、x, y軸のみの表示になります。
+                            </p>
+                        </div>
+                    </div>
+                    <!-- 右側の画像エリア -->
+                    <div class="cntnts-image">
+                        <p class="pb5">
+                            <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0101_j.jpg">
+                        </p>
+                    </div>
+                </div>
+                <!-- 説明が長い場合 -->
+                <div class="cntnts-description pb30">
+                    <div class="prettyP_PC">
+                        <div>
+                            <img src="image/cpp_pers/cpp_pers_0111.png" width="768">
+                        </div>
+                    </div>
+                    <div class="prettyP_SP">
+                        <div class="table-container">
+                            <img src="image/cpp_pers/cpp_pers_0111.png" width="640">
+                        </div>
+                    </div>
+                    <p class="fss fwb pb10">
+                        Fig. 1-11
+                    </p>
+                </div>
+
+                <!-- タイトルと説明 + 画像 -->
+                <div class="cntnts-flex">
+                    <!-- 左側のテキストエリア -->
+                    <div class="cntnts-text">
+                        <!-- タイトル -->
+                        <p id="s11" class="cntnts-title">
+                            [k] 描画更新
+                        </p>
+                        <!-- 説明 ==右図の高さが小さいときは使わない== -->
+                        <div class="cntnts-description">
+                            <p class="pl0 pb10 fwm">
+                                描画範囲、メッシュを変更したり、チェックボックスをONにした場合は
+                                [START]ボタンを押してください。描画ウインドウが更新されます。
+                            </p>
+                        </div>
+                    </div>
+                    <!-- 右側の画像エリア -->
+                    <div class="cntnts-image">
+                        <p class="pb5">
+                            <img class="fbox_image2" src="image/cpp_pers/cpp_pers_0101_k.jpg">
+                        </p>
+                    </div>
+                </div>
+                <!-- 説明が長い場合 -->
+                <div class="cntnts-description pb30">
+                    <p></p>
+                </div>
+
+                <!-- タイトルと説明 + 画像 -->
+                <div class="cntnts-flex">
+                    <!-- 左側のテキストエリア -->
+                    <div class="cntnts-text">
+                        <!-- タイトル -->
+                        <p id="s12" class="cntnts-title">
+                            [l] 描画リセット
+                        </p>
+                        <!-- 説明 ==右図の高さが小さいときは使わない== -->
+                        <div class="cntnts-description">
+                            <p class="pl0 fwm">
+                                描画アングルを登録されている関数のデフォルト値に戻したいときは
+                                [RESET]ボタンを押してください。描画ウインドウがリセットされます。
+                            </p>
+                        </div>
+                    </div>
+                    <!-- 右側の画像エリア -->
+                    <div class="cntnts-image">
+                        <p class="pb5">
+                            <img class="fbox_image2" src="image/cpp_pers/cpp_pers_0101_l.jpg">
+                        </p>
+                    </div>
+                </div>
+                <!-- 説明が長い場合 -->
+                <div class="cntnts-description pb30">
+                    <p class="pl0 pb10 fwm">
+                        ただし、メッシュ、描画範囲の変更、チェックボックスをON/OFFは保持されます。
+                    </p>
+                </div>
+
+                <!-- タイトルと説明 + 画像 -->
+                <div class="cntnts-flex">
+                    <!-- 左側のテキストエリア -->
+                    <div class="cntnts-text">
+                        <!-- タイトル -->
+                        <p id="s13" class="cntnts-title">
+                            [m] 描画アングル設定(スライダーバー)
+                        </p>
+                        <!-- 説明 ==右図の高さが小さいときは使わない== -->
+                        <div class="cntnts-description">
+                            <p class="pl0 fwm">
+                                描画ウインドウ右と下のスライダーを動かすことで描画アングルがリアルタイムで更新されます。
+                            </p>
+                        </div>
+                    </div>
+                    <!-- 右側の画像エリア -->
+                    <div class="cntnts-image">
+                        <p class="pb5">
+                            <img class="fbox_image2" src="image/cpp_pers/cpp_pers_0101_m.jpg">
+                        </p>
+                    </div>
+                </div>
+                <!-- 説明が長い場合 -->
+                <div class="cntnts-description pb30">
+                    <p class="pl0 pb10 fwm">
+                        それらの値は"draw parameters" の"alpha" と "gamma" に反映されます(<a href="#s7">[g] 描画アングル設定</a> 参照)。
+                    </p>
+                </div>
+
+                <!-- タイトルと説明 + 画像 -->
+                <div class="cntnts-flex">
+                    <!-- 左側のテキストエリア -->
+                    <div class="cntnts-text">
+                        <!-- タイトル -->
+                        <p id="s14" class="cntnts-title">
+                            [n] ツールの終了
+                        </p>
+                        <!-- 説明 ==右図の高さが小さいときは使わない== -->
+                        <div class="cntnts-description">
+                            <p class="pl0 pb10 fwm">
+                                ボタンを押すと、Persが終了します。
+                            </p>
+                        </div>
+                    </div>
+                    <!-- 右側の画像エリア -->
+                    <div class="cntnts-image">
+                        <p class="pb5">
+                            <img class="fbox_image2" src="image/cpp_pers/cpp_pers_0101_n.jpg">
+                        </p>
+                    </div>
+                </div>
+                <!-- 説明が長い場合 -->
+                <div class="cntnts-description pb30">
+                    <p></p>
+                </div>
+
+                <!-- タイトルと説明 + 画像 -->
+                <div class="cntnts-flex">
+                    <!-- 左側のテキストエリア -->
+                    <div class="cntnts-text">
+                        <!-- タイトル -->
+                        <p id="s15" class="cntnts-title">
+                            [o] 編集機能
+                        </p>
+                        <!-- 説明 ==右図の高さが小さいときは使わない== -->
+                        <div class="cntnts-description">
+                            <p class="pl0 pb10 fwm">
+                                編集機能については2章(<a href="#t2">[Ⅱ] ユーザー定義関数について</a>) の以下のセクションで説明します。<br>
+                                <a href="#a5">[05] 関数の設定を変更した場合の処理について</a><br>
+                                <a href="#a6">[06] 登録した数式の削除について</a>
+                            </p>
+                        </div>
+                    </div>
+                    <!-- 右側の画像エリア -->
+                    <div class="cntnts-image">
+                        <p class="pb5">
+                            <img class="fbox_image2" src="image/cpp_pers/cpp_pers_0101_o.jpg">
+                        </p>
+                    </div>
+                </div>
+                <!-- 説明が長い場合 -->
+                <div class="cntnts-description pb30">
+                    <p></p>
+                </div>
+
+                <!-- タイトルと説明 + 画像 -->
+                <div class="cntnts-flex">
+                    <!-- 左側のテキストエリア -->
+                    <div class="cntnts-text">
+                        <!-- タイトル -->
+                        <p id="s16" class="cntnts-title">
+                            [p] 遠近表現の設定 (draw parameters: L, D)
+                        </p>
+                        <!-- 説明 ==右図の高さが小さいときは使わない== -->
+                        <div class="cntnts-description">
+                            <p class="pl0 pb10 fwm">
+                                一般に、ある物体に視点を近づけると、
+                                視点に近い部分は大きく、遠い部分は小さくなり、遠近感が生じます。
+                            </p>
+                            <p class="pl0 pb10 fwm">
+                                逆に、視点が物体から十分に遠ければ、遠近感はほとんど生じません。
+                            </p>
+                            <p class="pl0 pb10 fwm">
+                                D は描画ウインドウから物体(曲面)までの距離で、仕様として "10" に固定されています。
+                            </p>
+                        </div>
+                    </div>
+                    <!-- 右側の画像エリア -->
+                    <div class="cntnts-image">
+                        <p class="pb5">
+                            <img class="fbox_image2" src="image/cpp_pers/cpp_pers_0101_p.jpg">
+                        </p>
+                    </div>
+                </div>
+                <!-- 説明が長い場合 -->
+                <div class="cntnts-description pb30">
+                    <p class="pl0 pb10 fwm">
+                        L は視点から描画ウインドウまでの距離で、デフォルトでは "1000" に設定されています。
+                        この場合、遠近効果はほとんど生じず、斜投象で曲面が描画されます。
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        Persは斜投象で描くことを目的としているので、L=1000, D=10 の固定で良かったのですが、
+                        Persの設計では遠近効果が考慮されているため、L の値を変更することができます。
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        設定できる範囲は、1000～10までです。
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        設定したら [START]ボタンを押してください。設定が曲面の描画に反映されます。
+                        L を 20～10 位に設定すると、遠近効果が現れていることが一目で分かります。
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        しかし、遠近効果はPersの目的ではないので、通常は L を変更する必要はありません。
+                    </p>
+                    <div class="prettyP_PC">
+                        <div>
+                            <img src="image/cpp_pers/cpp_pers_0112.png" width="820">
+                        </div>
+                    </div>
+                    <div class="prettyP_SP">
+                        <div class="table-container">
+                            <img src="image/cpp_pers/cpp_pers_0112.png" width="640">
+                        </div>
+                    </div>
+                    <p class="fss fwb pb10">
+                        Fig. 1-12
+                    </p>
+                </div>
+
+
+                <div class="fss fwb bdr10 pb50">
+                    <p id="p1">
+                        ※註 : 選択された関数によっては、異なる値が設定されている場合があります。
+                    </p>
+                </div>
+            </div>
+
+
+            <h3 class="pb30 fwb">
+                <p id="t2">
+                    [Ⅱ] "ユーザー定義関数について"  簡単にまとめます。
+                </p>
+            </h3>
+            <div class="pSP20">
+                <div class="fwb pb30">
+                    <ul style="list-style: none;" class="fwm pb40, pSP40">
+                        <li class="pb10"><a href="#a1">[01] 関数の定義と登録</a></li>
+                        <li class="pb10"><a href="#a2">[02] コメント欄について</a></li>
+                        <li class="pb10"><a href="#a3">[03] パラメーター付きの関数式</a></li>
+                        <li class="pb10"><a href="#a4">[04] 入力ミスについて</a></li>
+                        <li class="pb10"><a href="#a5">[05] 関数の設定を変更した場合の処理</a></li>
+                        <li class="pb10"><a href="#a6">[06] 登録した数式の削除と復元</a></li>
+                    </ul>
+                </div>
+
+                <div class="fwb pb20">
+                    <div class="contents-title-left pb20"
+                        <p id="a1">
+                            [01]&nbsp;関数の定義と登録
+                        </p>
+                    </div>
+                    <div class="contents-title-right">
+                        <p>
+                            <!--<a href="#title20">トップへ</a>-->
+                        </p>
+                    </div>
+                    <div class="c-both"></div>
+                    <div class="pb10">
+                        <p class="fss bdr10">
+                        註 : 登録できるユーザー定義関数の最大数は98です。
+                        </p>
+                    </div>
+                    <p class="pl0 pb10 fwm">
+                        関数式を選択するコンボボックスで "99 User Defined" を選択すると、
+                        数式(formula)とコメント(comment)を入力する2つのテキストボックスが表示されます。
+                    </p>
+                    <p>
+                        <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0201.png">
+                    </p>
+                    <div class="prettyP_PC">
+                        <div>
+                            <img src="image/cpp_pers/cpp_pers_02021_1.png" width="768">
+                        </div>
+                    </div>
+                    <div class="prettyP_SP">
+                        <div class="table-container">
+                            <img src="image/cpp_pers/cpp_pers_0201_1.png" width="640">
+                        </div>
+                    </div>
+                    <p class="fss fwb pb30">
+                        Fig. 2-01
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        この画面は "<a href="#ref1">Fig.1.3</a>" と同じです。
+                        "Fig.1.3" に示されている画面は、データファイルの選択で "PersData_01.pers_dat" を選択したら
+                        いきなり現れたのでした。
+                        "PersData_01.pers_dat" は元々、ユーザー定義関数を追加して行くために用意されている空のファイルです。
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        せっかくなので、このファイルにユーザー定義関数を追加して行くことにしたいと思います。
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        [LOAD]ボタンを押して、ダイアログボックスから"PersData_01.pers_dat" を選択してください。
+                        "Fig.2-01" と同じ画面が表示されます。
+                    </p>
+                    <p>
+                        <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0201_1.jpg">
+                    </p>
+                    <p class="fss fwb pb30">
+                        Fig. 2-01-1
+                    </p>
+                    <p class="fwb pb10">
+                        formula:
+                    </p>
+                    <p class="fwm pb10">
+                        x, y の2変数関数式を入力します(必須)。
+                    </p>
+                    <p class="fwb pb10">
+                        comment:
+                    </p>
+                    <p class="fwm pb20">
+                        コメントを入力しますが、必須ではありません。
+                        詳しくはを <a href="#a2">[02] コメント欄について</a> を参照してください。
+                    </p>
+                    <p class="fwb pb10">
+                        関数式の入力例)
+                    </p>
+                    <p class="fwm pb10">
+                        f(x, y) = x^2 + y^2 或いは z = x^2 + y^2 の場合、
+                        右辺の "x^2 + y^2" のみ入力してください。
+                    </p>
+                    <p>
+                        <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0202.jpg">
+                    </p>
+                    <p class="fss fwb pb10">
+                        Fig. 2-02
+                    </p>
+                    <p class="fwm pb10">
+                        ユーザー定義された関数式の評価は、
+                        <a href="https://github.com/codeplea/tinyexpr" target="_blank">TinyExpr</a>
+                        で行っています。
+                        式は(x^2 + y^2)など、テキストとして表現できる形式であれば問題ありません。
+                        関数式を定義するときに使用できる演算記号と数学関数は以下の通りです。
+                    </p>
+                    <div class="pSP20">
+                        <p class="fwb pb5">
+                            演算記号
+                        </p>
+                        <p class="fwm pb10">
+                            四則演算 "+, -, *, /" や、べき "^" などが使えます。
+                            但し、平方根 "√" や絶対値記号 "|…|"はそれぞれ、sqrt()、abs() を使用してください。
+                        </p>
+                        <p class="fwb pb5">
+                            数学関数
+                        </p>
+                        <p class="fwm pb30">
+                            sin, cos, exp, log, pow などの通常の関数が使用できます。
+                            使用できる関数は以下の通りです(曲面の描画と関係なさそうな関数は省いています)。<br>
+                            abs, acos, asin, atan, atan2, cos, cosh, e, exp, gamma, ln, log, log10, pow, sin, sinh, sqrt, tan, tanh
+                        </p>
+                        <p class="fwm pb30">
+                            c, c++ の標準関数ライブラリ "math.h" との対応関係ついては、<a href="#a4">[04] 入力ミスについて</a> を参照してください。
+
+                        </p>
+                    </div>
+                    <p class="fwm pb10">
+                        [CHECK]ボタンを押下すると数式の評価が行われ、構文が正しい場合は入力された関数の曲面が描画されると共に、[SAVE]ボタンが現れます。
+                    </p>
+                    <div class="prettyP_PC">
+                        <div>
+                            <img src="image/cpp_pers/cpp_pers_0203.png" width="768">
+                        </div>
+                    </div>
+                    <div class="prettyP_SP">
+                        <div class="table-container">
+                            <img src="image/cpp_pers/cpp_pers_0203.png" width="640">
+                        </div>
+                    </div>
+                    <p class="fss fwb pb10">
+                        Fig. 2-03
+                    </p>
+                    <p class="fwm pb10">
+                        入力された数式の評価で、エラーがあるとメッセージが表示されますが、使用した関数が未定義の場合もありますので、確認してください
+                        (<a href="#a4">[04] 入力ミスについて</a> 参照)｡
+
+                    </p>
+                    <p>
+                        <img class="fbox_image2" src="image/cpp_pers/cpp_pers_0204.jpg">
+                    </p>
+                    <p class="fss fwb pb10">
+                        Fig. 2-04
+                    </p>
+                    <p class="fwm pb30">
+                        数式の誤りを修正したら再び[CHECK]ボタンを押してください。
+                        正常に修正されていれば Fig. 2-03 の画面になります。
+                        未定義の数学関数 (例えば asinh, acosh) などが使用されていることが分かった場合は、
+                        数式の登録は不可能なので、[CANCEL]ボタンを押してユーザー定義モードを終了してください。
+                        [CANCEL]ボタンを押すと、入力中のデータがクリアされて、初期表示の画面に戻ります。
+                    </p>
+                    <p class="fwm pb10">
+                        [SAVE]ボタンを押す前に、ファイルへ書き込まれる設定項目についてまとめておきます。
+                    </p>
+                    <p class="fwb pSP20 pb5">
+                        range
+                    </p>
+                    <p class="fwm pSP20 pb10">
+                        x, y, z それぞれの描画範囲を設定します。
+                        デフォルトではx, y, z とも-2.00000～+2.00000ですが、個別に設定できます｡
+                        詳しくは1章 (<a href="#t1">[Ⅰ] About the screen</a>) の
+                        <a href="#s5">[e] 描画範囲設定</a> を参照してください。
+                    </p>
+                    <p class="fwb pSP20 pb5">
+                        draw parameters
+                    </p>
+                    <p class="fwm pSP20 pb10">
+                        alpha (z軸回りの回転角度)、gamma(x-y平面を見込む角度)の設定ができます｡
+                        詳しくは1章 (<a href="#t1">[Ⅰ] About the screen</a>) の
+                        (<a href="#s7">[g] 描画アングル設定</a> を参照してください。
+                    </p>
+                    <p class="fwm pSP40 pb10">
+                        alpha angle : -180 to 180 deg.<br>
+                        gamma angle : -90 to 90 deg.
+                    </p>
+                    <p class="fwb pSP20 pb5">
+                        line number
+                    </p>
+                    <p class="fwm pSP20 pb10">
+                        描画するメッシュを構成する線の数を設定します｡
+                        詳しくは1章 (<a href="#t1">[Ⅰ] About the screen</a>) の
+                        (<a href="#s6">[f] メッシュ設定</a> を参照してください。
+                    </p>
+                    <p class="fwm pSP20 pb30">
+                        <b>calcration :</b> 計算する線の数を指定します｡<br>
+                        <b>drawing :</b> 描画する線の数を指定します｡通常は "calcration" で設定された数がセットされるので、変更の必要はありません。
+                    </p>
+                    <p class="fwm pb10">
+                        設定項目を変更した場合は[CHECK]ボタンを押して描画を確認してください。
+                        <strong>[CHECK]ボタンは何度でも</strong>押すことができます。
+                    </p>
+                    <p class="fwm pb10">
+                        関数を登録せずにユーザー定義モードを終了する場合は、[CANCEL]ボタンを押してください。
+                        入力中のデータがクリアされて、初期表示の画面に戻ります。
+                        今回、[CANCEL]ボタンが押された場合は、まだ関数が登録されていないので、
+                        <a href="#ref4">Fig. 2-01</a> で示されている画面が表示されます。
+                        [SAVE]ボタンを押す前であれば、<strong>[CANCEL]ボタンはいつでも</strong>押すことができます。
+                    </p>
+                    <!--
+                    <p>
+                        <img class="fbox_image2" src="image/cpp_pers/cpp_pers_0205.png" width="768">
+                    </p>
+                    <p class="fss pb10">
+                        Fig. 2-05
+                    </p>
+                    -->
+                    <p class="fwm pb10">
+                        [SAVE]ボタンを押すと、入力された関数式がデータファイルに書き込まれ、関数式を選択するコンボボックスにも追加されます。
+                    </p>
+                    <div class="prettyP_PC">
+                        <div>
+                            <img src="image/cpp_pers/cpp_pers_0206.png" width="768">
+                        </div>
+                    </div>
+                    <div class="prettyP_SP">
+                        <div class="table-container">
+                            <img src="image/cpp_pers/cpp_pers_0206.png" width="640">
+                        </div>
+                    </div>
+                    <p>
+                        <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0206_1.png">
+                    </p>
+                    <p class="fss fwb pb10">
+                        Fig. 2-06
+                    </p>
+                </div>
+
+                <div class="fwb pb20">
+                    <div class="contents-title-left pb20"
+                        <p id="a2">
+                            [02]&nbsp;コメント欄について
+                        </p>
+                    </div>
+                    <div class="contents-title-right">
+                        <p>
+                            <!--<a href="#t2">[Ⅱ] ユーザー定義関数 トップへ</a>-->
+                        </p>
+                    </div>
+                    <div class="c-both"></div>
+                    <p class="fwm pb40">
+                        コメント欄には以下の3通りの使い方があります。
+                    </p>
+
+                    <ol class="fwm pSP40">
+                        <li class="pb40">
+                            <p class="pb10 fwm">
+                                コメントの必要がなければ、空欄のままで結構です。
+                            </p>
+                            <p>
+                                <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0207.jpg">
+                            </p>
+                            <p class="fss fwb pb30">
+                                Fig. 2-07
+                            </p>
+                            <p class="pb5 fwb">
+                                例)
+                            </p>
+                            <p class="pb10 fwm">
+                                データをセーブすると、関数式を選択するコンボボックスに以下のリストが追加されます。
+                            </p>
+                             <div class="prettyP_PC">
+                                <div>
+                                    <img src="image/cpp_pers/cpp_pers_0208.png" width="768">
+                                </div>
+                            </div>
+                            <div class="prettyP_SP">
+                                <div class="table-container">
+                                    <img src="image/cpp_pers/cpp_pers_0208.png" width="640">
+                                </div>
+                            </div>
+                            <p class="fss fwb pb10">
+                                Fig. 2-08
+                            </p>
+                        </li>
+                        <li class="pb40">
+                            <p class="pb10 fwm">
+                                関数式に固有の名前がある場合や、メモとして残しておきたい内容を入力します。
+                            </p>
+                            <div class="pb30">
+                                <p class="bdr10 fwm">
+                                    補足: このあとは入力された数式が正常であると評価され、[SAVE]ボタンが表示されたものとして説明を続けます。
+                                </p>
+                            </div>
+                            <p class="pb5 fwb">
+                                例)
+                            </p>
+                            <p class="pb10 fwm">
+                                formula: x^3 - 3*x*y + y^3
+                            </p>
+                            <p class="pb10 fwm">
+                                comment: デカルトの葉線
+                            </p>
+                            <p>
+                                <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0209_jp.jpg">
+                            </p>
+                            <p class="fss fwb pb10">
+                                Fig. 2-09
+                            </p>
+                            <p class="pb10 fwm">
+                                データをセーブすると、関数式を選択するコンボボックスに以下のリストが追加されます。
+                            </p>
+                             <div class="prettyP_PC">
+                                <div>
+                                    <img src="image/cpp_pers/cpp_pers_0210.png" width="768">
+                                </div>
+                            </div>
+                            <div class="prettyP_SP">
+                                <div class="table-container">
+                                    <img src="image/cpp_pers/cpp_pers_0210.png" width="640">
+                                </div>
+                            </div>
+                            <p class="fss fwb pb10">
+                                Fig. 2-10
+                            </p>
+                        </li>
+                        <li id="ref2" class="pb20">
+                            <p class="pb10 fwm">
+                                関数式が長すぎる場合、代替えの式を入力することができます。
+                            </p>
+                            <div class="pb30">
+                                <p class="bdr10 fwm">
+                                    補足: 代替えの式を入力する場合は、先頭にアポストロフィー "'" を付けます。
+                                </p>
+                            </div>
+                            <p class="pb5 fwb">
+                                例)
+                            </p>
+                            <p>
+                                <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0211.jpg">
+                            </p>
+                            <p class="fss fwb pb10">
+                                Fig. 2-11
+                            </p>
+                            <p class="pb10 fwm">
+                                データをセーブすると、関数式を選択するコンボボックスに以下のリストが追加されます。
+                            </p>
+                             <div class="prettyP_PC">
+                                <div>
+                                    <img src="image/cpp_pers/cpp_pers_0212.png" width="768">
+                                </div>
+                            </div>
+                            <div class="prettyP_SP">
+                                <div class="table-container">
+                                    <img src="image/cpp_pers/cpp_pers_0212.png" width="640">
+                                </div>
+                            </div>
+                            <p class="fss fwb pb10">
+                                Fig. 2-12
+                            </p>
+                            <div class="bdr10">
+                                <p class="pb5 fwm">
+                                    補足: 関数式として直接 "abs(sin(x + i*y))" と入力しても、
+                                    数式を評価する段階で(虚数 "i" は定義されていないので)エラーになってしまいます。
+                                </p>
+                                <p class="pb5 fwm">
+                                    関数式はあくまでも "x" と "y" の2変数で定義する必要があります。
+                                </p>
+                                <p class="pb5 fwm">
+                                    従って、"|sin(ω)| : ω = x + iy" の場合は "x" と "y" を用いて展開し、
+                                </p>
+                                <p class="fwm">
+                                    展開された "sqrt(sin(x)*sin(x)*cosh(y)*cosh(y) + cos(x)*cos(x)*sinh(y)*sinh(y))" を
+                                    "formula" に入力する必要があります。
+                                </p>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="fwb pb20">
+                    <div class="contents-title-left pb20"
+                        <p id="a3">
+                            [03]&nbsp;パラメーター付きの関数式
+                        </p>
+                    </div>
+                    <div class="contents-title-right">
+                        <p>
+                            <!--<a href="#t2">[Ⅱ] ユーザー定義関数 トップへ</a>-->
+                        </p>
+                    </div>
+                    <div class="c-both"></div>
+                    <p class="fwm pb10">
+                        定義する関数式に "a～d" までのパラメータを持たせることができます。
+                    </p>
+                    <p class="fwm pb10">
+                        数式に "a" から "d" までの文字が含まれている場合、
+                        数式を入力した後に[Tab]キーを押すかコメント欄をクリックすると、
+                        それらの文字に対応する"parameters" 入力ボックスが有効になります。
+                    </p>
+                    <p class="pb5 fwb">
+                        例)
+                    </p>
+                    <p class="fwm pb10">
+                        formula: (x^2 + y^2 + a^2)^2 - 4*a^2*x^2 - b^4
+                    </p>
+                    <p class="fwm pb10">
+                        comment: Cassini oval
+                    </p>
+                    <p class="fwm pb10">
+                        この関数式はパラメーターa, b にいろいろな値をセットすることで、様々な形状の曲面が描画されます。
+                        そして、z = 0 のときの等高線は "Cassini oval" と呼ばれます。
+                    </p>
+                    <p>
+                        <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0213.jpg">
+                    </p>
+                    <p class="fss fwb pb10">
+                        Fig. 2-13
+                    </p>
+                    <p class="fwm pb10">
+                        aとbに適当な数値を入力して、[CHECK]ボタンを押すと、パラメーターで指示された曲面が描画されます。
+                        aとbの値を変えて、希望の形状が得られたら、[SAVE]ボタンを押してください。
+                    </p>
+                    <div class="prettyP_PC">
+                        <div>
+                            <img src="image/cpp_pers/cpp_pers_0214.png" width="768">
+                        </div>
+                    </div>
+                    <div class="prettyP_SP">
+                        <div class="table-container">
+                            <img src="image/cpp_pers/cpp_pers_0214.png" width="640">
+                        </div>
+                    </div>
+                    <p class="fss fwb pb10">
+                        Fig. 2-14
+                    </p>
+                    <p class="fwm pb10">
+                        [SAVE]ボタンを押すと、関数式を選択するコンボボックスのリストに「(x^2 + y^2 + a^2)^2 - 4*a^2*x^2 - b^4 : カッシーニ楕円」が追加されます。
+                        パラメーター入力ボックスaとbには保存したときの数値が表示されるようになります。
+                        再び、aとbの値を変えて形状の変化を確認するときは、[START]ボタンを押してください。
+                    </p>
+                    <div class="prettyP_PC">
+                        <div>
+                            <img src="image/cpp_pers/cpp_pers_0215.png" width="768">
+                        </div>
+                    </div>
+                    <div class="prettyP_SP">
+                        <div class="table-container">
+                            <img src="image/cpp_pers/cpp_pers_0215.png" width="640">
+                        </div>
+                    </div>
+                    <p class="fss fwb pb10">
+                        Fig. 2-15
+                    </p>
+                    <p class="fwm pb10">
+                        ちなみに、a = +1.0, b = +1.2のときの "Cassini oval" は以下のようなオーバルになります。
+                    </p>
+                    <p>
+                        <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0216.png" width="385">
+                    </p>
+                    <p class="fss fwb pb10">
+                        Fig. 2-16
+                    </p>
+                </div>
+
+                <div class="fwb pb20">
+                    <div class="contents-title-left pb20"
+                        <p id="a4">
+                            [04]&nbsp;入力ミスについて
+                        </p>
+                    </div>
+                    <div class="contents-title-right">
+                        <p>
+                            <!--<a href="#t2">[Ⅱ] ユーザー定義関数 トップへ</a>-->
+                        </p>
+                    </div>
+                    <div class="c-both"></div>
+                    <p class="fwm pb10">
+                        関数式を定義するとき、"x^3 - 3*x*y + y^3" などは、ついつい "x^3 - 3xy + y^3" と書いてしまいがちですが、
+                        [CHECK]ボタンを押すと数式として評価する段階でエラーメッセージが表示されます。
+                    </p>
+                    <div class="prettyP_PC">
+                        <div>
+                            <img src="image/cpp_pers/cpp_pers_0217.jpg">
+                        </div>
+                    </div>
+                    <div class="prettyP_SP">
+                        <div class="table-container">
+                            <img src="image/cpp_pers/cpp_pers_0217.jpg" width="688">
+                        </div>
+                    </div>
+                    <p class="fss fwb pb10">
+                        Fig. 2-17
+                    </p>
+                    <p class="fwm pb10">
+                        エラーメッセージが表示されるとき、大抵は "2x" など "*" の書き忘れです。<br>
+                        次は括弧の閉じ忘れでしょうか。<br>
+                        数学関数を使用している場合は、未定義の関数を使用していないかチェックしてみてください。
+                    </p>
+                    <p class="fwm pb10">
+                        TinyExprがサポートしている数学関数一覧 (曲面の描画に関係なさそうな式は省略しています) を以下に示します。
+                        関数は c, c++ 標準の "math.h" ライブラリに基づいていると考えられます。
+                    </p>
+                    <p>
+                        <table class="fwm" width="300" height="40" border="1">
+                            <tr>
+                                <th>TinyExpr</th>
+                                <th>math.h</th>
+                            </tr>
+                            <tr>
+                                <td>abs</td>
+                                <td>fabs</td>
+                            </tr>
+                            <tr>
+                                <td>acos</td>
+                                <td>acos</td>
+                            </tr>
+                            <tr>
+                                <td>asin</td>
+                                <td>asin</td>
+                            </tr>
+                            <tr>
+                                <td>atan</td>
+                                <td>atan</td>
+                            </tr>
+                            <tr>
+                                <td>atan2</td>
+                                <td>atan2</td>
+                            </tr>
+                            <tr>
+                                <td>cos</td>
+                                <td>cos</td>
+                            </tr>
+                            <tr>
+                                <td>cosh</td>
+                                <td>cosh</td>
+                            </tr>
+                            <tr>
+                                <td>e</td>
+                                <td>e</td>
+                            </tr>
+                            <tr>
+                                <td>exp</td>
+                                <td>exp</td>
+                            </tr>
+                            <tr>
+                                <td>gamma</td>
+                                <td>tgamma</td>
+                            </tr>
+                            <tr>
+                                <td>ln</td>
+                                <td>log</td>
+                            </tr>
+                            <tr>
+                                <td>log</td>
+                                <td>log</td>
+                            </tr>
+                            <tr>
+                                <td>log10</td>
+                                <td>log10</td>
+                            </tr>
+                            <tr>
+                                <td>pow</td>
+                                <td>pow</td>
+                            </tr>
+                            <tr>
+                                <td>sin</td>
+                                <td>sin</td>
+                            </tr>
+                            <tr>
+                                <td>sinh</td>
+                                <td>sinh</td>
+                            </tr>
+                            <tr>
+                                <td>sqrt</td>
+                                <td>sqrt</td>
+                            </tr>
+                            <tr>
+                                <td>tan</td>
+                                <td>tan</td>
+                            </tr>
+                            <tr>
+                                <td>tanh</td>
+                                <td>tanh</td>
+                            </tr>
+                         </table>
+                    </p>
+                    <p class="pl0 pb10 fwm"></p>
+                </div>
+
+                <div class="fwb pb20">
+                    <div class="contents-title-left pb20"
+                        <p id="a5">
+                            [05]&nbsp;関数の設定を変更した場合の処理について
+                        </p>
+                    </div>
+                    <div class="contents-title-right">
+                        <p>
+                            <!--<a href="#t2">[Ⅱ] ユーザー定義関数 トップへ</a>-->
+                        </p>
+                    </div>
+                    <div class="c-both"></div>
+                    <p class="fwm pb10">
+                        登録されている関数を表示しているときにメッシュや描画範囲、アングルなどを変えてグラフを描き直すと、
+                        その関数の特徴が際立つ場合があります。
+                        或いは、コメントを書き加えたり、修正したいと思われるケースが生じる可能性も考えられます。
+                        このような場合は、これらの変更内容を新しいデータセットとして保存することができます。
+                    </p>
+                    <p class="fwm pb10">
+                        ※ 設定値を変更して保存できるデータ数は、関数毎に最大9です。
+                    </p>
+                    <p class="fwm pb10">
+                        以下に具体例を2つ示します。
+                    </p>
+                    <p class="fwb pb10">
+                        <1>
+                    </p>
+                    <p class="fwm pb10">
+                        現在、コンボボックスのリストの4番目には "|sin(ω)| : ω = x + iy" が登録されているはずです。
+                        この関数式を登録したときは、
+                        描画範囲はデフォルト値のままでした (<a href="#ref2">コメント欄の説明 関数式が長すぎる場合</a> を参照)。
+                    </p>
+                    <div class="prettyP_PC">
+                        <div>
+                            <img src="image/cpp_pers/cpp_pers_0212.png" width="768">
+                        </div>
+                    </div>
+                    <div class="prettyP_SP">
+                        <div class="table-container">
+                            <img src="image/cpp_pers/cpp_pers_0212.png" width="640">
+                        </div>
+                    </div>
+                    <p class="fss fwb pb10">
+                        Fig. 2-18
+                    </p>
+                    <p class="fwm pb10">
+                        実はこの関数は描画範囲を変更すると、関数の性質が分かり易くなります。
+                    </p>
+                    <p class="fwm pb10">
+                        コンボボックスのリストから "04: 0: |sin(ω)| : ω = x + iy " を選択してください。
+                    </p>
+                    <p class="fwm pb10">
+                        "range" と "line number" を以下のように変更します。
+                    </p>
+                    <p>
+                        <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0219.jpg">
+                    </p>
+                    <p class="fss fwb pb10">
+                        Fig. 2-19
+                    </p>
+                    <p class="fwm pb10">
+                        [START]ボタンを押すと描画ウインドウが更新され、画面の中央下に[mod save]ボタンが表示されます。
+                    </p>
+                    <p class="fwm pb10">
+                        "range", "line number"を変更して[START]ボタンを押すと、[mod save]ボタンが表示されるようになります。
+                    </p>
+                    <div class="prettyP_PC">
+                        <div>
+                            <img src="image/cpp_pers/cpp_pers_0220.png" width="768">
+                        </div>
+                    </div>
+                    <div class="prettyP_SP">
+                        <div class="table-container">
+                            <img src="image/cpp_pers/cpp_pers_0220.png" width="640">
+                        </div>
+                    </div>
+                    <p class="fss fwb pb10">
+                        Fig. 2-20
+                    </p>
+                    <p class="fwm pb10">
+                        [mod save]ボタンを押すと修正を反映したデータがリストに追加されます。
+                    </p>
+                    <div class="prettyP_PC">
+                        <div>
+                            <img src="image/cpp_pers/cpp_pers_0221.png" width="768">
+                        </div>
+                    </div>
+                    <div class="prettyP_SP">
+                        <div class="table-container">
+                            <img src="image/cpp_pers/cpp_pers_0221.png" width="640">
+                        </div>
+                    </div>
+                    <p>
+                        <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0221_1.png" >
+                    </p>
+                    <p class="fss fwb pb10">
+                        Fig. 2-21
+                    </p>
+                    <p class="fwb pb10">
+                        <2>
+                    </p>
+                    <p class="fwm pb10">
+                        パラメータ付きの関数式で説明した "Cassini Oval" のパラメーターを変更してみます。
+                        関数を定義したとき、パラメーターa とb にはそれぞれ "1.0" と "1.2" がセットされていました。
+                    </p>
+                    <div class="prettyP_PC">
+                        <div>
+                            <img src="image/cpp_pers/cpp_pers_0222.png" width="768">
+                        </div>
+                    </div>
+                    <div class="prettyP_SP">
+                        <div class="table-container">
+                            <img src="image/cpp_pers/cpp_pers_0222.png" width="640">
+                        </div>
+                    </div>
+                    <p class="fss fwb pb10">
+                        Fig. 2-22
+                    </p>
+                    <p class="fwm pb10">
+                        "a, b" とも "0.6" に変更して[START]ボタンを押すと、グラフの形状が次のように変化します。
+                        <1>の時と同様に [mod save]ボタンが表示されます。
+                    </p>
+                    <div class="prettyP_PC">
+                        <div>
+                            <img src="image/cpp_pers/cpp_pers_0223.png" width="768">
+                        </div>
+                    </div>
+                    <div class="prettyP_SP">
+                        <div class="table-container">
+                            <img src="image/cpp_pers/cpp_pers_0223.png" width="640">
+                        </div>
+                    </div>
+                    <p class="fss fwb pb10">
+                        Fig. 2-23
+                    </p>
+                    <p class="fwm pb10">
+                        これではちょっと分かりませんが、アングルを変えると面白い等高線が現れます。
+                    </p>
+                    <div class="prettyP_PC">
+                        <div>
+                            <img src="image/cpp_pers/cpp_pers_0224.png" width="768">
+                        </div>
+                    </div>
+                    <div class="prettyP_SP">
+                        <div class="table-container">
+                            <img src="image/cpp_pers/cpp_pers_0224.png" width="640">
+                        </div>
+                    </div>
+                    <p class="fss fwb pb10">
+                        Fig. 2-24
+                    </p>
+                    <p class="fwm pb10">
+                        "z = 0" の等高線が8の字になっています。
+                        これはベルヌーイのレムニスケートと言われる曲線です。
+                    </p>
+                    <p class="fwm pb10">
+                        この状態を保存することにします。
+                        [mod save]ボタンを押すと修正を反映したデータがリストに追加されます。
+                    </p>
+                    <div class="prettyP_PC">
+                        <div>
+                            <img src="image/cpp_pers/cpp_pers_0225.png" width="768">
+                        </div>
+                    </div>
+                    <div class="prettyP_SP">
+                        <div class="table-container">
+                            <img src="image/cpp_pers/cpp_pers_0225.png" width="640">
+                        </div>
+                    </div>
+                    <p>
+                        <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0225_1.png">
+                    </p>
+                    <p class="fss fwb pb10">
+                        Fig. 2-25
+                    </p>
+                    <p class="fwm pb10">
+                        ※ [mod save]ボタンが表示されるタイミング
+                    </p>
+                    <p class="fwm pb10">
+                        コンボボックスから関数式を選び、"comment", "raneg", "line number" を変更して [START]ボタンを押すと [mod save]ボタンが表示されます。
+                    </p>
+                    <p class="fwm pb10">
+                        アングルについては、スクロールバーを動かすことで、[mod save]ボタンが表示されます。
+                    </p>
+                </div>
+
+
+                <div class="fwb pb20">
+                    <div class="contents-title-left pb20"
+                        <p id="a6">
+                            [06]&nbsp;登録した数式の削除と復元
+                        </p>
+                    </div>
+                    <div class="contents-title-right">
+                        <p>
+                            <!--<a href="#t2">[Ⅱ] ユーザー定義関数 トップへ</a>-->
+                        </p>
+                    </div>
+                    <div class="c-both"></div>
+                    <p class="fwm pb10">
+                        ファイルに登録されているデータの削除機能を持たせるかどうか迷ったのですが、
+                        以下の機能を持たせることにしました。
+                    </p>
+                    <div class="pSP50">
+                        <div class="fwb pb30">
+                            <ul style="list-style: none;" class="fwm pb40, pSP40">
+                                <li class="pb10"><a href="#u1"><01> 登録されているデータの削除</a></li>
+                                <li class="pb10"><a href="#u2"><02> 削除されたデータの復元</a></li>
+                                <li class="pb10"><a href="#u3"><03> 削除されたデータの完全削除</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="fwb pb20">
+                            <div class="contents-title-left pb20"
+                                <p id="u1">
+                                    <01>&nbsp;登録されているデータの削除
+                                </p>
+                            </div>
+                            <div class="contents-title-right">
+                                <p>
+                                    <!--<a href="#title20">トップへ</a>-->
+                                </p>
+                            </div>
+                            <div class="c-both"></div>
+                            <div>
+                                <p class="pl0 pb10 fwm">
+                                    この解説に従って操作されたと仮定すると、現在、以下の関数が登録されています。
+                                    "01: 0:" から "05: 1:" までのどの関数も削除することができます。
+                                </p>
+                                <p>
+                                    <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0228.jpg">
+                                </p>
+                                <p class="fss fwb pb10">
+                                    Fig. 2-28
+                                </p>
+                                <p class="pl0 pb10 fwm">
+                                    例として、"02: 0: z = x + y" を削除してみることにします。
+                                </p>
+                                 <p>
+                                    <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0229.jpg">
+                                </p>
+                                <p class="fss fwb pb10">
+                                    Fig. 2-29
+                                </p>
+                                <p class="pl0 pb10 fwm">
+                                    "02: 0: z = x + y " を選択すると以下の画面が表示されます。
+                                </p>
+                                <div class="prettyP_PC">
+                                    <div>
+                                        <img src="image/cpp_pers/cpp_pers_0230.png" width="768">
+                                    </div>
+                                </div>
+                                <div class="prettyP_SP">
+                                    <div class="table-container">
+                                        <img src="image/cpp_pers/cpp_pers_0230.png" width="640">
+                                    </div>
+                                </div>
+                                <p class="fss fwb pb10">
+                                    Fig. 2-30
+                                </p>
+                                <p class="pl0 pb10 fwm">
+                                    赤枠で囲まれた "<strong>□ delete</strong>" に注目してください。
+                                    チェックを入れると[delete]ボタンが表示されます。
+                                </p>
+                                <p>
+                                    <img class="fbox_image2" src="image/cpp_pers/cpp_pers_0231.jpg">
+                                </p>
+                                <p class="fss fwb pb10">
+                                    Fig. 2-31
+                                </p>
+                                <p class="pl0 pb10 fwm">
+                                    [delete]ボタンを押すと、削除確認のメッセージが表示されるので、[はい]を押すと、
+                                    コンボボックスのリストから "02: 0: z = x + y " が削除されると共に、
+                                    データファイルからも削除されます。
+                                </p>
+                                <p class="pl0 pb10 fwm">
+                                    実際に [delete]ボタンを押すと、以下の画面が表示されます。
+                                    リストから "<strong>02: 0: z = x + y</strong> " が削除されていることが確認できます。
+                                </p>
+                                <div class="prettyP_PC">
+                                    <div>
+                                        <img src="image/cpp_pers/cpp_pers_0232.png" width="768">
+                                    </div>
+                                </div>
+                                <div class="prettyP_SP">
+                                    <div class="table-container">
+                                        <img src="image/cpp_pers/cpp_pers_0232.png" width="640">
+                                    </div>
+                                </div>
+                                <p>
+                                    <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0232_1.png">
+                                </p>
+                                <p class="fss fwb pb10">
+                                    Fig. 2-32
+                                </p>
+                                <p class="pl0 pb10 fwm">
+                                </p>
+                                <p class="pl0 pb10 fwm">
+                                    削除されたデータの復元処理で、説明し易くするために
+                                    もう一つデータを削除しておきます。
+                                </p>
+                                <p>
+                                    <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0233.jpg">
+                                </p>
+                                <p class="fss fwb pb10">
+                                    Fig. 2-33
+                                </p>
+                                <p class="fwm">
+                                    "04: 1: |sin(ω)| : ω = x + iy" を同様の手順で削除します。
+                                </p>
+                                <p class="pl0 pb10 fwm">
+                                    先ほど、関数の性質が分かり易くなるように、描画範囲を修正したばかりのデータです。
+                                    ですが、あえて削除します (間違えて削除してしまったことにしましょう)。
+                                    これで、登録されている関数は、5つになりました。
+                                </p>
+                                 <p>
+                                    <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0234.jpg">
+                                </p>
+                                <p class="fss fwb">
+                                    Fig. 2-34
+                                </p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="contents-title-left">
+                            </div>
+                            <div class="contents-title-right pb30">
+                                <p class="fss">
+                                    <a href="#a6">[06] 登録した数式の削除と復元について トップへ</a>
+                                </p>
+                            </div>
+                            <div class="c-both"></div>
+                        </div>
+
+                        <div class="fwb pb20">
+                            <div>
+                                <div class="contents-title-left pb20">
+                                <p id="u2">
+                                    <02>&nbsp;削除されたデータの復元
+                                </p>
+                                </div>
+                                <div class="contents-title-right">
+                                </div>
+                                <div class="c-both"></div>
+                            </div>
+                            <div>
+                                <p class="fwm">
+                                    データの削除は注意深く行われると思います｡
+                                    しかし、うっかり必要なデータを削除してしまうといったことも起こりえます。
+                                </p>
+                                <p class="pl0 pb10 fwm">
+                                    そのような場合に備えて、削除されたデータは特定のファイルにバックアップされています。
+                                </p>
+                                <p class="pl0 pb10 fwm">
+                                    バックアップファイルの開き方を説明します。
+                                </p>
+                                <p>
+                                    <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0235.jpg">
+                                </p>
+                                <p class="fss fwb pb10">
+                                    Fig. 2-35
+                                </p>
+                                <p class="pl0 pb10 fwm">
+                                    [LOAD]ボタンを押してデータファイル選択ダイアログを開きます。
+                                    右下の赤枠部分をクリックすると現れる2行の段の2番目を選択します。
+                                </p>
+                                <div class="prettyP_PC">
+                                    <div>
+                                        <img src="image/cpp_pers/cpp_pers_0236.jpg">
+                                    </div>
+                                </div>
+                                <div class="prettyP_SP">
+                                    <div class="table-container">
+                                        <img src="image/cpp_pers/cpp_pers_0236.jpg" width="640">
+                                    </div>
+                                </div>
+                                <p class="fss fwb pb10">
+                                    Fig. 2-36
+                                </p>
+                                <p class="pl0 pb10 fwm">
+                                    "pers_dat.back_up" が表示されるので、選択します。
+                                </p>
+                                <div class="prettyP_PC">
+                                    <div>
+                                        <img src="image/cpp_pers/cpp_pers_0237.jpg">
+                                    </div>
+                                </div>
+                                <div class="prettyP_SP">
+                                    <div class="table-container">
+                                        <img src="image/cpp_pers/cpp_pers_0237.jpg" width="640">
+                                    </div>
+                                </div>
+                                <p class="fss fwb pb10">
+                                    Fig. 2-37
+                                </p>
+                                <p class="pl0 pb10 fwm">
+                                    すると <a href="#u1">[01] 登録されているデータの削除</a> の説明で削除した関数が表示されます。
+                                </p>
+                                <div class="prettyP_PC">
+                                    <div>
+                                        <img src="image/cpp_pers/cpp_pers_0238.png" width="768">
+                                    </div>
+                                </div>
+                                <div class="prettyP_SP">
+                                    <div class="table-container">
+                                        <img src="image/cpp_pers/cpp_pers_0238.png" width="640">
+                                    </div>
+                                </div>
+                                <p class="fss fwb pb10">
+                                    Fig. 2-38
+                                </p>
+                                <p class="bdr10 left2 fss pb10">
+                                    復元画面では
+                                    [restore]ボタンが現れていることに注意してください。
+                                </p>
+                                <p class="pl0 pb10 fwm">
+                                    関数選択コンボボックスから、先ほど、うっかり削除してしまった
+                                    "04: 1: |sin(ω)| : ω = x + iy" を選択します。
+                                </p>
+                                <p class="pb10">
+                                    <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0239.jpg">
+                                </p>
+                                <div class="prettyP_PC">
+                                    <div>
+                                        <img src="image/cpp_pers/cpp_pers_0240.png" width="768">
+                                    </div>
+                                </div>
+                                <div class="prettyP_SP">
+                                    <div class="table-container">
+                                        <img src="image/cpp_pers/cpp_pers_0240.png" width="640">
+                                    </div>
+                                </div>
+                                <p class="fss fwb pb10">
+                                    Fig. 2-39, 40
+                                </p>
+                                <p class="pl0 pb10 fwm">
+                                    赤枠内の[restore]ボタンを押すと、画面に表示されているデータが復元されます。
+                                    そして、以下のメッセージが表示されます。
+                                </p>
+                                <p>
+                                    <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0241.jpg">
+                                </p>
+                                <p class="fss fwb pb10">
+                                    Fig. 2-41
+                                </p>
+                                <p class="pl0 pb10 fwm">
+                                    "はい" を選択すると、引き続きデータの復元を続けることができます。
+                                </p>
+                                <p class="pl0 pb10 fwm">
+                                    "いいえ" を選択すると、復元されたデータが含まれるファイルが開きます。
+                                    画面には復元されたデータが表示されます。
+                                    何も変わっていないように見えますが、コンボボックスを開くと、バックアップファイルではなく、
+                                    復元されたファイルのリストが表示されることが確認できます。
+                                    またデータは削除される前と同じ位置に戻っています。
+                                </p>
+                                <div class="prettyP_PC">
+                                    <div>
+                                        <img src="image/cpp_pers/cpp_pers_0242.png" width="768">
+                                    </div>
+                                </div>
+                                <div class="prettyP_SP">
+                                    <div class="table-container">
+                                        <img src="image/cpp_pers/cpp_pers_0242.png" width="640">
+                                    </div>
+                                </div>
+                                <p class="fss fwb pb10">
+                                    Fig. 2-42
+                                </p>
+                                <p class="pl0 pb10 fwm">
+                                    全てのデータが復元された場合は、
+                                    最後に復元されたファイルが開き、画面に復元されたデータが表示されます。
+                                </p>
+                                <p>
+                                    <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0243.jpg">
+                                </p>
+                                <p class="fss fwb pb10">
+                                    Fig. 2-43
+                                </p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="contents-title-left">
+                            </div>
+                            <div class="contents-title-right pb30">
+                                <p class="fss">
+                                    <a href="#a6">[06] 登録した数式の削除と復元について トップへ</a>
+                                </p>
+                            </div>
+                            <div class="c-both"></div>
+                        </div>
+
+                        <div class="fwb pb20">
+                            <div>
+                                <div class="contents-title-left pb20">
+                                    <p id="u3">
+                                        <03>&nbsp;削除されたデータの完全削除
+                                    </p>
+                                </div>
+                                <div class="contents-title-right">
+                                </div>
+                                <div class="c-both"></div>
+                            </div>
+                            <div>
+                                <p class="pb10 fwm">
+                                    データを削除するときは、自動でバックアップされるので、
+                                    バックアップファイルには残しておく必要のないデータも含まれる可能性があります。
+                                    バックアップファイルからデータを削除する方法を説明します。
+                                </p>
+                                <p class="pl0 pb10 fwm">
+                                    <a href="#u2">[02] 削除されたデータのリストア</a>  と同様に、バックアップファイルをロードしてください。
+                                </p>
+                                <p class="pl0 pb10 fwm">
+                                    現在、バックアップファイルにはデータが1つだけ
+                                     "PersData01: 02: 0: z = x + y " が残っているものと仮定します。
+                                </p>
+                                <div class="prettyP_PC">
+                                    <div>
+                                        <img src="image/cpp_pers/cpp_pers_0244.png" width="768">
+                                    </div>
+                                </div>
+                                <div class="prettyP_SP">
+                                    <div class="table-container">
+                                        <img src="image/cpp_pers/cpp_pers_0244.png" width="640">
+                                    </div>
+                                </div>
+                                <p class="fss fwb pb10">
+                                    Fig. 2-44
+                                </p>
+                                <p class="pl0 pb10 fwm">
+                                    画面の赤枠内の"□ delete" をチェックすると、[delete]ボタンが表示されます。
+                                </p>
+                                <p>
+                                    <img class="fbox_image2" src="image/cpp_pers/cpp_pers_0245.jpg">
+                                </p>
+                                <p class="fss fwb pb10">
+                                    Fig. 2-45
+                                </p>
+                                <p class="pl0 pb10 fwm">
+                                    [delete]ボタンを押すと画面に表示されているデータが削除されます。
+                                    この削除では本当にデータが消去されてしまうので、確認のメッセージが表示されます。
+                                    削除する場合は[はい]を押してください。
+                                </p>
+                                <p>
+                                    <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0246.jpg">
+                                </p>
+                                <p class="fss fwb pb10">
+                                    Fig. 2-46
+                                </p>
+                                <p class="pl0 pb10 fwm">
+                                    コンボボックスに複数のデータが表示されているときは、続けて削除することができます。
+                                    今回の場合のように1つしかないデータを削除してしまうと、以下のメッセージが表示され、
+                                    データファイル選択ダイアログが表示されます。
+                                </p>
+                                <p>
+                                    <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0247.jpg">
+                                </p>
+                                <p class="fss fwb pb10">
+                                    Fig. 2-47
+                                </p>
+                                <p class="pl0 pb10 fwm">
+                                    データ選択ダイアログが表示されたら、希望するデータファイルを選択してください。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <h3 class="pb20 fwb">
+                <p id="t3">
+                    [Ⅲ] その他
+                </p>
+            </h3>
+            <div class="pSP20">
+                <div class="fwb pb30">
+                    <ul style="list-style: none;" class="fwm pb40, pSP40">
+                        <li class="pb10"><a href="#d1">[01] 描画ウインドウ表示色の設定</a></li>
+                        <li class="pb10"><a href="#d2">[02] 既知の問題点について</a></li>
+                    </ul>
+                </div>
+
+                <div class="fwb pb40">
+                    <div class="contents-title-left pb20"
+                        <p id="d1">
+                            [01] 描画ウインドウ表示色の設定
+                        </p>
+                    </div>
+                    <div class="contents-title-right">
+                        <p>
+                            <!--<a href="#title20">トップへ</a>-->
+                        </p>
+                    </div>
+                    <div class="c-both"></div>
+                    <p class="pl0 pb10 fwm">
+                        描画ウィンドウについては、背景、メッシュのライン、x,y軸の色を設定することができます。
+                        ただし、画面からではなく、イニシャルファイルを編集することで設定します。
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        エクスプローラーで [Pers] フォルダーを開いてください。
+                        中に[dat]フォルダーがあります。[dat]フォルダーを開くと、
+                        "Pers_color.ini" というファイルがあります。これをテキストエディタで編集します。
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        "Pers_color.ini" の内容は以下の通りです：
+                    </p>
+                    <p>
+                        <img class="fbox_image2" src="image/cpp_pers/cpp_pers_0301.jpg">
+                    </p>
+                    <p class="fss fwb pb30">
+                        Fig. 3-01
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        空行と "//" で始まる行は、無視されます。
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        データとして有効なのは、以下の5行です。
+                    </p>
+                    <div class="table-container">
+                        <table class="fwm" width="500" height="40" border="1">
+                           <tr>
+                             <th>ブロック</th>
+                             <th>タイトル</th>
+                             <th>データ</th>
+                           </tr>
+                           <tr>
+                             <td>window back color</td>
+                             <td>window_back</td>
+                             <td>(0,0,0)</td>
+                           </tr>
+                           <tr>
+                             <td>line color z value plus domain</td>
+                             <td>line_plus</td>
+                             <td>(255,0,0)</td>
+                           </tr>
+                           <tr>
+                             <td>line color z value minus domain</td>
+                             <td>line_minus</td>
+                             <td>(0,0,255)</td>
+                           </tr>
+                           <tr>
+                             <td>axis x color</td>
+                             <td>axis_x</td>
+                             <td>(255,255,0)</td>
+                           </tr>
+                           <tr>
+                             <td>axis y color</td>
+                             <td>axis_y</td>
+                             <td>(0,255,255)</td>
+                           </tr>
+                         </table>
+                    </div>
+                    <p class="pb20"></p>
+                    <p class="pl0 pb10 fwm">
+                        現在、データとして有効な5行は、これまでの説明で、使用されてきた色です。
+                        また、iniファイルのデータがうまく読み込まれない場合は、デフォルトとして使用される色です。
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        各ブロックで "//" がついている行は、サンプルとして入れてあるものです。
+                         "//" を外せば、そのデータの色が読み込まれます。
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        勿論、データはRGB形式で自由にセットすることができます。ただし、データ行の書式は変更しない下さい｡
+                    </p>
+                    <p class="pl0 pb10 fwm">
+                        書式：<strong>タイトル=(</strong>0-255<strong>,</strong>0-255<strong>,</strong>0-255<strong>)</strong>
+                        &emsp; i.g. <strong>window_back=(</strong>185<strong>,</strong>185<strong>,</strong>185<strong>)</strong>
+                    </p>
+                </div>
+
+                <div class="fwb pb20">
+                    <div class="contents-title-left pb20"
+                        <p id="d2">
+                            [02] 既知の問題点について
+                        </p>
+                    </div>
+                    <div class="contents-title-right">
+                        <p>
+                            <!--<a href="#t3">[Ⅲ] その他 トップへ</a>-->
+                        </p>
+                    </div>
+                    <div class="c-both"></div>
+
+                    <div class="fwb pb30">
+                        <ul style="list-style: none;" class="fwm pb40, pSP40">
+                            <li class="pb10"><a href="#e1"><01> 隠線処理の乱れについて</a></li>
+                            <li class="pb10"><a href="#e2"><02> 数式入力時の累乗記号 "^" の問題について</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="fwb pb20">
+                        <div class="contents-title-left pb20"
+                            <p id="e1">
+                                <01>&nbsp;隠線処理の乱れについて
+                            </p>
+                        </div>
+                        <div class="contents-title-right">
+                            <p>
+                                <!--<a href="#title20">トップへ</a>-->
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <div>
+                            <p class="pl0 pb10 fwm">
+                                Persはメッシュで曲面をプロットするため、陰線処理にはかなり力を入れて設計したのですが、
+                                見えないはずの線がプロットされてしまう場合があります。
+                                この取扱い説明書で最初に示されている図 (<a href="#t1">Fig. 1-1</a>) では
+                                左端の部分で、乱れが生じています。
+                            </p>
+                            <p>
+                                <img class="fbox_imageMax" src="image/cpp_pers/cpp_pers_0302.png">
+                            </p>
+                            <p class="fss fwb pb10">
+                                Fig. 3-02
+                            </p>
+                            <p class="pl0 pb10 fwm">
+                                この問題については、今後の課題としたいと思います。
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="fwb pb20">
+                        <div class="contents-title-left pb20"
+                            <p id="e2">
+                                <02>&nbsp;数式入力時の累乗記号 "^" の問題について
+                            </p>
+                        </div>
+                        <div class="contents-title-right">
+                            <p>
+                                <!--<a href="#d2">[02] 既知の問題点について トップへ</a>-->
+                            </p>
+                        </div>
+                        <div class="c-both"></div>
+                        <div>
+                            <p class="pl0 pb10 fwm">
+                                Persは入力された数式を
+                                <a href="https://github.com/codeplea/tinyexpr" target="_blank">TinyExpr</a>
+                                で評価しています。
+                            </p>
+                            <p class="pl0 pb10 fwm">
+                                しかし、式に "-x^2" 或いは "-y^2" が含まれている場合、評価を誤ります。<br>
+                                これらは<strong>マイナスの符号</strong>がつき、
+                                <strong>累乗記号</strong>が使われ、その<strong>指数</strong>が "2" や"4" などの<strong>偶数"</strong> の場合です。
+                            </p>
+                            <p class="pl0 pb10 fwm">
+                                例えば、x=2 の場合 TinyExprは、"-x^2" の評価結果を "4" と出力してしまいます。
+                            </p>
+                            <p class="pl0 pb10 fwm">
+                                入力式に "<strong>-x^2</strong>" などが含まれる場合は、"<strong>-(x^2)</strong>"
+                                または "<strong>-x*x</strong>" に置き換えてください。
+                            </p>
+                            <p class="pl0 pb10 fwm">
+                                現在、私が把握している評価エラーはこのパターンのみです。
+                                他のパターンで評価エラーが出る可能性もあります。
+                                その場合は、是非、私にお知らせ下さい。
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>  <!-- ② end -->
+
+    </div>  <!-- ① page main:   end -->
+
+    <footer>
+
+        <hr id="footer"> <!-- horizontal partition -->
+
+        <p id="top-call"><a href="">TOP</a></p>
+
+        <div id="popup-menu2" class="hidden">
+            <ul>
+                <li><a href="#" class="menulink">ページトップ</a></li>
+                <li><a href="#t1" class="menulink">[Ⅰ] 画面について</a></li>
+                <li><a href="#t2" class="menulink">[Ⅱ] ユーザー定義関数について</a></li>
+                <li><a href="#t3" class="menulink">[Ⅲ] その他</a></li>
+            </ul>
+        </div>
+
+        <div class="jQ_change center"> <!-- select button whole: start -->
+            <p id="footer"> <!-- select button: start -->
+                <a href="etc.html">
+                    <IMG src="image/button/back_off.gif" border="0" alt="Back">
+                </a>
+            </p> <!-- select button: end -->
+        </div> <!-- select button whole: end -->
+
+        <div class="footer_labelPC">
+            &copy; 2003 -
+            <script>
+                date = new Date();
+                document.write(date.getFullYear() + ' ');
+            </script>
+            <nonscript>
+            </nonscript>
+            Contrail - kotan -
+        </div>
+
+    </footer>
+
+</body>
+</html>

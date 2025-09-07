@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>z.suudoku_02 user's manual</title>
+
+    <!-- favicon--> 
+    <link rel="shortcut icon" href="lib_img/suudoku_img/favicon.ico"> 
+
+    <!-- css start -->
+
+        <!-- kko_etc start - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
+        <link rel="stylesheet" href="lib_img/etc/css/kko_etc_style.css" type="text/css"> 
+        <!-- kko_etc end -->
+
+    <!-- css end -->
+</head>
+
+<body id="common-k" >
+
+    <div id="main1024"> <!-- page main: start -->
+
+        <!-- title -->
+        <div id="title20">
+            <h2 class="pt30 pb40">
+                ｢数独問題作成ツール｣ 取り扱い説明書
+            </h2>
+        </div>
+
+        <!-- contents -->
+        <div class="pic-left1024 pb40">
+            <div class="fwb pb10">
+                <p class="pb10">
+                    数独の問題を作成するツールをエクセルのマクロで組みました。
+                </p>
+                <p class="pb5">
+                    <img src="lib_img/suudoku_img/suudoku_whole.jpg" width="800" border="1">
+                </p>
+            </div>
+            <h3>このツールを使用するにあたって</h3>
+            <div class="pl30 pb30">
+                <ol>
+                    <li class="plm10 pb10">
+                        このツールの無断転載を一切禁止します。
+                    </li>
+                    <li class="plm10 pb10">
+                        ロジックの改善、改良をお考えの場合は、ご連絡頂ければソースコードをお送り致します。<br>
+                        ロジックの改造でオープン数で22, 21に成功した場合、御一報頂けるとうれしいです。<br>
+                        併せて、そのロジックも教えて頂けることを期待します。
+                    </li>
+                </ol>
+            </div>
+
+            <div class="pb30">
+                <h3>インストール</h3>
+                <p class="pb10">
+                    z.suudoku_02.zipを解凍します。<br>
+                    解凍すると｢z.suudoku_02｣フォルダーが現れます。<br>
+                    ｢z.suudoku_02｣に、必要なデータ一式が格納されています。<br>
+                    適当な場所に、｢z.suudoku_02｣フォルダーを移動して下さい。
+                </p>
+            </div>
+            <div class="pb30">
+                <h3>アンインストール</h3>
+                <p class="pb10">
+                    ｢z.suudoku_02｣フォルダーを削除して下さい。<br>
+                    これで、削除完了です。
+                </p>
+            </div>
+            <div class="pb30">
+                <h3>起動</h3>
+                <p class="pb10">
+                    ｢z.suudoku_02｣フォルダー内のz.suudoku_02(拡張子が表示されている場合はz.suudoku_02.xlsm)をダブルクリックして下さい。<br>
+                    数独問題作成ツールが起動します。
+                </p>
+            </div>
+
+            <div class="pic-left1024 fwb pb20">
+                <h3 class="pb10">
+                    問題作成の準備
+                </h3>
+                <ol class="pb40">
+                  <li>
+                        <p class="fwb pb10">
+                                ｢パターン選択｣には、真ん中のブロックでオープンさせるマス目を明示的に指定します。
+                        </p>
+                        <p class="pb10 contents-2col-left">
+                            <img src="lib_img/suudoku_img/suudoku_pattern_select.jpg" border="1">
+                        </p>
+                        <p class="fwm pb10 contents-2col-right">
+                            数値は直接入力して下さい。特に上下限チェックなどしていないので、1～12までの値を入力して下さい。<br>
+                            空欄にすると1で問題作成が始まります。
+                        </p>
+                  </li>
+                    <li>
+                        <p class="fwb pb10">
+                                ｢オープン数｣に最初にオープンさせるマス目の数を指定します。
+                        </p>
+                        <p class="pb10 contents-2col-left">
+                            <img src="lib_img/suudoku_img/suudoku_opensuu.jpg" border="1">
+                        </p>
+                        <p class="fwm pb10 contents-2col-right">
+                            数値は直接入力して下さい。特に上下限チェックなどしていないので、妥当と思われる値を入力して下さい。<br>
+                            数独の問題ですから、30前後が妥当な値です。空欄にすると26で問題作成が始まります。<br>
+                            このツールで作成できた｢オープン数｣の最小値は以下の通りです。<br>
+                            ｢パターン選択｣が奇数の場合：23<br>
+                            ｢パターン選択｣が偶数の場合：24
+                        </p>
+                    </li>
+                    <li>
+                        <p class="fwb pb10">
+                                ｢繰返し回数｣には、試行回数を指定します。
+                        </p>
+                        <p class="pb10 contents-2col-left">
+                            <img src="lib_img/suudoku_img/suudoku_kurikaeshi.jpg" border="1">
+                        </p>
+                        <p class="fwm pb10 contents-2col-right">
+                            数値は直接入力して下さい。特に上下限チェックなどしていないので、妥当と思われる値を入力して下さい。<br>
+                            ｢オープン数｣に依存しますが、99, 199, 299あたりが妥当な値です。空欄にすると299で問題作成が始まります。
+                        </p>
+                    </li>
+                  <li>｢全てが埋められた完成形を表示する｣は、チェックを入れると問題が作成が終了したとき、問題を解いたときの答えが表示されます。
+                        <p class="pb10 contents-2col-left">
+                            <img src="lib_img/suudoku_img/suudoku_kanseikei_check_flg.jpg" border="1">
+                        </p>
+                    </li>
+                    <li>
+                        上記のテキストボックスに値を入力したら、準備完了です。<br>
+                        ｢START｣ボタンを押すと問題作成が始まります。
+                    </li>
+                    <p class="bdr10 left fss pb10">
+                        ｢START｣ボタンをクリックした後は、カーソルをエクセルの外に出して下さい。
+                        これだけで処理速度がかなり上がります(試して頂ければ、あぁそういうことかと納得できると思います)。
+                    </p>
+                    <p class="bdr10 left fss pb10">
+                        問題作成処理を途中で中止したい場合は、Ctrl + Breakキーを押して下さい。メッセージボックスが表示されます。<br>
+                        ｢デバッグ｣ボタンがアクティブになっていますが、｢終了｣ボタンを押して下さい。これで、処理が終了します。
+                    </p>
+                        <p class="pb10 contents-2col-left">
+                            <img src="lib_img/suudoku_img/suudoku_stop.jpg" border="1">
+                        </p>
+                </ol>
+            </div>
+
+            <div class="pic-left1024 fwb pb20">
+                <h3 class="pb10">
+                    問題作成のアルゴリズム
+                </h3>
+                <ol>
+                    <li class="pb20">作成のルール
+                        <p class="pb10">
+                            朝日新聞朝刊の火～金まで掲載されている
+                            <a href="https://www.nikoli.co.jp/ja/iphone/sd_by_nikoli/" target=_"blank">ニコリ</a>
+                            のルールに準じています。ニコリのルールは以下の通りです。
+                            <ul class="fwm">
+                                <li>マス目の穴埋めが終了したとき、その解は唯一通りである。</li>
+                                <li>最初にナンバーがオープンされているマス目は、点対称である。</li>
+                            </ul>
+                        </p>
+                        <p class="pb10 contents-2col-left">
+                            <img src="lib_img/suudoku_img/suudoku_rule.jpg" border="1">
+                        </p>
+                    </li>
+                    <li class="pb20">作成の手順(ニコリの場合)
+                        <p class="fwm pb10">
+                            ニコリのホームページには問題作成手順の動画が公開されています。<br>
+                            動画の説明では、最初にナンバーをオープンさせるマス目を決めて、<br>
+                            完成形が作れるようにマス目に入れるナンバーを選んでいくというものでした。
+                        </p>
+                        <p class="pb10 contents-2col-left">
+                            <img src="lib_img/suudoku_img/suudoku_nikori.jpg" border="1">
+                        </p>
+                        <p class="fwm pb10">
+                            上の図で要となるのは②です。オレンジ色のマス目にナンバーを入れつつ、
+                            それ以外のマス目で確定できるナンバーを入れて行きながら、処理を進めるのですが、
+                            動画はこの説明に30分以上使っています。しかし、説明は分かりやすく、
+                            私も説明を見た後｢これなら作れそうだ｣、そう思って実際に問題作成に取り組みましたが、
+                            あともう少しという所で、空いているマス目に入れるナンバーがなくなり失敗し続けました。
+                            ニコリはこの状態を｢手詰まり｣と表現しています。
+                        </p>
+                    </li>
+                    <li class="pb20">作成の手順(このツールの場合)
+                        <p class="fwm pb10">
+                            私は、ニコリとは真逆の方法で問題を作成するツールを作りました。
+                        </p>
+                        <p class="fwm pb10">
+                            ニコリの作成方法を踏襲してインタラクティブに問題を作成するツールについても考えてみましたが、<br>
+                            相当に重いツールになりそうなので、断念しました。
+                        </p>
+                        <p class="fwm pb10">
+                            このツールでは、最初にマス目が全部埋まった完成形を作ります。
+                            数独の完成形は以下のように定義されています。
+                        </p>
+                        <p class="fws pb10">
+                            縦の列(9列)、横の列(9列)、太い線で囲まれた3x3のブロック(9個)のいずれにも、1から9までの数字が一つずつ入ります。
+                        </p>
+                        <ol>
+                            <li class="plm10 fwm pb10">
+                                上の定義に従い、乱数を発生させて全てのマス目を埋めるアルゴリズムを考えました。(下図①)<br>
+                                アルゴリズムの作成で再帰処理を行うロジックについては
+                                <a href="http://www.net.c.dendai.ac.jp/~ynakajima/" target=_"blank">数独の例題生成</a>
+                                を参考にさせて頂きました。ありがとうございました。
+                            </li>
+                            <li class="plm10 fwm pb10">
+                                <p class="fwm pb10">
+                                    ｢パターン選択｣で指定した中心のブロックを除いて、点対称性を維持しながら、
+                                    ランダムに1度に２つずつブランクにするマス目を決めていきます(下図③)。<br>
+                                    ブランクにされたマス目が増える毎に①の完成形が再現できるか確認のチェックを行います。<br>
+                                    あるところまでブランクを増やして①が再現できなくなった場合は、直前のブランクを取消し、
+                                    別のマス目をブランクにして再度、確認を行います(フィードバック)。<br>
+                                    仮に、オープン数を26に設定したとします。<br>
+                                    オープン数を30まで絞り込んで、フィードバックを規定回数行っても①が再現できない場合は、
+                                    ①の完成形を破棄して、新しい完成形を作って②以降の処理を開始します(下図⑤)。<br>
+                                    オープン数が28まで絞り込めて、26の絞り込みに失敗した場合は、①の完成形を破棄せず、
+                                    そのまま②以降の処理を行います(下図⑥)。
+                                </p>
+                                <p class="bdr10 left fss pb10">
+                                    完成形の作成は乱数を使用しています。ブランクを作る絞り込みの確認をしているうちに、
+                                    完成形では絞り込みし易いものと、し難いものがあるような気がして来ました。
+                                    目標が26で、28まで絞り込めた場合は、その完成形を使い続ければ、26がでるのではないかと思ったのです。
+                                    このロジックを使ってからオープン数23、24が作れるようになったので、
+                                    あながち間違っているとは思えません。
+                                </p>
+                                <p class="fwm pb10">
+                                    完成形が固定されてからの試行で、｢繰返し回数｣のカウントが始まります。
+                                    繰返し回数を超えても、問題が作成できなかった場合は、メッセージボックスが表示され、
+                                    作成できた最小オープン数の問題が表示されます(下図⑧)。
+                                </p>
+                            </li>
+                            <p class="pb10 contents-2col-left">
+                                <img src="lib_img/suudoku_img/suudoku_my_method.jpg" border="1">
+                            </p>
+                        </ol>
+                    </li>
+                </ol>
+            </div>
+            <div class="pic-left1024 fwb pb20">
+                <h3 class="pb10">
+                    備考
+                </h3>
+                <ol class="pb40">
+                  <li>
+                      statについて
+                        <p class="fwm pb10">
+                            ｢open数｣、｢順位｣、｢順位nのnumber｣は作成した問題を解いていく上で必要となるデータが表示されています。<br>
+                            特に意識する必要はありませんが、これらの行数が多いほど解くのに時間がかかります。<br>
+                            ある意味で、難易度の目安と考えても差し支えないと思います。
+                        </p>
+                        <p class="fwm pb10">
+                            問題を作成するとき、目標オープン数は小さくしがちになると思います。<br>
+                            小さくすればするほど、作成した問題を実際に解くには時間がかかるようになります。
+                            statの行数も考慮して、無理のない問題を作成されることをお勧めします。
+                        </p>
+                        <p class="pb10 contents-2col-left">
+                            <img src="lib_img/suudoku_img/suudoku_stat.jpg" border="1">
+                        </p>
+                  </li>
+                  <li>
+                      繰り返し回数について
+                        <p class="fwm pb10">
+                            目標とするオープン数が25以上であれば、割とあっさり問題作成は終了します。<br>
+                            24の場合は、繰返し回数を299にしておけば、上限に達する前に問題作成は終了すると思います。
+                        </p>
+                        <p class="fwm pb10">
+                            問題は、23を指定した場合です。上限が299の場合、問題作成に失敗することが結構あります。<br>
+                            では、999にすると成功するかといえば、そうでもないような感じがします。<br>
+                            上限299で何度かトライして成功する方が早いと思います。<br>
+                            それでも成功しない場合は、何日か経ってから問題作成を行うと、あっさり成功する場合もあります。<br>
+                            完成形の作成には乱数を利用しているのですが、疑似乱数です。<br>
+                            これはあくまでも私の勝手な想像ですが、オープン数を小さくできる乱数が続くとき、
+                            或いはその逆の乱数が続くときがあるのかもしれません。
+                        </p>
+                  </li>
+                  <li>
+                      問題作成の途中で面白い問題が作成できた場合について
+                        <p class="fwm pb10">
+                            このツールは乱数を利用しているので、ナンバーをオープンするマス目を意図的に決めることはできません。<br>
+                            しかし、目標オープン数が24の場合、26の問題が作成される度に、
+                            makeに表示されるオープンされるマス目の位置が変化します。<br>
+                            このとき面白い問題が作成できたと思ったときは、[Ctrl]+[Break]キーを押して、
+                            6行目から32行目までをコピーして、別シートに貼り付けてみて下さい。
+                            問題をコレクションしていくことができると思います。
+                        </p>
+                  </li>
+                </ol>
+            </div>
+
+    <footer>
+        <div class="pic-left1024">
+            <p class="fwb">
+                Copyright &copy; 2023 by Kazuo Kawamura. All rights reserved. 
+            </p>
+            <p class="fwm pb10">
+                ----------------------------------------------------------------- <br>
+                mail to : 
+                <a href="mailto:vff06643@nifty.ne.jp" >
+                    VFF06643@nifty.ne.jp
+                </a><br>
+                ----------------------------------------------------------------- 
+            </p>
+        </div>
+    </footer>
+
+</div>
+</body>
+</html>

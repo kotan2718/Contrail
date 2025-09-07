@@ -1,10 +1,10 @@
-<!DOCTYPE html >
-<html>
+<!DOCTYPE html>
+<html lang="ja">
 
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="数独(ナンプレ)の問題を作成するツールをエクセルのマクロで組みました。オープンさせるマス目の数を指定することで、問題が作成されます。最小数は偶数が24個、奇数が23個です。">
-    <meta name="keywords" content="数独,ナンプレ,問題,作成,ツール">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>z.suudoku_02 user's manual</title>
 
@@ -12,40 +12,35 @@
     <link rel="icon" href="favicon.ico">
 
     <!-- css start -->
-
         <!-- kko_etc start :: class指定:change_border_color, 全ファイル共通:リンク文字色, フォーカスリング -->
         <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
         <!-- kko_etc end -->
-
     <!-- css end -->
 
     <!-- js start -->
-
         <!-- jQuery start -->
-        <script src="libs/jQuery/js/jquery-1.6.1.min.js"></script>
-
-            <!-- kko_style start - img jq_blink, img jq_change -->
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <!-- kko_style - img jq_blink, img jq_change -->
             <script src="libs/jQuery/kko/js/jq_kko_style.js"></script>
-            <!-- kko_style end -->
-
         <!-- jQuery end -->
 
         <!-- Sandbox DropDownMenu start -->
         <script src="libs/sandbox/js/script.js"></script>
         <!-- Sandbox DropDownMenu end -->
-
     <!-- js end -->
 
 </head>
 
 <body id="common-k">
 
-        <header>
+    <header>
+        <div class="prettyP_PC">
             <a name="page_top"></a>
-            <div class="center jQ_change navbox">
+            <div class="center jQ_change navbox" >
                 <nav>
+                    <img src="image/top/cr32_e.png" height="20" class="logo_img">
                     <img src="image/top/Contrail_g.png" height="20" class="logo_img">
-                    <ul class="menu" id="menu">
+                    <ul class="menu" id="menu" >
                         <li><a href="index.html" class="menulink">Home</a></li>
                         <li><a href="whatnew.html" class="menulink">What's New</a></li>
                         <li><a href="etc.html" class="menulink">E.T.C.</a></li>
@@ -65,8 +60,39 @@
             <script>
                 var menu=new menu.dd("menu");
                 menu.init("menu","menuhover");
-            </script>    <!-- Sandbox DropDownMenu end -->
-        </header>
+            </script>
+            <!-- Sandbox DropDownMenu end -->
+        </div>
+        <div class="prettyP_SP">
+            <a name="MENU"></a>
+            <p id="menu-call">
+                <a href="#">MENU</a>
+            </p>
+
+            <a name="page_top"></a>
+
+            <!-- page top icon & logo -->
+            <div id="header_SP" class="header_labelSP">
+                <div id="titleUS_SP"></div>
+                <img src="image/top/cr48f_32.png">
+                <img class="titleLogoSP" src="image/top/Contrail_g.png">
+            </div>
+
+            <div id="popup-menu" class="hidden">
+                <div class="menu-title">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_image" alt="CONTRAIL">
+                </div>
+                <ul>
+                    <li><a href="index.html" class="menulink">Home</a></li>
+                    <li><a href="whatnew.html" class="menulink">What's New</a></li>
+                    <li><a href="etc.html" class="menulink">E.T.C.</a></li>
+                    <li><a href="fs01.html" class="menulink">The Scenery</a></li>
+                    <li><a href="link01.html" class="menulink">Links</a></li>
+                    <li><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
 
     <div id="main1024"> <!-- page main: start -->
 
@@ -86,38 +112,45 @@
 
         <!-- contents -->
         <div class="pic-left1024 pb40">
-            <div class="fwb pb10">
+            <div class="fwb pb40">
                 <p class="pb10">
                     数独の問題を作成するツールをエクセルのマクロで組みました。
                     (ダウンロードはこのページの下の方でできます。)
                 </p>
-                <p class="pb5">
-                    <img src="image/Suudoku_img/suudoku_whole.jpg" width="800" border="1">
-                </p>
+                <div class="prettyP_PC">
+                    <div>
+                        <img src="image/Suudoku_img/org/suudoku_whole.jpg" width="800" border="1">
+                    </div>
+                </div>
+                <div class="prettyP_SP">
+                    <div class="table-container">
+                        <img src="image/Suudoku_img/org/suudoku_whole.jpg" width="800" border="1">
+                    </div>
+                </div>
             </div>
             <div class="pic-left1024 fwb pb20">
-                <h3 class="pb10">
+                <h3 class="pb20">
                     問題作成の準備
                 </h3>
-                <ol class="pb40">
-                  <li>
-                        <p class="fwb pb10">
+                <ol class="fwb pl10 pb40">
+                    <li class="pb10">
+                        <p class="pb10">
                                 ｢パターン選択｣には、真ん中のブロックでオープンさせるマス目を明示的に指定します。
                         </p>
                         <p class="pb10 contents-2col-left">
-                            <img src="image/Suudoku_img/suudoku_pattern_select.jpg" border="1">
+                            <img src="image/Suudoku_img/org/suudoku_pattern_select.jpg" border="1">
                         </p>
                         <p class="fwm pb10 contents-2col-right">
                             数値は直接入力して下さい。特に上下限チェックなどしていないので、1～12までの値を入力して下さい。<br>
                             空欄にすると1で問題作成が始まります。
                         </p>
-                  </li>
-                    <li>
-                        <p class="fwb pb10">
+                    </li>
+                    <li class="pb10">
+                        <p class="pb10">
                                 ｢オープン数｣に最初にオープンさせるマス目の数を指定します。
                         </p>
                         <p class="pb10 contents-2col-left">
-                            <img src="image/Suudoku_img/suudoku_opensuu.jpg" border="1">
+                            <img src="image/Suudoku_img/org/suudoku_opensuu.jpg" border="1">
                         </p>
                         <p class="fwm pb10 contents-2col-right">
                             数値は直接入力して下さい。特に上下限チェックなどしていないので、妥当と思われる値を入力して下さい。<br>
@@ -127,63 +160,95 @@
                             ｢パターン選択｣が偶数の場合：24
                         </p>
                     </li>
-                    <li>
+                    <li class="pb10">
                         <p class="fwb pb10">
                                 ｢繰返し回数｣には、試行回数を指定します。
                         </p>
                         <p class="pb10 contents-2col-left">
-                            <img src="image/Suudoku_img/suudoku_kurikaeshi.jpg" border="1">
+                            <img src="image/Suudoku_img/org/suudoku_kurikaeshi.jpg" border="1">
                         </p>
                         <p class="fwm pb10 contents-2col-right">
                             数値は直接入力して下さい。特に上下限チェックなどしていないので、妥当と思われる値を入力して下さい。<br>
-                            ｢オープン数｣に依存しますが、99, 199, 299あたりが妥当な値です。空欄にすると299で問題作成が始まります。
+                            ｢オープン数｣に依存しますが、99, 199, 299あたりが妥当な値です。
+                            空欄にすると299で問題作成が始まります。
                         </p>
                     </li>
-                  <li>｢全てが埋められた完成形を表示する｣は、チェックを入れると問題が作成が終了したとき、問題を解いたときの答えが表示されます。
+                    <li class="pb10">
+                        <p class="pb10">
+                            ｢全てが埋められた完成形を表示する｣ は、チェックを入れると問題が作成が終了したとき、
+                            問題を解いたときの答えが表示されます。
+                        </p>
                         <p class="pb10 contents-2col-left">
-                            <img src="image/Suudoku_img/suudoku_kanseikei_check_flg.jpg" border="1">
+                            <span class="image-container">
+                                <img src="image/Suudoku_img/org/suudoku_kanseikei_check_flg.jpg" border="1">
+                            </span>
                         </p>
                     </li>
                     <li>
-                        上記のテキストボックスに値を入力したら、準備完了です。<br>
-                        ｢START｣ボタンを押すと問題作成が始まります。
+                        <p>
+                            上記のテキストボックスに値を入力したら、準備完了です。<br>
+                            ｢START｣ボタンを押すと問題作成が始まります。
+                        </p>
                     </li>
                 </ol>
             </div>
 
             <div class="pic-left1024 fwb pb20">
-                <h4 class="pb10">
+                <h4 class="pb30">
                     ここからは少々込み入った内容になります。とりあえず試して見たい方は、｢ダウンロード｣に進んで下さい。
                 </h4>
             </div>
             <div class="pic-left1024 fwb pb20">
-                <h3 class="pb10">
+                <h3 class="pb20">
                     問題作成のアルゴリズム
                 </h3>
-                <ol>
-                    <li class="pb20">作成のルール
+                <ol class="fwb pl10">
+                    <li class="pb20">
                         <p class="pb10">
-                            朝日新聞朝刊の火～金まで掲載されている
-                            <a href="https://www.nikoli.co.jp/ja/iphone/sd_by_nikoli/" target=_"blank">ニコリ</a>
-                            のルールに準じています。ニコリのルールは以下の通りです。
-                            <ul class="fwm">
+                            作成のルール
+                        </p>
+                        <div class="pb20">
+                            <p class="pb15">
+                                朝日新聞朝刊の火～金まで掲載されている
+                                <a href="https://www.nikoli.co.jp/ja/iphone/sd_by_nikoli/" target=_"blank">ニコリ</a>
+                                のルールに準じています。ニコリのルールは以下の通りです。
+                            </p>
+                            <ul class="plm10 fwm">
                                 <li>マス目の穴埋めが終了したとき、その解は唯一通りである。</li>
                                 <li>最初にナンバーがオープンされているマス目は、点対称である。</li>
                             </ul>
-                        </p>
-                        <p class="pb10 contents-2col-left">
-                            <img src="image/Suudoku_img/suudoku_rule.jpg" border="1">
-                        </p>
+                        </div>
+                        <div class="prettyP_PC">
+                            <div>
+                                <img src="image/Suudoku_img/org/suudoku_rule.jpg" border="1">
+                            </div>
+                        </div>
+                        <div class="prettyP_SP">
+                            <div class="table-container">
+                                <img src="image/Suudoku_img/org/suudoku_rule.jpg" border="1">
+                            </div>
+                        </div>
                     </li>
-                    <li class="pb20">作成の手順(ニコリの場合)
-                        <p class="fwm pb10">
+                    <li class="pb20">
+                        <p class="pb10">
+                            作成の手順(ニコリの場合)
+                        </p>
+                        <p class="fwm pb15">
                             ニコリのホームページには問題作成手順の動画が公開されています。<br>
                             動画の説明では、最初にナンバーをオープンさせるマス目を決めて、<br>
                             完成形が作れるようにマス目に入れるナンバーを選んでいくというものでした。
                         </p>
-                        <p class="pb10 contents-2col-left">
-                            <img src="image/Suudoku_img/suudoku_nikori.jpg" border="1">
-                        </p>
+                        <div class="prettyP_PC">
+                            <div>
+                                <img src="image/Suudoku_img/org/suudoku_nikori.jpg" border="1">
+                            </div>
+                        </div>
+                        <div class="prettyP_SP">
+                            <div class="table-container">
+                                <img src="image/Suudoku_img/org/suudoku_nikori.jpg" border="1">
+                            </div>
+                        </div>
+                        <p class="pb15"></p>
                         <p class="fwm pb10">
                             上の図で要となるのは②です。オレンジ色のマス目にナンバーを入れつつ、
                             それ以外のマス目で確定できるナンバーを入れて行きながら、処理を進めるのですが、
@@ -193,7 +258,10 @@
                             ニコリはこの状態を｢手詰まり｣と表現しています。
                         </p>
                     </li>
-                    <li class="pb20">作成の手順(このツールの場合)
+                    <li class="pb20">
+                        <p class="pb10">
+                            作成の手順(このツールの場合)
+                        </p>
                         <p class="fwm pb10">
                             私は、ニコリとは真逆の方法で問題を作成するツールを作りました。
                         </p>
@@ -215,7 +283,7 @@
                                 <a href="http://www.net.c.dendai.ac.jp/~ynakajima/" target=_"blank">数独の例題生成</a>
                                 を参考にさせて頂きました。ありがとうございました。
                             </li>
-                            <li class="plm10 fwm pb10">
+                            <li class="plm10 fwm">
                                 <p class="fwm pb10">
                                     ｢パターン選択｣で指定した中心のブロックを除いて、点対称性を維持しながら、
                                     ランダムに1度に２つずつブランクにするマス目を決めていきます(下図③)。<br>
@@ -235,26 +303,39 @@
                                     このロジックを使ってからオープン数23、24が作れるようになったので、
                                     あながち間違っているとは思えません。
                                 </p>
-                                <p class="fwm pb10">
+                                <p class="fwm pt10 pb15">
                                     完成形が固定されてからの試行で、｢繰返し回数｣のカウントが始まります。
                                     繰返し回数を超えても、問題が作成できなかった場合は、メッセージボックスが表示され、
                                     作成できた最小オープン数の問題が表示されます(下図⑧)。
                                 </p>
+                                <div class="prettyP_PC">
+                                    <div>
+                                        <img src="image/Suudoku_img/org/suudoku_my_method_1.jpg" border="1"><br>
+                                        <img src="image/Suudoku_img/org/suudoku_my_method_2.jpg" border="1">
+                                    </div>
+                                </div>
+                                <div class="prettyP_SP pb5">
+                                    <div class="table-container">
+                                        <img src="image/Suudoku_img/org/suudoku_my_method_1.jpg" border="1">
+                                    </div>
+                                    <div class="table-container">
+                                        <img src="image/Suudoku_img/org/suudoku_my_method_2.jpg" border="1">
+                                    </div>
+                                </div>
                             </li>
-                            <p class="pb10 contents-2col-left">
-                                <img src="image/Suudoku_img/suudoku_my_method.jpg" border="1">
-                            </p>
                         </ol>
                     </li>
                 </ol>
             </div>
             <div class="pic-left1024 fwb pb20">
-                <h3 class="pb10">
+                <h3 class="pb20">
                     備考
                 </h3>
-                <ol class="pb40">
-                  <li>
-                      statについて
+                <ol class="pl10 fwb">
+                  <li class="pb30">
+                        <p class="pb10">
+                            statについて
+                        </p>
                         <p class="fwm pb10">
                             ｢open数｣、｢順位｣、｢順位nのnumber｣は作成した問題を解いていく上で必要となるデータが表示されています。<br>
                             特に意識する必要はありませんが、これらの行数が多いほど解くのに時間がかかります。<br>
@@ -265,12 +346,21 @@
                             小さくすればするほど、作成した問題を実際に解くには時間がかかるようになります。
                             statの行数も考慮して、無理のない問題を作成されることをお勧めします。
                         </p>
-                        <p class="pb10 contents-2col-left">
-                            <img src="image/Suudoku_img/suudoku_stat.jpg" border="1">
+                        <div class="prettyP_PC">
+                            <div>
+                                <img src="image/Suudoku_img/org/suudoku_stat.jpg" border="1">
+                            </div>
+                        </div>
+                        <div class="prettyP_SP pb5">
+                            <div class="table-container">
+                                <img src="image/Suudoku_img/org/suudoku_stat.jpg" border="1">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="pb20">
+                        <p class="pb10">
+                            繰り返し回数について
                         </p>
-                  </li>
-                  <li>
-                      繰り返し回数について
                         <p class="fwm pb10">
                             目標とするオープン数が25以上であれば、割とあっさり問題作成は終了します。<br>
                             24の場合は、繰返し回数を299にしておけば、上限に達する前に問題作成は終了すると思います(勿論、確率頼みなので、失敗することもありますが...)。
@@ -286,7 +376,9 @@
                         </p>
                   </li>
                   <li>
-                      問題作成の途中で面白い問題が作成できた場合について
+                        <p class="pb10">
+                            問題作成の途中で面白い問題が作成できた場合について
+                        </p>
                         <p class="fwm pb10">
                             このツールは乱数を利用しているので、ナンバーをオープンするマス目を意図的に決めることはできません。<br>
                             しかし、目標オープン数が24の場合、26の問題が作成される度に、
@@ -300,9 +392,10 @@
             </div>
         </div>
 
-        <div class="left2 pb40">
+        <div class="left2 pb20">
+        <div class="prettyP_SP pb30"></div>
 
-            <h3>ダウンロード </h3>
+            <h3 class="pb10">ダウンロード </h3>
             <div class="pl30 pb30">
                 <p class="fwb pb10">
                     このツールを使用するにあたって
@@ -331,6 +424,8 @@
 
         <hr id="footer"> <!-- horizontal partition -->
 
+        <p id="page-top"><a href="#">TOP</a></p>
+
         <div class="jQ_change center"> <!-- select button whole: start -->
             <p id="footer"> <!-- select button: start -->
                 <a href="etc.html">
@@ -347,7 +442,7 @@
             </script>
             <nonscript>
             </nonscript>
-            Contrail - kotan - 
+            Contrail - kotan -
         </div>
 
     </footer>
