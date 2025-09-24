@@ -476,13 +476,13 @@ ul.menu {list-style:none; margin:0; padding:0}
 ul.menu * {margin:0; padding:0}
 ul.menu a {display:block; color:#aaa; text-decoration:none}
 ul.menu li {position:relative; float:left; margin-right:2px}
-ul.menu li.about {position:relative; float:right; margin-right:2px}
+ul.menu li.about {position:relative; float:right; margin-right:2px;}
 ul.menu ul {position:absolute; top:26px; left:0; background:#d1d1d1; display:none; opacity:0; list-style:none}
 ul.menu ul li {position:relative; border:1px solid #fff; border-top:none; width:108px; margin:0 0 0 -1px}
 ul.menu ul li a {display:block; padding:3px 7px 5px; background-color:#d1d1d1}
 ul.menu ul li a:hover {color: #f00; background-color:#c5c5c5}
 ul.menu ul ul {left:108px; top:-1px}
-ul.menu .menulink {border:0px solid #aaa; padding:4px 7px 2px; font-weight:medium; background:none; width:98px}
+ul.menu .menulink {border:0px solid #aaa; padding:4px 7px 2px; font-weight:medium; background:none; width:118px}
 ul.menu .menulink:hover, ul.menu .menuhover {color: #f00; background:#d0d0d0}
 /*ul.menu .sub {text-align: left; background:#d1d1d1; width:98px}*/
 ul.menu .topline {border-top:1px solid #aaa}
