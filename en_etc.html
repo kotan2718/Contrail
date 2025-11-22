@@ -145,6 +145,92 @@
         ページの該当する場所にリンクするとき: [xxxxx] - zzzzz   <- 括弧なしで zzzzz のみに下線がつく
         -->
 
+        <!-- 25/11/23-->
+        <div class="left2 flex pb30">
+            <div class="flx_itemL">
+                <div>
+                    11/23/25
+                </div>
+                <div>
+                    <img class="nav-right-img" src="image/button/update_c.gif" width="52" height="14">
+                </div>
+            </div>
+            <div class="flx_itemC">
+                <img src="image/common/b-tri.gif" alt="label">
+            </div>
+            <div class="flx_itemR960">
+                <div class="pb5">
+                    Lens Meter Simulation Tool “SRTLM” has been updated.
+                </div>
+                <div class="pb10">
+                    Upon releasing the source code (10/23/25),
+                    I checked the usability and made corrections to several points that concerned me.
+                    For details, click the Lensmeter-Simulation-Tool below
+                    and refer to "SRTLM_Correction_Update_History.txt."
+                </div>
+                <div class="pb30">
+                    <a href="https://github.com/kotan2718/Lensmeter-Simulation-Tool" target="_blank">Lensmeter-Simulation-Tool</a>
+                </div>
+
+                <div class="pb5">
+                    The only visual change in the SRTML execution screen
+                    is the addition of the “1.523” checkbox in the [Lens Data] section.
+                </div>
+                <div class="pb10">
+                    The front surface radius of the lens is calculated based on the “Curve” setting.<br>
+                    This checkbox provides the following options:
+                </div>
+                <div class="fwb pb10">
+                    Check OFF: Use the refractive index of the tested lens for “curve” calculations (previous SRTLM specification).<br>
+                    Check ON: Use the traditional crown glass refractive index of 1.523 for “curve” calculations.<br>
+                </div>
+                <div class="pb5">
+                    Originally, “curve” refers to the front surface refractive power of a lens.
+                    Therefore, if the lens's refractive power changes,
+                    the same curve will have a different refractive power.
+                    For example, taking a “5” curve as an example, it would be as follows.
+                </div>
+                <div class="pb15">
+                    <table class="fss top" border="0">
+                        <tr>
+                            <th width=60>index</td>
+                            <th width=60>curve</td>
+                            <th width=60>radius</td>
+                        </tr>
+                        <tr>
+                            <td width=60>1.500</td>
+                            <td width=60>5.0</td>
+                            <td width=60>100.0mm</td>
+                        </tr>
+                        <tr>
+                            <td width=60>1.600</td>
+                            <td width=60>5.0</td>
+                            <td width=60>120.0mm</td>
+                        </tr>
+                        <tr>
+                            <td width=60>1.700</td>
+                            <td width=60>5.0</td>
+                            <td width=60>140.0mm</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="pb5">
+                    On the other hand, if the curve is represented with a refractive index of 1.523
+                    regardless of the test lens's refractive index,
+                    the front radius of the lens becomes constant regardless of the test lens's refractive index.
+                    For example, for a "5" curve, it becomes "104.6mm".
+                    If the "curve" uniquely represents the radius of the front surface of the lens,
+                    it becomes much easier to match lenses with frames.
+                </div>
+                <div class="pb5">
+                    I added this feature because I believe it is necessary for handling the tool.
+                </div>
+                <div class="pb10">
+                    [E.T.C.] - <a href="etc_SRTLM_document_add.html">etc_SRTLM_document_add</a>
+                </div>
+            </div>
+        </div>
+
         <!-- 25/10/13-->
         <div class="left2 flex pb30">
             <div class="flx_itemL">

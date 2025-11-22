@@ -132,6 +132,89 @@
         ページの該当する場所にリンクするとき: [xxxxx] - zzzzz   <- 括弧なしで zzzzz のみに下線がつく
         -->
 
+        <!-- 25/11/23-->
+        <div class="left2 flex pb30">
+            <div class="flx_itemL">
+                <div>
+                    25/11/23
+                </div>
+                <div>
+                    <img class="nav-right-img" src="image/button/update_c.gif" width="52" height="14">
+                </div>
+            </div>
+            <div class="flx_itemC">
+                <img src="image/common/b-tri.gif" alt="label">
+            </div>
+            <div class="flx_itemR960">
+                <div class="pb5">
+                    レンズメーターシミュレーションツール｢SRTLM｣ をアップデートしました。
+                </div>
+                <div class="pb10">
+                    ソースコードの公開(25/10/13)にあたって、操作性の確認などを行いましたが、
+                    幾つか気になった点がありました。
+                    詳細は、以下の Lensmeter-Simulation-Tool をクリックし、「SRTLM_修正_更新_履歴.txt」を参照してください。
+                </div>
+                <div class="pb30">
+                    <a href="https://github.com/kotan2718/Lensmeter-Simulation-Tool" target="_blank">Lensmeter-Simulation-Tool</a>
+                </div>
+
+                <div class="pb5">
+                    SRTML実行画面での、ヴィジュアルでの唯一の変化は、[Lens Data] セクションに
+                    チェックボックス「1.523」が追加されたことです。
+                </div>
+                <div class="pb10">
+                    レンズ前面半径は、設定項目「カーブ」を基にして計算されます。
+                    このチェックボックスは、次の選択肢を提供します。
+                </div>
+                <div class="fwb pb10">
+                    チェック OFF : 「カーブ」に被検レンズの屈折率を使用する(これまでの SRTLM の仕様)。<br>
+                    チェック ON  : 「カーブ」に伝統的なクラウンガラスの屈折率 1.523 を使用する。<br>
+                </div>
+                <div class="pb5">
+                    本来、カーブはレンズの前面屈折力を指すので、レンズの屈折力が変われば、
+                    同じカーブでも異なった屈折力になります。
+                    例えば、「5」カーブを例に取ると、次のようになります。
+                </div>
+                <div class="pb15">
+                    <table class="fss top" border="0">
+                        <tr>
+                            <th width=60>屈折率</td>
+                            <th width=60>カーブ</td>
+                            <th width=60>半径</td>
+                        </tr>
+                        <tr>
+                            <td width=60>1.500</td>
+                            <td width=60>5.0</td>
+                            <td width=60>100.0mm</td>
+                        </tr>
+                        <tr>
+                            <td width=60>1.600</td>
+                            <td width=60>5.0</td>
+                            <td width=60>120.0mm</td>
+                        </tr>
+                        <tr>
+                            <td width=60>1.700</td>
+                            <td width=60>5.0</td>
+                            <td width=60>140.0mm</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="pb5">
+                    一方、被検レンズの屈折率に関わらず、屈折率 1.523 でカーブを表すと、
+                    レンズ前面半径が被検レンズの屈折率に関わらず、一定になります。
+                    例えば、「5」カーブならば、「104.6mm」になります。
+                    カーブがレンズの湾曲具合を一意に表すならば、
+                    レンズとフレームの組み合わせなどが非常に楽になります。
+                </div>
+                <div class="pb5">
+                    この機能は、ツールを扱う上で必要であると考え、追加しました。
+                </div>
+                <div class="pb10">
+                    [E.T.C.] - <a href="etc_SRTLM_document_add.html">etc_SRTLM_document_add</a>
+                </div>
+            </div>
+        </div>
+
         <!-- 25/10/13-->
         <div class="left2 flex pb30">
             <div class="flx_itemL">

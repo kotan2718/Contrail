@@ -1,0 +1,264 @@
+<!DOCTYPE html >
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="レンズメータシミュレーションツール｢SRTLM｣のマニュアル == 機能追加分 == です">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- favicon-->
+    <link rel="icon" href="favicon.ico">
+
+    <title>SRTLM Document Added features</title>
+
+    <!-- css start -->
+        <!-- kko_etc - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
+        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
+    <!-- css end -->
+
+    <!-- js start -->
+        <!-- jQuery start -->
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <!-- kko_style - img jq_blink, img jq_change -->
+            <script src="libs/jQuery/kko/js/jq_kko_style.js"></script>
+        <!-- jQuery end -->
+
+        <!-- Sandbox DropDownMenu -->
+        <script src="libs/sandbox/js/script.js"></script>
+    <!-- js end -->
+
+    <style>
+    .top td{
+        vertical-align: top;
+    }
+    .clr_red{
+        color: red;
+    }
+    .clr_blu{
+        color: blue;
+    }
+    .clr_grn{
+        color: green;
+    }
+    .clr_orng{
+        color: orange;
+    }
+    .clr_cyn{
+        color: deepskyblue;
+    }
+    </style>
+
+</head>
+
+<body id="common-k">
+
+    <header>
+        <div class="prettyP_PC">
+            <a name="page_top"></a>
+            <div class="center jQ_change navbox" >
+                <nav>
+                    <img src="image/top/cr32_e.png" height="20" class="logo_img">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_img">
+                    <ul class="menu" id="menu" >
+                        <li><a href="index.html" class="menulink">Home</a></li>
+                        <li><a href="whatnew.html" class="menulink">What's New</a></li>
+                        <li><a href="etc.html" class="menulink">E.T.C.</a></li>
+                        <li><a href="fs01.html" class="menulink">The Scenery</a>
+                            <ul>
+                                <li><a href="fs01_sc_top.html" class="sub">Screen Shots</a></li>
+                                <li><a href="fs01_ls_top.html" class="sub">Snap Shots</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="link01.html" class="menulink">Links</a></li>
+                        <li class="about"><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                    </ul>
+                </nav>
+                <div class="c-both"></div>
+            </div>
+            <!-- Sandbox DropDownMenu start-->
+            <script>
+                var menu=new menu.dd("menu");
+                menu.init("menu","menuhover");
+            </script>
+            <!-- Sandbox DropDownMenu end -->
+        </div>
+        <div class="prettyP_SP">
+            <a name="MENU"></a>
+            <p id="menu-call">
+                <a href="#">MENU</a>
+            </p>
+
+            <a name="page_top"></a>
+
+            <!-- page top icon & logo -->
+            <div id="header_SP" class="header_labelSP">
+                <div id="titleUS_SP"></div>
+                <img src="image/top/cr48f_32.png">
+                <img class="titleLogoSP" src="image/top/Contrail_g.png">
+            </div>
+
+            <div id="popup-menu" class="hidden">
+                <div class="menu-title">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_image" alt="CONTRAIL">
+                </div>
+                <ul>
+                    <li><a href="index.html" class="menulink">Home</a></li>
+                    <li><a href="whatnew.html" class="menulink">What's New</a></li>
+                    <li><a href="etc.html" class="menulink">E.T.C.</a></li>
+                    <li><a href="fs01.html" class="menulink">The Scenery</a></li>
+                    <li><a href="link01.html" class="menulink">Links</a></li>
+                    <li><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div id="main1024-480"> <!-- page main: start -->
+
+        <!-- title -->
+        <h2  id="title20"class="pt30 pb40">
+            SRTLM 追加機能 説明書
+        </h2>
+
+        <!-- for Java Script off -->
+        <noscript>
+            <div id="attention">
+                <p>ご覧頂くにはブラウザの JavaScript をアクティブにして下さい</p>
+            </div>
+        </noscript>
+
+        <!-- contents -->
+        <div class="pic-left1024 pb40">
+            <div class="fwb pb10">
+                <p class="pb10">
+                    レンズメーターシミュレーションツール SRTLM に追加された機能について説明します。
+                </p>
+                <p class="pb20">
+                    SRTLMの取り扱い説明書については
+                    <a href="etc_SRTLM_document.html" target=_"blank">SRTLM_取り扱い説明書</a>
+                    をご覧下さい。
+                </p>
+                <p class="pb10">
+                    最新バージョンは
+                    <a href="etc_SRTLM.html" target=_"blank">SRTLM レンズメーターシミュレーション ツール</a>
+                    からダウンロードしてください。<br>
+                    "ダウンロード" をクリックすると、常に最新バージョンを入手できます。
+                </p>
+            </div>
+
+            <div class="pic-left1024 fwb pb20">
+                <p class="pb10">
+                    変更点
+                </p>
+                <ul class="fwm pb40, pl40">
+                  <li>
+                        <p class="pb10">
+                            [Lens Data]セクションに追加されたチェックボックス[1.523] (赤枠の中)
+                        </p>
+                  </li>
+                </ol>
+            </div>
+
+            <div class="pic-left1024 fwb pb20">
+                <p id="title30" class="pb10">
+                    SRTLM version 2.27.0 起動時の画面
+                </p>
+                <p class="pb10 pl20 fwm">
+                    図1にSRTLM version 2.27.0 起動時の画面を示します。
+                    ビジュアルな変更は、このチェックボックスの追加のみです。
+                </p>
+                <p>
+                    <span class="image-container">
+                        <img src="image/SRTLM_img/doc_SRTLM_v2270_ja.png" border="1"><br>
+                    </span>
+                </p>
+                <p class="pb10">
+                    図1 画面構成と追加機能
+                </p>
+            </div>
+
+            <div class="pic-left1024 fwb pb20">
+                <p class="pb10 pl20 fwm">
+                    チェック ON で、被検レンズの屈折率に関わらず、前面半径 (r1) を屈折率1.523で計算します。<br>
+                    チェック OFF で、今まで通り、被検レンズの屈折率で前面半径 (r1) を計算します
+                </p>
+            </div>
+
+            <div class="pic-left1024 fwb pb40">
+                <div class="contents-title-left pb20">
+                    <p>
+                        チェック OFF の場合
+                    </p>
+                </div>
+                <div class="contents-title-right">
+                    <p>
+                        <!--<a href="#title30">[起動時の画面]へ</a>-->
+                    </p>
+                </div>
+                <div class="c-both"></div>
+                <div>
+                    <span class="image-container">
+                        <img src="image/SRTLM_img/doc_SRTLM_v2270_unchecked_ja.png" border="0">
+                    </span>
+                </div>
+            </div>
+
+            <div class="pic-left1024 fwb pb40">
+                <div class="contents-title-left pb30">
+                    <p id="Juji">
+                        チェック ON の場合
+                    </p>
+                </div>
+                <div class="contents-title-right">
+                    <p>
+                        <!--<a href="#title30">[起動時の画面]へ</a>-->
+                    </p>
+                </div>
+                <div class="c-both"></div>
+                <div>
+                    <span class="image-container">
+                        <img src="image/SRTLM_img/doc_SRTLM_v2270_checked_ja.png" border="0">
+                    </span>
+                </div>
+            </div>
+
+            <div class="pic-left1024 fwb pb20">
+                <p class="pb10 pl20 fwm">
+                    チェック ON/OFF は、レンズデータを保存するときにも、データファイルに書き込まれます。
+                    なお、既存のデータファイルはチェックがないものとして扱えるように考慮しています。
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+
+    <footer>
+
+        <hr id="footer"> <!-- horizontal partition -->
+
+        <p id="page-top"><a href="#">TOP</a></p>
+
+        <div class="jQ_change center"> <!-- select button whole: start -->
+            <p id="footer"> <!-- select button: start -->
+                <a href="etc_SRTLM.html">
+                    <img src="image/button/back_off.gif" border="0" alt="Back">
+                </a>
+            </p> <!-- select button: end -->
+        </div> <!-- select button whole: end -->
+
+        <div class="footer_labelPC">
+            &copy; 2003 -
+            <script>
+                date = new Date();
+                document.write(date.getFullYear() + ' ');
+            </script>
+            <nonscript>
+            </nonscript>
+            Contrail - kotan -
+        </div>
+
+    </footer>
+
+</body>
+</html>
