@@ -1,0 +1,240 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="万年カレンダーのweb版サンプルと春分点・秋分点を計算するページです。">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PCalen web Sample and Calc Equinoxes</title>
+
+    <!-- favicon-->
+    <link rel="icon" href="favicon.ico">
+
+    <!-- css start -->
+        <!-- kko_etc :: class指定:change_border_color, 全ファイル共通:リンク文字色, フォーカスリング -->
+        <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
+        <link rel="stylesheet" href="libs/etc/css/kko_footer_style.css">
+        <link rel="stylesheet" href="libs/etc/css/kko_pcalen_style.css">
+    <!-- css end -->
+
+    <!-- js start -->
+        <!-- jQuery start -->
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <!-- kko_style - img jq_blink, img jq_change -->
+            <script src="libs/jQuery/kko/js/jq_kko_style.js"></script>
+        <!-- jQuery end -->
+
+        <!-- Sandbox DropDownMenu start -->
+        <script src="libs/sandbox/js/script.js"></script>
+        <!-- Sandbox DropDownMenu end -->
+
+        <!-- Pcalen web start -->
+        <script src="libs/etc/js/pcalen_web.js"></script>
+        <!-- Pcalen web end -->
+
+        <!-- Astronomy start -->
+        <script src="libs/Astronomy/js/astronomy.browser.min.js"></script>
+        <!-- Astronomy end -->
+
+        <!-- Astronomy Equinoxes start -->
+        <script src="libs/Astronomy/js/kko_astronomy_equinoxes.js"></script>
+        <!-- Astronomy end -->
+    <!-- js end -->
+
+    <style>
+    html, body {
+        height: 100%;
+        margin: 0 0;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+
+    main {
+        flex: 1;   /* 本文が少なくても余白を埋める */
+    }
+
+    /* フッターは普通の static でOK */
+    footer {
+        text-align: center;
+        padding: 0 0;
+        color: gray;
+    }
+
+
+    </style>
+
+</head>
+
+<body id="common-k">
+
+    <header>
+        <div class="prettyP_PC">
+            <a name="page_top"></a>
+            <div class="center jQ_change navbox" >
+                <nav>
+                    <img src="image/top/cr32_e.png" height="20" class="logo_img">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_img">
+                    <ul class="menu" id="menu" >
+                        <li><a href="index.html" class="menulink">Home</a></li>
+                        <li><a href="whatnew.html" class="menulink">What's New</a></li>
+                        <li><a href="etc.html" class="menulink">E.T.C.</a></li>
+                        <li><a href="fs01.html" class="menulink">The Scenery</a>
+                            <ul>
+                                <li><a href="fs01_sc_top.html" class="sub">Screen Shots</a></li>
+                                <li><a href="fs01_ls_top.html" class="sub">Snap Shots</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="link01.html" class="menulink">Links</a></li>
+                        <li class="about"><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                    </ul>
+                </nav>
+                <div class="c-both"></div>
+            </div>
+            <!-- Sandbox DropDownMenu start-->
+            <script>
+                var menu=new menu.dd("menu");
+                menu.init("menu","menuhover");
+            </script>
+            <!-- Sandbox DropDownMenu end -->
+        </div>
+        <div class="prettyP_SP">
+            <a name="MENU"></a>
+            <p id="menu-call">
+                <a href="#">MENU</a>
+            </p>
+
+            <a name="page_top"></a>
+
+            <!-- page top icon & logo -->
+            <div id="header_SP" class="header_labelSP">
+                <div id="titleUS_SP"></div>
+                <img src="image/top/cr48f_32.png">
+                <img class="titleLogoSP" src="image/top/Contrail_g.png">
+            </div>
+
+            <div id="popup-menu" class="hidden">
+                <div class="menu-title">
+                    <img src="image/top/Contrail_g.png" height="20" class="logo_image" alt="CONTRAIL">
+                </div>
+                <ul>
+                    <li><a href="index.html" class="menulink">Home</a></li>
+                    <li><a href="whatnew.html" class="menulink">What's New</a></li>
+                    <li><a href="etc.html" class="menulink">E.T.C.</a></li>
+                    <li><a href="fs01.html" class="menulink">The Scenery</a></li>
+                    <li><a href="link01.html" class="menulink">Links</a></li>
+                    <li><a href="fs01_about.html" class="menulink">about Contrail</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main>
+    <div id="main1024-480"> <!-- page main: start -->
+        <!-- title -->
+        <div id="title20">
+            <div class="prettyP_PC">
+                <h3 class="pt30">
+                    PCalen web版 サンプル＆ 春分点・秋分点の計算
+                </h3>
+            </div>
+            <div class="prettyP_SP">
+                <h4 class="pt10">
+                    PCalen web版 サンプル＆ 春分点・秋分点の計算
+                </h4>
+            </div>
+        </div>
+
+        <!-- for Java Script off -->
+        <noscript>
+            <div id="attention">
+                <p>ご覧頂くにはブラウザの JavaScript をアクティブにして下さい</p>
+            </div>
+        </noscript>
+
+
+        <!-- contents -->
+        <div class="pic-left1024 pb30">
+
+            <!-- カレンダーweb版サンプルと春分点・秋分点の計算 を表示 -->
+            <div id="calendar" class="pt15 pl30">
+                <p class="pb20">
+                    PCalen web サンプル
+                    <span class="pl20 fss">有効期間: 1902～2050年 まぁ、十分でしょう...</span>
+                </p>
+                <script>
+                    new PCalen('calendar').create();
+                </script>
+            </div>
+
+            <div class="pt15 pl30 ">
+                <div class="pb10">
+                    春分点・秋分点の計算
+                    <span class="pl20 fss">Astronomy Engine SIM: 有効期間: 1800～2100年</span>
+                </div>
+                <label>時差:
+                    <input type="number" id="jisa" min="-12" max="14" value="9" style="width:40px"/>
+                </label>
+
+                <label>年:
+                    <input
+                        type="number" id="year" min="1800" max="2100" value="1900" style="width:60px"/>
+                </label>
+
+                <span class="pl20"></span>
+                <button class="c_button" onclick="calc()" >calc</button>
+                <div class="pb20"></div>
+
+                <div class="pb10">
+                    <label>春分:
+                        <input type="text" id="spring"  style="width:200px"/>
+                    </label>
+                </div>
+                <div class="pb10">
+                    <label>夏至:
+                        <input type="text" id="summer" style="width:200px"/>
+                    </label>
+                </div>
+                <div class="pb10">
+                    <label>秋分:
+                        <input type="text" id="autumn" style="width:200px"/>
+                    </label>
+                </div>
+                <div class="pb10">
+                    <label>冬至:
+                        <input type="text" id="winter" style="width:200px"/>
+                    </label>
+                </div>
+
+                <pre id="out"></pre>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    </main>
+
+    <footer class="footer">
+        <hr id="footer"> <!-- horizontal partition -->
+
+        <p class="pt20 pb20 center">
+                <a href="etc.html">
+                    <img src="image/button/back_off.gif" border="0" alt="Back">
+                </a>
+        </p>
+
+        <div class="footer_labelPC">
+            &copy; 2003 -
+            <script>
+                date = new Date();
+                document.write(date.getFullYear() + ' ');
+            </script>
+            Contrail - kotan -
+        </div>
+    </footer>
+
+</body>
+</html>
+

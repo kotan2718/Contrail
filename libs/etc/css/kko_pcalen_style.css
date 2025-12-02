@@ -1,0 +1,141 @@
+.p_calen{
+    font-size:80%;
+    font-family:"Verdana", sans-serif;
+}
+
+.p_calen td{
+    width: 64px;
+    border:1px solid #ddd;
+    text-align:right;
+    -moz-border-radius:3px;
+             border-radius:3px;
+}
+
+.p_calen caption{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align:left;
+}
+.p_calen caption a{
+    display:inline-block;
+    position:absolute;
+    background:#eee;
+    text-decoration:none;
+    font-weight:bold;
+    padding:3px;
+    top:0px;
+    -moz-border-radius:4px;
+             border-radius:4px;
+}
+.p_calen caption div {
+    height: 28px; /* この指定をきちんとしないと上下のブロックが重なってしまうことがある */
+    position: relative;
+    /* border: 1px solid #ccc; */
+}
+.p_calen caption a:link,
+.p_calen caption a:visited{
+    color:#666;
+}
+.p_calen caption a:hover{
+    color:#f0f;
+}
+.p_calen caption a.prev_y{
+    position:absolute;
+    right:92%;
+}
+.p_calen caption input.year{
+    position:absolute;
+    right: 75%;
+    padding:2px;
+    text-align:center;
+}
+.p_calen caption a.next_y{
+    position:absolute;
+    right:66%;
+}
+.p_calen caption a.prev_m{
+    position:absolute;
+    right:52%;
+}
+.p_calen caption input.month{
+    position:absolute;
+    right: 38%;
+    padding:2px;
+    text-align:center;
+}
+.p_calen caption a.next_m{
+    position:absolute;
+    right:28%;
+}
+
+/* 指定年月のセット */
+/* データのリセット( 本日を含むカレンダーを表示する ) */
+.p_calen caption input.reset_data{
+    position:absolute;
+    right: 0%;
+    text-align:center;
+}
+
+.p_calen td.calendar a{
+    padding:2px;
+    display:block;
+    background:#eee;
+    text-decoration: none;
+    color: #333;
+}
+.p_calen td.calendar span.blank{
+    padding:2px;
+    display:block;
+}
+.p_calen th.day0{
+    color:red;
+}
+.p_calen th.day6{
+    color:blue;
+}
+.p_calen td.day0 a{
+    background:#fdd;
+}
+.p_calen td.day6 a{
+    background:#def;
+}
+.p_calen a:hover{
+    color:#f0f;
+}
+.p_calen th{
+    font-weight:bold;
+    font-size:90%;
+}
+
+.p_calen td.red a{
+    color:#f33;
+}
+.p_calen td.blue a{
+    color:#33f;
+}
+
+/* Astronomy */
+.c_button {
+    appearance: none;
+    border: 0;
+    border-radius: 5px;
+    background: #4676D7;
+    color: #fff;
+    padding: 3px 16px;
+    font-size: 16px;
+}
+.c_button:hover {
+    background: #1d49aa;
+}
+
+.c_button:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px #cbd6ee;
+}
+input {
+    border-radius: 4px;
+    border: 1px solid #707070;
+    outline: none;
+    padding: 4px 8px;
+}
+
