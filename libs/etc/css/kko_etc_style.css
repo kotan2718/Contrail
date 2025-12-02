@@ -1565,7 +1565,7 @@ input[type="checkbox"]:checked:before {
 /* PCalen web */
 .grid_PCalen_web {
   display: grid;
-  grid-template-columns: 580px;
+  grid-template-columns: 600px;
   grid-template-rows: 380px 250px;
   /*justify-content: space-around;*/*/
   text-align: left;
