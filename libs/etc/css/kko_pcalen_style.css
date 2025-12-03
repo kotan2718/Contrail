@@ -1,10 +1,16 @@
+
+.container {
+    max-width: 100%;
+}
+
+
 .p_calen{
     font-size:80%;
     font-family:"Verdana", sans-serif;
 }
 
 .p_calen td{
-    width: 64px;
+    width: 74px;
     border:1px solid #ddd;
     text-align:right;
     -moz-border-radius:3px;
