@@ -1,9 +1,4 @@
 
-.container {
-    max-width: 100%;
-}
-
-
 .p_calen{
     font-size:80%;
     font-family:"Verdana", sans-serif;
@@ -47,11 +42,11 @@
 }
 .p_calen caption a.prev_y{
     position:absolute;
-    right:92%;
+    right:93%;
 }
 .p_calen caption input.year{
     position:absolute;
-    right: 75%;
+    right: 76%;
     padding:2px;
     text-align:center;
 }
@@ -61,7 +56,7 @@
 }
 .p_calen caption a.prev_m{
     position:absolute;
-    right:52%;
+    right:54%;
 }
 .p_calen caption input.month{
     position:absolute;

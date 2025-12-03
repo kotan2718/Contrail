@@ -139,7 +139,7 @@ function inputDataCheck( ym, data ) {
 var day_en = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
     // 指定年月 上下限
     var iMinYear = 1901;
-    var iMaxYear = 2087;
+    var iMaxYear = 2050;
     var iMinMonth = 1;
     var iMaxMonth = 12;
     // 指定月の処理
@@ -498,7 +498,7 @@ function happyHoliday(strYear, strMonth) {
     // [16] ** 天皇誕生日 **
     if( iYear < 2019 ) {
         iArrHolidayTimeStamp[16] = php_mktime( 0, 0, 0, 12, 23, iYear );
-        strArrHolidayID[16] = '天皇誕生日(平成)';
+        strArrHolidayID[16] = '天皇誕生日(平)';
     }
     else if( iYear > 2019 ) {
         iArrHolidayTimeStamp[16] = php_mktime( 0, 0, 0, 2, 23, iYear );
@@ -662,10 +662,10 @@ function targetMonth(strYear, strMonth) {
                                 iArrTargetMonthHoliday[i] = 0;
                             }
                             else if( iYear > 1926 && iYear < 1949 ) {
-                                strArrTargetMonthHolidayID[i] = "天長節(昭和)";
+                                strArrTargetMonthHolidayID[i] = "天長節(昭)";
                             }
                             else if( iYear > 1948 && iYear <= 1988 ) {
-                                strArrTargetMonthHolidayID[i] = "天皇誕生日(昭和)";
+                                strArrTargetMonthHolidayID[i] = "天皇誕生日(昭)";
                             }
                             else if( iYear <= 2006 ){
                                 strArrTargetMonthHolidayID[i] = "みどりの日";
@@ -853,7 +853,7 @@ function set_caption(year, month){
     prev_y.className = 'prev_y';
     prev_y.innerHTML = "&laquo;";
     var next_y = document.createElement('a');
-    next_y.href = '#year-' + ((year > 2037) ? 2037 : year+1) + '-' + month;
+    next_y.href = '#year-' + ((year > 2050) ? 2050 : year+1) + '-' + month;
     next_y.className = 'next_y';
     next_y.innerHTML = "&raquo;";
 
