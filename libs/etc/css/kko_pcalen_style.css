@@ -42,11 +42,11 @@
 }
 .p_calen caption a.prev_y{
     position:absolute;
-    right:93%;
+    right:94%;
 }
 .p_calen caption input.year{
     position:absolute;
-    right: 76%;
+    right: 75%;
     padding:2px;
     text-align:center;
 }
@@ -60,7 +60,7 @@
 }
 .p_calen caption input.month{
     position:absolute;
-    right: 38%;
+    right: 37%;
     padding:2px;
     text-align:center;
 }
