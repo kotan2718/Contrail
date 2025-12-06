@@ -1566,7 +1566,7 @@ input[type="checkbox"]:checked:before {
 .grid_PCalen_web {
   display: grid;
   grid-template-columns: 580px;
-  grid-template-rows: 380px 250px;
+  grid-template-rows: 380px 300px;
   /*justify-content: space-around;*/*/
   text-align: left;
   row-gap: 30px;

@@ -42,7 +42,7 @@
 }
 .p_calen caption a.prev_y{
     position:absolute;
-    right:94%;
+    right:92%;
 }
 .p_calen caption input.year{
     position:absolute;
@@ -56,11 +56,11 @@
 }
 .p_calen caption a.prev_m{
     position:absolute;
-    right:54%;
+    right:52%;
 }
 .p_calen caption input.month{
     position:absolute;
-    right: 37%;
+    right: 38%;
     padding:2px;
     text-align:center;
 }
@@ -138,5 +138,50 @@ input {
     border: 1px solid #707070;
     outline: none;
     padding: 4px 8px;
+}
+
+/* スマホ向け：480px 以下の画面で適用 */
+@media (max-width: 480px) {
+    .p_calen td {
+        height: 40px; /* 好きな高さに調整 */
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
+    .p_calen td a {
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* 垂直中央 */
+        align-items: center;     /* 水平中央 */
+        height: 100%;
+        overflow: hidden;        /* 祝日名がはみ出すのを防ぐ */
+        white-space: nowrap;     /* 折り返し禁止 */
+        text-overflow: ellipsis; /* 長い祝日は…で省略 */
+    }
+    /* 祝日名の font-size だけ小さくする調整例 */
+    .p_calen td a span {
+        font-size: 9px;
+    }
+
+    .p_calen caption div {
+        display: flex;
+        justify-content: space-between; /* 均等配置 */
+        align-items: center;
+        position: static; /* 絶対位置を無効化 */
+        height: auto;
+        padding: 4px 0;
+    }
+
+    .p_calen caption a,
+    .p_calen caption input {
+        position: static !important;
+        flex: 1;               /* 同じ幅で配置 */
+        margin: 0 2px;         /* 少し余白 */
+        text-align: center;
+    }
+
+    .p_calen caption input {
+        max-width: 60px;       /* 入力欄が広がりすぎるのを防ぐ */
+    }
+
 }
 
