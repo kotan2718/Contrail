@@ -1,5 +1,17 @@
 charset="UTF8"
 
+/* 画面初期表示・リロード時の処理 */
+window.addEventListener("DOMContentLoaded", function () {
+
+    /* フェードイン機能なし */
+    //document.documentElement.style.visibility = "visible";
+
+    /* フェードイン機能あり */
+    document.documentElement.style.opacity = "1";
+
+});
+
+
 /* BLINK at cursor on */
 /* "IE" "Safari" "FireFox" "Chrome"  OK */
 $(function(){

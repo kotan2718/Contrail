@@ -7,6 +7,17 @@ body {
 }
 */
 
+
+/* 画面初期表示・リロード時の処理 */
+html {
+    /* フェードイン機能なし */
+    /*visibility: hidden;*/
+    
+    /* フェードイン機能あり */
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
 /* 画面の余白を取り払う */
 * {
     margin: 0;
