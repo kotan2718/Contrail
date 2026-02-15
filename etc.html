@@ -9,10 +9,7 @@
 
     <title>Contrail E.T.C.</title>
 
-    <!-- favicon -->
     <link rel="icon" href="favicon.ico">
-    <!-- canonical -->
-    <link rel="canonical" href="https://kz-page.la.coocan.jp/etc.html">
 
     <!-- css start -->
         <!-- kko_etc - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
@@ -182,6 +179,57 @@
             </div>
         </div>
         -->
+
+        <!-- 26/02/15 -->
+        <div class="left2 flex">
+            <div class="flx_itemL">
+                <div>
+                    26/02/15
+                </div>
+                <div>
+                    <!--<img class="nav-right-img" src="image/button/update_c.gif" width="52" height="14">-->
+                </div>
+            </div>
+            <div class="flx_itemC">
+                <img src="image/common/b-tri.gif" alt="label">
+            </div>
+            <div class="flx_itemR960">
+                <div class="pb10">
+                    微分方程式(2次元)の解軌道を描画するページで、解軌道の初期値が描画を与えるロジックに問題があり、
+                    初期値が描画範囲を超える場合があった不具合を修正しました。
+                </div>
+                <div class="pb10">
+                    本来、各象限ごとに16点の初期値を与えるようにプログラムされていたのですが、
+                    何故か8点或いは9点位しか与えられていないことに気づきました。
+                    確認したところ、初期値が描画範囲を超えて与えられていることがわかり修正しました。
+                </div>
+                <div class="pb10">
+                    以下のリンクは簡単な解説のページです。それぞれの方程式の解説箇所にある「描画へ」をクリックすると、
+                    描画に必要なデータがセットされた状態で描画ページ遷移します。
+                    [START]ボタンをクリックすることで解曲線の描画が始まります。<br>
+                     [E.T.C.] - <a href="etc_DEQ_doc2.html">微分方程式 解曲線の描画 簡易解説</a>
+                </div>
+                <div class="pb15">
+                    以下のリンクは描画ページに直接ジャンプします。
+                    セレクトボックスから方程式を選択して、[Start]ボタンをクリックすることで解曲線の描画が始まります。<br>
+                     [E.T.C.] - <a href="etc_DEQ_v2.html">微分方程式 解曲線の描画</a>
+                </div>
+                <div class="pb10">
+                    描画ページの「ユーザー入力」の詳細については、解説ページの
+                    <a href="etc_DEQ_doc2.html#a99">ユーザー入力</a>
+                    を参照願います。
+                </div>
+            </div>
+        </div>
+        <div class="pb30">
+            <div>
+                <a href="etc_DEQ_doc2.html#a99">
+                    <span class="image-container">
+                        <img src="image/DEQ_img/deq2_initial_points_fixed.png">
+                    </span>
+                </a>
+            </div>
+        </div>
 
         <!-- 25/12/03-->
         <div class="left2 flex pb30">

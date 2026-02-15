@@ -128,8 +128,8 @@ async function animateGraph() {
     {
         for (let m = 0; m < 4; m++)
         {
-            Ru_x0_init[j] = l * (0.5 * width0 / 4.0) + (l + 1) * (0.5 * width0 / 4.0) * Math.random();
-            Ru_y0_init[j] = m * (0.5 * height0 / 4.0) + (m + 1) * (0.5 * height0 / 4.0) * Math.random();
+            Ru_x0_init[j] = Math.random() * (width0 / 2.0);
+            Ru_y0_init[j] = Math.random() * (width0 / 2.0);
             j++;
         }
     }

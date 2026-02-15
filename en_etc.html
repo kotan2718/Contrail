@@ -9,10 +9,7 @@
 
     <title>Contrail E.T.C.</title>
 
-   <!-- favicon-->
     <link rel="icon" href="favicon.ico">
-   <!-- canonical-->
-    <link rel="canonical" href="https://kz-page.la.coocan.jp/en_etc.html">
 
     <!-- css start -->
         <!-- kko_etc - class指定:change_border_color / 全ファイル共通:リンク文字色, フォーカスリング -->
@@ -147,6 +144,61 @@
         該当ページそのものにリンクするとき  : [xxxxx] - [zzzzz] <- 括弧も含めて下線がつく
         ページの該当する場所にリンクするとき: [xxxxx] - zzzzz   <- 括弧なしで zzzzz のみに下線がつく
         -->
+
+        <!-- 26/02/15 -->
+        <div class="left2 flex">
+            <div class="flx_itemL">
+                <div>
+                    02/15/26
+                </div>
+                <div>
+                    <!--<img class="nav-right-img" src="image/button/update_c.gif" width="52" height="14">-->
+                </div>
+            </div>
+            <div class="flx_itemC">
+                <img src="image/common/b-tri.gif" alt="label">
+            </div>
+            <div class="flx_itemR960">
+                <div class="pb10">
+                    In the page for drawing the solution trajectory of a differential equation (2D),
+                    there was an issue with the logic for drawing the initial value of the solution trajectory,
+                    which resulted in the initial value sometimes exceeding the drawing range. This has been fixed.
+                </div>
+                <div class="pb10">
+                    Originally, it was programmed to give 16 initial values ​​for each quadrant,
+                    but I noticed that for some reason only 8 or 9 points were being given. After checking,
+                    I found that the initial values sometimes ​​were being given outside the drawing range,
+                    so I corrected it.
+                </div>
+                <div class="pb10">
+                    Below is link to explanatory page:<br>
+                    Clicking "To Plot" in the explanation section of each equation will transition you to the drawing page with the necessary data set for plotting.
+                    Clicking the [START] button begins plotting the solution curves.
+                </div>
+                <div class="pb10">
+                    [E.T.C.] - <a href="etc_DEQ_doc2_en.html">Differential Equations &nbsp; Plotting Trajectory of Solutions: Simplified Explanation</a>
+                </div>
+                <div class="pb10">
+                    The following link directly jumps to the drawing page:<br>
+                    Select an equation from the dropdown box and click [Start] to begin plottinf the solution trajectory.<br>
+                </div>
+                <div class="pb10">
+                     [E.T.C.] - <a href="etc_DEQ_v2_en.html">Differential Equations &nbsp; Plotting Trajectory of Solutions</a>
+                </div>
+                <div class="pb10">
+                    Refer to <a href="etc_DEQ_doc2_en.html#a99">User defined Equations</a> for details of the drawing page.
+                </div>
+            </div>
+        </div>
+        <div class="pb30">
+            <div>
+                <a href="etc_DEQ_doc2.html#a99">
+                    <span class="image-container">
+                        <img src="image/DEQ_img/deq2_initial_points_fixed_en.png">
+                    </span>
+                </a>
+            </div>
+        </div>
 
         <!-- 25/11/23-->
         <div class="left2 flex pb30">
