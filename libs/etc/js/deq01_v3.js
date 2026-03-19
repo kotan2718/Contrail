@@ -64,7 +64,7 @@ const magStd = 80;
 let canvas;
 let ctx;
 function isMobile() {
-  return window.innerWidth / window.devicePixelRatio < 481;
+    return window.matchMedia("(max-width: 768px)").matches;
 }
 
 if (isMobile()) { 

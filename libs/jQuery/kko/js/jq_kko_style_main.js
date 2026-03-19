@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (CommonElement) {
 
             function isMobile() {
-              return window.innerWidth / window.devicePixelRatio < 481;
+                return window.matchMedia("(max-width: 768px)").matches;
             }
 
             if (isMobile()) { // スマホの場合

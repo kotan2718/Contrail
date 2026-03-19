@@ -248,7 +248,7 @@ let m_alt = [];      // 関数の格子点でのz値
 let canvas;
 let ctx;
 function isMobile() {
-  return window.innerWidth / window.devicePixelRatio < 481;
+    return window.matchMedia("(max-width: 768px)").matches;
 }
 
 if (isMobile()) { 

@@ -1,5 +1,5 @@
 <!DOCTYPE HTML >
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -11,8 +11,6 @@
 
     <!-- favicon-->
     <link rel="icon" href="favicon.ico">
-    <!-- canonical-->
-    <link rel="canonical" href="https://kz-page.la.coocan.jp/etc_DEQ_v2_en.html">
 
     <!-- css start -->
         <!-- kko_etc start :: class指定:change_border_color, 全ファイル共通:リンク文字色, フォーカスリング -->
@@ -21,12 +19,25 @@
         <!-- kko_etc end -->
         <style>
             @media screen and (min-width: 769px) {
-                #dxdt {
-                }
                 .grid2c {
                   display: grid;
                   grid-template-columns: 360px 220px;
+               }
+                .grid2d {
+                  display: grid;
+                  grid-template-columns: 580px;
+                  grid-template-rows: 590px;
+               }
+                .grid2e{
+                    display:grid;
+                    grid-template-columns: auto auto auto 1fr;
+                    align-items:top;
+                    column-gap:16px;
                 }
+
+                /*.resetBox{
+                    white-space:nowrap;
+                }*/
             }
             @media screen and (max-width: 768px) {
                 #dxdt, #dydt, #dxdy_where {
@@ -35,12 +46,27 @@
                 #l_dxdt, #l_dydt {
                     width: 80px;
                 }
-                .grid2b {
-                    display: grid;
-                    grid-template-columns: 110px 220px;
-                }
                 .pSP {
                     padding-left: 8px;
+                }
+                .grid2b {
+                  display: grid;
+                  grid-template-columns: 110px 220px;
+                }
+                .grid2c {
+                  display: grid;
+                  grid-template-columns: 210px 120px;
+                }
+                .grid2d {
+                  display: grid;
+                  grid-template-columns: 320px;
+                  grid-template-rows: 330px;
+               }
+                .grid2e{
+                    display:grid;
+                    grid-template-columns: auto auto auto 1fr;
+                    align-items:top;
+                    column-gap:16px;
                 }
             }
         </style>
@@ -150,13 +176,13 @@
         <div id="title20">
             <div class="prettyP_PC">
                 <h3 class="pt30 pb30">
-                    Differential Equations: Plotting Trajectory of Solutions
+                    Differential Equations: Solution Trajectories
                 </h3>
             </div>
             <div class="prettyP_SP">
                 <h4 class="pl10 pt10">
                     Differential Equations:<br>
-                    Plotting Trajectory of Solutions
+                    Solution Trajectories
                 </h4>
             </div>
         </div>
@@ -223,14 +249,26 @@
                     </p>
                 </div>
                 <div class="prettyP_PC">
-                    <p class="pb10">
-                        <canvas id="graphCanvasPC" width="580" height="580" style="border: 1px solid #000;"></canvas>
-                    </p>
+                    <div class="grid2d">
+                        <div class="pb10">
+                            <div class="canvasContainer" style="width:580px;height:580px;">
+                                <canvas id="baseCanvasPC" width="580" height="580" style="border:1px solid #000;"></canvas>
+                                <canvas id="graphCanvasPC" width="580" height="580"></canvas>
+                                <canvas id="vectorCanvasPC" width="580" height="580"></canvas>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="prettyP_SP">
-                    <p class="pb10" style="padding-left: 8px">
-                        <canvas id="graphCanvasSP" width="320" height="320" style="border: 1px solid #000;"></canvas>
-                    </p>
+                    <div class="grid2d">
+                        <div class="pb10" style="padding-left: 8px">
+                            <div class="canvasContainer" style="width:320px;height:320px;">
+                                <canvas id="baseCanvasSP" width="320" height="320" style="border:1px solid #000;"></canvas>
+                                <canvas id="graphCanvasSP" width="320" height="320"></canvas>
+                                <canvas id="vectorCanvasSP" width="320" height="320"></canvas>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="grid2c">
                     <p class="fss fwb pSP pb10" align="left">
@@ -248,23 +286,39 @@
             </div>
 
             <div class="prettyP_SP">
-                <p class="pt15">
-                    <button class="btn-radius-solid" id="start" onclick="startAnimation()">Start</button>
-                    &emsp;&emsp;&nbsp;&nbsp;
-                    <button class="btn-radius-solid" id="stop" onclick="stopAnimation()">Stop</button>
-                    &emsp;&emsp;&emsp;
-                    reset&nbsp;
-                    <input type="checkbox" id="cb_reset" onclick="handleCheckbox(this.checked)" checked>
+                <div class="grid2e pt15">
+                    <button class="btn-radius-solid startBtn" onclick="startAnimation()">Start</button>
+                    <button class="btn-radius-solid stopBtn" onclick="stopAnimation()">Stop</button>
+                    <span class="itemBlock">
+                        <span class="itemTitle">reset</span>
+                        <input type="checkbox" id="cb_reset" onclick="handleCheckbox(this.checked)" checked>
+                    </span>
+                    <button class="btn-radius-solid toggleBtn">View ▶ Traj</button>
                 </p>
+                </div>
             </div>
 
-            <div class="contents-2col-right">
+            <div class="contents-2col-right_deq">
+                <div class="prettyP_PC">
+                    <div class="prettyP_PC">
+                        <p class="grid2e pb20">
+                            <button class="btn-radius-solid startBtn" onclick="startAnimation()">Start</button>
+                            <button class="btn-radius-solid stopBtn" onclick="stopAnimation()">Stop</button>
+                            <span class="itemBlock">
+                                <span class="itemTitle">reset</span>
+                                <input type="checkbox" id="cb_reset" onclick="handleCheckbox(this.checked)" checked>
+                            </span>
+                            <button class="btn-radius-solid toggleBtn">View ▶ Traj</button>
+                        </p>
+                    </div>
+                </div>
+
                 <div>
                     <p id="equation_input" class="fss fwb pb10">
                         Equations
                     </p>
                 </div>
-                <div>
+                <div class="fss">
                     <!-- 入力ボックス -->
                     <p class="fss fwb pb10 input-container">
                         <label id="l_dxdt">$dx / dt = $</label>
@@ -333,33 +387,55 @@
                         <label for="pm" id="pm">\( \pm \)</label>
                         <label for="KAI2"><span id="KAI2"></span></label>
                     </p>
-                    <p class="fss fwb pb20">
-                        Drawing Range
-                        &emsp;
-                        <input type="text" id="width0" value="8" onchange="updateRange()" style="width:50px; text-align:right;">
-                        &emsp;
-                        <label for="min"><span id="wmin"></span></label> \( < x, y < \) <label for="max"><span id="wmax"></span></label>
-                    </p>
-                    <p class="pb15 fwb fss">
-                        Step
-                        &emsp;&nbsp;
-                        <input type="text" id="dh" value="0.01" style="width:50px; text-align:right;">
-                    </p>
-                    <p class="pb15 fwb fss">
-                        Loop
-                        &emsp;
-                        <input type="text" id="cnt_dp" value="320" style="width:50px; text-align:right;">
-                    </p>
                 </div>
-                <div class="prettyP_PC">
-                    <p class="pb60">
-                        <button class="btn-radius-solid" id="start" onclick="startAnimation()">Start</button>
-                        &emsp;&emsp;&nbsp;&nbsp;
-                        <button class="btn-radius-solid" id="stop" onclick="stopAnimation()">Stop</button>
-                        &emsp;&emsp;&emsp;
-                        reset&nbsp;
-                        <input type="checkbox" id="cb_reset" onclick="handleCheckbox(this.checked)" checked>
-                    </p>
+                <p class="fss fwb pb20"></p>
+                <!-- 描画範囲 -->
+                <div class="grid2a fss fwb">
+                    <div class="grid-item">
+                        <p>
+                            Drawing Range
+                        </p>
+                    </div>
+                    <div class="grid-item">
+                        <p>
+                            <input type="text" id="width0" value="8" onchange="updateRange()" style="width:50px; text-align:right;">
+                            &emsp;
+                            <label for="min"><span id="wmin"></span></label> \( < x, y < \) <label for="max"><span id="wmax"></span></label>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 刻み幅 -->
+                <div class="grid2a fss fwb">
+                    <div class="grid-item">
+                        <p>
+                            Step
+                        </p>
+                    </div>
+                    <div class="grid-item">
+                        <p>
+                            <input type="text" id="dh" value="0.01" style="width:50px; text-align:right;">
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 繰返し回数 -->
+                <div class="grid2a  fss fwb pb10">
+                    <div class="grid-item">
+                        <p>
+                            Loop
+                        </p>
+                    </div>
+                    <div class="grid-item">
+                        <p>
+                            <input type="text" id="cnt_dp" value="320" style="width:50px; text-align:right;">
+                            &emsp;
+                            <label style="width: 40px; display: inline-block">Count</label>
+                            <label id="keika" style="width: 40px; font-size: 90%; text-align:right; display: inline-block">
+                                <span id="keika"></span>
+                            </label>
+                        </p>
+                    </div>
                 </div>
 
             </div>

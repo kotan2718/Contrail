@@ -203,7 +203,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (CommonElement || CommonElement_Roman ||CommonElement2 || CommonElement2_Roman) {
 
             function isMobile() {
-              return window.innerWidth / window.devicePixelRatio < 481;
+                return window.matchMedia("(max-width: 768px)").matches;
             }
 
             if (isMobile()) { // スマホの場合

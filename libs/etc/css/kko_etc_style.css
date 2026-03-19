@@ -702,7 +702,7 @@ div#header_SP {
     display: none;
 }
 
-/* Pretty Phot */
+/* Pretty Photo */
 div.prettyP_PC {
 }
 div.prettyP_SP {
@@ -1422,9 +1422,123 @@ div#attention p{
 
 
 /*    微分方程式スタートボタン    */
+/*--------------------------------*/
+.contents-2col-left_deq { 
+    display: inline-block;
+    vertical-align: middle;
+    padding-right: 20px;
+}
+
+.contents-2col-right_deq { 
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 26px;
+}
+
+.canvasContainer{
+    position:relative;
+}
+
+.canvasContainer{
+    position: relative;
+}
+
+.canvasContainer canvas{
+    position:absolute;
+    left:0;
+    top:0;
+}
+
+#baseCanvasPC, #baseCanvasSP{
+    background-color:black;
+    z-index:1;
+}
+
+#graphCanvasPC, #graphCanvasSP{
+    z-index:3;
+}
+
+#vectorCanvasPC, #vectorCanvasSP{
+    z-index:2;
+}
+*/
+
+/* トグルボタン・チェックボックスのブロック */
+/*
+.toggleBlock{
+    display:inline-block;
+    text-align:left;
+}
+*/
+.itemBlock{
+    display:flex;
+    flex-direction:column-reverse;
+    align-items:flex-start;
+}
+/*
+.toggleTitle{
+    font-size:12px;
+    font-weight:bold;
+    margin-bottom:2px;
+}
+*/
+/* トグルボタン タイトル */
+.itemTitle{
+    font-size:12px;
+    font-weight:bold;
+    text-align: left;
+    display:block;
+    margin-bottom:4px;
+}
+
+
+/* 近似曲線画面、ベクトル場画面の切り替えボタン 背景色 */
+/*
+.btn-radius-solid2.toggle-active {
+    background: #2d7df6;
+    color: white;
+}
+*/
+/* ★これを追加 */
+/*
+.btn-radius-solid2.toggle-active:hover {
+    background: #2d7df6;
+    color: #ffffff;
+}
+*/
+
+.toggleBtn{
+    white-space: nowrap;
+}
+
+.btn-radius-solid.toggle-field {
+    background: #2d7df6;
+    color: white;
+}
+
+.btn-radius-solid.toggle-both {
+    background: #28a745;
+    color: white;
+}
+
+/* hoverでも色を変えない */
+.btn-radius-solid.toggle-field:hover {
+    background: #2d7df6;
+}
+
+.btn-radius-solid.toggle-both:hover {
+    background: #28a745;
+}
+
+/* ボタン形状の定義 */
+/* PC・スマホ共通 */
 .btn-radius-solid {
+    min-width: 76px;
     margin: auto;
-    padding: 8px 16px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 4px;
+    padding-right: 4px;
     font-size: middle;
     font-weight: bold;
   border: 1px solid #ccc;
@@ -1435,12 +1549,33 @@ div#attention p{
   -webkit-box-shadow: inset 1px 1px 1px #fff;
   box-shadow: inset 1px 1px 1px #fff;
 }
-
 .btn-radius-solid:hover {
   background: -webkit-gradient(linear, left bottom, left top, from(#fdfbfb), to(#ebedee));
   background: -webkit-linear-gradient(bottom, #fdfbfb 0%, #ebedee 100%);
   background: linear-gradient(to top, #fdfbfb 0%, #ebedee 100%);
 }
+
+.btn-radius-solid2 {
+    width: 26px;
+    margin: auto;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    font-size: middle;
+    font-weight: bold;
+  border: 1px solid #ccc;
+  background: #f1e767;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fdfbfb), to(#ebedee));
+  background: -webkit-linear-gradient(top, #fdfbfb 0%, #ebedee 100%);
+  background: linear-gradient(to bottom, #fdfbfb 0%, #ebedee 100%);
+  -webkit-box-shadow: inset 1px 1px 1px #fff;
+  box-shadow: inset 1px 1px 1px #fff;
+}
+.btn-radius-solid2:hover {
+  background: -webkit-gradient(linear, left bottom, left top, from(#fdfbfb), to(#ebedee));
+  background: -webkit-linear-gradient(bottom, #fdfbfb 0%, #ebedee 100%);
+  background: linear-gradient(to top, #fdfbfb 0%, #ebedee 100%);
+}
+
 
 input[type="range"] {
   -webkit-appearance: none; /* これ無しだとスタイルがほぼ全く反映されないので注意 */

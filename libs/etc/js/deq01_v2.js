@@ -7,12 +7,11 @@ var formula_where;
 var node_dx;
 var node_dy;
 var node_where;
-let linerFlg = 0;   // 入力された連立微分方程式が線形(1)か非線形(0)か格納する
-// 現在表示されているurlを取得して、日本語ページか英語ページかの振り分けを行う
-let urlHere = window.location.href;
+let linerFlg = 0;                   // 入力された連立微分方程式が線形(1)か非線形(0)か格納する
+let urlHere = window.location.href; // 現在表示されているurlを取得して、日本語ページか英語ページかの振り分けを行う
 
 let max = 99999;
-let eps = 0.01;
+//let eps = 0.01;
 let dat = 1;
 // 係数
 let ma;
@@ -44,28 +43,144 @@ let mode = 2;
 let width0 = 8;
 let height0 = 8;
 
-let canvas;
-let ctx;
+let baseCanvas;
+let graphCanvas;
+let vectorCanvas;
+let ctxG;
+let ctxV;
+
+// 平衡点の探索
+let equilibriumPoints = [];
+
+
+// Graph Field と Vector Field の2ウインドウ構成 ← トグルボタンで切り替える
+let viewMode = 0;
+
+document.querySelectorAll(".toggleBtn").forEach(btn => {
+
+    btn.addEventListener("click", function(){
+
+        viewMode++;
+        if(viewMode > 2) viewMode = 0;
+
+        if (viewMode == 0) {
+
+            this.textContent = "View ▶ Traj";
+
+            baseCanvasPC.style.display = "block";
+            graphCanvasPC.style.display = "block";
+            vectorCanvasPC.style.display = "none";
+
+            baseCanvasSP.style.display = "block";
+            graphCanvasSP.style.display = "block";
+            vectorCanvasSP.style.display = "none";
+        }
+
+        if (viewMode == 1) {
+
+            this.textContent = "View ▶ Field";
+
+            baseCanvasPC.style.display = "block";
+            graphCanvasPC.style.display = "none";
+            vectorCanvasPC.style.display = "block";
+
+            baseCanvasSP.style.display = "block";
+            graphCanvasSP.style.display = "none";
+            vectorCanvasSP.style.display = "block";
+        }
+
+        if (viewMode == 2) {
+
+            this.textContent = "View ▶ Both";
+
+            baseCanvasPC.style.display = "block";
+            graphCanvasPC.style.display = "block";
+            vectorCanvasPC.style.display = "block";
+
+            baseCanvasSP.style.display = "block";
+            graphCanvasSP.style.display = "block";
+            vectorCanvasSP.style.display = "block";
+        }
+        // ★ ボタン色切替
+        btn.classList.remove("toggle-field", "toggle-both");
+
+        if (viewMode == 1) {
+            this.classList.add("toggle-field");
+        }
+
+        if (viewMode == 2) {
+            this.classList.add("toggle-both");
+        }
+    });
+});
+
+// 描画変更があった場合にトグルボタンをデフォルト状態に戻す
+function toggleBtnDefault() {
+    // トグルボタンの有効/無効切替え
+    document.querySelectorAll(".toggleBtn").forEach(btn => {
+        btn.disabled = true;
+
+        viewMode = 0;
+        btn.textContent = "View ▶ Traj";
+
+        baseCanvasPC.style.display = "block";
+        graphCanvasPC.style.display = "block";
+        vectorCanvasPC.style.display = "none";
+
+        baseCanvasSP.style.display = "block";
+        graphCanvasSP.style.display = "block";
+        vectorCanvasSP.style.display = "none";
+        // ★ ボタン色切替
+        btn.classList.remove("toggle-field", "toggle-both");
+    });
+}
+
+// トグルボタンの有効/無効切替え
+document.querySelectorAll(".toggleBtn").forEach(btn => {
+    btn.disabled = true;
+});
+
 function isMobile() {
-  return window.innerWidth / window.devicePixelRatio < 481;
+    return window.matchMedia("(max-width: 768px)").matches;
 }
 
 if (isMobile()) { 
-    canvas = document.getElementById('graphCanvasSP');
+    baseCanvas = document.getElementById('baseCanvasSP');
+    graphCanvas = document.getElementById('graphCanvasSP');
+    vectorCanvas = document.getElementById('vectorCanvasSP');
 } else {
-    canvas = document.getElementById('graphCanvasPC');
+    baseCanvas = document.getElementById('baseCanvasPC');
+    graphCanvas = document.getElementById('graphCanvasPC');
+    vectorCanvas = document.getElementById('vectorCanvasPC');
 }
 // null でないことを確認してから処理
-if (canvas) {
-    ctx = canvas.getContext('2d');
+if (baseCanvas) {
+    ctxB = baseCanvas.getContext('2d');
     // ここに描画処理
 } else {
-    console.error('canvas が見つかりません');
+    console.error('baseCanvas が見つかりません');
+}
+// null でないことを確認してから処理
+if (graphCanvas) {
+    ctxG = graphCanvas.getContext('2d');
+    // ここに描画処理
+} else {
+    console.error('graphCanvas が見つかりません');
+}
+if (vectorCanvas) {
+    ctxV = vectorCanvas.getContext('2d');
+    // ここに描画処理
+} else {
+    console.error('vectorCanvas が見つかりません');
 }
 
 // 描画領域をリセット
-ctx.fillStyle = 'rgb( 0, 0, 0)';
-ctx.fillRect(0, 0, canvas.width, canvas.height);
+ctxB.fillStyle = 'rgb( 0, 0, 0)';
+ctxB.fillRect(0, 0, baseCanvas.width, baseCanvas.height);
+ctxG.fillStyle = 'rgba( 0, 0, 0, 0)';
+ctxG.fillRect(0, 0, graphCanvas.width, graphCanvas.height);
+ctxV.fillStyle = 'rgba( 0, 0, 0, 0)';
+ctxV.fillRect(0, 0, vectorCanvas.width, vectorCanvas.height);
 
 // リセットフラグ 再描画の条件を設定する
 let resetFlg = true;
@@ -74,14 +189,185 @@ let resetFlg = true;
 let kzDeq_StorageFlg = false;
 //let kzDeq_StorageFlg;
 
+function computeEquilibriumPoints() {
+    // epsの撮り方以外でも、これでは平衡点が得られない場合があるので、平衡点探索は保留とする(20260315)
+    equilibriumPoints = [];
+
+    let mesh = 80;
+    //let eps = 0.000001 * ((Math.abs(width0) + Math.abs(width0)) / 2) / 8;
+    let eps = 1e-12;
+    for (let ix = 0; ix <= mesh; ix += 2) {
+        for (let iy = 0; iy <= mesh; iy += 2) {
+
+            let vx = -Math.abs(width0)/2 + ix*(Math.abs(width0)/mesh);
+            let vy =  Math.abs(height0)/2 - iy*(Math.abs(height0)/mesh);
+
+            let vr = Math.sqrt(vx*vx + vy*vy);
+
+            let fx = FNF(vr, vx, vy);
+            let fy = FNG(vr, vx, vy);
+
+            let minDist = Math.abs(width0) / mesh;
+
+            if (Math.abs(fx) < eps && Math.abs(fy) < eps) {
+
+                let exists = equilibriumPoints.some(p =>
+                    Math.hypot(p.x - vx, p.y - vy) < minDist
+                );
+
+                if (!exists) {
+                    equilibriumPoints.push({x:vx, y:vy});
+                }
+            }
+        }
+    }
+}
+
+function drawEquilibriumPoints() {
+    // スケーリング
+    let scaleX = graphCanvas.width / width0;
+    let scaleY = graphCanvas.height / height0;
+
+    equilibriumPoints.forEach(p => {
+
+        let px = scaleX * (p.x + width0/2);
+        let py = scaleY * (-p.y + height0/2);
+
+        ctxG.beginPath();
+        ctxG.arc(px, py, 4, 0, Math.PI*2);
+        ctxG.fillStyle = "red";
+        ctxG.fill();
+    });
+}
+
+// ベクトル場の計算/表示
+function drawVectorField() {
+    // 初回の計算時は非表示に設定しておく
+    vectorCanvasPC.style.display = "none";
+    vectorCanvasSP.style.display = "none";
+
+    // 軸設定
+    // x軸の描画
+    ctxV.beginPath();
+    ctxV.moveTo(0, vectorCanvas.height / 2); // vectorCanvasの中心から左右に直線を引く
+    ctxV.lineTo(vectorCanvas.width, vectorCanvas.height / 2);
+    ctxV.strokeStyle = 'rgb(155, 155, 155)';
+    ctxV.stroke();
+
+    // y軸の描画
+    ctxV.beginPath();
+    ctxV.moveTo(vectorCanvas.width / 2, 0); // vectorCanvasの中心から上下に直線を引く
+    ctxV.lineTo(vectorCanvas.width / 2, vectorCanvas.height);
+    ctxV.strokeStyle = 'rgb(155, 155, 155)';
+    ctxV.stroke();
+
+    // スケーリング
+    let scaleX = vectorCanvas.width / width0;
+    let scaleY = vectorCanvas.height / height0;
+
+    let mesh = 80;
+    let vx = 0.0;
+    let vy = 0.0;
+    let vsx0 = 0.0;
+    let vsy0 = 0.0;
+    let vsx = 0.0;
+    let vsy = 0.0;
+    let vxr = 0.0;
+    let vTheta = 0.0;
+    let vR0 = 0.0;
+
+    let tolerance = dh * 0.1;
+    let dx;
+    let dy;
+
+    // メッシュ内の(基準)ベクトルの長さ
+    vR0 = Math.sqrt(Math.pow(width0 / mesh, 2) + Math.pow(height0 / mesh, 2)) * 0.85;
+
+    for (let ix = 0; ix <= mesh; ix = ix + 2) {
+        for (let iy = 0; iy <= mesh; iy = iy + 2) {
+            // ベクトル始点
+            vx = -Math.abs(width0) / 2.0 + ix * (Math.abs(width0) / mesh);
+            vy = Math.abs(height0) / 2.0 - iy * (Math.abs(height0) / mesh);
+
+            vxr = Math.sqrt(Math.pow(vx, 2) + Math.pow(vy, 2));
+            if (vxr < dh)
+            {
+                //continue;
+            }
+            vsx0 = FNF(vxr, vx, vy);
+            vsy0 = FNG(vxr, vx, vy);
+/*
+            // 平衡点の探索
+            let eps = 0.02;
+            if (Math.abs(vsx0) < eps && Math.abs(vsy0) < eps) {
+                equilibriumPoints.push({x:vx, y:vy});
+            }
+*/
+            // vsxとvsyからベクトルの角度を求める
+            vTheta = Math.atan2(vsy0, vsx0);    // ←20230916 Atan2は返却値が-pi～piなのでAtanでは突然向きが変わるエラーが回避される
+
+            // 正規化されたベクトルのx, y成分
+            vsx = vR0 * Math.cos(vTheta);
+            vsy = vR0 * Math.sin(vTheta);
+
+            // ベクトル終点
+            let ex = vx + vsx;
+            let ey = vy + vsy;
+
+            // 単位方向ベクトル
+            let len = Math.sqrt(vsx * vsx + vsy * vsy);
+            if (len == 0) continue;
+
+            let ux = vsx / len;
+            let uy = vsy / len;
+
+            // 垂直ベクトル
+            let px = -uy;
+            let py = ux;
+
+            // 矢羽根のサイズ(レンジ比例)
+            let arrowLength = vR0 * 0.4;
+            let arrowWidth = vR0 * 0.25;
+
+            // 矢羽根
+            let ax1 = ex - arrowLength * ux + arrowWidth * px;
+            let ay1 = ey - arrowLength * uy + arrowWidth * py;
+
+            let ax2 = ex - arrowLength * ux - arrowWidth * px;
+            let ay2 = ey - arrowLength * uy - arrowWidth * py;
+
+            // 矢印の描画
+            ctxV.beginPath();
+            ctxV.moveTo(scaleX * (vx + width0 / 2), scaleY * (-vy + height0 / 2));
+            ctxV.lineTo(scaleX * (ex + width0 / 2), scaleY * (-ey + height0 / 2));
+            ctxV.strokeStyle = 'rgb(200, 200, 200)';
+            ctxV.stroke();
+            // 矢印(矢羽根1)の描画
+            ctxV.beginPath();
+            ctxV.moveTo(scaleX * (ex + width0 / 2), scaleY * (-ey + height0 / 2));
+            ctxV.lineTo(scaleX * (ax1 + width0 / 2), scaleY * (-ay1 + height0 / 2));
+            ctxV.strokeStyle = 'rgb(210, 210, 210)';
+            ctxV.stroke();
+            // 矢印(矢羽根2)の描画
+            ctxV.beginPath();
+            ctxV.moveTo(scaleX * (ex + width0 / 2), scaleY * (-ey + height0 / 2));
+            ctxV.lineTo(scaleX * (ax2 + width0 / 2), scaleY * (-ay2 + height0 / 2));
+            ctxV.strokeStyle = 'rgb(210, 210, 210)';
+            ctxV.stroke();
+        }
+    }
+
+}
+
+// 近似解の計算/表示
 async function animateGraph() {
 
     // 描画中に使用不可とするコントロール
     usability(false);
 
     // スケーリング
-    let scaleX = canvas.width / width0;
-    let scaleY = canvas.height / height0;
+    let scaleX = graphCanvas.width / width0;
+    let scaleY = graphCanvas.height / height0;
 
     let linePoints = [];
     let linePoints2 = [];
@@ -91,7 +377,7 @@ async function animateGraph() {
         linePoints2.push([]);
     }
 
-    //var dh = Math.sqrt(Math.pow((width0 / canvas.width), 2) + Math.pow((height0 / canvas.height), 2));
+    //var dh = Math.sqrt(Math.pow((width0 / graphCanvas.width), 2) + Math.pow((height0 / graphCanvas.height), 2));
     var dt = 0.0;
     var dnt = 0.0;
 
@@ -121,6 +407,8 @@ async function animateGraph() {
     let pixelX;
     let pixelY;
 
+    let tolerance = dh * 0.1;
+
     // 第1象限に16個の初期点を作る
     // 乱数使用
     var j = 0;
@@ -129,24 +417,24 @@ async function animateGraph() {
         for (let m = 0; m < 4; m++)
         {
             Ru_x0_init[j] = Math.random() * (width0 / 2.0);
-            Ru_y0_init[j] = Math.random() * (width0 / 2.0);
+            Ru_y0_init[j] = Math.random() * (height0 / 2.0);
             j++;
         }
     }
 
     // x軸の描画
-    ctx.beginPath();
-    ctx.moveTo(0, canvas.height / 2); // canvasの中心から左右に直線を引く
-    ctx.lineTo(canvas.width, canvas.height / 2);
-    ctx.strokeStyle = 'rgb(155, 155, 155)';
-    ctx.stroke();
+    ctxG.beginPath();
+    ctxG.moveTo(0, graphCanvas.height / 2); // graphCanvasの中心から左右に直線を引く
+    ctxG.lineTo(graphCanvas.width, graphCanvas.height / 2);
+    ctxG.strokeStyle = 'rgb(155, 155, 155)';
+    ctxG.stroke();
 
     // y軸の描画
-    ctx.beginPath();
-    ctx.moveTo(canvas.width / 2, 0); // canvasの中心から上下に直線を引く
-    ctx.lineTo(canvas.width / 2, canvas.height);
-    ctx.strokeStyle = 'rgb(155, 155, 155)';
-    ctx.stroke();
+    ctxG.beginPath();
+    ctxG.moveTo(graphCanvas.width / 2, 0); // graphCanvasの中心から上下に直線を引く
+    ctxG.lineTo(graphCanvas.width / 2, graphCanvas.height);
+    ctxG.strokeStyle = 'rgb(155, 155, 155)';
+    ctxG.stroke();
 
     for (let k = 0; k < 2; k++) {
     //for (let k = 0; k < 1; k++) {
@@ -214,57 +502,67 @@ async function animateGraph() {
                             continue;
                         }
                         Ru_r0 = Math.sqrt(Ru_x0 * Ru_x0 + Ru_y0 * Ru_y0);
-                        Ru_u0 = FNF(dh, Ru_x0, Ru_y0) / Ru_r0;
-                        Ru_v0 = FNG(dh, Ru_x0, Ru_y0) / Ru_r0;
-                        Ru_dq = Math.sqrt(Ru_u0 * Ru_u0 + Ru_v0 * Ru_v0);
-                        //Ru_dx[i] = Ru_x0 + FNF(dh, Ru_x0, Ru_y0) * dh;
-                        //Ru_dy[i] = Ru_y0 + FNG(dh, Ru_x0, Ru_y0) * dh;
-                        ////  Ru_dy[i] = Ru_y0 + FNG(dt, Ru_dx[i], Ru_y0) * dh;   // これありかなぁ？
-                        //Ru_dx[i] = Ru_x0 + Ru_u * dh / Ru_q;
-                        //Ru_dy[i] = Ru_y0 + Ru_v * dh / Ru_q;
+                        // rが0に近い場合に、"0/0" で計算結果が不安定になることを避ける 20260301
+                        if (Ru_r0 < 1e-12)
+                        {
+                            Ru_u0 = FNF(dh, Ru_x0, Ru_y0);
+                            Ru_v0 = FNG(dh, Ru_x0, Ru_y0);
+                        }
+                        else
+                        {
+                            Ru_u0 = FNF(dh, Ru_x0, Ru_y0) / Ru_r0;
+                            Ru_v0 = FNG(dh, Ru_x0, Ru_y0) / Ru_r0;
+                        }
+
                         Ru_dx[i] = Ru_x0 + Ru_u0 * dh;
                         Ru_dy[i] = Ru_y0 + Ru_v0 * dh;
+
                         if (Math.abs(Ru_dx[i]) > Math.abs(width0) || Math.abs(Ru_dy[i]) > Math.abs(height0)) {
-                            //ovrRangeFlg = 1;
-                            //break;
                             continue;
-                        }
-                        //if (Math.sqrt(Math.pow(Ru_dx[i] - Ru_x0, 2.0) + Math.pow(Ru_dy[i] - Ru_y0, 2.0)) < eps / 10.0) {  // 20230904 epsが0.01は小さすぎるか？
-                        if (Math.sqrt(Math.pow(Ru_dx[i] - Ru_x0, 2) + Math.pow(Ru_dy[i] - Ru_y0, 2)) < Math.abs(width0) / 10000) {
-                            //ovrRangeFlg = 1;
-                            //break;
-                            //continue;
                         }
 
                         break;
 
                     case 1:
-                        /////////////////////
-                        ////               //
-                        //// 修正Euler法   //
-                        ////               //
-                        /////////////////////
+                        ///////////////////
+                        //               //
+                        // 修正Euler法   //
+                        //               //
+                        ///////////////////
                         if (Math.abs(Ru_x0) > Math.abs(width0) || Math.abs(Ru_y0) > Math.abs(height0)) {
                             continue;
                         }
 
-                        //Ru_kx[0] = dh * FNF(dt, Ru_x0, Ru_y0);
-                        //Ru_ky[0] = dh * FNG(dt, Ru_x0, Ru_y0);
-                        //Ru_kx[1] = dh * FNF(dt + dh, Ru_x0 + Ru_kx[0], Ru_y0 + Ru_ky[0]);
-                        //Ru_ky[1] = dh * FNG(dt + dh, Ru_x0 + Ru_kx[0], Ru_y0 + Ru_ky[0]);
-                        //Ru_dx[i] = Ru_x0 + (Ru_kx[0] + Ru_kx[1] + Ru_kx[2]) / 2.0;
-                        //Ru_dy[i] = Ru_y0 + (Ru_ky[0] + Ru_ky[1] + Ru_ky[2]) / 2.0;
-                        dnt = dt + dh;
                         Ru_r0 = Math.sqrt(Ru_x0 * Ru_x0 + Ru_y0 * Ru_y0);
-                        Ru_u0 = FNF(dh, Ru_x0, Ru_y0) / Ru_r0;
-                        Ru_v0 = FNG(dh, Ru_x0, Ru_y0) / Ru_r0;
-                        Ru_dq = Math.sqrt(Ru_u0 * Ru_u0 + Ru_v0 * Ru_v0);
+                        // rが0に近い場合に、"0/0" で計算結果が不安定になることを避ける 20260301
+                        if (Ru_r0 < 1e-12)
+                        {
+                            Ru_u0 = FNF(dh, Ru_x0, Ru_y0);
+                            Ru_v0 = FNG(dh, Ru_x0, Ru_y0);
+                        }
+                        else
+                        {
+                            Ru_u0 = FNF(dh, Ru_x0, Ru_y0) / Ru_r0;
+                            Ru_v0 = FNG(dh, Ru_x0, Ru_y0) / Ru_r0;
+
+                        }
 
                         Ru_u1 = Ru_x0 + 0.5 * Ru_u0 * dh;// Ru_hq;
                         Ru_v1 = Ru_y0 + 0.5 * Ru_v0 * dh;// Ru_hq;
+
                         Ru_r1 = Math.sqrt(Ru_u1 * Ru_u1 + Ru_v1 * Ru_v1);
-                        Ru_x1 = FNF(dh, Ru_u1, Ru_v1) / Ru_r1;
-                        Ru_y1 = FNG(dh, Ru_u1, Ru_v1) / Ru_r1;
+
+                        if (Ru_r1 < 1e-12)
+                        {
+                            Ru_x1 = FNF(dh, Ru_u1, Ru_v1);
+                            Ru_y1 = FNG(dh, Ru_u1, Ru_v1);
+                        }
+                        else
+                        {
+                            Ru_x1 = FNF(dh, Ru_u1, Ru_v1) / Ru_r1;
+                            Ru_y1 = FNG(dh, Ru_u1, Ru_v1) / Ru_r1;
+
+                        }
                         Ru_dx[i] = Ru_x0 + Ru_x1 * dh;// Ru_hq;
                         Ru_dy[i] = Ru_y0 + Ru_y1 * dh;// Ru_hq;
                         if (Math.abs(Ru_dx[i]) > Math.abs(width0) || Math.abs(Ru_dy[i]) > Math.abs(height0)) {
@@ -287,41 +585,113 @@ async function animateGraph() {
                         // Runge-Kutta法 //
                         //               //
                         ///////////////////
+                        // ---- k1 ----
+                        let fx1 = FNF(dt, Ru_x0, Ru_y0);
+                        let fy1 = FNG(dt, Ru_x0, Ru_y0);
 
-                        Ru_kx[0] = dh * FNF(dt, Ru_x0, Ru_y0);
-                        Ru_ky[0] = dh * FNG(dt, Ru_x0, Ru_y0);
-                        Ru_kx[1] = dh * FNF(dt + dh / 2.0, Ru_x0 + Ru_kx[0] / 2.0, Ru_y0 + Ru_ky[0] / 2.0);
-                        Ru_ky[1] = dh * FNG(dt + dh / 2.0, Ru_x0 + Ru_kx[0] / 2.0, Ru_y0 + Ru_ky[0] / 2.0);
-                        Ru_kx[2] = dh * FNF(dt + dh / 2.0, Ru_x0 + Ru_kx[1] / 2.0, Ru_y0 + Ru_ky[1] / 2.0);
-                        Ru_ky[2] = dh * FNG(dt + dh / 2.0, Ru_x0 + Ru_kx[1] / 2.0, Ru_y0 + Ru_ky[1] / 2.0);
-                        Ru_kx[3] = dh * FNF(dt + dh, Ru_x0 + Ru_kx[2], Ru_y0 + Ru_ky[2]);
-                        Ru_ky[3] = dh * FNG(dt + dh, Ru_x0 + Ru_kx[2], Ru_y0 + Ru_ky[2]);
-
-                        if (Math.abs(Ru_x0) > Math.abs(width0) || Math.abs(Ru_y0) > Math.abs(height0)) {
-                            continue;
+                        let n1 = Math.sqrt(fx1 * fx1 + fy1 * fy1);
+                        if (n1 < 1e-12)
+                        {
+                            Ru_kx[0] = dh * fx1;
+                            Ru_ky[0] = dh * fy1;
+                        }
+                        else
+                        {
+                            Ru_kx[0] = dh * fx1 / n1;
+                            Ru_ky[0] = dh * fy1 / n1;
                         }
 
-                        if (Math.abs(Ru_kx[3]) > max || Math.abs(Ru_ky[3]) > max) {
-                            //ovrRangeFlg = 1;
-                            //break;
-                            continue;
+                        // ---- k2 ----
+                        let x2 = Ru_x0 + Ru_kx[0] / 2.0;
+                        let y2 = Ru_y0 + Ru_ky[0] / 2.0;
+                        let fx2 = FNF(dt + dh / 2.0, x2, y2);
+                        let fy2 = FNG(dt + dh / 2.0, x2, y2);
+
+                        let n2 = Math.sqrt(fx2 * fx2 + fy2 * fy2);
+                        if (n2 < 1e-12)
+                        {
+                            Ru_kx[1] = dh * fx2;
+                            Ru_ky[1] = dh * fy2;
+                        }
+                        else
+                        {
+                            Ru_kx[1] = dh * fx2 / n2;
+                            Ru_ky[1] = dh * fy2 / n2;
                         }
 
+                        // ---- k3 ----
+                        let x3 = Ru_x0 + Ru_kx[1] / 2.0;
+                        let y3 = Ru_y0 + Ru_ky[1] / 2.0;
+                        let fx3 = FNF(dt + dh / 2.0, x3, y3);
+                        let fy3 = FNG(dt + dh / 2.0, x3, y3);
+
+                        let n3 = Math.sqrt(fx3 * fx3 + fy3 * fy3);
+                        if (n3 < 1e-12)
+                        {
+                            Ru_kx[2] = dh * fx3;
+                            Ru_ky[2] = dh * fy3;
+                        }
+                        else
+                        {
+                            Ru_kx[2] = dh * fx3 / n3;
+                            Ru_ky[2] = dh * fy3 / n3;
+                        }
+
+                        // ---- k4 ----
+                        let x4 = Ru_x0 + Ru_kx[2];
+                        let y4 = Ru_y0 + Ru_ky[2];
+                        let fx4 = FNF(dt + dh, x4, y4);
+                        let fy4 = FNG(dt + dh, x4, y4);
+
+                        let n4 = Math.sqrt(fx4 * fx4 + fy4 * fy4);
+                        if (n4 < 1e-12)
+                        {
+                            Ru_kx[3] = dh * fx4;
+                            Ru_ky[3] = dh * fy4;
+                        }
+                        else
+                        {
+                            Ru_kx[3] = dh * fx4 / n4;
+                            Ru_ky[3] = dh * fy4 / n4;
+                        }
+
+                        // ---- 更新 ----
                         Ru_dx[i] = Ru_x0 + (Ru_kx[0] + 2.0 * Ru_kx[1] + 2.0 * Ru_kx[2] + Ru_kx[3]) / 6.0;
                         Ru_dy[i] = Ru_y0 + (Ru_ky[0] + 2.0 * Ru_ky[1] + 2.0 * Ru_ky[2] + Ru_ky[3]) / 6.0;
-                        dnt = dt + dh;
 
-                        if (Math.abs(Ru_dx[i]) > Math.abs(width0) || Math.abs(Ru_dy[i]) > Math.abs(height0)) {
-                            //ovrRangeFlg = 1;
-                            //break;
+//                        if (Math.abs(Ru_dx[i]) > Math.abs(width0) / 2.0 ||
+//                            Math.abs(Ru_dy[i]) > Math.abs(height0) / 2.0)
+//                        {
+//                            continue;
+//                        }
+
+                        if (Math.abs(Ru_dx[i]) > Math.abs(width0) * 2.0 ||
+                            Math.abs(Ru_dy[i]) > Math.abs(height0) * 2.0 ||
+                            Number.isNaN(Ru_dx[i]) ||
+                            !Number.isFinite(Ru_dx[i]) ||
+                            Number.isNaN(Ru_dy[i]) ||
+                            !Number.isFinite(Ru_dy[i]))
+                        {
                             continue;
                         }
-                        //if (Math.sqrt(Math.pow(Ru_dx[i] - Ru_x0, 2.0) + Math.pow(Ru_dy[i] - Ru_y0, 2.0)) < eps / 10.0) {  // 20230904 epsが0.01は小さすぎるか？
-                        if (Math.sqrt(Math.pow(Ru_dx[i] - Ru_x0, 2) + Math.pow(Ru_dy[i] - Ru_y0, 2)) < Math.abs(width0) / 10000) {
-                            //ovrRangeFlg = 1;
-                            //break;
-                            //continue;
+
+                        //if (Math.Sqrt(Math.Pow(Ru_dx[i] - Ru_kx[3], 2.0) + Math.Pow(Ru_dy[i] - Ru_ky[3], 2.0)) <
+                        //    Math.Abs(width) / 10000.0)   // 20230904 epsが0.01は小さすぎるか？
+                        //if (Math.sqrt(Math.pow(Ru_dx[i] - Ru_kx[3], 2.0) + Math.pow(Ru_dy[i] - Ru_ky[3], 2.0)) <
+                        //    Math.abs(width0) / 100.0)   // 20230904 epsが0.01は小さすぎるか？
+                        //{
+                        //    continue;
+                        //}
+
+                        // 収束判定
+                        let dx = Ru_dx[i] - Ru_x0;
+                        let dy = Ru_dy[i] - Ru_y0;
+
+                        if (dx * dx + dy * dy < tolerance * tolerance)
+                        {
+                            continue;
                         }
+
                         break;
 
                     default:
@@ -341,39 +711,43 @@ async function animateGraph() {
 
                 // Draw the lines
                 if (k == 0) {
-                    ctx.beginPath();
-                    ctx.moveTo(linePoints[i][0].x, linePoints[i][0].y);
+                    ctxG.beginPath();
+                    ctxG.moveTo(linePoints[i][0].x, linePoints[i][0].y);
                     for (const point of linePoints[i]) {
-                        ctx.lineTo(point.x, point.y);
+                        ctxG.lineTo(point.x, point.y);
                     }
-                    ctx.strokeStyle = 'rgb(100, 149, 237)';
-                    ctx.stroke();
+                    ctxG.strokeStyle = 'rgb(100, 149, 237)';
+                    ctxG.stroke();
                 }
                 else {
-                    ctx.beginPath();
-                    ctx.moveTo(linePoints2[i][0].x, linePoints2[i][0].y);
+                    ctxG.beginPath();
+                    ctxG.moveTo(linePoints2[i][0].x, linePoints2[i][0].y);
                     for (const point of linePoints2[i]) {
-                        ctx.lineTo(point.x, point.y);
+                        ctxG.lineTo(point.x, point.y);
                     }
-                    ctx.strokeStyle = 'rgb(200, 200, 55)';
-                    ctx.stroke();
+                    ctxG.strokeStyle = 'rgb(200, 200, 55)';
+                    ctxG.stroke();
                 }
 
                 //if (dp % baisoku == 0) // 倍速設定  ここで描画ステップを定義することができる 20230904
                 if (dp % 20 == 0) { // 倍速設定
+                    // 経過ステップを表示
+                    document.getElementById('keika').innerText = dp;
+
                     await new Promise(resolve => setTimeout(resolve, 0)); // Wait for 10 milliseconds
                 }
             }
         }
     }
+
     for (let i = 0; i < 64; i++) {
         // Draw the point
         pixelX = scaleX * (Ru_dx_init[i] + width0 / 2);
         pixelY = scaleY * (height0 / 2 - Ru_dy_init[i]);
-        ctx.beginPath();
-        ctx.arc(pixelX, pixelY, 2, 0, 2 * Math.PI);
-        ctx.fillStyle = 'red';
-        ctx.fill();
+        ctxG.beginPath();
+        ctxG.arc(pixelX, pixelY, 2, 0, 2 * Math.PI);
+        ctxG.fillStyle = 'red';
+        ctxG.fill();
     }
     
     //円周を描く
@@ -385,10 +759,10 @@ async function animateGraph() {
                 case "02":  // 円周上に8つの平衡点を持つ自励形
                     pixelX = scaleX * (width0 / 2);
                     pixelY = scaleY * (height0 / 2);
-                    ctx.beginPath();
-                    ctx.arc(pixelX, pixelY, scaleX * Math.sqrt(ma), 0, 2 * Math.PI);
-                    ctx.strokeStyle = 'rgb(155, 155, 155)';
-                    ctx.stroke();
+                    ctxG.beginPath();
+                    ctxG.arc(pixelX, pixelY, scaleX * Math.sqrt(ma), 0, 2 * Math.PI);
+                    ctxG.strokeStyle = 'rgb(155, 155, 155)';
+                    ctxG.stroke();
                     break;
                 default:
                     break;
@@ -398,83 +772,95 @@ async function animateGraph() {
             break;
     }
 
+    drawEquilibriumPoints()
+
     // 描画後に使用可とするコントロール
     usability(true);
 }
 
+
 // コントロールの使用可否 : 描画中, それ以外の場合
-function usability(flg)
+function usability(Uflg)
 {
     // 使用可否属性がdisabledしかないので、trueとfalseが逆になる
-    if (flg == true) {
-        flg = false;
+    if (Uflg == true) {
+        Uflg = false;
     }
     else {
-        flg = true;
+        Uflg = true;
     }
-    document.getElementById('type').disabled = flg;
-        if (ma_used == 1) {
-            document.getElementById('ma').disabled = flg;
+    document.getElementById('type').disabled = Uflg;
+
+    if (ma_used == 1) {
+        document.getElementById('ma').disabled = Uflg;
+    }
+    else {
+        document.getElementById('ma').disabled = true;
         }
-        else {
-            document.getElementById('ma').disabled = true;
-            }
-        if (mb_used == 1) {
-            document.getElementById('mb').disabled = flg;
-        }
-        else {
-            document.getElementById('mb').disabled = true;
-        }
-        if (mc_used == 1) {
-            document.getElementById('mc').disabled = flg;
-        }
-        else {
-            document.getElementById('mc').disabled = true;
-        }
-        if (md_used == 1) {
-            document.getElementById('md').disabled = flg;
-        }
-        else {
-            document.getElementById('md').disabled = true;
-        }
-        if (me_used == 1) {
-            document.getElementById('me').disabled = flg;
-        }
-        else {
-            document.getElementById('me').disabled = true;
-        }
-        if (mf_used == 1) {
-            document.getElementById('mf').disabled = flg;
-        }
-        else {
-            document.getElementById('mf').disabled = true;
-        }
-        if (mg_used == 1) {
-            document.getElementById('mg').disabled = flg;
-        }
-        else {
-            document.getElementById('mg').disabled = true;
-        }
-        if (mh_used == 1) {
-            document.getElementById('mh').disabled = flg;
-        }
-        else {
-            document.getElementById('mh').disabled = true;
-        }
-    document.getElementById('width0').disabled = flg;
-    document.getElementById('dh').disabled = flg;
-    document.getElementById('cnt_dp').disabled = flg;
-    document.getElementById('start').disabled = flg;
+    if (mb_used == 1) {
+        document.getElementById('mb').disabled = Uflg;
+    }
+    else {
+        document.getElementById('mb').disabled = true;
+    }
+    if (mc_used == 1) {
+        document.getElementById('mc').disabled = Uflg;
+    }
+    else {
+        document.getElementById('mc').disabled = true;
+    }
+    if (md_used == 1) {
+        document.getElementById('md').disabled = Uflg;
+    }
+    else {
+        document.getElementById('md').disabled = true;
+    }
+    if (me_used == 1) {
+        document.getElementById('me').disabled = Uflg;
+    }
+    else {
+        document.getElementById('me').disabled = true;
+    }
+    if (mf_used == 1) {
+        document.getElementById('mf').disabled = Uflg;
+    }
+    else {
+        document.getElementById('mf').disabled = true;
+    }
+    if (mg_used == 1) {
+        document.getElementById('mg').disabled = Uflg;
+    }
+    else {
+        document.getElementById('mg').disabled = true;
+    }
+    if (mh_used == 1) {
+        document.getElementById('mh').disabled = Uflg;
+    }
+    else {
+        document.getElementById('mh').disabled = true;
+    }
+    document.getElementById('width0').disabled = Uflg;
+    document.getElementById('dh').disabled = Uflg;
+    document.getElementById('cnt_dp').disabled = Uflg;
+    //document.getElementById('startPC').disabled = Uflg;
+    //document.getElementById('startSP').disabled = Uflg;
+    document.querySelectorAll(".startBtn").forEach(btn => {
+        btn.disabled = Uflg;
+    });
 
     // 逆になったtrueとfalseを元に戻す
-    if (flg == true) {
-        flg = false;
+    if (Uflg == true) {
+        Uflg = false;
     }
     else {
-        flg = true;
+        Uflg = true;
     }
     // Stopボタンだけは動きが逆になる
-    document.getElementById('stop').disabled = flg;
+    //document.getElementById('stopPC').disabled = Uflg;
+    //document.getElementById('stopSP').disabled = Uflg;
+    document.querySelectorAll(".stopBtn").forEach(btn => {
+        btn.disabled = Uflg;
+    });
 }
 
 function startAnimation() {
@@ -648,19 +1034,35 @@ function startAnimation() {
     }
     // 描画領域をリセット
     if (resetFlg == true) {
-        ctx.fillStyle = 'rgb( 0, 0, 0)';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        // ベースキャンバス
+        ctxB.clearRect(0, 0, baseCanvas.width, baseCanvas.height);
+        // 近似曲線
+        ctxG.clearRect(0, 0, graphCanvas.width, graphCanvas.height);
+        // ベクトル場
+        ctxV.clearRect(0, 0, graphCanvas.width, graphCanvas.height);
     }
     // 他の処理が終わった後にMathJaxを再度実行する
     TeX();
     
+
+    //computeEquilibriumPoints()    // 平衡点の探索にバラツキがあるため、保留(20260315)
+
+
+    // ベクトル場の計算/表示
+    drawVectorField();
+
+    // トグルボタンの有効/無効切替え
+    document.querySelectorAll(".toggleBtn").forEach(btn => {
+        btn.disabled = false;
+    });
+
     // 描画の実行
     animateGraph();
 }
 
 // リセットフラグ
-function handleCheckbox(flg) {
-    if (flg) {
+function handleCheckbox(Rflg) {
+    if (Rflg) {
         resetFlg = true;
     } else {
         resetFlg = false;
@@ -668,10 +1070,10 @@ function handleCheckbox(flg) {
 }
 
 // ストレージフラグ
-function handleCheckboxStorage(flg) {
-    kzDeq_StorageFlg = flg;
-    localStorage.setItem('kzDeq_StorageFlg', flg);
-    if (!flg) {
+function handleCheckboxStorage(Sflg) {
+    kzDeq_StorageFlg = Sflg;
+    localStorage.setItem('kzDeq_StorageFlg', Sflg);
+    if (!Sflg) {
         localStorage.removeItem('kzDeq_SelectedType');
         localStorage.removeItem('kzDeq_StorageFlg'); // フラグを削除
 
@@ -690,6 +1092,13 @@ function updateRange() {
     const wmin = -wmax;
     document.getElementById('wmax').innerText = wmax;
     document.getElementById('wmin').innerText = wmin;
+
+    // 描画領域をリセット
+    ctxG.fillStyle = 'rgb( 0, 0, 0)';
+    ctxG.fillRect(0, 0, graphCanvas.width, graphCanvas.height);
+
+    // 描画変更があった場合にトグルボタンをデフォルト状態に戻す
+    toggleBtnDefault();
 }
 
 function setRange() {
@@ -1034,7 +1443,7 @@ function changeType() {
                     document.getElementById('dy').innerText = "\\[ \\frac{dy}{dt} = x^2 + y^2 - a \\]";
                     setRange();
                     document.getElementById('width0').value = 8;
-                    document.getElementById('cnt_dp').value = 1280;
+                    document.getElementById('cnt_dp').value = 640;
                     document.getElementById('dh').value = 0.01;
                     document.getElementById('ma').disabled = false;
                     ma_used = 1;
@@ -1047,7 +1456,7 @@ function changeType() {
                     document.getElementById('dy').innerText = "\\[ \\frac{dy}{dt} = \\sin x \\sin y \\]";
                     document.getElementById('width0').value = 25.6;
                     document.getElementById('cnt_dp').value = 320;
-                    document.getElementById('dh').value = 0.5;
+                    document.getElementById('dh').value = 0.1;
                     updateRange();
                     break;
                 case "04":  // 極限円の例1
@@ -1164,7 +1573,7 @@ function changeType() {
                     dat = 410;
                     changeProperty(0);
                     // 式を表示する
-                    document.getElementById('dx').innerText = "\\[ \\frac{dx}{dt} = 2x - 2y^2\\]";
+                    document.getElementById('dx').innerText = "\\[ \\frac{dx}{dt} = 2x - 3y^2\\]";
                     document.getElementById('dy').innerText = "\\[ \\frac{dy}{dt} = -2y + 3x^2\\]";
 
                     setRange();
@@ -1389,14 +1798,17 @@ function changeType() {
     document.getElementById('KAI2').style.visibility ="hidden";
 
     // 描画領域をリセット
-    ctx.fillStyle = 'rgb( 0, 0, 0)';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctxG.fillStyle = 'rgb( 0, 0, 0)';
+    ctxG.fillRect(0, 0, graphCanvas.width, graphCanvas.height);
+
+    // 描画変更があった場合にトグルボタンをデフォルト状態に戻す
+    toggleBtnDefault();
 
     // 他の処理が終わった後にMathJaxを再度実行する
     TeX();
 }
 
-function changeProperty(flg) {
+function changeProperty(CPflg) {
         ma_used = 0;
         mb_used = 0;
         mc_used = 0;
@@ -1413,7 +1825,7 @@ function changeProperty(flg) {
         document.getElementById('mf').value = "";
         document.getElementById('mg').value = "";
         document.getElementById('mh').value = "";
-        if (flg == 0) {
+        if (CPflg == 0) {
             document.getElementById('ma').disabled = true;
             document.getElementById('mb').disabled = true;
             document.getElementById('mc').disabled = true;
@@ -1434,8 +1846,8 @@ function changeProperty(flg) {
         }
 }
 
-function dispFormula(flg) {
-    if (flg == 0) {
+function dispFormula(DFflg) {
+    if (DFflg == 0) {
         // 「方程式」表示位置の変更
         document.getElementById('equation_input').style.display = "none";
         document.getElementById('equation_default').style.display = "inline-block";
@@ -1447,7 +1859,7 @@ function dispFormula(flg) {
         document.getElementById('l_where').style.display = "none";
         document.getElementById('dxdy_where').style.display = "none";
     }
-    else if (flg == 1) {
+    else if (DFflg == 1) {
         // 「方程式」表示位置の変更
         document.getElementById('equation_input').style.display = "inline-block";
         document.getElementById('equation_default').style.display = "none";
@@ -1461,8 +1873,8 @@ function dispFormula(flg) {
     }
 }
 
-function dispCoef(flg) {
-    if (flg == 0) {
+function dispCoef(DCflg) {
+    if (DCflg == 0) {
         // 係数入力ボックスを非表示にする
         document.getElementById('l_coef').style.display = "none";
 
@@ -1483,7 +1895,7 @@ function dispCoef(flg) {
         document.getElementById('md').style.display = "none";
         document.getElementById('mh').style.display = "none";
     }
-    else if (flg == 1) {
+    else if (DCflg == 1) {
         // 係数入力ボックスを表示する
         document.getElementById('l_coef').style.display = "inline-block";
 
