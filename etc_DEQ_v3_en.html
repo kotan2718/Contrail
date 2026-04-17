@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="robots" content="follow, noindex">
-    <meta name="description" content="This page draws approximate solutions of autonomous systems of simultaneous differential equations in 3D. You can confirm the sensitive dependence on initial conditions of equations that show chaotic behavior like the Lorenz attractor through the movement of the orbit. ">
+    <meta name="description" content="This page visualizes the solution trajectories to various differential equations in 3D. You can explore equations with pronounced initial value sensitivity, as well as those with multiple attractors. ">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Differential Equations 3D</title>
+    <title>Differential Equation 3D Visualization Tool</title>
 
     <!-- favicon-->
     <link rel="icon" href="favicon.ico">
@@ -18,6 +18,52 @@
         <link rel="stylesheet" href="libs/etc/css/kko_footer_style.css" media="screen and (min-width: 768px)">
         <!-- kko_etc end -->
         <style>
+
+            .grid1 {
+              display: grid;
+              grid-template-columns: 1fr;
+              grid-template-rows: 20px;
+              text-align: right;
+              padding-bottom: 2px;
+              padding-right: 32px;
+           }
+            .grid3Deq {
+              display: grid;
+              grid-template-columns: auto auto 1fr;
+              grid-template-rows: auto;
+              column-gap:32px;
+           }
+            .grid3Deq-item {
+              line-height: auto;
+            }
+
+
+            .gridWrap {
+                display: grid;
+                grid-template-columns: auto auto auto;
+                grid-template-rows: auto auto;
+                column-gap: 32px;
+                align-items: end; /* ボタンの下を揃える */
+            }
+
+            /* Angle */
+            .angleTitle {
+                grid-column: 3;
+                grid-row: 1;
+                text-align:  left;
+                font-size:   11px;
+                font-weight: bold;
+                margin-left: 12px;
+                margin-bottom: -0px; /* 少し上に寄せる */
+                /*transform: translateY(6px);*/
+            }
+
+            /* ボタン */
+            .btn1 { grid-column: 1; grid-row: 2; }
+            .btn2 { grid-column: 2; grid-row: 2; }
+            .btn3 { grid-column: 3; grid-row: 2; }
+
+
             @media screen and (min-width: 769px) {
                 .pSP {
                     padding-top: 10px;
@@ -28,6 +74,7 @@
                 #horizontal-slider-container {
                     position: relative;
                     top: -0px;
+                    left: -0px;
                     width: 580px;
                     background-color: #CCC;
                 }
@@ -43,6 +90,7 @@
                 }
                 #horizontal-slider {
                     width: 580px;
+                    height: 6px
                 }
             }
             @media screen and (max-width: 768px) {
@@ -73,6 +121,10 @@
                 }
                 #horizontal-slider {
                     width: 300px;
+                }
+                .grid2b {
+                  display: grid;
+                  grid-template-columns: 110px 220px;
                 }
             }
         </style>
@@ -190,13 +242,13 @@
         <div id="title20">
             <div class="prettyP_PC">
                 <h3 class="pt30 pb30">
-                    Differential Equations: Solution Trajectories 3D
+                    Differential Equation 3D Visualization Tool
                 </h3>
             </div>
             <div class="prettyP_SP">
                 <h4 class="pt10">
-                    Differential Equations:<br>
-                    Solution Trajectories 3D
+                    Differential Equations<br>
+                    3D Visualization Tool
                 </h4>
             </div>
         </div>
@@ -210,7 +262,37 @@
 
         <!-- contents -->
         <div class="pic-left1024 pb30">
+
+
             <div id="contents-2col-left_deq">
+                <div class="grid2b pb5">
+                    <p class="fss pSP pt5" align="left">
+                        <input type="checkbox" id="cb_storage3D" onclick="handleCheckboxStorage(this.checked)">&nbsp; keep list pos.
+                    </p>
+                    <div class="custom-select">
+                        <div id="selected" class="select-display">
+                            <span id="selected-text">Select a system</span>
+                            <span class="arrow">▽</span>
+                        </div>
+
+                        <ul id="options" class="hidden">
+                            <li data-value="01">&nbsp; 1. Lorenz system</li>
+                            <li data-value="02">&nbsp; 2. Thomas system</li>
+                            <li data-value="03">&nbsp; 3. Four-Wing system</li>
+                            <li data-value="04">&nbsp; 4. Halvorsen system</li>
+                            <li data-value="05">&nbsp; 5. Rössler system</li>
+                            <li data-value="06">&nbsp; 6. Sprott system</li>
+                            <li data-value="07">&nbsp; 7. Rabinovich-Fabrikant system</li>
+                            <li data-value="08">&nbsp; 8. Chen-Lee system</li>
+                            <li data-value="09">&nbsp; 9. Chen system</li>
+                            <li data-value="10">10. Chua system</li>
+                            <li data-value="11">11. Langford system</li>
+                            <li data-value="12">12. Dadras system</li>
+<!--                            <li data-value="09&095">5. 入力例 5</li>-->
+                        </ul>
+                    </div>
+                </div>
+
                 <div id="contents-2col-left_deqC">
                     <div class="prettyP_PC">
                         <p class="pb10">
@@ -232,43 +314,40 @@
                 <div id="horizontal-slider-container">
                     <div id="horizontal-slider"></div>
                 </div>
-                <div class="prettyP_SP"><div class="pb10"></div></div>
-                <p class="cLink fss fwb pSP" align="right">
-                <!-- 戻るリンク(動的に生成) -->
-                </p>
                 <div class="prettyP_SP">
-                    <p class="pt30 pb20">
-                        <button class="btn-radius-solid" id="start" onclick="startAnimation()">Start</button>
-                        &emsp;&emsp;&nbsp;&nbsp;
-                        <button class="btn-radius-solid" id="stop" onclick="stopAnimation()">Stop</button>
-                        &emsp;&emsp;&nbsp;&nbsp;
-                        <button class="btn-radius-solid" id="reset" onclick="resetAnimation()">Reset</button>
-                    </p>
+                    <div class="pb10">
+                        <p class="cLink fss fwb pSP pb20" align="right">
+                        <!-- 戻るリンク(動的に生成) -->
+                        </p>
+                    </div>
                 </div>
-                <div class="prettyP_PC">
-                    <p class="cLink" align="right">
+                <div class="prettyP_SP pb20">
+                    <div class="gridWrap">
+                        <div class="angleTitle">Angle</div>
+
+                        <button class="btn-radius-solid startBtn btn1" onclick="startAnimation()">Start</button>
+                        <button class="btn-radius-solid stopBtn btn2" onclick="stopAnimation()">Stop</button>
+                        <button class="btn-radius-solid-reset resetBtn btn3" onclick="resetAnimation()">Reset</button>
+                    </div>
+                </div>
+                <div class="prettyP_PC pt10">
+                    <p class="cLink fss fwb" align="right">
                     <!-- 戻るリンク(動的に生成) -->
                     </p>
                 </div>
             </div>
 
             <div id="contents-2col-right_deq">
-                <p class="pb10">
-                    <select id="type" style="width: 220px;" onchange="changeType()">
-                        <option value="01">&nbsp; 1. Lorenz system</option>
-                        <option value="02">&nbsp; 2. Thomas system</option>
-                        <option value="03">&nbsp; 3. Four-Wing system</option>
-                        <option value="04">&nbsp; 4. Halvorsen system</option>
-                        <option value="05">&nbsp; 5. Rössler system</option>
-                        <option value="06">&nbsp; 6. Sprott system</option>
-                        <option value="07">&nbsp; 7. Rabinovich-Fabrikant system</option>
-<!--                        <option value="08">&nbsp; 8. Chen system</option>
-                        <option value="09">&nbsp; 9. Chen2 system</option>
-                        <option value="10">10. Chua_14_4 system</option>
-                        <option value="11">11. Lorenz2 system</option>
-                        <option value="12">12. Langford system</option>-->
-                    </select>
-                </p>
+                <div class="prettyP_PC pb30">
+                    <div class="gridWrap">
+                        <div class="angleTitle">Angle</div>
+
+                        <button class="btn-radius-solid startBtn btn1" onclick="startAnimation()">Start</button>
+                        <button class="btn-radius-solid stopBtn btn2" onclick="stopAnimation()">Stop</button>
+                        <button class="btn-radius-solid-reset resetBtn btn3" onclick="resetAnimation()">Reset</button>
+                    </div>
+                </div>
+
                 <p class="pb5">
                     <label for="dx"><span id="dx"></span></label>
                 </p>
@@ -466,19 +545,6 @@
                     </div>
                 </div>
 
-                <div class="prettyP_PC">
-                    <p class="pb20">
-                        <button class="btn-radius-solid" id="start" onclick="startAnimation()">Start</button>
-                        &emsp;&emsp;&nbsp;&nbsp;
-                        <button class="btn-radius-solid" id="stop" onclick="stopAnimation()">Stop</button>
-                        &emsp;&emsp;&nbsp;&nbsp;
-                        <button class="btn-radius-solid" id="reset" onclick="resetAnimation()">Reset</button>
-                    </p>
-                </div>
-
-            <!-- deq javascript呼び出し -->
-            <script src="libs/etc/js/deq01_v3.js"></script>
-
             </div>
             <div class="c-both"></div>
         </div>
@@ -488,55 +554,27 @@
     <script src="libs/etc/js/deq01_v3.js"></script>
 
     <footer>
-        <div class="prettyP_PC">
-            <div class="wrap">
-            </div>
-            <div class="footer_bottom_fixed2">
-                <hr id="footer"> <!-- horizontal partition -->
+        <hr id="footer"> <!-- horizontal partition -->
 
-                <div class="jQ_change center"> <!-- select button whole: start -->
-                    <p id="footer"> <!-- select button: start -->
-                        <a href="en_etc.html">
-                            <img src="image/button/back_off.gif" border="0" alt="Back">
-                        </a>
-                    </p> <!-- select button: end -->
-                </div> <!-- select button whole: end -->
+        <p id="page-top"><a href="#">TOP</a></p>
 
-                <div class="footer_labelPC">
-                    &copy; 2003 -
-                    <script>
-                        date = new Date();
-                        document.write(date.getFullYear() + ' ');
-                    </script>
-                    <nonscript>
-                    </nonscript>
-                    Contrail - kotan -
-                </div>
-            </div>
-        </div>
-        <div class="prettyP_SP">
-            <hr id="footer"> <!-- horizontal partition -->
+        <div class="jQ_change center"> <!-- select button whole: start -->
+            <p id="footer"> <!-- select button: start -->
+                <a href="en_etc.html">
+                    <img src="image/button/back_off.gif" border="0" alt="Back">
+                </a>
+            <p> <!-- select button: end -->
+        </div> <!-- select button whole: end -->
 
-            <p id="page-top"><a href="#">TOP</a></p>
-
-            <div class="jQ_change center"> <!-- select button whole: start -->
-                <p id="footer"> <!-- select button: start -->
-                    <a href="en_etc.html">
-                        <img src="image/button/back_off.gif" border="0" alt="Back">
-                    </a>
-                <p> <!-- select button: end -->
-            </div> <!-- select button whole: end -->
-
-            <div class="footer_labelPC">
-                &copy; 2003 -
-                <script>
-                    date = new Date();
-                    document.write(date.getFullYear() + ' ');
-                </script>
-                <nonscript>
-                </nonscript>
-                Contrail - kotan -
-            </div>
+        <div class="footer_labelPC">
+            &copy; 2003 -
+            <script>
+                date = new Date();
+                document.write(date.getFullYear() + ' ');
+            </script>
+            <nonscript>
+            </nonscript>
+            Contrail - kotan -
         </div>
     </footer>
 

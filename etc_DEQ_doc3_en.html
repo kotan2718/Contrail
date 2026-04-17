@@ -3,11 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="This is a simple explanation of a page that draws approximate solutions of autonomous systems of simultaneous differential equations in 3D. You can confirm the sensitive dependence on initial conditions of equations that show chaotic behavior like the Lorenz attractor through the movement of the orbit. ">
+    <meta name="description" content="This is a plain document for the page visualizing the solution trajectories of differential equations in 3D. You can observe equations with pronounced sensitivity to initial conditions, as well as equations with multiple attractors. ">
     <meta name="keywords" content="explanation,autonomous,system,three-dimensional,simultaneous,differential,equations,dependence,initial,conditionsfree,Lorenz,chaos,attractor">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Differential Equation 3D Plain Document</title>
+    <title>Plain Document : Differential Equation 3D Visualization Tool</title>
 
     <!-- favicon-->
     <link rel="icon" href="favicon.ico">
@@ -15,6 +15,13 @@
     <!-- css start -->
         <!-- kko_etc :: class指定:change_border_color, 全ファイル共通:リンク文字色, フォーカスリング -->
         <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
+        <style>
+            @media screen and (max-width: 768px) {
+                .MathJax {
+                    font-size: 90% !important;
+                }
+            }
+        </style>
     <!-- css end -->
 
     <!-- js start -->
@@ -36,7 +43,7 @@
                 },
                 "HTML-CSS": { matchFontHeight: false },
                 displayAlign: "left",
-                displayIndent: "0em"
+                displayIndent: "1em"
             });
         </script>
 
@@ -123,10 +130,18 @@
 
         <!-- title -->
         <div id="title20">
-            <h3 class="pt30 pb40">
-                Differential Equations : Solution Trajectories 3D<br>
-                Simplified Explanation
-            </h3>
+            <div class="prettyP_PC">
+                <h3 class="pt30 pb40">
+                    Differential Equation 3D Visualization Tool : Plain Document
+                </h3>
+            </div>
+            <div class="prettyP_SP">
+                <h3 class="pt30 pb40">
+                    Differential Equation<br>
+                    3D Visualization Tool<br>
+                    Plain Document
+                </h3>
+            </div>
         </div>
 
         <!-- for Java Script off -->
@@ -159,6 +174,9 @@
                     However, I lack the knowledge for such explanations,
                     so I'll simply provide brief comments and URLs of the sites where the equations are introduced.
                 </p>
+                <p class="fwb pb10">
+                    The drawing page uses Local Storage. Refer to <a href="#*1">Notes [1]</a>.
+                </p>
             </div>
 
             <div class="fwb pb30">
@@ -168,13 +186,13 @@
                     <li><a href="#03">[03] Four-Wing system</a></li>
                     <li><a href="#04">[04] Halvorsen system</a></li>
                     <li><a href="#05">[05] Rössler system</a></li>
-                    <li><a href="#06">[06] Sprott system</a></li>
+                    <li><a href="#06">[06] Sprott B system</a></li>
                     <li><a href="#07">[07] Rabinovich-Fabrikant system</a></li>
-<!--                    <li><a href="#01">[08] Chen system 1</a></li>
-                    <li><a href="#01">[09] Chen system 2</a></li>
-                    <li><a href="#01">[10] Chua_14_4 system</a></li>
-                    <li><a href="#01">[11] Lorenz system 2</a></li>
-                    <li><a href="#01">[12] Langford system</a></li>-->
+                    <li><a href="#08">[08] Chen-Lee system</a></li>
+                    <li><a href="#09">[09] Chen system</a></li>
+                    <li><a href="#10">[10] Chua system</a></li>
+                    <li><a href="#11">[11] Langford system</a></li>
+                    <li><a href="#12">[12] Dadras system</a></li>
                 </ul>
             </div>
 
@@ -185,7 +203,7 @@
                     </p>
                 </div>
                 <div class="contents-title-right"
-                    <p>
+                    <p class="fss fwb">
                         <a href="etc_DEQ_v3_en.html?selectedOption=01">to Plot</a>
                     </p>
                 </div>
@@ -193,9 +211,11 @@
                 <div class="pb30 fwm">
                     <div class="contents-left pb10"
                         <p class="pb10">
-                            \[ \dot{x} = ay - ax \]
-                            \[ \dot{y} = bx - xz - y \]
-                            \[ \dot{z} = xy - cz \]
+                            \[ \begin{array}{l}
+                            \dot{x} = ay - ax \\
+                            \dot{y} = bx - xz - y \\
+                            \dot{z} = xy - cz
+                            \end{array}\]
                         </p>
                     </div>
                     <div class="contents-right"
@@ -205,31 +225,54 @@
                             </a>
                         </p>
                     </div>
-                    <div class="c-both"></div>
+                    <div class="c-both pb20"></div>
                     <p class="pl0 pb10">
-                        I first encountered the Lorenz model in the late 1980s when chaos and fractals were popular.
+                        I first encountered the Lorenz system in the late 1980s when chaos and fractals were popular.
                         I remember extending the programming source included in
                         <a href="https://www.asakura.co.jp/author_books.php?author_code=48217" target="_blank">
                         Mitsuo Morimoto's "Differential Equations Using Computers</a>
-                        to 3D and drawing the solution trajectory of the Lorenz model.
+                        to 3D and drawing the solution trajectory of the Lorenz system.
                     </p>
                     <p class="pl0 pb10">
-                        The Lorenz model gained fame due to the butterfly effect,
-                        where slight variations in initial values, despite being bounded,
-                        result in completely unforeseen trajectories.
-                        Recently, NHK(the public broadcasting in Japan) has been excessively citing the "butterfly effect"... :-(
+                        <!--
+                        Lorenz system が有名になったのは、解を得るための初期値がほんの少し違っただけで、
+                        有界であるにも関わらず、全く思いにもよらない軌道を描くことの初期値鋭敏性について、
+                        バタフライエフェクトとして知られるようになったことだと思います。
+                        バタフライの名称は解軌道が形成するアトラクターが蝶が羽を広げたような形状に似ていることに由来しています。
+                        最近では、NHKがやたらにバラフライエフェクトを連発していますが...
+                        -->
+                        The Lorenz system became well known because of its sensitive dependence on initial conditions:
+                        even a very small difference in the starting values can lead to completely unexpected trajectories,
+                        despite the solutions remaining bounded.
+                        This phenomenon is widely known as the “butterfly effect.”
+                        The name “butterfly” comes from the shape of the attractor formed by the trajectories,
+                        which resembles a butterfly with its wings spread.
+                        In recent years, the term “butterfly effect” has been frequently used in NHK programs... :-(
                     </p>
-                    <p class="pl0 pl0 pb10">
-                        You can find plenty of hits if you search for the Lorenz model. For reference,
+                    <p class="pl0 pb10">
+                        <!--
+                        Lorenz system は蝶が羽を広げたような単一のストレンジアトラクターを形成します。
+                        以下に示したパラメータの場合、初期値(解軌道の出発点)がアトラクターから離れていても、
+                        次第に蝶に吸い込まれていきます。これは Lorenz system の特徴です。
+                        -->
+                        The Lorenz system forms a single strange attractor that resembles a butterfly
+                        with its wings spread. For the parameter values shown below,
+                        even if the initial point (the starting point of the trajectory) is far from the attractor,
+                        the trajectory will gradually be drawn into the butterfly.
+                        This is a characteristic feature of the Lorenz system.
+
+                    </p>
+                    <p class="p10 pb10">
+                        You can find plenty of hits if you search for the Lorenz system. For reference,
                         I'll mention the following site.
                     </p>
-                    <p class="pl0 pl0 pb10">
-                          1. <a href="https://en.wikipedia.org/wiki/Lorenz_system" target="_blank">Lorenz_system</a>
+                    <p class="p10 pb10">
+                        1. <a href="https://en.wikipedia.org/wiki/Lorenz_system" target="_blank">Lorenz_system</a>
                     </p>
-                    <p class="pl0 pl0 pb10">
-                          2. <a href="https://en.wikipedia.org/wiki/Butterfly_effect" target="_blank">Butterfly effect</a>
+                    <p class="p10 pb10">
+                        2. <a href="https://en.wikipedia.org/wiki/Butterfly_effect" target="_blank">Butterfly effect</a>
                     </p>
-                    <p class="pl0 pl0 pb10">
+                    <p class="p10 pb10">
                         The parameters often used are $a = 10.0, b = 28.0, c = 8.0 / 3.0$.
                         This tool also uses these values by default.
                         Initial values are set as $(0, 1, 2)$ and $(0, 1, 2.01)$.
@@ -242,7 +285,7 @@
                     </p>
                 </div>
                 <div class="contents-title-right"
-                    <p>
+                    <p class="fss fwb">
                         <a href="etc_DEQ_v3_en.html?selectedOption=02">to Plot</a>
                     </p>
                 </div>
@@ -250,31 +293,57 @@
                 <div class="pb30 fwm">
                     <div class="contents-left pb10"
                         <p class="pb10">
-                            \[ \dot{x} = \sin y - ax \]
-                            \[ \dot{y} = \sin z - ay \]
-                            \[ \dot{z} = \sin x - az \]
+                            \[ \begin{array}{l}
+                            \dot{x} = \sin y - ax \\
+                            \dot{y} = \sin z - ay \\
+                            \dot{z} = \sin x - az
+                            \end{array}\]
                         </p>
                     </div>
                     <div class="contents-right"
                         <p>
                             <a href="etc_DEQ_v3_en.html?selectedOption=02">
-                                <img src="image/DEQ_img/deq3_02_25.jpg" border="0">
+                                <img src="image/DEQ_img/deq3_02a_25.png" border="0">
                             </a>
                         </p>
                     </div>
-                    <div class="c-both"></div>
+                    <div class="c-both pb20"></div>
                     <p class="pl0 pb10">
                         While it's hard to believe this equation leads to chaos, it indeed does.
                     </p>
-                    <p class="pl0 pl0 pb10">
+                    <p class="p10 pb10">
                         For the Thomas model, please refer to the following site.
                     </p>
-                    <p class="pl0 pl0 pb10">
-                          1. <a href="https://en.wikipedia.org/wiki/Thomas%27_cyclically_symmetric_attractor" target="_blank">Thomas' cyclically symmetric attractor</a>
+                    <p class="p10 pb10">
+                        1. <a href="https://en.wikipedia.org/wiki/Thomas%27_cyclically_symmetric_attractor" target="_blank">Thomas' cyclically symmetric attractor</a>
                     </p>
-                    <p class="pl0 pl0 pb10">
-                        In this tool, the parameters are $a = 0.208186$,
-                        and initial values are $(0, 1, 2)$ and $(0, 1, 2.01)$.
+                    <p class="p10 pb10">
+                        <!--
+                        シミュレーションツールでは、パラメーターは$a = 0.21$ 、初期値は $(x, y, z) = (0, 1, 2)、(0, -1, -2)$ としています。
+                        この状態では、原点対称に2つのアトラクターがが存在します。
+                        $a$の値を大きくすると(3など)、解軌道は1点に収束します。
+                        $a$の値を小さくすると(1.9など)原点対称性を保ちながら、解軌道が混ざり合いながら、1つのアトラクターを形成し、
+                        カオスな動きをします。
+                        -->
+                        In the simulation tool, the parameter is set to $a = 0.21$,
+                        and the initial conditions are $(x, y, z) = (0, 1, 2)$ and $(0, -1, -2)$.
+                        Under these conditions, two attractors exist symmetrically with respect to the origin.
+                        When the value of $a$ is increased (e.g., to around 3), the trajectories converge to a single point.
+                        When $a$ is decreased (e.g., to around 0.19), the trajectories begin to mix while preserving symmetry
+                        about the origin, eventually forming a single attractor and exhibiting chaotic behavior.
+                    </p>
+                    <p class="p10 pb10">
+                        <!--
+                        これは、$a$が大きければ、$-ax, -ay, -az$ の減衰項が強いため、ベイズン境界を越えることができず、
+                        2つのアトラクターに分かれるのですが、
+                        $a$が小さくなると振動($\sin$)が強くなり、境界を越えて、動き回れるようになるため、
+                        1つのアトラクターを形成するようになると思われます。
+                        -->
+                        This can be interpreted as follows: when $a$ is large, the damping terms $-ax, -ay, -az$ are strong,
+                        preventing trajectories from crossing the basin boundary, resulting in two separate attractors.
+                        As $a$ decreases, the oscillatory terms ($\sin$) become dominant,
+                        allowing trajectories to cross the boundary and move between regions,
+                        thereby forming a single attractor.
                     </p>
                 </div>
 
@@ -284,7 +353,7 @@
                     </p>
                 </div>
                 <div class="contents-title-right"
-                    <p>
+                    <p class="fss fwb">
                         <a href="etc_DEQ_v3_en.html?selectedOption=03">to Plot</a>
                     </p>
                </div>
@@ -292,9 +361,11 @@
                 <div class="pb30 fwm">
                     <div class="contents-left pb10"
                         <p class="pb10">
-                            \[ \dot{x} = ax + yz \]
-                            \[ \dot{y} = bx + cy - xz \]
-                            \[ \dot{z} = -z -xy \]
+                            \[ \begin{array}{l}
+                            \dot{x} = ax + yz \\
+                            \dot{y} = bx + cy - xz \\
+                            \dot{z} = -z -xy
+                            \end{array}\]
                         </p>
                     </div>
                     <div class="contents-right"
@@ -304,21 +375,26 @@
                             </a>
                         </p>
                     </div>
-                    <div class="c-both"></div>
+                    <div class="c-both pb20"></div>
                     <p class="pl0 pb10">
-                        The trajectory drawn resembles a combination of two Lorenz system.
-                        Although it's based on the first site I found introducing this equation,
-                        it slightly differs from the Four-Wing equation presented on other sites.
-                        However, when actually plotted, it indeed resembles Four-Wing.
+                        <!--
                         Lorenz systemが2つ合体したような軌道が描かれます。
+                        この方程式が紹介されている最初に見つけたサイトを参考にしたのですが、
+                        他のサイトで紹介されているFour-Wingの式とは若干異なります。
+                        しかし、実際に描画すれば、まさにFour-Wingです。
+                        -->
+                        The trajectory resembles two Lorenz systems combined together.
+                        This formulation was based on the first reference site I found;
+                        it differs slightly from other published Four-Wing equations.
+                        However, when plotted, it clearly produces a Four-Wing attractor.
                     </p>
-                    <p class="pl0 pl0 pb10">
-                        For information about Four-Wing, the following site was the first one I found.
+                    <p class="p10 pb10">
+                        The following site was the first reference I found for the Four-Wing system.
                     </p>
-                    <p class="pl0 pl0 pb10">
-                          1. <a href="https://www.dynamicmath.xyz/strange-attractors/" target="_blank">STRANGE ATTRACTORS</a>
+                    <p class="p10 pb10">
+                        1. <a href="https://www.dynamicmath.xyz/strange-attractors/" target="_blank">STRANGE ATTRACTORS</a>
                     </p>
-                    <p class="pl0 pl0 pb10">
+                    <p class="p10 pb10">
                         The tool uses parameters $a = 0.2$, $b = 0.01$, $c= -0.4$,
                         and initial values $(x, y, z) = (0, 1, 2)$ and $(0, 1, 2.01)$.
                     </p>
@@ -330,7 +406,7 @@
                     </p>
                 </div>
                 <div class="contents-title-right"
-                    <p>
+                    <p class="fss fwb">
                         <a href="etc_DEQ_v3_en.html?selectedOption=04">to Plot</a>
                     </p>
                 </div>
@@ -338,9 +414,11 @@
                 <div class="pb30 fwm">
                     <div class="contents-left pb10"
                         <p class="pb10">
-                            \[ \dot{x} = -ax -4y -4z + y^2 \]
-                            \[ \dot{y} = -ay -4z -4x + z^2 \]
-                            \[ \dot{z} = -az -4x -4y + x^2 \]
+                            \[ \begin{array}{l}
+                            \dot{x} = -ax -4y -4z + y^2 \\
+                            \dot{y} = -ay -4z -4x + z^2 \\
+                            \dot{z} = -az -4x -4y + x^2
+                            \end{array}\]
                         </p>
                     </div>
                     <div class="contents-right"
@@ -350,18 +428,25 @@
                             </a>
                         </p>
                     </div>
-                    <div class="c-both"></div>
+                    <div class="c-both pb20"></div>
                     <p class="pl0 pb10">
-                        Similar to the Thomas model, this equation undergoes quite regular changes but eventually leads to chaos.
+                        <!--
+                        この式もThomasモデルと似た感じで、かなり規則的な変化をしていますが、カオスになります。
+                        -->
+                        This system behaves similarly to the Thomas model,
+                        showing relatively regular motion while still exhibiting chaos.
+                        Although increasing the rendering speed makes it harder to see,
+                        it exhibits sensitivity to initial conditions.
                     </p>
-                    <p class="pl0 pl0 pb10">
+                    <p class="p10 pb10">
                         For information about the Halvorsen system, please refer to the following site.
                     </p>
-                    <p class="pl0 pl0 pb10">
-                          1. <a href="https://www.dynamicmath.xyz/strange-attractors/" target="_blank">STRANGE ATTRACTORS</a>
+                    <p class="p10 pb10">
+                        1. <a href="https://sprott.physics.wisc.edu/chaos/symmetry.htm" target="_blank">A Symmetric Chaotic Flow</a>
                     </p>
-                    <p class="pl0 pl0 pb10">
-                        In this tool, the parameter is $a = 1.499$, and initial values are $(x, y, z) = (0, 1, 2)$ and $(0, 1, 2.01)$.
+                    <p class="p10 pb10">
+                        In the simulation tool, the parameter is $a = 1.499$,
+                        and the initial conditions are $(x, y, z) = (0, 1, 2)$ and $(0, 1, 2.01)$.
                     </p>
                 </div>
 
@@ -371,7 +456,7 @@
                     </p>
                 </div>
                 <div class="contents-title-right"
-                    <p>
+                    <p class="fss fwb">
                         <a href="etc_DEQ_v3_en.html?selectedOption=05">to Plot</a>
                     </p>
                 </div>
@@ -379,9 +464,11 @@
                 <div class="pb30 fwm">
                     <div class="contents-left pb10"
                         <p class="pb10">
-                            \[ \dot{x} = -(y + z) \]
-                            \[ \dot{y} = x + ay \]
-                            \[ \dot{z} = b + z(x - c) \]
+                            \[ \begin{array}{l}
+                            \dot{x} = -(y + z) \\
+                            \dot{y} = x + ay \\
+                            \dot{z} = b + z(x - c)
+                            \end{array}\]
                         </p>
                     </div>
                     <div class="contents-right"
@@ -391,28 +478,47 @@
                             </a>
                         </p>
                     </div>
-                    <div class="c-both"></div>
+                    <div class="c-both pb20"></div>
                     <p class="pl0 pb10">
-                        Similar to the Thomas model, this equation exhibits fairly regular changes yet leads to chaos.
+                        <!--
+                        ドイツの生物学者
+                        <a href="https://en.wikipedia.org/wiki/Otto_R%C3%B6ssler" target="_blank"> Otto Rössler </a>によって
+                        1976年の論文で提唱されたものです。
+                        -->
+                        This system was proposed by the German biologist
+                        <a href="https://en.wikipedia.org/wiki/Otto_R%C3%B6ssler" target="_blank">Otto Rössler</a> in a 1976 paper.
                     </p>
-                    <p class="pl0 pl0 pb10">
-                        For information about the Rössler system, please refer to the following site.
+                    <p class="pl0 pb10">
+                        <!--
+                        Rössler system は非線形項が第3式の $zx$ のみという非常に単純なものであるにも関わらず、
+                        カオスを発生します。
+                        元々はカオスの研究中に発見されたそうですが、後に化学反応の平衡をモデル化するのに役立つことが分かったとのことです。
+                        -->
+                        Although the Rössler system is very simple,
+                        with only one nonlinear term ($zx$ in the third equation),
+                        it still generates chaotic behavior.
+                        It was originally discovered during research on chaos
+                        and was later found to be useful for modeling chemical reaction equilibria.
                     </p>
-                    <p class="pl0 pl0 pb10">
-                          1. <a href="https://en.wikipedia.org/wiki/R%C3%B6ssler_attractor" target="_blank">Rössler attractor</a>
+                    <p class="p10 pb10">
+                        For details on the Rössler system, please refer to the site below.
                     </p>
-                    <p class="pl0 pl0 pb10">
-                        The tool uses parameters $a = 0.2$, $b = 0.2$, $c= 5.7$, and initial values $(x, y, z) = (0, 1, 2)$ and $(0, 1, 2.01)$.
+                    <p class="p10 pb10">
+                        1. <a href="https://en.wikipedia.org/wiki/R%C3%B6ssler_attractor" target="_blank">Rössler attractor</a>
+                    </p>
+                    <p class="p10 pb10">
+                        In the simulation tool, the parameters are $a = 0.2, b = 0.2, c = 5.7$,
+                        and the initial conditions are $(0, 1, 2)$ and $(0, 1, 2.01)$.
                     </p>
                 </div>
 
                 <div class="contents-title-left pb20"
                     <p id="06">
-                        [06]&nbsp;Sprott system
+                        [06]&nbsp;Sprott B system
                     </p>
                 </div>
                 <div class="contents-title-right"
-                    <p>
+                    <p class="fss fwb">
                         <a href="etc_DEQ_v3_en.html?selectedOption=06">to Plot</a>
                     </p>
                 </div>
@@ -420,30 +526,44 @@
                 <div class="pb30 fwm">
                     <div class="contents-left pb10"
                         <p class="pb10">
-                            \[ \dot{x} = y + axy + xz \]
-                            \[ \dot{y} = 1 - bx^2 + yz \]
-                            \[ \dot{z} = x - x^2 - y^2 \]
+                            \[ \begin{array}{l}
+                            \dot{x} = ayz \\
+                            \dot{y} = x - by \\
+                            \dot{z} = c - xy
+                            \end{array}\]
                         </p>
                     </div>
                     <div class="contents-right"
                         <p>
                             <a href="etc_DEQ_v3_en.html?selectedOption=06">
-                                <img src="image/DEQ_img/deq3_06_25.jpg" border="0">
+                                <img src="image/DEQ_img/deq3_06a_25.png" border="0">
                             </a>
                         </p>
                     </div>
-                    <div class="c-both"></div>
+                    <div class="c-both pb20"></div>
                     <p class="pl0 pb10">
-                        It seems to produce chaotic solutions, but I don't observe sensitivity to initial values.
+                        <!--
+                        Julien C. Sprott による「最小カオス系探索」で設計され方程式で、いくつもの系が存在します。
+                        非常にコンパクトであるにも関わらず、カオスになるように設計されており、
+                        初期値鋭敏性も備えています。
+                        -->
+                        This equation was designed by Julien C. Sprott as part of his search for minimal chaotic systems,
+                        and several such systems exist.
+                        Despite its extremely compact form,
+                        it is capable of producing chaos and exhibits sensitivity to initial conditions.
                     </p>
-                    <p class="pl0 pl0 pb10">
-                        For information about the Sprott system, please refer to the following site.
+                    <p class="p10 pb10">
+                        For details on the Sprott B system, please refer to the site below.
                     </p>
-                    <p class="pl0 pl0 pb10">
-                          1. <a href="https://www.dynamicmath.xyz/strange-attractors/" target="_blank">STRANGE ATTRACTORS</a>
+                    <p class="p10 pb10">
+                        1. <a href="https://sprott.physics.wisc.edu/simplest.htm" target="_blank">Simple Chaotic Flow GIF Animations</a>
                     </p>
-                    <p class="pl0 pl0 pb10">
-                        The tool uses parameters $a = 2.07$, $b = 1.79$ and initial values $(x, y, z) = (0.63, 0.47, -0.54)$ and $(0.63, 0.47, -.055)$.
+                    <p class="p10 pb10">
+                        2. <a href="https://sequelaencollection.home.blog/3d-chaotic-attractors/" target="_blank">3D Chaotic Attractors</a>
+                    </p>
+                    <p class="p10 pb10">
+                        In the simulation tool, the parameters are $a = 0.4, b = 1.2, c = 1$,
+                        and the initial conditions are $(0.1, 1, 1)$ and $(0.11, 1, 1)$.
                     </p>
                 </div>
 
@@ -453,7 +573,7 @@
                     </p>
                 </div>
                 <div class="contents-title-right"
-                    <p>
+                    <p class="fss fwb">
                         <a href="etc_DEQ_v3_en.html?selectedOption=07">to Plot</a>
                     </p>
                 </div>
@@ -461,9 +581,11 @@
                 <div class="pb30 fwm">
                     <div class="contents-left pb10"
                         <p class="pb10">
-                            \[ \dot{x} = y(z - 1 + x^2) + bx \]
-                            \[ \dot{y} = x(3z + 1 - x^2) + by \]
-                            \[ \dot{z} = -2z(a + xy) \]
+                            \[ \begin{array}{l}
+                            \dot{x} = y(z - 1 + x^2) + bx \\
+                            \dot{y} = x(3z + 1 - x^2) + by \\
+                            \dot{z} = -2z(a + xy)
+                            \end{array}\]
                         </p>
                     </div>
                     <div class="contents-right"
@@ -473,23 +595,429 @@
                             </a>
                         </p>
                     </div>
-                    <div class="c-both"></div>
+                    <div class="c-both pb20"></div>
                     <p class="pl0 pb10">
-                        The solution trajectory moves complexly among three attractors.
-                        Similar to the Lorenz model, sensitivity to initial values is observed.
+                        <!--
+                        解軌道は3つのアトラクターを複雑に動きます。Lorenz system同様に、初期値鋭敏性が見られます。
+                        -->
+                        The trajectories move among three attractors in a complex manner.
+                        As in the Lorenz system, sensitivity to initial conditions is observed.
                     </p>
-                    <p class="pl0 pl0 pb10">
-                        For information about the Rabinovich-Fabrikant system, please refer to the following site.
+                    <p class="p10 pb10">
+                        For details on the Rabinovich–Fabrikant system, please refer to the site below.
                     </p>
-                    <p class="pl0 pl0 pb10">
-                          1. <a href="https://en.wikipedia.org/wiki/Rabinovich%E2%80%93Fabrikant_equations" target="_blank">Rabinovich–Fabrikant equations</a>
+                    <p class="p10 pb10">
+                        1. <a href="https://en.wikipedia.org/wiki/Rabinovich%E2%80%93Fabrikant_equations" target="_blank">Rabinovich–Fabrikant equations</a>
                     </p>
-                    <p class="pl0 pl0 pb10">
-                        The tool uses parameters $a = 0.14$, $b = 0.1$ and initial values $(x, y, z) = (-1, 0.9, 0.6)$ and $(-1, 0.9, 0.60001)$.
+                    <p class="p10 pb10">
+                        In the simulation tool, the parameters are $a = 0.14, b = 0.1$,
+                        and the initial conditions are $(-1, 0.9, 0.6)$ and $(-1, 0.9, 0.60001)$.
+                    </p>
+                </div>
+
+                <div class="contents-title-left pb20"
+                    <p id="08">
+                        [08]&nbsp;Chen-Lee system
+                    </p>
+                </div>
+                <div class="contents-title-right"
+                    <p class="fss fwb">
+                        <a href="etc_DEQ_v3_en.html?selectedOption=08">to Plot</a>
+                    </p>
+                </div>
+                <div class="c-both"></div>
+                <div class="pb30 fwm">
+                    <div class="contents-left pb10"
+                        <p class="pb10">
+                            \[ \begin{array}{l}
+                            \dot{x} = ax - yz \\
+                            \dot{y} = by + xz \\
+                            \dot{z} = cz + xy/3
+                            \end{array}\]
+                        </p>
+                    </div>
+                    <div class="contents-right"
+                        <p>
+                            <a href="etc_DEQ_v3_en.html?selectedOption=08">
+                                <img src="image/DEQ_img/deq3_08a_25.png" border="0">
+                            </a>
+                        </p>
+                    </div>
+                    <div class="c-both pb20"></div>
+                    <p class="pl0 pb10">
+                        <!--
+                        このsystemは初期値鋭敏性を備え、アトラクターの中でカオス軌道を描きます。
+                        Lorenz systemが単一のアトラクターであり、初期点が異なっていても、
+                        最終的には同じバタフライに吸い込まれるのに対して、
+                        Chen-Lee systemは複数のアトラクターを持ち、初期点によって、どのアトラクターへ吸い込まれるか決まるようです。
+                        -->
+                        This system exhibits sensitivity to initial conditions
+                        and produces chaotic trajectories within attractors.
+                        Unlike the Lorenz system, which has a single attractor,
+                        the Chen–Lee system has multiple attractors,
+                        and the specific attractor approached depends on the initial conditions.
+                    </p>
+                    <p class="p10 pb10">
+                        For details on the Chen-Lee system, please refer to the site below.
+                    </p>
+                    <p class="p10 pb10">
+                        1. <a href="https://sequelaencollection.home.blog/3d-chaotic-attractors/" target="_blank">3D Chaotic Attractors – The Sequelaen Collection</a>
+                    </p>
+                    <p class="p10 pb10">
+                        In the simulation tool, the parameters are $a = 5.0, b = -10.0, c = -0.38$,
+                        and the initial conditions are $(5, 10, 10)$ and $(-7, -5, -10)$.
+                    </p>
+                </div>
+
+                <div class="contents-title-left pb20"
+                    <p id="09">
+                        [09]&nbsp;Chen system
+                    </p>
+                </div>
+                <div class="contents-title-right"
+                    <p class="fss fwb">
+                        <a href="etc_DEQ_v3_en.html?selectedOption=09">to Plot</a>
+                    </p>
+                </div>
+                <div class="c-both"></div>
+                <div class="pb30 fwm">
+                    <div class="contents-left pb10"
+                        <p class="pb10">
+                            \[ \begin{array}{l}
+                            \dot{x} = a(y - x) \\
+                            \dot{y} = (c - a)x - xz + cy \\
+                            \dot{z} = xy -bz
+                            \end{array} \]
+                        </p>
+                    </div>
+                    <div class="contents-right"
+                        <p>
+                            <a href="etc_DEQ_v3_en.html?selectedOption=09">
+                                <img src="image/DEQ_img/deq3_09a_25.png" border="0">
+                            </a>
+                        </p>
+                    </div>
+                    <div class="c-both pb20"></div>
+                    <p class="pl0 pb10">
+                        <!--
+                        中国の数学者
+                        <a href="https://en.wikipedia.org/wiki/Chen_Guanrong" target="_blank"> Chen Guanrong </a>によって
+                        提唱された方程式で、Lorenz系の非線形強化版と考えられます。
+                        Lorenz system 同様、単一のアトラクターと初期値鋭敏性を持ちます。
+                        -->
+                        This system was proposed by the Chinese mathematician
+                        <a href="https://en.wikipedia.org/wiki/Chen_Guanrong" target="_blank">Chen Guanrong</a>
+                        and can be regarded as a nonlinear extension of the Lorenz system.
+                        Like the Lorenz system, it has a single attractor and exhibits sensitivity to initial conditions.
+                    </p>
+                    <p class="pl0 pb10">
+                        <!--
+                        Chen system は通信暗号の同期や制御に応用されています。
+                        -->
+                        The Chen system has applications in secure communications, synchronization, and control.
+
+                    </p>
+                    <p class="p10 pb10">
+                        For details on the Chen system, please refer to the site below.
+                    </p>
+                    <p class="p10 pb10">
+                        1. <a href="https://onlinelibrary.wiley.com/doi/10.1155/2022/8613090" target="_blank">Fully Integrated Chen Chaotic Oscillation System</a>
+                    </p>
+                    <p class="p10 pb10">
+                        In the simulation tool, the parameters are $a = 40, b = 3, c = 28$,
+                        and the initial conditions are $(-0.1, 0.5, -0.6)$ and $(-0.1, 0.5, -0.601)$.
+                    </p>
+                </div>
+
+                <div class="contents-title-left pb20"
+                    <p id="10">
+                        [10]&nbsp;Chua system
+                    </p>
+                </div>
+                <div class="contents-title-right"
+                    <p class="fss fwb">
+                        <a href="etc_DEQ_v3_en.html?selectedOption=10">to Plot</a>
+                    </p>
+                </div>
+                <div class="c-both"></div>
+                <div class="pb30 fwm">
+                    <div class="contents-left pb10"
+                        <p class="pb10">
+                            \[ \begin{array}{l}
+                                \dot{x} = a(y - x - f(x)) \\
+                                \dot{y} = x - y + z \\
+                                \dot{z} = -by \\
+                                \hspace{1em} \text{where} \\
+                                f(x) = cx + \tfrac{1}{2}(d - c)(|x + 1| - |x - 1|)
+                            \end{array} \]
+                        </p>
+                    </div>
+                    <div class="contents-right"
+                        <p>
+                            <a href="etc_DEQ_v3_en.html?selectedOption=10">
+                                <img src="image/DEQ_img/deq3_10a_25.png" border="0">
+                            </a>
+                        </p>
+                    </div>
+                    <div class="c-both pb20"></div>
+                    <p class="pl0 pb5">
+                        <!--
+                        中国系アメリカ人のコンピューター科学者
+                        <a href="https://en.wikipedia.org/wiki/Leon_O._Chua" target="_blank"> Leon O. Chua </a>が
+                        カオスな挙動を示す<a href="https://en.wikipedia.org/wiki/Chua%27s_circuit" target="_blank"> Chua回路 </a>
+                        を1983年に発明しました。Chua回路はコンデンサ、インダクタ、抵抗、非線形素子(Chua diode)で構築可能です。
+                        更にChua回路のダイナミクスは微分方程式で正確にモデル化できるため、
+                        Chua系はカオスを伴う方程式としては珍しく現実世界で確認可能な系といえます。
+                        -->
+                        The Chua circuit<a href="https://en.wikipedia.org/wiki/Chua%27s_circuit" target="_blank">,
+                        which exhibits chaotic behavior, was invented in 1983 by the Chinese-American computer scientist
+                        <a href="https://en.wikipedia.org/wiki/Leon_O._Chua" target="_blank"> Leon O. Chua </a>.
+                        It can be constructed using capacitors, an inductor, resistors,
+                        and a nonlinear element (the Chua diode).
+                    </p>
+                    <p class="pl0">
+                        Because its dynamics can be accurately modeled by differential equations,
+                        the Chua system is one of the rare chaotic systems that can be physically realized and experimentally verified.
+                    </p>
+                    <p class="pl0 pb10">
+                        For details on the Chua system, please refer to the site below.
+                    </p>
+                    <p class="pl0 pb10">
+                        1. <a href="https://en.wikipedia.org/wiki/Multiscroll_attractor" target="_blank">Multiscroll attractor</a>
+                    </p>
+                    <p class="pl0">
+                        In the simulation tool, the parameters are $a = 15.41, b = 28, c = -0.714, d = -1.143$,
+                        and the initial conditions are $(-0.000001, 0, 0)$ and $(-0.0000011, 0, 0)$.
+                    </p>
+                    <p class="pl0">
+                        <!--
+                        このパラメータと初期値ではダブルスクロールのアトラクターが現れ、
+                        初期値鋭敏性を備えていますが、
+                        パラメータを調整することで、シングルスクロール、周期軌道のアトラクターも出現します。
+                        -->
+                        With these parameters, a double-scroll attractor appears
+                        and exhibits sensitivity to initial conditions.
+                        By adjusting the parameters, single-scroll and periodic attractors can also be obtained.
+                    </p>
+                </div>
+
+                <div class="contents-title-left pb20"
+                    <p id="11">
+                        [11]&nbsp;Langford system
+                    </p>
+                </div>
+                <div class="contents-title-right"
+                    <p class="fss fwb">
+                        <a href="etc_DEQ_v3_en.html?selectedOption=11">to Plot</a>
+                    </p>
+                </div>
+                <div class="c-both"></div>
+                <div class="pb30 fwm">
+                    <div class="contents-left pb10"
+                        <p class="pb10">
+                            \[ \begin{array}{l}
+                                \dot{x} = (z - a)x - by \\
+                                \dot{y} = bx + (z - a)y \\
+                                \dot{z} = c + dz - \tfrac{z^3}{3} \\
+                                \hspace{2em}  - (x^2 + y^2)(1 + ex) + fzx^3
+                            \end{array} \]
+                        </p>
+                    </div>
+                    <div class="contents-right"
+                        <p>
+                            <a href="etc_DEQ_v3_en.html?selectedOption=11">
+                                <img src="image/DEQ_img/deq3_11a_25.png" border="0">
+                            </a>
+                        </p>
+                    </div>
+                    <div class="c-both pb20"></div>
+                    <p class="pl0 pb10">
+                        <!--
+                        一般に準周期アトラクターの例として、引き合いに出されることが多い方程式です。
+                        よく似た方程式に Aizawa system があります。係数と非線形項の一部が異なりますが、
+                        両者ともほぼ同じ性質を備えています。
+                        -->
+                        This equation is often cited as a typical example of a quasiperiodic attractor.
+                        A similar system is the Aizawa system; although some coefficients and nonlinear terms differ,
+                        they share very similar properties.
+                    </p>
+                    <p class="p10 pb10">
+                        For details on the Langford system, please refer to the site below.
+                    </p>
+                    <p class="p10 pb10">
+                          1. <a href="https://link.springer.com/chapter/10.1007/978-3-0348-6256-1_19" target="_blank">Numerical Studies of Torus Bifurcations</a>
+                    </p>
+                    <p class="p10">
+                        <!--
+                        シミュレーションツールでは、パラメーターは$a = 0.7, b = 3.5, c = 0.6, d = 1, e = 0.25, f = 0$ 、初期値は $(x, y, z) = (1, 1, 1)、(1, 1, 1.1)$ としています。
+                        この場合、解軌道は準周期的であり、トーラスの表面を動き、非常に美しいアトラクターを形成します。
+                        しかし、係数 $c$ が 0.8 位になると、トーラスを壊し始め、カオスに移行します。このときは、初期値鋭敏性を持ちます。
+                        -->
+                        In the simulation tool, the parameters are $a = 0.7, b = 3.5, c = 0.6, d = 1, e = 0.25, f = 0$,
+                        and the initial conditions are $(1, 1, 1)$ and $(1, 1, 1.1)$.<br>
+                        In this case, the trajectory is quasiperiodic and evolves on a torus,
+                        forming a very beautiful attractor.
+                    </p>
+                    <p class="p10 pb10">
+                        However, when the coefficient $c$ is increased to around 0.8,
+                        the torus begins to break down and the system transitions to chaos,
+                        exhibiting sensitivity to initial conditions.
+                    </p>
+                </div>
+
+
+                <div class="contents-title-left pb20"
+                    <p id="12">
+                        [12]&nbsp;Dadras system
+                    </p>
+                </div>
+                <div class="contents-title-right"
+                    <p class="fss fwb">
+                        <a href="etc_DEQ_v3_en.html?selectedOption=12">to Plot</a>
+                    </p>
+                </div>
+                <div class="c-both"></div>
+                <div class="pb30 fwm">
+                    <div class="contents-left pb10"
+                        <p class="pb10">
+                            \[ \begin{array}{l}
+                            \dot{x} = y -ax + byz \\
+                            \dot{y} = cy -xz + z \\
+                            \dot{z} = dxy -ez
+                            \end{array}\]
+                        </p>
+                    </div>
+                    <div class="contents-right"
+                        <p>
+                            <a href="etc_DEQ_v3_en.html?selectedOption=12">
+                                <img src="image/DEQ_img/deq3_12a_25.png" border="0">
+                            </a>
+                        </p>
+                    </div>
+                    <div class="c-both pb20"></div>
+                    <p class="pl0 pb10">
+                        <!--
+                        2009年にDadrasとMomeniによって紹介された方程式で、マルチスクロールのアトラクターが生成されます。
+                        -->
+                        This system was introduced by Dadras and Momeni in 2009 and generates multi-scroll attractors.
+                    </p>
+                    <p class="p10 pb10">
+                        For details on the Dadras system, please refer to the site below.
+                    </p>
+                    <p class="p10 pb10">
+                          1. <a href="https://www.sciencedirect.com/science/article/abs/pii/S0375960109009591?via%3Dihub" target="_blank">A novel three-dimensional autonomous chaotic system generating two, three and four-scroll attractors</a>
+                    </p>
+                    <p class="p10 pb10">
+                        <!--
+                        シミュレーションツールでは、パラメーターは$a = 3, b = 2.7, c = 1.7, d = 2, e = 5.4$ 、初期値は $(x, y, z) = (1, 1, 0)、(1, 1, 0.1)$ としています。
+                        この場合は、4ストロークになりますが、$e$を$5.4$から$9$位に変更すると、3スクロールに変化します。
+                        -->
+                        In the simulation tool, the parameters are $a = 3, b = 2.7, c = 1.7, d = 2, e = 5.4$,
+                        and the initial conditions are $(1, 1, 0)$ and $(1, 1, 0.1)$.<br>
+                        In this case, a four-scroll attractor is obtained;
+                        however, increasing $e$ from 5.4 to around 9 changes it to a three-scroll attractor.
                     </p>
                 </div>
 
             </div>
+
+            <!-- 補足説明 -->
+            <div  id="*1" class="bd15 fwb">
+                == Notes ==
+            </div>
+            <div class="bdr10 fss pb10">
+                <p>
+                    [1.]
+                </p>
+                <p>
+                    The drawing page provides a function to store the parameters of the selected equation using Local Storage.
+                    Changing the starting point of the trajectory or modifying coefficients can drastically alter the solution path.
+                    Some of the referenced websites for each equation offer detailed explanations.
+                </p>
+                <p class="pb10">
+                    Once you start modifying parameters, you will typically adjust them gradually while observing how the solution trajectory changes.
+                    In my case, I often spend quite a bit of time tuning them,
+                    and it is common for me to think, “I’ll continue this tomorrow.”
+                    In such situations, having the parameters saved is extremely convenient.
+                    Also, if you happen to find a set of parameters that produces a remarkable trajectory,
+                    saving those parameters allows you to accurately reproduce the same trajectory later.
+                </p>
+                <p class="pb10">
+                    Therefore, as shown below, a checkbox has been added to retain the parameters of the selected equations.
+                </p>
+                <div class="prettyP_PC pb10">
+                    <img src="image/DEQ_img/deq3_LocalStorage01_en.png" width="700px">
+                </div>
+                <div class="prettyP_SP pb10">
+                    <div class="table-container">
+                        <img src="image/DEQ_img/deq3_LocalStorage01_en.png" width="540px">
+                    </div>
+                </div>
+                <p class="pb10">
+                    In the figure, the checkbox is shown to the right of “keep params.”<br>
+                    The upper half of the figure shows the state where the checkbox is unchecked, displaying the default parameters.<br>
+                    The lower half shows the state where the checkbox is checked; in this example, the starting point of the trajectory has been changed.
+                </p>
+                <p class="pb10">
+                    The checkbox operates independently for each equations.
+                    The data stored in Local Storage is as follows:
+                </p>
+                <ul class="list_none fwm pb10 pl40">
+                    <li><1>Which equations have the checkbox checked</li>
+                    <li><2>If parameters of a checked equation are modified, those parameter values</li>
+                    <li><3>The last equations displayed in the browser (managed by its number)</li>
+                </ul>
+                <p>
+                    If you want to modify the parameters of the equation currently displayed,
+                    check the box first and then change the desired parameters.
+                    The data will be automatically saved to Local Storage.
+                </p>
+                <p>
+                    If you create a shortcut to the drawing page and reopen the browser after closing it,
+                    the previously displayed page will open again with the modified parameters applied.
+                </p>
+                <p>
+                    If you uncheck the box and reload the page, the default parameters will be displayed.
+                    Whenever you want to return to the original state, simply uncheck the box.
+                </p>
+                <p>
+                    If you check the box again and reload the page, the page will open with the modified parameters applied.
+                </p>
+                <p>
+                    I personally find this to be a very convenient feature.
+                    Once you check the box on any page, data will be stored in Local Storage.
+                    Even if you uncheck all pages, the data will remain.
+                    Even after unchecking all pages, reopening the browser will display the last viewed equation page.
+                </p>
+                <p>
+                    If you want to completely delete the drawing page data from Local Storage,
+                    please follow the steps below. Here, Google Chrome is used as an example.
+                </p>
+                <ul class="list_none fwm pb10 pl40">
+                    <li><1>Click the settings button (three vertical dots) in the top right corner of the screen</li>
+                    <li><2>Select More tools → Developer tools to open the Developer Tools panel</li>
+                    <li><3>Click the "Application" tab from the menu</li>
+                    <li><4>Right-click each of the following keys and click "Delete"</li>
+                        <ul class="list_none fwm pb10 pl40">
+                            <li>kkoDeq3D_CheckFlg</li>
+                            <li>kkoDeq3D_Data</li>
+                            <li>kkoDeq3D_LastSelected</li>
+                        </ul>
+                    <li><5>All drawing page data will be removed from Local Storage</li>
+                </ul>
+                <p class="pb10">
+                    After deleting all drawing page data from Local Storage,
+                    reloading the browser will leave no equations selected,
+                    and the equations selection box will display “Select equations.”
+                </p>
+                <p class="pb10">
+                    This means the system has been completely reset to its initial state.
+                </p>
+                <p>
+                    <a href="#">Back</a>
+                </p>
+            </div>
+
         </div>
     </div>
 

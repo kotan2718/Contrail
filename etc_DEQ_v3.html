@@ -4,15 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="robots" content="follow, noindex">
-    <meta name="description" content="自励形の連立微分方程式の近似解を3Dで描画するページです。ローレンツ・アトラクターを初めとするカオス的な振る舞いを見せる方程式の初期値鋭敏性などを描画の動きを通して確認することができます。">
+    <meta name="description" content="微分方程式の解軌跡を3Dで可視化するページです。初期値鋭敏性が顕著な方程式や、複数のアトラクターを持つ方程式などを観察することができます。">
+">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Differential Equations 3D</title>
+    <title>微分方程式の解軌道 : 3D 可視化ツール</title>
 
     <!-- favicon-->
     <link rel="icon" href="favicon.ico">
-    <!-- canonical-->
-    <link rel="canonical" href="https://kz-page.la.coocan.jp/etc_DEQ_v3.html">
 
     <!-- css start -->
         <!-- kko_etc start :: class指定:change_border_color, 全ファイル共通:リンク文字色, フォーカスリング -->
@@ -20,6 +19,52 @@
         <link rel="stylesheet" href="libs/etc/css/kko_footer_style.css" media="screen and (min-width: 768px)">
         <!-- kko_etc end -->
         <style>
+
+            .grid1 {
+              display: grid;
+              grid-template-columns: 1fr;
+              grid-template-rows: 20px;
+              text-align: right;
+              padding-bottom: 2px;
+              padding-right: 32px;
+           }
+            .grid3Deq {
+              display: grid;
+              grid-template-columns: auto auto 1fr;
+              grid-template-rows: auto;
+              column-gap:32px;
+           }
+            .grid3Deq-item {
+              line-height: auto;
+            }
+
+
+            .gridWrap {
+                display: grid;
+                grid-template-columns: auto auto auto;
+                grid-template-rows: auto auto;
+                column-gap: 32px;
+                align-items: end; /* ボタンの下を揃える */
+            }
+
+            /* Angle */
+            .angleTitle {
+                grid-column: 3;
+                grid-row: 1;
+                text-align:  left;
+                font-size:   11px;
+                font-weight: bold;
+                margin-left: 12px;
+                margin-bottom: -0px; /* 少し上に寄せる */
+                /*transform: translateY(6px);*/
+            }
+
+            /* ボタン */
+            .btn1 { grid-column: 1; grid-row: 2; }
+            .btn2 { grid-column: 2; grid-row: 2; }
+            .btn3 { grid-column: 3; grid-row: 2; }
+
+
             @media screen and (min-width: 769px) {
                 .pSP {
                     padding-top: 10px;
@@ -30,6 +75,7 @@
                 #horizontal-slider-container {
                     position: relative;
                     top: -0px;
+                    left: -0px;
                     width: 580px;
                     background-color: #CCC;
                 }
@@ -45,6 +91,7 @@
                 }
                 #horizontal-slider {
                     width: 580px;
+                    height: 6px
                 }
             }
             @media screen and (max-width: 768px) {
@@ -76,6 +123,14 @@
                 #horizontal-slider {
                     width: 300px;
                 }
+                .grid2b {
+                  display: grid;
+                  grid-template-columns: 110px 220px;
+                }
+
+                .MathJax {
+                    font-size: 85% !important;
+                }
             }
         </style>
     <!-- css end -->
@@ -104,16 +159,16 @@
           src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
         </script>
         <script type="text/x-mathjax-config">
-          MathJax.Hub.Config({
-            TeX: { equationNumbers: { autoNumber: "AMS" }},
-            tex2jax: {
-              inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-              processEscapes: true
-            },
-            "HTML-CSS": { matchFontHeight: false },
-            displayAlign: "left",
-            displayIndent: "2em"
-          });
+            MathJax.Hub.Config({
+                TeX: { equationNumbers: { autoNumber: "AMS" }},
+                tex2jax: {
+                    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                    processEscapes: true
+                },
+                "HTML-CSS": { matchFontHeight: false },
+                displayAlign: "left",
+                displayIndent: "2em"
+            });
         </script>
 
         <!-- deq initialize -->
@@ -192,12 +247,13 @@
         <div id="title20">
             <div class="prettyP_PC">
                 <h3 class="pt30 pb30">
-                    微分方程式 解軌道の描画 3D
+                    微分方程式の解軌道 : 3D 可視化ツール
                 </h3>
             </div>
             <div class="prettyP_SP">
                 <h4 class="pt10">
-                    微分方程式 解軌道の描画 3D
+                    微分方程式の解軌道<br>
+                    3D 可視化ツール
                 </h4>
             </div>
         </div>
@@ -213,6 +269,34 @@
         <div class="pic-left1024 pb30">
 
             <div id="contents-2col-left_deq">
+                <div class="grid2b pb5">
+                    <p class="fss pt5" align="left">
+                        <input type="checkbox" id="cb_storage3D" onclick="handleCheckboxStorage(this.checked)">&nbsp; keep params
+                    </p>
+                    <div class="custom-select">
+                        <div id="selected" class="select-display">
+                            <span id="selected-text">system を選択</span>
+                            <span class="arrow">▽</span>
+                        </div>
+
+                        <ul id="options" class="hidden">
+                            <li data-value="01">&nbsp; 1. Lorenz system</li>
+                            <li data-value="02">&nbsp; 2. Thomas system</li>
+                            <li data-value="03">&nbsp; 3. Four-Wing system</li>
+                            <li data-value="04">&nbsp; 4. Halvorsen system</li>
+                            <li data-value="05">&nbsp; 5. Rössler system</li>
+                            <li data-value="06">&nbsp; 6. Sprott B system</li>
+                            <li data-value="07">&nbsp; 7. Rabinovich-Fabrikant system</li>
+                            <li data-value="08">&nbsp; 8. Chen-Lee system</li>
+                            <li data-value="09">&nbsp; 9. Chen system</li>
+                            <li data-value="10">10. Chua system</li>
+                            <li data-value="11">11. Langford system</li>
+                            <li data-value="12">12. Dadras system</li>
+<!--                            <li data-value="09&095">5. 入力例 5</li>-->
+                        </ul>
+                    </div>
+                </div>
+
                 <div id="contents-2col-left_deqC">
                     <div class="prettyP_PC">
                         <p class="pb10">
@@ -234,37 +318,40 @@
                 <div id="horizontal-slider-container">
                     <div id="horizontal-slider"></div>
                 </div>
-                <p class="cLink fss fwb pSP" align="right">
-                <!-- 戻るリンク(動的に生成) -->
-                </p>
                 <div class="prettyP_SP">
-                    <p class="pt30 pb20">
-                        <button class="btn-radius-solid" id="start" onclick="startAnimation()">Start</button>
-                        &emsp;&emsp;&nbsp;&nbsp;
-                        <button class="btn-radius-solid" id="stop" onclick="stopAnimation()">Stop</button>
-                        &emsp;&emsp;&nbsp;&nbsp;
-                        <button class="btn-radius-solid" id="reset" onclick="resetAnimation()">Reset</button>
+                    <div class="pb10">
+                        <p class="cLink fss fwb pSP pb20" align="right">
+                        <!-- 戻るリンク(動的に生成) -->
+                        </p>
+                    </div>
+                </div>
+                <div class="prettyP_SP pb20">
+                    <div class="gridWrap">
+                        <div class="angleTitle">Angle</div>
+
+                        <button class="btn-radius-solid startBtn btn1" onclick="startAnimation()">Start</button>
+                        <button class="btn-radius-solid stopBtn btn2" onclick="stopAnimation()">Stop</button>
+                        <button class="btn-radius-solid-reset resetBtn btn3" onclick="resetAnimation()">Reset</button>
+                    </div>
+                </div>
+                <div class="prettyP_PC pt10">
+                    <p class="cLink fss fwb" align="right">
+                    <!-- 戻るリンク(動的に生成) -->
                     </p>
                 </div>
             </div>
 
             <div id="contents-2col-right_deq">
-                <p class="pb10">
-                    <select id="type" style="width: 220px;" onchange="changeType()">
-                        <option value="01">&nbsp; 1. Lorenz system</option>
-                        <option value="02">&nbsp; 2. Thomas system</option>
-                        <option value="03">&nbsp; 3. Four-Wing system</option>
-                        <option value="04">&nbsp; 4. Halvorsen system</option>
-                        <option value="05">&nbsp; 5. Rössler system</option>
-                        <option value="06">&nbsp; 6. Sprott system</option>
-                        <option value="07">&nbsp; 7. Rabinovich-Fabrikant system</option>
-<!--                        <option value="08">&nbsp; 8. Chen system</option>
-                        <option value="09">&nbsp; 9. Chen2 system</option>
-                        <option value="10">10. Chua_14_4 system</option>
-                        <option value="11">11. Lorenz2 system</option>
-                        <option value="12">12. Langford system</option>-->
-                    </select>
-                </p>
+                <div class="prettyP_PC pb30">
+                    <div class="gridWrap">
+                        <div class="angleTitle">Angle</div>
+
+                        <button class="btn-radius-solid startBtn btn1" onclick="startAnimation()">Start</button>
+                        <button class="btn-radius-solid stopBtn btn2" onclick="stopAnimation()">Stop</button>
+                        <button class="btn-radius-solid-reset resetBtn btn3" onclick="resetAnimation()">Reset</button>
+                    </div>
+                </div>
+
                 <p class="pb5">
                     <label for="dx"><span id="dx"></span></label>
                 </p>
@@ -334,6 +421,7 @@
                             <select id="spd" style="width: 55px; text-align:right;" onchange="changeSpeed()">
                                 <option value="1">&nbsp; 1</option>
                                 <option value="2">&nbsp; 2</option>
+                                <option value="3">&nbsp; 3</option>
                                 <option value="4">&nbsp; 4</option>
                                 <option value="8">&nbsp; 8</option>
                                 <option value="20">20</option>
@@ -357,7 +445,7 @@
                 </div>
 
                 <!-- 繰返し回数 -->
-                <div class="grid2a  fss fwb pb10">
+                <div class="grid2a  fss fwb pb20">
                     <div class="grid-item">
                         <p>
                             繰返し
@@ -377,7 +465,7 @@
 
                 <div class="grid2 fss fwb">
                     <!-- 初期値(見出し2) -->
-                    <div class="grid-item">
+                    <div class="grid2-item">
                         <p>
                             初期値
                             &emsp;
@@ -387,7 +475,7 @@
                         </p>
                     </div>
                     <!-- 描画角度(見出し) -->
-                    <div class="grid-item">
+                    <div class="grid2-item">
                         <p>
                             Angle
                         </p>
@@ -462,16 +550,6 @@
                     </div>
                 </div>
 
-                <div class="prettyP_PC">
-                    <p class="pb20">
-                        <button class="btn-radius-solid" id="start" onclick="startAnimation()">Start</button>
-                        &emsp;&emsp;&nbsp;&nbsp;
-                        <button class="btn-radius-solid" id="stop" onclick="stopAnimation()">Stop</button>
-                        &emsp;&emsp;&nbsp;&nbsp;
-                        <button class="btn-radius-solid" id="reset" onclick="resetAnimation()">Reset</button>
-                    </p>
-                </div>
-
             </div>
             <div class="c-both"></div>
         </div>
@@ -481,55 +559,27 @@
     <script src="libs/etc/js/deq01_v3.js"></script>
 
     <footer>
-        <div class="prettyP_PC">
-            <div class="wrap">
-            </div>
-            <div class="footer_bottom_fixed2">
-                <hr id="footer"> <!-- horizontal partition -->
+        <hr id="footer"> <!-- horizontal partition -->
 
-                <div class="jQ_change center"> <!-- select button whole: start -->
-                    <p id="footer"> <!-- select button: start -->
-                        <a href="etc.html">
-                            <img src="image/button/back_off.gif" border="0" alt="Back">
-                        </a>
-                    </p> <!-- select button: end -->
-                </div> <!-- select button whole: end -->
+        <p id="page-top"><a href="#">TOP</a></p>
 
-                <div class="footer_labelPC">
-                    &copy; 2003 -
-                    <script>
-                        date = new Date();
-                        document.write(date.getFullYear() + ' ');
-                    </script>
-                    <nonscript>
-                    </nonscript>
-                    Contrail - kotan -
-                </div>
-            </div>
-        </div>
-        <div class="prettyP_SP">
-            <hr id="footer"> <!-- horizontal partition -->
+        <div class="jQ_change center"> <!-- select button whole: start -->
+            <p id="footer"> <!-- select button: start -->
+                <a href="etc.html">
+                    <img src="image/button/back_off.gif" border="0" alt="Back">
+                </a>
+            <p> <!-- select button: end -->
+        </div> <!-- select button whole: end -->
 
-            <p id="page-top"><a href="#">TOP</a></p>
-
-            <div class="jQ_change center"> <!-- select button whole: start -->
-                <p id="footer"> <!-- select button: start -->
-                    <a href="etc.html">
-                        <img src="image/button/back_off.gif" border="0" alt="Back">
-                    </a>
-                <p> <!-- select button: end -->
-            </div> <!-- select button whole: end -->
-
-            <div class="footer_labelPC">
-                &copy; 2003 -
-                <script>
-                    date = new Date();
-                    document.write(date.getFullYear() + ' ');
-                </script>
-                <nonscript>
-                </nonscript>
-                Contrail - kotan -
-            </div>
+        <div class="footer_labelPC">
+            &copy; 2003 -
+            <script>
+                date = new Date();
+                document.write(date.getFullYear() + ' ');
+            </script>
+            <nonscript>
+            </nonscript>
+            Contrail - kotan -
         </div>
     </footer>
 

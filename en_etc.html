@@ -29,6 +29,101 @@
                 margin-left: -100px;  /* 日付幅ぶん戻す */
                 padding-left: 20px;  /* 少しインデント */
             }
+
+            /*-------------------*/
+            /* custom-select BOX */
+            /*-------------------*/
+
+            .custom-select {
+                width: 100%;
+                font-size: 14px;   /* ←本文に合わせる */
+                text-align: left;   /* 念のため */
+            }
+
+            /* PCだけ上書き */
+/*            @media screen and (min-width: 769px) {
+                .custom-select {
+                    width: 100%;
+                }
+            }
+*/
+            .select-display {
+                border: 1px solid #888;
+                padding: 2px 10px;
+                cursor: pointer;
+
+                display: flex;
+                align-items: center;
+            }
+
+            /* 文字部分だけ省略 */
+            #selected-text {
+                flex: 1;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            /* 矢印は固定表示 */
+            .arrow {
+                flex-shrink: 0;
+                margin-left: 8px;
+            }
+
+            .select-display.disabled {
+                pointer-events: none;
+                opacity: 0.6; /* 任意：無効っぽく見せる */
+            }
+
+            #options {
+                position: absolute;
+                background: #fff;
+                z-index: 1000;
+
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                border: 1px solid #888;
+                position: absolute;
+                width: 100%;
+                background: #fff;
+                max-height: 300px;   /* メニュー表示の高さ */
+                overflow-y: auto;
+                white-space: normal;      /* 折り返し許可 */
+                word-break: break-all;    /* 強制折り返し */
+            }
+
+            .hidden {
+                display: none;
+            }
+
+            #options li {
+                padding: 6px 10px;
+                cursor: pointer;
+                text-align: left;   /* ←追加 */
+            }
+
+            #options li:hover {
+                background: #eee;
+            }
+
+            #options li a {
+                display: block;     /* ←重要 */
+                text-align: left;   /* ←追加 */
+                width: 100%;
+                text-decoration: none; /* 下線を消す場合 */
+                color: inherit;        /* liの色を継承 */
+            }
+
+            #options li.disabled {
+                color: #999;
+                pointer-events: none; /* クリック無効 */
+            }
+
+            #options li.selected {
+                background: #0078d7;
+                color: white;
+            }
         </style>
     <!-- css end -->
 
@@ -120,15 +215,44 @@
                 I'm not sure how long I can keep up these updates, but I'd like to keep trying as long as I'm still interested.
                 The tools I've introduced are as follows:
             </h4>
-            <h4 class="left2 pb10">
-                Lens Meter Simulation tool <br>
+            <h4 class="left2 pb30">
+                Lens Meter Simulation tool =SRTLM=<br>
                 Differential Equations drawing tools <br>
-                Rendering Surfaces with Hidden Line Meshes
+                Rendering Surfaces with Hidden Line Meshes<br>
+                Voyagers of 38,000 years ago
                 <p class="pb10"></p>
-                <p class="fss">
-                    * These tools are introduced in order of update.
-                </p>
             </h4>
+            <h4 class="left2 fss pb5">
+                Here is a list of the tools I have introduced, presented in the order they were released or updated:
+            </h4>
+            <div class="custom-select fwb">
+                <div id="selected" class="select-display">
+                    <span id="selected-text">List view of update history</span>
+                    <span class="arrow">▽</span>
+                </div>
+
+                <ul id="options" class="hidden">
+                    <li><a href="#260412">26/04/12 &ensp; Differential Equation Visualization Tool (3D): Added new equations</a></li>
+                    <li><a href="#260319">26/03/19 &ensp; Differential Equation Visualization Tool (2D): Added vector field display function</a></li>
+                    <li><a href="#260215">26/02/15 &ensp; Differential Equation Visualization Tool (2D): Improved calculation logic for initial points</a></li>
+                    <li><a href="#251123">25/11/23 &ensp; Lensmeter Simulation Tool "SRTLM": Updated</a></li>
+                    <li><a href="#251013">25/10/13 &ensp; Lensmeter Simulation Tool "SRTLM": Source code released</a></li>
+                    <li><a href="#250910c">25/09/24 &ensp; Sudoku Puzzle Generator Tool: Released alternative solving method” </a></li>
+                    <li><a href="#250910b">25/09/24 &ensp; Sudoku Puzzle Generator Tool: Updated</a></li>
+                    <li><a href="#250910a">25/09/24 &ensp; Sudoku Puzzle Generator Tool: Released</a></li>
+                    <li><a href="#250326">25/03/26 &ensp; Voyagers of 38,000 years ago: Released</a></li>
+                    <li><a href="#240908">24/09/08 &ensp; Surface Rendering Tool: Released</a></li>
+                    <li><a href="#240706">24/07/06 &ensp; Differential Equation Visualization Tool (3D): Added slider bar to improve usability</a></li>
+                    <li><a href="#240624">24/06/24 &ensp; Differential Equation Visualization Tool (2D): Added user input function for equations</a></li>
+                    <li><a href="#240511">24/05/11 &ensp; Differential Equation Visualization Tool (2D): Added equations (Part 4)</a></li>
+                    <li><a href="#240428">24/04/28 &ensp; Differential Equation Visualization Tool (2D): Added equations (Part 3)</a></li>
+                    <li><a href="#240415">24/04/15 &ensp; Differential Equation Visualization Tool (2D): Added equations (Part 2)</a></li>
+                    <li><a href="#240323">24/03/23 &ensp; Differential Equation Visualization Tool (2D): Added equations (Part 1)</a></li>
+                    <li><a href="#240303b">24/03/03 &ensp; Differential Equation Visualization Tool (2D): Released</a></li>
+                    <li><a href="#240303a">24/03/03 &ensp; Differential Equation Visualization Tool (3D): Released</a></li>
+                    <li><a href="#230801">23/08/01 &ensp; Lensmeter Simulation Tool "SRTLM": Released</a></li>
+                </ul>
+            </div>
         </div>
 
         <!-- for Java Script off -->
@@ -145,11 +269,87 @@
         ページの該当する場所にリンクするとき: [xxxxx] - zzzzz   <- 括弧なしで zzzzz のみに下線がつく
         -->
 
+        <!-- 26/04/15 -->
+        <div class="left2 flex">
+            <div class="flx_itemL">
+                <div id="260412">
+                    04/15/26
+                </div>
+                <div>
+                    <img class="nav-right-img" src="image/button/update_c.gif" width="52" height="14">
+                </div>
+            </div>
+            <div class="flx_itemC">
+                <img src="image/common/b-tri.gif" alt="label">
+            </div>
+            <div class="flx_itemR960">
+                <div class="pb10">
+                    I have added the following equations to <a href="#3D">the page
+                    that plots solution trajectories </a> for differential equations (3D).
+                </div>
+
+                <div class="pb10">
+                    <ul class="fwm pl30" style="font-size: 85%;">
+                        <li>
+                            [08] Chen-Lee system
+                        </li>
+                        <li>
+                            [09] Chen system
+                        </li>
+                        <li>
+                            [10] Chua system
+                        </li>
+                        <li>
+                            [11] Langford system
+                        </li>
+                        <li>
+                            [12] Dadras system
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="pb10">
+            <a href="etc_DEQ_doc3_en.html#08">
+                <span class="deq_pic_size">
+                    <img src="image/DEQ_img/deq3_08a.png" border="0">
+                </span>
+            </a>
+            <a href="etc_DEQ_doc3_en.html#09">
+                <span class="deq_pic_size">
+                    <img src="image/DEQ_img/deq3_09a.png" border="0">
+                </span>
+            </a>
+            <a href="etc_DEQ_doc3_en.html#10">
+                <span class="deq_pic_size">
+                    <img src="image/DEQ_img/deq3_10a.png" border="0">
+                </span>
+            </a>
+        </div>
+        <div class="pb30">
+            <a href="etc_DEQ_doc3_en.html#11">
+                <span class="deq_pic_size">
+                    <img src="image/DEQ_img/deq3_11a.png" border="0">
+                </span>
+            </a>
+            <a href="etc_DEQ_doc3_en.html#12">
+                <span class="deq_pic_size">
+                    <img src="image/DEQ_img/deq3_12a.png" border="0">
+                </span>
+            </a>
+        </div>
+        <div class="pb30">
+            <a href="etc_DEQ_doc3_en.html#*1">
+                I have added a feature that saves any changes made to the parameters of the selected equation
+                to local storage.
+            </a>
+        </div>
+
         <!-- 26/03/19 -->
         <div class="left2 flex">
             <div class="flx_itemL">
-                <div>
-                    26/03/19
+                <div id="260319">
+                    03/19/26
                 </div>
                 <div>
                     <!--<img class="nav-right-img" src="image/button/update_c.gif" width="52" height="14">-->
@@ -237,7 +437,7 @@
         <!-- 26/02/15 -->
         <div class="left2 flex">
             <div class="flx_itemL">
-                <div>
+                <div id="260215">
                     02/15/26
                 </div>
                 <div>
@@ -292,7 +492,7 @@
         <!-- 25/11/23-->
         <div class="left2 flex pb30">
             <div class="flx_itemL">
-                <div>
+                <div id="251123">
                     11/23/25
                 </div>
                 <div>
@@ -319,6 +519,11 @@
                 <div class="pb5">
                     The only visual change in the SRTML execution screen
                     is the addition of the “1.523” checkbox in the [Lens Data] section.
+                </div>
+                <div class="pb5">
+                    <span class="image-container">
+                        <img src="image/SRTLM_img/etc_SRTLM_add_1523_CheckBox.png">
+                    </span>
                 </div>
                 <div class="pb10">
                     The front surface radius of the lens is calculated based on the “Curve” setting.<br>
@@ -370,7 +575,7 @@
                     I added this feature because I believe it is necessary for handling the tool.
                 </div>
                 <div class="pb10">
-                    [E.T.C.] - <a href="etc_SRTLM_document_add.html">etc_SRTLM_document_add</a>
+                    [E.T.C.] - <a href="etc_SRTLM_document_add_en.html">etc_SRTLM_document_add_en</a>
                 </div>
             </div>
         </div>
@@ -378,7 +583,7 @@
         <!-- 25/10/13-->
         <div class="left2 flex pb30">
             <div class="flx_itemL">
-                <div>
+                <div id="251013">
                     10/13/25
                 </div>
                 <div>
@@ -418,7 +623,7 @@
         <!-- 25/09/10-->
         <div class="left2 flex pb30">
             <div class="flx_itemL">
-                <div>
+                <div id="250910c">
                     09/10/25
                 </div>
                 <div>
@@ -458,7 +663,7 @@
         <!-- 25/09/10 -->
         <div class="left2 flex pb30">
             <div class="flx_itemL">
-                <div>
+                <div id="250910b">
                     09/10/25
                 </div>
                 <div>
@@ -484,7 +689,7 @@
         <!-- 25/09/10 -->
         <div class="left2 flex pb30">
             <div class="flx_itemL">
-                <div>
+                <div id="250910a">
                     09/10/25
                 </div>
                 <div>
@@ -521,7 +726,7 @@
 
         <!-- 25/03/26 -->
         <div class="left2 flex pb30">
-            <div class="flx_itemL">
+            <div  id="250326" class="flx_itemL">
                 03/26/25
             </div>
             <div class="flx_itemC">
@@ -536,15 +741,23 @@
                     "the mystery of the seafarers who transported obsidian by boat
                     from Kozushima Island in the Izu Islands to the mainland 38,000 years ago. "
                 </div>
-                <div>
+                <div class="pb15">
                     [E.T.C.] - <a href="etc_Voyager_en.html">Voyagers of 38,000 years ago</a>
+                </div>
+                <div>
+                    <a href="etc_Voyager_en.html">
+                        <span class="image-container">
+                            <img src="image/Voyager/voyager_top_img.png" width="60%"
+                                alt="Voyagers of 38,000 years ago Top Image">
+                        </span>
+                    </a>
                 </div>
             </div>
         </div>
 
         <!-- 24/09/08 -->
         <div class="left2 flex pb30">
-            <div class="flx_itemL">
+            <div  id="240908" class="flx_itemL">
                 09/08/24
             </div>
             <div class="flx_itemC">
@@ -580,7 +793,7 @@
         <!-- 24/07/06 -->
         <div class="left2 flex">
             <div class="flx_itemL">
-                <div>
+                <div id="240706">
                     07/06/24
                 </div>
                 <div>
@@ -615,7 +828,7 @@
         <!-- 24/06/24 -->
         <div class="left2 flex">
             <div class="flx_itemL">
-                <div>
+                <div id="240624">
                     06/24/24
                 </div>
                 <div>
@@ -654,7 +867,7 @@
         <!-- 24/05/11 -->
         <div class="left2 flex">
             <div class="flx_itemL">
-                <div>
+                <div id="240511">
                     05/11/24
                 </div>
                 <div>
@@ -718,7 +931,7 @@
         <!-- 24/04/28 -->
         <div class="left2 flex">
             <div class="flx_itemL">
-                <div>
+                <div id="240428">
                     04/28/24
                 </div>
                 <div>
@@ -768,7 +981,7 @@
         <!-- 24/04/15 -->
         <div class="left2 flex">
             <div class="flx_itemL">
-                <div>
+                <div id="240415">
                     04/15/24
                 </div>
                 <div>
@@ -823,13 +1036,11 @@
 
         <!-- 24/03/23 -->
         <div class="left2 flex">
-            <div class="flx_itemL">
-                <div>
-                    03/23/24
-                </div>
-                <div>
-                    <!--<img class="nav-right-img" src="image/button/update_c.gif" width="52" height="14">-->
-                </div>
+            <div  id="240323" class="flx_itemL">
+                03/23/24
+            </div>
+            <div>
+                <!--<img class="nav-right-img" src="image/button/update_c.gif" width="52" height="14">-->
             </div>
             <div class="flx_itemC">
                 <img src="image/common/b-tri.gif" alt="label">
@@ -879,13 +1090,11 @@
 
         <!-- 24/03/xx -->
         <div class="left2 flex pb30">
-            <div class="flx_itemL">
-                <div>
-                    03/10/24
-                </div>
-                <div>
-                    <!--<img class="nav-right-img" src="image/button/update_c.gif" width="52" height="14">-->
-                </div>
+            <div id="240303b" class="flx_itemL">
+                03/10/24
+            </div>
+            <div>
+                <!--<img class="nav-right-img" src="image/button/update_c.gif" width="52" height="14">-->
             </div>
             <div class="flx_itemC">
                 <img src="image/common/b-tri.gif" alt="label">
@@ -950,7 +1159,7 @@
         </div>
 
         <!-- 24/03/xx -->
-        <div class="left2 flex pb10">
+        <div  id="240303a" class="left2 flex pb30">
             <div id="3D" class="flx_itemL">
                 <div>
                     03/10/24
@@ -994,12 +1203,12 @@
                     [E.T.C.] - <a href="etc_DEQ_v3_en.html">Differential Equations &nbsp; Plotting Trajectory of Solutions with 3D</a>
                 </div>
                 <div class="fwb fss pb15">
-                    On the drawing page, you can configure the following settings:
+                    On the plotting page, you can configure the following parameters:
                 </div>
                 <div class="pb10">
                     <ol class="fwm pl30" style="font-size: 85%;">
                         <li>
-                            Coefficients (modifiable parameters vary for each equation)
+                            Coefficients (a–h; note that these vary depending on the equation)
                         </li>
                         <li>
                             Plotting range
@@ -1027,7 +1236,7 @@
         <!-- 23/07/31-->
         <div class="left2 flex pb30">
             <div class="flx_itemL">
-                <div>
+                <div id="230801">
                     08/01/23
                 </div>
                 <div>
@@ -1042,6 +1251,13 @@
                     Lens meter simulation tool "SRTLM" has been released.
                 </div>
                 <div class="pb10">
+                    <a href="etc_SRTLM_En.html">
+                        <span class="image-container">
+                            <img src="image/SRTLM_img/SRTLM_22211_en.png">
+                        </span>
+                    </a>
+                </div>
+                <div class="pb10">
                     This tool can be downloaded as freeware.
                 </div>
                 <div>
@@ -1050,6 +1266,46 @@
             </div>
         </div>
 
+    </div>
+
+    <script>
+        const options = document.getElementById("options");
+        const selectedText = document.getElementById("selected-text");  // textContent を直接書き換えない
+        const selected = document.getElementById("selected");
+
+        /* リストクリック */
+        options.querySelectorAll("li").forEach(li => {
+            li.addEventListener("click", (e) => {
+                const a = e.target.closest("a");
+                if (!a) return;
+
+                e.preventDefault();
+
+                // 既存の selected を全部外す
+                options.querySelectorAll(".selected").forEach(el => {
+                    el.classList.remove("selected");
+                });
+
+                // 今回の項目に付与
+                li.classList.add("selected");
+
+                // 表示更新
+                // selectedText（ここだけ変更）
+                selectedText.textContent = a.textContent;
+
+
+                options.classList.add("hidden");
+
+                // ジャンプ
+                location.hash = a.getAttribute("href");
+            });
+        });
+
+        /* 外クリックで閉じる */
+        document.addEventListener("click", () => {
+            options.classList.add("hidden");
+        });
+    </script>
 
     <footer>
 

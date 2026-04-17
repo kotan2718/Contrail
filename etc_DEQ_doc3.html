@@ -3,20 +3,25 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="自励形の連立微分方程式の近似解を3Dで描画するページの簡易解説です。ローレンツ・アトラクターを初めとするカオス的な振る舞いを見せる方程式の初期値鋭敏性などを描画の動きを通して確認することができます。">
+    <meta name="description" content="微分方程式の解軌道を3Dで可視化するページの簡易ドキュメントです。初期値鋭敏性が顕著な方程式や、複数のアトラクターを持つ方程式などを観察することができます。">
     <meta name="keywords" content="3D,連立,微分方程式,解曲線,解軌道,描画,カオス,アトラクター,Lorenz,ローレンツ,初期値,鋭敏性,解説">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Differential Equation 3D Plain Document</title>
+    <title>簡易ドキュメント : 微分方程式の解軌道 3D 可視化ツール</title>
 
     <!-- favicon-->
     <link rel="icon" href="favicon.ico">
-    <!-- canonical-->
-    <link rel="canonical" href="https://kz-page.la.coocan.jp/etc_DEQ_doc3.html">
 
     <!-- css start -->
         <!-- kko_etc :: class指定:change_border_color, 全ファイル共通:リンク文字色, フォーカスリング -->
         <link rel="stylesheet" href="libs/etc/css/kko_etc_style.css">
+        <style>
+            @media screen and (max-width: 768px) {
+                .MathJax {
+                    font-size: 90% !important;
+                }
+            }
+        </style>
     <!-- css end -->
 
     <!-- js start -->
@@ -38,7 +43,7 @@
                 },
                 "HTML-CSS": { matchFontHeight: false },
                 displayAlign: "left",
-                displayIndent: "2em"
+                displayIndent: "1em"
             });
         </script>
 
@@ -121,15 +126,21 @@
         </div>
     </header>
 
-    <div id="main720-480"> <!-- ① page main: start -->
+    <div id="main720-480_en" style="line-height: 160%"> <!-- page main: start -->
 
         <!-- title -->
         <div id="title20">
-            <h3 class="pt30 pb40">
-                微分方程式 解軌道の描画 3D
-                &emsp;
-                簡易解説
-            </h3>
+            <div class="prettyP_PC">
+                <h3 class="pt30 pb40">
+                    微分方程式の解軌道 3D 可視化ツール : 簡易ドキュメント
+                </h3>
+            </div>
+            <div class="prettyP_SP">
+                <h3 class="pt30 pb40">
+                    微分方程式の解軌道 <br>
+                    3D 可視化ツール 簡易ドキュメント
+                </h3>
+            </div>
         </div>
 
         <!-- for Java Script off -->
@@ -160,6 +171,9 @@
                     と、言いたいところですが、私にはとてもそのような知識はないので、本当に簡単なコメントと、
                     方程式が紹介されているサイトのurlを記すことにします。
                 </p>
+                <p class="pb10">
+                    ( 描画ページではLocal Storageを使用しています。<a href="#*1">脚注 [1]</a> 参照。)<br>
+                </p>
             </div>
 
             <div class="fwb pb30">
@@ -169,327 +183,722 @@
                     <li><a href="#03">[03] Four-Wing system</a></li>
                     <li><a href="#04">[04] Halvorsen system</a></li>
                     <li><a href="#05">[05] Rössler system</a></li>
-                    <li><a href="#06">[06] Sprott system</a></li>
+                    <li><a href="#06">[06] Sprott B system</a></li>
                     <li><a href="#07">[07] Rabinovich-Fabrikant system</a></li>
-<!--                    <li><a href="#01">[08] Chen System 1</a></li>
-                    <li><a href="#01">[09] Chen System 2</a></li>
-                    <li><a href="#01">[10] Chua_14_4 System</a></li>
-                    <li><a href="#01">[11] Lorenz System 2</a></li>
-                    <li><a href="#01">[12] Langford System</a></li>-->
+                    <li><a href="#08">[08] Chen-Lee system</a></li>
+                    <li><a href="#09">[09] Chen system</a></li>
+                    <li><a href="#10">[10] Chua system</a></li>
+                    <li><a href="#11">[11] Langford system</a></li>
+                    <li><a href="#12">[12] Dadras system</a></li>
                 </ul>
             </div>
 
             <div class="pic-left720 fwb pb20">
-                <div class="contents-title-left pb20"
+                <div class="contents-title-left pb20">
                     <p id="01">
                         [01]&nbsp;Lorenz system
                     </p>
                 </div>
-                <div class="contents-title-right"
-                    <p>
+                <div class="contents-title-right">
+                    <p class="fss fwb">
                         <a href="etc_DEQ_v3.html?selectedOption=01">描画へ</a>
-                        &emsp;
-                        <a href="#title20">トップへ</a>
                     </p>
                 </div>
                 <div class="c-both"></div>
                 <div class="pb30 fwm">
-                    <div class="contents-left pb10"
+                    <div class="contents-left pb10">
                         <p class="pb10">
-                            \[ \dot{x} = ay - ax \]
-                            \[ \dot{y} = bx - xz - y \]
-                            \[ \dot{z} = xy - cz \]
+                            \[ \begin{array}{l}
+                            \dot{x} = ay - ax \\
+                            \dot{y} = bx - xz - y \\
+                            \dot{z} = xy - cz
+                            \end{array}\]
                         </p>
                     </div>
-                    <div class="contents-right"
+                    <div class="contents-right">
                         <p>
                             <a href="etc_DEQ_v3.html?selectedOption=01">
                                 <img src="image/DEQ_img/deq3_01_25.jpg" border="0">
                             </a>
                         </p>
                     </div>
-                    <div class="c-both"></div>
+                    <div class="c-both pb20"></div>
                     <p class="pl0 pb10">
-                        私がLorenz systemを初めて知ったのは、1980年代の後半です。
+                        私がLorenz system を初めて知ったのは、1980年代の後半です。
                         カオスとかフラクタルがはやった頃です。
                         ブルーバックスでこの方程式についてのかなり詳しい説明を読んだことがあり、
-                        <a href="https://www.asakura.co.jp/author_books.php?author_code=48217" target="_blank">森本光生氏の「パソコンによる微分方程式」</a>に載っていた描画プログラムを
+                        <a href="https://www.asakura.co.jp/author_books.php?author_code=48217" target="_blank">森本光生氏の
+                        「パソコンによる微分方程式」</a>に載っていた描画プログラムを
                         3次元版に拡張して描画させた記憶があります。N88-BASICってご存じですか(^^;。
                     </p>
                     <p class="pl0 pb10">
-                        Lorenz systemが有名になったのは、解を得るための初期値がほんの少し違っただけで、
-                        有界であるにも関わらず、全く思いにもよらない軌道を描くことの初期値鋭敏性について、バタフライエフェクトとして知られるようになったことだと思います。
+                        Lorenz system が有名になったのは、解を得るための初期値がほんの少し違っただけで、
+                        有界であるにも関わらず、全く思いにもよらない軌道を描くことの初期値鋭敏性について、
+                        バタフライエフェクトとして知られるようになったことだと思います。
+                        バタフライの名称は解軌道が形成するアトラクターが蝶が羽を広げたような形状に似ていることに由来しています。
                         最近では、NHKがやたらにバラフライエフェクトを連発していますが...
                     </p>
-                    <p class="pl0 pl0 pb10">
-                        Lorenz systemについては、検索すればいくらでもヒットします。一応、下記のサイトを挙げておきます。
+                    <p class="pl0 pb10">
+                        Lorenz system は蝶が羽を広げたような単一のストレンジアトラクターを形成します。
+                        以下に示したパラメータの場合、初期値(解軌道の出発点)がアトラクターから離れていても、
+                        次第に蝶に吸い込まれていきます。これは Lorenz system の特徴です。
                     </p>
-                    <p class="pl0 pl0 pb10">
+                    <p class="p10 pb10">
+                        Lorenz system については、検索すればいくらでもヒットします。一応、下記のサイトを挙げておきます。
+                    </p>
+                    <p class="p10 pb10">
                           1. <a href="https://ja.wikipedia.org/wiki/%E3%83%AD%E3%83%BC%E3%83%AC%E3%83%B3%E3%83%84%E6%96%B9%E7%A8%8B%E5%BC%8F" target="_blank">ローレンツ方程式</a>
                     </p>
-                    <p class="pl0 pl0 pb10">
+                    <p class="p10 pb10">
                           2. <a href="https://ja.wikipedia.org/wiki/%E3%83%90%E3%82%BF%E3%83%95%E3%83%A9%E3%82%A4%E5%8A%B9%E6%9E%9C" target="_blank">バタフライ効果</a>
                     </p>
-                    <p class="pl0 pl0 pb10">
+                    <p class="p10 pb10">
                         パラメーターは$a = 10.0, b = 28.0, c = 8.0 / 3.0$ のパターンがよく知られています。
                         シミュレーションツールでも、デフォルトでこの値を使用しています。<br>
                         初期値は(0, 1, 2)、(0, 1, 2.01)としています。
                     </p>
                 </div>
 
-                <div class="contents-title-left pb20"
+                <div class="contents-title-left pb20">
                     <p id="02">
                         [02]&nbsp;Thomas system
                     </p>
                 </div>
-                <div class="contents-title-right"
-                    <p>
+                <div class="contents-title-right">
+                    <p class="fss fwb">
                         <a href="etc_DEQ_v3.html?selectedOption=02">描画へ</a>
                     </p>
                 </div>
                 <div class="c-both"></div>
                 <div class="pb30 fwm">
-                    <div class="contents-left pb10"
+                    <div class="contents-left pb10">
                         <p class="pb10">
-                            \[ \dot{x} = \sin y - ax \]
-                            \[ \dot{y} = \sin z - ay \]
-                            \[ \dot{z} = \sin x - az \]
+                            \[ \begin{array}{l}
+                            \dot{x} = \sin y - ax \\
+                            \dot{y} = \sin z - ay \\
+                            \dot{z} = \sin x - az
+                            \end{array}\]
                         </p>
                     </div>
-                    <div class="contents-right"
+                    <div class="contents-right">
                         <p>
                             <a href="etc_DEQ_v3.html?selectedOption=02">
-                                <img src="image/DEQ_img/deq3_02_25.jpg" border="0">
+                                <img src="image/DEQ_img/deq3_02a_25.png" border="0">
                             </a>
                         </p>
                     </div>
-                    <div class="c-both"></div>
+                    <div class="c-both pb20"></div>
                     <p class="pl0 pb10">
                         この式がカオスになるとはにわかには信じられませんが、カオスになってしまいます。
                     </p>
-                    <p class="pl0 pl0 pb10">
-                        Thomas systemについては、下記のサイトを参照してください。
+                    <p class="p10 pb10">
+                        Thomas system については、下記のサイトを参照してください。
                     </p>
-                    <p class="pl0 pl0 pb10">
-                          1. <a href="https://en.wikipedia.org/wiki/Thomas%27_cyclically_symmetric_attractor" target="_blank">Thomas' cyclically symmetric attractor</a>
+                    <p class="p10 pb10">
+                        1. <a href="https://en.wikipedia.org/wiki/Thomas%27_cyclically_symmetric_attractor" target="_blank">Thomas' cyclically symmetric attractor</a>
                     </p>
-                    <p class="pl0 pl0 pb10">
-                        シミュレーションツールでは、パラメーターは$a = 0.208186$ 、初期値は $(x, y, z) = (0, 1, 2)、(0, 1, 2.01)$ としています。
+                    <p class="p10 pb10">
+                        シミュレーションツールでは、パラメーターは$a = 0.21$ 、
+                        初期値は $(x, y, z) = (0, 1, 2)、(0, -1, -2)$ としています。
+                        この状態では、原点対称に2つのアトラクターがが存在します。
+                        $a$の値を大きくすると(3など)、解軌道は1点に収束します。
+                        $a$の値を小さくすると(1.9など)原点対称性を保ちながら、解軌道が混ざり合いながら、1つのアトラクターを形成し、
+                        カオスな動きをします。
+                    </p>
+                    <p class="p10 pb10">
+                        これは、$a$が大きければ、$-ax, -ay, -az$ の減衰項が強いため、ベイズン境界を越えることができず、
+                        2つのアトラクターに分かれるのですが、
+                        $a$が小さくなると振動($\sin$)が強くなり、境界を越えて、動き回れるようになるため、
+                        1つのアトラクターを形成するようになると思われます。
                     </p>
                 </div>
 
-                <div class="contents-title-left pb20"
+                <div class="contents-title-left pb20">
                     <p id="03">
                         [03]&nbsp;Four-Wing system
                     </p>
                 </div>
-                <div class="contents-title-right"
-                    <p>
+                <div class="contents-title-right">
+                    <p class="fss fwb">
                         <a href="etc_DEQ_v3.html?selectedOption=03">描画へ</a>
                     </p>
-                </div>
+               </div>
                 <div class="c-both"></div>
                 <div class="pb30 fwm">
-                    <div class="contents-left pb10"
+                    <div class="contents-left pb10">
                         <p class="pb10">
-                            \[ \dot{x} = ax + yz \]
-                            \[ \dot{y} = bx + cy - xz \]
-                            \[ \dot{z} = -z -xy \]
+                            \[ \begin{array}{l}
+                            \dot{x} = ax + yz \\
+                            \dot{y} = bx + cy - xz \\
+                            \dot{z} = -z -xy
+                            \end{array}\]
                         </p>
                     </div>
-                    <div class="contents-right"
+                    <div class="contents-right">
                         <p>
                             <a href="etc_DEQ_v3.html?selectedOption=03">
                                 <img src="image/DEQ_img/deq3_03_25.jpg" border="0">
                             </a>
                         </p>
                     </div>
-                    <div class="c-both"></div>
+                    <div class="c-both pb20"></div>
                     <p class="pl0 pb10">
                         Lorenz systemが2つ合体したような軌道が描かれます。
                         この方程式が紹介されている最初に見つけたサイトを参考にしたのですが、
                         他のサイトで紹介されているFour-Wingの式とは若干異なります。
                         しかし、実際に描画すれば、まさにFour-Wingです。
                     </p>
-                    <p class="pl0 pl0 pb10">
-                        Four-Wingについては、下記のサイトが最初に見つけたページです。
+                    <p class="p10 pb10">
+                        Four-Wing system については、下記のサイトが最初に見つけたページです。
                     </p>
-                    <p class="pl0 pl0 pb10">
-                          1. <a href="https://www.dynamicmath.xyz/strange-attractors/" target="_blank">STRANGE ATTRACTORS</a>
+                    <p class="p10 pb10">
+                        1. <a href="https://www.dynamicmath.xyz/strange-attractors/" target="_blank">STRANGE ATTRACTORS</a>
                     </p>
-                    <p class="pl0 pl0 pb10">
-                        シミュレーションツールでは、パラメーターは$a = 0.2, b = 0.01, c= -0.4$ 、初期値は $(x, y, z) = (0, 1, 2)、(0, 1, 2.01)$ としています。
+                    <p class="p10 pb10">
+                        シミュレーションツールでは、パラメーターは$a = 0.2, b = 0.01, c= -0.4$ 、
+                        初期値は $(x, y, z) = (0, 1, 2)、(0, 1, 2.01)$ としています。
                     </p>
                 </div>
 
-                <div class="contents-title-left pb20"
+                <div class="contents-title-left pb20">
                     <p id="04">
                         [04]&nbsp;Halvorsen system
                     </p>
                 </div>
-                <div class="contents-title-right"
-                    <p>
+                <div class="contents-title-right">
+                    <p class="fss fwb">
                         <a href="etc_DEQ_v3.html?selectedOption=04">描画へ</a>
                     </p>
                 </div>
                 <div class="c-both"></div>
                 <div class="pb30 fwm">
-                    <div class="contents-left pb10"
+                    <div class="contents-left pb10">
                         <p class="pb10">
-                            \[ \dot{x} = -ax -4y -4z + y^2 \]
-                            \[ \dot{y} = -ay -4z -4x + z^2 \]
-                            \[ \dot{z} = -az -4x -4y + x^2 \]
+                            \[ \begin{array}{l}
+                            \dot{x} = -ax -4y -4z + y^2 \\
+                            \dot{y} = -ay -4z -4x + z^2 \\
+                            \dot{z} = -az -4x -4y + x^2
+                            \end{array}\]
                         </p>
                     </div>
-                    <div class="contents-right"
+                    <div class="contents-right">
                         <p>
                             <a href="etc_DEQ_v3.html?selectedOption=04">
                                 <img src="image/DEQ_img/deq3_04_25.jpg" border="0">
                             </a>
                         </p>
                     </div>
-                    <div class="c-both"></div>
+                    <div class="c-both pb20"></div>
                     <p class="pl0 pb10">
                         この式もThomasモデルと似た感じで、かなり規則的な変化をしていますが、カオスになります。
+                        描画速度を上げると分かりづらくなりますが、初期値鋭敏性を備えています。
                     </p>
-                    <p class="pl0 pl0 pb10">
-                        Halvorsen systemについては、下記のサイトを参照してください。
+                    <p class="p10 pb10">
+                        Halvorsen system については、下記のサイトを参照してください。
                     </p>
-                    <p class="pl0 pl0 pb10">
-                          1. <a href="https://www.dynamicmath.xyz/strange-attractors/" target="_blank">STRANGE ATTRACTORS</a>
+                    <p class="p10 pb10">
+                        1. <a href="https://sprott.physics.wisc.edu/chaos/symmetry.htm" target="_blank">A Symmetric Chaotic Flow</a>
                     </p>
-                    <p class="pl0 pl0 pb10">
-                        シミュレーションツールでは、パラメーターは$a = 1.499$ 、初期値は $(x, y, z) = (0, 1, 2)、(0, 1, 2.01)$ としています。
+                    <p class="p10 pb10">
+                        シミュレーションツールでは、パラメーターは$a = 1.499$ 、
+                        初期値は $(x, y, z) = (0, 1, 2)、(0, 1, 2.01)$ としています。
                     </p>
                 </div>
 
-                <div class="contents-title-left pb20"
+                <div class="contents-title-left pb20">
                     <p id="05">
                         [05]&nbsp;Rössler system
                     </p>
                 </div>
-                <div class="contents-title-right"
-                    <p>
+                <div class="contents-title-right">
+                    <p class="fss fwb">
                         <a href="etc_DEQ_v3.html?selectedOption=05">描画へ</a>
                     </p>
                 </div>
                 <div class="c-both"></div>
                 <div class="pb30 fwm">
-                    <div class="contents-left pb10"
+                    <div class="contents-left pb10">
                         <p class="pb10">
-                            \[ \dot{x} = -(y + z) \]
-                            \[ \dot{y} = x + ay \]
-                            \[ \dot{z} = b + z(x - c) \]
+                            \[ \begin{array}{l}
+                            \dot{x} = -(y + z) \\
+                            \dot{y} = x + ay \\
+                            \dot{z} = b + z(x - c)
+                            \end{array}\]
                         </p>
                     </div>
-                    <div class="contents-right"
+                    <div class="contents-right">
                         <p>
                             <a href="etc_DEQ_v3.html?selectedOption=05">
                                 <img src="image/DEQ_img/deq3_05_25.jpg" border="0">
                             </a>
                         </p>
                     </div>
-                    <div class="c-both"></div>
+                    <div class="c-both pb20"></div>
                     <p class="pl0 pb10">
-                        この式もThomasモデルと似た感じで、かなり規則的な変化をしています。やはりカオスになります。
+                        ドイツの生物学者
+                        <a href="https://en.wikipedia.org/wiki/Otto_R%C3%B6ssler" target="_blank"> Otto Rössler </a>によって
+                        1976年の論文で提唱されたものです。
                     </p>
-                    <p class="pl0 pl0 pb10">
-                        Rössler systemについては、下記のサイトを参照してください。
+                    <p class="pl0 pb10">
+                        Rössler system は非線形項が第3式の $zx$ のみという非常に単純なものであるにも関わらず、
+                        カオスを発生します。
+                        元々はカオスの研究中に発見されたそうですが、
+                        後に化学反応の平衡をモデル化するのに役立つことが分かったとのことです。
                     </p>
-                    <p class="pl0 pl0 pb10">
-                          1. <a href="https://ja.wikipedia.org/wiki/%E3%83%AC%E3%82%B9%E3%83%A9%E3%83%BC%E6%96%B9%E7%A8%8B%E5%BC%8F" target="_blank">レスラー方程式</a>
+                    <p class="p10 pb10">
+                        Rössler system については、下記のサイトを参照してください。
                     </p>
-                    <p class="pl0 pl0 pb10">
-                        シミュレーションツールでは、パラメーターは$a = 0.2, b = 0.2, c = 5.7$ 、初期値は $(x, y, z) = (0, 1, 2)、(0, 1, 2.01)$ としています。
+                    <p class="p10 pb10">
+                        1. <a href="https://en.wikipedia.org/wiki/R%C3%B6ssler_attractor" target="_blank">Rössler attractor</a>
+                    </p>
+                    <p class="p10 pb10">
+                        シミュレーションツールでは、パラメーターは$a = 0.2, b = 0.2, c = 5.7$ 、
+                        初期値は $(x, y, z) = (0, 1, 2)、(0, 1, 2.01)$ としています。
                     </p>
                 </div>
 
-                <div class="contents-title-left pb20"
+                <div class="contents-title-left pb20">
                     <p id="06">
-                        [06]&nbsp;Sprott system
+                        [06]&nbsp;Sprott B system
                     </p>
                 </div>
-                <div class="contents-title-right"
-                    <p>
+                <div class="contents-title-right">
+                    <p class="fss fwb">
                         <a href="etc_DEQ_v3.html?selectedOption=06">描画へ</a>
                     </p>
                 </div>
                 <div class="c-both"></div>
                 <div class="pb30 fwm">
-                    <div class="contents-left pb10"
+                    <div class="contents-left pb10">
                         <p class="pb10">
-                            \[ \dot{x} = y + axy + xz \]
-                            \[ \dot{y} = 1 - bx^2 + yz \]
-                            \[ \dot{z} = x - x^2 - y^2 \]
+                            \[ \begin{array}{l}
+                            \dot{x} = ayz \\
+                            \dot{y} = x - by \\
+                            \dot{z} = c - xy
+                            \end{array}\]
                         </p>
                     </div>
-                    <div class="contents-right"
+                    <div class="contents-right">
                         <p>
                             <a href="etc_DEQ_v3.html?selectedOption=06">
-                                <img src="image/DEQ_img/deq3_06_25.jpg" border="0">
+                                <img src="image/DEQ_img/deq3_06a_25.png" border="0">
                             </a>
                         </p>
                     </div>
-                    <div class="c-both"></div>
+                    <div class="c-both pb20"></div>
                     <p class="pl0 pb10">
-                        カオス解になるようですが、初期値による鋭敏性は見られないと思います。
+                        Julien C. Sprott による「最小カオス系探索」で設計され方程式で、いくつもの系が存在します。
+                        非常にコンパクトであるにも関わらず、カオスになるように設計されており、
+                        初期値鋭敏性も備えています。
                     </p>
-                    <p class="pl0 pl0 pb10">
-                        Sprott systemについては、下記のサイトを参照してください。
+                    <p class="p10 pb10">
+                        Sprott B systemについては、下記のサイトを参照してください。
                     </p>
-                    <p class="pl0 pl0 pb10">
-                          1. <a href="https://www.dynamicmath.xyz/strange-attractors/" target="_blank">STRANGE ATTRACTORS</a>
+                    <p class="p10 pb10">
+                        1. <a href="https://sprott.physics.wisc.edu/simplest.htm" target="_blank">Simple Chaotic Flow GIF Animations</a>
                     </p>
-                    <!-- スマホ時横スクロール許可 -->
-                    <div class="table-container">
-                        <p class="pl0 pl0 pb10">
-                            シミュレーションツールでは、パラメーターは$a = 2.07, b = 1.79$ 、初期値は $(x, y, z) = (0.63, 0.47, -0.54)、(0.63, 0.47, -0.55)$ としています。
-                        </p>
-                    </div>
+                    <p class="p10 pb10">
+                        2. <a href="https://sequelaencollection.home.blog/3d-chaotic-attractors/" target="_blank">3D Chaotic Attractors</a>
+                    </p>
+                    <p class="p10 pb10">
+                        シミュレーションツールでは、パラメーターは$a = 0.4, b = 1.2, c = 1$ 、
+                        初期値は $(x, y, z) = (0.1, 1, 1)、(0.11, 1, 1)$ としています。
+                    </p>
                 </div>
 
-                <div class="contents-title-left pb20"
+                <div class="contents-title-left pb20">
                     <p id="07">
                         [07]&nbsp;Rabinovich-Fabrikant system
                     </p>
                 </div>
-                <div class="contents-title-right"
-                    <p>
+                <div class="contents-title-right">
+                    <p class="fss fwb">
                         <a href="etc_DEQ_v3.html?selectedOption=07">描画へ</a>
                     </p>
                 </div>
                 <div class="c-both"></div>
                 <div class="pb30 fwm">
-                    <div class="contents-left pb10"
+                    <div class="contents-left pb10">
                         <p class="pb10">
-                            \[ \dot{x} = y(z - 1 + x^2) + bx \]
-                            \[ \dot{y} = x(3z + 1 - x^2) + by \]
-                            \[ \dot{z} = -2z(a + xy) \]
+                            \[ \begin{array}{l}
+                            \dot{x} = y(z - 1 + x^2) + bx \\
+                            \dot{y} = x(3z + 1 - x^2) + by \\
+                            \dot{z} = -2z(a + xy)
+                            \end{array}\]
                         </p>
                     </div>
-                    <div class="contents-right"
+                    <div class="contents-right">
                         <p>
                             <a href="etc_DEQ_v3.html?selectedOption=07">
                                 <img src="image/DEQ_img/deq3_07_25.jpg" border="0">
                             </a>
                         </p>
                     </div>
-                    <div class="c-both"></div>
+                    <div class="c-both pb20"></div>
                     <p class="pl0 pb10">
                         解軌道は3つのアトラクターを複雑に動きます。Lorenz system同様に、初期値鋭敏性が見られます。
                     </p>
-                    <p class="pl0 pl0 pb10">
+                    <p class="p10 pb10">
                         Rabinovich-Fabrikant systemについては、下記のサイトを参照してください。
                     </p>
-                    <p class="pl0 pl0 pb10">
-                          1. <a href="https://en.wikipedia.org/wiki/Rabinovich%E2%80%93Fabrikant_equations" target="_blank">Rabinovich–Fabrikant equations</a>
+                    <p class="p10 pb10">
+                        1. <a href="https://en.wikipedia.org/wiki/Rabinovich%E2%80%93Fabrikant_equations" target="_blank">Rabinovich–Fabrikant equations</a>
                     </p>
-                    <p class="pl0 pl0 pb10">
-                        シミュレーションツールでは、パラメーターは$a = 0.14, b = 0.1$ 、初期値は $(x, y, z) = (-1, 0.9, 0.6)、(-1, 0.9, 0.60001)$ としています。
+                    <p class="p10 pb10">
+                        シミュレーションツールでは、パラメーターは$a = 0.14, b = 0.1$ 、
+                        初期値は $(x, y, z) = (-1, 0.9, 0.6)、(-1, 0.9, 0.60001)$ としています。
+                    </p>
+                </div>
+
+                <div class="contents-title-left pb20">
+                    <p id="08">
+                        [08]&nbsp;Chen-Lee system
+                    </p>
+                </div>
+                ><div class="contents-title-right"
+                    <p class="fss fwb">
+                        <a href="etc_DEQ_v3.html?selectedOption=08">描画へ</a>
+                    </p>
+                </div>
+                <div class="c-both"></div>
+                <div class="pb30 fwm">
+                    <div class="contents-left pb10">
+                        <p class="pb10">
+                            \[ \begin{array}{l}
+                            \dot{x} = ax - yz \\
+                            \dot{y} = by + xz \\
+                            \dot{z} = cz + xy/3
+                            \end{array}\]
+                        </p>
+                    </div>
+                    <div class="contents-right">
+                        <p>
+                            <a href="etc_DEQ_v3.html?selectedOption=08">
+                                <img src="image/DEQ_img/deq3_08a_25.png" border="0">
+                            </a>
+                        </p>
+                    </div>
+                    <div class="c-both pb20"></div>
+                    <p class="pl0 pb10">
+                        このsystemは初期値鋭敏性を備え、アトラクターの中でカオス軌道を描きます。
+                        Lorenz systemが単一のアトラクターであり、初期点が異なっていても、
+                        最終的には同じバタフライに吸い込まれるのに対して、
+                        Chen-Lee systemは複数のアトラクターを持ち、
+                        初期点によって、どのアトラクターへ吸い込まれるか決まるようです。
+                    </p>
+                    <p class="p10 pb10">
+                        Chen-Lee systemについては、下記のサイトを参照してください。
+                    </p>
+                    <p class="p10 pb10">
+                        1. <a href="https://sequelaencollection.home.blog/3d-chaotic-attractors/" target="_blank">3D Chaotic Attractors – The Sequelaen Collection</a>
+                    </p>
+                    <p class="p10 pb10">
+                        シミュレーションツールでは、パラメーターは$a = 5.0, b = -10.0, c = -0.38$ 、
+                        初期値は $(x, y, z) = (5, 10, 10)、(-7, -5, -10)$ としています。
+                    </p>
+                </div>
+
+                <div class="contents-title-left pb20">
+                    <p id="09">
+                        [09]&nbsp;Chen system
+                    </p>
+                </div>
+                <div class="contents-title-right">
+                    <p class="fss fwb">
+                        <a href="etc_DEQ_v3.html?selectedOption=09">描画へ</a>
+                    </p>
+                </div>
+                <div class="c-both"></div>
+                <div class="pb30 fwm">
+                    <div class="contents-left pb10">
+                        <p class="pb10">
+                            \[ \begin{array}{l}
+                            \dot{x} = a(y - x) \\
+                            \dot{y} = (c - a)x - xz + cy \\
+                            \dot{z} = xy -bz
+                            \end{array} \]
+                        </p>
+                    </div>
+                    <div class="contents-right">
+                        <p>
+                            <a href="etc_DEQ_v3.html?selectedOption=09">
+                                <img src="image/DEQ_img/deq3_09a_25.png" border="0">
+                            </a>
+                        </p>
+                    </div>
+                    <div class="c-both pb20"></div>
+                    <p class="pl0 pb10">
+                        中国の数学者
+                        <a href="https://en.wikipedia.org/wiki/Chen_Guanrong" target="_blank"> Chen Guanrong </a>によって
+                        提唱された方程式で、Lorenz系の非線形強化版と考えられます。
+                        Lorenz system 同様、単一のアトラクターと初期値鋭敏性を持ちます。
+                    </p>
+                    <p class="pl0 pb10">
+                        Chen system は通信暗号の同期や制御に応用されています。
+
+                    </p>
+                    <p class="p10 pb10">
+                        Chen systemについては、下記のサイトを参照してください。
+                    </p>
+                    <p class="p10 pb10">
+                        1. <a href="https://onlinelibrary.wiley.com/doi/10.1155/2022/8613090" target="_blank">Fully Integrated Chen Chaotic Oscillation System</a>
+                    </p>
+                    <p class="p10 pb10">
+                        シミュレーションツールでは、パラメーターは$a = 40, b = 3, c = 28$ 、
+                        初期値は $(x, y, z) = (-0.1, 0.5, -0.6)、(-0.1, 0.5, -0.601)$ としています。
+                    </p>
+                </div>
+
+                <div class="contents-title-left pb20">
+                    <p id="10">
+                        [10]&nbsp;Chua system
+                    </p>
+                </div>
+                <div class="contents-title-right">
+                    <p class="fss fwb">
+                        <a href="etc_DEQ_v3.html?selectedOption=10">描画へ</a>
+                    </p>
+                </div>
+                <div class="c-both"></div>
+                <div class="pb30 fwm">
+                    <div class="contents-left pb10">
+                        <p class="pb10">
+                            \[ \begin{array}{l}
+                                \dot{x} = a(y - x - f(x)) \\
+                                \dot{y} = x - y + z \\
+                                \dot{z} = -by \\[4pt]
+                                \hspace{1em} \text{where} \\
+                                f(x) = cx + \tfrac{1}{2}(d - c)(|x + 1| - |x - 1|)
+                            \end{array} \]
+                        </p>
+                    </div>
+                    <div class="contents-right">
+                        <p>
+                            <a href="etc_DEQ_v3.html?selectedOption=10">
+                                <img src="image/DEQ_img/deq3_10a_25.png" border="0">
+                            </a>
+                        </p>
+                    </div>
+                    <div class="c-both pb20"></div>
+                    <p class="pl0 pb5">
+                        中国系アメリカ人のコンピューター科学者
+                        <a href="https://en.wikipedia.org/wiki/Leon_O._Chua" target="_blank"> Leon O. Chua </a>が
+                        カオスな挙動を示す<a href="https://en.wikipedia.org/wiki/Chua%27s_circuit" target="_blank"> Chua回路 </a>
+                        を1983年に発明しました。Chua回路はコンデンサ、インダクタ、抵抗、非線形素子(Chua diode)で構築可能です。
+                        更にChua回路のダイナミクスは微分方程式で正確にモデル化できるため、
+                        Chua系はカオスを伴う方程式としては珍しく現実世界で確認可能な系といえます。
+                    </p>
+                    <p class="pl0 pb10">
+                        Chua systemについては、下記のサイトを参照してください。
+                    </p>
+                    <p class="pl0 pb10">
+                        1. <a href="https://en.wikipedia.org/wiki/Multiscroll_attractor" target="_blank">Multiscroll attractor</a>
+                    </p>
+                    <p class="pl0">
+                        シミュレーションツールでは、パラメーターは$a = 15.41, b = 28, c = -0.714, d = -1.143$ 、
+                        初期値は $(x, y, z) = (-0.000001, 0, 0)、(-0.0000011, 0, 0)$ としています。
+                    </p>
+                    <p class="pl0">
+                        このパラメータと初期値ではダブルスクロールのアトラクターが現れ、
+                        初期値鋭敏性を備えていますが、
+                        パラメータを調整することで、シングルスクロール、周期軌道のアトラクターも出現します。
+                    </p>
+                </div>
+
+                <div class="contents-title-left pb20">
+                    <p id="11">
+                        [11]&nbsp;Langford system
+                    </p>
+                </div>
+                <div class="contents-title-right">
+                    <p class="fss fwb">
+                        <a href="etc_DEQ_v3.html?selectedOption=11">描画へ</a>
+                    </p>
+                </div>
+                <div class="c-both"></div>
+                <div class="pb30 fwm">
+                    <div class="contents-left pb10">
+                        <p class="pb10">
+                            \[ \begin{array}{l}
+                            \dot{x} = (z - a)x - by \\
+                            \dot{y} = bx + (z - a)y \\
+                            \dot{z} = c + dz - z^3/3 - (x^2 + y^2)(1 + ex) + fzx^3
+                            \end{array}\]
+                        </p>
+                    </div>
+                    <div class="contents-right">
+                        <p>
+                            <a href="etc_DEQ_v3.html?selectedOption=11">
+                                <img src="image/DEQ_img/deq3_11a_25.png" border="0">
+                            </a>
+                        </p>
+                    </div>
+                    <div class="c-both pb20"></div>
+                    <p class="pl0 pb10">
+                        一般に準周期アトラクターの例として、引き合いに出されることが多い方程式です。
+                        よく似た方程式に Aizawa system があります。係数と非線形項の一部が異なりますが、
+                        両者ともほぼ同じ性質を備えています。
+                    </p>
+                    <p class="p10 pb10">
+                        Langford systemについては、下記のサイトを参照してください。
+                    </p>
+                    <p class="p10 pb10">
+                          1. <a href="https://link.springer.com/chapter/10.1007/978-3-0348-6256-1_19" target="_blank">Numerical Studies of Torus Bifurcations</a>
+                    </p>
+                    <p class="p10">
+                        シミュレーションツールでは、パラメーターは$a = 0.7, b = 3.5, c = 0.6, d = 1, e = 0.25, f = 0$ 、
+                        初期値は $(x, y, z) = (1, 1, 1)、(1, 1, 1.1)$ としています。
+                        この場合、解軌道は準周期的であり、トーラスの表面を動き、非常に美しいアトラクターを形成します。
+                        しかし、係数 $c$ が 0.8 位になると、トーラスを壊し始め、カオスに移行します。
+                        このときは、初期値鋭敏性を持ちます。
+                    </p>
+                </div>
+
+
+                <div class="contents-title-left pb20">
+                    <p id="12">
+                        [12]&nbsp;Dadras system
+                    </p>
+                </div>
+                <div class="contents-title-right">
+                    <p class="fss fwb">
+                        <a href="etc_DEQ_v3.html?selectedOption=12">描画へ</a>
+                    </p>
+                </div>
+                <div class="c-both"></div>
+                <div class="pb30 fwm">
+                    <div class="contents-left pb10">
+                        <p class="pb10">
+                            \[ \begin{array}{l}
+                            \dot{x} = y -ax + byz \\
+                            \dot{y} = cy -xz + z \\
+                            \dot{z} = dxy -ez
+                            \end{array}\]
+                        </p>
+                    </div>
+                    <div class="contents-right">
+                        <p>
+                            <a href="etc_DEQ_v3.html?selectedOption=12">
+                                <img src="image/DEQ_img/deq3_12a_25.png" border="0">
+                            </a>
+                        </p>
+                    </div>
+                    <div class="c-both pb20"></div>
+                    <p class="pl0 pb10">
+                        2009年にDadrasとMomeniによって紹介された方程式で、マルチスクロールのアトラクターが生成されます。
+                    </p>
+                    <p class="p10 pb10">
+                        Dadras systemについては、下記のサイトを参照してください。
+                    </p>
+                    <p class="p10 pb10">
+                          1. <a href="https://www.sciencedirect.com/science/article/abs/pii/S0375960109009591?via%3Dihub" target="_blank">A novel three-dimensional autonomous chaotic system generating two, three and four-scroll attractors</a>
+                    </p>
+                    <p class="p10 pb10">
+                        シミュレーションツールでは、パラメーターは$a = 3, b = 2.7, c = 1.7, d = 2, e = 5.4$ 、
+                        初期値は $(x, y, z) = (1, 1, 0)、(1, 1, 0.1)$ としています。
+                        この場合は、4ストロークになりますが、$e$を$5.4$から$9$位に変更すると、3スクロールに変化します。
                     </p>
                 </div>
 
             </div>
+
+            <!-- 補足説明 -->
+            <div  id="*1" class="bd15 fwb">
+                == 注釈 ==
+            </div>
+            <div class="bdr10 fss pb10">
+                <p id="*1">
+                    [1.]
+                </p>
+                <p>
+                    描画ページでは、Local Storageを利用して選択された方程式のパラメータを保持する機能を持ちます。
+                    近似曲線の出発点の変更や係数の変更で、解軌道ががらりと変わります。
+                    方程式ごとに参考に挙げたサイトでは、詳しく解説している所もあります。
+                </p>
+                <p class="pb10">
+                    パラメータの変更を始めると、少しずつ調整しながら解軌道の変化を見ることになります。
+                    私の場合は、結構時間をかけて調整するので、
+                    「続きは明日調べよう」なんてことがしょっちゅうあります。
+                    こんな時、それまで設定したパラメータが保存されていると非常に便利です。
+                    また、「すごい軌道を描くなぁ」と思われるパラメータが見つかった場合は、
+                    パラメータが保存されていれば、時間が経ってから再描画させたとき、すごい解軌道が正確に再現されます。
+                </p>
+                <p class="pb10">
+                    そこで、以下に示すように選択された方程式のパラメータを保持するためのチェックボックスを設置しました。
+                </p>
+                <div class="prettyP_PC pb10">
+                    <img src="image/DEQ_img/deq3_LocalStorage01.png" width="700px">
+                </div>
+                <div class="prettyP_SP pb10">
+                    <div class="table-container">
+                        <img src="image/DEQ_img/deq3_LocalStorage01.png" width="540px">
+                    </div>
+                </div>
+                <p class="pb10">
+                    図の中で「keep params」の右に見えるのがチェックボックスです。<br>
+                    図の上半分は、チェックが入っていない状態で、予め設定されているパラメータが表示されています。<br>
+                    図の下半分は、チェックが入っている状態で、この図では解軌道の出発点が変更されています。
+                </p>
+                <p class="pb10">
+                    チェックボックスは方程式毎に独立しています。
+                    ローカルストレージに保存されるデータは、以下の通りです。
+                </p>
+                <ul class="list_none fwm pb10 pl40">
+                    <li><1>どの方程式にチェックがついているか</li>
+                    <li><2>チェックがついている方程式のパラメータが変更された場合は、そのデータ</li>
+                    <li><3>ブラウザが最後に表示していた方程式(番号で管理)</li>
+                </ul>
+                <p>
+                    画面に表示されている方程式でパラメータを変更したい場合は、
+                    チェックを入れてから目的のパラメータを変更すると、自動的にローカルストレージに保存されます。
+                </p>
+                <p>
+                    描画ページのショートカットを作り、一旦ブラウザを閉じて開き直すと、
+                    先ほど表示されていたページが、パラメータの変更も反映された状態で開きます。
+                </p>
+                <p>
+                    チェックをはずしてページをリロードすると、初期設定のパラメータが表示されます。
+                    元の状態に戻したくなった場合は、チェックをはずせばいつでも戻ることができます。
+                </p>
+                <p>
+                    もう一度チェックしてページをリロードすると、パラメータの変更が反映された状態でページが開きます。
+                </p>
+                <p>
+                    私的にはなかなか便利な機能ではないかと思っているのですが、
+                    いずれかのページでチェックを入れると、ローカルストレージにデータが記録されるようになります。
+                    全てのページのチェックをはずしても、データが残ります。
+                    全てのページのチェックをはずしても、改めてブラウザを開くと、
+                    最後に表示されていた方程式のページが開きます。
+                </p>
+                <p>
+                    もし、ローカルストレージから描画ページのデータを完全に削除したい場合は、
+                    以下の手順にしたがってください。ここではgoogle chromeを例に取ります。
+                </p>
+                <ul class="list_none fwm pb10 pl40">
+                    <li><1>画面右上の設定ボタン(縦の3点マーク)をクリック</li>
+                    <li><2>その他のツール → デベロッパーツール を選択するとデベロッパーツールの画面が開く</li>
+                    <li><3>メニューから"アプリケーション"タブをクリック</li>
+                    <li><4>"キー" から以下をそれぞれ右クリックして "削除" をクリック</li>
+                        <ul class="list_none fwm pb10 pl40">
+                            <li>kkoDeq3D_CheckFlg</li>
+                            <li>kkoDeq3D_Data</li>
+                            <li>kkoDeq3D_LastSelected</li>
+                        </ul>
+                    <li><5>ローカルストレージから描画ページのデータが全て削除される</li>
+                </ul>
+                <p class="pb10">
+                    ローカルストレージから描画ページ用の全てのデータを削除した後、
+                    ブラウザをリロードすると、方程式は未選択になるので、
+                    方程式選択ボックスには「system を選択」と表示されます。
+                </p>
+                <p class="pb10">
+                    これで、完全に初期状態に戻ったことになります。
+                </p>
+                <p>
+                    <a href="#">戻る</a>
+                </p>
+            </div>
+
         </div>
     </div>
 
@@ -515,7 +924,7 @@
             </script>
             <nonscript>
             </nonscript>
-            Contrail - kotan - 
+            Contrail - kotan -
         </div>
 
     </footer>

@@ -29,6 +29,101 @@
                 margin-left: -100px;  /* 日付幅ぶん戻す */
                 padding-left: 20px;  /* 少しインデント */
             }
+
+            /*-------------------*/
+            /* custom-select BOX */
+            /*-------------------*/
+
+            .custom-select {
+                width: 100%;
+                font-size: 14px;   /* ←本文に合わせる */
+                text-align: left;   /* 念のため */
+            }
+
+            /* PCだけ上書き */
+/*            @media screen and (min-width: 769px) {
+                .custom-select {
+                    width: 100%;
+                }
+            }
+*/
+            .select-display {
+                border: 1px solid #888;
+                padding: 2px 10px;
+                cursor: pointer;
+
+                display: flex;
+                align-items: center;
+            }
+
+            /* 文字部分だけ省略 */
+            #selected-text {
+                flex: 1;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            /* 矢印は固定表示 */
+            .arrow {
+                flex-shrink: 0;
+                margin-left: 8px;
+            }
+
+            .select-display.disabled {
+                pointer-events: none;
+                opacity: 0.6; /* 任意：無効っぽく見せる */
+            }
+
+            #options {
+                position: absolute;
+                background: #fff;
+                z-index: 1000;
+
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                border: 1px solid #888;
+                position: absolute;
+                width: 100%;
+                background: #fff;
+                max-height: 300px;   /* メニュー表示の高さ */
+                overflow-y: auto;
+                white-space: normal;      /* 折り返し許可 */
+                word-break: break-all;    /* 強制折り返し */
+            }
+
+            .hidden {
+                display: none;
+            }
+
+            #options li {
+                padding: 6px 10px;
+                cursor: pointer;
+                text-align: left;   /* ←追加 */
+            }
+
+            #options li:hover {
+                background: #eee;
+            }
+
+            #options li a {
+                display: block;     /* ←重要 */
+                text-align: left;   /* ←追加 */
+                width: 100%;
+                text-decoration: none; /* 下線を消す場合 */
+                color: inherit;        /* liの色を継承 */
+            }
+
+            #options li.disabled {
+                color: #999;
+                pointer-events: none; /* クリック無効 */
+            }
+
+            #options li.selected {
+                background: #0078d7;
+                color: white;
+            }
         </style>
     <!-- css end -->
 
@@ -38,6 +133,8 @@
             <!-- kko_style - img jq_blink, img jq_change -->
             <script src="libs/jQuery/kko/js/jq_kko_style.js"></script>
         <!-- jQuery end -->
+    <!-- js end -->
+
 </head>
 
 <body id="common-k">
@@ -118,17 +215,52 @@
                 いつまで続くか分かりませんが、興味のあることにチャレンジしてみたいと思っています。
                 紹介しているツールは以下の通りです :
             </h4>
-            <h4 class="left2 pb10">
-                レンズメーター シミュレーションツール<br>
+            <h4 class="left2 pb30">
+                レンズメーター シミュレーションツール =SRTLM=<br>
                 万年カレンダー =PCalen=<br>
                 数独 問題作成ツール<br>
                 微分方程式描画ツール<br>
-                曲面描画ツール
-                <p class="pb10"></p>
-                <p class="fss">
-                    ※ ツールの紹介順序はアップデート順です。
-                </p>
+                曲面描画ツール<br>
+                38,000年前の航海民
             </h4>
+            <h4 class="left2 fss pb5">
+                紹介しているツールなどのリストを公開・アップデート順に示します :
+            </h4>
+
+            <div class="custom-select fwb">
+                <div id="selected" class="select-display">
+                    <span id="selected-text">更新履歴のリスト表示</span>
+                    <span class="arrow">▽</span>
+                </div>
+
+                <ul id="options" class="hidden">
+                    <li><a href="#260412">26/04/12 &ensp; 微分方程式可視化ツール3D 方程式を追加</a></li>
+                    <li><a href="#260319">26/03/19 &ensp; 微分方程式可視化ツール2D ベクトル場の表示機能追加</a></li>
+                    <li><a href="#260215">26/02/15 &ensp; 微分方程式可視化ツール2D 近似曲線開始初期点の計算ロジックを改善</a></li>
+                    <li><a href="#260108">26/01/08 &ensp; PCalen(万年カレンダー) PC版 ソースコード公開</a></li>
+                    <li><a href="#251203b">25/12/03 &ensp; PCalen(万年カレンダー) PCalen(万年カレンダー)のweb版と春分・秋分などを計算するツールを公開</a></li>
+                    <li><a href="#251203a">25/12/03 &ensp; PCalen(万年カレンダー) 祝祭日の見直し</a></li>
+                    <li><a href="#251123">25/11/23 &ensp; レンズメーターシミュレーションツール｢SRTLM｣ アップデート</a></li>
+                    <li><a href="#251013">25/10/13 &ensp; レンズメーターシミュレーションツール｢SRTLM｣ ソースコード公開</a></li>
+                    <li><a href="#250924">25/09/24 &ensp; 数独 問題作成ツール 問題作成時間軽減</a></li>
+                    <li><a href="#250326">25/03/26 &ensp; 38,000年前の航海民 公開</a></li>
+                    <li><a href="#240908">24/09/08 &ensp; 曲面可視化ツール 公開</a></li>
+                    <li><a href="#240706">24/07/06 &ensp; 微分方程式可視化ツール3D 操作性改善のためにスライダーバーを追加</a></li>
+                    <li><a href="#240624">24/06/24 &ensp; 微分方程式可視化ツール2D 方程式のユーザー入力機能を追加</a></li>
+                    <li><a href="#240511">24/05/11 &ensp; 微分方程式可視化ツール2D 方程式の追加 その4</a></li>
+                    <li><a href="#240428">24/04/28 &ensp; 微分方程式可視化ツール2D 方程式の追加 その3</a></li>
+                    <li><a href="#240415">24/04/15 &ensp; 微分方程式可視化ツール2D 方程式の追加 その2</a></li>
+                    <li><a href="#240323">24/03/23 &ensp; 微分方程式可視化ツール2D 方程式の追加 その1</a></li>
+                    <li><a href="#240303b">24/03/03 &ensp; 微分方程式可視化ツール2D 公開</a></li>
+                    <li><a href="#240303a">24/03/03 &ensp; 微分方程式可視化ツール3D 公開</a></li>
+                    <li><a href="#230801">23/08/01 &ensp; レンズメーターシミュレーションツール｢SRTLM｣ 公開</a></li>
+                    <li><a href="#230321b">23/03/21 &ensp; 数独問題作成ツール「別解法｣ 公開</a></li>
+                    <li><a href="#230321a">23/03/21 &ensp; 数独問題作成ツール アップデート</a></li>
+                    <li><a href="#230109">23/01/09 &ensp; 数独問題作成ツール 公開</a></li>
+                    <li><a href="#220925">22/09/25 &ensp; PCalen(万年カレンダー) 公開</a></li>
+                    <li><a href="#161206">16/12/06 &ensp; 斜交円柱によって生じる残余乱視を計算する Excel用のシート公開</a></li>
+                </ul>
+            </div>
         </div>
 
         <!-- for Java Script off -->
@@ -145,12 +277,11 @@
         ページの該当する場所にリンクするとき: [xxxxx] - zzzzz   <- 括弧なしで zzzzz のみに下線がつく
         -->
 
-        <!-- 25/12/xx-->
-        <!--
-        <div class="left2 flex pb30">
+        <!-- 26/04/15 -->
+        <div class="left2 flex">
             <div class="flx_itemL">
-                <div>
-                    25/12/xx
+                <div id="260415">
+                    26/04/12
                 </div>
                 <div>
                     <img class="nav-right-img" src="image/button/update_c.gif" width="52" height="14">
@@ -160,30 +291,71 @@
                 <img src="image/common/b-tri.gif" alt="label">
             </div>
             <div class="flx_itemR960">
-                <div class="pb5">
-                    PCalen(万年カレンダー)のソースコードを公開しました。
-                </div>
-                <div class="fwb fss pb10">
-                    以下の PCalen - 万年カレンダー をクリックするとGitHubから入手できます。
-                </div>
-                <div class="pb30">
-                    <a href="https://github.com/kotan2718/Perpetual_Calender-PCalen" target="_blank">PCalen - 万年カレンダー</a>
+                <div class="pb10">
+                    <a href="#3D">微分方程式(3次元)の解軌道を描画するページ</a>に、
+                    次の方程式を追加しました。
                 </div>
 
-                <div class="fwb fss pb5">
-                    実行ファイルやドキュメント類は、今まで通り PCalen を参照してください。
-                </div>
-                <div>
-                     [E.T.C.] - <a href="etc_PCalen.html">PCalen</a>
+                <div class="pb10">
+                    <ul class="fwm pl30" style="font-size: 85%;">
+                        <li>
+                            [08] Chen-Lee system
+                        </li>
+                        <li>
+                            [09] Chen system
+                        </li>
+                        <li>
+                            [10] Chua system
+                        </li>
+                        <li>
+                            [11] Langford system
+                        </li>
+                        <li>
+                            [12] Dadras system
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
-        -->
+        <div class="pb10">
+            <a href="etc_DEQ_doc3.html#08">
+                <span class="deq_pic_size">
+                    <img src="image/DEQ_img/deq3_08a.png" border="0">
+                </span>
+            </a>
+            <a href="etc_DEQ_doc3.html#09">
+                <span class="deq_pic_size">
+                    <img src="image/DEQ_img/deq3_09a.png" border="0">
+                </span>
+            </a>
+            <a href="etc_DEQ_doc3.html#10">
+                <span class="deq_pic_size">
+                    <img src="image/DEQ_img/deq3_10a.png" border="0">
+                </span>
+            </a>
+        </div>
+        <div class="pb30">
+            <a href="etc_DEQ_doc3.html#11">
+                <span class="deq_pic_size">
+                    <img src="image/DEQ_img/deq3_11a.png" border="0">
+                </span>
+            </a>
+            <a href="etc_DEQ_doc3.html#12">
+                <span class="deq_pic_size">
+                    <img src="image/DEQ_img/deq3_12a.png" border="0">
+                </span>
+            </a>
+        </div>
+        <div class="pb30">
+            <a href="etc_DEQ_doc3.html#*1">
+                選択された方程式のパラメータを変更した場合は、ローカルストレージに変更したデータを保存する機能を追加しました。
+            </a>
+        </div>
 
         <!-- 26/03/19 -->
         <div class="left2 flex">
             <div class="flx_itemL">
-                <div>
+                <div id="260319">
                     26/03/19
                 </div>
                 <div>
@@ -267,7 +439,7 @@
         <!-- 26/02/15 -->
         <div class="left2 flex">
             <div class="flx_itemL">
-                <div>
+                <div id="260215">
                     26/02/15
                 </div>
                 <div>
@@ -315,10 +487,43 @@
             </div>
         </div>
 
+        <!-- 26/01/08 -->
+        <div class="left2 flex pb30">
+            <div class="flx_itemL">
+                <div id="260108">
+                    26/01/08
+                </div>
+                <div>
+                    <img class="nav-right-img" src="image/button/update_c.gif" width="52" height="14">
+                </div>
+            </div>
+            <div class="flx_itemC">
+                <img src="image/common/b-tri.gif" alt="label">
+            </div>
+            <div class="flx_itemR960">
+                <div class="pb5">
+                    PCalen(万年カレンダー)のソースコードを公開しました。
+                </div>
+                <div class="fwb fss pb10">
+                    以下の PCalen - 万年カレンダー をクリックするとGitHubから入手できます。
+                </div>
+                <div class="pb30">
+                    <a href="https://github.com/kotan2718/PCalen" target="_blank">PCalen - 万年カレンダー</a>
+                </div>
+
+                <div class="fwb fss pb5">
+                    実行ファイルやドキュメント類は、今まで通り PCalen を参照してください。
+                </div>
+                <div>
+                     [E.T.C.] - <a href="etc_PCalen.html">PCalen</a>
+                </div>
+            </div>
+        </div>
+
         <!-- 25/12/03-->
         <div class="left2 flex pb30">
             <div class="flx_itemL">
-                <div>
+                <div id="251203b">
                     25/12/03
                 </div>
                 <div>
@@ -373,7 +578,7 @@
         <!-- 25/12/03-->
         <div class="left2 flex pb30">
             <div class="flx_itemL">
-                <div>
+                <div id="251203a">
                     25/12/03
                 </div>
                 <div>
@@ -425,7 +630,7 @@
         <!-- 25/11/23-->
         <div class="left2 flex pb30">
             <div class="flx_itemL">
-                <div>
+                <div id="251123">
                     25/11/23
                 </div>
                 <div>
@@ -451,6 +656,11 @@
                 <div class="pb5">
                     SRTML実行画面での、ヴィジュアルでの唯一の変化は、[Lens Data] セクションに
                     チェックボックス「1.523」が追加されたことです。
+                </div>
+                <div class="pb5">
+                    <span class="image-container">
+                        <img src="image/SRTLM_img/etc_SRTLM_add_1523_CheckBox.png">
+                    </span>
                 </div>
                 <div class="pb10">
                     レンズ前面半径は、設定項目「カーブ」を基にして計算されます。
@@ -508,7 +718,7 @@
         <!-- 25/10/13-->
         <div class="left2 flex pb30">
             <div class="flx_itemL">
-                <div>
+                <div id="251013">
                     25/10/13
                 </div>
                 <div>
@@ -548,7 +758,7 @@
         <!-- 25/09/24 -->
         <div class="left2 flex pb30">
             <div class="flx_itemL">
-                <div>
+                <div id="250924">
                     25/09/24
                 </div>
                 <div>
@@ -574,7 +784,7 @@
 
         <!-- 25/03/26 -->
         <div class="left2 flex pb30">
-            <div class="flx_itemL">
+            <div  id="250326" class="flx_itemL">
                 25/03/26
             </div>
             <div class="flx_itemC">
@@ -587,15 +797,23 @@
                 <div class="pb10">
                     38,000年前に伊豆神津島から舟で黒曜石を本土に運んでいた航海民の謎を追って、真面目に考察しました。
                 </div>
-                <div>
+                <div class="pb10">
                     [E.T.C.] - <a href="etc_Voyager.html">38,000年前の航海民</a>
+                </div>
+                <div>
+                    <a href="etc_Voyager.html">
+                        <span class="image-container">
+                            <img src="image/Voyager/voyager_top_img.png" width="60%"
+                                alt="38000nen前の航海民TOPイメージ">
+                        </span>
+                    </a>
                 </div>
             </div>
         </div>
 
         <!-- 24/09/08 -->
         <div class="left2 flex pb30">
-            <div class="flx_itemL">
+            <div  id="240908" class="flx_itemL">
                 24/09/08
             </div>
             <div class="flx_itemC">
@@ -628,7 +846,7 @@
         <!-- 24/07/06 -->
         <div class="left2 flex">
             <div class="flx_itemL">
-                <div>
+                <div id="240706">
                     24/07/06
                 </div>
                 <div>
@@ -662,7 +880,7 @@
         <!-- 24/06/24 -->
         <div class="left2 flex">
             <div class="flx_itemL">
-                <div>
+                <div id="240624">
                     24/06/24
                 </div>
                 <div>
@@ -702,7 +920,7 @@
         <!-- 24/05/11 -->
         <div class="left2 flex">
             <div class="flx_itemL">
-                <div>
+                <div id="240511">
                     24/05/11
                 </div>
                 <div>
@@ -766,8 +984,8 @@
         <!-- 24/04/28 -->
         <div class="left2 flex">
             <div class="flx_itemL">
-                <div>
-                    24/04/15
+                <div id="240428">
+                    24/04/28
                 </div>
                 <div>
                     <!--<img class="nav-right-img" src="image/button/update_c.gif" width="52" height="14">-->
@@ -816,7 +1034,7 @@
         <!-- 24/04/15 -->
         <div class="left2 flex">
             <div class="flx_itemL">
-                <div>
+                <div id="240415">
                     24/04/15
                 </div>
                 <div>
@@ -871,7 +1089,7 @@
 
         <!-- 24/03/23 -->
         <div class="left2 flex">
-            <div class="flx_itemL">
+            <div  id="240323" class="flx_itemL">
                 24/03/23
             </div>
             <div class="flx_itemC">
@@ -922,7 +1140,7 @@
 
         <!-- 24/03/03 -->
         <div class="left2 flex pb30">
-            <div class="flx_itemL">
+            <div id="240303b" class="flx_itemL">
                 24/03/03
             </div>
             <div class="flx_itemC">
@@ -957,12 +1175,12 @@
                      [E.T.C.] - <a href="etc_DEQ_v2.html">微分方程式 解曲線の描画</a>
                 </div>
                 <div class="fwb fss pb10">
-                    描画ページでは、以下の設定ができます。
+                    描画ページでは、以下のパラメータの設定ができます。
                 </div>
                 <div class="pb10">
                     <ol class="fwm pl30" style="font-size: 85%;">
                         <li>
-                            係数(変更できるパラメーターはそれぞれの方程式によって異なります)
+                            係数(a～h、但しそれぞれの方程式によって異なります)
                         </li>
                         <li>
                             描画範囲
@@ -982,7 +1200,7 @@
         </div>
 
         <!-- 24/03/03 -->
-        <div class="left2 flex pb30">
+        <div  id="240303a" class="left2 flex pb30">
             <div id="3D" class="flx_itemL">
                 24/03/03
             </div>
@@ -1048,7 +1266,7 @@
         <!-- 23/08/01-->
         <div class="left2 flex pb30">
             <div class="flx_itemL">
-                <div>
+                <div id="230801">
                     23/08/01
                 </div>
                 <div>
@@ -1062,6 +1280,13 @@
                 <div class="pb5">
                     レンズメーターシミュレーションツール｢SRTLM｣を公開しました。
                 </div>
+                <div class="pb10">
+                    <a href="etc_SRTLM.html">
+                        <span class="image-container">
+                            <img src="image/SRTLM_img/SRTLM_21211.png">
+                        </span>
+                    </a>
+                </div>
                 <div class="fwb fss pb10">
                     フリーウェアとしてダウンロードできます。
                 </div>
@@ -1074,7 +1299,7 @@
         <!-- 23/03/21-->
         <div class="left2 flex pb30">
             <div class="flx_itemL">
-                <div>
+                <div id="230321b">
                     23/03/21
                 </div>
                 <div>
@@ -1113,7 +1338,7 @@
         <!-- 23/03/21 -->
         <div class="left2 flex pb30">
             <div class="flx_itemL">
-                <div>
+                <div id="230321a">
                     23/03/21
                 </div>
                 <div>
@@ -1139,7 +1364,7 @@
         <!-- 23/01/09 -->
         <div class="left2 flex pb30">
             <div class="flx_itemL">
-                <div>
+                <div id="230129">
                     23/01/09
                 </div>
                 <div>
@@ -1177,7 +1402,7 @@
         <!-- 22/09/25 -->
         <div class="left2 flex pb30">
             <div class="flx_itemL">
-                <div>
+                <div id="221212">
                     22/12/12
                 </div>
                 <div>
@@ -1191,7 +1416,7 @@
                 <div class="pb10">
                     万年カレンダーを｢作りました。
                 </div>
-                <div class="pb5">
+                <div class="pb10">
                     万年カレンダーは至る所にあります。
                     例えば、Windowsならばタスクバーの時刻をクリックすれば現れます。<br>
                     私がほしかったのは、祝祭日のついたカレンダーです。<br>
@@ -1199,8 +1424,15 @@
                     祝祭日が分かれば便利だろうなと思って作成しました。<br>
                     任意の日付に書き込める｢簡易メモ｣と経過年数が表示される｢年単位メモ｣が付いています。<br>
                 </div>
+                <div class="pb10">
+                    <a href="etc_PCalen.html">
+                        <span class="image-container">
+                            <img src="image/PCalen_img/起動時0.jpg" border="0">
+                        </span>
+                    </a>
+                </div>
                 <div class="fwb fss pb10">
-                    (フリーウェアとしてダウロードできます。ただし、WindowsPC専用です｡)
+                    フリーウェアとしてダウロードできます。ただし、WindowsPC専用です｡
                 </div>
                 <div>
                      [E.T.C.] - <a href="etc_PCalen.html">PCalen</a>
@@ -1210,8 +1442,8 @@
 
         <!-- 16/12/06 -->
         <div class="left2 flex pb30">
-            <div class="flx_itemL">
-                16/12/08
+            <div  id="161206" class="flx_itemL">
+                16/12/06
             </div>
             <div class="flx_itemC">
                 <img src="image/common/b-tri.gif" alt="label">
@@ -1232,7 +1464,44 @@
         </div>
 
     </div>
+    <script>
+        const options = document.getElementById("options");
+        const selectedText = document.getElementById("selected-text");  // textContent を直接書き換えない
+        const selected = document.getElementById("selected");
 
+        /* リストクリック */
+        options.querySelectorAll("li").forEach(li => {
+            li.addEventListener("click", (e) => {
+                const a = e.target.closest("a");
+                if (!a) return;
+
+                e.preventDefault();
+
+                // 既存の selected を全部外す
+                options.querySelectorAll(".selected").forEach(el => {
+                    el.classList.remove("selected");
+                });
+
+                // 今回の項目に付与
+                li.classList.add("selected");
+
+                // 表示更新
+                // selectedText（ここだけ変更）
+                selectedText.textContent = a.textContent;
+
+
+                options.classList.add("hidden");
+
+                // ジャンプ
+                location.hash = a.getAttribute("href");
+            });
+        });
+
+        /* 外クリックで閉じる */
+        document.addEventListener("click", () => {
+            options.classList.add("hidden");
+        });
+    </script>
 
     <footer>
         <hr id="footer"> <!-- horizontal partition -->

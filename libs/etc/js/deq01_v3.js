@@ -23,7 +23,7 @@ let mh_used = 0;
 // 繰返し回数
 cnt_dp = 3200;
 // 刻み幅(時間経過ステップ)
-dh = 0.01;
+dh = 0.1;
 // 描画速度
 let spd = 2;
 
@@ -57,6 +57,8 @@ let vAx = 3;             // 20231010 vertical Axis(1 : x軸, 2 : y軸, 3 : z軸 
 
 let width0 = 100;
 let height0 = 100;
+let wmax;
+let wmin;
 
 let mag;
 const magStd = 80;
@@ -106,9 +108,26 @@ let arr_z = [];
 
 async function animateGraph() {
 
+//-//    const startTime = Date.now();
+//-//    let nowTime = 0;
+
     // 描画中に使用不可とするコントロール
     drawnFlg = false;
     usability(false);
+    document.getElementById('selected').classList.add('disabled');  // ← 個別に指定
+    // スライダーを使用不可に切り替える
+//-//    $("#horizontal-slider").slider("option", "disabled", true);   // ← これだと読み込みのタイミングでjquery-uiでエラーが出る場合がある
+//-//    $("#vertical-slider").slider("option", "disabled", true);
+        $(function() {
+            $("#horizontal-slider").slider({
+                disabled: true // 無効に設定
+            });
+        });
+        $(function() {
+            $("#vertical-slider").slider({
+                disabled: true // 無効に設定
+            });
+        });
 
     prep();
 
@@ -217,16 +236,6 @@ async function animateGraph() {
             Ru_ky[3] = dh * FNG(dt + dh, Ru_x0 + Ru_kx[2], Ru_y0 + Ru_ky[2], Ru_z0 + Ru_kz[2]);
             Ru_kz[3] = dh * FNH(dt + dh, Ru_x0 + Ru_kx[2], Ru_y0 + Ru_ky[2], Ru_z0 + Ru_kz[2]);
 
-            if (Math.abs(Ru_x0) > Math.abs(width0) || Math.abs(Ru_y0) > Math.abs(height0)) {
-                continue;
-            }
-
-            if (Math.abs(Ru_kx[3]) > max || Math.abs(Ru_ky[3]) > max) {
-                //ovrRangeFlg = 1;
-                //break;
-                continue;
-            }
-
             Ru_dx[i] = Ru_x0 + (Ru_kx[0] + 2.0 * Ru_kx[1] + 2.0 * Ru_kx[2] + Ru_kx[3]) / 6.0;
             Ru_dy[i] = Ru_y0 + (Ru_ky[0] + 2.0 * Ru_ky[1] + 2.0 * Ru_ky[2] + Ru_ky[3]) / 6.0;
             Ru_dz[i] = Ru_z0 + (Ru_kz[0] + 2.0 * Ru_kz[1] + 2.0 * Ru_kz[2] + Ru_kz[3]) / 6.0;
@@ -242,17 +251,10 @@ async function animateGraph() {
             //      //
             //////////
 
-            if (Math.abs(Ru_dx[i]) > Math.abs(width0) || Math.abs(Ru_dy[i]) > Math.abs(height0)) {
-                //ovrRangeFlg = 1;
-                //break;
-                continue;
-            }
-            //if (Math.sqrt(Math.pow(Ru_dx[i] - Ru_x0, 2.0) + Math.pow(Ru_dy[i] - Ru_y0, 2.0)) < eps / 10.0) {  // 20230904 epsが0.01は小さすぎるか？
-            if (Math.sqrt(Math.pow(Ru_dx[i] - Ru_x0, 2) + Math.pow(Ru_dy[i] - Ru_y0, 2)) < Math.abs(width0) / 10000) {
-                //ovrRangeFlg = 1;
-                //break;
-                //continue;
-            }
+            //if (Math.abs(Ru_dx[i]) > Math.abs(width0) || Math.abs(Ru_dy[i]) > Math.abs(height0) * 10) {
+            ////if (Math.sqrt(Ru_dx[i] * Ru_dx[i] + Ru_dy[i] * Ru_dy[i] + Ru_dz[i] * Ru_dz[i]) > max) {
+            ////    continue;
+            ////}
 
             if (i == 0) {
                 ary3D[i].push({ x: Ru_dx[i],  y: Ru_dy[i], z: Ru_dz[i] });
@@ -261,6 +263,10 @@ async function animateGraph() {
                 pixelX = scaleX * (obj2.x3 + width0 / 2);
                 pixelY = scaleY * (height0 / 2 - obj2.y3);
 
+                if (pixelX < -9 * canvas.width || pixelX > 10 * canvas.width ||
+                    pixelY < -9 * canvas.height || pixelY > 10 * canvas.height) {
+                    continue;
+                }
                 linePoints[i].push({ x: pixelX, y: pixelY });
 
                 ctx.beginPath();
@@ -285,6 +291,11 @@ async function animateGraph() {
                 pixelX = scaleX * (obj2.x3 + width0 / 2);
                 pixelY = scaleY * (height0 / 2 - obj2.y3);
 
+                if (pixelX < -9 * canvas.width || pixelX > 10 * canvas.width ||
+                    pixelY < -9 * canvas.height || pixelY > 10 * canvas.height) {
+                    continue;
+                }
+
                 linePoints[i].push({ x: pixelX, y: pixelY });
 
                 ctx.beginPath();
@@ -307,58 +318,67 @@ async function animateGraph() {
             // 経過ステップを表示
             document.getElementById('keika').innerText = dp;
             if (dp != cnt_dp) {
+
                 // 描画領域をリセット
                 ctx.fillStyle = 'rgb( 0, 0, 0)';
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
-    // 3軸の描画
-    Axis();
+                // 3軸の描画
+                Axis();
+
+                // ★ 過去データを全部描き直す
+                for (let i = 0; i < 2; i++) {
+                    ctx.beginPath();
+                    ctx.moveTo(linePoints[i][0].x, linePoints[i][0].y);
+
+                    for (const point of linePoints[i]) {
+                        ctx.lineTo(point.x, point.y);
+                    }
+
+                    ctx.strokeStyle = (i == 0)
+                        ? 'rgb(100,149,237)'
+                        : 'rgb(200,200,55)';
+                    ctx.stroke();
+                }
 
             }
         }
-        switch (spd) {
-            case 1:
-                spd = 1;
-                if (dp % spd == 0) { // 倍速設定
-                    await new Promise(resolve => setTimeout(resolve, 40)); // Wait for 10 milliseconds
-                }
-                break;
-            case 2:
-                spd =1;
-                if (dp % spd == 0) { // 倍速設定
-                    await new Promise(resolve => setTimeout(resolve, 20)); // Wait for 10 milliseconds
-                }
-                break;
-            case 4:
-            case 8:
-                if (dp % spd == 0) { // 倍速設定
-                    await new Promise(resolve => setTimeout(resolve, 20)); // Wait for 10 milliseconds
-                }
-                break;
-            case 20:
-                if (dp % spd == 0) { // 倍速設定
-                    await new Promise(resolve => setTimeout(resolve, 0)); // Wait for 10 milliseconds
-                }
-                break;
-            default:
-                break;
+        if (dp % spd == 0) {
+            await new Promise(resolve => setTimeout(resolve, 20));
         }
     }
     // 描画後に使用可とするコントロール
     usability(true);
+    document.getElementById('selected').classList.remove('disabled');    // ← 個別に指定
+    // スライダーを使用可に切り替える
+        $(function() {
+            $("#horizontal-slider").slider({
+                disabled: false // 有効に設定
+            });
+        });
+        $(function() {
+            $("#vertical-slider").slider({
+                disabled: false // 有効に設定
+            });
+        });
+
+
     // アングルの変更でライン格納配列を使用可にする
     drawnFlg = true;
-//            mapping();
+
+//-//    nowTime = (Date.now() - startTime) / 1000;
+//-//    console.log("elapsed time:", nowTime);
+
 }
 
 // 描画に必要な定数を入力データから計算して用意する
 function prep()
 {
-    let tau;             // 基線(画面)から図形座標の原点までの距離
-    let tg;              // tangent gamma
-    let zMin = -1.5;     // z方向描画領域の最小値
+    let tau;            // 基線(画面)から図形座標の原点までの距離
+    let tg;             // tangent gamma
+    let zMin = -1.5;    // z方向描画領域の最小値
 
-    m_el = 1000.0;  // 基線（画面）までの視距離
-    tau  =   10.0;  // 矩形領域のうち基線に一番近い頂点から基線までの距離
+    m_el = 1000.0;      // 基線（画面）までの視距離
+    tau  =   10.0;      // 矩形領域のうち基線に一番近い頂点から基線までの距離
     // *******************************
     m_et = m_el + tau;
     // *******************************
@@ -668,7 +688,6 @@ function scaling()
 }
 
 // 座標変換で指定された角度で計算済みの解曲線を描画する
-
 function mapping()
 {
     // for debug start
@@ -686,61 +705,58 @@ function mapping()
         linePoints.push([]);
     }
 
-//            for (let i = 0; i < 3; i++) {
-//                ary3D.push([]);
-//            }
-
     // 描画領域をリセット
     ctx.fillStyle = 'rgb( 0, 0, 0)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     Axis();
-//            if (drawnFlg == true && debugMode == false) {
-        //for (int dp = 1; dp <= cnt_dp; dp++)
-        for (let dp = 1; dp <= cnt_dp; dp = dp + 1) {
-            for (let i = 0; i < 2; i++) {
-                if (dp == 1) {
-                    vx1 = 0.0, vy1 = 0.0, vz1 = 0.0;
-                    let obj1 = {x3: vx1, y3: vy1, z3: vz1};
-                    R3D(ary3D[i][0].x, ary3D[i][0].y, ary3D[i][0].z, obj1);
-                    pixelX = scaleX * (obj1.x3 + width0 / 2);
-                    pixelY = scaleY * (height0 / 2 - obj1.y3);
-                    linePoints[i].push({ x: pixelX, y: pixelY });
-                }
-                else {
-                    vx2 = 0.0, vy2 = 0.0, vz2 = 0.0;
-                    let obj2 = {x3: vx2, y3: vy2, z3: vz2};
-                    R3D(ary3D[i][dp].x, ary3D[i][dp].y, ary3D[i][dp].z, obj2);
+    for (let dp = 1; dp <= cnt_dp; dp = dp + 1) {
+        for (let i = 0; i < 2; i++) {
 
-                    pixelX = scaleX * (obj2.x3 + width0 / 2);
-                    pixelY = scaleY * (height0 / 2 - obj2.y3);
+            // ★ここに入れる
+            if (!ary3D[i][dp]) continue;
 
-                    linePoints[i].push({ x: pixelX, y: pixelY });
-                }
+            if (dp == 1) {
+                vx1 = 0.0, vy1 = 0.0, vz1 = 0.0;
+                let obj1 = {x3: vx1, y3: vy1, z3: vz1};
+                R3D(ary3D[i][0].x, ary3D[i][0].y, ary3D[i][0].z, obj1);
+                pixelX = scaleX * (obj1.x3 + width0 / 2);
+                pixelY = scaleY * (height0 / 2 - obj1.y3);
+                linePoints[i].push({ x: pixelX, y: pixelY });
+            }
+            else {
+                vx2 = 0.0, vy2 = 0.0, vz2 = 0.0;
+                let obj2 = {x3: vx2, y3: vy2, z3: vz2};
+                R3D(ary3D[i][dp].x, ary3D[i][dp].y, ary3D[i][dp].z, obj2);
+
+                pixelX = scaleX * (obj2.x3 + width0 / 2);
+                pixelY = scaleY * (height0 / 2 - obj2.y3);
+
+                linePoints[i].push({ x: pixelX, y: pixelY });
             }
         }
-        for (let i = 0; i < 2; i++)
-        {
-            if (i == 0) {
-                ctx.beginPath();
-                ctx.moveTo(linePoints[i][0].x, linePoints[i][0].y);
-                for (const point of linePoints[i]) {
-                    ctx.lineTo(point.x, point.y);
-                }
-                ctx.strokeStyle = 'rgb(100, 149, 237)';
-                ctx.stroke();
+    }
+    for (let i = 0; i < 2; i++)
+    {
+        if (i == 0) {
+            ctx.beginPath();
+            ctx.moveTo(linePoints[i][0].x, linePoints[i][0].y);
+            for (const point of linePoints[i]) {
+                ctx.lineTo(point.x, point.y);
             }
-            if (i == 1) {
-                ctx.beginPath();
-                ctx.moveTo(linePoints[i][0].x, linePoints[i][0].y);
-                for (const point of linePoints[i]) {
-                    ctx.lineTo(point.x, point.y);
-                }
-                ctx.strokeStyle = 'rgb(200, 200, 55)';
-                ctx.stroke();
-            }
+            ctx.strokeStyle = 'rgb(100, 149, 237)';
+            ctx.stroke();
         }
-//            }
+        if (i == 1) {
+            ctx.beginPath();
+            ctx.moveTo(linePoints[i][0].x, linePoints[i][0].y);
+            for (const point of linePoints[i]) {
+                ctx.lineTo(point.x, point.y);
+            }
+            ctx.strokeStyle = 'rgb(200, 200, 55)';
+            ctx.stroke();
+        }
+    }
 }
 
 // コントロールの使用可否 : 描画中, それ以外の場合
@@ -753,55 +769,58 @@ function usability(flg)
     else {
         flg = true;
     }
-    document.getElementById('type').disabled = flg;
-        if (ma_used == 1) {
-            document.getElementById('ma').disabled = flg;
+//    document.getElementById('selected').disabled = flg;
+//    document.getElementById('selected').classList.add('disabled');    // ← これを個別に指定
+
+    if (ma_used == 1) {
+        document.getElementById('ma').disabled = flg;
+    }
+    else {
+        document.getElementById('ma').disabled = true;
         }
-        else {
-            document.getElementById('ma').disabled = true;
-            }
-        if (mb_used == 1) {
-            document.getElementById('mb').disabled = flg;
-        }
-        else {
-            document.getElementById('mb').disabled = true;
-        }
-        if (mc_used == 1) {
-            document.getElementById('mc').disabled = flg;
-        }
-        else {
-            document.getElementById('mc').disabled = true;
-        }
-        if (md_used == 1) {
-            document.getElementById('md').disabled = flg;
-        }
-        else {
-            document.getElementById('md').disabled = true;
-        }
-        if (me_used == 1) {
-            document.getElementById('me').disabled = flg;
-        }
-        else {
-            document.getElementById('me').disabled = true;
-        }
-        if (mf_used == 1) {
-            document.getElementById('mf').disabled = flg;
-        }
-        else {
-            document.getElementById('mf').disabled = true;
-        }
-        if (mg_used == 1) {
-            document.getElementById('mg').disabled = flg;
-        }
-        else {
-            document.getElementById('mg').disabled = true;
-        }
-        if (mh_used == 1) {
-            document.getElementById('mh').disabled = flg;
-        }
-        else {
-            document.getElementById('mh').disabled = true;
-        }
+    if (mb_used == 1) {
+        document.getElementById('mb').disabled = flg;
+    }
+    else {
+        document.getElementById('mb').disabled = true;
+    }
+    if (mc_used == 1) {
+        document.getElementById('mc').disabled = flg;
+    }
+    else {
+        document.getElementById('mc').disabled = true;
+    }
+    if (md_used == 1) {
+        document.getElementById('md').disabled = flg;
+    }
+    else {
+        document.getElementById('md').disabled = true;
+    }
+    if (me_used == 1) {
+        document.getElementById('me').disabled = flg;
+    }
+    else {
+        document.getElementById('me').disabled = true;
+    }
+    if (mf_used == 1) {
+        document.getElementById('mf').disabled = flg;
+    }
+    else {
+        document.getElementById('mf').disabled = true;
+    }
+    if (mg_used == 1) {
+        document.getElementById('mg').disabled = flg;
+    }
+    else {
+        document.getElementById('mg').disabled = true;
+    }
+    if (mh_used == 1) {
+        document.getElementById('mh').disabled = flg;
+    }
+    else {
+        document.getElementById('mh').disabled = true;
+    }
+
     document.getElementById('width0').disabled = flg;
     document.getElementById('spd').disabled = flg;
     document.getElementById('dh').disabled = flg;
@@ -817,7 +836,12 @@ function usability(flg)
     document.getElementById('axX').disabled = flg;
     document.getElementById('axY').disabled = flg;
     document.getElementById('axZ').disabled = flg;
-    document.getElementById('start').disabled = flg;
+    document.querySelectorAll(".startBtn").forEach(btn => {
+        btn.disabled = flg;
+    });
+    document.querySelectorAll(".resetBtn").forEach(btn => {
+        btn.disabled = flg;
+    });
     // R3Dの変換でDrawLineがoverflowになったときの対応(回転を許可すると無限ループに入る可能性あり)
     /*
     if (rotateFlg == false)
@@ -834,9 +858,9 @@ function usability(flg)
     }
     */
 
-    // スライダーバーの使用可否を切り替える
-    $("#horizontal-slider").slider("option", "disabled", flg);
-    $("#vertical-slider").slider("option", "disabled", flg);
+    // スライダーバーの使用可否を切り替える ← 個別対応に変更
+    //$("#horizontal-slider").slider("option", "disabled", flg);
+    //$("#vertical-slider").slider("option", "disabled", flg);
 
     // 逆になったtrueとfalseを元に戻す
     if (flg == true) {
@@ -846,7 +870,9 @@ function usability(flg)
         flg = true;
     }
     // Stopボタンだけは動きが逆になる
-    document.getElementById('stop').disabled = flg;
+    document.querySelectorAll(".stopBtn").forEach(btn => {
+        btn.disabled = flg;
+    });
 }
 
 
@@ -892,19 +918,31 @@ function stopAnimation() {
 // リセット処理(アングル、垂直軸をデフォルトに戻す)
 function resetAnimation() {
     resetFlg = true;
-    changeType();
+    changeType(selectedValue);
+
+    changeType(selected);
     // slider bar
-    $("#horizontal-slider").slider("value", m_alpha);
-    $("#vertical-slider").slider("value", m_gamma);
-    mapping();
+        $(function() {
+            $("#horizontal-slider").slider({
+                value: m_alpha // 初期化
+            });
+        });
+        $(function() {
+            $("#vertical-slider").slider({
+                value: m_gamma // 初期化
+            });
+        });
+    mapping(selected);
     resetFlg = false;
-    document.getElementById('reset').disabled = true;
+    document.querySelectorAll(".resetBtn").forEach(btn => {
+        btn.disabled = true;
+    });
 }
 
 function updateRange() {
-    const width0 = parseFloat(document.getElementById('width0').value);
-    const wmax = width0 / 2;
-    const wmin = -wmax;
+    width0 = parseFloat(document.getElementById('width0').value);
+    wmax = width0 / 2;
+    wmin = -wmax;
     document.getElementById('wmax').innerText = wmax;
     document.getElementById('wmin').innerText = wmin;
     
@@ -919,12 +957,6 @@ function updateRange() {
     scaling();
 }
 
-//        function setRange() {
-//            document.getElementById('width0').value = 100;
-//            document.getElementById('cnt_dp').value = 3200;
-//            document.getElementById('dh').value = 0.01;
-//            updateRange();
-//        }
 
 // Vertical Axis 変更 html -> js
 function changeAxis() {
@@ -993,7 +1025,9 @@ function changeAngle() {
     if (drawnFlg == true)
         {
         // Resetボタンを使用可に設定
-        document.getElementById('reset').disabled = false;
+        document.querySelectorAll(".resetBtn").forEach(btn => {
+            btn.disabled = false;
+        });
         mapping();
     }
 }
@@ -1008,16 +1042,36 @@ function setAngle() {
 function changeSpeed() {
     spd = parseInt(document.getElementById('spd').value);
 }
-/*
-    // 解説のページに戻る関数(deq00_v3.jsに移動)
-    function goBack() {
-        window.history.back(); // ブラウザの「戻る」ボタンと同じ動作
-    }
-*/
-function changeType() {
-    const type = String(document.getElementById('type').value);
 
-    switch (type) {
+
+
+
+// Local Strage の処理はこの関数内で一括して行う ← 取りやめ 20260403
+function changeType(selected) {
+    // ローカルストレージチェックボックスON/OFF管理
+    updateCheckbox();
+
+    // 正しい式Noであるかをチェック("01", "123" :OK, "A1", null, [Object HTMLDivElement] :NG)
+    if (!isValidFormulaNo(selected)) {
+        console.warn("invalid selected:", selected);
+        return;
+    }
+
+    selected = normalizeSelected(selected);
+    console.log("changeType selected =", selected, typeof selected);
+
+    if (typeof selected !== "string") {
+        console.warn("selected is not string:", selected);
+        return;
+    }
+
+    if (!selected || selected === "null") return;
+
+    // 最後の選択は保存
+    localStorage.setItem('kkoDeq3D_LastSelected', selected);
+
+
+    switch (selected) {
         case "01":  // Lorenz
             dat = 1;
             // vertical axis
@@ -1034,6 +1088,8 @@ function changeType() {
             width0 = 100;
             height0 = width0;
             document.getElementById('width0').value = width0;
+            // 描画速度
+            spd = 1;
             // 係数デフォルト値
             document.getElementById('ma').value = 10.0;
             document.getElementById('mb').value = 28.0;
@@ -1077,23 +1133,25 @@ function changeType() {
             width0 = 10;
             height0 = width0;
             document.getElementById('width0').value = width0;
+            // 描画速度
+            spd = 3;
             // 係数デフォルト値
-            document.getElementById('ma').value = 0.208186;
+            document.getElementById('ma').value = 0.21; // 元は 0.208186
             ma_used = 1;
             // 初期値デフォルト値
             document.getElementById('init1_x').value = 0;
             document.getElementById('init1_y').value = 1;
             document.getElementById('init1_z').value = 2;
             document.getElementById('init2_x').value = 0;
-            document.getElementById('init2_y').value = 1;
-            document.getElementById('init2_z').value = 2.01;
+            document.getElementById('init2_y').value = -1;
+            document.getElementById('init2_z').value = -2;
             // 式を表示する
             document.getElementById('dx').innerText = "$ \\dot{x} = \\sin y - ax $";
             document.getElementById('dy').innerText = "$ \\dot{y} = \\sin z - ay $";
             document.getElementById('dz').innerText = "$ \\dot{z} = \\sin x - az $";
             document.getElementById('where').innerText = "";
             updateRange();
-            document.getElementById('cnt_dp').value = 3200;
+            document.getElementById('cnt_dp').value = 6400;
             document.getElementById('dh').value = 0.1;
             document.getElementById('ma').disabled = false;
             break;
@@ -1114,6 +1172,7 @@ function changeType() {
             width0 = 10;
             height0 = width0;
             document.getElementById('width0').value = width0;
+            // 描画速度 デフォルト変更なし
             // 係数デフォルト値
             document.getElementById('ma').value = 0.2;
             document.getElementById('mb').value = 0.01;
@@ -1146,8 +1205,8 @@ function changeType() {
             vAx = 3;
             setAxis();
             // 描画アングル
-            m_alpha = -20.0;
-            m_gamma = -30.0;
+            m_alpha = 67.0;
+            m_gamma = 29.0;
             setAngle();
             if (resetFlg) {
                 return;
@@ -1157,6 +1216,8 @@ function changeType() {
             width0 = 36;
             height0 = width0;
             document.getElementById('width0').value = width0;
+            // 描画速度
+            spd = 1;
             // 係数デフォルト値
             document.getElementById('ma').value = 1.499;
             ma_used = 1;
@@ -1194,6 +1255,7 @@ function changeType() {
             width0 = 50;
             height0 = width0;
             document.getElementById('width0').value = width0;
+            // 描画速度 デフォルト変更なし
             // 係数デフォルト値
             document.getElementById('ma').value = 0.2;
             document.getElementById('mb').value = 0.2;
@@ -1220,6 +1282,7 @@ function changeType() {
             document.getElementById('mb').disabled = false;
             document.getElementById('mc').disabled = false;
             break;
+/*
         case "06":  // Sprott
             dat = 6;
             // vertical axis
@@ -1237,6 +1300,7 @@ function changeType() {
             width0 = 5;
             height0 = width0;
             document.getElementById('width0').value = width0;
+            // 描画速度 デフォルト変更なし
             // 係数デフォルト値
             document.getElementById('ma').value = 2.07;
             document.getElementById('mb').value = 1.79;
@@ -1260,6 +1324,51 @@ function changeType() {
             document.getElementById('ma').disabled = false;
             document.getElementById('mb').disabled = false;
             break;
+*/
+        case "06":  // Sprott B
+            dat = 6;
+            // vertical axis
+            vAx = 3;
+            setAxis();
+            // 描画アングル
+            m_alpha = -20.0;
+            m_gamma = -30.0;
+            setAngle();
+            if (resetFlg) {
+                return;
+            }
+            changeProperty(0);
+            // 描画範囲
+            width0 = 20;
+            height0 = width0;
+            document.getElementById('width0').value = width0;
+            // 描画速度
+            spd = 4;
+            // 係数デフォルト値
+            document.getElementById('ma').value = 0.4;
+            document.getElementById('mb').value = 1.2;
+            document.getElementById('mc').value = 1.0;
+            ma_used = 1;
+            mb_used = 1;
+            mc_used = 1;
+            // 初期値デフォルト値
+            document.getElementById('init1_x').value = 0.1;
+            document.getElementById('init1_y').value = 0;
+            document.getElementById('init1_z').value = 0;
+            document.getElementById('init2_x').value = 0.11;
+            document.getElementById('init2_y').value = 0;
+            document.getElementById('init2_z').value = 0;
+            // 式を表示する
+            document.getElementById('dx').innerText = "$ \\dot{x} = ayz $";
+            document.getElementById('dy').innerText = "$ \\dot{y} = x - by $";
+            document.getElementById('dz').innerText = "$ \\dot{z} = c - xy $";
+            document.getElementById('where').innerText = "";
+            updateRange();
+            document.getElementById('cnt_dp').value = 9600;
+            document.getElementById('dh').value = 0.04;
+            document.getElementById('ma').disabled = false;
+            document.getElementById('mb').disabled = false;
+            break;
         case "07":  // Rabinovich-Fabrikant
             dat = 7;
             // vertical axis
@@ -1277,6 +1386,7 @@ function changeType() {
             width0 = 8;
             height0 = width0;
             document.getElementById('width0').value = width0;
+            // 描画速度 デフォルト変更なし
             // 係数デフォルト値
             document.getElementById('ma').value = 0.14;
             document.getElementById('mb').value = 0.1;
@@ -1300,7 +1410,7 @@ function changeType() {
             document.getElementById('ma').disabled = false;
             document.getElementById('mb').disabled = false;
             break;
-        case "08":  // Chen
+        case "08":  // Chen-Lee
             dat = 8;
             // vertical axis
             vAx = 3;
@@ -1317,6 +1427,7 @@ function changeType() {
             width0 = 50;
             height0 = width0;
             document.getElementById('width0').value = width0;
+            // 描画速度 デフォルト変更なし
             // 係数デフォルト値
             document.getElementById('ma').value = 5;
             document.getElementById('mb').value = -10;
@@ -1343,7 +1454,7 @@ function changeType() {
             document.getElementById('mb').disabled = false;
             document.getElementById('mc').disabled = false;
             break;
-        case "09":  // Chen2
+        case "09":  // Chen
             dat = 9;
             // vertical axis
             vAx = 3;
@@ -1360,6 +1471,7 @@ function changeType() {
             width0 = 80;
             height0 = width0;
             document.getElementById('width0').value = width0;
+            // 描画速度 デフォルト変更なし
             // 係数デフォルト値
             document.getElementById('ma').value = 40;
             document.getElementById('mb').value = 3;
@@ -1386,7 +1498,7 @@ function changeType() {
             document.getElementById('mb').disabled = false;
             document.getElementById('mc').disabled = false;
             break;
-        case "10":  // Chua_14_4
+        case "10":  // Chua
             dat = 10;
             // vertical axis
             vAx = 3;
@@ -1403,6 +1515,7 @@ function changeType() {
             width0 = 8;
             height0 = width0;
             document.getElementById('width0').value = width0;
+            // 描画速度 デフォルト変更なし
             // 係数デフォルト値
             document.getElementById('ma').value = 15.41;
             document.getElementById('mb').value = 28;
@@ -1420,10 +1533,10 @@ function changeType() {
             document.getElementById('init2_y').value = 0;
             document.getElementById('init2_z').value = 0;
             // 式を表示する
-            document.getElementById('dx').innerText = "$ \\dot{x} = a(y - x - f(x) $";
+            document.getElementById('dx').innerText = "$ \\dot{x} = a(y - x - f(x)) $";
             document.getElementById('dy').innerText = "$ \\dot{y} = x - y + z $";
             document.getElementById('dz').innerText = "$ \\dot{z} = -by $";
-            document.getElementById('where').innerText = "$\\;$ where $\\; f(x) = cx + 0.5(d - c)(|x + 1| - |x - 1|) $";
+            document.getElementById('where').innerText = "$\\;$ where $ \\; f(x) = cx + 0.5(d - c)(|x + 1| - |x - 1|) $";
             updateRange();
             document.getElementById('cnt_dp').value = 6400;
             document.getElementById('dh').value = 0.01;
@@ -1432,54 +1545,8 @@ function changeType() {
             document.getElementById('mc').disabled = false;
             document.getElementById('md').disabled = false;
             break;
-        case "11":  // Lorenz2
+        case "11":  // Langford
             dat = 11;
-            // vertical axis
-            vAx = 3;
-            setAxis();
-            // 描画アングル
-            m_alpha = -20.0;
-            m_gamma = -30.0;
-            setAngle();
-            if (resetFlg) {
-                return;
-            }
-            changeProperty(0);
-            // 描画範囲
-            width0 = 100;
-            height0 = width0;
-            document.getElementById('width0').value = width0;
-            // 係数デフォルト値
-            document.getElementById('ma').value = 10;
-            document.getElementById('mb').value = 44;
-            document.getElementById('mc').value = 8.0 / 3.0;
-            document.getElementById('md').value = 0.17;
-            ma_used = 1;
-            mb_used = 1;
-            mc_used = 1;
-            md_used = 1;
-            // 初期値デフォルト値
-            document.getElementById('init1_x').value = 0;
-            document.getElementById('init1_y').value = 1;
-            document.getElementById('init1_z').value = 2;
-            document.getElementById('init2_x').value = 0;
-            document.getElementById('init2_y').value = 1;
-            document.getElementById('init2_z').value = 2.01;
-            // 式を表示する
-            document.getElementById('dx').innerText = "$ \\dot{x} = -ax + ay $";
-            document.getElementById('dy').innerText = "$ \\dot{y} = bx - xz - y $";
-            document.getElementById('dz').innerText = "$ \\dot{z} = x(y - dx) -cz $";
-            document.getElementById('where').innerText = "";
-            updateRange();
-            document.getElementById('cnt_dp').value = 3200;
-            document.getElementById('dh').value = 0.01;
-            document.getElementById('ma').disabled = false;
-            document.getElementById('mb').disabled = false;
-            document.getElementById('mc').disabled = false;
-            document.getElementById('md').disabled = false;
-            break;
-        case "12":  // Langford
-            dat = 12;
             // vertical axis
             vAx = 3;
             setAxis();
@@ -1495,6 +1562,8 @@ function changeType() {
             width0 = 4;
             height0 = width0;
             document.getElementById('width0').value = width0;
+            // 描画速度
+            spd = 3;
             // 係数デフォルト値
             document.getElementById('ma').value = 0.7;
             document.getElementById('mb').value = 3.5;
@@ -1514,14 +1583,14 @@ function changeType() {
             document.getElementById('init1_z').value = 1;
             document.getElementById('init2_x').value = 1;
             document.getElementById('init2_y').value = 1;
-            document.getElementById('init2_z').value = 1.01;
+            document.getElementById('init2_z').value = 1.1;
             // 式を表示する
             document.getElementById('dx').innerText = "$ \\dot{x} = (z - a)x - by $";
             document.getElementById('dy').innerText = "$ \\dot{y} = bx + (z - a)y $";
-            document.getElementById('dz').innerText = "$ \\dot{z} = c + dz - z^3/3 - (x^2 + y^2)(1 + ex) + fzx^3 $";
+            document.getElementById('dz').innerText = "$ \\dot{z} = c + dz - z^3/3 \\ - (x^2 + y^2)(1 + ex) + fzx^3 $";
             document.getElementById('where').innerText = "";
             updateRange();
-            document.getElementById('cnt_dp').value = 3200;
+            document.getElementById('cnt_dp').value = 9600;
             document.getElementById('dh').value = 0.01;
             document.getElementById('ma').disabled = false;
             document.getElementById('mb').disabled = false;
@@ -1530,20 +1599,111 @@ function changeType() {
             document.getElementById('me').disabled = false;
             document.getElementById('mf').disabled = false;
             break;
+
+        case "12":  // Dadras
+            dat = 12;
+            // vertical axis
+            vAx = 3;
+            setAxis();
+            // 描画アングル
+            m_alpha = 12.0;
+            m_gamma = -30.0;
+            setAngle();
+            if (resetFlg) {
+                return;
+            }
+            changeProperty(0);
+            // 描画範囲
+            width0 = 50;
+            height0 = width0;
+            document.getElementById('width0').value = width0;
+            // 描画速度
+            spd = 8;
+            // 係数デフォルト値
+            document.getElementById('ma').value = 3;
+            document.getElementById('mb').value = 2.7;
+            document.getElementById('mc').value = 1.7;
+            document.getElementById('md').value = 2;
+            document.getElementById('me').value = 5.4;
+            ma_used = 1;
+            mb_used = 1;
+            mc_used = 1;
+            md_used = 1;
+            me_used = 1;
+            // 初期値デフォルト値
+            document.getElementById('init1_x').value = 1;
+            document.getElementById('init1_y').value = 1;
+            document.getElementById('init1_z').value = 0;
+            document.getElementById('init2_x').value = 0;
+            document.getElementById('init2_y').value = 1;
+            document.getElementById('init2_z').value = 0.1;
+            // 式を表示する
+            document.getElementById('dx').innerText = "$ \\dot{x} = y -ax + byz $";
+            document.getElementById('dy').innerText = "$ \\dot{y} = cy -xz + z $";
+            document.getElementById('dz').innerText = "$ \\dot{z} = dxy -ez $";
+            document.getElementById('where').innerText = "";
+            updateRange();
+            document.getElementById('cnt_dp').value = 19200;
+            document.getElementById('dh').value = 0.005;
+            document.getElementById('ma').disabled = false;
+            document.getElementById('mb').disabled = false;
+            document.getElementById('mc').disabled = false;
+            document.getElementById('md').disabled = false;
+            document.getElementById('me').disabled = false;
+            break;
+
         defaut:
             break;
     }
-    // スケーリング
-    scaleX = canvas.width / width0;
-    scaleY = canvas.height / height0;
 
-    mag = width0 / magStd;
-    prep();
-    scaling();
+    // 描画速度
+    document.getElementById('spd').value = spd;
+
+    // 方程式がチェックされている場合は、Local Storageからデータを読み取り、上書きする
+    if (CheckFlg[selected]) {
+        loadParams(selected);
+        updateRange();
+        m_alpha = angleAlpha.value;
+        m_gamma = angleGamma.value;
+    }
+    else {
+        // スケーリング
+        scaleX = canvas.width / width0;
+        scaleY = canvas.height / height0;
+
+        mag = width0 / magStd;
+        prep();
+        scaling();
+    }
+
+
+    // 項目選択時の初期画面表示時対応
+    usability(true);
+    // アングル設定: 使用不可
+    document.getElementById('angleAlpha').disabled = true;
+    document.getElementById('angleGamma').disabled = true;
+    // スライダー: 使用不可
+    $(function() {
+        $("#horizontal-slider").slider({
+            disabled: true // 最初は無効に設定
+        });
+    });
+    $(function() {
+        $("#vertical-slider").slider({
+            disabled: true // 最初は無効に設定
+        });
+    });
+    
+    // リセットボタン: 使用不可
+    document.querySelectorAll(".resetBtn").forEach(btn => {
+        btn.disabled = true;
+    });
+
 
     // 他の処理が終わった後にMathJaxを再度実行する
-    MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-
+    if (window.MathJax && MathJax.Hub) {
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+    }
 }
 
 function changeProperty(flg) {
@@ -1603,14 +1763,18 @@ function FNF(dt, x, y, z) {
         case 5:
             FNF = -(y + z);
             return FNF;
+//        case 6:
+//            FNF = y + ma * x * y + x * z;
+//            return FNF;
         case 6:
-            FNF = y + ma * x * y + x * z;
+            FNF = ma * y * z;
             return FNF;
         case 7:
             FNF = y * (z - 1.0 + x * x) + mb * x;
             return FNF;
         case 8:
             FNF = ma * x - y * z;
+            //console.log("FNF", FNF);
             return FNF;
         case 9:
             FNF = ma * (y - x);
@@ -1620,10 +1784,10 @@ function FNF(dt, x, y, z) {
             FNF = ma * (y - x - fx);
             return FNF;
         case 11:
-            FNF = ma * y - ma * x;
+            FNF = (z - ma) * x - mb * y;
             return FNF;
         case 12:
-            FNF = (z - ma) * x - mb * y;
+            FNF = y - ma * x + mb * y * z;
             return FNF;
         default:
             break;
@@ -1650,8 +1814,11 @@ function FNG(dt, x, y, z) {
         case 5:
             FNG = x + ma * y;
             return FNG;
+//        case 6:
+//            FNG = 1.0 - mb * x * x + y * z;
+//            return FNG;
         case 6:
-            FNG = 1.0 - mb * x * x + y * z;
+            FNG = x - mb * y;
             return FNG;
         case 7:
             FNG = x * (3.0 * z + 1.0 - x * x) + mb * y;
@@ -1666,10 +1833,10 @@ function FNG(dt, x, y, z) {
             FNG = x - y + z;
             return FNG;
         case 11:
-            FNG = mb * x - x * z - y;
+            FNG = mb * x + (z - ma) * y;
             return FNG;
         case 12:
-            FNG = mb * x + (z - ma) * y;
+            FNG = mc * y - x * z + z;
             return FNG;
         default:
             break;
@@ -1696,8 +1863,11 @@ function FNH(dt, x, y, z) {
         case 5:
             FNH = mb + z * (x - mc);
             return FNH;
+//        case 6:
+//            FNH = x - x * x - y * y;
+//            return FNH;
         case 6:
-            FNH = x - x * x - y * y;
+            FNH = mc - x * y;
             return FNH;
         case 7:
             FNH = -2.0 * z * (ma + x * y);
@@ -1712,10 +1882,10 @@ function FNH(dt, x, y, z) {
             FNH = -mb * y;
             return FNH;
         case 11:
-            FNH = x * y - md * x * x - mc * z;
+            FNH = mc + md * z - z * z * z / 3.0 - (x * x + y * y) * (1.0 + me * z) + mf * z * x * x * x;
             return FNH;
         case 12:
-            FNH = mc + md * z - z * z * z / 3.0 - (x * x + y * y) * (1.0 + me * z) + mf * z * x * x * x;
+            FNH = md * x * y - me * z;
             return FNH;
         default:
             break;
@@ -1731,8 +1901,11 @@ $(function() {
         value: -20,
         step: 1,
         slide: function(event, ui) {
-            $("#angleAlpha").val(ui.value);
-            changeAngle();
+            //$("#angleAlpha").val(ui.value);
+    const el = document.getElementById("angleAlpha");
+    el.value = ui.value;
+    el.dispatchEvent(new Event("input", { bubbles: true }));  // ←これに変更
+    changeAngle();
         }
     });
 
@@ -1743,8 +1916,11 @@ $(function() {
         value: -30,
         step: 1,
         slide: function(event, ui) {
-            $("#angleGamma").val(ui.value);
-            changeAngle();
+            //$("#angleGamma").val(ui.value);
+    const el = document.getElementById("angleGamma");
+    el.value = ui.value;
+    el.dispatchEvent(new Event("input", { bubbles: true }));  // ←これ
+    changeAngle();
         }
     });
 
@@ -1757,7 +1933,6 @@ $(function() {
         $("#horizontal-slider").slider("value", $(this).val());
         changeAngle();
     });
-
     $("#angleGamma").on("change", function() {
         $("#vertical-slider").slider("value", $(this).val());
         changeAngle();

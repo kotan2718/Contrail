@@ -751,31 +751,35 @@ async function animateGraph() {
     }
     
     //円周を描く
-    const type = String(document.getElementById('type').value);
-    const typeAry = type.split('&');
-    switch (typeAry[0]) {
-        case "04":  // 自励形の諸例
-            switch (typeAry[1]) {
-                case "02":  // 円周上に8つの平衡点を持つ自励形
-                    pixelX = scaleX * (width0 / 2);
-                    pixelY = scaleY * (height0 / 2);
-                    ctxG.beginPath();
-                    ctxG.arc(pixelX, pixelY, scaleX * Math.sqrt(ma), 0, 2 * Math.PI);
-                    ctxG.strokeStyle = 'rgb(155, 155, 155)';
-                    ctxG.stroke();
-                    break;
-                default:
-                    break;
-            }
-            break;
-        default:
-            break;
+    const selected = selectedValue;
+
+    if (selected) {
+        const selectedAry = selected.split('&');
+        switch (selectedAry[0]) {
+            case "04":  // 自励形の諸例
+                switch (selectedAry[1]) {
+                    case "02":  // 円周上に8つの平衡点を持つ自励形
+                        pixelX = scaleX * (width0 / 2);
+                        pixelY = scaleY * (height0 / 2);
+                        ctxG.beginPath();
+                        ctxG.arc(pixelX, pixelY, scaleX * Math.sqrt(ma), 0, 2 * Math.PI);
+                        ctxG.strokeStyle = 'rgb(155, 155, 155)';
+                        ctxG.stroke();
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            default:
+                break;
+        }
     }
 
     drawEquilibriumPoints()
 
     // 描画後に使用可とするコントロール
     usability(true);
+    document.getElementById('selected').classList.remove('disabled');
 }
 
 
@@ -789,7 +793,8 @@ function usability(Uflg)
     else {
         Uflg = true;
     }
-    document.getElementById('type').disabled = Uflg;
+//    document.getElementById('selected').disabled = Uflg;
+    document.getElementById('selected').classList.add('disabled');
 
     if (ma_used == 1) {
         document.getElementById('ma').disabled = Uflg;
@@ -1131,20 +1136,33 @@ function goBack() {
   window.history.back(); // ブラウザの「戻る」ボタンと同じ動作
 }
 */
+/*  20260321 不要になった
+function getTypeText(value) {
+    switch (value) {
+        case "01&01": return "1. 固有値の1つが0の場合";
+        case "01&02": return "2. 固有値が正負";
+        // 必要分追加
+        default: return "項目を選択";
+    }
+}
+*/
 
-function changeType() {
+function changeType(selected) {
 
-    const type = String(document.getElementById('type').value);
-
-    // ここでチェックボックスの状態を確認し、ストレージフラグを更新
-    kzDeq_StorageFlg = document.getElementById('cb_storage').checked;
-
-    if (kzDeq_StorageFlg == true) {
-        // 選択状態をローカルストレージに保存
-        localStorage.setItem('kzDeq_SelectedType', type);
+    // 引数が無い場合のみ旧仕様で取得（後方互換）
+    if (!selected) {
+        const el = document.getElementById('selected');
+        if (el) selected = String(el.value);
     }
 
-    const typeAry = type.split('&');
+    // ローカルストレージへデータを保存
+    if (kzDeq_StorageFlg == true && selected != "null") {
+        localStorage.setItem('kzDeq_SelectedType', selected);
+        document.getElementById('cb_storage').checked = true;
+        kzDeq_StorageFlg = document.getElementById('cb_storage').checked;
+    }
+
+    const typeAry = selected.split('&');
 
     const selectMode = document.getElementById('mode');
 

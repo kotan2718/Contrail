@@ -108,6 +108,54 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("popup").addEventListener("mouseleave", hidePopup);
 });
 
+// 微分方程式 2D, 3D 共通
+document.addEventListener("DOMContentLoaded", () => {
+    const selected = document.getElementById("selected");
+    const options = document.getElementById("options");
+    const selectedText = document.getElementById("selected-text");
+
+    if (!selected || !options || !selectedText) return;
+
+    selected.onclick = (e) => {
+        e.stopPropagation(); // 外クリック判定との干渉防止
+        options.classList.toggle("hidden");
+    };
+
+    options.onclick = (e) => {
+        if (e.target.tagName === "LI") {
+        // ▼ disabled対策（念のため）
+            if (e.target.classList.contains("disabled")) return;
+
+            // ▼ 追加：selected管理
+            options.querySelectorAll("li").forEach(li => {
+                li.classList.remove("selected");
+            });
+            e.target.classList.add("selected");
+
+            const value = e.target.dataset.value;
+
+            selectedValue = value;
+            console.log("selectedValue1=", selectedValue, typeof selectedValue);
+
+            selectedText.textContent = e.target.textContent;
+            options.classList.add("hidden");
+
+            // ここで deq01_v2.js の関数を呼ぶ
+            changeType(value);
+        }
+    };
+    // メニューの外をクリックしたら閉じる
+    document.addEventListener("click", (e) => {
+        const selectBox = document.querySelector(".custom-select");
+        if (!selectBox.contains(e.target)) {
+            options.classList.add("hidden");
+        }
+    });
+
+});
+
+
+
 document.addEventListener("DOMContentLoaded", function () {
     // 画面幅を判定してクラスを切り替える
     function adjustLayout() {

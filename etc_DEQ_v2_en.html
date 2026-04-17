@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="robots" content="follow, noindex">
-    <meta name="description" content="This page plots approximate solutions to autonomous systems of two-dimensional simultaneousdifferential equations. In addition to the equations listed in advance, you can also enter any equation and check the solution trajectory. ">
+    <meta name="description" content="On this page, we visualize the solution trajectories and vector fields of various differential equations in 2D. In addition to the pre-listed equations, you can also enter any equation to observe its solution trajectory.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Differential Equations</title>
+    <title>Differential Equation 2D Visualization Tool</title>
 
     <!-- favicon-->
     <link rel="icon" href="favicon.ico">
@@ -176,13 +176,13 @@
         <div id="title20">
             <div class="prettyP_PC">
                 <h3 class="pt30 pb30">
-                    Differential Equations: Solution Trajectories
+                    Differential Equation 2D Visualization Tool
                 </h3>
             </div>
             <div class="prettyP_SP">
                 <h4 class="pl10 pt10">
-                    Differential Equations:<br>
-                    Solution Trajectories
+                    Differential Equation<br>
+                    2D Visualization Tool
                 </h4>
             </div>
         </div>
@@ -196,57 +196,62 @@
 
         <!-- contents -->
         <div class="pic-left1024 pb30">
-            <div class="contents-2col-left">
+            <div class="contents-2col-left_deq">
                 <div class="grid2b pb5">
                     <p class="fss pSP pt5" align="left">
                         <input type="checkbox" id="cb_storage" onclick="handleCheckboxStorage(this.checked)">&nbsp; keep list pos.
                     </p>
-                    <p  align="right">
-                        <select id="type" style="width: 200px;" onchange=changeType()>
-                            <option disabled selected>[01] 2-Dimensional Linear Autonomous System of 1 Order</option>
-                            <option value="01&01">&emsp;&emsp;1. One of the eigenvalues is 0:</option>
-                            <option value="01&02">&emsp;&emsp;2. There are two eigenvalues with different signs:</option>
-                            <option value="01&03">&emsp;&emsp;3. There are two eigenvalues and both are positive 1:</option>
-                            <option value="01&04">&emsp;&emsp;4. There are two eigenvalues and both are positive 2:</option>
-                            <option value="01&05">&emsp;&emsp;5. There are two eigenvalues and both are negative:</option>
-                            <option value="01&06">&emsp;&emsp;6. The eigenvalues are double root, matrix A is diagonalizable:</option>
-                            <option value="01&07">&emsp;&emsp;7. The eigenvalues are double root, matrix A is not diagonalizable:</option>
-                            <option value="01&08">&emsp;&emsp;8. The eigenvalues are purely imaginary:</option>
-                            <option value="01&09">&emsp;&emsp;9. The eigenvalues have both real and imaginary parts:</option>
-                            <option disabled selected>[02] 2-Dimensional Linear Autonomous System of 2 Order</option>
-                            <option value="02&01">&emsp;&emsp;1. Node-Saddle Point Type:</option>
-                            <option value="02&02">&emsp;&emsp;2. Degenerate Node-Saddle Point Type:</option>
-                            <option value="02&03">&emsp;&emsp;3. Double Elliptic Type:</option>
-                            <option value="02&04">&emsp;&emsp;4. Triple Crossing Type:</option>
-                            <option value="02&05">&emsp;&emsp;5. Node Type 2:</option>
-                            <option value="02&06">&emsp;&emsp;6. Parabolic Type:</option>
-                            <option disabled selected>[03] High-order Simultaneous Autonomous System:</option>
-                            <option value="03&01">&emsp;&emsp;1. Homogeneous Autonomous System with periodic solution:</option>
-                            <option value="03&02">&emsp;&emsp;2. Homogeneous Autonomous System with eight parabolic sectors:</option>
-                            <option value="03&03">&emsp;&emsp;3. Homogeneous Autonomous System with compound sectors:</option>
-                            <option value="03&04">&emsp;&emsp;4. Vinograd's Autonomous System:</option>
-                            <option disabled selected>[04] 2-Dimensional Autonomous System Examples:</option>
-                            <option value="04&01">&emsp;&emsp;1. Autonomous System with periodic equilibrium points on x-axis:</option>
-                            <option value="04&02">&emsp;&emsp;2. Autonomous System with 8 equilibrium points on the circumference:</option>
-                            <option value="04&03">&emsp;&emsp;3. Autonomous system with periodic equilibrium points on a plane:</option>
-                            <option value="04&04">&emsp;&emsp;4. Limit Cycle 1:</option>
-                            <option value="04&05">&emsp;&emsp;5. Limit Cycle 2: von del Pol:</option>
-                            <option value="04&06">&emsp;&emsp;6. Limit Cycle 3: Lemniscate:</option>
-                            <option value="04&07">&emsp;&emsp;7. Limit Cycle 4: for pure imaginary eigenvalues 1</option>
-                            <option value="04&08">&emsp;&emsp;8. Limit Cycle 5: for pure imaginary eigenvalues 2</option>
-                            <option value="04&09">&emsp;&emsp;9. Hamilton System 1: Cassini oval</option>
-                            <option value="04&10">&emsp;&emsp;10. Hamilton System 2: folium of Descartes</option>
-                            <option value="04&11">&emsp;&emsp;11. Hamilton System 3: derivatives of "folium of Descartes"</option>
-                            <option value="04&12">&emsp;&emsp;12. Hamilton System 4: for trigonometric functions</option>
-                            <option disabled selected>[99] User defined Equations</option>
-                            <option value="09&090">&emsp;&emsp;0. User defined Equations</option>
-                            <option value="09&091">&emsp;&emsp;1. sample 1</option>
-                            <option value="09&092">&emsp;&emsp;2. sample 2</option>
-                            <option value="09&093">&emsp;&emsp;3. sample 3</option>
-                            <option value="09&094">&emsp;&emsp;4. sample 4</option>
-                            <option value="09&095">&emsp;&emsp;5. sample 5</option>
-                        </select><br>
-                    </p>
+                    <div class="custom-select">
+                        <div id="selected" class="select-display">
+                            <span id="selected-text">Select Item</span>
+                            <span class="arrow">▽</span>
+                        </div>
+
+                        <ul id="options" class="hidden">
+                            <li class="disabled">[01] 2-Dimensional Linear Autonomous System of 1 Order</li>
+                            <li data-value="01&01">1. One of the eigenvalues is 0:</li>
+                            <li data-value="01&02">2. There are two eigenvalues with different signs:</li>
+                            <li data-value="01&03">3. There are two eigenvalues and both are positive 1:</li>
+                            <li data-value="01&04">4. There are two eigenvalues and both are positive 2:</li>
+                            <li data-value="01&05">5. There are two eigenvalues and both are negative:</li>
+                            <li data-value="01&06">6. The eigenvalues are double root, matrix A is diagonalizable:</li>
+                            <li data-value="01&07">7. The eigenvalues are double root, matrix A is not diagonalizable:</li>
+                            <li data-value="01&08">8. The eigenvalues are purely imaginary:</li>
+                            <li data-value="01&09">9. The eigenvalues have both real and imaginary parts:</li>
+                            <li class="disabled">[02] 2-Dimensional Linear Autonomous System of 2 Order</li>
+                            <li data-value="02&01">1. Node-Saddle Point Type:</li>
+                            <li data-value="02&02">2. Degenerate Node-Saddle Point Type:</li>
+                            <li data-value="02&03">3. Double Elliptic Type:</li>
+                            <li data-value="02&04">4. Triple Crossing Type:</li>
+                            <li data-value="02&05">5. Node Type 2:</li>
+                            <li data-value="02&06">6. Parabolic Type:</li>
+                            <li class="disabled">[03] High-order Simultaneous Autonomous System:</li>
+                            <li data-value="03&01">1. Homogeneous Autonomous System with periodic solution:</li>
+                            <li data-value="03&02">2. Homogeneous Autonomous System with eight parabolic sectors:</li>
+                            <li data-value="03&03">3. Homogeneous Autonomous System with compound sectors:</li>
+                            <li data-value="03&04">4. Vinograd's Autonomous System:</li>
+                            <li class="disabled">[04] 2-Dimensional Autonomous System Examples:</li>
+                            <li data-value="04&01">1. Autonomous System with periodic equilibrium points on x-axis:</li>
+                            <li data-value="04&02">2. Autonomous System with 8 equilibrium points on the circumference:</li>
+                            <li data-value="04&03">3. Autonomous system with periodic equilibrium points on a plane:</li>
+                            <li data-value="04&04">4. Limit Cycle 1:</li>
+                            <li data-value="04&05">5. Limit Cycle 2: von del Pol:</li>
+                            <li data-value="04&06">6. Limit Cycle 3: Lemniscate:</li>
+                            <li data-value="04&07">7. Limit Cycle 4: for pure imaginary eigenvalues 1</li>
+                            <li data-value="04&08">8. Limit Cycle 5: for pure imaginary eigenvalues 2</li>
+                            <li data-value="04&09">9. Hamilton System 1: Cassini oval</li>
+                            <li data-value="04&10">10. Hamilton System 2: folium of Descartes</li>
+                            <li data-value="04&11">11. Hamilton System 3: derivatives of "folium of Descartes"</li>
+                            <li data-value="04&12">12. Hamilton System 4: for trigonometric functions</li>
+                            <li class="disabled">[99] User defined Equations</li>
+                            <li data-value="09&090">0. User defined Equations</li>
+                            <li data-value="09&091">1. sample 1</li>
+                            <li data-value="09&092">2. sample 2</li>
+                            <li data-value="09&093">3. sample 3</li>
+                            <li data-value="09&094">4. sample 4</li>
+                            <li data-value="09&095">5. sample 5</li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="prettyP_PC">
                     <div class="grid2d">
@@ -445,55 +450,27 @@
     <script src="libs/etc/js/deq01_v2.js"></script>
 
     <footer>
-        <div class="prettyP_PC">
-            <div class="wrap">
-            </div>
-            <div class="footer_bottom_fixed2">
-                <hr id="footer"> <!-- horizontal partition -->
+        <hr id="footer"> <!-- horizontal partition -->
 
-                <div class="jQ_change center"> <!-- select button whole: start -->
-                    <p id="footer"> <!-- select button: start -->
-                        <a href="en_etc.html">
-                            <img src="image/button/back_off.gif" border="0" alt="Back">
-                        </a>
-                    </p> <!-- select button: end -->
-                </div> <!-- select button whole: end -->
+        <p id="page-top"><a href="#">TOP</a></p>
 
-                <div class="footer_labelPC">
-                    &copy; 2003 -
-                    <script>
-                        date = new Date();
-                        document.write(date.getFullYear() + ' ');
-                    </script>
-                    <nonscript>
-                    </nonscript>
-                    Contrail - kotan -
-                </div>
-            </div>
-        </div>
-        <div class="prettyP_SP">
-            <hr id="footer"> <!-- horizontal partition -->
+        <div class="jQ_change center"> <!-- select button whole: start -->
+            <p id="footer"> <!-- select button: start -->
+                <a href="en_etc.html">
+                    <img src="image/button/back_off.gif" border="0" alt="Back">
+                </a>
+            <p> <!-- select button: end -->
+        </div> <!-- select button whole: end -->
 
-            <p id="page-top"><a href="#">TOP</a></p>
-
-            <div class="jQ_change center"> <!-- select button whole: start -->
-                <p id="footer"> <!-- select button: start -->
-                    <a href="en_etc.html">
-                        <img src="image/button/back_off.gif" border="0" alt="Back">
-                    </a>
-                <p> <!-- select button: end -->
-            </div> <!-- select button whole: end -->
-
-            <div class="footer_labelPC">
-                &copy; 2003 -
-                <script>
-                    date = new Date();
-                    document.write(date.getFullYear() + ' ');
-                </script>
-                <nonscript>
-                </nonscript>
-                Contrail - kotan -
-            </div>
+        <div class="footer_labelPC">
+            &copy; 2003 -
+            <script>
+                date = new Date();
+                document.write(date.getFullYear() + ' ');
+            </script>
+            <nonscript>
+            </nonscript>
+            Contrail - kotan -
         </div>
     </footer>
 
